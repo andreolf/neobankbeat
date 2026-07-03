@@ -1,0 +1,24 @@
+name: "suggest a correction"
+description: fix a wrong figure, dead link, or outdated field
+title: "[fix] <neobank name>: <field>"
+labels: [data-fix]
+body:
+  - type: input
+    id: name
+    attributes: {label: neobank name}
+    validations: {required: true}
+  - type: input
+    id: field
+    attributes: {label: field(s) to correct}
+    validations: {required: true}
+  - type: input
+    id: current
+    attributes: {label: current value on neobankbeat}
+  - type: input
+    id: correct
+    attributes: {label: correct value}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: source / link proving it}
+    validations: {required: true}

@@ -1,0 +1,56 @@
+name: "+ submit a neobank"
+description: propose a neobank missing from the directory
+title: "[intake] add: <neobank name>"
+labels: [new-neobank]
+body:
+  - type: input
+    id: name
+    attributes: {label: name}
+    validations: {required: true}
+  - type: dropdown
+    id: category
+    attributes:
+      label: category
+      options: [traditional, hybrid (fiat + custodial crypto), web3-native (self-custodial)]
+    validations: {required: true}
+  - type: dropdown
+    id: custody
+    attributes:
+      label: custody
+      options: [custodial, self-custodial, MPC, mixed]
+  - type: input
+    id: hq
+    attributes: {label: HQ + founding year, placeholder: "Berlin, DE · 2021"}
+  - type: input
+    id: countries
+    attributes: {label: countries of operation}
+  - type: input
+    id: niche
+    attributes: {label: audience niche (if any), placeholder: "general / women / gen z / immigrants / …"}
+  - type: input
+    id: card
+    attributes: {label: card network + type}
+  - type: input
+    id: rates
+    attributes: {label: cashback / yield}
+  - type: dropdown
+    id: stables
+    attributes:
+      label: stablecoin support
+      options: ["yes", "no"]
+  - type: input
+    id: domain
+    attributes: {label: official domain}
+    validations: {required: true}
+  - type: input
+    id: x
+    attributes: {label: X handle}
+  - type: input
+    id: terms
+    attributes: {label: terms & conditions URL}
+  - type: textarea
+    id: founders
+    attributes: {label: founders (+ LinkedIn URLs)}
+  - type: textarea
+    id: notes
+    attributes: {label: anything else}

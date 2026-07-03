@@ -1,0 +1,6 @@
+{
+  "name": "neobankbeat-tests",
+  "private": true,
+  "scripts": {"test": "node flowtest.js"},
+  "devDependencies": {"jsdom": "^24.0.0"}
+}
