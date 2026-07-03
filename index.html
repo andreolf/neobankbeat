@@ -660,7 +660,7 @@ body.on-map .minimap{display:none}
       </div>
       <div class="rgroup">registers &amp; official data</div>
       <div class="rlinks">
-        <a class="rlink" href="https://www.esma.europa.eu/publications-and-data/interim-mica-register" target="_blank" rel="noopener">ESMA MiCA</a>
+        <a class="rlink" href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica" target="_blank" rel="noopener">ESMA MiCA</a>
         <a class="rlink" href="https://euclid.eba.europa.eu/register/" target="_blank" rel="noopener">EBA registers</a>
         <a class="rlink" href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">FCA register</a>
         <a class="rlink" href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">Global Findex</a>
@@ -1772,7 +1772,7 @@ function openDetail(name){
   src.push(['news search','https://news.google.com/search?q=%22'+enc+'%22%20fintech']);
   src.push(['crunchbase','https://www.crunchbase.com/textsearch?q='+enc]);
   if(macros.includes("EU")){src.push(['FCA register (UK)','https://register.fca.org.uk/s/search?q='+enc+'&type=Companies']);src.push(['EBA registers (EU)','https://euclid.eba.europa.eu/register/']);}
-  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/publications-and-data/interim-mica-register']);
+  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica']);
   if(macros.includes("NA")){src.push(['SEC EDGAR search','https://www.sec.gov/edgar/search/#/q=%22'+enc+'%22']);src.push(['NMLS consumer access','https://www.nmlsconsumeraccess.org/']);}
   const srcHTML='<div class="srchead">verify &amp; sources</div><div class="srcrow">'+src.map(([t,u])=>'<a class="srclink" href="'+u+'" target="_blank" rel="noopener">'+t+' ↗</a>').join("")+'</div>';
   document.getElementById('dwrap').innerHTML=
@@ -1844,7 +1844,7 @@ const VOL=[
 
 /* ── 7 · MiCA note in methodology ── */
 document.getElementById('methodology').insertAdjacentHTML('beforeend',
-  '<p><b>Regulation layer:</b> every profile now shows a regulation type (licensed bank, e-money, payment institution, partner-bank model, MiCA CASP, VASP/MSB, or self-custodial software) plus verification links to the official registers: the <a href="https://www.esma.europa.eu/publications-and-data/interim-mica-register" target="_blank" rel="noopener">ESMA interim MiCA register</a>, <a href="https://euclid.eba.europa.eu/register/" target="_blank" rel="noopener">EBA payment &amp; e-money registers</a>, the <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">FCA register</a>, <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a> and <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS</a>. Under MiCA, custodial crypto neobanks operating in the EU need CASP authorization; self-custodial software generally sits outside licensing perimeters — one more reason the custody axis is the one to watch.</p>');
+  '<p><b>Regulation layer:</b> every profile now shows a regulation type (licensed bank, e-money, payment institution, partner-bank model, MiCA CASP, VASP/MSB, or self-custodial software) plus verification links to the official registers: the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica" target="_blank" rel="noopener">ESMA interim MiCA register</a>, <a href="https://euclid.eba.europa.eu/register/" target="_blank" rel="noopener">EBA payment &amp; e-money registers</a>, the <a href="https://register.fca.org.uk/s/" target="_blank" rel="noopener">FCA register</a>, <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a> and <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS</a>. Under MiCA, custodial crypto neobanks operating in the EU need CASP authorization; self-custodial software generally sits outside licensing perimeters — one more reason the custody axis is the one to watch.</p>');
 
 render();
 </script>
@@ -1930,7 +1930,7 @@ function openDetail(name){
   src.push(['news search','https://news.google.com/search?q=%22'+enc+'%22%20fintech']);
   src.push(['crunchbase','https://www.crunchbase.com/textsearch?q='+enc]);
   if(macros.includes("EU")){src.push(['FCA register (UK)','https://register.fca.org.uk/s/search?q='+enc+'&type=Companies']);src.push(['EBA registers (EU)','https://euclid.eba.europa.eu/register/']);}
-  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/publications-and-data/interim-mica-register']);
+  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica']);
   if(macros.includes("NA")){src.push(['SEC EDGAR','https://www.sec.gov/edgar/search/#/q=%22'+enc+'%22']);src.push(['NMLS','https://www.nmlsconsumeraccess.org/']);}
   const srcHTML=src.map(([t,u])=>'<a class="srclink" href="'+u+'" target="_blank" rel="noopener">'+t+' ↗</a>').join("");
   const facts=[["Category",CATLONG[c]],["Audience",NICHE[ni]],["HQ",hq],["Card",nw==="—"?"No card":nw+" · "+ct],
@@ -2043,7 +2043,7 @@ function openDetail(name){
   /* verify & register links */
   let src=[['news search','https://news.google.com/search?q=%22'+enc+'%22%20fintech'],['crunchbase','https://www.crunchbase.com/textsearch?q='+enc]];
   if(macros.includes("EU")){src.push(['FCA register (UK)','https://register.fca.org.uk/s/search?q='+enc+'&type=Companies']);src.push(['EBA registers (EU)','https://euclid.eba.europa.eu/register/']);}
-  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/publications-and-data/interim-mica-register']);
+  if(c!=="T"&&macros.includes("EU"))src.push(['ESMA MiCA register','https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica']);
   if(macros.includes("NA")){src.push(['SEC EDGAR','https://www.sec.gov/edgar/search/#/q=%22'+enc+'%22']);src.push(['NMLS','https://www.nmlsconsumeraccess.org/']);}
   const srcHTML=src.map(([t,u])=>'<a class="srclink" href="'+u+'" target="_blank" rel="noopener">'+t+' ↗</a>').join("");
   /* legal & official links (terms, privacy) */
@@ -2322,98 +2322,98 @@ render();
 const V={
 /* US */
 "Chime":{t:"https://www.chime.com/policies/",p:"https://www.chime.com/policies/privacy-policy/",x:"Chime",in:{"Chris Britt":"https://www.linkedin.com/in/chris-britt-a726036/"},cc:["United States"]},
-"Varo":{t:"https://www.varomoney.com/legal/",p:"https://www.varomoney.com/privacy/",x:"varomoney",in:{"Colin Walsh":"https://www.linkedin.com/in/colinwalsh1/"},cc:["United States"]},
-"Current":{t:"https://current.com/terms-of-use/",p:"https://current.com/privacy-policy/",x:"current",cc:["United States"]},
+"Varo":{t:"https://www.varomoney.com/privacy-legal/",p:"https://www.varomoney.com/privacy/",x:"varomoney",in:{"Colin Walsh":"https://www.linkedin.com/in/colinwalsh1/"},cc:["United States"]},
+"Current":{x:"current",cc:["United States"]},
 "SoFi":{t:"https://www.sofi.com/legal/",p:"https://www.sofi.com/legal/privacy/",x:"SoFi",cc:["United States"]},
 "Ally Bank":{t:"https://www.ally.com/legal/",p:"https://www.ally.com/privacy/",x:"ally",cc:["United States"]},
 "Dave":{t:"https://dave.com/terms",p:"https://dave.com/privacy",x:"davebanking",in:{"Jason Wilk":"https://www.linkedin.com/in/jasonwilk/"},cc:["United States"]},
-"MoneyLion":{t:"https://www.moneylion.com/terms-and-conditions/",p:"https://www.moneylion.com/privacy-policy/",x:"MoneyLion",cc:["United States"]},
-"One":{t:"https://one.app/policies/",p:"https://one.app/policies/privacy/",x:"one",cc:["United States"]},
-"Marcus":{t:"https://www.marcus.com/us/en/terms-and-conditions",p:"https://www.marcus.com/us/en/privacy-policy",x:"MarcusGS",cc:["United States"]},
-"Step":{t:"https://step.com/legal",p:"https://step.com/privacy-policy",x:"step",in:{"CJ MacDonald":"https://www.linkedin.com/in/cjmacdonald1/"},cc:["United States"]},
-"Greenlight":{t:"https://greenlight.com/terms",p:"https://greenlight.com/privacy-policy",x:"Greenlightcard",cc:["United States"]},
-"Copper":{t:"https://www.getcopper.com/terms",p:"https://www.getcopper.com/privacy",x:"getcopperapp",cc:["United States"]},
+"MoneyLion":{t:"https://www.moneylion.com/terms-and-conditions/",p:"https://www.moneylion.com/privacy-notice/",x:"MoneyLion",cc:["United States"]},
+"One":{t:"https://www.onepay.com/legal",p:"https://www.onepay.com/legal/privacy-policies",x:"one",cc:["United States"]},
+"Marcus":{p:"https://www.marcus.com/us/en/privacy-policy",x:"MarcusGS",cc:["United States"]},
+"Step":{t:"https://step.com/legal",p:"https://step.com/policies/privacy",x:"step",in:{"CJ MacDonald":"https://www.linkedin.com/in/cjmacdonald1/"},cc:["United States"]},
+"Greenlight":{t:"https://greenlight.com/terms",p:"https://privacy.greenlight.com/policies",x:"Greenlightcard",cc:["United States"]},
+"Copper":{t:"https://www.getcopper.com/terms",x:"getcopperapp",cc:["United States"]},
 "GoHenry":{t:"https://www.gohenry.com/us/terms-and-conditions",p:"https://www.gohenry.com/us/privacy-policy",x:"gohenry",cc:["United States","United Kingdom"]},
-"Albert":{t:"https://albert.com/terms",p:"https://albert.com/privacy-policy",x:"albertsavings",cc:["United States"]},
+"Albert":{t:"https://albert.com/terms",x:"albertsavings",cc:["United States"]},
 "Mercury":{t:"https://mercury.com/legal/terms",p:"https://mercury.com/legal/privacy",x:"mercury",in:{"Immad Akhund":"https://www.linkedin.com/in/immad/"},fx:{"Immad Akhund":"immad"},cc:["United States"]},
 "Brex":{t:"https://www.brex.com/legal",p:"https://www.brex.com/legal/privacy",x:"brexHQ",in:{"Henrique Dubugras":"https://www.linkedin.com/in/henrique-dubugras-51a92b64/","Pedro Franceschi":"https://www.linkedin.com/in/pedrofranceschi/"},fx:{"Pedro Franceschi":"pedroh96"},cc:["United States"]},
 "Ramp":{t:"https://ramp.com/legal",p:"https://ramp.com/legal/privacy-policy",x:"tryramp",in:{"Eric Glyman":"https://www.linkedin.com/in/eglyman/"},fx:{"Eric Glyman":"eglyman"},cc:["United States"]},
-"Novo":{t:"https://www.novo.co/terms-of-service",p:"https://www.novo.co/privacy-policy",x:"banknovo",cc:["United States"]},
-"Bluevine":{t:"https://www.bluevine.com/terms-of-use",p:"https://www.bluevine.com/privacy-policy",x:"Bluevine",cc:["United States"]},
-"Relay":{t:"https://relayfi.com/terms-of-service",p:"https://relayfi.com/privacy-policy",x:"relayfinancial",cc:["United States","Canada"]},
-"Rho":{t:"https://www.rho.co/legal",p:"https://www.rho.co/legal/privacy-policy",x:"rhobusiness",cc:["United States"]},
-"Found":{t:"https://found.com/legal/terms",p:"https://found.com/legal/privacy",x:"foundforbiz",cc:["United States"]},
-"Lili":{t:"https://lili.co/legal-documents/lili-terms-of-use",p:"https://lili.co/legal-documents/privacy-policy",x:"LiliBanking",cc:["United States"]},
+"Novo":{t:"https://www.novo.co/legal",p:"https://www.novo.co/legal/privacy",x:"banknovo",cc:["United States"]},
+"Bluevine":{p:"https://www.bluevine.com/privacy-policy",x:"Bluevine",cc:["United States"]},
+"Relay":{t:"https://relayfi.com/terms/",p:"https://relayfi.com/privacy/",x:"relayfinancial",cc:["United States","Canada"]},
+"Rho":{t:"https://www.rho.co/policies/terms-of-service",p:"https://www.rho.co/policies/privacy-policy",x:"rhobusiness",cc:["United States"]},
+"Found":{t:"https://found.com/legal",p:"https://found.com/legal/privacy",x:"foundforbiz",cc:["United States"]},
+"Lili":{t:"https://lili.co/legal-documents/lili-terms-of-use",p:"https://lili.co/legal-documents/lili-privacy-policy",x:"LiliBanking",cc:["United States"]},
 "Branch":{t:"https://www.branchapp.com/terms",p:"https://www.branchapp.com/privacy",x:"branchapp",cc:["United States"]},
 "Purple":{t:"https://www.getpurple.io/terms-of-service",p:"https://www.getpurple.io/privacy-policy",x:"joinpurple",cc:["United States"]},
-"Greenwood":{t:"https://gogreenwood.com/terms-of-service/",p:"https://gogreenwood.com/privacy-policy/",x:"Greenwood",in:{"Ryan Glover":"https://www.linkedin.com/in/ryan-glover-b8a4a34/"},cc:["United States"]},
+"Greenwood":{p:"https://gogreenwood.com/privacy-policy/",x:"Greenwood",in:{"Ryan Glover":"https://www.linkedin.com/in/ryan-glover-b8a4a34/"},cc:["United States"]},
 "MoCaFi":{t:"https://www.mocafi.com/terms-of-service",p:"https://www.mocafi.com/privacy-policy",x:"MoCaFi",in:{"Wole Coaxum":"https://www.linkedin.com/in/wole-coaxum-9027433/"},cc:["United States"]},
 "Majority":{t:"https://majority.com/en/terms-conditions/",p:"https://majority.com/en/privacy-policy/",x:"majority",in:{"Magnus Larsson":"https://www.linkedin.com/in/magnusdlarsson/"},cc:["United States"]},
-"Zolve":{t:"https://zolve.com/terms-of-service",p:"https://zolve.com/privacy-policy",x:"zolvehq",in:{"Raghunandan G":"https://www.linkedin.com/in/raghunandang/"},cc:["United States","India"]},
-"Comun":{t:"https://www.comun.app/en/legal",p:"https://www.comun.app/en/legal/privacy",x:"comunapp",cc:["United States"]},
-"Ellevest":{t:"https://www.ellevest.com/terms-of-use",p:"https://www.ellevest.com/privacy-policy",x:"Ellevest",in:{"Sallie Krawcheck":"https://www.linkedin.com/in/salliekrawcheck/"},fx:{"Sallie Krawcheck":"SallieKrawcheck"},cc:["United States"]},
-"Robinhood":{t:"https://robinhood.com/us/en/support/articles/disclosure-library/",p:"https://robinhood.com/us/en/support/articles/privacy-policy/",x:"RobinhoodApp",in:{"Vlad Tenev":"https://www.linkedin.com/in/vladtenev/"},fx:{"Vlad Tenev":"vladtenev"},cc:["United States","United Kingdom"]},
+"Zolve":{t:"https://zolve.com/policies/global/terms-of-use",p:"https://zolve.com/privacy-policy",x:"zolvehq",in:{"Raghunandan G":"https://www.linkedin.com/in/raghunandang/"},cc:["United States","India"]},
+"Comun":{t:"https://www.comun.app/en/legal",p:"https://www.comun.app/en/legal/comun-privacy-policy",x:"comunapp",cc:["United States"]},
+"Ellevest":{t:"https://www.ellevest.com/terms-of-service",x:"Ellevest",in:{"Sallie Krawcheck":"https://www.linkedin.com/in/salliekrawcheck/"},fx:{"Sallie Krawcheck":"SallieKrawcheck"},cc:["United States"]},
+"Robinhood":{t:"https://robinhood.com/us/en/about/legal/",p:"https://robinhood.com/us/en/support/articles/privacy-policy/",x:"RobinhoodApp",in:{"Vlad Tenev":"https://www.linkedin.com/in/vladtenev/"},fx:{"Vlad Tenev":"vladtenev"},cc:["United States","United Kingdom"]},
 "Pomelo":{t:"https://www.pomelo.com/terms-of-service",p:"https://www.pomelo.com/privacy-policy",x:"pomelo",cc:["United States","Philippines"]},
 /* Canada */
-"KOHO":{t:"https://www.koho.ca/legal/",p:"https://www.koho.ca/privacy/",x:"KOHOfinancial",cc:["Canada"]},
+"KOHO":{t:"https://www.koho.ca/legal/",x:"KOHOfinancial",cc:["Canada"]},
 "Neo Financial":{t:"https://www.neofinancial.com/legal",p:"https://www.neofinancial.com/legal/privacy-policy",x:"neofinancial",cc:["Canada"]},
 "Wealthsimple":{t:"https://www.wealthsimple.com/en-ca/legal/terms",p:"https://www.wealthsimple.com/en-ca/legal/privacy",x:"Wealthsimple",in:{"Michael Katchen":"https://www.linkedin.com/in/mkatchen/"},cc:["Canada"]},
 "EQ Bank":{t:"https://www.eqbank.ca/legal",p:"https://www.eqbank.ca/legal/privacy",x:"EQBank",cc:["Canada"]},
 /* UK */
 "Monzo":{t:"https://monzo.com/legal/terms-and-conditions/",p:"https://monzo.com/legal/privacy-notice/",x:"monzo",in:{"Tom Blomfield":"https://www.linkedin.com/in/tomblomfield/"},fx:{"Tom Blomfield":"t_blom"},cc:["United Kingdom","United States"]},
 "Starling Bank":{t:"https://www.starlingbank.com/legal/",p:"https://www.starlingbank.com/legal/privacy-notice/",x:"StarlingBank",in:{"Anne Boden":"https://www.linkedin.com/in/anneboden/"},cc:["United Kingdom"]},
-"Atom Bank":{t:"https://www.atombank.co.uk/legal/",p:"https://www.atombank.co.uk/privacy/",x:"atom_bank",cc:["United Kingdom"]},
+"Atom Bank":{t:"https://www.atombank.co.uk/terms/",x:"atom_bank",cc:["United Kingdom"]},
 "Zopa Bank":{t:"https://www.zopa.com/terms-of-use",p:"https://www.zopa.com/privacy-notice",x:"zopa",cc:["United Kingdom"]},
-"Chase UK":{t:"https://www.chase.co.uk/gb/en/legal/",p:"https://www.chase.co.uk/gb/en/legal/privacy-policy/",x:"ChaseUK",cc:["United Kingdom"]},
-"Kroo":{t:"https://www.kroo.com/legal",p:"https://www.kroo.com/legal/privacy-policy",x:"getkroo",cc:["United Kingdom"]},
+"Chase UK":{t:"https://www.chase.co.uk/gb/en/legal/",p:"https://www.chase.co.uk/gb/en/legal/privacy-notice/",x:"ChaseUK",cc:["United Kingdom"]},
+"Kroo":{t:"https://kroo.com/documents/current-account-terms-and-conditions.html",x:"getkroo",cc:["United Kingdom"]},
 "Tide":{t:"https://www.tide.co/terms/",p:"https://www.tide.co/privacy/",x:"TideBusiness",cc:["United Kingdom","India","Germany"]},
-"ANNA Money":{t:"https://anna.money/terms",p:"https://anna.money/privacy-policy",x:"ANNA_money",cc:["United Kingdom","Australia"]},
+"ANNA Money":{t:"https://anna.money/terms-and-conditions/",p:"https://anna.money/privacy-policy",x:"ANNA_money",cc:["United Kingdom","Australia"]},
 "Curve":{t:"https://www.curve.com/en-gb/terms/",p:"https://www.curve.com/en-gb/privacy/",x:"imaginecurve",in:{"Shachar Bialick":"https://www.linkedin.com/in/shacharbialick/"},cc:["United Kingdom","European Union"]},
-"Monese":{t:"https://monese.com/gb/en/legal",p:"https://monese.com/gb/en/legal/privacy-policy",x:"monese",cc:["United Kingdom","European Union"]},
-"Tandem Bank":{t:"https://www.tandem.co.uk/legal-stuff",p:"https://www.tandem.co.uk/privacy-policy",x:"tandem",cc:["United Kingdom"]},
-"Algbra":{t:"https://algbra.com/terms/",p:"https://algbra.com/privacy/",x:"algbra",cc:["United Kingdom"]},
-"Wahed":{t:"https://www.wahed.com/terms-of-use",p:"https://www.wahed.com/privacy-policy",x:"WahedInvest",cc:["United States","United Kingdom","Malaysia"]},
+"Monese":{t:"https://monese.com/gb/en/legal",p:"https://www.monese.com/privacy",x:"monese",cc:["United Kingdom","European Union"]},
+"Tandem Bank":{p:"https://www.tandem.co.uk/privacy-policy",x:"tandem",cc:["United Kingdom"]},
+"Algbra":{t:"https://www.algbra.com/terms-and-conditions/",x:"algbra",cc:["United Kingdom"]},
+"Wahed":{t:"https://www.wahed.com/legal",p:"https://www.wahed.com/legal/privacy-policy",x:"WahedInvest",cc:["United States","United Kingdom","Malaysia"]},
 /* Europe */
-"N26":{t:"https://n26.com/en-eu/terms-and-conditions",p:"https://n26.com/en-eu/privacy",x:"n26",in:{"Valentin Stalf":"https://www.linkedin.com/in/valentinstalf/"},cc:["Germany","Austria","France","Spain","Italy","Netherlands","Belgium","Portugal","Ireland","Greece","Poland"]},
-"bunq":{t:"https://www.bunq.com/terms-and-conditions",p:"https://www.bunq.com/privacy-statement",x:"bunq",in:{"Ali Niknam":"https://www.linkedin.com/in/aliniknam/"},fx:{"Ali Niknam":"aliniknam"},cc:["Netherlands","Germany","France","Spain","Italy","Belgium","Austria","Ireland","Portugal"]},
-"Vivid Money":{t:"https://vivid.money/en-eu/legal/",p:"https://vivid.money/en-eu/privacy/",x:"vivid_money",cc:["Germany","France","Spain","Italy","Netherlands"]},
-"Qonto":{t:"https://qonto.com/en/legal",p:"https://qonto.com/en/privacy-policy",x:"getqonto",in:{"Alexandre Prot":"https://www.linkedin.com/in/alexandreprot/"},cc:["France","Germany","Spain","Italy"]},
-"Sumeria (Lydia)":{t:"https://www.sumeria.eu/en/legal/",p:"https://www.sumeria.eu/en/privacy/",x:"sumeria_app",cc:["France"]},
-"Nickel":{t:"https://nickel.eu/en/legal-notices",p:"https://nickel.eu/en/personal-data",x:"nickel",cc:["France","Spain","Belgium","Portugal","Germany"]},
-"BoursoBank":{t:"https://www.boursobank.com/mentions-legales",p:"https://www.boursobank.com/protection-donnees",x:"BoursoBank",cc:["France"]},
-"Lunar":{t:"https://www.lunar.app/en/terms",p:"https://www.lunar.app/en/privacy-policy",x:"lunar",in:{"Ken Villum Klausen":"https://www.linkedin.com/in/kenvillumklausen/"},cc:["Denmark","Sweden","Norway"]},
-"Trade Republic":{t:"https://traderepublic.com/en-de/legal",p:"https://traderepublic.com/en-de/privacy-policy",x:"traderepublic",cc:["Germany","France","Spain","Italy","Netherlands","Austria","Belgium","Ireland","Portugal"]},
+"N26":{x:"n26",in:{"Valentin Stalf":"https://www.linkedin.com/in/valentinstalf/"},cc:["Germany","Austria","France","Spain","Italy","Netherlands","Belgium","Portugal","Ireland","Greece","Poland"]},
+"bunq":{t:"https://www.bunq.com/documents/personal-account-terms-conditions",p:"https://www.bunq.com/documents/privacy-policy",x:"bunq",in:{"Ali Niknam":"https://www.linkedin.com/in/aliniknam/"},fx:{"Ali Niknam":"aliniknam"},cc:["Netherlands","Germany","France","Spain","Italy","Belgium","Austria","Ireland","Portugal"]},
+"Vivid Money":{t:"https://vivid.money/de-ch/legal-documents/",p:"https://vivid.money/de-ch/privacy-policy/",x:"vivid_money",cc:["Germany","France","Spain","Italy","Netherlands"]},
+"Qonto":{p:"https://qonto.com/en/legal-documents/privacy-notice",x:"getqonto",in:{"Alexandre Prot":"https://www.linkedin.com/in/alexandreprot/"},cc:["France","Germany","Spain","Italy"]},
+"Sumeria (Lydia)":{t:"https://www.sumeria.eu/en/legal/",x:"sumeria_app",cc:["France"]},
+"Nickel":{x:"nickel",cc:["France","Spain","Belgium","Portugal","Germany"]},
+"BoursoBank":{x:"BoursoBank",cc:["France"]},
+"Lunar":{p:"https://www.lunar.app/en/privacy-policy",x:"lunar",in:{"Ken Villum Klausen":"https://www.linkedin.com/in/kenvillumklausen/"},cc:["Denmark","Sweden","Norway"]},
+"Trade Republic":{p:"https://assets.traderepublic.com/assets/files/Privacy-Website_en-DE.pdf",x:"traderepublic",cc:["Germany","France","Spain","Italy","Netherlands","Austria","Belgium","Ireland","Portugal"]},
 "Wise":{t:"https://wise.com/terms-and-conditions",p:"https://wise.com/privacy-policy",x:"Wise",in:{"Kristo Käärmann":"https://www.linkedin.com/in/kaarmann/","Taavet Hinrikus":"https://www.linkedin.com/in/taavet/"},fx:{"Kristo Käärmann":"kaarmann","Taavet Hinrikus":"taavet"},cc:["United Kingdom","United States","Australia","Singapore","Japan","Brazil","Canada","New Zealand","European Union","India","Philippines","Malaysia","UAE"]},
 "Klarna":{t:"https://www.klarna.com/us/legal/",p:"https://www.klarna.com/us/privacy-policy/",x:"Klarna",in:{"Sebastian Siemiatkowski":"https://www.linkedin.com/in/sebastian-siemiatkowski-768977/"},fx:{"Sebastian Siemiatkowski":"klarnaseb"},cc:["Sweden","United States","United Kingdom","Germany","Australia","European Union"]},
 "Papara":{t:"https://www.papara.com/en/legal-notices",p:"https://www.papara.com/en/legal-notices/privacy",x:"papara",cc:["Türkiye"]},
 "Monobank":{t:"https://www.monobank.ua/terms",p:"https://www.monobank.ua/privacy",x:"monobank_ua",in:{"Oleh Gorokhovskyi":"https://www.linkedin.com/in/gorokhovsky/"},cc:["Ukraine"]},
-"Kaspi":{t:"https://kaspi.kz/terms",p:"https://kaspi.kz/privacy",x:"kaspikz",cc:["Kazakhstan","Türkiye"]},
+"Kaspi":{t:"https://kaspi.kz/terms",x:"kaspikz",cc:["Kazakhstan","Türkiye"]},
 "Revolut":{t:"https://www.revolut.com/legal/terms/",p:"https://www.revolut.com/privacy-policy/",x:"RevolutApp",in:{"Nik Storonsky":"https://www.linkedin.com/in/nikolay-storonsky/"},cc:["United Kingdom","Ireland","France","Germany","Spain","Italy","Poland","Romania","Lithuania","Netherlands","Portugal","United States","Australia","Singapore","Japan","Brazil","New Zealand","Switzerland","Mexico","India"]},
 "Alpian":{t:"https://www.alpian.com/legal",p:"https://www.alpian.com/privacy-policy",x:"AlpianBank",cc:["Switzerland"]},
-"Yuh":{t:"https://www.yuh.com/en/legal-documents",p:"https://www.yuh.com/en/privacy",x:"yuh_app",cc:["Switzerland"]},
-"neon":{t:"https://www.neon-free.ch/en/legal/",p:"https://www.neon-free.ch/en/privacy/",x:"neon_switzerland",cc:["Switzerland"]},
+"Yuh":{t:"https://www.yuh.com/en/legal/",x:"yuh_app",cc:["Switzerland"]},
+"neon":{x:"neon_switzerland",cc:["Switzerland"]},
 /* LatAm */
-"Nubank":{t:"https://nubank.com.br/en/contract/",p:"https://nubank.com.br/en/privacy-policy/",x:"nubank",in:{"David Vélez":"https://www.linkedin.com/in/david-velez-38185311/","Cristina Junqueira":"https://www.linkedin.com/in/cristina-junqueira-9a4b012/"},cc:["Brazil","Mexico","Colombia"]},
-"Ualá":{t:"https://www.uala.com.ar/legales",p:"https://www.uala.com.ar/legales/privacidad",x:"uala",in:{"Pierpaolo Barbieri":"https://www.linkedin.com/in/pierpaolo-barbieri-b8a3644/"},fx:{"Pierpaolo Barbieri":"pierpaolo"},cc:["Argentina","Mexico","Colombia"]},
-"Klar":{t:"https://www.klar.mx/legal",p:"https://www.klar.mx/legal/aviso-de-privacidad",x:"klarmx",cc:["Mexico"]},
+"Nubank":{t:"https://nubank.com.br/en/contract/",x:"nubank",in:{"David Vélez":"https://www.linkedin.com/in/david-velez-38185311/","Cristina Junqueira":"https://www.linkedin.com/in/cristina-junqueira-9a4b012/"},cc:["Brazil","Mexico","Colombia"]},
+"Ualá":{t:"https://www.uala.com.ar/legales",x:"uala",in:{"Pierpaolo Barbieri":"https://www.linkedin.com/in/pierpaolo-barbieri-b8a3644/"},fx:{"Pierpaolo Barbieri":"pierpaolo"},cc:["Argentina","Mexico","Colombia"]},
+"Klar":{x:"klarmx",cc:["Mexico"]},
 "Stori":{t:"https://www.storicard.com/legales",p:"https://www.storicard.com/aviso-de-privacidad",x:"storicard",cc:["Mexico"]},
 "C6 Bank":{t:"https://www.c6bank.com.br/termos-e-condicoes",p:"https://www.c6bank.com.br/politica-de-privacidade",x:"C6Bank",cc:["Brazil"]},
-"Banco Inter":{t:"https://inter.co/termos-de-uso/",p:"https://inter.co/politica-de-privacidade/",x:"bancointer",cc:["Brazil","United States"]},
-"PicPay":{t:"https://picpay.com/termos-de-uso",p:"https://picpay.com/politica-de-privacidade",x:"PicPay",cc:["Brazil"]},
+"Banco Inter":{p:"https://inter.co/politica-de-privacidade/",x:"bancointer",cc:["Brazil","United States"]},
+"PicPay":{p:"https://picpay.com/politica-de-privacidade",x:"PicPay",cc:["Brazil"]},
 "Mercado Pago":{t:"https://www.mercadopago.com.br/ajuda/termos-e-condicoes_300",p:"https://www.mercadopago.com.br/privacidade",x:"mercadopago",cc:["Argentina","Brazil","Mexico","Chile","Colombia","Peru","Uruguay"]},
 "Bitso":{t:"https://bitso.com/legal/terms-of-service",p:"https://bitso.com/legal/privacy-policy",x:"Bitso",in:{"Daniel Vogel":"https://www.linkedin.com/in/danielvogel1/"},cc:["Mexico","Argentina","Brazil","Colombia"]},
-"Lemon":{t:"https://www.lemon.me/terminos-y-condiciones",p:"https://www.lemon.me/politica-de-privacidad",x:"lemoncash_ar",in:{"Marcelo Cavazzoli":"https://www.linkedin.com/in/marcelo-cavazzoli/"},fx:{"Marcelo Cavazzoli":"cavazzoli_m"},cc:["Argentina","Brazil","Peru"]},
-"DolarApp":{t:"https://www.dolarapp.com/legal/terms",p:"https://www.dolarapp.com/legal/privacy",x:"DolarApp",cc:["Mexico","Argentina","Colombia","Brazil"]},
+"Lemon":{t:"https://www.lemon.me/terms",x:"lemoncash_ar",in:{"Marcelo Cavazzoli":"https://www.linkedin.com/in/marcelo-cavazzoli/"},fx:{"Marcelo Cavazzoli":"cavazzoli_m"},cc:["Argentina","Brazil","Peru"]},
+"DolarApp":{t:"https://www.arqfinance.com/en-MX/legal",p:"https://www.arqfinance.com/legal/privacy-policy",x:"DolarApp",cc:["Mexico","Argentina","Colombia","Brazil"]},
 "Airtm":{t:"https://www.airtm.com/en/terms-of-service",p:"https://www.airtm.com/en/privacy-policy",x:"airtm",cc:["Mexico","Venezuela","Argentina","Colombia","Peru","Chile","Brazil"]},
-"Nomad":{t:"https://www.nomadglobal.com/termos-de-uso",p:"https://www.nomadglobal.com/politica-de-privacidade",x:"nomadglobal",cc:["Brazil","United States"]},
+"Nomad":{t:"https://www.nomadglobal.com/legal",x:"nomadglobal",cc:["Brazil","United States"]},
 /* Asia */
-"KakaoBank":{t:"https://www.kakaobank.com/terms",p:"https://www.kakaobank.com/privacy",x:"kakaobank",cc:["South Korea"]},
+"KakaoBank":{t:"https://www.kakaobank.com/terms",x:"kakaobank",cc:["South Korea"]},
 "Toss Bank":{t:"https://www.tossbank.com/terms",p:"https://www.tossbank.com/privacy",x:"toss_bank",cc:["South Korea"]},
 "Maya":{t:"https://www.maya.ph/terms-and-conditions",p:"https://www.maya.ph/privacy",x:"mayaiseverything",cc:["Philippines"]},
 "Tonik":{t:"https://tonikbank.com/terms-conditions",p:"https://tonikbank.com/privacy-policy",x:"TonikBankPH",cc:["Philippines"]},
-"GXS Bank":{t:"https://www.gxs.com.sg/terms",p:"https://www.gxs.com.sg/privacy-policy",x:"gxsbank",cc:["Singapore"]},
-"Aspire":{t:"https://aspireapp.com/terms-of-service",p:"https://aspireapp.com/privacy-policy",x:"AspireApp",cc:["Singapore","Hong Kong","Indonesia","Vietnam"]},
-"YouTrip":{t:"https://www.you.co/sg/terms/",p:"https://www.you.co/sg/privacy/",x:"YouTripApp",cc:["Singapore","Thailand","Malaysia"]},
+"GXS Bank":{t:"https://www.gxs.com.sg/terms-of-use",x:"gxsbank",cc:["Singapore"]},
+"Aspire":{t:"https://aspireapp.com/tnc/master-service-agreement",p:"https://aspireapp.com/privacy-policy",x:"AspireApp",cc:["Singapore","Hong Kong","Indonesia","Vietnam"]},
+"YouTrip":{x:"YouTripApp",cc:["Singapore","Thailand","Malaysia"]},
 "ZA Bank":{t:"https://bank.za.group/en/terms",p:"https://bank.za.group/en/privacy",x:"zabankhk",cc:["Hong Kong"]},
 "bKash":{t:"https://www.bkash.com/en/terms-and-conditions",p:"https://www.bkash.com/en/privacy-policy",x:"bKashLimited",cc:["Bangladesh"]},
 "SadaPay":{t:"https://sadapay.pk/terms-of-service/",p:"https://sadapay.pk/privacy-policy/",x:"sadapay",cc:["Pakistan"]},
@@ -2422,19 +2422,19 @@ const V={
 "FamPay":{t:"https://fampay.in/terms",p:"https://fampay.in/privacy",x:"FamPayHQ",cc:["India"]},
 /* ANZ */
 "Up":{t:"https://up.com.au/terms/",p:"https://up.com.au/privacy/",x:"upbanking",cc:["Australia"]},
-"Hnry":{t:"https://hnry.co.nz/terms-of-service/",p:"https://hnry.co.nz/privacy-policy/",x:"hnry_nz",cc:["New Zealand","Australia"]},
+"Hnry":{p:"https://hnry.co.nz/privacy",x:"hnry_nz",cc:["New Zealand","Australia"]},
 /* Africa */
 "TymeBank":{t:"https://www.tymebank.co.za/legal/",p:"https://www.tymebank.co.za/legal/privacy-policy/",x:"TymeBankZA",cc:["South Africa"]},
 "Kuda":{t:"https://kuda.com/en-ng/legal/",p:"https://kuda.com/en-ng/legal/privacy-policy/",x:"joinkuda",in:{"Babs Ogundeyi":"https://www.linkedin.com/in/babs-ogundeyi-4b3b1b1/"},cc:["Nigeria","United Kingdom"]},
 "OPay":{t:"https://www.opayweb.com/terms",p:"https://www.opayweb.com/privacy",x:"OPay_NG",cc:["Nigeria","Egypt"]},
 "PalmPay":{t:"https://www.palmpay.com/terms",p:"https://www.palmpay.com/privacy",x:"PalmPay_ng",cc:["Nigeria","Ghana","Tanzania","Kenya"]},
-"Moniepoint":{t:"https://moniepoint.com/terms",p:"https://moniepoint.com/privacy-policy",x:"moniepoint",in:{"Tosin Eniolorunda":"https://www.linkedin.com/in/tosineniolorunda/"},cc:["Nigeria","Kenya"]},
-"Wave":{t:"https://www.wave.com/en/legal/terms/",p:"https://www.wave.com/en/legal/privacy/",x:"wave_senegal",cc:["Senegal","Côte d'Ivoire","Mali","Burkina Faso","Uganda","Gambia"]},
+"Moniepoint":{p:"https://moniepoint.com/privacy-policy",x:"moniepoint",in:{"Tosin Eniolorunda":"https://www.linkedin.com/in/tosineniolorunda/"},cc:["Nigeria","Kenya"]},
+"Wave":{p:"https://www.wave.com/en/privacy/index.html",x:"wave_senegal",cc:["Senegal","Côte d'Ivoire","Mali","Burkina Faso","Uganda","Gambia"]},
 "Djamo":{t:"https://www.djamo.io/terms",p:"https://www.djamo.io/privacy",x:"djamoapp",cc:["Côte d'Ivoire","Senegal"]},
-"Yellow Card":{t:"https://yellowcard.io/terms-of-use/",p:"https://yellowcard.io/privacy-policy/",x:"yellowcard_app",in:{"Chris Maurice":"https://www.linkedin.com/in/chrismaurice1/"},fx:{"Chris Maurice":"chrismauriceyc"},cc:["Nigeria","Kenya","South Africa","Ghana","Uganda","Tanzania","Botswana","Cameroon","Senegal","Côte d'Ivoire","Zambia","Rwanda","Malawi","Gabon","DR Congo","Benin","Togo","Burkina Faso","Mali","Madagascar"]},
-"Chipper Cash":{t:"https://chippercash.com/legal/terms-of-service",p:"https://chippercash.com/legal/privacy-policy",x:"chippercashapp",in:{"Ham Serunjogi":"https://www.linkedin.com/in/hamserunjogi/"},cc:["Nigeria","Ghana","Uganda","Kenya","Rwanda","South Africa","United States","United Kingdom"]},
-"Grey":{t:"https://grey.co/terms",p:"https://grey.co/privacy",x:"grey_finance",cc:["Nigeria","Kenya"]},
-"MiniPay":{t:"https://www.minipay.to/terms",p:"https://www.minipay.to/privacy",x:"MiniPay",cc:["Nigeria","Kenya","Ghana","South Africa","Uganda","Brazil","Philippines"]},
+"Yellow Card":{t:"https://yellowcard.io/legal",p:"https://yellowcard.io/legal/privacy-policy",x:"yellowcard_app",in:{"Chris Maurice":"https://www.linkedin.com/in/chrismaurice1/"},fx:{"Chris Maurice":"chrismauriceyc"},cc:["Nigeria","Kenya","South Africa","Ghana","Uganda","Tanzania","Botswana","Cameroon","Senegal","Côte d'Ivoire","Zambia","Rwanda","Malawi","Gabon","DR Congo","Benin","Togo","Burkina Faso","Mali","Madagascar"]},
+"Chipper Cash":{x:"chippercashapp",in:{"Ham Serunjogi":"https://www.linkedin.com/in/hamserunjogi/"},cc:["Nigeria","Ghana","Uganda","Kenya","Rwanda","South Africa","United States","United Kingdom"]},
+"Grey":{t:"https://grey.co/legal/terms-of-service",p:"https://grey.co/legal/privacy-policy",x:"grey_finance",cc:["Nigeria","Kenya"]},
+"MiniPay":{t:"https://www.minipay.to/terms",p:"https://minipay.to/privacy-statement",x:"MiniPay",cc:["Nigeria","Kenya","Ghana","South Africa","Uganda","Brazil","Philippines"]},
 /* MENA */
 "Telda":{t:"https://www.telda.app/terms",p:"https://www.telda.app/privacy",x:"telda",cc:["Egypt"]},
 "Wio Bank":{t:"https://www.wio.io/terms",p:"https://www.wio.io/privacy-policy",x:"wiobank",cc:["UAE"]},
@@ -2446,16 +2446,16 @@ const V={
 "Coinbase Card":{t:"https://www.coinbase.com/legal/user_agreement",p:"https://www.coinbase.com/legal/privacy",x:"coinbase",in:{"Brian Armstrong":"https://www.linkedin.com/in/barmstrong/"},fx:{"Brian Armstrong":"brian_armstrong"},cc:["United States","United Kingdom","European Union","Canada","Australia","Singapore","Brazil"]},
 "Gemini Credit Card":{t:"https://www.gemini.com/legal/user-agreement",p:"https://www.gemini.com/legal/privacy-policy",x:"Gemini",fx:{"Cameron Winklevoss":"cameron","Tyler Winklevoss":"tyler"},cc:["United States"]},
 "Strike":{t:"https://strike.me/legal/tos/",p:"https://strike.me/legal/privacy/",x:"Strike",in:{"Jack Mallers":"https://www.linkedin.com/in/jackmallers/"},fx:{"Jack Mallers":"jackmallers"},cc:["United States","El Salvador","Argentina","Mexico","Philippines","Vietnam","Nigeria","Kenya","Ghana"]},
-"Xapo Bank":{t:"https://www.xapobank.com/en/terms",p:"https://www.xapobank.com/en/privacy",x:"xapobank",in:{"Wences Casares":"https://www.linkedin.com/in/wenceslao-casares-b2404/"},fx:{"Wences Casares":"wences"},cc:["Gibraltar","United Kingdom","UAE","Global"]},
+"Xapo Bank":{t:"https://www.xapobank.com/en/terms",x:"xapobank",in:{"Wences Casares":"https://www.linkedin.com/in/wenceslao-casares-b2404/"},fx:{"Wences Casares":"wences"},cc:["Gibraltar","United Kingdom","UAE","Global"]},
 "Wirex":{t:"https://wirexapp.com/terms-and-conditions",p:"https://wirexapp.com/privacy-policy",x:"wirexapp",cc:["United Kingdom","European Union","Singapore","Australia","United States"]},
-"Nexo":{t:"https://nexo.com/general-terms",p:"https://nexo.com/privacy-policy",x:"Nexo",fx:{"Antoni Trenchev":"AntoniNexo"},cc:["United Kingdom","European Union","Switzerland","Brazil","Mexico"]},
+"Nexo":{t:"https://nexo.com/terms",p:"https://nexo.com/privacy-policy",x:"Nexo",fx:{"Antoni Trenchev":"AntoniNexo"},cc:["United Kingdom","European Union","Switzerland","Brazil","Mexico"]},
 "Krak":{t:"https://krak.com/legal",p:"https://www.kraken.com/legal/privacy",x:"krak",cc:["United States","European Union","United Kingdom","Canada","Australia"]},
-"KAST":{t:"https://www.kast.xyz/terms",p:"https://www.kast.xyz/privacy",x:"Kast_money",cc:["Hong Kong","Singapore","Global"]},
+"KAST":{t:"https://www.kast.xyz/terms",p:"https://www.kast.xyz/legal/privacy-policy",x:"Kast_money",cc:["Hong Kong","Singapore","Global"]},
 "RedotPay":{t:"https://www.redotpay.com/en/terms/",p:"https://www.redotpay.com/en/privacy/",x:"RedotPay",cc:["Hong Kong","Singapore","Brazil","Argentina","Nigeria","Global"]},
-"Uphold":{t:"https://uphold.com/legal/terms-of-service",p:"https://uphold.com/legal/privacy-policy",x:"UpholdInc",cc:["United States","United Kingdom","European Union","Brazil","Mexico","Argentina"]},
+"Uphold":{t:"https://uphold.com/legal",p:"https://uphold.com/legal/privacy-policy",x:"UpholdInc",cc:["United States","United Kingdom","European Union","Brazil","Mexico","Argentina"]},
 "Deel":{t:"https://www.deel.com/legal/terms-of-service/",p:"https://www.deel.com/legal/privacy-policy/",x:"deel",in:{"Alex Bouaziz":"https://www.linkedin.com/in/alexbouaziz/"},fx:{"Alex Bouaziz":"Bouazizalex"},cc:["United States","United Kingdom","European Union","Brazil","India","Philippines","Nigeria","Australia","Canada","UAE","Singapore","Global"]},
 "Bitpanda":{t:"https://www.bitpanda.com/en/legal",p:"https://www.bitpanda.com/en/privacy-policy",x:"bitpanda",cc:["Austria","Germany","France","Spain","Italy","United Kingdom"]},
-"Fold":{t:"https://foldapp.com/legal/terms",p:"https://foldapp.com/legal/privacy",x:"fold_app",fx:{"Will Reeves":"wlvs"},cc:["United States"]},
+"Fold":{t:"https://foldapp.com/legal/legal-overview",p:"https://foldapp.com/legal/privacy-policy",x:"fold_app",fx:{"Will Reeves":"wlvs"},cc:["United States"]},
 /* Web3-native */
 "MetaMask":{t:"https://metamask.io/terms-of-use/",p:"https://consensys.io/privacy-notice",x:"MetaMask",in:{"Dan Finlay":"https://www.linkedin.com/in/danfinlay/"},fx:{"Dan Finlay":"danfinlay","Aaron Davis":"kumavis_"},cc:["Global"]},
 "Phantom":{t:"https://phantom.app/terms",p:"https://phantom.app/privacy",x:"phantom",in:{"Brandon Millman":"https://www.linkedin.com/in/brandonmillman/"},fx:{"Brandon Millman":"bchillman"},cc:["Global"]},
@@ -2466,24 +2466,23 @@ const V={
 "Exodus":{t:"https://www.exodus.com/terms/",p:"https://www.exodus.com/privacy/",x:"exodus",cc:["Global"]},
 "Zengo":{t:"https://zengo.com/terms-of-use/",p:"https://zengo.com/privacy-policy/",x:"zengo",fx:{"Ouriel Ohayon":"OurielOhayon"},cc:["Global"]},
 "Payy":{t:"https://payy.network/terms",p:"https://payy.network/privacy",x:"payy_link",fx:{"Sid Gandhi":"sidgandhi_xyz"},cc:["Global"]},
-"Gnosis Pay":{t:"https://gnosispay.com/terms-of-service",p:"https://gnosispay.com/privacy-policy",x:"gnosispay",in:{"Martin Köppelmann":"https://www.linkedin.com/in/martin-koeppelmann/"},fx:{"Martin Köppelmann":"koeppelmann","Stefan George":"StefanDGeorge"},cc:["United Kingdom","European Union","Brazil"]},
-"EtherFi Cash":{t:"https://www.ether.fi/terms-of-service",p:"https://www.ether.fi/privacy-policy",x:"ether_fi",fx:{"Mike Silagadze":"MikeSilagadze"},cc:["Global"]},
-"Ready":{t:"https://www.ready.co/terms",p:"https://www.ready.co/privacy",x:"ready_co",in:{"Itamar Lesuisse":"https://www.linkedin.com/in/itamarl/"},fx:{"Itamar Lesuisse":"itamarl"},cc:["United Kingdom","European Union","Global"]},
+"Gnosis Pay":{x:"gnosispay",in:{"Martin Köppelmann":"https://www.linkedin.com/in/martin-koeppelmann/"},fx:{"Martin Köppelmann":"koeppelmann","Stefan George":"StefanDGeorge"},cc:["United Kingdom","European Union","Brazil"]},
+"EtherFi Cash":{t:"https://www.ether.fi/legal/terms-of-use",p:"https://www.ether.fi/legal/privacy-policy",x:"ether_fi",fx:{"Mike Silagadze":"MikeSilagadze"},cc:["Global"]},
+"Ready":{t:"https://www.ready.co/terms",p:"https://www.ready.co/legal/privacy/ready",x:"ready_co",in:{"Itamar Lesuisse":"https://www.linkedin.com/in/itamarl/"},fx:{"Itamar Lesuisse":"itamarl"},cc:["United Kingdom","European Union","Global"]},
 "Plasma One":{t:"https://www.plasma.to/terms",p:"https://www.plasma.to/privacy",x:"Plasma",fx:{"Paul Faecks":"paulfaecks"},cc:["Global"]},
-"Oobit":{t:"https://oobit.com/terms-of-service",p:"https://oobit.com/privacy-policy",x:"oobit",cc:["Singapore","European Union","Global"]},
+"Oobit":{t:"https://oobit.com/terms-of-service",p:"https://www.oobit.com/legal/privacy-notice",x:"oobit",cc:["Singapore","European Union","Global"]},
 "Sling Money":{t:"https://sling.money/terms",p:"https://sling.money/privacy",x:"slingmoney",in:{"Mike Hudack":"https://www.linkedin.com/in/mhudack/"},fx:{"Mike Hudack":"mhudack"},cc:["United States","United Kingdom","European Union","Nigeria","Kenya","Global"]},
-"Deblock":{t:"https://deblock.com/en-fr/legals",p:"https://deblock.com/en-fr/legals/privacy",x:"DeblockApp",cc:["France","European Union"]},
-"Fiat24":{t:"https://fiat24.com/terms",p:"https://fiat24.com/privacy",x:"Fiat24Official",cc:["Switzerland","Global"]},
-"Stables":{t:"https://www.stables.money/terms-of-service",p:"https://www.stables.money/privacy-policy",x:"stablesmoney",cc:["Australia","Singapore","Philippines","Global"]},
-"Daimo":{t:"https://daimo.com/terms",p:"https://daimo.com/privacy",x:"daimo_eth",fx:{"DC Posch":"dcposch","Nalin Bhardwaj":"nibnalin"},cc:["Global"]},
-"Onboard":{t:"https://onboard.xyz/terms",p:"https://onboard.xyz/privacy",x:"onboardglobal",fx:{"Yele Bademosi":"YeleBademosi"},cc:["Nigeria","Ghana","Kenya","Global"]},
-"MiniPay ":{},
+"Deblock":{t:"https://deblock.com/legal/terms",p:"https://deblock.com/legal/privacy",x:"DeblockApp",cc:["France","European Union"]},
+"Fiat24":{p:"https://fiat24.com/privacy",x:"Fiat24Official",cc:["Switzerland","Global"]},
+"Stables":{p:"https://www.stables.money/legal/privacy-policy",x:"stablesmoney",cc:["Australia","Singapore","Philippines","Global"]},
+"Daimo":{t:"https://daimo.com/terms-of-use",p:"https://daimo.com/privacy",x:"daimo_eth",fx:{"DC Posch":"dcposch","Nalin Bhardwaj":"nibnalin"},cc:["Global"]},
+"Onboard":{t:"https://onboard.xyz/terms",p:"https://www.onboard.xyz/privacy-policy",x:"onboardglobal",fx:{"Yele Bademosi":"YeleBademosi"},cc:["Nigeria","Ghana","Kenya","Global"]},
 /* gap-hunt additions */
 "Vision Bank":{t:"https://www.visionbank.sa/terms",p:"https://www.visionbank.sa/privacy",x:"VisionBankSA",cc:["Saudi Arabia"]},
-"Beyon Money":{t:"https://www.beyonmoney.com/terms",p:"https://www.beyonmoney.com/privacy",x:"beyonmoney",cc:["Bahrain"]},
+"Beyon Money":{x:"beyonmoney",cc:["Bahrain"]},
 "Fasset":{t:"https://www.fasset.com/terms",p:"https://www.fasset.com/privacy",x:"fassetofficial",cc:["UAE","Indonesia","Malaysia","Türkiye"]},
-"Kontigo":{t:"https://www.kontigo.lat/terms",p:"https://www.kontigo.lat/privacy",x:"kontigoapp",cc:["Venezuela","Colombia","Mexico"]},
-"Moneco":{t:"https://moneco.app/terms",p:"https://moneco.app/privacy",x:"moneco_app",cc:["France","Belgium","Germany"]}
+"Kontigo":{p:"https://www.kontigo.lat/privacy",x:"kontigoapp",cc:["Venezuela","Colombia","Mexico"]},
+"Moneco":{t:"https://moneco.app/terms",x:"moneco_app",cc:["France","Belgium","Germany"]}
 };
 
 /* macro of each country (for the drill-down) */
@@ -2716,7 +2715,7 @@ render();
 ["Annual Economic Report, ch. III — The Next-Generation Monetary System","BIS","2025-2026","The central-bank counterargument on stablecoins, direct PDF.","https://www.bis.org/publ/arpdf/ar2025e3.pdf","pdf",""],
 ["Global Findex Database","World Bank","2025","79% of adults now banked, 1.3B still unbanked — the inclusion frontier neobanks chase.","https://www.worldbank.org/en/publication/globalfindex","landing",""]];
   const RES=[
-["Fintech Brainfood","https://www.fintechbrainfood.com"],["Fintech Takes","https://fintechtakes.com"],["Fintech Business Weekly","https://fintechbusinessweekly.substack.com"],["This Week in Fintech","https://www.thisweekinfintech.com"],["WhiteSight","https://whitesight.net"],["Fincog","https://fincog.nl"],["C-Innovation — 2025 in digital banking (free article)","https://www.c-innovation.eu/post/how-2025-reshaped-digital-banking-and-what-2026-will-demand-of-banks"],["CB Insights fintech research","https://www.cbinsights.com/research/fintech/"],["Artemis","https://www.artemisanalytics.com"],["Dune","https://dune.com"],["DefiLlama","https://defillama.com"],["RWA.xyz","https://rwa.xyz"],["Visa Onchain Analytics","https://visaonchainanalytics.com"],["The Block Data","https://www.theblock.co/data"],["L2Beat","https://l2beat.com"],["Sifted (EU)","https://sifted.eu"],["TechCabal (Africa)","https://techcabal.com"],["Tech in Asia","https://www.techinasia.com"],["Contxto (LatAm)","https://contxto.com"],["ESMA MiCA register","https://www.esma.europa.eu/publications-and-data/interim-mica-register"],["EBA registers","https://euclid.eba.europa.eu/register/"],["FCA register","https://register.fca.org.uk/s/"],["World Bank Global Findex","https://www.worldbank.org/en/publication/globalfindex"],["BIS","https://www.bis.org"]];
+["Fintech Brainfood","https://www.fintechbrainfood.com"],["Fintech Takes","https://fintechtakes.com"],["Fintech Business Weekly","https://fintechbusinessweekly.substack.com"],["This Week in Fintech","https://www.thisweekinfintech.com"],["WhiteSight","https://whitesight.net"],["Fincog","https://fincog.nl"],["C-Innovation — 2025 in digital banking (free article)","https://www.c-innovation.eu/post/how-2025-reshaped-digital-banking-and-what-2026-will-demand-of-banks"],["CB Insights fintech research","https://www.cbinsights.com/research/fintech/"],["Artemis","https://www.artemisanalytics.com"],["Dune","https://dune.com"],["DefiLlama","https://defillama.com"],["RWA.xyz","https://rwa.xyz"],["Visa Onchain Analytics","https://visaonchainanalytics.com"],["The Block Data","https://www.theblock.co/data"],["L2Beat","https://l2beat.com"],["Sifted (EU)","https://sifted.eu"],["TechCabal (Africa)","https://techcabal.com"],["Tech in Asia","https://www.techinasia.com"],["Contxto (LatAm)","https://contxto.com"],["ESMA MiCA register","https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica"],["EBA registers","https://euclid.eba.europa.eu/register/"],["FCA register","https://register.fca.org.uk/s/"],["World Bank Global Findex","https://www.worldbank.org/en/publication/globalfindex"],["BIS","https://www.bis.org"]];
   const badge=(k,g)=>(k==='pdf'?'<span class="rbadge pdf">direct pdf</span>':'<span class="rbadge">landing</span>')+(g?'<span class="rbadge gated">email-gated</span>':'');
   const repHTML=REPORTS.map(([t,pub,yr,d,u,k,g])=>'<div class="rep"><div class="rt"><a href="'+u+'" target="_blank" rel="noopener">'+esc(t)+'</a>'+badge(k,g)+'</div><div class="rm">'+esc(pub)+' · '+esc(yr)+'</div><div class="rd">'+esc(d)+'</div><div class="ru"><a href="'+u+'" target="_blank" rel="noopener">'+esc(u)+'</a></div></div>').join("");
   const resHTML=RES.map(([n,u])=>'<div class="lres"><div class="ln2">'+esc(n)+'</div><div class="lu"><a href="'+u+'" target="_blank" rel="noopener">'+esc(u)+'</a></div></div>').join("");
@@ -2914,6 +2913,57 @@ render();
     el.querySelector('.mi-cta').addEventListener('click',()=>showView('directory'));
   };
   if(mapFilter)showRegion(mapFilter);
+})();
+</script>
+<script>
+/* ═══ v14 LAYER · shareable filter URLs + "/" search shortcut ═══ */
+(function shareableFilters(){
+  /* write the active filter state into the query string (directory view only) */
+  const _render_v14=render;
+  render=function(){
+    _render_v14();
+    const p=new URLSearchParams();
+    if(cat!=="ALL")p.set('cat',cat);
+    if(q)p.set('q',q);
+    if(niche)p.set('niche',niche);
+    if(region)p.set('region',region);
+    if(custody)p.set('custody',custody);
+    if(net)p.set('net',net);
+    if(typeof regF!=="undefined"&&regF)p.set('reg',regF);
+    if(wantYield)p.set('y','1');
+    if(wantStable)p.set('s','1');
+    if(wantNoKyc)p.set('nk','1');
+    if(typeof mapFilter!=="undefined"&&mapFilter)p.set('map',mapFilter);
+    if(sortBy!=="az")p.set('sort',sortBy);
+    const qs=p.toString();
+    if((document.body.dataset.view||'directory')==='directory'){
+      try{history.replaceState(null,'',location.pathname+(qs?'?'+qs:''))}catch(_){}
+    }
+  };
+  /* apply filters from the URL on load — drives the real controls so all UI stays in sync */
+  const p=new URLSearchParams(location.search);
+  if(p.get('cat')){const el=document.querySelector('.pill[data-cat="'+p.get('cat')+'"]');if(el)el.click();}
+  if(p.get('q')){const qi=document.getElementById('q');qi.value=p.get('q');qi.dispatchEvent(new Event('input',{bubbles:true}));}
+  [['niche','f-niche'],['region','f-region'],['custody','f-custody'],['net','f-net'],['reg','f-reg'],['sort','sort']].forEach(([k,id])=>{
+    const v=p.get(k);if(!v)return;
+    const s=document.getElementById(id);if(!s)return;
+    s.value=v;s.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+  [['y','f-yield'],['s','f-stable'],['nk','f-nokyc']].forEach(([k,id])=>{
+    if(p.get(k)!=='1')return;
+    const c=document.getElementById(id);if(!c)return;
+    c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+  if(p.get('map')&&window.setMap)setMap(p.get('map'));
+  /* "/" focuses the search from anywhere */
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='/'||e.metaKey||e.ctrlKey||e.altKey)return;
+    const t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT'||t.isContentEditable))return;
+    e.preventDefault();
+    if(window.showView)showView('directory');
+    document.getElementById('q').focus();
+  });
 })();
 </script>
 </body>

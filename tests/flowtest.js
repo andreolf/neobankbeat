@@ -383,6 +383,22 @@ click(d.getElementById('overlay'));
 ok(!d.getElementById('overlay').classList.contains('show'),'backdrop click closes compare');
 click(d.getElementById('tclear'));
 
+console.log('— flow 23: shareable filter URLs');
+click(d.querySelector('.pill[data-cat="W"]'));
+ok(w.location.search.includes('cat=W'),'category filter lands in the URL ('+w.location.search+')');
+d.getElementById('f-stable').checked=true;
+d.getElementById('f-stable').dispatchEvent(new w.Event('change',{bubbles:true}));
+ok(w.location.search.includes('s=1'),'stablecoin toggle lands in the URL');
+click(d.getElementById('navdir'));
+ok(w.location.search==='','clearing filters cleans the URL ('+w.location.search+')');
+// fresh session opening a shared URL applies the filters
+const dom2=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'https://neobankbeat.test/?cat=W&s=1',
+  beforeParse(window){window.Element.prototype.scrollIntoView=function(){};window.alert=()=>{};window.matchMedia=window.matchMedia||(()=>({matches:false,addListener(){},removeListener(){}}));}});
+const w2=dom2.window,d2=w2.document;
+const expW=w2.eval("D.filter(r=>r[1]==='W'&&r[10]).length");
+ok(d2.getElementById('count').textContent.includes('showing '+expW),'shared URL applies cat=W + stablecoins → '+expW+' ('+d2.getElementById('count').textContent+')');
+ok(d2.querySelector('.pill[data-cat="W"]').classList.contains('on'),'W pill reflects the shared URL state');
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}

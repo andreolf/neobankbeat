@@ -81,7 +81,7 @@
    "licence": "National bank charter (2020)",
    "founders": "Colin Walsh",
    "funding": "~$1B raised",
-   "terms_url": "https://www.varomoney.com/legal/",
+   "terms_url": "https://www.varomoney.com/privacy-legal/",
    "privacy_url": "https://www.varomoney.com/privacy/",
    "x_handle": "varomoney",
    "countries": [
@@ -113,8 +113,6 @@
    "licence": "Partner banks (Choice, Cross River)",
    "founders": "Stuart Sopp",
    "funding": "~$400M raised",
-   "terms_url": "https://current.com/terms-of-use/",
-   "privacy_url": "https://current.com/privacy-policy/",
    "x_handle": "current",
    "countries": [
     "United States"
@@ -241,7 +239,7 @@
    "founders": "Dee Choubey",
    "funding": "Public; acquired by Gen Digital (2025)",
    "terms_url": "https://www.moneylion.com/terms-and-conditions/",
-   "privacy_url": "https://www.moneylion.com/privacy-policy/",
+   "privacy_url": "https://www.moneylion.com/privacy-notice/",
    "x_handle": "MoneyLion",
    "countries": [
     "United States"
@@ -272,8 +270,8 @@
    "licence": "Partner bank (Coastal Community)",
    "founders": "Walmart x Ribbit venture",
    "funding": "Walmart-majority",
-   "terms_url": "https://one.app/policies/",
-   "privacy_url": "https://one.app/policies/privacy/",
+   "terms_url": "https://www.onepay.com/legal",
+   "privacy_url": "https://www.onepay.com/legal/privacy-policies",
    "x_handle": "one",
    "countries": [
     "United States"
@@ -300,7 +298,6 @@
     "North America"
    ],
    "note": "Goldman Sachs' consumer digital bank.",
-   "terms_url": "https://www.marcus.com/us/en/terms-and-conditions",
    "privacy_url": "https://www.marcus.com/us/en/privacy-policy",
    "x_handle": "MarcusGS",
    "countries": [
@@ -333,7 +330,7 @@
    "founders": "CJ MacDonald",
    "funding": "~$175M+ raised",
    "terms_url": "https://step.com/legal",
-   "privacy_url": "https://step.com/privacy-policy",
+   "privacy_url": "https://step.com/policies/privacy",
    "x_handle": "step",
    "countries": [
     "United States"
@@ -364,7 +361,7 @@
    "founders": "Tim Sheehan, Johnson Cook",
    "funding": "~$550M raised",
    "terms_url": "https://greenlight.com/terms",
-   "privacy_url": "https://greenlight.com/privacy-policy",
+   "privacy_url": "https://privacy.greenlight.com/policies",
    "x_handle": "Greenlightcard",
    "countries": [
     "United States"
@@ -394,7 +391,6 @@
    "founders": "Eddie Behringer, Stefan Berglund",
    "funding": "~$40M raised",
    "terms_url": "https://www.getcopper.com/terms",
-   "privacy_url": "https://www.getcopper.com/privacy",
    "x_handle": "getcopperapp",
    "countries": [
     "United States"
@@ -476,7 +472,6 @@
    ],
    "note": "Automated savings + 'Genius' advice.",
    "terms_url": "https://albert.com/terms",
-   "privacy_url": "https://albert.com/privacy-policy",
    "x_handle": "albertsavings",
    "countries": [
     "United States"
@@ -601,8 +596,8 @@
    "note": "SMB checking for small operators.",
    "founders": "Michael Rangel, Tyler McIntyre",
    "funding": "~$170M raised",
-   "terms_url": "https://www.novo.co/terms-of-service",
-   "privacy_url": "https://www.novo.co/privacy-policy",
+   "terms_url": "https://www.novo.co/legal",
+   "privacy_url": "https://www.novo.co/legal/privacy",
    "x_handle": "banknovo",
    "countries": [
     "United States"
@@ -631,7 +626,6 @@
    "note": "SMB checking + credit lines.",
    "founders": "Eyal Lifshitz",
    "funding": "~$770M incl. debt",
-   "terms_url": "https://www.bluevine.com/terms-of-use",
    "privacy_url": "https://www.bluevine.com/privacy-policy",
    "x_handle": "Bluevine",
    "countries": [
@@ -661,8 +655,8 @@
    "note": "Multi-account SMB banking (Profit First).",
    "founders": "Yoseph West",
    "funding": "~$100M raised",
-   "terms_url": "https://relayfi.com/terms-of-service",
-   "privacy_url": "https://relayfi.com/privacy-policy",
+   "terms_url": "https://relayfi.com/terms/",
+   "privacy_url": "https://relayfi.com/privacy/",
    "x_handle": "relayfinancial",
    "countries": [
     "United States",
@@ -714,8 +708,8 @@
    "note": "Corporate banking + spend platform.",
    "founders": "Everett Cook, Alex Wheldon",
    "funding": "~$205M raised",
-   "terms_url": "https://www.rho.co/legal",
-   "privacy_url": "https://www.rho.co/legal/privacy-policy",
+   "terms_url": "https://www.rho.co/policies/terms-of-service",
+   "privacy_url": "https://www.rho.co/policies/privacy-policy",
    "x_handle": "rhobusiness",
    "countries": [
     "United States"
@@ -766,7 +760,7 @@
    ],
    "note": "Banking + taxes for the self-employed.",
    "funding": "~$70M raised",
-   "terms_url": "https://found.com/legal/terms",
+   "terms_url": "https://found.com/legal",
    "privacy_url": "https://found.com/legal/privacy",
    "x_handle": "foundforbiz",
    "countries": [
@@ -797,7 +791,7 @@
    "founders": "Lilac Bar David, Liran Zelkha",
    "funding": "~$80M raised",
    "terms_url": "https://lili.co/legal-documents/lili-terms-of-use",
-   "privacy_url": "https://lili.co/legal-documents/privacy-policy",
+   "privacy_url": "https://lili.co/legal-documents/lili-privacy-policy",
    "x_handle": "LiliBanking",
    "countries": [
     "United States"
@@ -985,7 +979,6 @@
    "story": "Named for Tulsa's Black Wall Street; digital banking recirculating capital in Black and Latino communities.",
    "founders": "Ryan Glover, Killer Mike, Andrew Young",
    "funding": "~$40M+ raised",
-   "terms_url": "https://gogreenwood.com/terms-of-service/",
    "privacy_url": "https://gogreenwood.com/privacy-policy/",
    "x_handle": "Greenwood",
    "countries": [
@@ -1078,7 +1071,7 @@
    "story": "Credit cards for Indians landing in the US, underwritten on home-country data before they have a FICO.",
    "founders": "Raghunandan G",
    "funding": "~$300M incl. debt",
-   "terms_url": "https://zolve.com/terms-of-service",
+   "terms_url": "https://zolve.com/policies/global/terms-of-use",
    "privacy_url": "https://zolve.com/privacy-policy",
    "x_handle": "zolvehq",
    "countries": [
@@ -1111,7 +1104,7 @@
    "founders": "Andres Santos, Abiel Gutierrez",
    "funding": "~$50M+ raised",
    "terms_url": "https://www.comun.app/en/legal",
-   "privacy_url": "https://www.comun.app/en/legal/privacy",
+   "privacy_url": "https://www.comun.app/en/legal/comun-privacy-policy",
    "x_handle": "comunapp",
    "countries": [
     "United States"
@@ -1141,8 +1134,7 @@
    "story": "Wall Street veteran Sallie Krawcheck's bet that investing designed around women's pay curves and lifespans closes the gender money gap.",
    "founders": "Sallie Krawcheck, Charlie Kroll",
    "funding": "~$150M raised",
-   "terms_url": "https://www.ellevest.com/terms-of-use",
-   "privacy_url": "https://www.ellevest.com/privacy-policy",
+   "terms_url": "https://www.ellevest.com/terms-of-service",
    "x_handle": "Ellevest",
    "countries": [
     "United States"
@@ -1198,7 +1190,6 @@
    "founders": "Daniel Eberhard",
    "funding": "~C$400M raised",
    "terms_url": "https://www.koho.ca/legal/",
-   "privacy_url": "https://www.koho.ca/privacy/",
    "x_handle": "KOHOfinancial",
    "countries": [
     "Canada"
@@ -1411,8 +1402,7 @@
    "note": "App-only bank, no card.",
    "licence": "UK banking licence",
    "founders": "Anthony Thomson, Mark Mullen",
-   "terms_url": "https://www.atombank.co.uk/legal/",
-   "privacy_url": "https://www.atombank.co.uk/privacy/",
+   "terms_url": "https://www.atombank.co.uk/terms/",
    "x_handle": "atom_bank",
    "countries": [
     "United Kingdom"
@@ -1473,7 +1463,7 @@
    "note": "JPMorgan's UK digital bank.",
    "licence": "UK subsidiary of JPMorgan",
    "terms_url": "https://www.chase.co.uk/gb/en/legal/",
-   "privacy_url": "https://www.chase.co.uk/gb/en/legal/privacy-policy/",
+   "privacy_url": "https://www.chase.co.uk/gb/en/legal/privacy-notice/",
    "x_handle": "ChaseUK",
    "countries": [
     "United Kingdom"
@@ -1502,8 +1492,7 @@
    "note": "Licensed UK bank; social features.",
    "licence": "UK banking licence",
    "founders": "Nazim Valimahomed",
-   "terms_url": "https://www.kroo.com/legal",
-   "privacy_url": "https://www.kroo.com/legal/privacy-policy",
+   "terms_url": "https://kroo.com/documents/current-account-terms-and-conditions.html",
    "x_handle": "getkroo",
    "countries": [
     "United Kingdom"
@@ -1565,7 +1554,7 @@
    "note": "SME banking with AI admin assistant.",
    "licence": "E-money",
    "founders": "Eduard Panteleev, Boris Dyakonov",
-   "terms_url": "https://anna.money/terms",
+   "terms_url": "https://anna.money/terms-and-conditions/",
    "privacy_url": "https://anna.money/privacy-policy",
    "x_handle": "ANNA_money",
    "countries": [
@@ -1695,7 +1684,7 @@
    "founders": "Norris Koppel",
    "funding": "~$200M raised",
    "terms_url": "https://monese.com/gb/en/legal",
-   "privacy_url": "https://monese.com/gb/en/legal/privacy-policy",
+   "privacy_url": "https://www.monese.com/privacy",
    "x_handle": "monese",
    "countries": [
     "United Kingdom",
@@ -1771,7 +1760,6 @@
    "note": "Green digital bank; home-efficiency lending.",
    "story": "Pivoted from challenger #2 to a green lender financing home decarbonisation.",
    "licence": "UK banking licence",
-   "terms_url": "https://www.tandem.co.uk/legal-stuff",
    "privacy_url": "https://www.tandem.co.uk/privacy-policy",
    "x_handle": "tandem",
    "countries": [
@@ -1801,8 +1789,7 @@
    "note": "Shariah-aligned, ethics-first UK fintech.",
    "story": "Shariah-compliant, values-based finance for the two billion people underserved on ethics.",
    "founders": "Zeiad Idris, Fizel Nejabat",
-   "terms_url": "https://algbra.com/terms/",
-   "privacy_url": "https://algbra.com/privacy/",
+   "terms_url": "https://www.algbra.com/terms-and-conditions/",
    "x_handle": "algbra",
    "countries": [
     "United Kingdom"
@@ -1853,8 +1840,8 @@
    "note": "Halal investing + banking features.",
    "founders": "Junaid Wahedna",
    "funding": "~$75M raised",
-   "terms_url": "https://www.wahed.com/terms-of-use",
-   "privacy_url": "https://www.wahed.com/privacy-policy",
+   "terms_url": "https://www.wahed.com/legal",
+   "privacy_url": "https://www.wahed.com/legal/privacy-policy",
    "x_handle": "WahedInvest",
    "countries": [
     "United States",
@@ -1887,8 +1874,6 @@
    "licence": "German banking licence",
    "founders": "Valentin Stalf, Maximilian Tayenthal",
    "funding": "~$1.8B raised",
-   "terms_url": "https://n26.com/en-eu/terms-and-conditions",
-   "privacy_url": "https://n26.com/en-eu/privacy",
    "x_handle": "n26",
    "countries": [
     "Germany",
@@ -1929,8 +1914,8 @@
    "licence": "Dutch banking licence",
    "founders": "Ali Niknam",
    "funding": "Founder-funded (~€100M of Niknam's own) + raises",
-   "terms_url": "https://www.bunq.com/terms-and-conditions",
-   "privacy_url": "https://www.bunq.com/privacy-statement",
+   "terms_url": "https://www.bunq.com/documents/personal-account-terms-conditions",
+   "privacy_url": "https://www.bunq.com/documents/privacy-policy",
    "x_handle": "bunq",
    "countries": [
     "Netherlands",
@@ -1967,8 +1952,8 @@
    "note": "Cashback + investing; custodial crypto.",
    "founders": "Alexander Emeshev, Artem Yamanov",
    "funding": "~$200M+ raised",
-   "terms_url": "https://vivid.money/en-eu/legal/",
-   "privacy_url": "https://vivid.money/en-eu/privacy/",
+   "terms_url": "https://vivid.money/de-ch/legal-documents/",
+   "privacy_url": "https://vivid.money/de-ch/privacy-policy/",
    "x_handle": "vivid_money",
    "countries": [
     "Germany",
@@ -2095,8 +2080,7 @@
    "licence": "Payment institution (ACPR); pursuing credit licence",
    "founders": "Alexandre Prot, Steve Anavi",
    "funding": "~€620M raised",
-   "terms_url": "https://qonto.com/en/legal",
-   "privacy_url": "https://qonto.com/en/privacy-policy",
+   "privacy_url": "https://qonto.com/en/legal-documents/privacy-notice",
    "x_handle": "getqonto",
    "countries": [
     "France",
@@ -2176,7 +2160,6 @@
    "founders": "Cyril Chiche, Antoine Porte",
    "funding": "~€260M raised",
    "terms_url": "https://www.sumeria.eu/en/legal/",
-   "privacy_url": "https://www.sumeria.eu/en/privacy/",
    "x_handle": "sumeria_app",
    "countries": [
     "France"
@@ -2206,8 +2189,6 @@
    "story": "Opened accounts through 6,500 tobacco shops — banking where French banks refused to go.",
    "founders": "Hugues Le Bret, Ryad Boulanouar",
    "funding": "Acquired by BNP Paribas (2017)",
-   "terms_url": "https://nickel.eu/en/legal-notices",
-   "privacy_url": "https://nickel.eu/en/personal-data",
    "x_handle": "nickel",
    "countries": [
     "France",
@@ -2239,8 +2220,6 @@
    ],
    "note": "France's largest online bank; 7M+ (SocGen).",
    "licence": "Bank (Société Générale)",
-   "terms_url": "https://www.boursobank.com/mentions-legales",
-   "privacy_url": "https://www.boursobank.com/protection-donnees",
    "x_handle": "BoursoBank",
    "countries": [
     "France"
@@ -2314,7 +2293,6 @@
    "licence": "Danish banking licence",
    "founders": "Ken Villum Klausen",
    "funding": "~$500M raised",
-   "terms_url": "https://www.lunar.app/en/terms",
    "privacy_url": "https://www.lunar.app/en/privacy-policy",
    "x_handle": "lunar",
    "countries": [
@@ -2636,8 +2614,7 @@
    "licence": "German full banking licence (2023)",
    "founders": "Christian Hecker, Thomas Pischke, Marco Cancellieri",
    "funding": "~€1.2B raised",
-   "terms_url": "https://traderepublic.com/en-de/legal",
-   "privacy_url": "https://traderepublic.com/en-de/privacy-policy",
+   "privacy_url": "https://assets.traderepublic.com/assets/files/Privacy-Website_en-DE.pdf",
    "x_handle": "traderepublic",
    "countries": [
     "Germany",
@@ -2954,7 +2931,6 @@
    "founders": "Mikheil Lomtadze, Vyacheslav Kim",
    "funding": "Public (KSPI)",
    "terms_url": "https://kaspi.kz/terms",
-   "privacy_url": "https://kaspi.kz/privacy",
    "x_handle": "kaspikz",
    "countries": [
     "Kazakhstan",
@@ -3039,7 +3015,6 @@
    "founders": "David Vélez, Cristina Junqueira, Edward Wible",
    "funding": "Public (NU)",
    "terms_url": "https://nubank.com.br/en/contract/",
-   "privacy_url": "https://nubank.com.br/en/privacy-policy/",
    "x_handle": "nubank",
    "countries": [
     "Brazil",
@@ -3083,7 +3058,6 @@
    "founders": "Pierpaolo Barbieri",
    "funding": "~$850M+ raised",
    "terms_url": "https://www.uala.com.ar/legales",
-   "privacy_url": "https://www.uala.com.ar/legales/privacidad",
    "x_handle": "uala",
    "countries": [
     "Argentina",
@@ -3138,8 +3112,6 @@
    "note": "Mexican credit-led neobank.",
    "founders": "Stefan Möller, Daniel Autrique",
    "funding": "~$500M incl. debt",
-   "terms_url": "https://www.klar.mx/legal",
-   "privacy_url": "https://www.klar.mx/legal/aviso-de-privacidad",
    "x_handle": "klarmx",
    "countries": [
     "Mexico"
@@ -3342,7 +3314,6 @@
    ],
    "note": "35M+ clients; super-app + US account.",
    "licence": "Bank; Public (INTR)",
-   "terms_url": "https://inter.co/termos-de-uso/",
    "privacy_url": "https://inter.co/politica-de-privacidade/",
    "x_handle": "bancointer",
    "countries": [
@@ -3378,7 +3349,6 @@
    "note": "Brazil's largest payments app; crypto + BRL stable rails.",
    "licence": "Payment institution + bank (BCB)",
    "founders": "Anderson Chamon + J&F group",
-   "terms_url": "https://picpay.com/termos-de-uso",
    "privacy_url": "https://picpay.com/politica-de-privacidade",
    "x_handle": "PicPay",
    "countries": [
@@ -3820,7 +3790,6 @@
    "founders": "Kakao consortium",
    "funding": "Public (KRX)",
    "terms_url": "https://www.kakaobank.com/terms",
-   "privacy_url": "https://www.kakaobank.com/privacy",
    "x_handle": "kakaobank",
    "countries": [
     "South Korea"
@@ -4378,8 +4347,7 @@
    ],
    "note": "Grab + Singtel digital bank.",
    "licence": "Digital full bank (MAS)",
-   "terms_url": "https://www.gxs.com.sg/terms",
-   "privacy_url": "https://www.gxs.com.sg/privacy-policy",
+   "terms_url": "https://www.gxs.com.sg/terms-of-use",
    "x_handle": "gxsbank",
    "countries": [
     "Singapore"
@@ -5189,8 +5157,7 @@
    "story": "Flat-fee 'never think about tax again' banking for NZ/AU sole traders.",
    "founders": "James Fuller, Claire Fuller",
    "funding": "~A$70M raised",
-   "terms_url": "https://hnry.co.nz/terms-of-service/",
-   "privacy_url": "https://hnry.co.nz/privacy-policy/",
+   "privacy_url": "https://hnry.co.nz/privacy",
    "x_handle": "hnry_nz",
    "countries": [
     "New Zealand",
@@ -5421,7 +5388,6 @@
    "licence": "MFB + switching licences (NG)",
    "founders": "Tosin Eniolorunda, Felix Ike",
    "funding": "~$180M+; unicorn",
-   "terms_url": "https://moniepoint.com/terms",
    "privacy_url": "https://moniepoint.com/privacy-policy",
    "x_handle": "moniepoint",
    "countries": [
@@ -5605,8 +5571,7 @@
    "licence": "First non-telecom e-money issuer (BCEAO)",
    "founders": "Drew Durbin, Lincoln Quirk",
    "funding": "~$300M+; unicorn",
-   "terms_url": "https://www.wave.com/en/legal/terms/",
-   "privacy_url": "https://www.wave.com/en/legal/privacy/",
+   "privacy_url": "https://www.wave.com/en/privacy/index.html",
    "x_handle": "wave_senegal",
    "countries": [
     "Senegal",
@@ -5759,8 +5724,8 @@
    "note": "USD/GBP/EUR accounts for African freelancers.",
    "founders": "Idorenyin Obong, Femi Aghedo",
    "funding": "YC-backed",
-   "terms_url": "https://grey.co/terms",
-   "privacy_url": "https://grey.co/privacy",
+   "terms_url": "https://grey.co/legal/terms-of-service",
+   "privacy_url": "https://grey.co/legal/privacy-policy",
    "x_handle": "grey_finance",
    "countries": [
     "Nigeria",
@@ -6321,7 +6286,7 @@
    "licence": "Broker-dealer + partner banks; state crypto licences",
    "founders": "Vlad Tenev, Baiju Bhatt",
    "funding": "Public (HOOD)",
-   "terms_url": "https://robinhood.com/us/en/support/articles/disclosure-library/",
+   "terms_url": "https://robinhood.com/us/en/about/legal/",
    "privacy_url": "https://robinhood.com/us/en/support/articles/privacy-policy/",
    "x_handle": "RobinhoodApp",
    "countries": [
@@ -6757,8 +6722,8 @@
    "note": "Bitcoin-rewards card; public co (FLD).",
    "founders": "Will Reeves",
    "funding": "Public (FLD)",
-   "terms_url": "https://foldapp.com/legal/terms",
-   "privacy_url": "https://foldapp.com/legal/privacy",
+   "terms_url": "https://foldapp.com/legal/legal-overview",
+   "privacy_url": "https://foldapp.com/legal/privacy-policy",
    "x_handle": "fold_app",
    "countries": [
     "United States"
@@ -6918,7 +6883,6 @@
    "licence": "Gibraltar banking licence",
    "founders": "Wences Casares",
    "terms_url": "https://www.xapobank.com/en/terms",
-   "privacy_url": "https://www.xapobank.com/en/privacy",
    "x_handle": "xapobank",
    "countries": [
     "Gibraltar",
@@ -6994,7 +6958,7 @@
    ],
    "note": "Multi-asset: crypto, metals, FX.",
    "founders": "Halsey Minor (CNET founder)",
-   "terms_url": "https://uphold.com/legal/terms-of-service",
+   "terms_url": "https://uphold.com/legal",
    "privacy_url": "https://uphold.com/legal/privacy-policy",
    "x_handle": "UpholdInc",
    "countries": [
@@ -7034,7 +6998,7 @@
    ],
    "note": "Crypto credit lines; rewards in credit mode.",
    "founders": "Antoni Trenchev, Kosta Kantchev",
-   "terms_url": "https://nexo.com/general-terms",
+   "terms_url": "https://nexo.com/terms",
    "privacy_url": "https://nexo.com/privacy-policy",
    "x_handle": "Nexo",
    "countries": [
@@ -7116,7 +7080,7 @@
    "story": "Stablecoin-native neobank for the dollar-hungry global middle class; premium metal tiers, HK roots.",
    "funding": "~$70M+ at ~$600M valuation (2026)",
    "terms_url": "https://www.kast.xyz/terms",
-   "privacy_url": "https://www.kast.xyz/privacy",
+   "privacy_url": "https://www.kast.xyz/legal/privacy-policy",
    "x_handle": "Kast_money",
    "countries": [
     "Hong Kong",
@@ -7349,8 +7313,7 @@
    "story": "Argentina's crypto card leader, born in a Patagonian town, scaled on stablecoin savings culture.",
    "founders": "Marcelo Cavazzoli, Borja Martel",
    "funding": "~$60M raised",
-   "terms_url": "https://www.lemon.me/terminos-y-condiciones",
-   "privacy_url": "https://www.lemon.me/politica-de-privacidad",
+   "terms_url": "https://www.lemon.me/terms",
    "x_handle": "lemoncash_ar",
    "countries": [
     "Argentina",
@@ -7489,8 +7452,8 @@
    "story": "Digital-dollar accounts (USDc) that let LatAm users escape peso volatility with a card.",
    "founders": "Fernando Terrés, Zach Garman (ex-Revolut)",
    "funding": "~$60M+ raised",
-   "terms_url": "https://www.dolarapp.com/legal/terms",
-   "privacy_url": "https://www.dolarapp.com/legal/privacy",
+   "terms_url": "https://www.arqfinance.com/en-MX/legal",
+   "privacy_url": "https://www.arqfinance.com/legal/privacy-policy",
    "x_handle": "DolarApp",
    "countries": [
     "Mexico",
@@ -7631,8 +7594,6 @@
    "story": "Ugandan-Ghanaian founders built pan-African P2P; survived the FTX-investor winter and refocused on cards + crypto.",
    "founders": "Ham Serunjogi, Maijid Moujaled",
    "funding": "~$300M raised",
-   "terms_url": "https://chippercash.com/legal/terms-of-service",
-   "privacy_url": "https://chippercash.com/legal/privacy-policy",
    "x_handle": "chippercashapp",
    "countries": [
     "Nigeria",
@@ -7670,8 +7631,8 @@
    "licence": "Licensed/registered in 20+ African markets",
    "founders": "Chris Maurice, Justin Poiroux",
    "funding": "~$85M raised",
-   "terms_url": "https://yellowcard.io/terms-of-use/",
-   "privacy_url": "https://yellowcard.io/privacy-policy/",
+   "terms_url": "https://yellowcard.io/legal",
+   "privacy_url": "https://yellowcard.io/legal/privacy-policy",
    "x_handle": "yellowcard_app",
    "countries": [
     "Nigeria",
@@ -8225,8 +8186,6 @@
    "licence": "E-money via Monavate (UK/EU); funds in your own Safe",
    "founders": "Stefan George, Martin Köppelmann",
    "funding": "~$12.5M raised",
-   "terms_url": "https://gnosispay.com/terms-of-service",
-   "privacy_url": "https://gnosispay.com/privacy-policy",
    "x_handle": "gnosispay",
    "countries": [
     "United Kingdom",
@@ -8288,8 +8247,8 @@
    "licence": "DeFi protocol + issuer partners",
    "founders": "Mike Silagadze",
    "funding": "~$32M + token",
-   "terms_url": "https://www.ether.fi/terms-of-service",
-   "privacy_url": "https://www.ether.fi/privacy-policy",
+   "terms_url": "https://www.ether.fi/legal/terms-of-use",
+   "privacy_url": "https://www.ether.fi/legal/privacy-policy",
    "x_handle": "ether_fi",
    "countries": [
     "Global"
@@ -8411,7 +8370,7 @@
    "founders": "Itamar Lesuisse, Gerald Goldstein",
    "funding": "~$50M raised (as Argent)",
    "terms_url": "https://www.ready.co/terms",
-   "privacy_url": "https://www.ready.co/privacy",
+   "privacy_url": "https://www.ready.co/legal/privacy/ready",
    "x_handle": "ready_co",
    "countries": [
     "United Kingdom",
@@ -8717,7 +8676,7 @@
    "story": "Opera's 2MB stablecoin wallet for the Global South: 10M+ wallets, PIX and Mercado Pago rails, USSD-light design.",
    "founders": "Opera (built on Celo)",
    "terms_url": "https://www.minipay.to/terms",
-   "privacy_url": "https://www.minipay.to/privacy",
+   "privacy_url": "https://minipay.to/privacy-statement",
    "x_handle": "MiniPay",
    "countries": [
     "Nigeria",
@@ -8789,7 +8748,7 @@
    "founders": "Amram Adar, Aharon Miller",
    "funding": "~$25M (Tether-led)",
    "terms_url": "https://oobit.com/terms-of-service",
-   "privacy_url": "https://oobit.com/privacy-policy",
+   "privacy_url": "https://www.oobit.com/legal/privacy-notice",
    "x_handle": "oobit",
    "countries": [
     "Singapore",
@@ -8917,8 +8876,8 @@
    "licence": "PSAN + payment institution (ACPR)",
    "founders": "Jean Meyer + ex-Ledger/Revolut team",
    "funding": "~€16M raised",
-   "terms_url": "https://deblock.com/en-fr/legals",
-   "privacy_url": "https://deblock.com/en-fr/legals/privacy",
+   "terms_url": "https://deblock.com/legal/terms",
+   "privacy_url": "https://deblock.com/legal/privacy",
    "x_handle": "DeblockApp",
    "countries": [
     "France",
@@ -8947,8 +8906,7 @@
    ],
    "note": "Spend USDC anywhere Mastercard works.",
    "licence": "AFSL partners; Mastercard APAC program",
-   "terms_url": "https://www.stables.money/terms-of-service",
-   "privacy_url": "https://www.stables.money/privacy-policy",
+   "privacy_url": "https://www.stables.money/legal/privacy-policy",
    "x_handle": "stablesmoney",
    "countries": [
     "Australia",
@@ -8980,7 +8938,6 @@
    "note": "Swiss-licensed; your account is an NFT on Arbitrum.",
    "story": "Your bank account is literally an NFT on Arbitrum; Swiss-regulated, onchain-settled.",
    "licence": "Swiss fintech licence (FINMA)",
-   "terms_url": "https://fiat24.com/terms",
    "privacy_url": "https://fiat24.com/privacy",
    "x_handle": "Fiat24Official",
    "countries": [
@@ -9145,7 +9102,7 @@
    "story": "Self-custody 'deobank' thesis from Lagos: your keys, your dollars, your card.",
    "founders": "Yele Bademosi",
    "terms_url": "https://onboard.xyz/terms",
-   "privacy_url": "https://onboard.xyz/privacy",
+   "privacy_url": "https://www.onboard.xyz/privacy-policy",
    "x_handle": "onboardglobal",
    "countries": [
     "Nigeria",
@@ -9208,8 +9165,7 @@
    "note": "Swissquote x PostFinance app; custodial crypto trading.",
    "licence": "On Swissquote's banking licence",
    "founders": "Swissquote x PostFinance JV",
-   "terms_url": "https://www.yuh.com/en/legal-documents",
-   "privacy_url": "https://www.yuh.com/en/privacy",
+   "terms_url": "https://www.yuh.com/en/legal/",
    "x_handle": "yuh_app",
    "countries": [
     "Switzerland"
@@ -9238,8 +9194,6 @@
    "note": "Switzerland's leading independent neobank app.",
    "licence": "Partner: Hypothekarbank Lenzburg",
    "founders": "Jörg Sandrock + team",
-   "terms_url": "https://www.neon-free.ch/en/legal/",
-   "privacy_url": "https://www.neon-free.ch/en/privacy/",
    "x_handle": "neon_switzerland",
    "countries": [
     "Switzerland"
@@ -9429,7 +9383,7 @@
    "licence": "MPI (MAS)",
    "founders": "Andrea Baronchelli + 3",
    "funding": "~$300M raised",
-   "terms_url": "https://aspireapp.com/terms-of-service",
+   "terms_url": "https://aspireapp.com/tnc/master-service-agreement",
    "privacy_url": "https://aspireapp.com/privacy-policy",
    "x_handle": "AspireApp",
    "countries": [
@@ -9462,8 +9416,6 @@
    "note": "Travel wallet for SG/TH/MY.",
    "founders": "Caecilia Chu, Arthur Mak",
    "funding": "~$100M+ raised",
-   "terms_url": "https://www.you.co/sg/terms/",
-   "privacy_url": "https://www.you.co/sg/privacy/",
    "x_handle": "YouTripApp",
    "countries": [
     "Singapore",
@@ -9517,8 +9469,7 @@
    "note": "US accounts + investing for Brazilians.",
    "founders": "Lucas Vargas, Patrick Sigrist",
    "funding": "~$60M raised",
-   "terms_url": "https://www.nomadglobal.com/termos-de-uso",
-   "privacy_url": "https://www.nomadglobal.com/politica-de-privacidade",
+   "terms_url": "https://www.nomadglobal.com/legal",
    "x_handle": "nomadglobal",
    "countries": [
     "Brazil",
@@ -9588,7 +9539,7 @@
    "licence": "Open-source self-custodial software",
    "founders": "DC Posch, Nalin Bhardwaj",
    "funding": "~$7M raised",
-   "terms_url": "https://daimo.com/terms",
+   "terms_url": "https://daimo.com/terms-of-use",
    "privacy_url": "https://daimo.com/privacy",
    "x_handle": "daimo_eth",
    "countries": [
@@ -9644,8 +9595,6 @@
     "MENA"
    ],
    "note": "Bahrain telco-backed financial super-app.",
-   "terms_url": "https://www.beyonmoney.com/terms",
-   "privacy_url": "https://www.beyonmoney.com/privacy",
    "x_handle": "beyonmoney",
    "countries": [
     "Bahrain"
@@ -9703,7 +9652,6 @@
     "Latin America"
    ],
    "note": "USDC neobank for Venezuela + LatAm corridors.",
-   "terms_url": "https://www.kontigo.lat/terms",
    "privacy_url": "https://www.kontigo.lat/privacy",
    "x_handle": "kontigoapp",
    "countries": [
@@ -9834,7 +9782,6 @@
    ],
    "note": "Neobank for African diaspora in Europe.",
    "terms_url": "https://moneco.app/terms",
-   "privacy_url": "https://moneco.app/privacy",
    "x_handle": "moneco_app",
    "countries": [
     "France",
