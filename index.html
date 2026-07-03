@@ -3,9 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>neobankbeat · who watches the neobanks?</title>
+<title>neobankbeat · 357 neobanks compared — traditional, hybrid &amp; web3-native</title>
+<meta name="description" content="Open-source directory of 357 verified-active neobanks — traditional, hybrid crypto & web3-native. Compare custody, cards, yield, stablecoins & regulation side by side.">
+<link rel="canonical" href="https://www.neobankbeat.com/">
+<meta name="theme-color" content="#0A0A10">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="neobankbeat · who watches the neobanks?">
+<meta property="og:description" content="357 verified-active neobanks in one place — traditional, hybrid crypto & web3-native. Compare custody, cards, yield, stablecoins & regulation side by side.">
+<meta property="og:url" content="https://www.neobankbeat.com/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="neobankbeat · who watches the neobanks?">
+<meta name="twitter:description" content="357 verified-active neobanks in one place — traditional, hybrid crypto & web3-native. Compare custody, cards, yield, stablecoins & regulation.">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:image:alt" content="neobankbeat — independent directory of 357 neobanks">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/json" href="/data.json" title="neobankbeat dataset (JSON)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.google.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://www.neobankbeat.com/#website","url":"https://www.neobankbeat.com/","name":"neobankbeat","alternateName":"who watches the neobanks?","description":"Open-source directory of 357 verified-active neobanks — traditional, hybrid crypto and web3-native — compared on custody, cards, yield, stablecoins and regulation.","inLanguage":"en"},
+{"@type":"Dataset","@id":"https://www.neobankbeat.com/#dataset","name":"neobankbeat neobank directory","description":"357 verified-active neobanks with custody, card network, cashback, yield, stablecoin support, KYC posture, audience niche, regulation type and geography fields. Updated in the open on GitHub.","url":"https://www.neobankbeat.com/","sameAs":"https://github.com/andreolf/neobankbeat","license":"https://opensource.org/license/mit/","isAccessibleForFree":true,"creator":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"keywords":["neobank","digital bank","fintech","challenger bank","stablecoin","crypto card","web3","self-custody"],"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://www.neobankbeat.com/data.json"}]}
+]}
+</script>
 <style>
 :root{
   --bg:#0A0A10; --panel:#12121A; --panel2:#171722; --line:#23232F;
@@ -25,6 +54,8 @@ body.bw{
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--bg);font-family:var(--mono);font-size:13px;font-weight:700;padding:10px 18px;border-radius:0 0 8px 0;text-decoration:none}
+.skip:focus{left:0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 body{background:var(--bg);color:var(--text);font-family:var(--disp);font-size:15px;line-height:1.5;transition:background .2s}
 a{color:inherit}
@@ -85,7 +116,7 @@ select{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border-radius:8
 .count{max-width:1320px;margin:18px auto 0;padding:0 24px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
 .count b{color:var(--text)}
 
-.grid{max-width:1320px;margin:14px auto 40px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.grid{max-width:1320px;margin:14px auto 40px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:14px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s, transform .15s}
 .card:hover{border-color:var(--muted);transform:translateY(-1px)}
 .card.featured{border-color:var(--accent);background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,transparent),var(--panel) 55%)}
@@ -124,7 +155,7 @@ body.bw .chip{border:1px solid currentColor}
 .tray .go{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:13px;background:var(--accent);color:var(--bg);border:none;padding:9px 20px;border-radius:8px}
 .tray .go:disabled{opacity:.4;cursor:not-allowed}
 
-.overlay{position:fixed;inset:0;z-index:70;background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(8px);display:none;overflow:auto;padding:40px 24px 80px}
+.overlay{position:fixed;inset:0;z-index:70;background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(8px);display:none;overflow:auto;padding:40px 24px 80px;overscroll-behavior:contain}
 .overlay.show{display:block}
 .ov-wrap{max-width:1240px;margin:0 auto}
 .ov-head{display:flex;align-items:center;margin-bottom:24px}
@@ -141,7 +172,21 @@ table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight
 .about h2{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
 .about p{color:var(--muted);max-width:780px;font-size:13.5px;margin-bottom:10px}
 footer{max-width:1320px;margin:30px auto 0;padding:24px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line)}
-@media(max-width:640px){.hwrap{padding:12px 16px}.hero,.spectrum,.controls,.count,.grid,.about,footer{padding-left:16px;padding-right:16px}.statrow{gap:24px}}
+@media(max-width:640px){
+  .hwrap{padding:10px 16px;gap:10px;flex-wrap:wrap}
+  .hnav{margin-left:0;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;gap:14px;padding-bottom:3px}
+  .hnav::-webkit-scrollbar{display:none}
+  .hero{padding-top:34px}
+  .hero,.spectrum,.controls,.count,.grid,.about,footer{padding-left:16px;padding-right:16px}
+  .statrow{gap:24px}
+  .stat .n{font-size:24px}
+  .filterrow{gap:8px}
+  .tray{padding:10px 16px}
+}
+@media(pointer:coarse){
+  .pill,.chk,.dd-btn,.cmp-btn,.mchip{padding-top:10px;padding-bottom:10px}
+  .hnav a{padding:6px 0}
+}
 
 /* ── world map ── */
 .card{cursor:pointer}
@@ -491,10 +536,11 @@ body.on-map .minimap{display:none}
 </head>
 <body>
 
+<a class="skip" href="#directory">skip to directory</a>
 <header>
   <div class="hwrap">
     <div class="logo">neobank<span class="dot">beat</span></div>
-    <nav class="hnav">
+    <nav class="hnav" aria-label="Primary">
       <a href="#directory" id="navdir">directory</a>
       <a href="#newssec">news</a>
       <a href="#datasec">data</a>
@@ -509,12 +555,15 @@ body.on-map .minimap{display:none}
   <h1>who watches the <em>neobanks</em>?</h1>
   <p class="sub">Every neobank in one place — from Chime, Nubank and Kaspi to Gnosis Pay, women-first banks and agent wallets. Compare custody, cards, yield, stablecoins, audience and geography, side by side.</p>
   <div class="statrow">
-    <div class="stat"><div class="n" id="st-total">0</div><div class="l">neobanks tracked</div></div>
-    <div class="stat t"><div class="n" id="st-t">0</div><div class="l">traditional</div></div>
-    <div class="stat h"><div class="n" id="st-h">0</div><div class="l">hybrid crypto</div></div>
-    <div class="stat w"><div class="n" id="st-w">0</div><div class="l">web3-native</div></div>
-    <div class="stat"><div class="n" id="st-n">0</div><div class="l">niche audiences</div></div>
+    <div class="stat"><div class="n" id="st-total">357</div><div class="l">neobanks tracked</div></div>
+    <div class="stat t"><div class="n" id="st-t">256</div><div class="l">traditional</div></div>
+    <div class="stat h"><div class="n" id="st-h">54</div><div class="l">hybrid crypto</div></div>
+    <div class="stat w"><div class="n" id="st-w">47</div><div class="l">web3-native</div></div>
+    <div class="stat"><div class="n" id="st-n">117</div><div class="l">niche audiences</div></div>
   </div>
+  <noscript>
+    <p class="sub" style="margin-top:20px">This directory renders with JavaScript. Without it, you can still get everything: the full machine-readable dataset at <a href="/data.json">/data.json</a>, an agent guide at <a href="/llms.txt">/llms.txt</a>, and the open-source data on <a href="https://github.com/andreolf/neobankbeat">GitHub</a>.</p>
+  </noscript>
 </section>
 
 <section class="spectrum" aria-label="Custody spectrum of current results">
@@ -623,6 +672,7 @@ body.on-map .minimap{display:none}
 
 <footer>
   Figures compiled from public sources (July 2026), for comparison only — not financial advice. neobankbeat is independent and unaffiliated with any issuer. Enrichment roadmap: fee schedules, FX margins, ATM policies, licence registers, funding rounds, MAU.
+  <div class="credit" style="margin-bottom:6px">machine-readable: <a href="/data.json">data.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github source</a></div>
   <div class="credit">made with ❤ &amp; 🦊 by <a href="https://www.francesco-andreoli.com" target="_blank" rel="noopener">francesco</a> · still early</div>
 </footer>
 
@@ -746,7 +796,7 @@ const D=[
 ["Uzum","T","Europe","Tashkent, UZ",2022,"C","MC (dom.)","Debit","In-app offers","—",0,"Y","g","uzum.uz","Uzbekistan's super-app + digital bank."],
 ["TBC UZ","T","Europe","Tashkent, UZ",2020,"C","MC","Debit","—","Deposits",0,"Y","g","tbcbank.uz","TBC's Uzbek digital bank; 20M+ registered."],
 /* ══ TRADITIONAL · LATAM ══ */
-["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","100M+ customers; custodial crypto; US OCC conditional approval."],
+["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","131M customers (FY25); custodial crypto; US OCC conditional approval."],
 ["Ualá","T","LatAm","Buenos Aires, AR",2017,"C","MC","Prepaid + credit","—","Remunerated account",1,"Y","g","uala.com.ar","AR/MX/CO; added crypto + dollar features."],
 ["albo","T","LatAm","Mexico City, MX",2016,"C","MC","Debit","—","—",0,"Y","g","albo.mx","One of Mexico's first challengers."],
 ["Klar","T","LatAm","Mexico City, MX",2019,"C","MC","Debit + credit","Up to 4%","Cetes-linked yield",0,"Y","g","klar.mx","Mexican credit-led neobank."],
@@ -1066,7 +1116,7 @@ function currentList(){
 function logoHTML(dom,name){
   const initial=esc(name.replace(/^the /i,"").charAt(0).toUpperCase());
   if(!dom)return `<div class="logo-box"><div class="logo-fb" style="display:flex">${initial}</div></div>`;
-  return `<div class="logo-box"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="logo-fb">${initial}</div></div>`;
+  return `<div class="logo-box"><img loading="lazy" alt="${esc(name)} logo" src="https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="logo-fb">${initial}</div></div>`;
 }
 function render(){
   const list=currentList();
@@ -1107,7 +1157,15 @@ function render(){
 /* ── compare ── */
 function toggleCmp(name){
   if(cmp.has(name))cmp.delete(name);
-  else{if(cmp.size>=4){alert("Max 4 side by side — remove one first.");return}cmp.add(name)}
+  else{
+    if(cmp.size>=4){
+      const hint=document.getElementById('trayhint');
+      if(hint)hint.textContent="max 4 side by side — remove one first";
+      else alert("Max 4 side by side — remove one first.");
+      return;
+    }
+    cmp.add(name);
+  }
   renderTray();render();
 }
 function renderTray(){
@@ -1127,8 +1185,13 @@ document.getElementById('gocmp').addEventListener('click',()=>{
   FIELDS.forEach(([label,fn])=>{html+=`<tr><th>${label}</th>${rows.map(r=>`<td>${esc(fn(r))}</td>`).join("")}</tr>`});
   document.getElementById('cmptable').innerHTML=html;
   document.getElementById('overlay').classList.add('show');
+  document.getElementById('ovclose').focus();
 });
 document.getElementById('ovclose').addEventListener('click',()=>document.getElementById('overlay').classList.remove('show'));
+/* backdrop click closes the compare overlay too */
+document.getElementById('overlay').addEventListener('click',e=>{
+  if(e.target.id==='overlay'||e.target.classList.contains('ov-wrap'))document.getElementById('overlay').classList.remove('show');
+});
 document.addEventListener('keydown',e=>{if(e.key==="Escape")document.getElementById('overlay').classList.remove('show')});
 
 /* ── controls ── */
@@ -1579,13 +1642,25 @@ function openDetail(name){
   document.getElementById('dclose').addEventListener('click',closeDetail);
   document.getElementById('dcmp').addEventListener('click',()=>{toggleCmp(n);closeDetail();});
 }
-function closeDetail(){document.getElementById('detail').classList.remove('show')}
-document.getElementById('detail').addEventListener('click',e=>{if(e.target.id==="detail")closeDetail()});
+function closeDetail(){
+  document.getElementById('detail').classList.remove('show');
+  if(window.__lastFocus){try{window.__lastFocus.focus()}catch(_){}window.__lastFocus=null}
+}
+/* backdrop click closes: #dwrap spans the full width, so the dark area beside the modal is #dwrap, not #detail */
+document.getElementById('detail').addEventListener('click',e=>{if(e.target.id==="detail"||e.target.id==="dwrap")closeDetail()});
 document.addEventListener('keydown',e=>{if(e.key==="Escape")closeDetail()});
 /* click any card (except the compare button) to open its profile */
 document.getElementById('grid').addEventListener('click',e=>{
   if(e.target.closest('.cmp-btn'))return;
   const card=e.target.closest('.card');if(!card)return;
+  const nm=card.querySelector('.cname');if(nm)openDetail(nm.textContent);
+});
+/* keyboard: Enter/Space on a focused card opens its profile */
+document.getElementById('grid').addEventListener('keydown',e=>{
+  if(e.key!=="Enter"&&e.key!==" ")return;
+  if(e.target.closest('.cmp-btn'))return;
+  const card=e.target.closest('.card');if(!card)return;
+  e.preventDefault();
   const nm=card.querySelector('.cname');if(nm)openDetail(nm.textContent);
 });
 render();
@@ -1818,7 +1893,7 @@ function render(){
     const [name,c,reg,hq,f,cu,nw,ct,cb,y,st,kyc,ni,dom,note]=r;
     const on=cmp.has(name);
     const feat=name==="MetaMask"?" featured":"";
-    return '<article class="card'+feat+'" title="view profile">'+
+    return '<article class="card'+feat+'" title="view profile" tabindex="0" role="button" aria-label="view '+esc(name)+' profile">'+
       '<div class="chead">'+logoHTML(dom,name)+
         '<div><div class="cname">'+esc(name)+'</div><div class="cmeta">'+esc(hq)+' · est. '+f+'</div></div>'+
         '<span class="chip '+c+'">'+CATNAME[c]+'</span></div>'+
@@ -1866,7 +1941,7 @@ function openDetail(name){
     '<div class="phero">'+
       '<button class="pclose" id="dclose">close ✕</button>'+
       '<div class="pherotop">'+
-        '<div class="plogo">'+(dom?'<img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(dom)+'&sz=64" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
+        '<div class="plogo">'+(dom?'<img loading="lazy" alt="'+esc(n)+' logo" src="https://www.google.com/s2/favicons?domain='+esc(dom)+'&sz=64" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
         '<div><div class="pname">'+esc(n)+'</div>'+
         (dom?'<div class="pdomain">'+esc(dom)+' · est. '+f+'</div>':'<div class="pdomain">est. '+f+'</div>')+
         '<div class="pchips"><span class="chip '+c+'">'+CATNAME[c]+'</span>'+
@@ -2006,7 +2081,7 @@ function openDetail(name){
     '<div class="phero">'+
       '<button class="pclose" id="dclose">close ✕</button>'+
       '<div class="pherotop">'+
-        '<div class="plogo">'+(dom?'<img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(dom)+'&sz=64" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
+        '<div class="plogo">'+(dom?'<img loading="lazy" alt="'+esc(n)+' logo" src="https://www.google.com/s2/favicons?domain='+esc(dom)+'&sz=64" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
         '<div><div class="pname">'+esc(n)+'</div>'+
         (dom?'<div class="pdomain">'+esc(dom)+' · est. '+f+'</div>':'<div class="pdomain">est. '+f+'</div>')+
         '<div class="pchips"><span class="chip '+c+'">'+CATNAME[c]+'</span>'+
@@ -2034,6 +2109,7 @@ function openDetail(name){
   '</div>';
   document.getElementById('detail').classList.add('show');
   document.getElementById('dclose').addEventListener('click',closeDetail);
+  document.getElementById('dclose').focus();
   document.getElementById('dcmp').addEventListener('click',()=>{toggleCmp(n);closeDetail();});
   document.querySelectorAll('#dwrap [data-peer]').forEach(p=>p.addEventListener('click',()=>openDetail(p.dataset.peer)));
 }
@@ -2421,7 +2497,10 @@ function countriesOf(r){
 /* ── enrich profiles: verified legal links, X handle, LinkedIn, countries ── */
 const _openDetail_v9=openDetail;
 openDetail=function(name){
+  /* remember where focus came from (unless navigating peer→peer inside an open profile) */
+  if(!document.getElementById('detail').classList.contains('show'))window.__lastFocus=document.activeElement;
   _openDetail_v9(name);
+  document.getElementById('detail').scrollTop=0; /* peer→peer navigation shouldn't inherit scroll position */
   const r=D.find(x=>x[0]===name);if(!r)return;
   const v=V[name]||{};
   const dwrap=document.getElementById('dwrap');
@@ -2527,37 +2606,14 @@ window.showRegion=function(code){
 };
 if(mapFilter)showRegion(mapFilter);
 
-/* ── intake: pre-filled GitHub issue forms ── */
+/* ── intake: GitHub issue forms (must use template=, GitHub's chooser drops body prefills) ── */
 (function buildIntake(){
-  const REPO='https://github.com/francescoandreoli/neobankbeat'; /* swap to your repo on deploy */
-  const addBody=encodeURIComponent(`## new neobank submission
-
-**name:**
-**category:** traditional / hybrid / web3-native
-**custody:** custodial / self-custodial / MPC / mixed
-**HQ + founding year:**
-**countries of operation:**
-**audience niche (if any):** general / women / gen z / immigrants / …
-**card network + type:**
-**cashback / yield:**
-**stablecoin support:** yes / no
-**official domain:**
-**X handle:**
-**terms & conditions URL:**
-**founders (+ LinkedIn):**
-**anything else:**`);
-  const fixBody=encodeURIComponent(`## data correction
-
-**neobank name:**
-**field(s) to correct:**
-**current value on neobankbeat:**
-**correct value:**
-**source / link proving it:**`);
+  const REPO='https://github.com/andreolf/neobankbeat';
   document.getElementById('newssec').insertAdjacentHTML('beforebegin',
     '<section class="intake"><div class="intakecard">'+
     '<div class="it-txt"><h2>know a neobank we\'re missing?</h2><p>submissions + corrections happen in the open, on github. pre-filled issue templates — takes a minute.</p></div>'+
-    '<a class="itbtn add" target="_blank" rel="noopener" href="'+REPO+'/issues/new?labels=new-neobank&title='+encodeURIComponent('[intake] add: <neobank name>')+'&body='+addBody+'">+ submit a neobank</a>'+
-    '<a class="itbtn fix" target="_blank" rel="noopener" href="'+REPO+'/issues/new?labels=data-fix&title='+encodeURIComponent('[fix] <neobank name>: <field>')+'&body='+fixBody+'">suggest a correction</a>'+
+    '<a class="itbtn add" target="_blank" rel="noopener" href="'+REPO+'/issues/new?labels=new-neobank&template=new-neobank.yml">+ submit a neobank</a>'+
+    '<a class="itbtn fix" target="_blank" rel="noopener" href="'+REPO+'/issues/new?labels=data-fix&template=data-fix.yml">suggest a correction</a>'+
     '</div></section>');
 })();
 
@@ -2606,7 +2662,7 @@ render();
     return {y,t:rows.filter(r=>r[1]==="T").length,h:rows.filter(r=>r[1]==="H").length,w:rows.filter(r=>r[1]==="W").length};
   });
   const maxTot=Math.max(...buckets.map(b=>b.t+b.h+b.w));
-  cards[1].innerHTML='<h2>the neobank waves</h2><div class="dsub">founding year of the 346 tracked entities, stacked by category · <b style="color:var(--t)">traditional</b> → <b style="color:var(--h)">hybrid</b> → <b style="color:var(--w)">web3-native</b> · click a column for the split</div>'+
+  cards[1].innerHTML='<h2>the neobank waves</h2><div class="dsub">founding year of the '+D.length+' tracked entities, stacked by category · <b style="color:var(--t)">traditional</b> → <b style="color:var(--h)">hybrid</b> → <b style="color:var(--w)">web3-native</b> · click a column for the split</div>'+
     '<div class="wv2">'+buckets.map((b,i)=>{
       const tot=b.t+b.h+b.w;
       if(!tot)return '<div class="wcol" data-i="'+i+'" title="'+b.y+': none tracked"><div class="wstub"></div></div>';
@@ -2618,7 +2674,7 @@ render();
     }).join("")+'</div>'+
     '<div class="wlbls">'+buckets.map(b=>'<span>'+(b.y==="<2010"?"pre-’10":"’"+b.y.slice(2))+'</span>').join("")+'</div>'+
     '<div id="wvsplit"><span class="hint">click a year column to see its category split</span></div>'+
-    '<div class="chsrc">source: computed live from the neobankbeat dataset (346 verified-active entities; founding years from filings &amp; company pages). years with no tracked launches show a baseline tick — e.g. 2010 sits in the quiet gap between the first challenger wave and the mobile-first boom.</div>';
+    '<div class="chsrc">source: computed live from the neobankbeat dataset ('+D.length+' verified-active entities; founding years from filings &amp; company pages). years with no tracked launches show a baseline tick — e.g. 2010 sits in the quiet gap between the first challenger wave and the mobile-first boom.</div>';
   cards[1].querySelectorAll('.wcol').forEach(col=>col.addEventListener('click',()=>{
     cards[1].querySelectorAll('.wcol').forEach(c=>c.classList.remove('on'));
     col.classList.add('on');
@@ -2720,8 +2776,9 @@ render();
   };
   const HREF2VIEW={'#directory':'directory','#mapsec':'map','#datasec':'data','#newssec':'news','#methodology':'methodology','#library':'library'};
   let current='directory';
-  window.showView=function(v){
+  window.showView=function(v,skipPush){
     if(!VIEWS[v])return;
+    const same=current===v;
     current=v;
     Object.entries(VIEWS).forEach(([name,sels])=>sels.forEach(s=>{
       const el=$(s);if(!el)return;
@@ -2729,8 +2786,14 @@ render();
       if(name===v)el.classList.add('viewfade');else el.classList.remove('viewfade');
     }));
     document.querySelectorAll('.hnav a').forEach(a=>a.classList.toggle('on',HREF2VIEW[a.getAttribute('href')]===v));
-    history.replaceState(null,'','#'+(v==='directory'?'directory':VIEWS[v][0].replace(/[.#]/,'')));
-    window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
+    /* directory = the homepage: keep its URL clean, no hash */
+    const url=v==='directory'?location.pathname+location.search:'#'+VIEWS[v][0].replace(/[.#]/,'');
+    /* real history entries so the browser back button walks tabs instead of leaving the site */
+    try{
+      if(skipPush||same)history.replaceState(null,'',url);
+      else history.pushState(null,'',url);
+    }catch(_){/* file:// previews can reject history writes */}
+    window.scrollTo({top:0,behavior:'instant'});
   };
   document.body.classList.add('viewmode');
   /* nav + footer + pointer links switch views */
@@ -2751,10 +2814,15 @@ render();
     if(e.target.closest('.heat td[data-hm]')||e.target.closest('.mi-cty'))showView('directory');
   },true);
   /* wave/user chart name clicks open profiles (overlay — no view switch needed) */
+  /* back/forward buttons walk the view history */
+  window.addEventListener('popstate',()=>{
+    const v=HREF2VIEW[location.hash]||'directory';
+    showView(v,true);
+  });
   /* initial view from hash */
   const h=location.hash;
   const initial=Object.entries(HREF2VIEW).find(([href])=>href===h);
-  showView(initial?initial[1]:(h==='#library'?'library':'directory'));
+  showView(initial?initial[1]:(h==='#library'?'library':'directory'),true);
 })();
 render();
 </script>
@@ -2806,7 +2874,7 @@ render();
   window.setMap=function(code){_setMap_mm(code);syncActive();};
   /* hide on the full-map view (redundant there) */
   const _showView_mm=window.showView;
-  window.showView=function(v){_showView_mm(v);document.body.classList.toggle('on-map',v==='map');};
+  window.showView=function(v,skipPush){_showView_mm(v,skipPush);document.body.classList.toggle('on-map',v==='map');};
   document.body.classList.toggle('on-map',location.hash==='#mapsec');
   syncActive();
 })();
@@ -2820,8 +2888,8 @@ render();
   const grid=document.getElementById('grid');
   if(intake&&grid)grid.insertAdjacentElement('afterend',intake);
   const _sv=window.showView;
-  window.showView=function(v){
-    _sv(v);
+  window.showView=function(v,skipPush){
+    _sv(v,skipPush);
     document.body.dataset.view=v;
     if(intake)intake.style.display=(v==='directory'||v==='news')?'':'none';
   };

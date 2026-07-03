@@ -241,8 +241,8 @@ ok(it!==null,'intake card exists');
 const addBtn=it.querySelector('.itbtn.add');
 ok(addBtn.href.includes('github.com')&&addBtn.href.includes('issues/new'),'submit goes to GitHub issues');
 ok(addBtn.href.includes('labels=new-neobank'),'issue pre-labeled');
-ok(decodeURIComponent(addBtn.href).includes('custody'),'template pre-filled with schema fields');
-ok(it.querySelector('.itbtn.fix').href.includes('data-fix'),'correction template present');
+ok(addBtn.href.includes('template=new-neobank.yml'),'links to the issue-form template (chooser drops body prefills)');
+ok(it.querySelector('.itbtn.fix').href.includes('template=data-fix.yml'),'correction template present');
 
 
 console.log('— flow 18: v10 chart fixes + wave splits + library');
@@ -367,6 +367,21 @@ ok(d.querySelector('#grid').style.display!=='none'&&!countText().includes('showi
 click(d.getElementById('navdir'));
 ok([...d.querySelectorAll('footer a')].some(a=>a.href.includes('issues/new')&&a.textContent.includes('submit')),'footer has the submit-a-neobank link');
 ok([...d.querySelectorAll('footer')].some(f=>f.textContent.includes('open source')),'footer declares open source');
+
+console.log('— flow 22: overlay backdrop clicks close');
+w.openDetail('Chime');
+ok(d.getElementById('detail').classList.contains('show'),'profile open');
+click(d.querySelector('#dwrap .pname')); // click INSIDE the modal must not close it
+ok(d.getElementById('detail').classList.contains('show'),'click inside modal keeps it open');
+click(d.getElementById('dwrap')); // dark area beside the modal
+ok(!d.getElementById('detail').classList.contains('show'),'backdrop click closes profile');
+click(d.querySelectorAll('#grid .cmp-btn')[0]);
+click(d.querySelectorAll('#grid .cmp-btn')[1]);
+click(d.getElementById('gocmp'));
+ok(d.getElementById('overlay').classList.contains('show'),'compare open');
+click(d.getElementById('overlay'));
+ok(!d.getElementById('overlay').classList.contains('show'),'backdrop click closes compare');
+click(d.getElementById('tclear'));
 
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');

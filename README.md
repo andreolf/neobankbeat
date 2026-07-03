@@ -4,7 +4,13 @@
 
 inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://l2beat.com). built accordingly.
 
-**live:** deploy `index.html` anywhere — it's a single self-contained file (Vercel: drop it in, done).
+**live:** [neobankbeat.com](https://www.neobankbeat.com) — deploy the repo root anywhere static (Vercel: drop it in, done). `index.html` is fully self-contained; the root also ships `data.json`, `llms.txt`, `robots.txt`, `sitemap.xml` and the OG/icon images.
+
+## for machines & AI agents
+
+- **[`data.json`](https://www.neobankbeat.com/data.json)** — the full dataset as clean JSON (all 357 entities, every field, with sources). Regenerated from `index.html` via `cd tests && node export-data.js`.
+- **[`llms.txt`](https://www.neobankbeat.com/llms.txt)** — agent-oriented guide: what this site is, data semantics, how to cite it.
+- JSON-LD (`WebSite` + `Dataset`) is embedded in the page head.
 
 ## what's inside
 
@@ -35,6 +41,12 @@ the whole dataset lives in `index.html` as `const D=[...]` (one row per entity) 
 
 ```bash
 cd tests && npm install && node flowtest.js
+```
+
+after changing the dataset (`D` / `X` / `V`), regenerate the JSON export:
+
+```bash
+cd tests && node export-data.js
 ```
 
 ## license

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.neobankbeat.com/sitemap.xml
+
+# Machine-readable dataset for crawlers and AI agents:
+# https://www.neobankbeat.com/data.json
+# https://www.neobankbeat.com/llms.txt
