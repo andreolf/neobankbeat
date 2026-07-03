@@ -25,7 +25,6 @@ inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://
 ## the dataset at a glance
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'pie1':'#89B0FF','pie2':'#D075FF','pie3':'#BAF24A','pieTitleTextColor':'#888','pieSectionTextSize':'14px'}}}%%
 pie showData title 357 neobanks by category
     "traditional (fiat, custodial)" : 256
     "hybrid (fiat + custodial crypto)" : 54
