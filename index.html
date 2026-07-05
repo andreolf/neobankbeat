@@ -173,7 +173,18 @@ table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight
 .about{max-width:1320px;margin:0 auto;padding:30px 24px 10px;border-top:1px solid var(--line)}
 .about h2{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
 .about p{color:var(--muted);max-width:780px;font-size:13.5px;margin-bottom:10px}
-footer{max-width:1320px;margin:30px auto 0;padding:24px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line)}
+footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:26px}
+.fcol h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
+.fcol h4::before{content:"—— ";color:var(--accent)}
+.fcol a{display:block;color:var(--dim);text-decoration:none;font-size:11.5px;padding:3px 0}
+.fcol a:hover{color:var(--accent)}
+.fnote{border-top:1px solid var(--line);padding-top:14px;max-width:900px}
+.fbar{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:10px}
+.fmeta a{color:var(--dim)}
+.fmeta a:hover{color:var(--accent)}
+@media(max-width:880px){.fgrid{grid-template-columns:repeat(2,1fr);gap:20px}}
+@media(max-width:480px){.fgrid{grid-template-columns:1fr}}
 @media(max-width:640px){
   .hwrap{padding:10px 16px;gap:10px;flex-wrap:wrap}
   .hnav{margin-left:0;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;gap:14px;padding-bottom:3px}
@@ -505,8 +516,9 @@ body.viewmode .logo{cursor:pointer}
 .curvenote{font-family:var(--mono);font-size:11px;color:var(--muted);border-left:2px solid var(--accent);padding:8px 12px;margin-top:12px;line-height:1.7;background:var(--panel2);border-radius:0 8px 8px 0}
 
 /* ═══ v12 · floating mini-map ═══ */
-.minimap{position:fixed;right:16px;bottom:96px;z-index:60;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:10px 12px 9px;box-shadow:0 8px 30px rgba(0,0,0,.45);transition:transform .15s}
+.minimap{position:fixed;right:16px;bottom:96px;z-index:60;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:10px 12px 9px;box-shadow:0 8px 30px rgba(0,0,0,.45);transition:transform .15s;cursor:grab;touch-action:none;user-select:none}
 .minimap:hover{transform:translateY(-2px);border-color:var(--accent)}
+.minimap.dragging{cursor:grabbing;transform:scale(1.03);transition:none;border-color:var(--accent)}
 .mmhead{display:flex;align-items:center;gap:8px;margin-bottom:7px}
 .mmhead .mmtitle{font-family:var(--mono);font-size:9.5px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;flex:1}
 .mmbtn{background:none;border:1px solid var(--line);border-radius:5px;color:var(--muted);font-family:var(--mono);font-size:10px;line-height:1;padding:3px 6px;cursor:pointer}
@@ -676,9 +688,46 @@ body.on-map .minimap{display:none}
 </section>
 
 <footer>
-  Figures compiled from public sources (July 2026), for comparison only — not financial advice. neobankbeat is independent and unaffiliated with any issuer. Enrichment roadmap: fee schedules, FX margins, ATM policies, licence registers, funding rounds, MAU.
-  <div class="credit" style="margin-bottom:6px">machine-readable: <a href="/data.json">data.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github source</a> · read the <a href="/blog/">blog</a> (<a href="/blog/feed.xml">rss</a>) · <a href="https://neobankbeat.substack.com" target="_blank" rel="noopener">newsletter</a></div>
-  <div class="credit">made with ❤ &amp; 🦊 by <a href="https://www.francesco-andreoli.com" target="_blank" rel="noopener">francesco</a> · still early</div>
+  <div class="fgrid">
+    <nav class="fcol" aria-label="Explore">
+      <h4>explore</h4>
+      <a href="#directory">directory</a>
+      <a href="#mapsec">world map</a>
+      <a href="#datasec">data &amp; charts</a>
+      <a href="#newssec">news</a>
+      <a href="#methodology">methodology</a>
+      <a href="#library">library: reports &amp; resources</a>
+    </nav>
+    <nav class="fcol" aria-label="Publications">
+      <h4>publications</h4>
+      <a href="/blog/">the blog</a>
+      <a href="/report/">state of neobanks · monthly pdf</a>
+      <a href="/report/2026-07/">july edition · read online</a>
+      <a href="https://neobankbeat.substack.com" target="_blank" rel="noopener">newsletter</a>
+      <a href="/blog/feed.xml">rss feed</a>
+    </nav>
+    <nav class="fcol" aria-label="Jobs">
+      <h4>jobs</h4>
+      <a href="/jobs/">all live roles</a>
+      <a href="/jobs/engineering/">engineering</a>
+      <a href="/jobs/compliance/">compliance &amp; risk</a>
+      <a href="/jobs/product/">product</a>
+      <a href="/jobs/data.json">jobs api (json)</a>
+    </nav>
+    <nav class="fcol" aria-label="Open source">
+      <h4>open source</h4>
+      <a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github source</a>
+      <a href="/data.json">data.json</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=new-neobank&amp;template=new-neobank.yml" target="_blank" rel="noopener">+ submit a neobank</a>
+      <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&amp;template=data-fix.yml" target="_blank" rel="noopener">suggest a data fix</a>
+    </nav>
+  </div>
+  <div class="fnote">Figures compiled from public sources (July 2026), for comparison only — not financial advice. neobankbeat is independent and unaffiliated with any issuer. "Up to" cashback and yield figures are headline claims that change constantly — always confirm with the issuer.</div>
+  <div class="fbar">
+    <div class="credit">made with ❤ &amp; 🦊 by <a href="https://www.francesco-andreoli.com" target="_blank" rel="noopener">francesco</a> · still early</div>
+    <div class="fmeta">357 neobanks tracked · open data, MIT · <a href="/sitemap.xml">sitemap</a></div>
+  </div>
 </footer>
 
 <script>
@@ -2728,9 +2777,7 @@ render();
     '<section class="library" id="library"><h2>library · best neobank reports &amp; resources</h2><div class="lsub">the reports worth your weekend and the feeds worth your week · every url shown in full, verified july 2026 · gated = free but asks for an email</div>'+
     '<div class="libgrid"><div><div class="libh3">reports — neobank-dedicated first, then fintech, stablecoins, inclusion</div>'+repHTML+'</div>'+
     '<div><div class="libh3">the ongoing reading + data stack</div>'+resHTML+'</div></div></section>');
-  /* footer link (library is footer-linked, not in the main nav) */
-  const credit=document.querySelector('footer .credit');
-  if(credit)credit.insertAdjacentHTML('beforebegin','<div class="credit" style="margin-bottom:6px"><a href="#library">library: reports &amp; resources ↑</a> · <a href="#methodology">methodology ↑</a></div>');
+  /* library + methodology links live in the static footer (explore column) */
   /* methodology aside becomes a pointer to the library */
   const rc=document.querySelector('.rescard');
   if(rc)rc.innerHTML='<h3>resources moved to the library</h3><div class="respointer">every newsletter, dashboard, register and report — with full urls and direct pdfs — now lives in the <a href="#library">library section</a> at the bottom of the page, linked from the footer.</div>';
@@ -2849,7 +2896,7 @@ render();
     '<button class="mmbtn mmexpand" id="mmexpand" title="open the full map">⤢</button>'+
     '<button class="mmbtn mmcollapse" id="mmcollapse" title="collapse">🌍</button></div>'+
     '<div class="mmgrid" id="mmgrid" style="grid-template-columns:repeat('+cols+',4px)">'+dots+'</div>'+
-    '<div class="mmlabel" id="mmlabel">tap to open the full map</div></aside>');
+    '<div class="mmlabel" id="mmlabel">drag me around · tap opens the map</div></aside>');
   const mm=document.getElementById('minimap'),lbl=document.getElementById('mmlabel');
   const regionCount=m=>D.filter(r=>macrosOf(r).includes(m)).length;
   /* hover: highlight the region + show name & count */
@@ -2872,8 +2919,51 @@ render();
     syncLabel();
   }
   function syncLabel(){
-    lbl.innerHTML=mapFilter?('filtering: <b>'+MACROS[mapFilter]+'</b> · '+regionCount(mapFilter)+' shown'):'tap to open the full map';
+    lbl.innerHTML=mapFilter?('filtering: <b>'+MACROS[mapFilter]+'</b> · '+regionCount(mapFilter)+' shown'):'drag me around · tap opens the map';
   }
+  /* drag to move the widget anywhere — it's a toy, let people play */
+  (function draggable(){
+    let sx=0,sy=0,ox=0,oy=0,down=false,moved=false;
+    const clamp=()=>{
+      const r=mm.getBoundingClientRect();
+      const x=Math.min(Math.max(r.left,8),window.innerWidth-r.width-8);
+      const y=Math.min(Math.max(r.top,8),window.innerHeight-r.height-8);
+      mm.style.left=x+'px';mm.style.top=y+'px';mm.style.right='auto';mm.style.bottom='auto';
+    };
+    try{
+      const saved=JSON.parse(localStorage.getItem('mmpos')||'null');
+      if(saved){mm.style.left=saved[0]+'px';mm.style.top=saved[1]+'px';mm.style.right='auto';mm.style.bottom='auto';requestAnimationFrame(clamp);}
+    }catch(_){}
+    mm.addEventListener('pointerdown',e=>{
+      if(e.target.closest('.mmbtn'))return;
+      down=true;moved=false;sx=e.clientX;sy=e.clientY;
+      const r=mm.getBoundingClientRect();ox=r.left;oy=r.top;
+      if(mm.setPointerCapture)try{mm.setPointerCapture(e.pointerId);}catch(_){}
+    });
+    mm.addEventListener('pointermove',e=>{
+      if(!down)return;
+      const dx=e.clientX-sx,dy=e.clientY-sy;
+      if(!moved&&Math.abs(dx)+Math.abs(dy)<6)return;
+      moved=true;mm.classList.add('dragging');
+      mm.style.left=(ox+dx)+'px';mm.style.top=(oy+dy)+'px';mm.style.right='auto';mm.style.bottom='auto';
+    });
+    mm.addEventListener('pointerup',e=>{
+      if(!down)return;down=false;
+      if(moved){
+        clamp();mm.classList.remove('dragging');
+        const r=mm.getBoundingClientRect();
+        try{localStorage.setItem('mmpos',JSON.stringify([Math.round(r.left),Math.round(r.top)]));}catch(_){}
+      }
+    });
+    /* a real drag shouldn't count as a click (which opens the full map) */
+    mm.addEventListener('click',e=>{if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
+    window.addEventListener('resize',()=>{if(mm.style.left)clamp();});
+    /* double-click the title snaps it back home */
+    mm.querySelector('.mmhead').addEventListener('dblclick',()=>{
+      mm.style.left=mm.style.top='';mm.style.right='16px';mm.style.bottom='96px';
+      try{localStorage.removeItem('mmpos');}catch(_){}
+    });
+  })();
   const _setMap_mm=window.setMap;
   window.setMap=function(code){_setMap_mm(code);syncActive();};
   /* hide on the full-map view (redundant there) */
@@ -2899,10 +2989,7 @@ render();
   };
   document.body.dataset.view=document.body.dataset.view||'directory';
   if(intake)intake.style.display='';
-  /* footer quick link to submit */
-  const addBtn=document.querySelector('.itbtn.add');
-  const credit=document.querySelector('footer .credit');
-  if(addBtn&&credit)credit.insertAdjacentHTML('beforebegin','<div class="credit" style="margin-bottom:6px"><a href="'+addBtn.href+'" target="_blank" rel="noopener">+ submit a neobank (github)</a> · fully open source</div>');
+  /* submit link lives in the static footer (open source column) */
 })();
 
 /* full map: region click keeps you on the map, shows the panel, and offers a clear next step */
