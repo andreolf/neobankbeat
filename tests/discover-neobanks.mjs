@@ -15,7 +15,21 @@ const SEEN_FILE = path.join(import.meta.dirname, 'discovery-seen.json');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
 const norm = s => String(s).toLowerCase().replace(/\s*\(.*?\)\s*/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-const tracked = new Set(E.flatMap(e => [norm(e.name), (e.domain || '').toLowerCase()]).filter(Boolean));
+/* "Varo Bank" should match tracked "Varo": index and compare both the raw norm
+   and a variant with a trailing bank/banking/financial word stripped */
+const variants = n => {
+  const s = n.replace(/\s+(bank|banking|financial)$/, '').trim();
+  return s && s !== n ? [n, s] : [n];
+};
+const tracked = new Set(E.flatMap(e => [...variants(norm(e.name)), (e.domain || '').toLowerCase()]).filter(Boolean));
+/* parent brands whose neobank product is already tracked under the product name */
+for (const alias of ['chase', 'wema', 'jpmorgan chase']) tracked.add(alias); // Chase UK, ALAT by Wema
+/* famously defunct neobanks — excluded from the dataset by design, but still
+   sitting in Wikipedia's Neobanks/Online_banks categories */
+const DEFUNCT = new Set(['simple', 'xinja', '86 400', 'volt', 'azlo', 'moven', 'finn by chase', 'finn', 'denizen', 'loot', 'bnext', 'orange bank', 'orange', 'dozens', 'lanistar', 'yolt']);
+/* incumbent megabanks — headlines about their app launches aren't new neobanks
+   (their standalone digital brands get tracked under the brand name instead) */
+const INCUMBENT = new Set(['u s', 'us bank', 'jpmorgan', 'jpmorgan chase', 'bank of america', 'wells fargo', 'citi', 'citibank', 'citigroup', 'hsbc', 'barclays', 'santander', 'bbva', 'bnp paribas', 'societe generale', 'deutsche bank', 'ing', 'natwest', 'lloyds', 'goldman sachs', 'morgan stanley', 'standard chartered', 'abn amro', 'intesa sanpaolo', 'unicredit', 'credit agricole', 'commerzbank', 'nordea', 'rabobank', 'scotiabank', 'td bank', 'rbc', 'capital one', 'pnc', 'truist', 'green dot', 'h r block', 'paypal', 'visa', 'mastercard']);
 const seen = fs.existsSync(SEEN_FILE) ? JSON.parse(fs.readFileSync(SEEN_FILE, 'utf8')) : {};
 
 const get = async (url, accept = 'application/json') => {
@@ -28,8 +42,11 @@ const STOP = new Set(['the', 'a', 'an', 'why', 'how', 'what', 'this', 'new', 'to
 const candidates = new Map(); // norm name -> {name, sources:[]}
 const add = (name, source) => {
   const n = norm(name);
-  if (!n || n.length < 3 || tracked.has(n) || seen[n] || STOP.has(n)) return;
+  if (!n || n.length < 3 || seen[n] || STOP.has(n)) return;
+  if (variants(n).some(v => tracked.has(v) || DEFUNCT.has(v) || INCUMBENT.has(v))) return;
   if (/mascot|banking in|bank run|fintech/i.test(name)) return;
+  /* country/region words extracted as "names" from headlines ("UAE launches…") */
+  if (/^(uae|usa|europe|africa|asia|latam|australia|canada|germany|france|spain|italy|brazil|mexico|nigeria|kenya|egypt|saudi arabia|qatar|kuwait|japan|korea|china|singapore|indonesia|philippines|vietnam|thailand|pakistan|bangladesh)$/.test(n)) return;
   if (!candidates.has(n)) candidates.set(n, { name: name.trim(), sources: [] });
   if (!candidates.get(n).sources.includes(source)) candidates.get(n).sources.push(source);
 };
