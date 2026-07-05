@@ -917,6 +917,14 @@ body{background:var(--bg);-webkit-font-smoothing:antialiased}
 .wlocked li::before{content:"🔒 ";font-size:10px}
 .wgate .alt{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:10px}
 .wgate .alt a{color:var(--acc)}
+.subform{display:flex;gap:8px;margin:8px 0 8px}
+.subform input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:13px;padding:11px 14px}
+.subform input::placeholder{color:var(--dim)}
+.subform input:focus{outline:none;border-color:var(--acc)}
+.subform button{font-family:'Noto Sans Mono',monospace;font-weight:700;font-size:13px;background:var(--acc);color:#0A0A10;border:none;border-radius:8px;padding:11px 20px;cursor:pointer;white-space:nowrap}
+.subform button:hover{filter:brightness(1.12)}
+.subnote{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);margin:0 0 4px}
+@media(max-width:480px){.subform{flex-direction:column}}
 .wgate.done .lockedui{display:none}
 .wgate .doneui{display:none}
 .wgate.done .doneui{display:block}
@@ -979,7 +987,11 @@ ${webSections}
     <ul class="wlocked">
 ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     </ul>
-    <iframe id="subif" src="https://neobankbeat.substack.com/embed" width="100%" height="150" loading="lazy" title="Subscribe to unlock the full report" style="border:0;border-radius:8px;background:transparent"></iframe>
+    <form class="subform" id="subform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener">
+      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">subscribe &amp; download →</button>
+    </form>
+    <p class="subnote">free · via substack · confirm in the tab that opens — your download starts here automatically</p>
     <p class="alt">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a></p>
   </div>
   <div class="doneui">
@@ -1000,12 +1012,7 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     try{localStorage.setItem(KEY,'1')}catch(_){}
     if(auto!==false)setTimeout(dl,600);};
   try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
-  let armed=false;
-  window.addEventListener('blur',()=>{
-    if(armed||document.activeElement!==document.getElementById('subif'))return;
-    armed=true; // they're typing in the embed — unlock once they've had time to submit
-    setTimeout(()=>unlock(true),9000);
-  });
+  document.getElementById('subform').addEventListener('submit',()=>{setTimeout(()=>unlock(true),800);});
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });

@@ -104,7 +104,11 @@
       <span class="k">get the report — free</span>
       <h2>Subscribe and the PDF downloads instantly</h2>
       <p style="color:var(--muted);margin:0 0 6px">Enter your email below, hit subscribe, and the download starts <b>right here</b> — no inbox round-trip. Every monthly edition after that ships to the same inbox. No spam, no paid tier: the newsletter is the gate.</p>
-      <iframe id="subif" src="https://neobankbeat.substack.com/embed" width="100%" height="150" loading="lazy" title="Subscribe to get The State of Neobanks report" style="border:0;border-radius:8px;background:transparent;margin:6px 0 4px"></iframe>
+      <form class="subform" id="subform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit">subscribe &amp; download →</button>
+      </form>
+      <p class="subnote">free · via substack · confirm in the tab that opens — your download starts here automatically</p>
       <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a> · prefer to browse first? <a href="/report/2026-07/">preview the opening chapters online</a>.</p>
     </div>
     <div class="doneui" style="display:none">
@@ -122,11 +126,7 @@
       try{localStorage.setItem(KEY,'1')}catch(_){}
       if(auto!==false)setTimeout(dl,600);}
     try{if(localStorage.getItem(KEY)){lockedui.style.display='none';doneui.style.display='block';}}catch(_){}
-    var armed=false;
-    window.addEventListener('blur',function(){
-      if(armed||document.activeElement!==document.getElementById('subif'))return;
-      armed=true;setTimeout(function(){unlock(true)},9000);
-    });
+    document.getElementById('subform').addEventListener('submit',function(){setTimeout(function(){unlock(true)},800);});
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
   })();
   </script>
