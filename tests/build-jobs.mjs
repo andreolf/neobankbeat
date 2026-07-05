@@ -352,6 +352,7 @@ const CSS = `
 .jstat .n{font-family:'Noto Sans Mono',monospace;font-size:20px;font-weight:700}
 .jstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
 main.wrap{max-width:1150px}
+footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 760px blog column */
 .jhero,main.wrap>article{max-width:760px}
 .jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
 .jmain{min-width:0}
@@ -481,7 +482,7 @@ const bwScript = `<script>(function(){var b=document.getElementById('bwtoggle');
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>

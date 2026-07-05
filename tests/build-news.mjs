@@ -14,9 +14,10 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const INDEX = path.join(ROOT, 'index.html');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
-const MAX_ITEMS = 30;      // hard ceiling: 60 days / one story per 2-day slot
+const MAX_ITEMS = 40;      // covers Jan → today at one story per multi-day slot
 const MIN_ITEMS = 8;
-const MAX_AGE_DAYS = 60;   // big stories stay relevant for weeks — scoring still favours fresh ones
+/* capture everything since Jan 1 of the current year — the feed is a timeline of 2026 */
+const MAX_AGE_DAYS = Math.ceil((Date.now() - Date.UTC(new Date().getUTCFullYear(), 0, 1)) / 864e5);
 const SLOT_DAYS = 2;       // at most ONE headline per 2-day window — only the biggest story survives
 
 /* entity names that are common English words — headline matches would be noise */
@@ -34,6 +35,8 @@ const SIGNAL = [
   [/neobank|challenger bank|digital bank/i, 1],
 ];
 const GOOD_SOURCES = /techcrunch|bloomberg|reuters|financial times|ft\.com|cnbc|finextra|sifted|american banker|fintech futures|techcabal|the paypers|business insider|forbes|wsj|wall street journal|coindesk|the block/i;
+/* retail-investor / stock-tip mills — never front-page material */
+const BAD_SOURCES = /motley fool|zacks|seeking alpha|simply wall|insider monkey|benzinga|stocktwits/i;
 /* listicle / evergreen / opinion / sponsored junk */
 const JUNK = /best neobanks?|top \d+|how to|what is|review:|vs\.?\s|promo|bonus|deals?\b|coupon|\breferral\b|stocks? to (buy|watch)|price prediction|horoscope|^why |^opinion|^analysis|full list|explained$|\?$|pre-?seed|skyrocket|retail investors|^forget|millionaires?\b|motley fool/i;
 
@@ -43,12 +46,14 @@ const QUERIES = [
   'neobank raises OR acquires OR IPO OR stablecoin when:7d',
   'Revolut OR Nubank OR Monzo OR Chime OR N26 OR "Starling Bank" OR bunq OR Wise when:7d',
   'Mercury OR Brex OR Ramp OR Klarna OR "Cash App" OR Moniepoint OR OPay OR GCash when:7d',
-  /* wider nets for the big stories of the past two months */
-  'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:60d',
-  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:60d',
-  'Mercury OR Brex OR Ramp OR Wise OR Starling OR bunq funding OR IPO OR launch when:60d',
-  '"stablecoin" bank OR card OR payments launch when:60d',
-  'fintech "billion" valuation OR round when:60d',
+  /* wider nets for the big stories of the year so far */
+  'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:1y',
+  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:1y',
+  'Mercury OR Brex OR Ramp OR Wise OR Starling OR bunq funding OR IPO OR launch when:1y',
+  '"stablecoin" bank OR card OR payments launch when:1y',
+  'fintech "billion" valuation OR round when:1y',
+  'Chime OR Klarna OR "Circle" IPO 2026 when:1y',
+  'neobank "banking licence" OR charter OR acquisition 2026 when:1y',
 ];
 
 const get = async url => {
@@ -79,7 +84,7 @@ for (const q of QUERIES) {
       const src = source.toLowerCase();
       if (tail.length <= 45 && (tail.includes(src.slice(0, 8)) || src.includes(tail.slice(0, 8)) || /\.[a-z]{2,3}$/.test(tail))) title = title.slice(0, cut).trim();
     }
-    if (title.length < 25 || JUNK.test(title)) continue;
+    if (title.length < 25 || JUNK.test(title) || BAD_SOURCES.test(source)) continue;
     const ageDays = (Date.now() - pub.getTime()) / 864e5;
     if (ageDays > MAX_AGE_DAYS) continue;
     /* every headline must be visibly about money/banking — kills same-name noise
@@ -117,12 +122,21 @@ const ranked = [...items.values()].sort((a, b) => b.score - a.score || b.pub - a
 const chosen = [];
 const usedEntity = new Set();
 const usedSlot = new Set();
+/* same-story-different-source dedupe: ≥4 shared significant words incl. one distinctive one */
+const GENERIC = new Set(['digital', 'bank', 'neobank', 'fintech', 'ipo', 'valuation', 'billion', 'million', 'raises', 'funding', 'launches', 'launch', 'stablecoin', 'with', 'after', 'first', 'says', 'said']);
+const toks = t => new Set(t.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(x => x.length > 3));
+const sameStory = (a, b) => {
+  const tb = toks(b);
+  const shared = [...toks(a)].filter(x => tb.has(x));
+  return shared.length >= 3 && shared.some(x => !GENERIC.has(x));
+};
 for (const it of ranked) {
   if (it.score < 6) continue; // "most important only" — raise the floor
   const slot = Math.floor((Date.now() - it.pub.getTime()) / (SLOT_DAYS * 864e5));
   if (usedSlot.has(slot)) continue;
   const dupEntity = it.matched.length && it.matched.every(n => usedEntity.has(n));
   if (dupEntity) continue;
+  if (chosen.some(c => sameStory(c.title, it.title))) continue;
   usedSlot.add(slot);
   it.matched.forEach(n => usedEntity.add(n));
   chosen.push(it);

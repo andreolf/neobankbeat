@@ -30,6 +30,7 @@
 .jstat .n{font-family:'Noto Sans Mono',monospace;font-size:20px;font-weight:700}
 .jstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
 main.wrap{max-width:1150px}
+footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 760px blog column */
 .jhero,main.wrap>article{max-width:760px}
 .jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
 .jmain{min-width:0}
@@ -142,14 +143,14 @@ main.wrap{max-width:1150px}
       <div class="jmaplabel" id="jmaplabel">click a region to filter</div>
     </div>
     <div class="jsec">department</div>
-    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1254</span></a>
+    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1255</span></a>
 <a class="srow" href="/jobs/data/">Data & AI<span class="c">217</span></a>
 <a class="srow" href="/jobs/product/">Product<span class="c">227</span></a>
 <a class="srow on" href="/jobs/">Design<span class="c">118</span></a>
 <a class="srow" href="/jobs/compliance/">Compliance & Risk<span class="c">293</span></a>
 <a class="srow" href="/jobs/onboarding/">Onboarding & KYC<span class="c">29</span></a>
 <a class="srow" href="/jobs/support/">Customer Support<span class="c">100</span></a>
-<a class="srow" href="/jobs/sales/">Sales & Partnerships<span class="c">409</span></a>
+<a class="srow" href="/jobs/sales/">Sales & Partnerships<span class="c">408</span></a>
 <a class="srow" href="/jobs/marketing/">Marketing & Growth<span class="c">181</span></a>
 <a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">94</span></a>
 <a class="srow" href="/jobs/operations/">Operations<span class="c">122</span></a>
@@ -158,17 +159,17 @@ main.wrap{max-width:1150px}
     <div class="jsec">workplace</div>
     <div class="sidelist">
       <button class="srow" data-wp="remote">Remote only<span class="c">587</span></button>
-      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1115</span></button>
-      <button class="srow" data-wp="onsite">On-site<span class="c">1985</span></button>
+      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1116</span></button>
+      <button class="srow" data-wp="onsite">On-site<span class="c">1984</span></button>
       <button class="srow" data-visa="1">Visa sponsorship<span class="c">92</span></button>
       <button class="srow" data-sal="1">Salary disclosed<span class="c">515</span></button>
     </div>
     <div class="jsec">region</div>
     <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">724</span></button>
-<button class="srow" data-region="europe">Europe<span class="c">772</span></button>
+<button class="srow" data-region="europe">Europe<span class="c">773</span></button>
 <button class="srow" data-region="north-america">North America<span class="c">821</span></button>
 <button class="srow" data-region="latin-america">Latin America<span class="c">290</span></button>
-<button class="srow" data-region="africa">Africa<span class="c">35</span></button>
+<button class="srow" data-region="africa">Africa<span class="c">34</span></button>
 <button class="srow" data-region="mena">MENA<span class="c">79</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">573</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">29</span></button>
@@ -991,7 +992,7 @@ const PRESET='design';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"mena":79,"asia":573,"other":364,"remote":724,"latin-america":290,"north-america":821,"europe":772,"oceania":29,"africa":35};
+const regCount={"mena":79,"asia":573,"other":364,"remote":724,"europe":773,"latin-america":290,"north-america":821,"oceania":29,"africa":34};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
@@ -1038,7 +1039,7 @@ syncMap();render(true)});
 
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 <script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
 </body>
