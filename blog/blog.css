@@ -76,6 +76,8 @@ article td:first-child{color:var(--text)}
 .subscribe{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-top:48px}
 .subscribe .k{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
 .subscribe p{color:var(--muted);font-size:14.5px;margin:0}
+.subbtn{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;background:var(--accent);color:#0A0A10;padding:10px 20px;border-radius:999px;margin:4px 0 10px}
+.subbtn:hover{text-decoration:none;filter:brightness(1.1)}
 footer{border-top:1px solid var(--line);margin-top:40px}
 .fwrap{max-width:760px;margin:0 auto;padding:28px 24px;font-family:var(--mono);font-size:12px;color:var(--dim);display:flex;flex-wrap:wrap;gap:14px}
 .fwrap a{color:var(--muted)}
