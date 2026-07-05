@@ -50,6 +50,28 @@
    "countries": [
     "United States"
    ],
+   "investors": [
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "General Atlantic",
+     "website": "https://generalatlantic.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Menlo Ventures",
+     "website": "https://menlovc.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 22,
     "metric": "members",
@@ -86,6 +108,20 @@
    "x_handle": "varomoney",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Warburg Pincus",
+     "website": "https://warburgpincus.com"
+    },
+    {
+     "name": "The Rise Fund (TPG)",
+     "website": "https://therisefund.com"
+    },
+    {
+     "name": "Lone Pine Capital",
+     "website": "https://lonepinecapital.com"
+    }
    ]
   },
   {
@@ -116,6 +152,24 @@
    "x_handle": "current",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Avenir Growth",
+     "website": "https://avenirgrowth.com"
+    },
+    {
+     "name": "Foundation Capital",
+     "website": "https://foundationcap.com"
+    }
    ]
   },
   {
@@ -148,6 +202,20 @@
    "x_handle": "SoFi",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Silver Lake",
+     "website": "https://silverlake.com"
+    },
+    {
+     "name": "Qatar Investment Authority",
+     "website": "https://qia.qa"
+    }
    ]
   },
   {
@@ -212,6 +280,16 @@
    "x_handle": "davebanking",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Norwest Venture Partners",
+     "website": "https://nvp.com"
+    },
+    {
+     "name": "Section 32",
+     "website": "https://section32.com"
+    }
    ]
   },
   {
@@ -275,6 +353,16 @@
    "x_handle": "one",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Walmart",
+     "website": "https://walmart.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    }
    ]
   },
   {
@@ -334,6 +422,24 @@
    "x_handle": "step",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Coatue",
+     "website": "https://coatue.com"
+    },
+    {
+     "name": "Stripe",
+     "website": "https://stripe.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    },
+    {
+     "name": "Crosslink Capital",
+     "website": "https://crosslinkcapital.com"
+    }
    ]
   },
   {
@@ -365,6 +471,28 @@
    "x_handle": "Greenlightcard",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "TTV Capital",
+     "website": "https://ttvcapital.com"
+    },
+    {
+     "name": "Canapi Ventures",
+     "website": "https://canapi.com"
+    },
+    {
+     "name": "Owl Ventures",
+     "website": "https://owlvc.com"
+    },
+    {
+     "name": "Drive Capital",
+     "website": "https://drivecapital.com"
+    }
    ]
   },
   {
@@ -475,6 +603,20 @@
    "x_handle": "albertsavings",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "CapitalG",
+     "website": "https://capitalg.com"
+    },
+    {
+     "name": "General Atlantic",
+     "website": "https://generalatlantic.com"
+    },
+    {
+     "name": "QED Investors",
+     "website": "https://qedinvestors.com"
+    }
    ]
   },
   {
@@ -507,6 +649,24 @@
    "x_handle": "mercury",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "CRV",
+     "website": "https://crv.com"
+    },
+    {
+     "name": "Coatue",
+     "website": "https://coatue.com"
+    }
    ]
   },
   {
@@ -539,6 +699,28 @@
    "x_handle": "brexHQ",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Greenoaks",
+     "website": "https://greenoaks.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    }
    ]
   },
   {
@@ -571,6 +753,28 @@
    "x_handle": "tryramp",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Thrive Capital",
+     "website": "https://thrivecap.com"
+    },
+    {
+     "name": "Khosla Ventures",
+     "website": "https://khoslaventures.com"
+    },
+    {
+     "name": "Stripe",
+     "website": "https://stripe.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    }
    ]
   },
   {
@@ -601,6 +805,20 @@
    "x_handle": "banknovo",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Stripes",
+     "website": "https://stripes.co"
+    },
+    {
+     "name": "Crosslink Capital",
+     "website": "https://crosslinkcapital.com"
+    }
    ]
   },
   {
@@ -630,6 +848,24 @@
    "x_handle": "Bluevine",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    },
+    {
+     "name": "Menlo Ventures",
+     "website": "https://menlovc.com"
+    },
+    {
+     "name": "83North",
+     "website": "https://83north.com"
+    },
+    {
+     "name": "Citi Ventures",
+     "website": "https://citi.com"
+    }
    ]
   },
   {
@@ -661,6 +897,20 @@
    "countries": [
     "United States",
     "Canada"
+   ],
+   "investors": [
+    {
+     "name": "Bain Capital Ventures",
+     "website": "https://baincapitalventures.com"
+    },
+    {
+     "name": "Better Tomorrow Ventures",
+     "website": "https://btv.vc"
+    },
+    {
+     "name": "Garage Capital",
+     "website": "https://garage.vc"
+    }
    ]
   },
   {
@@ -683,7 +933,17 @@
    "active_regions": [
     "North America"
    ],
-   "note": "SMB banking for main-street businesses."
+   "note": "SMB banking for main-street businesses.",
+   "investors": [
+    {
+     "name": "Battery Ventures",
+     "website": "https://battery.com"
+    },
+    {
+     "name": "Redpoint",
+     "website": "https://redpoint.com"
+    }
+   ]
   },
   {
    "name": "Rho",
@@ -713,6 +973,16 @@
    "x_handle": "rhobusiness",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "DFJ Growth",
+     "website": "https://dfjgrowth.com"
+    },
+    {
+     "name": "M13",
+     "website": "https://m13.co"
+    }
    ]
   },
   {
@@ -765,6 +1035,20 @@
    "x_handle": "foundforbiz",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    }
    ]
   },
   {
@@ -795,6 +1079,16 @@
    "x_handle": "LiliBanking",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Group 11",
+     "website": "https://group11.vc"
+    },
+    {
+     "name": "Target Global",
+     "website": "https://targetglobal.vc"
+    }
    ]
   },
   {
@@ -820,7 +1114,17 @@
    "note": "Financial services built for creators.",
    "story": "Underwrites creators on audience data instead of FICO.",
    "founders": "Eric Wei, Will Kim",
-   "funding": "~$100M+ incl. debt"
+   "funding": "~$100M+ incl. debt",
+   "investors": [
+    {
+     "name": "Union Square Ventures",
+     "website": "https://usv.com"
+    },
+    {
+     "name": "SignalFire",
+     "website": "https://signalfire.com"
+    }
+   ]
   },
   {
    "name": "Branch",
@@ -983,6 +1287,20 @@
    "x_handle": "Greenwood",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Truist",
+     "website": "https://truist.com"
+    },
+    {
+     "name": "Bank of America",
+     "website": "https://bankofamerica.com"
+    },
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    }
    ]
   },
   {
@@ -1045,6 +1363,16 @@
    "x_handle": "majority",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Heartcore Capital",
+     "website": "https://heartcore.com"
+    }
    ]
   },
   {
@@ -1077,6 +1405,24 @@
    "countries": [
     "United States",
     "India"
+   ],
+   "investors": [
+    {
+     "name": "Accel",
+     "website": "https://accel.com"
+    },
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Creaegis",
+     "website": "https://creaegis.com"
+    }
    ]
   },
   {
@@ -1108,6 +1454,20 @@
    "x_handle": "comunapp",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Redpoint",
+     "website": "https://redpoint.com"
+    },
+    {
+     "name": "Costanoa Ventures",
+     "website": "https://costanoa.vc"
+    },
+    {
+     "name": "South Park Commons",
+     "website": "https://southparkcommons.com"
+    }
    ]
   },
   {
@@ -1193,6 +1553,20 @@
    "x_handle": "KOHOfinancial",
    "countries": [
     "Canada"
+   ],
+   "investors": [
+    {
+     "name": "Drive Capital",
+     "website": "https://drivecapital.com"
+    },
+    {
+     "name": "Portage",
+     "website": "https://sagard.com"
+    },
+    {
+     "name": "Eldridge",
+     "website": "https://eldridge.com"
+    }
    ]
   },
   {
@@ -1224,6 +1598,16 @@
    "x_handle": "neofinancial",
    "countries": [
     "Canada"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Golden Ventures",
+     "website": "https://golden.ventures"
+    }
    ]
   },
   {
@@ -1255,6 +1639,28 @@
    "x_handle": "Wealthsimple",
    "countries": [
     "Canada"
+   ],
+   "investors": [
+    {
+     "name": "Power Corporation",
+     "website": "https://powercorporation.com"
+    },
+    {
+     "name": "Allianz X",
+     "website": "https://allianzx.com"
+    },
+    {
+     "name": "Meritech Capital",
+     "website": "https://meritechcapital.com"
+    },
+    {
+     "name": "Greylock",
+     "website": "https://greylock.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    }
    ]
   },
   {
@@ -1341,6 +1747,28 @@
     "United Kingdom",
     "United States"
    ],
+   "investors": [
+    {
+     "name": "Accel",
+     "website": "https://accel.com"
+    },
+    {
+     "name": "Passion Capital",
+     "website": "https://passioncapital.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 12,
     "metric": "customers",
@@ -1377,6 +1805,24 @@
    "x_handle": "StarlingBank",
    "countries": [
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Goldman Sachs",
+     "website": "https://goldmansachs.com"
+    },
+    {
+     "name": "Fidelity",
+     "website": "https://fidelity.com"
+    },
+    {
+     "name": "Qatar Investment Authority",
+     "website": "https://qia.qa"
+    },
+    {
+     "name": "Chrysalis",
+     "website": "https://chrysalisinvestments.co.uk"
+    }
    ]
   },
   {
@@ -1406,6 +1852,16 @@
    "x_handle": "atom_bank",
    "countries": [
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "BBVA",
+     "website": "https://bbva.com"
+    },
+    {
+     "name": "Toscafund",
+     "website": "https://toscafund.com"
+    }
    ]
   },
   {
@@ -1438,6 +1894,16 @@
    "x_handle": "zopa",
    "countries": [
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Augmentum Fintech",
+     "website": "https://augmentum.vc"
+    }
    ]
   },
   {
@@ -1529,6 +1995,28 @@
     "United Kingdom",
     "India",
     "Germany"
+   ],
+   "investors": [
+    {
+     "name": "Apax",
+     "website": "https://apax.com"
+    },
+    {
+     "name": "Anthemis",
+     "website": "https://anthemis.com"
+    },
+    {
+     "name": "Augmentum Fintech",
+     "website": "https://augmentum.vc"
+    },
+    {
+     "name": "LocalGlobe",
+     "website": "https://localglobe.vc"
+    },
+    {
+     "name": "Speedinvest",
+     "website": "https://speedinvest.com"
+    }
    ]
   },
   {
@@ -1582,7 +2070,25 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Profitable SMB lender-bank."
+   "note": "Profitable SMB lender-bank.",
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Clermont Group",
+     "website": "https://theclermontgroup.com"
+    },
+    {
+     "name": "GIC",
+     "website": "https://www.gic.com.sg"
+    },
+    {
+     "name": "Toscafund",
+     "website": "https://toscafund.com"
+    }
+   ]
   },
   {
    "name": "Allica Bank",
@@ -1604,7 +2110,21 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Established-SMB challenger bank."
+   "note": "Established-SMB challenger bank.",
+   "investors": [
+    {
+     "name": "TCV",
+     "website": "https://tcv.com"
+    },
+    {
+     "name": "Warwick Capital Partners",
+     "website": "https://warwickcapital.com"
+    },
+    {
+     "name": "Atalaya Capital",
+     "website": "https://atalayacap.com"
+    }
+   ]
   },
   {
    "name": "Curve",
@@ -1689,6 +2209,24 @@
    "countries": [
     "United Kingdom",
     "European Union"
+   ],
+   "investors": [
+    {
+     "name": "Kinnevik",
+     "website": "https://kinnevik.com"
+    },
+    {
+     "name": "PayPal Ventures",
+     "website": "https://paypal.com"
+    },
+    {
+     "name": "Augmentum Fintech",
+     "website": "https://augmentum.vc"
+    },
+    {
+     "name": "HSBC",
+     "website": "https://hsbc.com"
+    }
    ]
   },
   {
@@ -1764,6 +2302,12 @@
    "x_handle": "tandem",
    "countries": [
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Pollen Street Capital",
+     "website": "https://pollencap.com"
+    }
    ]
   },
   {
@@ -1887,6 +2431,28 @@
     "Ireland",
     "Greece",
     "Poland"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Insight Partners",
+     "website": "https://insightpartners.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Allianz X",
+     "website": "https://allianzx.com"
+    },
+    {
+     "name": "Earlybird",
+     "website": "https://earlybird.com"
+    }
    ]
   },
   {
@@ -1927,6 +2493,12 @@
     "Austria",
     "Ireland",
     "Portugal"
+   ],
+   "investors": [
+    {
+     "name": "Pollen Street Capital",
+     "website": "https://pollencap.com"
+    }
    ]
   },
   {
@@ -1961,6 +2533,20 @@
     "Spain",
     "Italy",
     "Netherlands"
+   ],
+   "investors": [
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Greenoaks",
+     "website": "https://greenoaks.com"
+    }
    ]
   },
   {
@@ -2087,6 +2673,28 @@
     "Germany",
     "Spain",
     "Italy"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Alven",
+     "website": "https://alven.co"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "TCV",
+     "website": "https://tcv.com"
+    }
    ]
   },
   {
@@ -2133,7 +2741,13 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Freelancer accounting + banking."
+   "note": "Freelancer accounting + banking.",
+   "investors": [
+    {
+     "name": "Singular",
+     "website": "https://singular.vc"
+    }
+   ]
   },
   {
    "name": "Sumeria (Lydia)",
@@ -2163,6 +2777,20 @@
    "x_handle": "sumeria_app",
    "countries": [
     "France"
+   ],
+   "investors": [
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Accel",
+     "website": "https://accel.com"
+    },
+    {
+     "name": "Dragoneer",
+     "website": "https://dragoneer.com"
+    }
    ]
   },
   {
@@ -2299,6 +2927,24 @@
     "Denmark",
     "Sweden",
     "Norway"
+   ],
+   "investors": [
+    {
+     "name": "Kinnevik",
+     "website": "https://kinnevik.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Seed Capital",
+     "website": "https://seedcapital.dk"
+    },
+    {
+     "name": "Greyhound Capital",
+     "website": "https://greyhoundcapital.com"
+    }
    ]
   },
   {
@@ -2626,6 +3272,28 @@
     "Belgium",
     "Ireland",
     "Portugal"
+   ],
+   "investors": [
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "Accel",
+     "website": "https://accel.com"
+    },
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Thrive Capital",
+     "website": "https://thrivecap.com"
+    },
+    {
+     "name": "Creandum",
+     "website": "https://creandum.com"
+    }
    ]
   },
   {
@@ -2701,6 +3369,24 @@
     "Malaysia",
     "UAE"
    ],
+   "investors": [
+    {
+     "name": "Index Ventures",
+     "website": "https://indexventures.com"
+    },
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Baillie Gifford",
+     "website": "https://bailliegifford.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 19,
     "metric": "customers",
@@ -2746,6 +3432,28 @@
     "Germany",
     "Australia",
     "European Union"
+   ],
+   "investors": [
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "Atomico",
+     "website": "https://atomico.com"
+    },
+    {
+     "name": "Silver Lake",
+     "website": "https://silverlake.com"
+    },
+    {
+     "name": "Permira",
+     "website": "https://permira.com"
+    },
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    }
    ]
   },
   {
@@ -3021,6 +3729,28 @@
     "Mexico",
     "Colombia"
    ],
+   "investors": [
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Kaszek",
+     "website": "https://kaszek.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Berkshire Hathaway",
+     "website": "https://berkshirehathaway.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 131,
     "metric": "customers",
@@ -3063,6 +3793,28 @@
     "Argentina",
     "Mexico",
     "Colombia"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Allianz X",
+     "website": "https://allianzx.com"
+    },
+    {
+     "name": "Goldman Sachs",
+     "website": "https://goldmansachs.com"
+    },
+    {
+     "name": "Soros Fund Management",
+     "website": "https://sorosfundmgmt.com"
+    }
    ]
   },
   {
@@ -3087,7 +3839,21 @@
    ],
    "note": "One of Mexico's first challengers.",
    "founders": "Ángel Sahagún",
-   "funding": "~$150M+ raised"
+   "funding": "~$150M+ raised",
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Greyhound Capital",
+     "website": "https://greyhoundcapital.com"
+    },
+    {
+     "name": "Mountain Nazca",
+     "website": "https://nazca.mx"
+    }
+   ]
   },
   {
    "name": "Klar",
@@ -3115,6 +3881,24 @@
    "x_handle": "klarmx",
    "countries": [
     "Mexico"
+   ],
+   "investors": [
+    {
+     "name": "General Atlantic",
+     "website": "https://generalatlantic.com"
+    },
+    {
+     "name": "Prosus Ventures",
+     "website": "https://prosus.com"
+    },
+    {
+     "name": "Quona Capital",
+     "website": "https://quona.com"
+    },
+    {
+     "name": "Mouro Capital",
+     "website": "https://mourocapital.com"
+    }
    ]
   },
   {
@@ -3147,6 +3931,24 @@
    "x_handle": "storicard",
    "countries": [
     "Mexico"
+   ],
+   "investors": [
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    },
+    {
+     "name": "Goodwater Capital",
+     "website": "https://goodwatercap.com"
+    },
+    {
+     "name": "BAI Capital",
+     "website": "https://baicapital.com"
+    }
    ]
   },
   {
@@ -3259,7 +4061,25 @@
    ],
    "note": "Brazilian mass-market neobank.",
    "founders": "Pedro Conrade",
-   "funding": "~$700M raised"
+   "funding": "~$700M raised",
+   "investors": [
+    {
+     "name": "General Atlantic",
+     "website": "https://generalatlantic.com"
+    },
+    {
+     "name": "BBVA",
+     "website": "https://bbva.com"
+    },
+    {
+     "name": "Monashees",
+     "website": "https://monashees.com"
+    },
+    {
+     "name": "BlackRock",
+     "website": "https://blackrock.com"
+    }
+   ]
   },
   {
    "name": "C6 Bank",
@@ -3290,6 +4110,16 @@
    "x_handle": "C6Bank",
    "countries": [
     "Brazil"
+   ],
+   "investors": [
+    {
+     "name": "JPMorgan Chase",
+     "website": "https://jpmorganchase.com"
+    },
+    {
+     "name": "GIC",
+     "website": "https://www.gic.com.sg"
+    }
    ]
   },
   {
@@ -3319,6 +4149,12 @@
    "countries": [
     "Brazil",
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    }
    ],
    "reported_users": {
     "value_millions": 35,
@@ -3437,7 +4273,29 @@
    ],
    "note": "SMB banking for Brazilian PJs.",
    "founders": "Igor Senra, Leo Mendes",
-   "funding": "~$200M raised"
+   "funding": "~$200M raised",
+   "investors": [
+    {
+     "name": "Greenoaks",
+     "website": "https://greenoaks.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Kaszek",
+     "website": "https://kaszek.com"
+    },
+    {
+     "name": "QED Investors",
+     "website": "https://qedinvestors.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    }
+   ]
   },
   {
    "name": "Z1",
@@ -3530,7 +4388,13 @@
    ],
    "note": "First licensed digital bank in Argentina.",
    "licence": "Bank licence (BCRA)",
-   "founders": "Juan Bruchou"
+   "founders": "Juan Bruchou",
+   "investors": [
+    {
+     "name": "Point72 Ventures",
+     "website": "https://p72.vc"
+    }
+   ]
   },
   {
    "name": "Prex",
@@ -3694,7 +4558,13 @@
    ],
    "note": "Chilean neobank; crypto + USDC features.",
    "licence": "Preparing Chilean bank licence",
-   "founders": "Krealo (Credicorp)"
+   "founders": "Krealo (Credicorp)",
+   "investors": [
+    {
+     "name": "Krealo (Credicorp)",
+     "website": "https://grupocredicorp.com"
+    }
+   ]
   },
   {
    "name": "Global66",
@@ -3718,7 +4588,17 @@
    ],
    "note": "Cross-border multicurrency for LatAm.",
    "founders": "Tomás Bercovich",
-   "funding": "~$65M raised"
+   "funding": "~$65M raised",
+   "investors": [
+    {
+     "name": "Quona Capital",
+     "website": "https://quona.com"
+    },
+    {
+     "name": "Magma Partners",
+     "website": "https://magmapartners.com"
+    }
+   ]
   },
   {
    "name": "Zinli",
@@ -3830,6 +4710,24 @@
    "x_handle": "toss_bank",
    "countries": [
     "South Korea"
+   ],
+   "investors": [
+    {
+     "name": "PayPal Ventures",
+     "website": "https://paypal.com"
+    },
+    {
+     "name": "Kleiner Perkins",
+     "website": "https://kleinerperkins.com"
+    },
+    {
+     "name": "Altos Ventures",
+     "website": "https://altos.vc"
+    },
+    {
+     "name": "GIC",
+     "website": "https://www.gic.com.sg"
+    }
    ]
   },
   {
@@ -3880,6 +4778,12 @@
    "story": "The world's largest digital bank: 400M+ customers on Tencent rails.",
    "licence": "Private bank licence (CN)",
    "founders": "Tencent-led consortium",
+   "investors": [
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 400,
     "metric": "customers",
@@ -3908,7 +4812,13 @@
    ],
    "note": "Ant Group's SME digital bank.",
    "licence": "Private bank licence (CN)",
-   "founders": "Ant Group-led"
+   "founders": "Ant Group-led",
+   "investors": [
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    }
+   ]
   },
   {
    "name": "Jupiter",
@@ -3938,6 +4848,24 @@
    "x_handle": "JupiterMoneyApp",
    "countries": [
     "India"
+   ],
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "Z47 (Matrix India)",
+     "website": "https://z47.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "QED Investors",
+     "website": "https://qedinvestors.com"
+    }
    ]
   },
   {
@@ -3962,7 +4890,29 @@
    ],
    "note": "Salaried-professional neobank.",
    "founders": "Sujith Narayanan, Sumit Gwalani",
-   "funding": "~$135M raised"
+   "funding": "~$135M raised",
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Temasek",
+     "website": "https://temasek.com.sg"
+    },
+    {
+     "name": "B Capital",
+     "website": "https://bcapgroup.com"
+    },
+    {
+     "name": "Alpha Wave",
+     "website": "https://alphawaveglobal.com"
+    }
+   ]
   },
   {
    "name": "Niyo",
@@ -3986,7 +4936,25 @@
    ],
    "note": "Zero-forex travel banking for Indians.",
    "founders": "Vinay Bagri, Virender Bisht",
-   "funding": "~$180M raised"
+   "funding": "~$180M raised",
+   "investors": [
+    {
+     "name": "Accel",
+     "website": "https://accel.com"
+    },
+    {
+     "name": "Prime Venture Partners",
+     "website": "https://primevp.in"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Lightrock",
+     "website": "https://lightrock.com"
+    }
+   ]
   },
   {
    "name": "slice",
@@ -4012,7 +4980,21 @@
    "story": "Card-first startup that pulled off the rare feat of merging into a licensed Indian bank.",
    "licence": "Small finance bank (via NESFB merger)",
    "founders": "Rajan Bajaj",
-   "funding": "~$340M raised"
+   "funding": "~$340M raised",
+   "investors": [
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Insight Partners",
+     "website": "https://insightpartners.com"
+    },
+    {
+     "name": "Blume Ventures",
+     "website": "https://blume.vc"
+    }
+   ]
   },
   {
    "name": "Freo",
@@ -4058,7 +5040,25 @@
    ],
    "note": "SME neobanking platform; 3M+ businesses.",
    "founders": "Anish Achuthan + 3",
-   "funding": "~$190M raised"
+   "funding": "~$190M raised",
+   "investors": [
+    {
+     "name": "Temasek",
+     "website": "https://temasek.com.sg"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "3one4 Capital",
+     "website": "https://3one4capital.com"
+    },
+    {
+     "name": "IIFL",
+     "website": "https://iifl.com"
+    }
+   ]
   },
   {
    "name": "RazorpayX",
@@ -4080,7 +5080,29 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Business banking inside Razorpay."
+   "note": "Business banking inside Razorpay.",
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "GIC",
+     "website": "https://www.gic.com.sg"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    }
+   ]
   },
   {
    "name": "FamPay",
@@ -4110,6 +5132,24 @@
    "x_handle": "FamPayHQ",
    "countries": [
     "India"
+   ],
+   "investors": [
+    {
+     "name": "Elevation Capital",
+     "website": "https://elevationcapital.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    }
    ]
   },
   {
@@ -4210,6 +5250,12 @@
    "x_handle": "sadapay",
    "countries": [
     "Pakistan"
+   ],
+   "investors": [
+    {
+     "name": "Recharge Capital",
+     "website": "https://rechargecapital.com"
+    }
    ]
   },
   {
@@ -4296,6 +5342,24 @@
    "x_handle": "bKashLimited",
    "countries": [
     "Bangladesh"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    },
+    {
+     "name": "IFC",
+     "website": "https://ifc.org"
+    },
+    {
+     "name": "Gates Foundation",
+     "website": "https://gatesfoundation.org"
+    }
    ],
    "reported_users": {
     "value_millions": 70,
@@ -4451,6 +5515,24 @@
    "x_handle": "TonikBankPH",
    "countries": [
     "Philippines"
+   ],
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "Point72 Ventures",
+     "website": "https://p72.vc"
+    },
+    {
+     "name": "Mizuho",
+     "website": "https://mizuhogroup.com"
+    },
+    {
+     "name": "Prosus Ventures",
+     "website": "https://prosus.com"
+    }
    ]
   },
   {
@@ -4482,6 +5564,24 @@
    "x_handle": "mayaiseverything",
    "countries": [
     "Philippines"
+   ],
+   "investors": [
+    {
+     "name": "PLDT",
+     "website": "https://pldt.com"
+    },
+    {
+     "name": "KKR",
+     "website": "https://kkr.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "IFC",
+     "website": "https://ifc.org"
+    }
    ],
    "reported_users": {
     "value_millions": 30,
@@ -4671,7 +5771,25 @@
     "Asia"
    ],
    "note": "Grab/Emtek/Singtel-backed.",
-   "licence": "Bank (OJK); Grab/Emtek/Singtel"
+   "licence": "Bank (OJK); Grab/Emtek/Singtel",
+   "investors": [
+    {
+     "name": "Grab",
+     "website": "https://grab.com"
+    },
+    {
+     "name": "Singtel",
+     "website": "https://singtel.com"
+    },
+    {
+     "name": "Emtek",
+     "website": "https://emtek.co.id"
+    },
+    {
+     "name": "KakaoBank",
+     "website": "https://kakaobank.com"
+    }
+   ]
   },
   {
    "name": "Jenius",
@@ -5076,7 +6194,17 @@
    ],
    "note": "Homegrown HK virtual bank.",
    "licence": "HK virtual bank",
-   "founders": "Simon Loong"
+   "founders": "Simon Loong",
+   "investors": [
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    },
+    {
+     "name": "Alibaba Entrepreneurs Fund",
+     "website": "https://ent-fund.org"
+    }
+   ]
   },
   {
    "name": "Up",
@@ -5162,6 +6290,20 @@
    "countries": [
     "New Zealand",
     "Australia"
+   ],
+   "investors": [
+    {
+     "name": "Left Lane Capital",
+     "website": "https://leftlane.com"
+    },
+    {
+     "name": "AirTree Ventures",
+     "website": "https://airtree.vc"
+    },
+    {
+     "name": "Icehouse Ventures",
+     "website": "https://icehouseventures.co.nz"
+    }
    ]
   },
   {
@@ -5194,6 +6336,28 @@
    "x_handle": "TymeBankZA",
    "countries": [
     "South Africa"
+   ],
+   "investors": [
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "Apis Partners",
+     "website": "https://apis.pe"
+    },
+    {
+     "name": "Nubank",
+     "website": "https://nubank.com.br"
+    },
+    {
+     "name": "Norrsken22",
+     "website": "https://norrsken22.com"
+    },
+    {
+     "name": "British International Investment",
+     "website": "https://bii.co.uk"
+    }
    ],
    "reported_users": {
     "value_millions": 10,
@@ -5280,6 +6444,20 @@
    "countries": [
     "Nigeria",
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Target Global",
+     "website": "https://targetglobal.vc"
+    },
+    {
+     "name": "SBI Group",
+     "website": "https://www.sbigroup.co.jp"
+    }
    ]
   },
   {
@@ -5313,6 +6491,20 @@
    "countries": [
     "Nigeria",
     "Egypt"
+   ],
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "HongShan (Sequoia China)",
+     "website": "https://hongshan.com"
+    },
+    {
+     "name": "Source Code Capital",
+     "website": "https://sourcecodecap.com"
+    }
    ],
    "reported_users": {
     "value_millions": 60,
@@ -5357,6 +6549,16 @@
     "Tanzania",
     "Kenya"
    ],
+   "investors": [
+    {
+     "name": "Transsion",
+     "website": "https://www.transsion.com"
+    },
+    {
+     "name": "NetEase",
+     "website": "https://www.netease.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 35,
     "metric": "users",
@@ -5393,6 +6595,28 @@
    "countries": [
     "Nigeria",
     "Kenya"
+   ],
+   "investors": [
+    {
+     "name": "QED Investors",
+     "website": "https://qedinvestors.com"
+    },
+    {
+     "name": "Development Partners International",
+     "website": "https://dpi-llp.com"
+    },
+    {
+     "name": "Google (Africa Investment Fund)",
+     "website": "https://google.com"
+    },
+    {
+     "name": "Lightrock",
+     "website": "https://lightrock.com"
+    },
+    {
+     "name": "Visa",
+     "website": "https://visa.com"
+    }
    ]
   },
   {
@@ -5417,7 +6641,21 @@
    ],
    "note": "Credit-led Nigerian neobank.",
    "licence": "Microfinance bank (NG)",
-   "founders": "Laurin Hainy, Matthieu Gendreau, Nicolas Berthozat"
+   "founders": "Laurin Hainy, Matthieu Gendreau, Nicolas Berthozat",
+   "investors": [
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Flourish Ventures",
+     "website": "https://flourishventures.com"
+    },
+    {
+     "name": "Speedinvest",
+     "website": "https://speedinvest.com"
+    }
+   ]
   },
   {
    "name": "Carbon",
@@ -5441,7 +6679,13 @@
    ],
    "note": "Lending-first digital bank.",
    "licence": "Microfinance bank (NG)",
-   "founders": "Chijioke Dozie, Ngozi Dozie"
+   "founders": "Chijioke Dozie, Ngozi Dozie",
+   "investors": [
+    {
+     "name": "Partech",
+     "website": "https://partechpartners.com"
+    }
+   ]
   },
   {
    "name": "ALAT by Wema",
@@ -5544,6 +6788,20 @@
    "countries": [
     "Côte d'Ivoire",
     "Senegal"
+   ],
+   "investors": [
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Partech",
+     "website": "https://partechpartners.com"
+    },
+    {
+     "name": "Janngo Capital",
+     "website": "https://janngo.africa"
+    }
    ]
   },
   {
@@ -5580,6 +6838,28 @@
     "Burkina Faso",
     "Uganda",
     "Gambia"
+   ],
+   "investors": [
+    {
+     "name": "HRTG (Sequoia Heritage)",
+     "website": "https://hrtg.com"
+    },
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Stripe",
+     "website": "https://stripe.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Partech",
+     "website": "https://partechpartners.com"
+    }
    ]
   },
   {
@@ -5816,6 +7096,20 @@
    "x_handle": "wiobank",
    "countries": [
     "UAE"
+   ],
+   "investors": [
+    {
+     "name": "ADQ",
+     "website": "https://adq.ae"
+    },
+    {
+     "name": "e&",
+     "website": "https://eand.com"
+    },
+    {
+     "name": "Mubadala",
+     "website": "https://mubadala.com"
+    }
    ]
   },
   {
@@ -6184,6 +7478,28 @@
     "Mexico",
     "India"
    ],
+   "investors": [
+    {
+     "name": "Index Ventures",
+     "website": "https://indexventures.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Balderton Capital",
+     "website": "https://balderton.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 50,
     "metric": "customers",
@@ -6292,6 +7608,28 @@
    "countries": [
     "United States",
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Index Ventures",
+     "website": "https://indexventures.com"
+    },
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Sequoia Capital",
+     "website": "https://sequoiacap.com"
+    }
    ]
   },
   {
@@ -6374,6 +7712,20 @@
     "Australia",
     "Singapore",
     "Brazil"
+   ],
+   "investors": [
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Union Square Ventures",
+     "website": "https://usv.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    }
    ]
   },
   {
@@ -6606,6 +7958,16 @@
     "Spain",
     "Italy",
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Valar Ventures",
+     "website": "https://valar.com"
+    },
+    {
+     "name": "Speedinvest",
+     "website": "https://speedinvest.com"
+    }
    ]
   },
   {
@@ -6727,6 +8089,12 @@
    "x_handle": "fold_app",
    "countries": [
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Craft Ventures",
+     "website": "https://craftventures.com"
+    }
    ]
   },
   {
@@ -6805,7 +8173,17 @@
    ],
    "note": "Checking + USDC salary splits.",
    "founders": "Varun Deshpande, Ratnesh Ray, Siddharth Verma",
-   "funding": "~$21M raised"
+   "funding": "~$21M raised",
+   "investors": [
+    {
+     "name": "Polychain Capital",
+     "website": "https://polychain.capital"
+    },
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    }
+   ]
   },
   {
    "name": "Strike",
@@ -6850,6 +8228,12 @@
     "Nigeria",
     "Kenya",
     "Ghana"
+   ],
+   "investors": [
+    {
+     "name": "Ten31",
+     "website": "https://ten31.vc"
+    }
    ]
   },
   {
@@ -6889,6 +8273,20 @@
     "United Kingdom",
     "UAE",
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Benchmark",
+     "website": "https://benchmark.com"
+    },
+    {
+     "name": "Index Ventures",
+     "website": "https://indexventures.com"
+    },
+    {
+     "name": "Greylock",
+     "website": "https://greylock.com"
+    }
    ]
   },
   {
@@ -7048,6 +8446,20 @@
     "United Kingdom",
     "Canada",
     "Australia"
+   ],
+   "investors": [
+    {
+     "name": "Hummingbird Ventures",
+     "website": "https://hummingbird.vc"
+    },
+    {
+     "name": "Tribe Capital",
+     "website": "https://tribecap.co"
+    },
+    {
+     "name": "Blockchain Capital",
+     "website": "https://blockchain.capital"
+    }
    ]
   },
   {
@@ -7086,6 +8498,16 @@
     "Hong Kong",
     "Singapore",
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "HongShan",
+     "website": "https://hongshan.com"
+    }
    ]
   },
   {
@@ -7367,7 +8789,21 @@
    ],
    "note": "LatAm exchange + card (AR/BR/MX).",
    "founders": "Sebastián Serrano",
-   "funding": "~$90M raised"
+   "funding": "~$90M raised",
+   "investors": [
+    {
+     "name": "Digital Currency Group",
+     "website": "https://dcg.co"
+    },
+    {
+     "name": "Pantera Capital",
+     "website": "https://panteracapital.com"
+    },
+    {
+     "name": "Boost VC",
+     "website": "https://boost.vc"
+    }
+   ]
   },
   {
    "name": "Buenbit",
@@ -7426,6 +8862,28 @@
     "Argentina",
     "Brazil",
     "Colombia"
+   ],
+   "investors": [
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Coatue",
+     "website": "https://coatue.com"
+    },
+    {
+     "name": "Pantera Capital",
+     "website": "https://panteracapital.com"
+    },
+    {
+     "name": "QED Investors",
+     "website": "https://qedinvestors.com"
+    },
+    {
+     "name": "Kaszek",
+     "website": "https://kaszek.com"
+    }
    ]
   },
   {
@@ -7460,6 +8918,16 @@
     "Argentina",
     "Colombia",
     "Brazil"
+   ],
+   "investors": [
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Kaszek",
+     "website": "https://kaszek.com"
+    }
    ]
   },
   {
@@ -7541,6 +9009,16 @@
     "Peru",
     "Chile",
     "Brazil"
+   ],
+   "investors": [
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "BlueYard Capital",
+     "website": "https://blueyard.com"
+    }
    ]
   },
   {
@@ -7604,6 +9082,20 @@
     "South Africa",
     "United States",
     "United Kingdom"
+   ],
+   "investors": [
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Bezos Expeditions",
+     "website": "https://bezosexpeditions.com"
+    },
+    {
+     "name": "Deciens Capital",
+     "website": "https://deciens.com"
+    }
    ]
   },
   {
@@ -7750,6 +9242,28 @@
     "UAE",
     "Singapore",
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Spark Capital",
+     "website": "https://sparkcapital.com"
+    },
+    {
+     "name": "Coatue",
+     "website": "https://coatue.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "General Catalyst",
+     "website": "https://generalcatalyst.com"
+    }
    ]
   },
   {
@@ -7821,7 +9335,17 @@
    ],
    "note": "SMB banking; crypto-native verticals.",
    "founders": "Victor Cardenas",
-   "funding": "~$60M+ raised"
+   "funding": "~$60M+ raised",
+   "investors": [
+    {
+     "name": "NEA",
+     "website": "https://nea.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    }
+   ]
   },
   {
    "name": "MetaMask",
@@ -7859,6 +9383,24 @@
    "x_handle": "MetaMask",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "ParaFi Capital",
+     "website": "https://parafi.com"
+    },
+    {
+     "name": "Temasek",
+     "website": "https://temasek.com.sg"
+    },
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Microsoft (M12)",
+     "website": "https://m12.vc"
+    }
    ]
   },
   {
@@ -7896,6 +9438,24 @@
    "x_handle": "phantom",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Paradigm",
+     "website": "https://paradigm.xyz"
+    },
+    {
+     "name": "Andreessen Horowitz",
+     "website": "https://a16z.com"
+    },
+    {
+     "name": "Variant",
+     "website": "https://variant.fund"
+    },
+    {
+     "name": "Jump Crypto",
+     "website": "https://jumpcrypto.com"
+    }
    ],
    "reported_users": {
     "value_millions": 15,
@@ -7972,6 +9532,12 @@
    "x_handle": "rainbowdotme",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Seven Seven Six",
+     "website": "https://sevensevensix.com"
+    }
    ]
   },
   {
@@ -8117,6 +9683,16 @@
    "x_handle": "zengo",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Insight Partners",
+     "website": "https://insightpartners.com"
+    },
+    {
+     "name": "Samsung Next",
+     "website": "https://samsungnext.com"
+    }
    ]
   },
   {
@@ -8252,6 +9828,16 @@
    "x_handle": "ether_fi",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "CoinFund",
+     "website": "https://coinfund.io"
+    },
+    {
+     "name": "OKX Ventures",
+     "website": "https://okx.com"
+    }
    ],
    "volume": {
     "figure": "$55.4M",
@@ -8414,6 +10000,20 @@
    "x_handle": "Plasma",
    "countries": [
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Framework Ventures",
+     "website": "https://framework.ventures"
+    },
+    {
+     "name": "Bitfinex",
+     "website": "https://bitfinex.com"
+    }
    ]
   },
   {
@@ -8825,6 +10425,20 @@
     "Nigeria",
     "Kenya",
     "Global"
+   ],
+   "investors": [
+    {
+     "name": "Union Square Ventures",
+     "website": "https://usv.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Slow Ventures",
+     "website": "https://slow.co"
+    }
    ]
   },
   {
@@ -8882,6 +10496,16 @@
    "countries": [
     "France",
     "European Union"
+   ],
+   "investors": [
+    {
+     "name": "Headline",
+     "website": "https://headline.com"
+    },
+    {
+     "name": "Hoxton Ventures",
+     "website": "https://hoxtonventures.com"
+    }
    ]
   },
   {
@@ -9140,6 +10764,16 @@
    "x_handle": "AlpianBank",
    "countries": [
     "Switzerland"
+   ],
+   "investors": [
+    {
+     "name": "Intesa Sanpaolo",
+     "website": "https://group.intesasanpaolo.com"
+    },
+    {
+     "name": "REYL Intesa Sanpaolo",
+     "website": "https://reyl.com"
+    }
    ]
   },
   {
@@ -9391,6 +11025,28 @@
     "Hong Kong",
     "Indonesia",
     "Vietnam"
+   ],
+   "investors": [
+    {
+     "name": "Peak XV Partners",
+     "website": "https://peakxv.com"
+    },
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Tencent",
+     "website": "https://www.tencent.com"
+    },
+    {
+     "name": "PayPal Ventures",
+     "website": "https://paypal.com"
+    }
    ]
   },
   {
@@ -9421,6 +11077,16 @@
     "Singapore",
     "Thailand",
     "Malaysia"
+   ],
+   "investors": [
+    {
+     "name": "Lightspeed",
+     "website": "https://lsvp.com"
+    },
+    {
+     "name": "Insignia Ventures",
+     "website": "https://insignia.vc"
+    }
    ]
   },
   {
@@ -9474,6 +11140,24 @@
    "countries": [
     "Brazil",
     "United States"
+   ],
+   "investors": [
+    {
+     "name": "Stripes",
+     "website": "https://stripes.co"
+    },
+    {
+     "name": "Monashees",
+     "website": "https://monashees.com"
+    },
+    {
+     "name": "Spark Capital",
+     "website": "https://sparkcapital.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    }
    ]
   },
   {
@@ -9860,6 +11544,24 @@
     "Asia"
    ],
    "note": "The Philippines' super-app wallet; ~94M users, GCredit + GSave make it bank-like.",
+   "investors": [
+    {
+     "name": "Globe Telecom",
+     "website": "https://globe.com.ph"
+    },
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    },
+    {
+     "name": "Warburg Pincus",
+     "website": "https://warburgpincus.com"
+    },
+    {
+     "name": "Insight Partners",
+     "website": "https://insightpartners.com"
+    }
+   ],
    "reported_users": {
     "value_millions": 94,
     "metric": "users",
@@ -9887,6 +11589,28 @@
     "Asia"
    ],
    "note": "India's UPI giant — 600M+ registered; wallets, deposits marketplace, insurance.",
+   "investors": [
+    {
+     "name": "Walmart",
+     "website": "https://walmart.com"
+    },
+    {
+     "name": "General Atlantic",
+     "website": "https://generalatlantic.com"
+    },
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Tiger Global",
+     "website": "https://tigerglobal.com"
+    },
+    {
+     "name": "Qatar Investment Authority",
+     "website": "https://qia.qa"
+    }
+   ],
    "reported_users": {
     "value_millions": 200,
     "metric": "MAU",
@@ -9913,7 +11637,25 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "India's OG super-app wallet; payments bank wound down, wallet + UPI live on."
+   "note": "India's OG super-app wallet; payments bank wound down, wallet + UPI live on.",
+   "investors": [
+    {
+     "name": "SoftBank",
+     "website": "https://softbank.jp"
+    },
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    },
+    {
+     "name": "Alibaba",
+     "website": "https://alibabagroup.com"
+    },
+    {
+     "name": "Elevation Capital",
+     "website": "https://elevationcapital.com"
+    }
+   ]
   },
   {
    "name": "GrabPay",
@@ -9979,7 +11721,13 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Grab-backed Indonesian e-wallet with investing + lending layers."
+   "note": "Grab-backed Indonesian e-wallet with investing + lending layers.",
+   "investors": [
+    {
+     "name": "Grab",
+     "website": "https://grab.com"
+    }
+   ]
   },
   {
    "name": "DANA",
@@ -10001,7 +11749,17 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Ant-backed Indonesian wallet; 180M+ registered users."
+   "note": "Ant-backed Indonesian wallet; 180M+ registered users.",
+   "investors": [
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    },
+    {
+     "name": "Emtek",
+     "website": "https://emtek.co.id"
+    }
+   ]
   },
   {
    "name": "TrueMoney",
@@ -10023,7 +11781,17 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "CP Group's wallet across 7 SEA markets; Thailand's biggest."
+   "note": "CP Group's wallet across 7 SEA markets; Thailand's biggest.",
+   "investors": [
+    {
+     "name": "CP Group",
+     "website": "https://cpgroupglobal.com"
+    },
+    {
+     "name": "Ant Group",
+     "website": "https://antgroup.com"
+    }
+   ]
   },
   {
    "name": "MoMo",
@@ -10045,7 +11813,21 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Vietnam's leading e-wallet; 30M+ users, investments + savings."
+   "note": "Vietnam's leading e-wallet; 30M+ users, investments + savings.",
+   "investors": [
+    {
+     "name": "Warburg Pincus",
+     "website": "https://warburgpincus.com"
+    },
+    {
+     "name": "Goldman Sachs",
+     "website": "https://goldmansachs.com"
+    },
+    {
+     "name": "Mizuho",
+     "website": "https://mizuhogroup.com"
+    }
+   ]
   },
   {
    "name": "ZaloPay",

@@ -112,6 +112,20 @@ function factRows(e) {
   return rows.filter(([, v]) => v).map(([k, v]) => `<tr><td>${k}</td><td>${esc(v)}</td></tr>`).join('\n    ');
 }
 
+function investorsBlock(e) {
+  if (!e.investors || !e.investors.length) return '';
+  const chips = e.investors.map(iv => {
+    const d = iv.website.replace(/^https?:\/\//, '');
+    return `<a class="invchip" href="${esc(iv.website)}" target="_blank" rel="noopener"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(d)}&amp;sz=32" onerror="this.remove()">${esc(iv.name)} ↗</a>`;
+  }).join('\n    ');
+  return `
+  <h2>Early investors</h2>
+  <p class="meta">Notable venture and strategic investors from ${esc(e.name)}'s publicly disclosed funding rounds${e.funding ? ` (${esc(e.funding)})` : ''}.</p>
+  <div class="invrow">
+    ${chips}
+  </div>`;
+}
+
 function links(e) {
   const l = [];
   if (e.website) l.push(`<a href="${esc(e.website)}" target="_blank" rel="noopener nofollow">official site ↗</a>`);
@@ -132,7 +146,8 @@ for (const e of E) {
     `stablecoins ${e.stablecoins ? 'yes' : 'no'}. Verified facts from the open neobankbeat dataset.`;
   const ld = {
     '@context': 'https://schema.org', '@graph': [
-      { '@type': 'Organization', name: e.name, url: e.website || url, foundingDate: String(e.founded), description: e.note || undefined },
+      { '@type': 'Organization', name: e.name, url: e.website || url, foundingDate: String(e.founded), description: e.note || undefined,
+        funder: e.investors ? e.investors.map(iv => ({ '@type': 'Organization', name: iv.name, url: iv.website })) : undefined },
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
         { '@type': 'ListItem', position: 2, name: 'neobanks', item: BASE + '/n/' },
@@ -154,6 +169,7 @@ for (const e of E) {
     ${factRows(e)}
   </table>
   ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
+  ${investorsBlock(e)}
   <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
   ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
   ${disclaimer}

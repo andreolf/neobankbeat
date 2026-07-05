@@ -49,6 +49,7 @@ const out = w.eval(`(function(){
     if (v.p) o.privacy_url = v.p;
     if (v.x) o.x_handle = v.x;
     if (v.cc) o.countries = v.cc;
+    if (typeof INV !== 'undefined' && INV[name]) o.investors = INV[name].map(iv => ({ name: iv[0], website: 'https://' + iv[1] }));
     if (USERMAP[name]) o.reported_users = { value_millions: USERMAP[name].v, metric: USERMAP[name].metric, as_of: USERMAP[name].yr };
     if (VOLMAP[name]) o.volume = { figure: VOLMAP[name].fig, metric: VOLMAP[name].metric, source: VOLMAP[name].src };
     return o;

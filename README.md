@@ -107,6 +107,7 @@ the whole app is **one self-contained `index.html`** — no build step, no backe
 index.html          the entire app: CSS + data + logic
 ├── const D=[...]   357 entities, one row each
 ├── const X={...}   enrichment: founders, licences, funding, stories
+├── const INV={...} notable early investors per entity (public rounds)
 └── const V={...}   verified links: terms, privacy, X handles, countries
 data.json           machine-readable export (generated, committed)
 llms.txt            agent-facing guide

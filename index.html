@@ -390,6 +390,12 @@ a.fdr::after{content:"↗";color:var(--dim);font-size:10px}
 a.fdr:hover::after{color:var(--pc)}
 .fdr .av{flex:none;width:26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--pc) 32%,var(--panel));border:1px solid color-mix(in srgb,var(--pc) 55%,var(--line));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;letter-spacing:.02em;color:var(--text)}
 .fdr.plain{cursor:default;color:var(--muted)}
+.invs{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.inv{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:4px 13px 4px 6px;text-decoration:none;color:var(--text);font-family:var(--mono);font-size:11.5px;background:var(--panel2)}
+.inv img{width:16px;height:16px;border-radius:4px;flex:none}
+a.inv:hover{border-color:var(--pc);transform:translateY(-1px)}
+a.inv::after{content:"↗";color:var(--dim);font-size:10px}
+a.inv:hover::after{color:var(--pc)}
 
 /* ═══ v8 · resources panel, volume charts, matrix ═══ */
 .abgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
@@ -1575,6 +1581,140 @@ const X={
 "Bleap":{f:"Ex-Revolut founding team",l:"MPC self-custody; MC principal member"}
 };
 
+/* ── notable early investors · INV[name] = [[investor, domain], …] — public, top rounds only ── */
+const INV={
+  /* US consumer */
+  "Chime": [["DST Global","dst-global.com"],["Sequoia Capital","sequoiacap.com"],["General Atlantic","generalatlantic.com"],["Tiger Global","tigerglobal.com"],["Menlo Ventures","menlovc.com"]],
+  "Varo": [["Warburg Pincus","warburgpincus.com"],["The Rise Fund (TPG)","therisefund.com"],["Lone Pine Capital","lonepinecapital.com"]],
+  "Current": [["Andreessen Horowitz","a16z.com"],["Tiger Global","tigerglobal.com"],["Avenir Growth","avenirgrowth.com"],["Foundation Capital","foundationcap.com"]],
+  "SoFi": [["SoftBank","softbank.jp"],["Silver Lake","silverlake.com"],["Qatar Investment Authority","qia.qa"]],
+  "Dave": [["Norwest Venture Partners","nvp.com"],["Section 32","section32.com"]],
+  "One": [["Walmart","walmart.com"],["Ribbit Capital","ribbitcap.com"]],
+  "Step": [["Coatue","coatue.com"],["Stripe","stripe.com"],["General Catalyst","generalcatalyst.com"],["Crosslink Capital","crosslinkcapital.com"]],
+  "Greenlight": [["Andreessen Horowitz","a16z.com"],["TTV Capital","ttvcapital.com"],["Canapi Ventures","canapi.com"],["Owl Ventures","owlvc.com"],["Drive Capital","drivecapital.com"]],
+  "Albert": [["CapitalG","capitalg.com"],["General Atlantic","generalatlantic.com"],["QED Investors","qedinvestors.com"]],
+  "Greenwood": [["Truist","truist.com"],["Bank of America","bankofamerica.com"],["SoftBank","softbank.jp"]],
+  "Robinhood": [["Index Ventures","indexventures.com"],["Andreessen Horowitz","a16z.com"],["DST Global","dst-global.com"],["Ribbit Capital","ribbitcap.com"],["Sequoia Capital","sequoiacap.com"]],
+  /* US SMB */
+  "Mercury": [["Andreessen Horowitz","a16z.com"],["Sequoia Capital","sequoiacap.com"],["CRV","crv.com"],["Coatue","coatue.com"]],
+  "Brex": [["Y Combinator","ycombinator.com"],["DST Global","dst-global.com"],["Greenoaks","greenoaks.com"],["Ribbit Capital","ribbitcap.com"],["Tiger Global","tigerglobal.com"]],
+  "Ramp": [["Founders Fund","foundersfund.com"],["Thrive Capital","thrivecap.com"],["Khosla Ventures","khoslaventures.com"],["Stripe","stripe.com"],["General Catalyst","generalcatalyst.com"]],
+  "Novo": [["Valar Ventures","valar.com"],["Stripes","stripes.co"],["Crosslink Capital","crosslinkcapital.com"]],
+  "Bluevine": [["Lightspeed","lsvp.com"],["Menlo Ventures","menlovc.com"],["83North","83north.com"],["Citi Ventures","citi.com"]],
+  "Relay": [["Bain Capital Ventures","baincapitalventures.com"],["Better Tomorrow Ventures","btv.vc"],["Garage Capital","garage.vc"]],
+  "Found": [["Sequoia Capital","sequoiacap.com"],["Founders Fund","foundersfund.com"],["Lightspeed","lsvp.com"]],
+  "Lili": [["Group 11","group11.vc"],["Target Global","targetglobal.vc"]],
+  "NorthOne": [["Battery Ventures","battery.com"],["Redpoint","redpoint.com"]],
+  "Rho": [["DFJ Growth","dfjgrowth.com"],["M13","m13.co"]],
+  "Slash": [["NEA","nea.com"],["Y Combinator","ycombinator.com"]],
+  "Karat": [["Union Square Ventures","usv.com"],["SignalFire","signalfire.com"]],
+  "Deel": [["Andreessen Horowitz","a16z.com"],["Spark Capital","sparkcapital.com"],["Coatue","coatue.com"],["Y Combinator","ycombinator.com"],["General Catalyst","generalcatalyst.com"]],
+  /* Europe */
+  "Revolut": [["Index Ventures","indexventures.com"],["DST Global","dst-global.com"],["Balderton Capital","balderton.com"],["Ribbit Capital","ribbitcap.com"],["Tiger Global","tigerglobal.com"]],
+  "Monzo": [["Accel","accel.com"],["Passion Capital","passioncapital.com"],["General Catalyst","generalcatalyst.com"],["Y Combinator","ycombinator.com"],["Tencent","www.tencent.com"]],
+  "N26": [["Valar Ventures","valar.com"],["Insight Partners","insightpartners.com"],["Tencent","www.tencent.com"],["Allianz X","allianzx.com"],["Earlybird","earlybird.com"]],
+  "Starling Bank": [["Goldman Sachs","goldmansachs.com"],["Fidelity","fidelity.com"],["Qatar Investment Authority","qia.qa"],["Chrysalis","chrysalisinvestments.co.uk"]],
+  "Wise": [["Index Ventures","indexventures.com"],["Andreessen Horowitz","a16z.com"],["Valar Ventures","valar.com"],["Baillie Gifford","bailliegifford.com"]],
+  "bunq": [["Pollen Street Capital","pollencap.com"]],
+  "Tide": [["Apax","apax.com"],["Anthemis","anthemis.com"],["Augmentum Fintech","augmentum.vc"],["LocalGlobe","localglobe.vc"],["Speedinvest","speedinvest.com"]],
+  "Qonto": [["Valar Ventures","valar.com"],["Alven","alven.co"],["Tencent","www.tencent.com"],["DST Global","dst-global.com"],["TCV","tcv.com"]],
+  "Trade Republic": [["Sequoia Capital","sequoiacap.com"],["Accel","accel.com"],["Founders Fund","foundersfund.com"],["Thrive Capital","thrivecap.com"],["Creandum","creandum.com"]],
+  "Vivid Money": [["Ribbit Capital","ribbitcap.com"],["SoftBank","softbank.jp"],["Greenoaks","greenoaks.com"]],
+  "Bitpanda": [["Valar Ventures","valar.com"],["Speedinvest","speedinvest.com"]],
+  "Lunar": [["Kinnevik","kinnevik.com"],["Tencent","www.tencent.com"],["Seed Capital","seedcapital.dk"],["Greyhound Capital","greyhoundcapital.com"]],
+  "Monese": [["Kinnevik","kinnevik.com"],["PayPal Ventures","paypal.com"],["Augmentum Fintech","augmentum.vc"],["HSBC","hsbc.com"]],
+  "Zopa Bank": [["SoftBank","softbank.jp"],["Augmentum Fintech","augmentum.vc"]],
+  "Atom Bank": [["BBVA","bbva.com"],["Toscafund","toscafund.com"]],
+  "Allica Bank": [["TCV","tcv.com"],["Warwick Capital Partners","warwickcapital.com"],["Atalaya Capital","atalayacap.com"]],
+  "OakNorth": [["SoftBank","softbank.jp"],["Clermont Group","theclermontgroup.com"],["GIC","www.gic.com.sg"],["Toscafund","toscafund.com"]],
+  "Tandem Bank": [["Pollen Street Capital","pollencap.com"]],
+  "Klarna": [["Sequoia Capital","sequoiacap.com"],["Atomico","atomico.com"],["Silver Lake","silverlake.com"],["Permira","permira.com"],["SoftBank","softbank.jp"]],
+  "Sumeria (Lydia)": [["Tencent","www.tencent.com"],["Accel","accel.com"],["Dragoneer","dragoneer.com"]],
+  "Indy": [["Singular","singular.vc"]],
+  "Alpian": [["Intesa Sanpaolo","group.intesasanpaolo.com"],["REYL Intesa Sanpaolo","reyl.com"]],
+  "Deblock": [["Headline","headline.com"],["Hoxton Ventures","hoxtonventures.com"]],
+  "Majority": [["Valar Ventures","valar.com"],["Heartcore Capital","heartcore.com"]],
+  /* LATAM */
+  "Nubank": [["Sequoia Capital","sequoiacap.com"],["DST Global","dst-global.com"],["Kaszek","kaszek.com"],["Tencent","www.tencent.com"],["Berkshire Hathaway","berkshirehathaway.com"]],
+  "Ualá": [["SoftBank","softbank.jp"],["Tencent","www.tencent.com"],["Allianz X","allianzx.com"],["Goldman Sachs","goldmansachs.com"],["Soros Fund Management","sorosfundmgmt.com"]],
+  "Klar": [["General Atlantic","generalatlantic.com"],["Prosus Ventures","prosus.com"],["Quona Capital","quona.com"],["Mouro Capital","mourocapital.com"]],
+  "Stori": [["Lightspeed","lsvp.com"],["General Catalyst","generalcatalyst.com"],["Goodwater Capital","goodwatercap.com"],["BAI Capital","baicapital.com"]],
+  "albo": [["Valar Ventures","valar.com"],["Greyhound Capital","greyhoundcapital.com"],["Mountain Nazca","nazca.mx"]],
+  "Banco Inter": [["SoftBank","softbank.jp"]],
+  "C6 Bank": [["JPMorgan Chase","jpmorganchase.com"],["GIC","www.gic.com.sg"]],
+  "Neon": [["General Atlantic","generalatlantic.com"],["BBVA","bbva.com"],["Monashees","monashees.com"],["BlackRock","blackrock.com"]],
+  "Cora": [["Greenoaks","greenoaks.com"],["Tiger Global","tigerglobal.com"],["Kaszek","kaszek.com"],["QED Investors","qedinvestors.com"],["Ribbit Capital","ribbitcap.com"]],
+  "Brubank": [["Point72 Ventures","p72.vc"]],
+  "Nomad": [["Stripes","stripes.co"],["Monashees","monashees.com"],["Spark Capital","sparkcapital.com"],["Tiger Global","tigerglobal.com"]],
+  "Tenpo": [["Krealo (Credicorp)","grupocredicorp.com"]],
+  "Global66": [["Quona Capital","quona.com"],["Magma Partners","magmapartners.com"]],
+  "Bitso": [["Tiger Global","tigerglobal.com"],["Coatue","coatue.com"],["Pantera Capital","panteracapital.com"],["QED Investors","qedinvestors.com"],["Kaszek","kaszek.com"]],
+  "Ripio": [["Digital Currency Group","dcg.co"],["Pantera Capital","panteracapital.com"],["Boost VC","boost.vc"]],
+  "Airtm": [["Ribbit Capital","ribbitcap.com"],["BlueYard Capital","blueyard.com"]],
+  "Comun": [["Redpoint","redpoint.com"],["Costanoa Ventures","costanoa.vc"],["South Park Commons","southparkcommons.com"]],
+  "DolarApp": [["Y Combinator","ycombinator.com"],["Kaszek","kaszek.com"]],
+  /* Africa */
+  "Moniepoint": [["QED Investors","qedinvestors.com"],["Development Partners International","dpi-llp.com"],["Google (Africa Investment Fund)","google.com"],["Lightrock","lightrock.com"],["Visa","visa.com"]],
+  "Kuda": [["Valar Ventures","valar.com"],["Target Global","targetglobal.vc"],["SBI Group","www.sbigroup.co.jp"]],
+  "TymeBank": [["Tencent","www.tencent.com"],["Apis Partners","apis.pe"],["Nubank","nubank.com.br"],["Norrsken22","norrsken22.com"],["British International Investment","bii.co.uk"]],
+  "OPay": [["SoftBank","softbank.jp"],["HongShan (Sequoia China)","hongshan.com"],["Source Code Capital","sourcecodecap.com"]],
+  "PalmPay": [["Transsion","www.transsion.com"],["NetEase","www.netease.com"]],
+  "FairMoney": [["Tiger Global","tigerglobal.com"],["Flourish Ventures","flourishventures.com"],["Speedinvest","speedinvest.com"]],
+  "Chipper Cash": [["Ribbit Capital","ribbitcap.com"],["Bezos Expeditions","bezosexpeditions.com"],["Deciens Capital","deciens.com"]],
+  "Wave": [["HRTG (Sequoia Heritage)","hrtg.com"],["Founders Fund","foundersfund.com"],["Stripe","stripe.com"],["Ribbit Capital","ribbitcap.com"],["Partech","partechpartners.com"]],
+  "Djamo": [["Y Combinator","ycombinator.com"],["Partech","partechpartners.com"],["Janngo Capital","janngo.africa"]],
+  "Carbon": [["Partech","partechpartners.com"]],
+  /* Asia */
+  "Toss Bank": [["PayPal Ventures","paypal.com"],["Kleiner Perkins","kleinerperkins.com"],["Altos Ventures","altos.vc"],["GIC","www.gic.com.sg"]],
+  "Jupiter": [["Peak XV Partners","peakxv.com"],["Z47 (Matrix India)","z47.com"],["Tiger Global","tigerglobal.com"],["QED Investors","qedinvestors.com"]],
+  "Fi Money": [["Peak XV Partners","peakxv.com"],["Ribbit Capital","ribbitcap.com"],["Temasek","temasek.com.sg"],["B Capital","bcapgroup.com"],["Alpha Wave","alphawaveglobal.com"]],
+  "Niyo": [["Accel","accel.com"],["Prime Venture Partners","primevp.in"],["Tencent","www.tencent.com"],["Lightrock","lightrock.com"]],
+  "slice": [["Tiger Global","tigerglobal.com"],["Insight Partners","insightpartners.com"],["Blume Ventures","blume.vc"]],
+  "FamPay": [["Elevation Capital","elevationcapital.com"],["Y Combinator","ycombinator.com"],["Peak XV Partners","peakxv.com"],["General Catalyst","generalcatalyst.com"]],
+  "RazorpayX": [["Peak XV Partners","peakxv.com"],["Tiger Global","tigerglobal.com"],["GIC","www.gic.com.sg"],["Ribbit Capital","ribbitcap.com"],["Y Combinator","ycombinator.com"]],
+  "Open": [["Temasek","temasek.com.sg"],["Tiger Global","tigerglobal.com"],["3one4 Capital","3one4capital.com"],["IIFL","iifl.com"]],
+  "Zolve": [["Accel","accel.com"],["Lightspeed","lsvp.com"],["DST Global","dst-global.com"],["Creaegis","creaegis.com"]],
+  "Paytm": [["SoftBank","softbank.jp"],["Ant Group","antgroup.com"],["Alibaba","alibabagroup.com"],["Elevation Capital","elevationcapital.com"]],
+  "PhonePe": [["Walmart","walmart.com"],["General Atlantic","generalatlantic.com"],["Ribbit Capital","ribbitcap.com"],["Tiger Global","tigerglobal.com"],["Qatar Investment Authority","qia.qa"]],
+  "GCash": [["Globe Telecom","globe.com.ph"],["Ant Group","antgroup.com"],["Warburg Pincus","warburgpincus.com"],["Insight Partners","insightpartners.com"]],
+  "Maya": [["PLDT","pldt.com"],["KKR","kkr.com"],["Tencent","www.tencent.com"],["IFC","ifc.org"]],
+  "Tonik": [["Peak XV Partners","peakxv.com"],["Point72 Ventures","p72.vc"],["Mizuho","mizuhogroup.com"],["Prosus Ventures","prosus.com"]],
+  "Aspire": [["Peak XV Partners","peakxv.com"],["Lightspeed","lsvp.com"],["Y Combinator","ycombinator.com"],["Tencent","www.tencent.com"],["PayPal Ventures","paypal.com"]],
+  "YouTrip": [["Lightspeed","lsvp.com"],["Insignia Ventures","insignia.vc"]],
+  "bKash": [["SoftBank","softbank.jp"],["Ant Group","antgroup.com"],["IFC","ifc.org"],["Gates Foundation","gatesfoundation.org"]],
+  "DANA": [["Ant Group","antgroup.com"],["Emtek","emtek.co.id"]],
+  "OVO": [["Grab","grab.com"]],
+  "Superbank": [["Grab","grab.com"],["Singtel","singtel.com"],["Emtek","emtek.co.id"],["KakaoBank","kakaobank.com"]],
+  "TrueMoney": [["CP Group","cpgroupglobal.com"],["Ant Group","antgroup.com"]],
+  "MoMo": [["Warburg Pincus","warburgpincus.com"],["Goldman Sachs","goldmansachs.com"],["Mizuho","mizuhogroup.com"]],
+  "WeBank": [["Tencent","www.tencent.com"]],
+  "MYbank": [["Ant Group","antgroup.com"]],
+  "WeLab Bank": [["Sequoia Capital","sequoiacap.com"],["Alibaba Entrepreneurs Fund","ent-fund.org"]],
+  "SadaPay": [["Recharge Capital","rechargecapital.com"]],
+  /* MENA */
+  "Wio Bank": [["ADQ","adq.ae"],["e&","eand.com"],["Mubadala","mubadala.com"]],
+  /* Canada / Oceania */
+  "Wealthsimple": [["Power Corporation","powercorporation.com"],["Allianz X","allianzx.com"],["Meritech Capital","meritechcapital.com"],["Greylock","greylock.com"],["DST Global","dst-global.com"]],
+  "KOHO": [["Drive Capital","drivecapital.com"],["Portage","sagard.com"],["Eldridge","eldridge.com"]],
+  "Neo Financial": [["Valar Ventures","valar.com"],["Golden Ventures","golden.ventures"]],
+  "Hnry": [["Left Lane Capital","leftlane.com"],["AirTree Ventures","airtree.vc"],["Icehouse Ventures","icehouseventures.co.nz"]],
+  /* web3-native */
+  "MetaMask": [["ParaFi Capital","parafi.com"],["Temasek","temasek.com.sg"],["SoftBank","softbank.jp"],["Microsoft (M12)","m12.vc"]],
+  "Phantom": [["Paradigm","paradigm.xyz"],["Andreessen Horowitz","a16z.com"],["Variant","variant.fund"],["Jump Crypto","jumpcrypto.com"]],
+  "Rainbow": [["Seven Seven Six","sevensevensix.com"]],
+  "Zengo": [["Insight Partners","insightpartners.com"],["Samsung Next","samsungnext.com"]],
+  "EtherFi Cash": [["CoinFund","coinfund.io"],["OKX Ventures","okx.com"]],
+  "KAST": [["Peak XV Partners","peakxv.com"],["HongShan","hongshan.com"]],
+  "Plasma One": [["Founders Fund","foundersfund.com"],["Framework Ventures","framework.ventures"],["Bitfinex","bitfinex.com"]],
+  "Sling Money": [["Union Square Ventures","usv.com"],["Ribbit Capital","ribbitcap.com"],["Slow Ventures","slow.co"]],
+  "Fold": [["Craft Ventures","craftventures.com"]],
+  "Strike": [["Ten31","ten31.vc"]],
+  "Xapo Bank": [["Benchmark","benchmark.com"],["Index Ventures","indexventures.com"],["Greylock","greylock.com"]],
+  "Juno": [["Polychain Capital","polychain.capital"],["Peak XV Partners","peakxv.com"]],
+  "Krak": [["Hummingbird Ventures","hummingbird.vc"],["Tribe Capital","tribecap.co"],["Blockchain Capital","blockchain.capital"]],
+  "Coinbase Card": [["Andreessen Horowitz","a16z.com"],["Union Square Ventures","usv.com"],["Ribbit Capital","ribbitcap.com"]],
+};
+
 /* macro regions */
 const MACROS={NA:"North America",EU:"Europe",LATAM:"Latin America",AF:"Africa",MENA:"MENA",ASIA:"Asia",OC:"Oceania"};
 const ALLM=Object.keys(MACROS);
@@ -2235,6 +2375,12 @@ openDetail=function(name){
   if(e.f){
     const row=[...document.querySelectorAll('#dwrap .pfacts .row')].find(x=>x.querySelector('dt')&&x.querySelector('dt').textContent==='Founders');
     if(row)row.querySelector('dd').innerHTML='<div class="founders">'+founderChips(e.f,name,PCOL[r[1]])+'</div>';
+  }
+  /* early investors row (public, top rounds) */
+  if(typeof INV!=="undefined"&&INV[name]){
+    const dl=document.querySelector('#dwrap .pfacts');
+    if(dl)dl.insertAdjacentHTML('beforeend','<div class="row"><dt>Early investors</dt><dd><div class="invs">'+
+      INV[name].map(([nm,d])=>'<a class="inv" target="_blank" rel="noopener" title="'+esc(nm)+'" href="https://'+esc(d)+'"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(d)+'&sz=32" onerror="this.remove()">'+esc(nm)+'</a>').join("")+'</div></dd></div>');
   }
   /* press & interviews link into verify row */
   const rows=document.querySelectorAll('#dwrap .srcrow');
