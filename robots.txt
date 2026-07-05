@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# The monthly PDF report is gated behind the (free) newsletter at /report/
+Disallow: /reports/
 
 Sitemap: https://www.neobankbeat.com/sitemap.xml
 

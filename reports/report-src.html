@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The State of Neobanks — July 2026 · neobankbeat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0A0A10;--panel:#12121A;--panel2:#171722;--line:#23232F;--text:#EDEDF2;--muted:#8A8A9A;--dim:#5A5A68;--t:#89B0FF;--h:#D075FF;--w:#BAF24A;--acc:#FF5C16}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:#333;color:var(--text)}
+.page{width:210mm;height:297mm;background:var(--bg);position:relative;overflow:hidden;page-break-after:always;padding:20mm 18mm 16mm}
+.pfoot{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;justify-content:space-between;font-family:'Noto Sans Mono',monospace;font-size:7.5pt;color:var(--dim);border-top:.4pt solid var(--line);padding-top:3mm}
+.pfoot b{color:var(--muted);font-weight:500}
+.eyebrow{font-family:'Noto Sans Mono',monospace;font-size:8pt;letter-spacing:2.5px;text-transform:uppercase;color:var(--acc);margin-bottom:6mm}
+.eyebrow::before{content:"—— "}
+h1{font-size:26pt;letter-spacing:-1px;line-height:1.1;margin-bottom:6mm}
+h1 em{font-style:normal;color:var(--acc)}
+h2{font-size:15pt;letter-spacing:-.3px;margin:7mm 0 3.5mm}
+h3{font-size:11pt;margin:5mm 0 2.5mm}
+p{font-size:9.6pt;line-height:1.62;color:#C9C9D4;margin-bottom:3.4mm}
+p b,li b{color:var(--text)}
+ul,ol{margin:0 0 3.5mm 5mm}
+li{font-size:9.6pt;line-height:1.6;color:#C9C9D4;margin-bottom:1.6mm}
+table{width:100%;border-collapse:collapse;margin:2mm 0 4mm;font-size:8.6pt}
+th{font-family:'Noto Sans Mono',monospace;font-size:7pt;letter-spacing:1px;text-transform:uppercase;color:var(--dim);text-align:left;padding:1.8mm 2mm;border-bottom:.5pt solid var(--line)}
+td{padding:1.7mm 2mm;border-bottom:.4pt solid var(--line);color:#C9C9D4;vertical-align:top}
+td:first-child{color:var(--text)}
+.mono{font-family:'Noto Sans Mono',monospace}
+.statrow{display:flex;gap:6mm;margin:5mm 0}
+.stat{flex:1;background:var(--panel);border:.5pt solid var(--line);border-radius:3mm;padding:5mm}
+.stat .n{font-family:'Noto Sans Mono',monospace;font-size:20pt;font-weight:700;letter-spacing:-1px}
+.stat .l{font-family:'Noto Sans Mono',monospace;font-size:6.6pt;color:var(--dim);letter-spacing:1.4px;text-transform:uppercase;margin-top:1.4mm}
+.ct{color:var(--t)}.ch{color:var(--h)}.cw{color:var(--w)}.ca{color:var(--acc)}
+.callout{background:var(--panel);border:.5pt solid var(--line);border-left:1mm solid var(--acc);border-radius:2.5mm;padding:4mm 5mm;margin:4mm 0}
+.callout .k{font-family:'Noto Sans Mono',monospace;font-size:6.8pt;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:1.6mm}
+.callout p{margin:0;font-size:9pt}
+.quote{font-size:13pt;line-height:1.5;color:var(--text);border-left:1mm solid var(--acc);padding-left:5mm;margin:6mm 0}
+a{color:var(--acc);text-decoration:none}
+.chartbox{background:var(--panel);border:.5pt solid var(--line);border-radius:3mm;padding:5mm;margin:4mm 0}
+.chartbox .ct2{font-family:'Noto Sans Mono',monospace;font-size:7.4pt;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:3.5mm}
+.src{font-family:'Noto Sans Mono',monospace;font-size:6.8pt;color:var(--dim);margin-top:2.5mm}
+.toc td{padding:2.4mm 2mm;font-size:10pt}
+.toc .pg{font-family:'Noto Sans Mono',monospace;color:var(--acc);text-align:right}
+.cover{display:flex;flex-direction:column;justify-content:space-between}
+.bigbar{position:absolute;left:0;right:0;bottom:0;height:5mm;display:flex}
+.applist td{font-size:7.6pt;padding:1.3mm 1.6mm}
+.applist th{font-size:6.4pt}
+.two{columns:2;column-gap:7mm}
+.two p{break-inside:avoid-column}
+.findnum{font-family:'Noto Sans Mono',monospace;font-size:22pt;font-weight:700;color:var(--acc);line-height:1}
+.finding{display:flex;gap:5mm;margin-bottom:5.5mm}
+.finding p{margin:0;font-size:9.2pt}
+.finding h3{margin:0 0 1.5mm}
+.reflist li{font-size:8.6pt;margin-bottom:2.2mm;color:var(--muted)}
+.reflist b{color:var(--text)}
+</style>
+</head>
+<body>
+<section class="page ">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:space-between">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div class="mono" style="font-size:14pt;font-weight:700">neobank<span class="ca">beat</span></div>
+    <div class="mono" style="font-size:8pt;color:var(--dim);border:.5pt solid var(--line);border-radius:99px;padding:2mm 5mm">monthly report · № 01</div>
+  </div>
+  <div>
+    <div class="mono" style="font-size:9pt;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:8mm">—— July 2026</div>
+    <div style="font-size:44pt;font-weight:700;letter-spacing:-2.5px;line-height:1.02">the state of<br><span class="ca">neobanks</span></div>
+    <p style="font-size:12pt;color:var(--muted);margin-top:8mm;max-width:130mm">357 verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. Compiled from the open neobankbeat dataset.</p>
+  </div>
+  <div>
+    <div class="statrow">
+      <div class="stat"><div class="n">357</div><div class="l">verified active</div></div>
+      <div class="stat"><div class="n ct">256</div><div class="l">traditional</div></div>
+      <div class="stat"><div class="n ch">54</div><div class="l">hybrid crypto</div></div>
+      <div class="stat"><div class="n cw">47</div><div class="l">web3-native</div></div>
+    </div>
+    <div class="mono" style="font-size:8pt;color:var(--dim)">data as of 5 July 2026 · neobankbeat.com · open data, MIT</div>
+  </div>
+</div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
+</section>
+<section class="page ">
+<div class="eyebrow">about this report</div>
+<h1>Counting survivors,<br>not press releases</h1>
+<p>The State of Neobanks is a monthly measurement of the digital banking industry, produced from the <b>neobankbeat open dataset</b> — a hand-verified directory of every neobank we can confirm as currently operating. Defunct entities are removed, not averaged in; unverifiable fields are left empty, never estimated. What follows describes the industry that exists, not the one that was announced.</p>
+<h2>What counts as a neobank here</h2>
+<p>A consumer- or SMB-facing, digital-first money app offering everyday banking — an account or balance, usually a card, payments — without a branch network. Three structural waves qualify: <b class="ct">traditional</b> fiat challengers, <b class="ch">hybrid</b> apps holding fiat and custodial crypto together, and <b class="cw">web3-native</b> self-custodial apps where the user holds the keys. Pure infrastructure (BaaS, issuer-processors), superapp payment features without banking ambition, and anything we cannot verify as live are excluded.</p>
+<h2>Method in brief</h2>
+<ul>
+<li><b>Sources:</b> regulatory registers (ESMA, EBA, FCA, NMLS, national registers), audited filings and IR disclosures, official terms-of-service documents, and provider websites.</li>
+<li><b>Verification tiers:</b> 126 of 357 entities carry verified legal-document links; 151 carry verified official X handles. Fields that fail verification are null.</li>
+<li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT licence). The report itself is generated from that file.</li>
+<li><b>Independence:</b> no affiliate links, no sponsored placements, no issuer relationships. Errors are fixed in the open on GitHub.</li>
+</ul>
+<div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — July 2026 (№ 01), data as of July 2026." Link: neobankbeat.com/report</p></div>
+<p style="color:var(--dim);font-size:8.6pt">Figures are compiled from public sources for comparison and research, and are not financial advice. Cashback and yield figures are "up to" headline rates that change constantly — always confirm with the issuer. © 2026 neobankbeat · Francesco Andreoli · MIT.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 02 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">contents</div>
+<h1>In this edition</h1>
+<table class="toc">
+<tr><td>Executive summary</td><td class="pg">04</td></tr>
+<tr><td>The ten findings</td><td class="pg">06</td></tr>
+<tr><td>The three waves</td><td class="pg">09</td></tr>
+<tr><td>Glossary: how to read this report</td><td class="pg">11</td></tr>
+<tr><td>Founding waves</td><td class="pg">12</td></tr>
+<tr><td>A short history, 2009–2026</td><td class="pg">13</td></tr>
+<tr><td>The custody spectrum</td><td class="pg">16</td></tr>
+<tr><td>Regulation &amp; licences</td><td class="pg">17</td></tr>
+<tr><td>Cards &amp; economics</td><td class="pg">20</td></tr>
+<tr><td>Stablecoins</td><td class="pg">22</td></tr>
+<tr><td>KYC &amp; the permissionless edge</td><td class="pg">24</td></tr>
+<tr><td>Scale: the user league table</td><td class="pg">27</td></tr>
+<tr><td>Geography: seven regional markets</td><td class="pg">29</td></tr>
+<tr><td>The niche wave</td><td class="pg">37</td></tr>
+<tr><td>Transparency &amp; link rot</td><td class="pg">39</td></tr>
+<tr><td>Outlook &amp; watchlist</td><td class="pg">40</td></tr>
+<tr><td>Method, in full</td><td class="pg">41</td></tr>
+<tr><td>Appendix A — the full directory</td><td class="pg">42</td></tr>
+<tr><td>Appendix B — dataset &amp; schema</td><td class="pg">51</td></tr>
+<tr><td>References</td><td class="pg">52</td></tr>
+</table>
+<p style="color:var(--dim);margin-top:8mm">Charts are generated from the dataset at build time; the interactive versions live at neobankbeat.com — data tab.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 03 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">executive summary</div>
+<h1>Ten numbers that define<br>the industry right now</h1>
+<div class="statrow">
+  <div class="stat"><div class="n ca">4</div><div class="l">survivors founded 2025 (vs 45 in 2019)</div></div>
+  <div class="stat"><div class="n ca">30%</div><div class="l">of the 2020s cohort is self-custodial</div></div>
+  <div class="stat"><div class="n ca">2.7%</div><div class="l">of traditional neobanks support stablecoins</div></div>
+</div>
+<div class="statrow">
+  <div class="stat"><div class="n">26%</div><div class="l">are actually licensed banks</div></div>
+  <div class="stat"><div class="n">33%</div><div class="l">serve a named niche audience</div></div>
+  <div class="stat"><div class="n">12</div><div class="l">work with no KYC at all</div></div>
+</div>
+<p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>45 in 2019</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
+<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (131 active). And beneath everything runs the report's core tension: only <b>26% of neobanks are licensed banks</b> — the remaining three quarters rest on partner banks, e-money safeguarding, crypto licences, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
+<div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 04 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">executive summary · the baseline</div>
+<h1>№ 01 sets the baseline</h1>
+<p>This is the first edition of a monthly series. The table below freezes the headline metrics as of July 2026 — future editions report the same rows with month-over-month deltas, so the series accumulates into a longitudinal record of the industry.</p>
+<table>
+<tr><th>metric</th><th>july 2026</th><th>definition</th></tr>
+<tr><td>Verified-active neobanks</td><td class="mono">357</td><td>entities live and onboarding</td></tr>
+<tr><td>— traditional / hybrid / web3-native</td><td class="mono">256 / 54 / 47</td><td>wave split</td></tr>
+<tr><td>Stablecoin support</td><td class="mono">103 (28.9%)</td><td>any verified support</td></tr>
+<tr><td>— within traditional wave</td><td class="mono">7 (2.7%)</td><td>the migration metric</td></tr>
+<tr><td>Licensed banks</td><td class="mono">92 (26%)</td><td>charter holders</td></tr>
+<tr><td>Self-custodial (incl. MPC)</td><td class="mono">42</td><td>no custodian exists</td></tr>
+<tr><td>No-KYC apps</td><td class="mono">12</td><td>zero identity checks</td></tr>
+<tr><td>Niche-first neobanks</td><td class="mono">117 (33%)</td><td>named audience</td></tr>
+<tr><td>Card issuers</td><td class="mono">299</td><td>any card programme</td></tr>
+<tr><td>Advertise cashback / yield</td><td class="mono">131 / 190</td><td>headline claims</td></tr>
+<tr><td>Verified terms links</td><td class="mono">126</td><td>legal-document hygiene</td></tr>
+<tr><td>Largest reported user base</td><td class="mono">WeBank · 400M</td><td>self-reported</td></tr>
+</table>
+<div class="callout"><span class="k">for the record</span><p>The dataset snapshot behind this edition is preserved in the neobankbeat git history (github.com/andreolf/neobankbeat) — every future delta is independently checkable.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 05 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">the ten findings</div>
+<h1>What the data says</h1>
+<div class="finding"><div class="findnum">01</div><div><h3>The founding boom is over</h3><p>Foundings among survivors: 45 (2019) → 22 (2023) → 16 (2024) → 4 (2025, partial). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.</p></div></div><div class="finding"><div class="findnum">02</div><div><h3>A third of the new generation is self-custodial</h3><p>38 of 125 survivors founded in the 2020s (30%) are web3-native, vs 4% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.</p></div></div><div class="finding"><div class="findnum">03</div><div><h3>Stablecoins: 100% / 91% / 2.7%</h3><p>All 47 web3-native and 49 of 54 hybrids support stablecoins — but only 7 of 256 traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.</p></div></div><div class="finding"><div class="findnum">04</div><div><h3>Only 26% are licensed banks</h3><p>92 of 357 hold a charter. The rest: 20 partner-bank models, 8 e-money institutions, 39 self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.</p></div></div><div class="finding"><div class="findnum">05</div><div><h3>Cards are universal; the economics aren’t</h3><p>299 of 357 issue a card (167 Visa, 146 Mastercard programmes). 131 advertise cashback, 190 offer yield — nearly all behind "up to" tiers. Interchange-only economics are visibly straining.</p></div></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 06 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">the ten findings · continued</div>
+<div style="height:10mm"></div>
+<div class="finding"><div class="findnum">06</div><div><h3>Europe has the density, the South has the giants</h3><p>Active presence: Europe 131, Asia 120, North America 111, LatAm 102, Africa 79. But the largest customer bases are all emerging-market.</p></div></div><div class="finding"><div class="findnum">07</div><div><h3>One in three picks an audience first</h3><p>117 of 357 serve a named niche — SMB (29), underbanked (21), freelancers (14), gen z (9), immigrants (9), kids (8), faith-based (7) and a dozen more. "Right bank for someone" beats "better bank for everyone".</p></div></div><div class="finding"><div class="findnum">08</div><div><h3>No-KYC stays a rounding error — by design</h3><p>12 of 357 work without identity checks; all are self-custodial wallets; none issues a card without KYC. The line is structural, not cultural.</p></div></div><div class="finding"><div class="findnum">09</div><div><h3>Legal-link hygiene is poor</h3><p>Official terms documents verifiable for only 126 of 357 — after an audit that repaired 60 dead legal links and removed 53 that resolve nowhere. For an industry holding money, basic document hygiene remains weak.</p></div></div><div class="finding"><div class="findnum">10</div><div><h3>The categories are dissolving</h3><p>Traditional players add stablecoin rails; web3-native apps acquire e-money licences and IBANs. Our own three-way classification gets harder to maintain each quarter — which is itself the finding.</p></div></div>
+<div class="callout"><span class="k">reproduce any of this</span><p>Every number above is a few lines of code against neobankbeat.com/data.json — schema in Appendix B.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 07 / 53</span></div></section>
+<section class="page ">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center">
+  <div class="mono" style="font-size:60pt;font-weight:700;color:var(--panel2);line-height:1">01</div>
+  <div class="mono" style="font-size:9pt;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin:4mm 0 3mm">—— part 01</div>
+  <div style="font-size:30pt;font-weight:700;letter-spacing:-1.5px;line-height:1.1">The landscape</div>
+  <p style="font-size:11pt;color:var(--muted);margin-top:5mm;max-width:120mm">Taxonomy, history and formation: what a neobank is in 2026, where today’s industry came from, and why the founding boom ended.</p>
+  <div class="quote" style="margin-top:14mm;max-width:140mm">The interesting boundary is no longer bank vs. fintech — it is custodial vs. self-custodial.</div>
+</div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
+</section>
+<section class="page ">
+<div class="eyebrow">chapter 1 · taxonomy</div>
+<h1>The three waves</h1>
+<p>"Neobank" is one word covering three different machines. The differences — who holds the money, what can freeze it, what insures it — matter more than any feature comparison, so this taxonomy underpins every page that follows.</p>
+<div class="chartbox"><div class="ct2">357 neobanks by wave</div><svg viewBox="0 0 480 200" width="78%" xmlns="http://www.w3.org/2000/svg"><path d="M95,95 L95.0,4.0 A91,91 0 1 1 5.9,113.7 Z" fill="#89B0FF"/><path d="M95,95 L5.9,113.7 A91,91 0 0 1 28.0,33.4 Z" fill="#D075FF"/><path d="M95,95 L28.0,33.4 A91,91 0 0 1 95.0,4.0 Z" fill="#BAF24A"/><circle cx="95" cy="95" r="62" fill="#12121A"/><text x="95" y="101" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="22" font-weight="bold" fill="#EDEDF2">357</text><rect x="230" y="28" width="14" height="14" rx="3" fill="#89B0FF"/>
+<text x="252" y="40" font-family="Noto Sans Mono,monospace" font-size="13" fill="#EDEDF2">traditional</text>
+<text x="252" y="56" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">256 · 71.7%</text><rect x="230" y="62" width="14" height="14" rx="3" fill="#D075FF"/>
+<text x="252" y="74" font-family="Noto Sans Mono,monospace" font-size="13" fill="#EDEDF2">hybrid</text>
+<text x="252" y="90" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">54 · 15.1%</text><rect x="230" y="96" width="14" height="14" rx="3" fill="#BAF24A"/>
+<text x="252" y="108" font-family="Noto Sans Mono,monospace" font-size="13" fill="#EDEDF2">web3-native</text>
+<text x="252" y="124" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">47 · 13.2%</text></svg></div>
+<h3><span class="ct">Wave one — traditional (256)</span></h3>
+<p>Fiat money, custodial accounts, a card, and a regulatory wrapper that permits holding customer funds. From Simple and Nubank through the London cluster to today's licensed digital banks across the Gulf and Asia. Contains all the giants.</p>
+<h3><span class="ch">Wave two — hybrid (54)</span></h3>
+<p>Fiat plus custodial crypto in one app, arriving ~2017 from two directions: banking apps adding trading (Revolut, Cash App) and exchanges adding cards (Crypto.com, Coinbase, Binance). One counterparty holds everything.</p>
+<h3><span class="cw">Wave three — web3-native (47)</span></h3>
+<p>Self-custodial apps where the user holds the keys and the company holds nothing: wallets that grew cards (MetaMask, Phantom), and card programmes built on smart accounts (Gnosis Pay, EtherFi Cash, Payy). No deposit, no deposit insurance, no custodian to fail.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 09 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 1 · taxonomy</div>
+<h2>Same word, different machines</h2>
+<table>
+<tr><th></th><th>traditional</th><th>hybrid</th><th>web3-native</th></tr>
+<tr><td>Who holds funds</td><td>Bank or partner bank</td><td>The company (fiat + crypto)</td><td>The user (keys)</td></tr>
+<tr><td>Balance is</td><td>Fiat deposit</td><td>Fiat + custodial crypto</td><td>Stablecoins / crypto</td></tr>
+<tr><td>Deposit insurance</td><td>Usually (direct or pass-through)</td><td>Fiat sometimes; crypto never</td><td>None — no deposit exists</td></tr>
+<tr><td>Main failure mode</td><td>Bank failure / ledger gaps</td><td>Custodian failure</td><td>Key loss, issuer or contract risk</td></tr>
+<tr><td>KYC</td><td>Always</td><td>Always</td><td>Card-only or none</td></tr>
+<tr><td>Stablecoin support</td><td>7 of 256 (2.7%)</td><td>49 of 54 (91%)</td><td>47 of 47 (100%)</td></tr>
+<tr><td>Archetypes</td><td>Nubank, Chime, Monzo</td><td>Revolut, Cash App, Crypto.com</td><td>MetaMask, Gnosis Pay, Payy</td></tr>
+</table>
+<h2>Era mix: where each wave was born</h2>
+<div class="chartbox"><div class="ct2">category share of surviving foundings, by decade</div>
+<svg viewBox="0 0 640 224" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="182" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">pre-2010 (17)</text>
+<rect x="190" y="0" width="28.888888888888886" height="22" rx="3" fill="#89B0FF"/>
+<text x="226.88888888888889" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">13</text>
+<text x="182" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2010s · trad (215)</text>
+<rect x="190" y="32" width="380" height="22" rx="3" fill="#89B0FF"/>
+<text x="578" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">171</text>
+<text x="182" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2010s · hybrid</text>
+<rect x="190" y="64" width="77.77777777777777" height="22" rx="3" fill="#D075FF"/>
+<text x="275.77777777777777" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">35</text>
+<text x="182" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2010s · web3</text>
+<rect x="190" y="96" width="20" height="22" rx="3" fill="#BAF24A"/>
+<text x="218" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">9</text>
+<text x="182" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2020s · trad (125)</text>
+<rect x="190" y="128" width="160" height="22" rx="3" fill="#89B0FF"/>
+<text x="358" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">72</text>
+<text x="182" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2020s · hybrid</text>
+<rect x="190" y="160" width="33.33333333333333" height="22" rx="3" fill="#D075FF"/>
+<text x="231.33333333333331" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">15</text>
+<text x="182" y="207" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">2020s · web3</text>
+<rect x="190" y="192" width="84.44444444444444" height="22" rx="3" fill="#BAF24A"/>
+<text x="282.44444444444446" y="207" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">38</text></svg>
+<div class="src">survivors only — defunct entities excluded by design · source: neobankbeat dataset, July 2026</div></div>
+<p>The 2010s produced a traditional-wave industry with a hybrid fringe. The 2020s cohort is a different animal: <b>web3-native is its second-largest wave</b>, larger than hybrid, and growing while overall formation shrinks.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 10 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">definitions</div>
+<h1>Twelve terms, precisely</h1>
+<table>
+<tr><th>term</th><th>as used in this report</th></tr>
+<tr><td>Neobank</td><td>Digital-first consumer/SMB money app: account or balance + payments, usually a card, no branch network</td></tr>
+<tr><td>Verified-active</td><td>We can confirm the product is live and onboarding today; defunct or paused entities are removed</td></tr>
+<tr><td>Custodial</td><td>The company (or its partner bank) legally holds customer funds</td></tr>
+<tr><td>Self-custodial</td><td>The user holds the keys; the company cannot move or freeze the balance</td></tr>
+<tr><td>MPC self-custody</td><td>Key split via multi-party computation — self-custody without a single seed phrase</td></tr>
+<tr><td>Licensed bank</td><td>Holds a banking charter; deposits sit on its own balance sheet with direct deposit insurance</td></tr>
+<tr><td>Partner-bank model</td><td>Unlicensed app fronting a chartered bank; insurance applies pass-through, contingent on accurate ledgers</td></tr>
+<tr><td>E-money institution</td><td>EU/UK licence to issue e-money; funds safeguarded in segregated accounts, not deposit-insured</td></tr>
+<tr><td>CASP</td><td>Crypto-Asset Service Provider authorised under MiCA; passports across EU/EEA</td></tr>
+<tr><td>Stablecoin support</td><td>Any verified support: balances, transfer rails, funding a card, or on/off-ramps</td></tr>
+<tr><td>KYC: card only</td><td>The wallet is permissionless; identity is required only to obtain the card</td></tr>
+<tr><td>"Up to" rate</td><td>Headline cashback/yield gated by tiers, staking, subscriptions or balances — not the typical rate</td></tr>
+</table>
+<p style="color:var(--dim)">Wave colours used throughout: <span class="ct">■ traditional</span> · <span class="ch">■ hybrid</span> · <span class="cw">■ web3-native</span>. Orange marks findings and editorial emphasis.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 11 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 2 · formation</div>
+<h1>The boom, measured<br>from its survivors</h1>
+<div class="chartbox"><div class="ct2">surviving neobanks by founding year ("<2010" pooled)</div>
+<svg viewBox="0 0 660 210" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="120.04444444444445" width="34.8235294117647" height="61.955555555555556" rx="2.5" fill="#FF5C16"/>
+<text x="19.41176470588235" y="114.04444444444445" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">17</text>
+<text x="19.41176470588235" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">&lt;10</text>
+<rect x="40.8235294117647" y="178.35555555555555" width="34.8235294117647" height="3.6444444444444444" rx="2.5" fill="#FF5C16"/>
+<text x="58.23529411764706" y="172.35555555555555" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">1</text>
+<text x="58.23529411764706" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">10</text>
+<rect x="79.6470588235294" y="163.77777777777777" width="34.8235294117647" height="18.22222222222222" rx="2.5" fill="#FF5C16"/>
+<text x="97.05882352941175" y="157.77777777777777" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">5</text>
+<text x="97.05882352941175" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">11</text>
+<rect x="118.47058823529412" y="152.84444444444443" width="34.8235294117647" height="29.155555555555555" rx="2.5" fill="#FF5C16"/>
+<text x="135.88235294117646" y="146.84444444444443" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">8</text>
+<text x="135.88235294117646" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">12</text>
+<rect x="157.2941176470588" y="120.04444444444445" width="34.8235294117647" height="61.955555555555556" rx="2.5" fill="#FF5C16"/>
+<text x="174.70588235294116" y="114.04444444444445" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">17</text>
+<text x="174.70588235294116" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">13</text>
+<rect x="196.1176470588235" y="134.62222222222223" width="34.8235294117647" height="47.37777777777777" rx="2.5" fill="#FF5C16"/>
+<text x="213.52941176470586" y="128.62222222222223" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">13</text>
+<text x="213.52941176470586" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">14</text>
+<rect x="234.94117647058823" y="79.95555555555555" width="34.8235294117647" height="102.04444444444445" rx="2.5" fill="#FF5C16"/>
+<text x="252.35294117647058" y="73.95555555555555" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">28</text>
+<text x="252.35294117647058" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">15</text>
+<rect x="273.7647058823529" y="83.60000000000001" width="34.8235294117647" height="98.39999999999999" rx="2.5" fill="#FF5C16"/>
+<text x="291.1764705882353" y="77.60000000000001" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">27</text>
+<text x="291.1764705882353" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">16</text>
+<rect x="312.5882352941176" y="69.02222222222223" width="34.8235294117647" height="112.97777777777777" rx="2.5" fill="#FF5C16"/>
+<text x="330" y="63.022222222222226" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">31</text>
+<text x="330" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">17</text>
+<rect x="351.4117647058823" y="36.22222222222223" width="34.8235294117647" height="145.77777777777777" rx="2.5" fill="#FF5C16"/>
+<text x="368.8235294117647" y="30.22222222222223" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">40</text>
+<text x="368.8235294117647" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">18</text>
+<rect x="390.235294117647" y="18" width="34.8235294117647" height="164" rx="2.5" fill="#FF5C16"/>
+<text x="407.6470588235294" y="12" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">45</text>
+<text x="407.6470588235294" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">19</text>
+<rect x="429.0588235294117" y="98.17777777777778" width="34.8235294117647" height="83.82222222222222" rx="2.5" fill="#FF5C16"/>
+<text x="446.4705882352941" y="92.17777777777778" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">23</text>
+<text x="446.4705882352941" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">20</text>
+<rect x="467.88235294117646" y="54.44444444444444" width="34.8235294117647" height="127.55555555555556" rx="2.5" fill="#FF5C16"/>
+<text x="485.29411764705884" y="48.44444444444444" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">35</text>
+<text x="485.29411764705884" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">21</text>
+<rect x="506.70588235294116" y="90.88888888888889" width="34.8235294117647" height="91.11111111111111" rx="2.5" fill="#FF5C16"/>
+<text x="524.1176470588235" y="84.88888888888889" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">25</text>
+<text x="524.1176470588235" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">22</text>
+<rect x="545.5294117647059" y="101.82222222222222" width="34.8235294117647" height="80.17777777777778" rx="2.5" fill="#FF5C16"/>
+<text x="562.9411764705882" y="95.82222222222222" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">22</text>
+<text x="562.9411764705882" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">23</text>
+<rect x="584.3529411764705" y="123.6888888888889" width="34.8235294117647" height="58.31111111111111" rx="2.5" fill="#FF5C16"/>
+<text x="601.7647058823528" y="117.6888888888889" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">16</text>
+<text x="601.7647058823528" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">24</text>
+<rect x="623.1764705882352" y="167.42222222222222" width="34.8235294117647" height="14.577777777777778" rx="2.5" fill="#FF5C16"/>
+<text x="640.5882352941176" y="161.42222222222222" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">4</text>
+<text x="640.5882352941176" y="198" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">25</text></svg>
+<div class="src">n=357 · survivorship-filtered: this is when today's industry was born, not gross founding activity · neobankbeat dataset</div></div>
+<p>Read this chart carefully: it under-counts early years (more time to die) and the last two (not yet surfaced). Even so, the shape is unmistakable — a build through the mid-2010s, the <b>2018–19 peak (85 survivors in two years)</b>, a COVID dip, the 2021 bull-market echo (35), then contraction to <b>4 verified from 2025</b>.</p>
+<p>Three eras explain it. <b>2013–2016:</b> smartphone banking becomes viable; the archetypes launch. <b>2017–2021:</b> venture abundance funds a challenger for every country and demographic; BaaS makes launching one a procurement decision. <b>2022→:</b> rates rise, fintech funding halves and halves again, and the marginal pitch shifts from "bank, but nicer" to products with a structural edge — underwriting a niche, or removing the custodian entirely.</p>
+<div class="callout"><span class="k">what to watch</span><p>The 2025–26 cohort surfacing over coming months skews heavily web3-native and stablecoin-first in our intake pipeline — next editions will quantify it.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 12 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 3 · history</div>
+<h1>Seventeen years in<br>one timeline</h1>
+<table>
+<tr><th>year</th><th>what happened</th><th>why it mattered</th></tr>
+<tr><td class="mono">2009–13</td><td>Simple, Moven, GoBank; Fidor in Germany</td><td>Proved a bank could live in an app — mostly on partner charters</td></tr>
+<tr><td class="mono">2013–15</td><td>Nubank founded; UK mints Atom, Tandem, Monzo, Starling licences</td><td>The two enduring models appear: LatAm scale and UK charter-first</td></tr>
+<tr><td class="mono">2016–17</td><td>N26 gets a full licence; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
+<tr><td class="mono">2018–19</td><td>Peak formation: 85 of today's survivors founded in 24 months</td><td>BaaS turns launching a neobank into a procurement decision</td></tr>
+<tr><td class="mono">2020</td><td>COVID; Kakaobank/jiban giants scale; Australia's Xinja collapses</td><td>First proof that licences without economics don't survive</td></tr>
+<tr><td class="mono">2021</td><td>Bull-market echo cohort (35 survivors); Nubank IPO at ~$41B</td><td>The category gets a public-market benchmark</td></tr>
+<tr><td class="mono">2022</td><td>Rates rise; funding halves; FTX fails</td><td>Custody stops being a philosophical question</td></tr>
+<tr><td class="mono">2023</td><td>Gnosis Pay ships the first self-custodial Visa card at scale</td><td>Wave three gets its archetype: smart account + card rails</td></tr>
+<tr><td class="mono">2024</td><td>Synapse collapse strands partner-bank customers; MiCA phases in</td><td>The pass-through model's weakest joint fails in public</td></tr>
+<tr><td class="mono">2025</td><td>GENIUS Act; FDIC recordkeeping rule; wallet-card wave (MetaMask, Phantom)</td><td>Stablecoins become supervised instruments; wallets become neobanks</td></tr>
+<tr><td class="mono">2026</td><td>MiCA grandfathering closes; traditional-wave stablecoin pilots begin</td><td>The migration this report exists to measure</td></tr>
+</table>
+<p style="color:var(--dim)">Deeper cuts on each era: the blog series at neobankbeat.com/blog, starting with "the three waves of neobanks".</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 13 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 3 · history</div>
+<h2>The graveyard as evidence</h2>
+<p>This dataset's defining choice is survivorship: we track who is alive, and remove who is not. But the removals teach as much as the roster. Four failure archetypes recur:</p>
+<h3>Licence without economics</h3>
+<p>Xinja (Australia) returned its licence and customer deposits in 2020; Volt followed in 2022. Both were fully licensed and adequately capitalised — the model failed on cost of funds vs. cost of growth, not on regulation. Contrast Up, which thrived inside Bendigo's charter, and Judo, which found profit in SMB lending: same market, different unit economics.</p>
+<h3>Middleware collapse</h3>
+<p>Synapse (2024) was infrastructure, not a neobank — which is exactly why its bankruptcy stranded end users of apps that were "FDIC-insured" in marketing copy. Insurance protects against bank failure, not against the ledger between you and the bank going dark. The FDIC's recordkeeping rule is the regulatory scar tissue.</p>
+<h3>Growth-stage abandonment</h3>
+<p>Dozens of 2018–21 vintage niche apps quietly sunset after Series A: the audience was real, the CAC advantage was real, but the deposit base needed to fund the roadmap never arrived. This is the tail our monthly removals mostly consist of.</p>
+<h3>Crypto contagion</h3>
+<p>Custodial crypto neobanks whose balance sheets or user trust didn't survive 2022 (and whose users learned the difference between an account and a claim). The lasting effect shows up in this report as wave three's growth: the market's answer to custodial failure was less custody.</p>
+<div class="callout"><span class="k">the meta-lesson</span><p>No failure archetype involves the product being bad. Neobanks die of balance-sheet physics, middleware, and funding weather — which is why this report spends its pages on custody, licences and economics rather than app-store screenshots.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 14 / 53</span></div></section>
+<section class="page ">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center">
+  <div class="mono" style="font-size:60pt;font-weight:700;color:var(--panel2);line-height:1">02</div>
+  <div class="mono" style="font-size:9pt;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin:4mm 0 3mm">—— part 02</div>
+  <div style="font-size:30pt;font-weight:700;letter-spacing:-1.5px;line-height:1.1">The machinery</div>
+  <p style="font-size:11pt;color:var(--muted);margin-top:5mm;max-width:120mm">Custody, licences, cards, stablecoins and identity: the five systems underneath every neobank, and who actually holds the money.</p>
+  <div class="quote" style="margin-top:14mm;max-width:140mm">Feature comparisons are entertainment; custody comparisons are due diligence.</div>
+</div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
+</section>
+<section class="page ">
+<div class="eyebrow">chapter 4 · custody</div>
+<h1>Who actually holds<br>the money</h1>
+<div class="chartbox"><div class="ct2">custody model across 357 neobanks</div>
+<svg viewBox="0 0 640 128" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="182" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Custodial</text>
+<rect x="190" y="0" width="380" height="22" rx="3" fill="#89B0FF"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">314</text>
+<text x="182" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Self-custodial</text>
+<rect x="190" y="32" width="48.40764331210191" height="22" rx="3" fill="#BAF24A"/>
+<text x="246.40764331210192" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">40</text>
+<text x="182" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">MPC self-custodial</text>
+<rect x="190" y="64" width="3" height="22" rx="3" fill="#BAF24A"/>
+<text x="201" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">2</text>
+<text x="182" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Mixed</text>
+<rect x="190" y="96" width="3" height="22" rx="3" fill="#D075FF"/>
+<text x="201" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">1</text></svg>
+<div class="src">neobankbeat dataset, July 2026</div></div>
+<p><b>314 of 357</b> neobanks are custodial — a company (or its partner bank) holds the balance, and everything about your protection depends on which legal wrapper that company wears (next chapter). The <b>42 self-custodial</b> apps invert the model: keys with the user, meaning bankruptcy-remoteness by construction — a wallet balance was never part of anyone's estate.</p>
+<p>The two MPC entries (threshold cryptography instead of a seed phrase) and the single mixed-mode entry are small in count but directionally important: they're attempts to keep self-custody's guarantees while fixing its unforgiving UX — the recovery problem is where this whole segment wins or dies.</p>
+<h2>Why custody is the report's spine</h2>
+<p>Every consumer question about a neobank — is my money safe, can it freeze, what happens in a bankruptcy, who can see my transactions — resolves through custody before it resolves through anything else. Feature comparisons are entertainment; custody comparisons are due diligence. It's why the directory puts the custody spectrum above the fold, and why this report keeps returning to one number: the share of the industry where <b>there is no custodian at all</b> — currently 11.8% and rising with each cohort.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 16 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 5 · regulation</div>
+<h1>The licence behind<br>the landing page</h1>
+<div class="chartbox"><div class="ct2">regulatory posture across 357 neobanks</div>
+<svg viewBox="0 0 640 288" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="202" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Unclassified</text>
+<rect x="210" y="0" width="360" height="22" rx="3" fill="#FF5C16"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">174</text>
+<text x="202" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Licensed bank</text>
+<rect x="210" y="32" width="190.34482758620692" height="22" rx="3" fill="#FF5C16"/>
+<text x="408.3448275862069" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">92</text>
+<text x="202" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Self-custodial software</text>
+<rect x="210" y="64" width="80.6896551724138" height="22" rx="3" fill="#FF5C16"/>
+<text x="298.6896551724138" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">39</text>
+<text x="202" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Partner-bank model</text>
+<rect x="210" y="96" width="41.37931034482759" height="22" rx="3" fill="#FF5C16"/>
+<text x="259.37931034482756" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">20</text>
+<text x="202" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">E-money institution</text>
+<rect x="210" y="128" width="16.551724137931036" height="22" rx="3" fill="#FF5C16"/>
+<text x="234.55172413793105" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">8</text>
+<text x="202" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Payment institution</text>
+<rect x="210" y="160" width="10.344827586206897" height="22" rx="3" fill="#FF5C16"/>
+<text x="228.3448275862069" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">5</text>
+<text x="202" y="207" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">VASP / MSB / crypto licen…</text>
+<rect x="210" y="192" width="10.344827586206897" height="22" rx="3" fill="#FF5C16"/>
+<text x="228.3448275862069" y="207" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">5</text>
+<text x="202" y="239" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">MiCA CASP (EU)</text>
+<rect x="210" y="224" width="10.344827586206897" height="22" rx="3" fill="#FF5C16"/>
+<text x="228.3448275862069" y="239" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">5</text>
+<text x="202" y="271" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Licence pending (partner …</text>
+<rect x="210" y="256" width="8.275862068965518" height="22" rx="3" fill="#FF5C16"/>
+<text x="226.27586206896552" y="271" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">4</text></svg>
+<div class="src">derived classification from registers, filings and terms documents · neobankbeat dataset</div></div>
+<p>The single most consequential split in the dataset. <b>92 licensed banks</b> hold deposits directly with direct deposit-scheme protection. <b>20 partner-bank models</b> are technology companies fronting someone else's charter — protected on a pass-through basis <i>if the ledgers mapping customers to funds are intact</i>, which is precisely what failed in the 2024 Synapse collapse. <b>E-money and payment institutions</b> safeguard funds but carry no deposit insurance at all. <b>Self-custodial software</b> sits largely outside intermediary regulation — there's nothing held to regulate.</p>
+<p>The large "unclassified" block is honest, not lazy: many apps' public materials do not state their arrangement precisely enough to classify without guessing, and we don't guess. That this block exists at all is itself a finding about industry disclosure.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 17 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 5 · regulation</div>
+<h2>The rulebooks that changed the game</h2>
+<h3>MiCA (EU, phased 2024–25)</h3>
+<p>One rulebook for crypto services across 27 markets. CASP authorisation passports the whole EU/EEA — among tracked neobanks, Crypto.com, Coinbase, OKX, Bitpanda and Kraken's Krak operate under it. The e-money-token rules made compliant euro stablecoins (EURe, EURC) the legally clean settlement asset for European crypto cards, and pushed non-compliant issuance off European venues. Grandfathering windows have been expiring country by country through 2025–26; "operating under transitional measures" is a weaker claim than a register entry — ESMA's register is public, and every relevant directory profile links it.</p>
+<h3>GENIUS Act (US, July 2025)</h3>
+<p>A federal regime for payment stablecoins: full reserves, audits, redemption rights. It turned the largest stablecoins from regulatory grey zones into supervised instruments — the precondition for traditional neobanks (and their partner banks) to touch stablecoin rails at all. The 2.7% traditional-wave adoption figure in this report is best read as the starting line of the post-GENIUS migration, not its result.</p>
+<h3>FDIC recordkeeping rule (US, 2025)</h3>
+<p>The direct regulatory answer to Synapse: custodial deposit accounts must maintain ledgers that let the FDIC identify beneficial owners in a failure. It hardens the pass-through model's weakest joint — the bookkeeping between app and bank.</p>
+<div class="callout"><span class="k">the consumer takeaway</span><p>Five questions before depositing: Who legally holds my money? Which insurance scheme, and does it cover <i>me</i>? Is there middleware between app and bank? What happens to the crypto side? Where does the yield come from?</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 18 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 5 · regulation</div>
+<h2>"Is my money protected?" — the honest flowchart</h2>
+<table>
+<tr><th>if the app is a…</th><th>your money is…</th><th>protected by…</th><th>the catch</th></tr>
+<tr><td>Licensed bank</td><td>A deposit on its balance sheet</td><td>Deposit scheme, directly (FDIC / FSCS / national DGS)</td><td>Coverage limits per depositor; crypto side never covered</td></tr>
+<tr><td>Partner-bank app</td><td>A deposit at someone else's bank</td><td>Same schemes, pass-through</td><td>Contingent on accurate app↔bank ledgers — the Synapse failure mode</td></tr>
+<tr><td>E-money institution</td><td>E-money, safeguarded 1:1</td><td>Segregation, not insurance</td><td>In insolvency you're in an administration queue, not a payout schedule</td></tr>
+<tr><td>Crypto custodian / CASP</td><td>A claim on the custodian</td><td>MiCA conduct & prudential rules (EU)</td><td>No deposit insurance anywhere; bankruptcy makes you a creditor</td></tr>
+<tr><td>Self-custodial app</td><td>In your own wallet</td><td>Mathematics and your own opsec</td><td>No one to call: key loss, contract and issuer risk are yours</td></tr>
+</table>
+<h2>Regulation by wave</h2>
+<div class="chartbox"><div class="ct2">dominant postures inside each wave</div>
+<svg viewBox="0 0 640 192" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="222" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">trad · licensed bank</text>
+<rect x="230" y="0" width="340" height="22" rx="3" fill="#89B0FF"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">89</text>
+<text x="222" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">trad · partner-bank</text>
+<rect x="230" y="32" width="68.76404494382022" height="22" rx="3" fill="#89B0FF"/>
+<text x="306.76404494382024" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">18</text>
+<text x="222" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">hybrid · CASP/VASP</text>
+<rect x="230" y="64" width="34.38202247191011" height="22" rx="3" fill="#D075FF"/>
+<text x="272.3820224719101" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">9</text>
+<text x="222" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">hybrid · licensed/EMI</text>
+<rect x="230" y="96" width="11.460674157303371" height="22" rx="3" fill="#D075FF"/>
+<text x="249.46067415730337" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">3</text>
+<text x="222" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">web3 · self-cust. software</text>
+<rect x="230" y="128" width="148.98876404494382" height="22" rx="3" fill="#BAF24A"/>
+<text x="386.9887640449438" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">39</text>
+<text x="222" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">web3 · EMI partner rails</text>
+<rect x="230" y="160" width="7.640449438202247" height="22" rx="3" fill="#BAF24A"/>
+<text x="245.64044943820224" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">2</text></svg>
+<div class="src">selected postures — full distribution on the chapter's opening chart · neobankbeat dataset</div></div>
+<p>Each wave found its wrapper: charters and sponsors for wave one, crypto authorisations for wave two, and for wave three a split personality — unregulated software at the wallet layer, regulated e-money partners exactly where the card touches fiat. The perimeter is precise even when the marketing isn't.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 19 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 6 · cards</div>
+<h1>The plastic layer</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">299</div><div class="l">issue a card</div></div>
+  <div class="stat"><div class="n">167</div><div class="l">visa programmes</div></div>
+  <div class="stat"><div class="n">146</div><div class="l">mastercard programmes</div></div>
+  <div class="stat"><div class="n">58</div><div class="l">no card / wallet-only</div></div>
+</div>
+<p>84% of the industry issues a card — the near-universal bridge between any funding model and the world's terminals. The duopoly splits the market almost evenly (some programmes issue on both networks), with network choice driven by BIN-sponsor availability per market rather than ideology.</p>
+<h2>Rewards economics</h2>
+<div class="chartbox"><div class="ct2">monetisation surfaces across 357 neobanks</div>
+<svg viewBox="0 0 640 128" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="182" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">advertise cashback</text>
+<rect x="190" y="0" width="262" height="22" rx="3" fill="#FF5C16"/>
+<text x="460" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">131</text>
+<text x="182" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">offer yield</text>
+<rect x="190" y="32" width="380" height="22" rx="3" fill="#FF5C16"/>
+<text x="578" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">190</text>
+<text x="182" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">support stablecoins</text>
+<rect x="190" y="64" width="206" height="22" rx="3" fill="#FF5C16"/>
+<text x="404" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">103</text>
+<text x="182" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">verified terms link</text>
+<rect x="190" y="96" width="251.99999999999997" height="22" rx="3" fill="#FF5C16"/>
+<text x="450" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">126</text></svg>
+<div class="src">headline claims, not effective rates · neobankbeat dataset</div></div>
+<p>131 programmes advertise cashback and 190 advertise yield — figures that deserve their permanent asterisk: nearly all are <b>"up to" rates</b> gated behind subscription tiers, staking requirements, token lockups or balance minimums. The pattern across waves is consistent: interchange alone no longer funds a free account, so monetisation has moved to subscriptions, FX spread, yield share and — in the crypto waves — token economics. When a card pays 4% back, the sustainable question is always: from what?</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 20 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 6 · cards</div>
+<h2>Network split by wave</h2>
+<div class="chartbox"><div class="ct2">card programmes by network and wave</div>
+<svg viewBox="0 0 640 192" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="202" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">trad · Visa</text>
+<rect x="210" y="0" width="331.57894736842104" height="22" rx="3" fill="#89B0FF"/>
+<text x="549.578947368421" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">105</text>
+<text x="202" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">trad · Mastercard</text>
+<rect x="210" y="32" width="360" height="22" rx="3" fill="#89B0FF"/>
+<text x="578" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">114</text>
+<text x="202" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">hybrid · Visa</text>
+<rect x="210" y="64" width="113.68421052631578" height="22" rx="3" fill="#D075FF"/>
+<text x="331.6842105263158" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">36</text>
+<text x="202" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">hybrid · Mastercard</text>
+<rect x="210" y="96" width="72.63157894736841" height="22" rx="3" fill="#D075FF"/>
+<text x="290.63157894736844" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">23</text>
+<text x="202" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">web3 · Visa</text>
+<rect x="210" y="128" width="82.10526315789473" height="22" rx="3" fill="#BAF24A"/>
+<text x="300.10526315789474" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">26</text>
+<text x="202" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">web3 · Mastercard</text>
+<rect x="210" y="160" width="28.421052631578945" height="22" rx="3" fill="#BAF24A"/>
+<text x="246.42105263157896" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">9</text></svg>
+<div class="src">programmes issuing on both networks counted in each · neobankbeat dataset</div></div>
+<p>The interesting row is the bottom pair: <b>the card networks are the reason wave three exists as a consumer product.</b> A self-custodial balance is an island until a BIN sponsor connects it to 130M+ terminals — and both networks, having watched wallets accumulate users, now compete for exactly these programmes (including direct USDC settlement with crypto-native issuers). The duopoly's neutrality between waves is one of the industry's least appreciated structural facts.</p>
+<h2>Anatomy of a "free" account</h2>
+<table>
+<tr><th>revenue line</th><th>who pays</th><th>where it shows in the data</th></tr>
+<tr><td>Interchange</td><td>Merchants, per swipe</td><td>299 card programmes — the default engine</td></tr>
+<tr><td>Subscriptions</td><td>Users, monthly</td><td>premium tiers gating the best of 131 cashback offers</td></tr>
+<tr><td>FX & spread</td><td>Travellers, remitters, traders</td><td>crypto conversion spreads across the 101 crypto-touching apps</td></tr>
+<tr><td>Yield share</td><td>Balance float / DeFi protocols</td><td>190 yield offers — margin lives between earned and passed-through</td></tr>
+<tr><td>Token economics</td><td>Token holders</td><td>staking-gated tiers (CRO archetype) in the hybrid wave</td></tr>
+<tr><td>Credit</td><td>Borrowers</td><td>the endgame: every giant in Ch. 9 lends or is building lending</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 21 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 7 · stablecoins</div>
+<h1>The 2.7% that will<br>define the decade</h1>
+<div class="chartbox"><div class="ct2">stablecoin support by wave</div>
+<svg viewBox="0 0 640 96" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="182" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">web3-native (47)</text>
+<rect x="190" y="0" width="364.48979591836735" height="22" rx="3" fill="#BAF24A"/>
+<text x="562.4897959183673" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">47</text>
+<text x="182" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">hybrid (54)</text>
+<rect x="190" y="32" width="380" height="22" rx="3" fill="#D075FF"/>
+<text x="578" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">49</text>
+<text x="182" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">traditional (256)</text>
+<rect x="190" y="64" width="54.285714285714285" height="22" rx="3" fill="#89B0FF"/>
+<text x="252.28571428571428" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">7</text></svg>
+<div class="src">any stablecoin support: balances, rails, cards or transfers · neobankbeat dataset</div></div>
+<p>Adoption is total in wave three (100%), near-total in wave two (91%) — and <b>2.7% in the wave that has the users</b>. That asymmetry is the most important strategic fact in this report. Stablecoin capability is table stakes where it's easy and existential where it's hard: a traditional neobank adding stablecoin rails must answer custody, licensing, accounting and banking-partner questions that a wallet never faces.</p>
+<p>Why we read 2.7% as a floor: GENIUS and MiCA turned the instruments into supervised, fully-reserved assets; the card networks now settle directly in USDC with crypto-native issuers; and the commercial prize — instant, global, programmable dollars attached to existing user bases of tens of millions — is the largest unclaimed feature in consumer fintech. Each traditional player that flips the switch moves more users onto stablecoin rails in a week than the web3-native wave has acquired in total. <i>(Reading, not fact — flagged accordingly.)</i></p>
+<div class="callout"><span class="k">watch next month</span><p>We track announcements vs verified launches separately — the gap between "plans stablecoin support" press releases and live rails is where this migration's real pace shows.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 22 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 7 · stablecoins</div>
+<h2>The instruments, sorted by rulebook</h2>
+<table>
+<tr><th>instrument</th><th>regime</th><th>role in the neobank stack</th></tr>
+<tr><td>USDC</td><td>GENIUS-aligned (US); MiCA EMT via EU entity</td><td>Default settlement asset for compliant card programmes; direct network settlement live</td></tr>
+<tr><td>USDT</td><td>Offshore; delisted from MiCA-regulated EU venues</td><td>Still the emerging-market street dollar — dominant in the LatAm/Africa dollar-account apps</td></tr>
+<tr><td>EURe / EURC</td><td>MiCA e-money tokens</td><td>The legally clean euro rail — EURe settles Gnosis Pay, the archetype self-custodial card</td></tr>
+<tr><td>PYUSD, bank coins</td><td>GENIUS-era issuance</td><td>Distribution plays: existing fintech user bases handed a native dollar token</td></tr>
+<tr><td>Yield-bearing dollars (sUSDe et al.)</td><td>Varies; generally not "payment stablecoins"</td><td>The yield engine behind several web3-native cards — highest yield, most moving parts</td></tr>
+</table>
+<h2>What stablecoins actually fix</h2>
+<p>Strip the ideology and stablecoins solve four concrete product problems visible across the dataset: <b>weekend money</b> (24/7 settlement vs banking hours), <b>cross-border payroll and remittance</b> (the immigrant-banking niche is converging on stablecoin rails from both directions), <b>inflation refuge</b> (the LatAm dollar-account category — DolarApp, El Dorado, Lemon — is functionally a stablecoin wrapper with a card), and <b>programmability</b> (spending rules enforced by contract rather than policy, which is also what makes agent wallets possible).</p>
+<p>What they don't fix: deposit insurance (a stablecoin is a claim on reserves, not an insured deposit), and consumer-grade recovery (still the UX frontier of chapter 4). The honest framing for a neobank user: stablecoins trade bank-failure risk and border friction for issuer risk and key management. Different risks — not no risks.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 23 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 8 · identity</div>
+<h1>The 12 apps that<br>never ask your name</h1>
+<p>Exactly <b>12 of 357</b> tracked neobanks operate without identity checks — 3.4% of the industry. All are self-custodial. None issues a card without KYC. A further <b>25</b> are "card-only" KYC: permissionless wallet, identified cardholder.</p>
+<table>
+<tr><th>app</th><th>hq</th><th>est.</th><th>what it is</th></tr>
+<tr><td>Eco (Beam)</td><td>New York, US</td><td>2023</td><td>Self-custodial dollars; Eco protocol.</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Solana-first multichain wallet; 15M+ users.</td></tr>
+<tr><td>Rainbow</td><td>New York, US</td><td>2019</td><td>Open-source EVM wallet; Ledger/Trezor.</td></tr>
+<tr><td>Xverse</td><td>London, UK</td><td>2021</td><td>Bitcoin-native: ordinals, Stacks, Lightning.</td></tr>
+<tr><td>Trust Wallet</td><td>—</td><td>2017</td><td>140M+ installs; Binance-linked self-custody.</td></tr>
+<tr><td>Exodus</td><td>Omaha, US</td><td>2015</td><td>Public-company self-custody wallet (NYSE American).</td></tr>
+<tr><td>Zengo</td><td>Tel Aviv, IL</td><td>2018</td><td>MPC wallet, no seed phrase.</td></tr>
+<tr><td>MiniPay</td><td>Oslo, NO</td><td>2023</td><td>Opera's Celo wallet; 10M+; PIX/Mercado Pago rails.</td></tr>
+<tr><td>Peanut</td><td>Zug, CH</td><td>2022</td><td>Claim-link crypto transfers; open protocol.</td></tr>
+<tr><td>Moon</td><td>—</td><td>2022</td><td>Privacy-lean virtual cards funded with crypto.</td></tr>
+<tr><td>Daimo</td><td>New York, US</td><td>2023</td><td>Open-source self-custodial USDC wallet.</td></tr>
+<tr><td>Superform</td><td>—</td><td>2023</td><td>Self-custodial onchain yield 'savings account'.</td></tr>
+</table>
+<p>The line is structural: KYC obligations attach to regulated intermediaries — entities holding, transmitting or exchanging customer funds. Pure software that never touches funds is largely outside that perimeter; everything touching fiat (cards, IBANs, ramps) is inside it, no exceptions that survive contact with a card network. The honest use cases are undocumented populations, capital-controlled economies, privacy-principled users accepting the trade-offs, and — increasingly — software agents that can hold a key but cannot pass a selfie check.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 24 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 8 · identity</div>
+<h2>The customer that can't pass KYC:<br>software</h2>
+<p>The strangest implication of the permissionless segment isn't human privacy — it's that <b>software agents are becoming account holders</b>. An AI agent can generate a key, hold a stablecoin balance in a smart account, and spend against contract-enforced limits. It cannot photograph a passport. Every regulated onboarding flow in the other 345 neobanks is, by construction, closed to it.</p>
+<p>This is why the no-KYC column matters beyond its 3.4% share: it is the only corner of the industry where machine customers are structurally possible today. The building blocks are already in the dataset — self-custodial smart accounts (chapter 4), programmable spending permissions, stablecoin settlement (chapter 7), and card rails that terminate in an identified human sponsor while the wallet itself stays permissionless.</p>
+<div class="callout"><span class="k">our reading — flagged as speculation</span><p>Agent payments will force the first serious rethink of "know your customer" since its inception: the useful question becomes "know your <i>controller</i>" — which human or entity is accountable for a key — and the first mainstream controversy is likelier to involve an agent's spending than a human's privacy.</p></div>
+<h2>Where the line will move</h2>
+<p>Two pressures point in opposite directions. Regulators keep extending the perimeter (MiCA's transfer-rule requirements, travel-rule enforcement) — pushing identification deeper into crypto rails. Meanwhile passkey wallets and account abstraction keep lowering the cost of being permissionless. The dataset's card-only KYC bucket (25 apps) is where the two forces currently settle: identity where fiat touches, freedom where it doesn't. Expect that bucket, not the pure no-KYC one, to grow.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 25 / 53</span></div></section>
+<section class="page ">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center">
+  <div class="mono" style="font-size:60pt;font-weight:700;color:var(--panel2);line-height:1">03</div>
+  <div class="mono" style="font-size:9pt;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin:4mm 0 3mm">—— part 03</div>
+  <div style="font-size:30pt;font-weight:700;letter-spacing:-1.5px;line-height:1.1">The map</div>
+  <p style="font-size:11pt;color:var(--muted);margin-top:5mm;max-width:120mm">Scale, geography and niches: where the users are, how seven regional playbooks differ, and why a third of the industry picks an audience before a product.</p>
+  <div class="quote" style="margin-top:14mm;max-width:140mm">Scale in this industry has never been won on interface polish — it is won on distribution the incumbents didn’t have.</div>
+</div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
+</section>
+<section class="page ">
+<div class="eyebrow">chapter 9 · scale</div>
+<h1>Where the users are</h1>
+<div class="chartbox"><div class="ct2">largest reported user bases (millions, self-reported metrics vary)</div>
+<svg viewBox="0 0 640 448" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="162" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">WeBank</text>
+<rect x="170" y="0" width="400" height="22" rx="3" fill="#89B0FF"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">400M</text>
+<text x="162" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">PhonePe</text>
+<rect x="170" y="32" width="200" height="22" rx="3" fill="#89B0FF"/>
+<text x="378" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">200M</text>
+<text x="162" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Nubank</text>
+<rect x="170" y="64" width="131" height="22" rx="3" fill="#89B0FF"/>
+<text x="309" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">131M</text>
+<text x="162" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">GCash</text>
+<rect x="170" y="96" width="94" height="22" rx="3" fill="#89B0FF"/>
+<text x="272" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">94M</text>
+<text x="162" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Mercado Pago</text>
+<rect x="170" y="128" width="78" height="22" rx="3" fill="#D075FF"/>
+<text x="256" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">78M</text>
+<text x="162" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">bKash</text>
+<rect x="170" y="160" width="70" height="22" rx="3" fill="#89B0FF"/>
+<text x="248" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">70M</text>
+<text x="162" y="207" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">OPay</text>
+<rect x="170" y="192" width="60" height="22" rx="3" fill="#89B0FF"/>
+<text x="238" y="207" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">60M</text>
+<text x="162" y="239" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Cash App</text>
+<rect x="170" y="224" width="59" height="22" rx="3" fill="#D075FF"/>
+<text x="237" y="239" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">59M</text>
+<text x="162" y="271" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">PicPay</text>
+<rect x="170" y="256" width="57.99999999999999" height="22" rx="3" fill="#89B0FF"/>
+<text x="236" y="271" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">58M</text>
+<text x="162" y="303" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Revolut</text>
+<rect x="170" y="288" width="50" height="22" rx="3" fill="#D075FF"/>
+<text x="228" y="303" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">50M</text>
+<text x="162" y="335" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Banco Inter</text>
+<rect x="170" y="320" width="35" height="22" rx="3" fill="#89B0FF"/>
+<text x="213" y="335" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">35M</text>
+<text x="162" y="367" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">PalmPay</text>
+<rect x="170" y="352" width="35" height="22" rx="3" fill="#89B0FF"/>
+<text x="213" y="367" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">35M</text>
+<text x="162" y="399" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">PagBank</text>
+<rect x="170" y="384" width="32" height="22" rx="3" fill="#89B0FF"/>
+<text x="210" y="399" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">32M</text>
+<text x="162" y="431" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Maya</text>
+<rect x="170" y="416" width="30" height="22" rx="3" fill="#89B0FF"/>
+<text x="208" y="431" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">30M</text></svg>
+<div class="src">mixed metrics: customers, MAU, wallets, accounts — each figure cites its source in the directory · colours = wave</div></div>
+<p>The league table is an emerging-market story with a North American accent. <b>Nubank (131M)</b> leads the industry outright; WeBank, bKash, OPay, GCash, PalmPay, Maya and TymeBank fill the top tier from Asia, Africa and Latin America. The largest Western players — Cash App, Revolut, Chime — are giants by revenue but mid-table by user count.</p>
+<p>Caveat that matters: metrics are self-reported and heterogeneous (customers ≠ MAU ≠ registered wallets), so treat this as magnitude, not ranking. Each figure links to its filing or disclosure in the directory — the standard we'd like the industry itself to adopt.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 27 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 9 · scale</div>
+<h2>Five giants, five different machines</h2>
+<table>
+<tr><th>giant</th><th>reported</th><th>the machine underneath</th></tr>
+<tr><td><b>WeBank</b><br><span class="mono" style="color:var(--dim);font-size:7pt">Shenzhen, CN · est. 2014</span></td><td class="mono">400M<br><span style="color:var(--dim);font-size:7pt">customers</span></td><td>Distribution-native: born inside the Tencent ecosystem, lending-led, and by most measures the most profitable digital bank on earth.</td></tr>
+<tr><td><b>PhonePe</b><br><span class="mono" style="color:var(--dim);font-size:7pt">Bengaluru, IN · est. 2015</span></td><td class="mono">200M<br><span style="color:var(--dim);font-size:7pt">MAU</span></td><td>India's UPI giant — 600M+ registered; wallets, deposits marketplace, insurance.</td></tr>
+<tr><td><b>Nubank</b><br><span class="mono" style="color:var(--dim);font-size:7pt">São Paulo, BR · est. 2013</span></td><td class="mono">131M<br><span style="color:var(--dim);font-size:7pt">customers</span></td><td>A licensed bank that made credit cards the wedge into three underbanked markets, then cross-sold everything. The proof that neobanking scales to nine figures profitably.</td></tr>
+<tr><td><b>GCash</b><br><span class="mono" style="color:var(--dim);font-size:7pt">Manila, PH · est. 2004</span></td><td class="mono">94M<br><span style="color:var(--dim);font-size:7pt">users</span></td><td>The Philippines’ wallet-turned-bank inside a telco ecosystem — remittances, payments and now credit for a diaspora-driven economy.</td></tr>
+<tr><td><b>Mercado Pago</b><br><span class="mono" style="color:var(--dim);font-size:7pt">Buenos Aires, AR · est. 2003</span></td><td class="mono">78M<br><span style="color:var(--dim);font-size:7pt">MAU</span></td><td>LatAm super-app; crypto BR/MX; Meli Dollar.</td></tr>
+</table>
+<p>Notice what's absent: not one of the five is a 2010s Western app-first challenger, and not one grew primarily on cashback. All five compounded on <b>distribution the incumbents didn't have</b> — credit access, super-app ecosystems, agent networks, telco channels. Scale in this industry has never been won on interface polish; it is won on being the first workable financial rail for a population that lacked one.</p>
+<div class="callout"><span class="k">the western counter-model</span><p>Revolut (65M) is the exception that tests the rule — scaled across 35+ countries on product breadth and FX, now converting that base onto its own banking licences. Whether breadth can compound like distribution is the most interesting open experiment in wave two.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 28 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Seven markets,<br>seven playbooks</h1>
+<div class="chartbox"><div class="ct2">active presence by region (multi-region players counted in each)</div>
+<svg viewBox="0 0 640 224" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="162" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Europe</text>
+<rect x="170" y="0" width="400" height="22" rx="3" fill="#FF5C16"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">131</text>
+<text x="162" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Asia</text>
+<rect x="170" y="32" width="366.412213740458" height="22" rx="3" fill="#FF5C16"/>
+<text x="544.412213740458" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">120</text>
+<text x="162" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">North America</text>
+<rect x="170" y="64" width="338.9312977099236" height="22" rx="3" fill="#FF5C16"/>
+<text x="516.9312977099237" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">111</text>
+<text x="162" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Latin America</text>
+<rect x="170" y="96" width="311.4503816793893" height="22" rx="3" fill="#FF5C16"/>
+<text x="489.4503816793893" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">102</text>
+<text x="162" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Africa</text>
+<rect x="170" y="128" width="241.22137404580153" height="22" rx="3" fill="#FF5C16"/>
+<text x="419.22137404580155" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">79</text>
+<text x="162" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">MENA</text>
+<rect x="170" y="160" width="219.84732824427482" height="22" rx="3" fill="#FF5C16"/>
+<text x="397.8473282442748" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">72</text>
+<text x="162" y="207" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">Oceania</text>
+<rect x="170" y="192" width="186.25954198473283" height="22" rx="3" fill="#FF5C16"/>
+<text x="364.25954198473283" y="207" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">61</text></svg>
+<div class="src">presence ≠ headquarters — Wise alone is active in six regions · neobankbeat dataset</div></div>
+<p>Europe's 131 is a density record, not a size one: dozens of players per market, aggressive passporting, and the world's most active licence regimes. Asia's 120 mixes licensed digital banks (Korea, Singapore, Hong Kong, the Philippines) with wallet giants that became banks in all but name. The following pages profile each region: its model, its champions, and the number that tells its story.</p>
+<p style="color:var(--dim)">Regional pages list a representative selection; the full per-country view lives in the interactive map at neobankbeat.com.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 29 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Europe</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">131</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">67</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">28</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">36</div><div class="l">web3-native</div></div>
+</div>
+<h3>Licence-dense, margin-thin</h3>
+<p>The deepest bench of licensed digital banks (Monzo, Starling, bunq, N26) plus the EMI capital of the world. MiCA has made it the clearest jurisdiction for crypto neobanks; profitability, not regulation, is the binding constraint. Watch: euro-stablecoin card programmes scaling under the EMT regime.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>Revolut</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>Monzo</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Starling Bank</td><td>London, UK</td><td>2014</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Atom Bank</td><td>Durham, UK</td><td>2014</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Zopa Bank</td><td>London, UK</td><td>2020</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Chase UK</td><td>London, UK</td><td>2021</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Kroo</td><td>London, UK</td><td>2016</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Tide</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>ANNA Money</td><td>Cardiff, UK</td><td>2017</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>OakNorth</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Allica Bank</td><td>Milton Keynes, UK</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Curve</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Zempler Bank</td><td>London, UK</td><td>2005</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Monese</td><td>London, UK</td><td>2013</td><td>Custodial</td><td>Unclassified</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=EU</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 30 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Asia</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">120</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">66</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">20</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">34</div><div class="l">web3-native</div></div>
+</div>
+<h3>Licensed giants & superapp gravity</h3>
+<p>KakaoBank and Toss Bank turned messaging distribution into top-tier banks; Singapore and Hong Kong minted purpose-built digital licences (GXS, MariBank, ZA, Mox); the Philippines and Indonesia run wallet-first (GCash, Maya, DANA). The scale ceiling here is national population, and it is high.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>WeBank</td><td>Shenzhen, CN</td><td>2014</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>PhonePe</td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>GCash</td><td>Manila, PH</td><td>2004</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>bKash</td><td>Dhaka, BD</td><td>2011</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Revolut</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Maya</td><td>Manila, PH</td><td>2022</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>KakaoBank</td><td>Seongnam, KR</td><td>2016</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Toss Bank</td><td>Seoul, KR</td><td>2021</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>K bank</td><td>Seoul, KR</td><td>2016</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>MYbank</td><td>Hangzhou, CN</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Jupiter</td><td>Mumbai, IN</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Fi Money</td><td>Bengaluru, IN</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Niyo</td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>slice</td><td>Bengaluru, IN</td><td>2016</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Freo</td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>Unclassified</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=AS</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 31 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>North America</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">111</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">45</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">32</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">34</div><div class="l">web3-native</div></div>
+</div>
+<h3>Partner-bank capital of the world</h3>
+<p>The US model: tech company in front, sponsor bank behind — Chime, Current, Dave, Mercury, Brex. Post-Synapse, direct bank integration became the trust differentiator; post-GENIUS, the stablecoin question moved from whether to when. Canada runs a small licensed cluster (EQ, Neo, KOHO, Wealthsimple).</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>Cash App</td><td>Oakland, US</td><td>2013</td><td>Custodial</td><td>VASP / MSB / crypto licences</td></tr>
+<tr><td>Revolut</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Chime</td><td>San Francisco, US</td><td>2013</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>Varo</td><td>San Francisco, US</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Current</td><td>New York, US</td><td>2015</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>SoFi</td><td>San Francisco, US</td><td>2011</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Ally Bank</td><td>Detroit, US</td><td>2009</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Dave</td><td>Los Angeles, US</td><td>2016</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>MoneyLion</td><td>New York, US</td><td>2013</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>One</td><td>Sacramento, US</td><td>2019</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Marcus</td><td>New York, US</td><td>2016</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Step</td><td>Palo Alto, US</td><td>2018</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Greenlight</td><td>Atlanta, US</td><td>2014</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Copper</td><td>Seattle, US</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=NA</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 32 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Latin America</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">102</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">33</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">31</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">38</div><div class="l">web3-native</div></div>
+</div>
+<h3>The Nubank effect</h3>
+<p>The region that proved neobanking at civilisational scale: Nubank (131M), Mercado Pago, PicPay, PagBank, plus strong national champions (Ualá, Klar, Stori, Nequi, Daviplata). Default-yield accounts are table stakes; dollar-stablecoin demand (DolarApp, El Dorado, Lemon) is the fastest-moving frontier.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>Nubank</td><td>São Paulo, BR</td><td>2013</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Mercado Pago</td><td>Buenos Aires, AR</td><td>2003</td><td>Custodial</td><td>Licence pending (partner model today)</td></tr>
+<tr><td>PicPay</td><td>São Paulo, BR</td><td>2012</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Revolut</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Banco Inter</td><td>Belo Horizonte, BR</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>PagBank</td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Nequi</td><td>Medellín, CO</td><td>2016</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Ualá</td><td>Buenos Aires, AR</td><td>2017</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>albo</td><td>Mexico City, MX</td><td>2016</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Klar</td><td>Mexico City, MX</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Stori</td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Fondeadora</td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Hey Banco</td><td>Monterrey, MX</td><td>2018</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Cuenca</td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>RappiPay</td><td>Bogotá, CO</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=LA</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 33 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Africa</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">79</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">23</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">22</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">34</div><div class="l">web3-native</div></div>
+</div>
+<h3>Payments first, banking second</h3>
+<p>Agent networks and mobile money built the rails; neobanking is being layered on top. Nigeria is the epicentre — OPay and PalmPay at mass scale, Moniepoint as SMB backbone, Kuda on a microfinance licence. TymeBank (SA) proved kiosk+app hybrid onboarding; francophone West Africa (Djamo, Wave) is the next density play.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>OPay</td><td>Lagos, NG</td><td>2018</td><td>Custodial</td><td>Payment institution</td></tr>
+<tr><td>PalmPay</td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>Payment institution</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>TymeBank</td><td>Johannesburg, ZA</td><td>2018</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>MiniPay</td><td>Oslo, NO</td><td>2023</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>Bank Zero</td><td>Johannesburg, ZA</td><td>2018</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Discovery Bank</td><td>Johannesburg, ZA</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Kuda</td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Moniepoint</td><td>Lagos, NG</td><td>2015</td><td>Custodial</td><td>Other / mixed</td></tr>
+<tr><td>FairMoney</td><td>Lagos, NG</td><td>2017</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Carbon</td><td>Lagos, NG</td><td>2012</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>ALAT by Wema</td><td>Lagos, NG</td><td>2017</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Sparkle</td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Umba</td><td>Lagos/Nairobi</td><td>2018</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Djamo</td><td>Abidjan, CI</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=AF</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 34 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>MENA</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">72</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">20</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">20</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">32</div><div class="l">web3-native</div></div>
+</div>
+<h3>Regulator-minted digital banks</h3>
+<p>The Gulf hands out purpose-built licences (D360, Vision Bank, Zand, Wio, stc bank) with sovereign capital behind them; Egypt banks the informal economy (Khazna, MNT-Halan, Telda); Türkiye runs bank-backed super-wallets (Enpara, Papara). Islamic digital banking is the structural niche with global export potential.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>Telda</td><td>Cairo, EG</td><td>2021</td><td>Custodial</td><td>Other / mixed</td></tr>
+<tr><td>Wio Bank</td><td>Abu Dhabi, AE</td><td>2022</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Zand</td><td>Dubai, AE</td><td>2022</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>YAP</td><td>Dubai, AE</td><td>2021</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Liv.</td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Pyypl</td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>NOW Money</td><td>Dubai, AE</td><td>2016</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Sarwa</td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>ila Bank</td><td>Manama, BH</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Tweeq</td><td>Riyadh, SA</td><td>2022</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>STC Bank</td><td>Riyadh, SA</td><td>2018</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>D360 Bank</td><td>Riyadh, SA</td><td>2023</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Weyay</td><td>Kuwait City, KW</td><td>2021</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>One Zero</td><td>Tel Aviv, IL</td><td>2019</td><td>Custodial</td><td>Licensed bank</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=ME</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 35 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 10 · geography</div>
+<h1>Oceania</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">61</div><div class="l">active neobanks</div></div>
+  <div class="stat"><div class="n ct">7</div><div class="l">traditional</div></div>
+  <div class="stat"><div class="n ch">21</div><div class="l">hybrid</div></div>
+  <div class="stat"><div class="n cw">33</div><div class="l">web3-native</div></div>
+</div>
+<h3>Small market, sharp lessons</h3>
+<p>Australia's neobank experiment consolidated hard (Up thriving inside Bendigo; Judo profitable in SMB lending; Volt and Xinja gone) — proof that licences without unit economics don't survive. NZ's Hnry exports the most interesting freelancer-banking model anywhere.</p>
+<table class="applist">
+<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><td>Revolut</td><td>London, UK</td><td>2015</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Wise</td><td>London, UK</td><td>2011</td><td>Custodial</td><td>E-money institution</td></tr>
+<tr><td>Phantom</td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>Self-custodial software</td></tr>
+<tr><td>Up</td><td>Melbourne, AU</td><td>2018</td><td>Custodial</td><td>Partner-bank model</td></tr>
+<tr><td>Judo Bank</td><td>Melbourne, AU</td><td>2016</td><td>Custodial</td><td>Licensed bank</td></tr>
+<tr><td>Hnry</td><td>Wellington, NZ</td><td>2017</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Crypto.com</td><td>Singapore, SG</td><td>2016</td><td>Custodial</td><td>MiCA CASP (EU)</td></tr>
+<tr><td>Binance Card</td><td>—</td><td>2017</td><td>Custodial</td><td>VASP / MSB / crypto licences</td></tr>
+<tr><td>Bybit Card</td><td>Dubai, AE</td><td>2018</td><td>Custodial</td><td>VASP / MSB / crypto licences</td></tr>
+<tr><td>OKX Card</td><td>—</td><td>2017</td><td>Custodial</td><td>MiCA CASP (EU)</td></tr>
+<tr><td>Bitget Card</td><td>—</td><td>2018</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>KuCard</td><td>—</td><td>2017</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>CEX.IO Card</td><td>London, UK</td><td>2013</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>CoinJar</td><td>Melbourne, AU</td><td>2013</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Strike</td><td>Chicago, US</td><td>2019</td><td>Custodial</td><td>Unclassified</td></tr>
+<tr><td>Xapo Bank</td><td>Gibraltar</td><td>2013</td><td>Custodial</td><td>Licensed bank</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=OC</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 36 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 11 · niches</div>
+<h1>One in three picks<br>an audience first</h1>
+<div class="chartbox"><div class="ct2">117 niche-first neobanks by audience</div>
+<svg viewBox="0 0 640 320" width="100%" xmlns="http://www.w3.org/2000/svg"><text x="202" y="15" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">SMB &amp; startups</text>
+<rect x="210" y="0" width="360" height="22" rx="3" fill="#FF5C16"/>
+<text x="578" y="15" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">29</text>
+<text x="202" y="47" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">underbanked</text>
+<rect x="210" y="32" width="260.6896551724138" height="22" rx="3" fill="#FF5C16"/>
+<text x="478.6896551724138" y="47" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">21</text>
+<text x="202" y="79" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">freelancers &amp; creators</text>
+<rect x="210" y="64" width="173.79310344827587" height="22" rx="3" fill="#FF5C16"/>
+<text x="391.7931034482759" y="79" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">14</text>
+<text x="202" y="111" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">gen z &amp; students</text>
+<rect x="210" y="96" width="111.72413793103449" height="22" rx="3" fill="#FF5C16"/>
+<text x="329.7241379310345" y="111" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">9</text>
+<text x="202" y="143" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">immigrants &amp; migrants</text>
+<rect x="210" y="128" width="111.72413793103449" height="22" rx="3" fill="#FF5C16"/>
+<text x="329.7241379310345" y="143" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">9</text>
+<text x="202" y="175" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">gen alpha · kids &amp; fami…</text>
+<rect x="210" y="160" width="99.3103448275862" height="22" rx="3" fill="#FF5C16"/>
+<text x="317.3103448275862" y="175" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">8</text>
+<text x="202" y="207" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">faith-based</text>
+<rect x="210" y="192" width="86.89655172413794" height="22" rx="3" fill="#FF5C16"/>
+<text x="304.8965517241379" y="207" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">7</text>
+<text x="202" y="239" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">travel</text>
+<rect x="210" y="224" width="62.06896551724138" height="22" rx="3" fill="#FF5C16"/>
+<text x="280.0689655172414" y="239" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">5</text>
+<text x="202" y="271" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">women</text>
+<rect x="210" y="256" width="49.6551724137931" height="22" rx="3" fill="#FF5C16"/>
+<text x="267.6551724137931" y="271" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">4</text>
+<text x="202" y="303" text-anchor="end" font-family="Noto Sans Mono,monospace" font-size="11" fill="#8A8A9A">climate</text>
+<rect x="210" y="288" width="37.241379310344826" height="22" rx="3" fill="#FF5C16"/>
+<text x="255.24137931034483" y="303" font-family="Noto Sans Mono,monospace" font-size="12" font-weight="bold" fill="#EDEDF2">3</text></svg>
+<div class="src">audience as positioned by the provider · neobankbeat dataset</div></div>
+<p>The niche wave is the industry's quiet consensus that "better bank for everyone" is over as a venture pitch. Three structural reasons: <b>acquisition cost</b> (communities beat ad auctions), <b>genuinely different product surface</b> (Sharia compliance, freelancer tax filing, parental controls are products, not skins), and <b>underwriting edge</b> (serving the niche <i>is</i> the moat — Zolve underwrites new US arrivals on home-country credit history that generic banks can't read).</p>
+<p>The three niches we'd watch hardest: <b>faith-based</b> (7 tracked, from UK startups to Gulf licensed banks — a structurally underserved market measured in hundreds of millions), <b>immigrant banking</b> (9 tracked — a remittance business wearing a checking account, converging fast with stablecoin rails), and <b>kids & family</b> (8 tracked — a two-decade customer-acquisition play whose retention thesis remains unproven).</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 37 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 11 · niches</div>
+<h2>The full niche map</h2>
+<table>
+<tr><th>audience</th><th>n</th><th>representative players</th><th>the structural edge</th></tr>
+<tr><td>SMB &amp; startups</td><td class="mono">29</td><td>Mercury, Brex, Ramp</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>underbanked</td><td class="mono">21</td><td>Pockit, Suits Me, Nickel</td><td>First-rail economics — no incumbent to displace</td></tr>
+<tr><td>freelancers &amp; creators</td><td class="mono">14</td><td>Found, Lili, Karat</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>gen z &amp; students</td><td class="mono">9</td><td>Step, imagin, Z1</td><td>CAC via social distribution; monetisation bet deferred to graduation</td></tr>
+<tr><td>immigrants &amp; migrants</td><td class="mono">9</td><td>Majority, Zolve, Comun</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>gen alpha · kids &amp; family</td><td class="mono">8</td><td>Greenlight, Copper, Till Financial</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>faith-based</td><td class="mono">7</td><td>Algbra, Kestrl, Wahed</td><td>Compliance (Sharia screening) is binary — you serve it or you don’t</td></tr>
+<tr><td>travel</td><td class="mono">5</td><td>Wise, Global66, Niyo</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>women</td><td class="mono">4</td><td>Ellevest, First Women's Bank, Mahila Money</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>climate</td><td class="mono">3</td><td>Tandem Bank, Tomorrow, Flowe</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>seniors</td><td class="mono">2</td><td>True Link, Charlie</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>Black community</td><td class="mono">2</td><td>Greenwood, MoCaFi</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>gig workers</td><td class="mono">1</td><td>Branch</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>healthcare pros</td><td class="mono">1</td><td>Panacea Financial</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>disabilities</td><td class="mono">1</td><td>Purple</td><td>Audience-specific underwriting or compliance edge</td></tr>
+<tr><td>LGBTQ+</td><td class="mono">1</td><td>Pride Bank</td><td>Audience-specific underwriting or compliance edge</td></tr>
+</table>
+<p style="color:var(--dim);font-size:8.4pt">representative players = first entries per niche in the dataset; full filterable lists at neobankbeat.com/?niche=…</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 38 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 12 · hygiene</div>
+<h1>The industry's broken<br>paper trail</h1>
+<div class="statrow">
+  <div class="stat"><div class="n">714</div><div class="l">outbound urls audited</div></div>
+  <div class="stat"><div class="n ca">113</div><div class="l">legal links found dead</div></div>
+  <div class="stat"><div class="n">60</div><div class="l">repaired to live documents</div></div>
+  <div class="stat"><div class="n">53</div><div class="l">removed as unresolvable</div></div>
+</div>
+<p>In preparing the dataset behind this report we audited every outbound URL — official sites, terms of service, privacy policies, registers. The result is a small case study in industry hygiene: <b>113 legal-document links returned hard 404s</b>. Sixty could be repaired by locating the moved document on the same domain; fifty-three resolve nowhere we could verify, and were removed under our no-guessed-links rule.</p>
+<p>Why it matters beyond pedantry: the terms document is where the actual custody and insurance arrangement lives — the difference between "FDIC insured" as legal fact and as vibe. An industry that moves its legal documents without redirects, or removes them entirely, is an industry whose fine print effectively expires. Of 357 tracked entities, only <b>126 currently carry a verified, live terms link</b>.</p>
+<div class="callout"><span class="k">a standing offer</span><p>Any neobank that maintains stable, linkable legal documents gets them verified in the directory within days — issue templates at github.com/andreolf/neobankbeat.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 39 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 13 · outlook</div>
+<h1>What we're watching<br>into August</h1>
+<h3>01 · The traditional-wave stablecoin flip</h3>
+<p>The 2.7% number is the one to re-check monthly. Watch announcements-to-launch conversion, and which partner banks let US neobanks touch supervised stablecoins first.</p>
+<h3>02 · MiCA grandfathering endgame</h3>
+<p>As national transition windows close, expect a visible sorting: authorised CASPs consolidating European volume, and a quiet exit tail. Register entries beat press releases.</p>
+<h3>03 · Self-custody UX unlock</h3>
+<p>Passkey wallets, MPC recovery and smart-account cards are converging on "self-custody that feels like an app". Each release chips at the biggest objection to wave three.</p>
+<h3>04 · Agent wallets</h3>
+<p>Software agents that hold keys and spend within contract-enforced limits are the strangest new constituency in the dataset — and the first genuinely new "customer type" since teenagers got debit cards. We expect the first mainstream agent-payments controversy within twelve months. <i>(Speculative, flagged.)</i></p>
+<h3>05 · The niche graveyard's next entries</h3>
+<p>Niche banking works until the niche's unit economics don't. Watch subscription-dependent kids' banks and thin-margin travel cards as funding stays tight.</p>
+<div class="callout"><span class="k">next edition</span><p>The State of Neobanks — August 2026 ships early next month: same method, fresh data, deltas tracked against this edition. Subscribe at neobankbeat.substack.com.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 40 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">chapter 14 · method</div>
+<h1>How the sausage<br>is measured</h1>
+<h3>Inclusion pipeline</h3>
+<ol>
+<li><b>Intake:</b> candidates arrive via public GitHub issue templates, our own monitoring, and reader submissions to the newsletter.</li>
+<li><b>Liveness check:</b> product must be verifiably live and onboarding — an app-store listing with recent releases, a working sign-up, or a register entry plus active status. Waitlists and "coming soon" don't count.</li>
+<li><b>Scope check:</b> consumer/SMB money app with everyday-banking ambition. We exclude pure infrastructure (BaaS, issuer-processors), trading-only apps, and superapp payment features without a banking surface.</li>
+<li><b>Field verification:</b> each field is sourced independently — registers for licences, terms documents for custody arrangements, filings for user counts. Unverifiable fields stay null.</li>
+<li><b>Continuous review:</b> link-rot audits (chapter 12), monthly liveness re-checks on a rotating cohort, and removal on confirmed shutdown.</li>
+</ol>
+<h3>Known limitations — read before quoting</h3>
+<ul>
+<li><b>Survivorship by design:</b> founding-year charts describe today's industry's origins, not historical founding rates.</li>
+<li><b>Presence ≠ market share:</b> regional counts weight Wise's six-region footprint equally with a single-country app.</li>
+<li><b>Self-reported scale:</b> user figures mix customers, MAU and registered wallets; we preserve each source's metric rather than harmonising by guesswork.</li>
+<li><b>Classification judgment:</b> wave and regulation labels involve edge calls (chapter 1's "categories are dissolving" finding cuts both ways). Disagreements are adjudicated in public via GitHub issues.</li>
+<li><b>Coverage bias:</b> English-language and register-covered markets surface faster; we assume undercounting in Central Asia, francophone Africa and parts of LatAm.</li>
+</ul>
+<div class="callout"><span class="k">corrections</span><p>Found an error? File a data-fix issue at github.com/andreolf/neobankbeat — corrections land in the dataset within days and in the next month's edition, credited.</p></div>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 41 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (1–42)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>Airtm</td><td><span class="ch">H</span></td><td>Mexico City, MX</td><td>2015</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Belo</td><td><span class="ch">H</span></td><td>Buenos Aires, AR</td><td>2020</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Binance Card</td><td><span class="ch">H</span></td><td>—</td><td>2017</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Bitget Card</td><td><span class="ch">H</span></td><td>—</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Bitnob</td><td><span class="ch">H</span></td><td>Lagos, NG</td><td>2020</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Bitpanda</td><td><span class="ch">H</span></td><td>Vienna, AT</td><td>2014</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>BitPay Card</td><td><span class="ch">H</span></td><td>Atlanta, US</td><td>2011</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Bitso</td><td><span class="ch">H</span></td><td>Mexico City, MX</td><td>2014</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Buenbit</td><td><span class="ch">H</span></td><td>Buenos Aires, AR</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Bybit Card</td><td><span class="ch">H</span></td><td>Dubai, AE</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Cash App</td><td><span class="ch">H</span></td><td>Oakland, US</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>CEX.IO Card</td><td><span class="ch">H</span></td><td>London, UK</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Chipper Cash</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Coinbase Card</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2012</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>CoinJar</td><td><span class="ch">H</span></td><td>Melbourne, AU</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Crypto.com</td><td><span class="ch">H</span></td><td>Singapore, SG</td><td>2016</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Deel</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>DolarApp</td><td><span class="ch">H</span></td><td>Mexico City, MX</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>eToro Money</td><td><span class="ch">H</span></td><td>Tel Aviv, IL</td><td>2007</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Fasset</td><td><span class="ch">H</span></td><td>Dubai, AE</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Félix</td><td><span class="ch">H</span></td><td>Mexico City, MX</td><td>2022</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Fold</td><td><span class="ch">H</span></td><td>Phoenix, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Gemini Credit Card</td><td><span class="ch">H</span></td><td>New York, US</td><td>2014</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Juno</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>KAST</td><td><span class="ch">H</span></td><td>Hong Kong, HK</td><td>2024</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Kolo</td><td><span class="ch">H</span></td><td>—</td><td>2022</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Krak</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2025</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>KuCard</td><td><span class="ch">H</span></td><td>—</td><td>2017</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Lemon</td><td><span class="ch">H</span></td><td>Buenos Aires, AR</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Littio</td><td><span class="ch">H</span></td><td>Bogotá, CO</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Meow</td><td><span class="ch">H</span></td><td>New York, US</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Mercado Pago</td><td><span class="ch">H</span></td><td>Buenos Aires, AR</td><td>2003</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Meru</td><td><span class="ch">H</span></td><td>Bogotá, CO</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Mogo</td><td><span class="ch">H</span></td><td>Vancouver, CA</td><td>2003</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nexo</td><td><span class="ch">H</span></td><td>Zug, CH</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>OKX Card</td><td><span class="ch">H</span></td><td>—</td><td>2017</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Plutus</td><td><span class="ch">H</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>RedotPay</td><td><span class="ch">H</span></td><td>Hong Kong, HK</td><td>2023</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Revolut</td><td><span class="ch">H</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Ripio</td><td><span class="ch">H</span></td><td>Buenos Aires, AR</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Robinhood</td><td><span class="ch">H</span></td><td>Menlo Park, US</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Slash</td><td><span class="ch">H</span></td><td>San Francisco, US</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 42 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (43–84)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>SpectroCoin</td><td><span class="ch">H</span></td><td>Vilnius, LT</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Strike</td><td><span class="ch">H</span></td><td>Chicago, US</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Tap Global</td><td><span class="ch">H</span></td><td>London, UK</td><td>2018</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Trustee Plus</td><td><span class="ch">H</span></td><td>Vilnius, LT</td><td>2019</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Uphold</td><td><span class="ch">H</span></td><td>New York, US</td><td>2015</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>UR</td><td><span class="ch">H</span></td><td>—</td><td>2023</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Venmo</td><td><span class="ch">H</span></td><td>New York, US</td><td>2009</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Wirex</td><td><span class="ch">H</span></td><td>London, UK</td><td>2014</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Xapo Bank</td><td><span class="ch">H</span></td><td>Gibraltar</td><td>2013</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>XPlace</td><td><span class="ch">H</span></td><td>Dubai, AE</td><td>2023</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Yellow Card</td><td><span class="ch">H</span></td><td>Lagos, NG</td><td>2016</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Yuh</td><td><span class="ch">H</span></td><td>Gland, CH</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>AEON Bank</td><td><span class="ct">T</span></td><td>Kuala Lumpur, MY</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Airtel Payments Bank</td><td><span class="ct">T</span></td><td>Delhi, IN</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ALAT by Wema</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Albert</td><td><span class="ct">T</span></td><td>Culver City, US</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>albo</td><td><span class="ct">T</span></td><td>Mexico City, MX</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Algbra</td><td><span class="ct">T</span></td><td>London, UK</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Allica Bank</td><td><span class="ct">T</span></td><td>Milton Keynes, UK</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Allo Bank</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Ally Bank</td><td><span class="ct">T</span></td><td>Detroit, US</td><td>2009</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Alpian</td><td><span class="ct">T</span></td><td>Geneva, CH</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ANEXT Bank</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ANNA Money</td><td><span class="ct">T</span></td><td>Cardiff, UK</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Aspire</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Atom Bank</td><td><span class="ct">T</span></td><td>Durham, UK</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Banco Inter</td><td><span class="ct">T</span></td><td>Belo Horizonte, BR</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Bank Jago</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Bank Zero</td><td><span class="ct">T</span></td><td>Johannesburg, ZA</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Baraka</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Beyon Money</td><td><span class="ct">T</span></td><td>Manama, BH</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>bKash</td><td><span class="ct">T</span></td><td>Dhaka, BD</td><td>2011</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Bling</td><td><span class="ct">T</span></td><td>Berlin, DE</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Blu by BCA</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Bluevine</td><td><span class="ct">T</span></td><td>Redwood City, US</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Boost Bank</td><td><span class="ct">T</span></td><td>Kuala Lumpur, MY</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>BoursoBank</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>1995</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Branch</td><td><span class="ct">T</span></td><td>Minneapolis, US</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Branch Intl</td><td><span class="ct">T</span></td><td>Nairobi/Lagos</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Brex</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Brubank</td><td><span class="ct">T</span></td><td>Buenos Aires, AR</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>buddybank</td><td><span class="ct">T</span></td><td>Milan, IT</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 43 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (85–126)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>bunq</td><td><span class="ct">T</span></td><td>Amsterdam, NL</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>C24 Bank</td><td><span class="ct">T</span></td><td>Frankfurt, DE</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>C6 Bank</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Cake</td><td><span class="ct">T</span></td><td>Ho Chi Minh, VN</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Carbon</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Charlie</td><td><span class="ct">T</span></td><td>Los Angeles, US</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Chase UK</td><td><span class="ct">T</span></td><td>London, UK</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Chime</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Cleva</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Comun</td><td><span class="ct">T</span></td><td>New York, US</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Copper</td><td><span class="ct">T</span></td><td>Seattle, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Cora</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Cuenca</td><td><span class="ct">T</span></td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Current</td><td><span class="ct">T</span></td><td>New York, US</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Curve</td><td><span class="ct">T</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>D360 Bank</td><td><span class="ct">T</span></td><td>Riyadh, SA</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>DANA</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Dave</td><td><span class="ct">T</span></td><td>Los Angeles, US</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Daviplata</td><td><span class="ct">T</span></td><td>Bogotá, CO</td><td>2011</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Discovery Bank</td><td><span class="ct">T</span></td><td>Johannesburg, ZA</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Djamo</td><td><span class="ct">T</span></td><td>Abidjan, CI</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Douugh</td><td><span class="ct">T</span></td><td>Sydney, AU</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Ellevest</td><td><span class="ct">T</span></td><td>New York, US</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Enpara</td><td><span class="ct">T</span></td><td>Istanbul, TR</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>EQ Bank</td><td><span class="ct">T</span></td><td>Toronto, CA</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Eversend</td><td><span class="ct">T</span></td><td>Kampala/Paris</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>FairMoney</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>FamPay</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Fi Money</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Fingo</td><td><span class="ct">T</span></td><td>Nairobi, KE</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Finom</td><td><span class="ct">T</span></td><td>Amsterdam, NL</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>First Women's Bank</td><td><span class="ct">T</span></td><td>Chicago, US</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Flowe</td><td><span class="ct">T</span></td><td>Milan, IT</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Fondeadora</td><td><span class="ct">T</span></td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Fortuneo</td><td><span class="ct">T</span></td><td>Brest, FR</td><td>2000</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Found</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Freo</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Fyrst</td><td><span class="ct">T</span></td><td>Bonn, DE</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GCash</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2004</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Global66</td><td><span class="ct">T</span></td><td>Santiago, CL</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GoHenry</td><td><span class="ct">T</span></td><td>New York/London</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GoPay</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 44 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (127–168)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>GoTyme Bank</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GrabPay</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Grasshopper</td><td><span class="ct">T</span></td><td>New York, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Greenlight</td><td><span class="ct">T</span></td><td>Atlanta, US</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Greenwood</td><td><span class="ct">T</span></td><td>Atlanta, US</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Grey</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GXBank</td><td><span class="ct">T</span></td><td>Kuala Lumpur, MY</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>GXS Bank</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Hello bank!</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Hey Banco</td><td><span class="ct">T</span></td><td>Monterrey, MX</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Hnry</td><td><span class="ct">T</span></td><td>Wellington, NZ</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Hype</td><td><span class="ct">T</span></td><td>Milan, IT</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ila Bank</td><td><span class="ct">T</span></td><td>Manama, BH</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>imagin</td><td><span class="ct">T</span></td><td>Barcelona, ES</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>indó</td><td><span class="ct">T</span></td><td>Reykjavík, IS</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Indy</td><td><span class="ct">T</span></td><td>Lyon, FR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>isybank</td><td><span class="ct">T</span></td><td>Milan, IT</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Jenius</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Jio Payments Bank</td><td><span class="ct">T</span></td><td>Mumbai, IN</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Judo Bank</td><td><span class="ct">T</span></td><td>Melbourne, AU</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Jupiter</td><td><span class="ct">T</span></td><td>Mumbai, IN</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>K bank</td><td><span class="ct">T</span></td><td>Seoul, KR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>KakaoBank</td><td><span class="ct">T</span></td><td>Seongnam, KR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Karat</td><td><span class="ct">T</span></td><td>Los Angeles, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kard</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kaspi</td><td><span class="ct">T</span></td><td>Almaty, KZ</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kestrl</td><td><span class="ct">T</span></td><td>London, UK</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Khazna</td><td><span class="ct">T</span></td><td>Cairo, EG</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kit</td><td><span class="ct">T</span></td><td>Sydney, AU</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Klar</td><td><span class="ct">T</span></td><td>Mexico City, MX</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Klarna</td><td><span class="ct">T</span></td><td>Stockholm, SE</td><td>2005</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>KOHO</td><td><span class="ct">T</span></td><td>Toronto, CA</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kontist</td><td><span class="ct">T</span></td><td>Berlin, DE</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kroo</td><td><span class="ct">T</span></td><td>London, UK</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Kuda</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Lili</td><td><span class="ct">T</span></td><td>New York, US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>LINE Bank TW</td><td><span class="ct">T</span></td><td>Taipei, TW</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>LINE BK</td><td><span class="ct">T</span></td><td>Bangkok, TH</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Liv.</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Lulo Bank</td><td><span class="ct">T</span></td><td>Bogotá, CO</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Lunar</td><td><span class="ct">T</span></td><td>Aarhus, DK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Mahila Money</td><td><span class="ct">T</span></td><td>Delhi, IN</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 45 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (169–210)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>Majority</td><td><span class="ct">T</span></td><td>Houston, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Marcus</td><td><span class="ct">T</span></td><td>New York, US</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MariBank</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Mashreq Neo</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Maya</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2022</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Mercury</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Minna Bank</td><td><span class="ct">T</span></td><td>Fukuoka, JP</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MNT-Halan</td><td><span class="ct">T</span></td><td>Cairo, EG</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MoCaFi</td><td><span class="ct">T</span></td><td>New York, US</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MoMo</td><td><span class="ct">T</span></td><td>Ho Chi Minh City, VN</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Moneco</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Monese</td><td><span class="ct">T</span></td><td>London, UK</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MoneyLion</td><td><span class="ct">T</span></td><td>New York, US</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Moniepoint</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Monobank</td><td><span class="ct">T</span></td><td>Kyiv, UA</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Monzo</td><td><span class="ct">T</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Movii</td><td><span class="ct">T</span></td><td>Bogotá, CO</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Mox Bank</td><td><span class="ct">T</span></td><td>Hong Kong, HK</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Munify</td><td><span class="ct">T</span></td><td>Cairo, EG</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MYbank</td><td><span class="ct">T</span></td><td>Hangzhou, CN</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>MyInvestor</td><td><span class="ct">T</span></td><td>Madrid, ES</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>N26</td><td><span class="ct">T</span></td><td>Berlin, DE</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nagad</td><td><span class="ct">T</span></td><td>Dhaka, BD</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Naranja X</td><td><span class="ct">T</span></td><td>Córdoba, AR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>NayaPay</td><td><span class="ct">T</span></td><td>Karachi, PK</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Neo Financial</td><td><span class="ct">T</span></td><td>Calgary, CA</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>neon</td><td><span class="ct">T</span></td><td>Zurich, CH</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Neon</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nequi</td><td><span class="ct">T</span></td><td>Medellín, CO</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>NEXT Bank</td><td><span class="ct">T</span></td><td>Taipei, TW</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>NG.cash</td><td><span class="ct">T</span></td><td>Rio de Janeiro, BR</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Nickel</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Niyo</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nomad</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Northmill</td><td><span class="ct">T</span></td><td>Stockholm, SE</td><td>2006</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>NorthOne</td><td><span class="ct">T</span></td><td>New York, US</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Novo</td><td><span class="ct">T</span></td><td>Miami, US</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>NOW Money</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nubank</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Nyla</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>OakNorth</td><td><span class="ct">T</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>One</td><td><span class="ct">T</span></td><td>Sacramento, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 46 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (211–252)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>One Zero</td><td><span class="ct">T</span></td><td>Tel Aviv, IL</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>OPay</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Open</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Openbank</td><td><span class="ct">T</span></td><td>Madrid, ES</td><td>1995</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Oraan</td><td><span class="ct">T</span></td><td>Karachi, PK</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>OVO</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>PagBank</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>PalmPay</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Panacea Financial</td><td><span class="ct">T</span></td><td>Little Rock, US</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Papara</td><td><span class="ct">T</span></td><td>Istanbul, TR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Parpera</td><td><span class="ct">T</span></td><td>Sydney, AU</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>PayPay Bank</td><td><span class="ct">T</span></td><td>Tokyo, JP</td><td>2000</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Paysera</td><td><span class="ct">T</span></td><td>Vilnius, LT</td><td>2004</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Paytm</td><td><span class="ct">T</span></td><td>Noida, IN</td><td>2010</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>PhonePe</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>PicPay</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2012</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Pixpay</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Pockit</td><td><span class="ct">T</span></td><td>London, UK</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Pomelo</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Prex</td><td><span class="ct">T</span></td><td>Montevideo, UY</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Pride Bank</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Purple</td><td><span class="ct">T</span></td><td>New York, US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Pyypl</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Qik</td><td><span class="ct">T</span></td><td>Santo Domingo, DO</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Qonto</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Rakuten Bank</td><td><span class="ct">T</span></td><td>Tokyo, JP</td><td>2001</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Ramp</td><td><span class="ct">T</span></td><td>New York, US</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>RappiPay</td><td><span class="ct">T</span></td><td>Bogotá, CO</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>RazorpayX</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Relay</td><td><span class="ct">T</span></td><td>Toronto/US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Rho</td><td><span class="ct">T</span></td><td>New York, US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Rocker</td><td><span class="ct">T</span></td><td>Stockholm, SE</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Ryt Bank</td><td><span class="ct">T</span></td><td>Kuala Lumpur, MY</td><td>2025</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>SadaPay</td><td><span class="ct">T</span></td><td>Karachi, PK</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Salt Bank</td><td><span class="ct">T</span></td><td>Bucharest, RO</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Sarwa</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>SeaBank</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Shine</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>slice</td><td><span class="ct">T</span></td><td>Bengaluru, IN</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Snappi</td><td><span class="ct">T</span></td><td>Athens, GR</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>SoFi</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2011</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Sparkle</td><td><span class="ct">T</span></td><td>Lagos, NG</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 47 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (253–294)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>Starling Bank</td><td><span class="ct">T</span></td><td>London, UK</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>STC Bank</td><td><span class="ct">T</span></td><td>Riyadh, SA</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Step</td><td><span class="ct">T</span></td><td>Palo Alto, US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Stori</td><td><span class="ct">T</span></td><td>Mexico City, MX</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Suits Me</td><td><span class="ct">T</span></td><td>Cheshire, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Sumeria (Lydia)</td><td><span class="ct">T</span></td><td>Paris, FR</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Superbank</td><td><span class="ct">T</span></td><td>Jakarta, ID</td><td>2023</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>T-Bank</td><td><span class="ct">T</span></td><td>Moscow, RU</td><td>2006</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tandem Bank</td><td><span class="ct">T</span></td><td>London, UK</td><td>2013</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>TBC UZ</td><td><span class="ct">T</span></td><td>Tashkent, UZ</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Telda</td><td><span class="ct">T</span></td><td>Cairo, EG</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tenpo</td><td><span class="ct">T</span></td><td>Santiago, CL</td><td>2017</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Tide</td><td><span class="ct">T</span></td><td>London, UK</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Till Financial</td><td><span class="ct">T</span></td><td>Boston, US</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Timo</td><td><span class="ct">T</span></td><td>Ho Chi Minh, VN</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tinaba</td><td><span class="ct">T</span></td><td>Milan, IT</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>TNEX</td><td><span class="ct">T</span></td><td>Hanoi, VN</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tomorrow</td><td><span class="ct">T</span></td><td>Hamburg, DE</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tonik</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Toss Bank</td><td><span class="ct">T</span></td><td>Seoul, KR</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Touch 'n Go eWallet</td><td><span class="ct">T</span></td><td>Kuala Lumpur, MY</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Trade Republic</td><td><span class="ct">T</span></td><td>Berlin, DE</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>True Link</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2012</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>TrueMoney</td><td><span class="ct">T</span></td><td>Bangkok, TH</td><td>2003</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Trust Bank</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Tweeq</td><td><span class="ct">T</span></td><td>Riyadh, SA</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>TymeBank</td><td><span class="ct">T</span></td><td>Johannesburg, ZA</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Ualá</td><td><span class="ct">T</span></td><td>Buenos Aires, AR</td><td>2017</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>ueno bank</td><td><span class="ct">T</span></td><td>Asunción, PY</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Umba</td><td><span class="ct">T</span></td><td>Lagos/Nairobi</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>UnionDigital</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>UNO Digital Bank</td><td><span class="ct">T</span></td><td>Manila, PH</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Up</td><td><span class="ct">T</span></td><td>Melbourne, AU</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Uzum</td><td><span class="ct">T</span></td><td>Tashkent, UZ</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Varo</td><td><span class="ct">T</span></td><td>San Francisco, US</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Vision Bank</td><td><span class="ct">T</span></td><td>Riyadh, SA</td><td>2024</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Vivid Money</td><td><span class="ct">T</span></td><td>Berlin, DE</td><td>2019</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Wahed</td><td><span class="ct">T</span></td><td>New York, US</td><td>2015</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Wave</td><td><span class="ct">T</span></td><td>Dakar, SN</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Wealthsimple</td><td><span class="ct">T</span></td><td>Toronto, CA</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>WeBank</td><td><span class="ct">T</span></td><td>Shenzhen, CN</td><td>2014</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>WeLab Bank</td><td><span class="ct">T</span></td><td>Hong Kong, HK</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 48 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (295–336)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>Weyay</td><td><span class="ct">T</span></td><td>Kuwait City, KW</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Will Bank</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Wio Bank</td><td><span class="ct">T</span></td><td>Abu Dhabi, AE</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Wise</td><td><span class="ct">T</span></td><td>London, UK</td><td>2011</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>YAP</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2021</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>YouTrip</td><td><span class="ct">T</span></td><td>Singapore, SG</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Z1</td><td><span class="ct">T</span></td><td>São Paulo, BR</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ZA Bank</td><td><span class="ct">T</span></td><td>Hong Kong, HK</td><td>2020</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Zak</td><td><span class="ct">T</span></td><td>Basel, CH</td><td>2017</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ZaloPay</td><td><span class="ct">T</span></td><td>Ho Chi Minh City, VN</td><td>2016</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Zand</td><td><span class="ct">T</span></td><td>Dubai, AE</td><td>2022</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Zempler Bank</td><td><span class="ct">T</span></td><td>London, UK</td><td>2005</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>ZEN.com</td><td><span class="ct">T</span></td><td>Vilnius, LT</td><td>2018</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Zinli</td><td><span class="ct">T</span></td><td>Panama City, PA</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Zolve</td><td><span class="ct">T</span></td><td>New York/Bengaluru</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>Zopa Bank</td><td><span class="ct">T</span></td><td>London, UK</td><td>2020</td><td>Custodial</td><td>—</td><td>Yes</td></tr>
+<tr><td>1inch Card</td><td><span class="cw">W</span></td><td>Dubai, AE</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>AllScale</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Avalanche Card</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Avici</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Bleap</td><td><span class="cw">W</span></td><td>London, UK</td><td>2024</td><td>MPC</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Cypher</td><td><span class="cw">W</span></td><td>—</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Daimo</td><td><span class="cw">W</span></td><td>New York, US</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Dakota</td><td><span class="cw">W</span></td><td>New York, US</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Deblock</td><td><span class="cw">W</span></td><td>Paris, FR</td><td>2022</td><td>Mixed</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Decaf</td><td><span class="cw">W</span></td><td>—</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Eco (Beam)</td><td><span class="cw">W</span></td><td>New York, US</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>El Dorado</td><td><span class="cw">W</span></td><td>—</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>EtherFi Cash</td><td><span class="cw">W</span></td><td>Miami, US</td><td>2025</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Exa</td><td><span class="cw">W</span></td><td>Buenos Aires, AR</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Exodus</td><td><span class="cw">W</span></td><td>Omaha, US</td><td>2015</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Fiat24</td><td><span class="cw">W</span></td><td>Zurich, CH</td><td>2021</td><td>Self-custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Fizen</td><td><span class="cw">W</span></td><td>Ho Chi Minh, VN</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Gnosis Pay</td><td><span class="cw">W</span></td><td>Zug, CH</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Holyheld</td><td><span class="cw">W</span></td><td>London, UK</td><td>2020</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Infini</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Kontigo</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>MetaMask</td><td><span class="cw">W</span></td><td>Consensys (global)</td><td>2016</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>MiniPay</td><td><span class="cw">W</span></td><td>Oslo, NO</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Moon</td><td><span class="cw">W</span></td><td>—</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Onboard</td><td><span class="cw">W</span></td><td>Lagos, NG</td><td>2021</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Oobit</td><td><span class="cw">W</span></td><td>Singapore, SG</td><td>2017</td><td>Self-custodial</td><td>yes</td><td>Yes</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 49 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix a · all 357 tracked neobanks (337–357)</div>
+<table class="applist">
+<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><td>Payy</td><td><span class="cw">W</span></td><td>New York, US</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Peanut</td><td><span class="cw">W</span></td><td>Zug, CH</td><td>2022</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Phantom</td><td><span class="cw">W</span></td><td>San Francisco, US</td><td>2021</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Plasma One</td><td><span class="cw">W</span></td><td>—</td><td>2025</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Rainbow</td><td><span class="cw">W</span></td><td>New York, US</td><td>2019</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Ready</td><td><span class="cw">W</span></td><td>London, UK</td><td>2018</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Rizon</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>SafePal</td><td><span class="cw">W</span></td><td>Singapore, SG</td><td>2018</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Sling Money</td><td><span class="cw">W</span></td><td>London, UK</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Solayer Emerald</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Solflare</td><td><span class="cw">W</span></td><td>Belgrade, RS</td><td>2017</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Stables</td><td><span class="cw">W</span></td><td>Sydney, AU</td><td>2021</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>Superform</td><td><span class="cw">W</span></td><td>—</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Tria</td><td><span class="cw">W</span></td><td>—</td><td>2024</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Trust Wallet</td><td><span class="cw">W</span></td><td>—</td><td>2017</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Tuyo</td><td><span class="cw">W</span></td><td>—</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>UglyCash</td><td><span class="cw">W</span></td><td>San Juan, PR</td><td>2023</td><td>Custodial</td><td>yes</td><td>Yes</td></tr>
+<tr><td>WeFi</td><td><span class="cw">W</span></td><td>—</td><td>2023</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>xPortal</td><td><span class="cw">W</span></td><td>Sibiu, RO</td><td>2021</td><td>Self-custodial</td><td>yes</td><td>Card only</td></tr>
+<tr><td>Xverse</td><td><span class="cw">W</span></td><td>London, UK</td><td>2021</td><td>Self-custodial</td><td>yes</td><td>No</td></tr>
+<tr><td>Zengo</td><td><span class="cw">W</span></td><td>Tel Aviv, IL</td><td>2018</td><td>MPC</td><td>yes</td><td>No</td></tr>
+</table>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 50 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">appendix b · reproducibility</div>
+<h1>The dataset behind<br>every number</h1>
+<p>Everything in this report derives from <span class="mono">neobankbeat.com/data.json</span> — the machine-readable export of the neobankbeat directory (MIT licence). Key fields:</p>
+<table>
+<tr><th>field</th><th>meaning</th></tr>
+<tr><td class="mono">category</td><td>traditional · hybrid · web3-native (the three waves)</td></tr>
+<tr><td class="mono">custody</td><td>Custodial · Self-custodial · MPC self-custodial · Mixed</td></tr>
+<tr><td class="mono">regulation_type</td><td>derived: Licensed bank, Partner-bank model, E-money institution, MiCA CASP (EU), Self-custodial software, …</td></tr>
+<tr><td class="mono">kyc</td><td>Yes · No · Card only (permissionless wallet, identified cardholder)</td></tr>
+<tr><td class="mono">stablecoins</td><td>any verified stablecoin support: balances, rails, cards or transfers</td></tr>
+<tr><td class="mono">cashback / yield</td><td>headline "up to" rates as advertised — not effective rates</td></tr>
+<tr><td class="mono">active_regions / countries</td><td>verified operating footprint (presence, not HQ)</td></tr>
+<tr><td class="mono">reported_users</td><td>self-reported scale with metric and as-of date; each figure cites its source</td></tr>
+<tr><td class="mono">terms_url / privacy_url / x_handle</td><td>verified links only — nulls mean unverifiable, never unknown-guessed</td></tr>
+</table>
+<p>Update cadence: continuous, in the open. Corrections via GitHub issues (data-fix template) are typically resolved within days. The static profile pages at <span class="mono">/n/</span> and comparisons at <span class="mono">/vs/</span> regenerate from the same file, so site, dataset and report cannot drift apart.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 51 / 53</span></div></section>
+<section class="page ">
+<div class="eyebrow">references & further reading</div>
+<h1>Sources</h1>
+<ol class="reflist">
+<li><b>neobankbeat dataset</b> — neobankbeat.com/data.json (primary source for all figures; MIT)</li>
+<li><b>ESMA — Markets in Crypto-Assets Regulation (MiCA)</b>, incl. the public CASP register — esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica</li>
+<li><b>European Banking Authority — Payment institutions & EMI registers</b> — eba.europa.eu</li>
+<li><b>UK Financial Conduct Authority — Financial Services Register</b> — register.fca.org.uk</li>
+<li><b>US FDIC — deposit insurance & the custodial-account recordkeeping rule (12 CFR Part 375)</b> — fdic.gov</li>
+<li><b>GENIUS Act of 2025</b> (Guiding and Establishing National Innovation for U.S. Stablecoins) — congress.gov</li>
+<li><b>NMLS Consumer Access</b> (US state money-transmitter licences) — nmlsconsumeraccess.org</li>
+<li><b>SEC EDGAR</b> — public filings for listed neobanks (Nubank, SoFi, Chime, Dave, MoneyLion et al.) — sec.gov/edgar</li>
+<li><b>World Bank — Global Findex Database</b> (banked/unbanked adults) — worldbank.org/globalfindex</li>
+<li><b>Bank for International Settlements</b> — research on stablecoins & digital payments — bis.org</li>
+<li><b>Citi GPS — stablecoin market scenarios to 2030</b> — citigroup.com/global/insights</li>
+<li><b>Company disclosures</b> — investor-relations pages and annual reports as linked per-entity in the directory (Nubank IR, Block/Cash App, Revolut annual report, Kaspi.kz, KakaoBank, TymeBank, bKash/BRAC, Opera/OPay et al.)</li>
+<li><b>Court records, In re Synapse Financial Technologies</b> (C.D. Cal. Bankr., 2024) and contemporaneous coverage — for the pass-through insurance discussion</li>
+<li><b>neobankbeat blog</b> — long-form companions to each chapter — neobankbeat.com/blog</li>
+</ol>
+<p style="color:var(--dim);font-size:8.6pt">Where a chapter states an interpretation rather than a measurement (marked "our reading" or "speculative"), it is the publisher's editorial judgment, not a sourced fact.</p>
+<div class="pfoot"><span><b>the state of neobanks</b> · july 2026 · № 01</span><span>neobankbeat.com · 52 / 53</span></div></section>
+<section class="page ">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:space-between">
+  <div></div>
+  <div style="text-align:center">
+    <div class="mono" style="font-size:26pt;font-weight:700">neobank<span class="ca">beat</span></div>
+    <p style="margin-top:6mm;color:var(--muted)">who watches the neobanks?</p>
+    <p style="color:var(--dim);font-size:9pt;margin-top:10mm">directory · neobankbeat.com<br>newsletter · neobankbeat.substack.com<br>open data · github.com/andreolf/neobankbeat</p>
+  </div>
+  <div class="mono" style="font-size:8pt;color:var(--dim);text-align:center">the state of neobanks · July 2026 · № 01 · © neobankbeat, MIT — cite freely with attribution</div>
+</div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
+</section>
+</body>
+</html>

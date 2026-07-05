@@ -66,6 +66,7 @@ ${JSON.stringify(ldjson)}
       <a href="/#datasec">data</a>
       <a href="/#newssec">news</a>
       <a href="/blog/">blog</a>
+      <a href="/report/">report</a>
     </nav>
   </div>
 </header>
@@ -74,7 +75,7 @@ ${JSON.stringify(ldjson)}
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/report/">report</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 </body>
 </html>
@@ -292,6 +293,7 @@ const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
+  { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },

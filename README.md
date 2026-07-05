@@ -97,12 +97,15 @@ index.html          the entire app: CSS + data + logic
 data.json           machine-readable export (generated, committed)
 llms.txt            agent-facing guide
 blog/               static deep dives + RSS feed
+report/             gated landing page for the monthly PDF report
+reports/            generated report source + PDF (robots-disallowed)
 n/                  357 generated entity profile pages (SEO surface)
 vs/                 60 generated head-to-head comparison pages
 tests/
 ├── flowtest.js     167 assertions across 23 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from index.html
-└── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
+├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
+└── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
 ```
 
 ## badge
@@ -136,6 +139,13 @@ cd tests && npm install
 node flowtest.js       # 167 assertions must pass
 node export-data.js    # regenerate data.json, commit it with your change
 node build-pages.mjs   # regenerate /n/, /vs/ and sitemap.xml
+```
+
+monthly report (edit the `MONTH`/`EDITION` constants, then):
+
+```bash
+cd tests && node build-report.mjs
+# print reports/report-src.html to PDF with headless Chrome (A4, no headers)
 ```
 
 ## license
