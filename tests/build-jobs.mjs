@@ -124,6 +124,11 @@ async function fetchSource([display, entityName, ats, slug]) {
 
 console.log('fetching live postings from', SOURCES.length, 'ATS boards…');
 const all = (await Promise.all(SOURCES.map(fetchSource))).flat();
+// safety: if the APIs are having a bad day, refuse to overwrite a good board
+if (all.length < 500) {
+  console.error(`only ${all.length} jobs fetched (expected 1500+) — aborting to avoid publishing a broken board`);
+  process.exit(1);
+}
 all.sort((a, b) => (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company));
 const TODAY = new Date().toISOString().slice(0, 10);
 

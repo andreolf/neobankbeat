@@ -1,0 +1,36 @@
+name: refresh jobs board
+
+on:
+  schedule:
+    # every Monday 06:00 UTC (08:00 CEST) — edit to '0 6 * * *' for daily
+    - cron: '0 6 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: pull live postings from ATS APIs
+        working-directory: tests
+        run: node build-jobs.mjs
+
+      - name: commit & push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jobs/
+          if git diff --cached --quiet; then
+            echo "no changes — board already fresh"
+          else
+            git commit -m "chore: weekly jobs board refresh ($(date -u +%F))"
+            git push
+          fi
