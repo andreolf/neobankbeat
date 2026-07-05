@@ -865,15 +865,22 @@ ${body}
 fs.mkdirSync(path.join(ROOT, 'reports'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'reports', 'report-src.html'), html);
 
-/* ── web edition: free interactive version at /report/<slug>/ ─── */
+/* ── web edition: free preview (first chapters) at /report/<slug>/ ───
+   the rest is gated: subscribe on substack → the PDF download starts.
+   truncation happens at build time so the locked chapters never ship
+   in the HTML (view-source clean).                                    */
 const ED_SLUG = '2026-07';
+const FREE_CHAPTERS = 6;                                     // through "A short history" — the opening third
+const PDF_URL = `/reports/dl-vq3x8k/state-of-neobanks-${ED_SLUG}.pdf`;
+const gatePage = tocEntries[FREE_CHAPTERS][1];               // first locked page
 const chapterStarts = new Map(tocEntries.map(([t, p], i) => [p, { t, i }]));
 const webSections = pages.map((p, i) => ({ ...p, no: i + 1 }))
-  .filter(p => p.footer && p.no !== TOC_IDX)
+  .filter(p => p.footer && p.no !== TOC_IDX && p.no < gatePage)
   .map(p => {
     const ch = chapterStarts.get(p.no);
     return `<section class="wsec"${ch ? ` id="ch${ch.i}"` : ''}>${p.html}</section>`;
   }).join('\n');
+const lockedChapters = tocEntries.slice(FREE_CHAPTERS).map(([t]) => t);
 
 const WEBCSS = `
 body{background:var(--bg);-webkit-font-smoothing:antialiased}
@@ -899,7 +906,22 @@ body{background:var(--bg);-webkit-font-smoothing:antialiased}
 .wsec .statrow{flex-wrap:wrap}
 .wsec .stat{min-width:130px}
 .wfoot{max-width:960px;margin:0 auto;padding:40px 20px;color:var(--dim);font-family:'Noto Sans Mono',monospace;font-size:11px}
-@media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}}
+.wtopin a.chl.lk{opacity:.45}
+.wfade{max-width:960px;margin:-170px auto 0;height:170px;background:linear-gradient(to bottom,transparent,var(--bg) 78%);position:relative;pointer-events:none}
+.wgate{max-width:760px;margin:0 auto 60px;padding:34px 30px;background:var(--panel);border:1px solid var(--acc);border-radius:16px;position:relative}
+.wgate .k{font-family:'Noto Sans Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--acc)}
+.wgate h2{font-size:clamp(21px,3.4vw,27px);margin:10px 0 8px;letter-spacing:-.5px}
+.wgate p{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+.wlocked{columns:2;gap:22px;margin:14px 0 18px;padding:0;list-style:none}
+.wlocked li{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--dim);padding:4px 0;break-inside:avoid}
+.wlocked li::before{content:"🔒 ";font-size:10px}
+.wgate .alt{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:10px}
+.wgate .alt a{color:var(--acc)}
+.wgate.done .lockedui{display:none}
+.wgate .doneui{display:none}
+.wgate.done .doneui{display:block}
+.doneui .big{font-size:21px;font-weight:700;margin:8px 0}
+@media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}.wlocked{columns:1}}
 `;
 
 const webHtml = `<!DOCTYPE html>
@@ -908,13 +930,13 @@ const webHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The State of Neobanks — ${MONTH} · web edition · neobankbeat</title>
-<meta name="description" content="The full State of Neobanks ${MONTH} report, readable online: ${N} verified-active neobanks measured across custody, licences, cards, stablecoins, geography and niches.">
+<meta name="description" content="The State of Neobanks ${MONTH}: the opening chapters free online — ${N} verified-active neobanks measured across custody, licences, cards and stablecoins. Full ${pages.length}-page designed PDF free for subscribers.">
 <link rel="canonical" href="https://www.neobankbeat.com/report/${ED_SLUG}/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="neobankbeat">
 <meta property="og:title" content="The State of Neobanks — ${MONTH} · web edition">
-<meta property="og:description" content="The full monthly report, readable online. ${N} verified-active neobanks, measured.">
+<meta property="og:description" content="The opening chapters free online. Full ${pages.length}-page designed PDF free for newsletter subscribers.">
 <meta property="og:url" content="https://www.neobankbeat.com/report/${ED_SLUG}/">
 <meta property="og:image" content="https://www.neobankbeat.com/report/cover-${ED_SLUG}.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -927,28 +949,65 @@ const webHtml = `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
-${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'True', description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches.` })}
+${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` })}
 </script>
 <style>${CSS}${WEBCSS}</style>
 </head>
 <body>
 <nav class="wtop"><div class="wtopin">
   <a class="logo" href="/">neobank<span style="color:var(--acc)">beat</span></a>
-  ${tocEntries.map(([t], i) => `<a class="chl" href="#ch${i}">${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`).join('')}
+  ${tocEntries.map(([t], i) => i < FREE_CHAPTERS
+    ? `<a class="chl" href="#ch${i}">${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`
+    : `<a class="chl lk" href="#gate" title="subscribe to unlock">🔒 ${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`).join('')}
 </div></nav>
 <div class="whero">
   <span class="badge">monthly report · ${EDITION} · ${MONTH} · web edition</span>
   <div class="big">the state of <em>neobanks</em></div>
-  <p style="font-size:17px;color:var(--muted);max-width:640px;margin-top:16px">${N} verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. This is the full report, free to read. ${ASOF}.</p>
+  <p style="font-size:17px;color:var(--muted);max-width:640px;margin-top:16px">${N} verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. The opening third is free below; the full ${pages.length}-page designed PDF is free for subscribers. ${ASOF}.</p>
   <div class="wcta">
-    <a class="pri" href="/report/">get the designed PDF →</a>
-    <a href="https://github.com/andreolf/neobankbeat/blob/main/reports/state-of-neobanks-${ED_SLUG}.pdf">PDF on GitHub</a>
+    <a class="pri" href="#gate">get the full PDF — free →</a>
     <a href="/data.json">raw data</a>
   </div>
 </div>
 ${webSections}
+<div class="wfade"></div>
+<div class="wgate" id="gate">
+  <div class="lockedui">
+    <span class="k">the subscriber edition</span>
+    <h2>You've read the opening third. Unlock the other ${lockedChapters.length} chapters.</h2>
+    <p>Subscribe to the (free) newsletter and the full ${pages.length}-page designed PDF downloads <b>instantly, right here</b> — plus every monthly edition lands in your inbox. No spam, no paid tier.</p>
+    <ul class="wlocked">
+${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
+    </ul>
+    <iframe id="subif" src="https://neobankbeat.substack.com/embed" width="100%" height="150" loading="lazy" title="Subscribe to unlock the full report" style="border:0;border-radius:8px;background:transparent"></iframe>
+    <p class="alt">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a></p>
+  </div>
+  <div class="doneui">
+    <span class="k">unlocked</span>
+    <div class="big">🎉 Your download is starting…</div>
+    <p>If it didn't, <a href="${PDF_URL}" download style="color:var(--acc)">download the PDF directly</a>. The August edition will arrive by email. Thanks for subscribing.</p>
+  </div>
+</div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
+/* gate: no server, so unlock is detected client-side — when the visitor
+   interacts with the substack embed (blur → focus lands in the iframe),
+   we give them time to finish subscribing, then start the PDF download. */
+(function(){
+  const KEY='nbbReport${ED_SLUG}',gate=document.getElementById('gate');
+  const dl=()=>{const a=document.createElement('a');a.href='${PDF_URL}';a.download='';document.body.appendChild(a);a.click();a.remove();};
+  const unlock=auto=>{if(gate.classList.contains('done'))return;gate.classList.add('done');
+    try{localStorage.setItem(KEY,'1')}catch(_){}
+    if(auto!==false)setTimeout(dl,600);};
+  try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
+  let armed=false;
+  window.addEventListener('blur',()=>{
+    if(armed||document.activeElement!==document.getElementById('subif'))return;
+    armed=true; // they're typing in the embed — unlock once they've had time to submit
+    setTimeout(()=>unlock(true),9000);
+  });
+  document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
+})();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.wsec').forEach(s => io.observe(s));
 const cu = new IntersectionObserver(es => es.forEach(e => {

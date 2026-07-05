@@ -75,7 +75,7 @@
         <div class="rstat"><div class="n">357</div><div class="l">neobanks covered</div></div>
       </div>
 
-      <p style="margin:0 0 18px"><a href="/report/2026-07/" style="font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 14px;display:inline-block">read the web edition free →</a></p>
+      <p style="margin:0 0 18px"><a href="/report/2026-07/" style="font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 14px;display:inline-block">preview the opening chapters online →</a></p>
 
       <h2>inside the july edition</h2>
       <ul class="chlist">
@@ -99,13 +99,37 @@
     <img class="rcover" src="/report/cover-2026-07.png" alt="Cover of The State of Neobanks — July 2026 report" width="794" height="1123" loading="eager">
   </div>
 
-  <div class="gate">
-    <span class="k">get the report — free</span>
-    <h2>Subscribe and the PDF lands in your inbox</h2>
-    <p style="color:var(--muted);margin:0 0 6px">The download link arrives instantly with the welcome email, and every monthly edition after that ships to the same inbox. No spam, no paywall upsell — the newsletter is the gate.</p>
-    <iframe src="https://neobankbeat.substack.com/embed" width="100%" height="150" loading="lazy" title="Subscribe to get The State of Neobanks report" style="border:0;border-radius:8px;background:transparent;margin:6px 0 4px"></iframe>
-    <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed? the link is in your welcome email and in every edition post. · prefer to browse? <a href="/report/2026-07/">read the web edition</a> or grab the <a href="https://github.com/andreolf/neobankbeat/blob/main/reports/state-of-neobanks-2026-07.pdf">PDF on GitHub</a>.</p>
+  <div class="gate" id="gate">
+    <div class="lockedui">
+      <span class="k">get the report — free</span>
+      <h2>Subscribe and the PDF downloads instantly</h2>
+      <p style="color:var(--muted);margin:0 0 6px">Enter your email below, hit subscribe, and the download starts <b>right here</b> — no inbox round-trip. Every monthly edition after that ships to the same inbox. No spam, no paid tier: the newsletter is the gate.</p>
+      <iframe id="subif" src="https://neobankbeat.substack.com/embed" width="100%" height="150" loading="lazy" title="Subscribe to get The State of Neobanks report" style="border:0;border-radius:8px;background:transparent;margin:6px 0 4px"></iframe>
+      <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a> · prefer to browse first? <a href="/report/2026-07/">preview the opening chapters online</a>.</p>
+    </div>
+    <div class="doneui" style="display:none">
+      <span class="k">unlocked</span>
+      <h2>🎉 Your download is starting…</h2>
+      <p style="color:var(--muted)">If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-07.pdf" download>download the PDF directly</a>. The August edition will arrive by email — thanks for subscribing.</p>
+    </div>
   </div>
+  <script>
+  (function(){
+    var KEY='nbbReport2026-07',gate=document.getElementById('gate');
+    var lockedui=gate.querySelector('.lockedui'),doneui=gate.querySelector('.doneui');
+    function dl(){var a=document.createElement('a');a.href='/reports/dl-vq3x8k/state-of-neobanks-2026-07.pdf';a.download='';document.body.appendChild(a);a.click();a.remove();}
+    function unlock(auto){if(doneui.style.display==='block')return;lockedui.style.display='none';doneui.style.display='block';
+      try{localStorage.setItem(KEY,'1')}catch(_){}
+      if(auto!==false)setTimeout(dl,600);}
+    try{if(localStorage.getItem(KEY)){lockedui.style.display='none';doneui.style.display='block';}}catch(_){}
+    var armed=false;
+    window.addEventListener('blur',function(){
+      if(armed||document.activeElement!==document.getElementById('subif'))return;
+      armed=true;setTimeout(function(){unlock(true)},9000);
+    });
+    document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
+  })();
+  </script>
 
   <article>
   <h2>why this report exists</h2>

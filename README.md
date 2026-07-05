@@ -24,15 +24,15 @@ inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://
 
 ## the state of neobanks — monthly report
 
-<a href="reports/state-of-neobanks-2026-07.pdf"><img src="report/cover-2026-07.png" alt="The State of Neobanks — July 2026 report cover" width="260" align="right"></a>
+<a href="https://www.neobankbeat.com/report/"><img src="report/cover-2026-07.png" alt="The State of Neobanks — July 2026 report cover" width="260" align="right"></a>
 
 a 57-page designed PDF measuring the industry every month — custody, licences, cards, stablecoins, geography, niches, future narratives — generated entirely from `data.json`.
 
-| edition | pdf | read online |
+| edition | full pdf (free, gated) | preview online |
 |---|---|---|
-| **№ 01 — July 2026** | [download](reports/state-of-neobanks-2026-07.pdf) | [web edition](https://www.neobankbeat.com/report/2026-07/) |
+| **№ 01 — July 2026** | [get the report](https://www.neobankbeat.com/report/) | [first 5 chapters](https://www.neobankbeat.com/report/2026-07/) |
 
-get each new edition by email: [subscribe free](https://www.neobankbeat.com/report/) · every figure is reproducible from the open dataset.
+subscribing to the (free) newsletter is the only gate — the download starts instantly on the site. every figure is reproducible from the open dataset.
 
 <br clear="right">
 
