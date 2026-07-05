@@ -99,13 +99,19 @@ body.bw h1 em{text-decoration:underline;text-decoration-thickness:4px;text-under
 .spec-legend span b{font-weight:500;color:var(--text)}
 .lg-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
 
-.controls{max-width:1320px;margin:24px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:12px}
-.search{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
-.search svg{flex:none;opacity:.5}
-.search input{flex:1;background:none;border:none;color:var(--text);font-family:var(--mono);font-size:14px;outline:none}
+.controls{max-width:1320px;margin:30px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:16px}
+/* search gets real presence: lighter panel, stronger border, accent focus ring */
+.search{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid color-mix(in srgb,var(--line) 55%,var(--muted));border-radius:12px;padding:14px 18px;transition:border-color .15s,box-shadow .15s}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.search svg{flex:none;opacity:.75;width:17px;height:17px;color:var(--muted)}
+.search:focus-within svg{color:var(--accent);opacity:1}
+.search input{flex:1;background:none;border:none;color:var(--text);font-family:var(--mono);font-size:14.5px;outline:none}
 .search input::placeholder{color:var(--dim)}
-.filterrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.pill{font-family:var(--mono);font-size:12.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);transition:all .15s}
+body.bw .search{border:2px solid #111}
+.filterrow{display:flex;gap:9px;row-gap:12px;flex-wrap:wrap;align-items:center}
+.fsep{width:1px;height:24px;background:var(--line);margin:0 4px;flex:none}
+body.bw .fsep{background:#ccc}
+.pill{font-family:var(--mono);font-size:12.5px;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);transition:all .15s}
 .pill:hover{border-color:var(--muted)}
 .pill.on{color:var(--bg);font-weight:700}
 .pill.on.p-all{background:var(--text);border-color:var(--text)}
@@ -113,7 +119,7 @@ body.bw h1 em{text-decoration:underline;text-decoration-thickness:4px;text-under
 .pill.on.p-h{background:var(--h);border-color:var(--h)}
 .pill.on.p-w{background:var(--w);border-color:var(--w)}
 select{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);max-width:230px}
-.chk{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);cursor:pointer;user-select:none}
+.chk{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid var(--line);border-radius:8px;background:var(--panel);cursor:pointer;user-select:none}
 .chk input{accent-color:var(--accent)}
 .chk.on{color:var(--text);border-color:var(--accent)}
 .clear{font-family:var(--mono);font-size:12px;color:var(--dim);background:none;border:none;text-decoration:underline;text-underline-offset:3px}
@@ -210,6 +216,7 @@ footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:va
   .statrow{gap:24px}
   .stat .n{font-size:24px}
   .filterrow{gap:8px}
+  .fsep{display:none}
   .tray{padding:10px 16px}
 }
 @media(pointer:coarse){
@@ -385,7 +392,7 @@ body.bw .mi-item{background:#fff}
 /* ═══ v7 · custom dropdowns + founder chips ═══ */
 .filterrow select{display:none}
 .dd{position:relative;display:inline-block}
-.dd-btn{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;display:flex;gap:9px;align-items:center;max-width:250px;white-space:nowrap;overflow:hidden}
+.dd-btn{font-family:var(--mono);font-size:12.5px;padding:8px 13px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;display:flex;gap:9px;align-items:center;max-width:250px;white-space:nowrap;overflow:hidden}
 .dd-btn::after{content:"▾";color:var(--dim);font-size:10px;margin-left:auto}
 .dd-btn:hover{border-color:var(--muted)}
 .dd.open .dd-btn{border-color:var(--accent)}
@@ -627,13 +634,16 @@ body.on-map .minimap{display:none}
     <button class="pill p-t" data-cat="T">traditional</button>
     <button class="pill p-h" data-cat="H">hybrid</button>
     <button class="pill p-w" data-cat="W">web3-native</button>
+    <span class="fsep" aria-hidden="true"></span>
     <select id="f-niche" aria-label="Audience / niche"><option value="">audience: all</option></select>
     <select id="f-region" aria-label="Region"><option value="">region: all</option></select>
     <select id="f-custody" aria-label="Custody"><option value="">custody: all</option></select>
     <select id="f-net" aria-label="Card network"><option value="">card network: all</option></select>
+    <span class="fsep" id="sep-toggles" aria-hidden="true"></span>
     <label class="chk" id="lb-yield"><input type="checkbox" id="f-yield">offers yield</label>
     <label class="chk" id="lb-stable"><input type="checkbox" id="f-stable">stablecoins</label>
     <label class="chk" id="lb-nokyc"><input type="checkbox" id="f-nokyc">no-KYC wallet</label>
+    <span class="fsep" aria-hidden="true"></span>
     <select id="sort" aria-label="Sort">
       <option value="az">sort: A→Z</option>
       <option value="founded">sort: oldest first</option>
@@ -1965,7 +1975,7 @@ let regF="";
   const counts={};D.forEach(r=>{const k=regTypeOf(r);counts[k]=(counts[k]||0)+1});
   const opts=Object.entries(counts).sort((a,b)=>b[1]-a[1])
     .map(([k,c])=>'<option value="'+k+'">regulation: '+k.toLowerCase()+' ('+c+')</option>').join("");
-  document.getElementById('sort').insertAdjacentHTML('beforebegin','<select id="f-reg" aria-label="Regulation"><option value="">regulation: all</option>'+opts+'</select>');
+  document.getElementById('sep-toggles').insertAdjacentHTML('beforebegin','<select id="f-reg" aria-label="Regulation"><option value="">regulation: all</option>'+opts+'</select>');
   document.getElementById('f-reg').addEventListener('change',e=>{regF=e.target.value;render()});
   document.getElementById('clearall').addEventListener('click',()=>{regF="";document.getElementById('f-reg').selectedIndex=0});
   document.getElementById('navdir').addEventListener('click',()=>{regF="";document.getElementById('f-reg').selectedIndex=0});
