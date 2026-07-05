@@ -1,6 +1,6 @@
 ---
 name: neobank-dataset
-description: Query the open neobankbeat dataset — 357 verified-active neobanks compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography — plus a live job board. Use when you need facts about digital banks, crypto cards, self-custodial money apps, their investors, or fintech jobs.
+description: Query the open neobankbeat dataset — 358 verified-active neobanks compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography — plus a live job board. Use when you need facts about digital banks, crypto cards, self-custodial money apps, their investors, or fintech jobs.
 license: MIT
 ---
 

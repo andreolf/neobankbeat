@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 357,
+  "total": 358,
   "counts": {
-   "traditional": 256,
+   "traditional": 257,
    "hybrid": 54,
    "web3_native": 47,
-   "niche_audience": 117
+   "niche_audience": 118
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -6984,6 +6984,47 @@
    "note": "Egypt's lending super-app unicorn.",
    "founders": "Mounir Nakhla, Ahmed Mohsen",
    "funding": "~$600M+ incl. debt; unicorn"
+  },
+  {
+   "name": "Flouci",
+   "category": "traditional",
+   "audience": "underbanked",
+   "region": "Africa",
+   "hq": "Tunis, TN",
+   "founded": 2018,
+   "custody": "Custodial",
+   "regulation_type": "Other / mixed",
+   "card_network": "Visa",
+   "card_type": "Debit (physical + virtual)",
+   "cashback": null,
+   "yield": "~7% savings account",
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "flouci.com",
+   "website": "https://flouci.com",
+   "active_regions": [
+    "Africa"
+   ],
+   "note": "Tunisia's digital-banking super-app; BCT sandbox; 250K+ accounts.",
+   "story": "Tunisia's financial super-app by Kaoun — free bank account + wallet with the first e-KYC and home-delivered card in the country.",
+   "licence": "Partner-bank model — BCT regulatory sandbox (1st cohort, 2020); not a bank",
+   "founders": "Nebras Jemel, Anis Kallel, Rostom Bouazizi (Kaoun)",
+   "funding": "~$2M raised",
+   "terms_url": "https://fr.flouci.com/legal/conditions-dutilisation-du-service-flouci",
+   "privacy_url": "https://fr.flouci.com/legal/politique-de-confidendialite-du-client",
+   "countries": [
+    "Tunisia"
+   ],
+   "investors": [
+    {
+     "name": "Musha Ventures",
+     "website": "https://mushaventures.com"
+    },
+    {
+     "name": "Launch Africa",
+     "website": "https://launchafrica.vc"
+    }
+   ]
   },
   {
    "name": "Grey",

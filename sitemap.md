@@ -4,7 +4,7 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 357 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 358 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map
@@ -49,7 +49,7 @@
 - [best neobanks freelancers smb 2026](https://www.neobankbeat.com/blog/best-neobanks-freelancers-smb-2026/) (2026-06-02)
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
 
-## Neobank profiles (357)
+## Neobank profiles (358)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -260,6 +260,7 @@
 - [Branch Intl](https://www.neobankbeat.com/n/branch-intl/)
 - [Khazna](https://www.neobankbeat.com/n/khazna/)
 - [MNT-Halan](https://www.neobankbeat.com/n/mnt-halan/)
+- [Flouci](https://www.neobankbeat.com/n/flouci/)
 - [Grey](https://www.neobankbeat.com/n/grey/)
 - [Cleva](https://www.neobankbeat.com/n/cleva/)
 - [Telda](https://www.neobankbeat.com/n/telda/)

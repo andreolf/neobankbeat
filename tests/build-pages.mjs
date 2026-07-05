@@ -1,5 +1,5 @@
 /* build-pages.mjs — generates static SEO pages from data.json:
-   /n/<slug>/          357 entity profile pages
+   /n/<slug>/          358 entity profile pages
    /vs/<a>-vs-<b>/     curated comparison pages
    sitemap.xml         regenerated with every URL
    run: node build-pages.mjs                                     */
