@@ -3275,5 +3275,31 @@ if(window.__nbDirty){window.__nbDirty=false;render();}
 document.body.classList.add('booted');
 </script>
 <script>window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}catch(_){}}document.body.classList.add('booted');/* failsafe: separate block in case a layer above throws */</script>
+<script>
+/* ── WebMCP: expose the dataset to in-browser AI agents (navigator.modelContext) ──
+   harmless no-op in browsers without the API */
+(function(){
+  if(!(navigator.modelContext&&typeof navigator.modelContext.provideContext==='function'))return;
+  let cache=null;
+  const load=async()=>cache||(cache=await (await fetch('/data.json')).json());
+  const txt=o=>({content:[{type:'text',text:JSON.stringify(o)}]});
+  const brief=e=>({name:e.name,category:e.category,custody:e.custody,regulation_type:e.regulation_type,hq:e.hq,region:e.region,audience:e.audience,stablecoins:e.stablecoins,website:e.website,profile:'https://www.neobankbeat.com/n/'+e.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'/'});
+  navigator.modelContext.provideContext({tools:[
+    {name:'search_neobanks',
+     description:'Search the open dataset of 357 verified-active neobanks by name, category (traditional/hybrid/web3-native), custody, regulation, audience niche, country or HQ. Returns brief records with profile URLs.',
+     inputSchema:{type:'object',properties:{query:{type:'string',description:'free-text filter, e.g. "self-custodial europe" or "nubank"'},limit:{type:'number',description:'max results, default 10'}},required:['query']},
+     async execute({query,limit}){const d=await load();const terms=String(query).toLowerCase().split(/\s+/).filter(Boolean);
+       const hay=e=>[e.name,e.category,e.custody,e.regulation_type,e.audience,e.hq,e.region,(e.countries||[]).join(' '),(e.active_regions||[]).join(' ')].join(' ').toLowerCase();
+       const hits=d.entities.filter(e=>{const h=hay(e);return terms.every(t=>h.includes(t))}).slice(0,limit||10).map(brief);
+       return txt({count:hits.length,results:hits})}},
+    {name:'get_neobank',
+     description:'Get the full record for one neobank by exact name: licence, card network, cashback, yield, KYC, founders, funding, investors, reported users with sources.',
+     inputSchema:{type:'object',properties:{name:{type:'string',description:'exact entity name, e.g. "Nubank"'}},required:['name']},
+     async execute({name}){const d=await load();const q=String(name).toLowerCase();
+       const e=d.entities.find(x=>x.name.toLowerCase()===q)||d.entities.find(x=>x.name.toLowerCase().includes(q));
+       return txt(e?{found:true,entity:e}:{found:false,hint:'no entity matched "'+name+'" — try search_neobanks'})}}
+  ]});
+})();
+</script>
 </body>
 </html>

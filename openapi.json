@@ -1,0 +1,126 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "neobankbeat data API",
+    "version": "1.0.0",
+    "summary": "Open dataset of 357 verified-active neobanks plus a live industry job board.",
+    "description": "Read-only, unauthenticated JSON endpoints behind the neobankbeat directory (https://www.neobankbeat.com). All data is MIT-licensed and compiled from public sources. No API key, no rate limits beyond CDN defaults. Field semantics are documented at https://www.neobankbeat.com/llms.txt.",
+    "license": { "name": "MIT", "identifier": "MIT" },
+    "contact": { "name": "neobankbeat", "url": "https://github.com/andreolf/neobankbeat" }
+  },
+  "servers": [{ "url": "https://www.neobankbeat.com" }],
+  "paths": {
+    "/data.json": {
+      "get": {
+        "operationId": "getNeobanks",
+        "summary": "Full neobank dataset",
+        "description": "All 357 tracked entities with category (traditional / hybrid / web3-native), custody, regulation type, card network, cashback, yield, stablecoin support, KYC posture, audience niche, HQ, founding year, active regions and countries, verified terms/privacy URLs, founders, funding, notable early investors and reported user/volume figures with sources.",
+        "responses": {
+          "200": {
+            "description": "The dataset.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "generated": { "type": "string", "format": "date" },
+                    "count": { "type": "integer" },
+                    "entities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["name", "category", "custody", "active_regions"],
+                        "properties": {
+                          "name": { "type": "string" },
+                          "category": { "type": "string", "enum": ["traditional", "hybrid", "web3-native"] },
+                          "audience": { "type": "string" },
+                          "region": { "type": "string" },
+                          "hq": { "type": ["string", "null"] },
+                          "founded": { "type": ["string", "integer", "null"] },
+                          "custody": { "type": "string" },
+                          "regulation_type": { "type": ["string", "null"] },
+                          "card_network": { "type": ["string", "null"] },
+                          "card_type": { "type": ["string", "null"] },
+                          "cashback": { "type": ["string", "null"] },
+                          "yield": { "type": ["string", "null"] },
+                          "stablecoins": { "type": "boolean" },
+                          "kyc": { "type": ["string", "null"] },
+                          "domain": { "type": ["string", "null"] },
+                          "website": { "type": ["string", "null"] },
+                          "active_regions": { "type": "array", "items": { "type": "string" } },
+                          "countries": { "type": ["array", "null"], "items": { "type": "string" } },
+                          "licence": { "type": ["string", "null"] },
+                          "founders": { "type": ["string", "null"] },
+                          "funding": { "type": ["string", "null"] },
+                          "investors": {
+                            "type": ["array", "null"],
+                            "items": {
+                              "type": "object",
+                              "properties": { "name": { "type": "string" }, "website": { "type": "string", "format": "uri" } }
+                            }
+                          },
+                          "reported_users": {
+                            "type": ["object", "null"],
+                            "properties": {
+                              "value_millions": { "type": "number" },
+                              "metric": { "type": "string" },
+                              "as_of": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobs/data.json": {
+      "get": {
+        "operationId": "getJobs",
+        "summary": "Live neobank job board",
+        "description": "Thousands of live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Refreshed Monday/Wednesday/Friday.",
+        "responses": {
+          "200": {
+            "description": "The job list.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "generated": { "type": "string", "format": "date" },
+                    "count": { "type": "integer" },
+                    "companies": { "type": "integer" },
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["title", "url", "company"],
+                        "properties": {
+                          "title": { "type": "string" },
+                          "url": { "type": "string", "format": "uri", "description": "Direct link to the official application page." },
+                          "company": { "type": "string" },
+                          "profile": { "type": ["string", "null"], "description": "Site-relative path to the company profile page." },
+                          "location": { "type": "string" },
+                          "dept": { "type": "string" },
+                          "region": { "type": "string" },
+                          "posted": { "type": ["string", "null"], "format": "date" },
+                          "salary": { "type": ["string", "null"] },
+                          "wp": { "type": ["string", "null"], "enum": ["remote", "hybrid", "onsite", null] },
+                          "visa": { "type": ["boolean", "null"] }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

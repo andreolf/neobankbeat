@@ -1,0 +1,20 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.neobankbeat.com/",
+      "service-desc": [
+        { "href": "https://www.neobankbeat.com/openapi.json", "type": "application/json", "title": "OpenAPI 3.1 description of the neobankbeat data endpoints" }
+      ],
+      "service-doc": [
+        { "href": "https://www.neobankbeat.com/llms.txt", "type": "text/plain", "title": "Agent-oriented guide: data semantics, site sections, reference pages" }
+      ],
+      "service-meta": [
+        { "href": "https://www.neobankbeat.com/.well-known/agent-skills/index.json", "type": "application/json", "title": "Agent skills discovery index" }
+      ],
+      "item": [
+        { "href": "https://www.neobankbeat.com/data.json", "type": "application/json", "title": "Full dataset — 357 verified-active neobanks (MIT)" },
+        { "href": "https://www.neobankbeat.com/jobs/data.json", "type": "application/json", "title": "Live neobank job board data" }
+      ]
+    }
+  ]
+}

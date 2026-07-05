@@ -421,4 +421,8 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
     (u.priority ? `    <priority>${u.priority}</priority>\n` : '') + `  </url>`).join('\n') + `\n</urlset>\n`;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
+/* /index.md — markdown twin of the homepage for Accept: text/markdown
+   content negotiation (see vercel.json rewrite); kept in sync with llms.txt */
+fs.copyFileSync(path.join(ROOT, 'llms.txt'), path.join(ROOT, 'index.md'));
+
 console.log(`built ${nPages} profile pages, ${vsPages} comparison pages, sitemap with ${urls.length} URLs`);
