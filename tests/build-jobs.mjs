@@ -1,6 +1,7 @@
 /* build-jobs.mjs — the neobank jobs aggregator.
-   Pulls live postings from public ATS APIs (Greenhouse / Lever / Ashby) of
-   tracked neobanks, classifies them into departments + regions, and emits:
+   Pulls live postings from public ATS APIs (Greenhouse / Lever / Ashby /
+   Workable / SmartRecruiters) of tracked neobanks, classifies them into
+   departments + regions, and emits:
      jobs/data.json        full normalized job list
      jobs/index.html       the board (filters client-side, top jobs baked for SEO)
      jobs/<dept>/index.html per-department SEO pages
@@ -41,7 +42,7 @@ const SOURCES = [
   ['Bitpanda', 'Bitpanda', 'gh', 'bitpanda'],
   ['Qonto', 'Qonto', 'lever', 'qonto'],
   ['Wealthsimple', 'Wealthsimple', 'ashby', 'wealthsimple'],
-  ['Relay', 'Relay', 'ashby', 'relay'],
+  ['Relay', 'Relay', 'ashby', 'relayfi'],
   ['Allica Bank', 'Allica Bank', 'ashby', 'allica-bank'],
   ['Gemini', 'Gemini Credit Card', 'gh', 'gemini'],
   ['KOHO', 'KOHO', 'ashby', 'koho'],
@@ -52,6 +53,43 @@ const SOURCES = [
   ['Fi Money', 'Fi Money', 'lever', 'epifi'],
   ['Found', 'Found', 'ashby', 'found'],
   ['Current', 'Current', 'gh', 'current'],
+  /* deep-probe additions (probe-deep.mjs, verified by board identity) */
+  ['Wise', 'Wise', 'smartr', 'wise'],
+  ['OKX', 'OKX Card', 'gh', 'okx'],
+  ['Banco Inter', 'Banco Inter', 'gh', 'inter'],
+  ['C6 Bank', 'C6 Bank', 'gh', 'c6bank'],
+  ['Bybit', 'Bybit Card', 'gh', 'bybit'],
+  ['PayPay', 'PayPay Bank', 'gh', 'paypay'],
+  ['EQ Bank', 'EQ Bank', 'lever', 'eqbank'],
+  ['PhonePe', 'PhonePe', 'gh', 'phonepe'],
+  ['YouTrip', 'YouTrip', 'workable', 'youtrip'],
+  ['Rho', 'Rho', 'ashby', 'rho'],
+  ['OakNorth', 'OakNorth', 'ashby', 'oaknorth'],
+  ['FamPay', 'FamPay', 'lever', 'fampay'],
+  ['Trust Wallet', 'Trust Wallet', 'ashby', 'trust-wallet'],
+  ['Greenlight', 'Greenlight', 'lever', 'greenlight'],
+  ['Novo', 'Novo', 'ashby', 'novo'],
+  ['Judo Bank', 'Judo Bank', 'smartr', 'judobank'],
+  ['Neon', 'Neon', 'lever', 'neon'],
+  ['Branch', 'Branch', 'gh', 'branch'],
+  ['Bitso', 'Bitso', 'gh', 'bitso'],
+  ['1inch', '1inch Card', 'lever', '1inch'],
+  ['Trust Bank', 'Trust Bank', 'gh', 'trustbank'],
+  ['Dave', 'Dave', 'ashby', 'dave'],
+  ['Solflare', 'Solflare', 'smartr', 'solflare'],
+  ['Comun', 'Comun', 'ashby', 'comun'],
+  ['GoHenry', 'GoHenry', 'ashby', 'gohenry'],
+  ['Dakota', 'Dakota', 'ashby', 'dakota'],
+  ['Meow', 'Meow', 'ashby', 'meow'],
+  ['True Link', 'True Link', 'ashby', 'truelinkfinancial'],
+  ['Airtm', 'Airtm', 'lever', 'airtm'],
+  ['CoinJar', 'CoinJar', 'smartr', 'coinjar'],
+  ['Up', 'Up', 'gh', 'up'],
+  ['Plasma One', 'Plasma One', 'ashby', 'plasma'],
+  ['Umba', 'Umba', 'smartr', 'umba'],
+  ['PalmPay', 'PalmPay', 'smartr', 'palmpay'],
+  ['Brubank', 'Brubank', 'smartr', 'brubank'],
+  ['Trade Republic', 'Trade Republic', 'gh', 'traderepublic'],
 ];
 
 /* ── department taxonomy ── */
@@ -138,17 +176,27 @@ async function fetchSource([display, entityName, ats, slug]) {
     ? `https://boards-api.greenhouse.io/v1/boards/${slug}/jobs?content=true`
     : ats === 'lever'
       ? `https://api.lever.co/v0/postings/${slug}?mode=json`
-      : `https://api.ashbyhq.com/posting-api/job-board/${slug}`;
+      : ats === 'workable'
+        ? `https://apply.workable.com/api/v1/widget/accounts/${slug}?details=false`
+        : ats === 'smartr'
+          ? `https://api.smartrecruiters.com/v1/companies/${slug}/postings?limit=100`
+          : `https://api.ashbyhq.com/posting-api/job-board/${slug}`;
   try {
     let j;
     for (let attempt = 0; ; attempt++) {  // content=true payloads are heavy; retry, then fall back to the light listing
       try {
         const u = attempt === 2 && ats === 'gh' ? url.replace('?content=true', '') : url;
-        const r = await fetch(u, { signal: AbortSignal.timeout(attempt ? 90000 : 25000), headers: { 'user-agent': 'neobankbeat-jobs/1.0' } });
+        const r = await fetch(u, { signal: AbortSignal.timeout(attempt ? 90000 : 25000), headers: { 'user-agent': 'neobankbeat-jobs/1.0', accept: 'application/json' } });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         j = await r.json();
         break;
       } catch (e) { if (attempt >= 2) throw e; }
+    }
+    if (ats === 'smartr' && j.totalFound > (j.content || []).length) {  // paginate past 100
+      for (let off = 100; off < j.totalFound && off < 1000; off += 100) {
+        const r = await fetch(`${url}&offset=${off}`, { signal: AbortSignal.timeout(25000), headers: { 'user-agent': 'neobankbeat-jobs/1.0', accept: 'application/json' } });
+        if (r.ok) j.content.push(...(await r.json()).content || []);
+      }
     }
     let rows = [];
     if (ats === 'gh') rows = (j.jobs || []).map(x => ({
@@ -159,6 +207,17 @@ async function fetchSource([display, entityName, ats, slug]) {
       t: x.text, u: x.hostedUrl, l: x.categories?.location || '', d: x.categories?.team || x.categories?.department || null,
       p: x.createdAt ? new Date(x.createdAt).toISOString().slice(0, 10) : '',
       s: (x.descriptionPlain || '') + ' ' + (x.additionalPlain || ''), w: x.workplaceType,
+    }));
+    else if (ats === 'workable') rows = (j.jobs || []).map(x => ({
+      t: x.title, u: x.url || x.shortlink, l: [x.city, x.state, x.country].filter(Boolean).join(', '),
+      d: x.department || x.function || null, p: x.published_on || '', r: !!x.telecommuting,
+      s: '', w: x.telecommuting ? 'remote' : null,
+    }));
+    else if (ats === 'smartr') rows = (j.content || []).map(x => ({
+      t: x.name, u: `https://jobs.smartrecruiters.com/${slug}/${x.id}`,
+      l: [x.location?.city, (x.location?.country || '').toUpperCase()].filter(Boolean).join(', '),
+      d: x.function?.label || x.department?.label || null, p: (x.releasedDate || '').slice(0, 10),
+      r: !!x.location?.remote, s: '', w: x.location?.remote ? 'remote' : x.location?.hybrid ? 'hybrid' : null,
     }));
     else rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.jobUrl || x.applyUrl, l: [x.location, ...(x.secondaryLocations || []).map(s => s.location)].filter(Boolean).join(' · '),
@@ -180,8 +239,8 @@ async function fetchSource([display, entityName, ats, slug]) {
 console.log('fetching live postings from', SOURCES.length, 'ATS boards…');
 const all = (await Promise.all(SOURCES.map(fetchSource))).flat();
 // safety: if the APIs are having a bad day, refuse to overwrite a good board
-if (all.length < 500) {
-  console.error(`only ${all.length} jobs fetched (expected 1500+) — aborting to avoid publishing a broken board`);
+if (all.length < 2000) {
+  console.error(`only ${all.length} jobs fetched (expected 4000+) — aborting to avoid publishing a broken board`);
   process.exit(1);
 }
 all.sort((a, b) => (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company));
