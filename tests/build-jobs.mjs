@@ -341,7 +341,12 @@ main.wrap{max-width:1150px}
 .jhero,main.wrap>article{max-width:760px}
 .jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
 .jmain{min-width:0}
-.jside{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
+/* sidebar is taller than the viewport → let it scroll on its own instead of
+   trapping the lower filters until the job list runs out */
+.jside{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 32px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-right:6px;margin-right:-6px}
+.jside::-webkit-scrollbar{width:5px}
+.jside::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.jside::-webkit-scrollbar-track{background:transparent}
 #jsearch{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box}
 #jsearch:focus{outline:none;border-color:var(--acc)}
 .jsec{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
@@ -391,7 +396,7 @@ main.wrap{max-width:1150px}
   .jlayout{grid-template-columns:minmax(0,1fr);gap:16px}
   /* sidebar collapses into compact filter rows: search, map, then one
      horizontally-swipeable chip row per section — no more endless scroll */
-  .jside{position:static;gap:10px}
+  .jside{position:static;gap:10px;max-height:none;overflow:visible;padding-right:0;margin-right:0}
   .jmap{width:100%;max-width:none;box-sizing:border-box;text-align:center}
   .jmapgrid{width:max-content;margin:0 auto}
   .jmaplabel{text-align:center}
