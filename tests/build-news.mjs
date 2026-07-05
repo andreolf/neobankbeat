@@ -131,12 +131,15 @@ const rows = chosen.map(it => {
 }).join(',\n');
 
 let html = fs.readFileSync(INDEX, 'utf8');
+if (!/\/\*NEWS-AUTO-START\*\/[\s\S]*?\/\*NEWS-AUTO-END\*\//.test(html) || !/const NEWS_UPDATED="[^"]*";/.test(html)) {
+  console.error('!! NEWS-AUTO markers not found in index.html'); process.exit(1);
+}
 const before = html;
 html = html.replace(/\/\*NEWS-AUTO-START\*\/[\s\S]*?\/\*NEWS-AUTO-END\*\//,
   `/*NEWS-AUTO-START*/\n${rows}\n/*NEWS-AUTO-END*/`);
 const today = new Date().toISOString().slice(0, 10);
 html = html.replace(/const NEWS_UPDATED="[^"]*";/, `const NEWS_UPDATED="${today}";`);
 
-if (html === before) { console.error('!! markers not found or nothing changed'); process.exit(1); }
+if (html === before) { console.log('headlines unchanged — index.html already fresh'); process.exit(0); }
 fs.writeFileSync(INDEX, html);
 console.log(`wrote ${chosen.length} headlines into index.html (updated ${today})`);
