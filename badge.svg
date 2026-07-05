@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="24" role="img" aria-label="tracked on neobankbeat">
+  <rect width="176" height="24" rx="5" fill="#0A0A10"/>
+  <rect x="0.5" y="0.5" width="175" height="23" rx="4.5" fill="none" stroke="#23232F"/>
+  <text x="10" y="16" font-family="Menlo,Consolas,monospace" font-size="11" fill="#8A8A9A">tracked on</text>
+  <text x="78" y="16" font-family="Menlo,Consolas,monospace" font-size="11" font-weight="bold" fill="#EDEDF2">neobank<tspan fill="#FF5C16">beat</tspan></text>
+  <circle cx="165" cy="12" r="3" fill="#FF5C16"/>
+</svg>

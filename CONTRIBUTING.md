@@ -15,3 +15,4 @@ open a [data-fix issue](../../issues/new?labels=data-fix&template=data-fix.yml) 
 - volume/user figures need a citable public source (filing, IR page, or PR)
 - run `node tests/flowtest.js` before submitting a PR
 - after any change to `D`/`X`/`V`, regenerate the machine-readable export: `cd tests && node export-data.js` (writes `data.json` at the repo root — commit it with your change)
+- then regenerate the static pages: `node build-pages.mjs` (rebuilds `/n/`, `/vs/` and `sitemap.xml` from `data.json` — commit those too)

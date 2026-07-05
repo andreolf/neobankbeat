@@ -96,9 +96,23 @@ index.html          the entire app: CSS + data + logic
 └── const V={...}   verified links: terms, privacy, X handles, countries
 data.json           machine-readable export (generated, committed)
 llms.txt            agent-facing guide
+blog/               static deep dives + RSS feed
+n/                  357 generated entity profile pages (SEO surface)
+vs/                 60 generated head-to-head comparison pages
 tests/
 ├── flowtest.js     167 assertions across 23 user flows (JSDOM)
-└── export-data.js  regenerates data.json from index.html
+├── export-data.js  regenerates data.json from index.html
+└── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
+```
+
+## badge
+
+tracked on neobankbeat? embed the badge — it links people to your verified profile:
+
+[![tracked on neobankbeat](https://www.neobankbeat.com/badge.svg)](https://www.neobankbeat.com/)
+
+```markdown
+[![tracked on neobankbeat](https://www.neobankbeat.com/badge.svg)](https://www.neobankbeat.com/n/YOUR-SLUG/)
 ```
 
 ## data principles
@@ -121,6 +135,7 @@ or PR directly — see [CONTRIBUTING.md](CONTRIBUTING.md) for the row schema. be
 cd tests && npm install
 node flowtest.js       # 167 assertions must pass
 node export-data.js    # regenerate data.json, commit it with your change
+node build-pages.mjs   # regenerate /n/, /vs/ and sitemap.xml
 ```
 
 ## license
