@@ -1,7 +1,9 @@
-/* build-news.mjs — weekly "top news" refresh for the main page.
+/* build-news.mjs — "top news" refresh for the main page.
    Pulls Google News RSS for neobank-related queries, ranks headlines by
    (tracked-entity match + signal keywords + source quality + recency),
-   dedupes, and rewrites the NEWS-AUTO block inside index.html.
+   dedupes, keeps at most ONE story per 2-day window over the past 2 months
+   (only the biggest story of each window survives), and rewrites the
+   NEWS-AUTO block inside index.html.
    Safety: if fewer than MIN_ITEMS good headlines are found, index.html is
    left untouched (the site keeps last week's list instead of going empty).
    run: node tests/build-news.mjs                                          */
@@ -12,9 +14,10 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const INDEX = path.join(ROOT, 'index.html');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
-const MAX_ITEMS = 20;
+const MAX_ITEMS = 30;      // hard ceiling: 60 days / one story per 2-day slot
 const MIN_ITEMS = 8;
 const MAX_AGE_DAYS = 60;   // big stories stay relevant for weeks — scoring still favours fresh ones
+const SLOT_DAYS = 2;       // at most ONE headline per 2-day window — only the biggest story survives
 
 /* entity names that are common English words — headline matches would be noise */
 const AMBIG = new Set(['One', 'Current', 'Dave', 'Step', 'Found', 'Open', 'Slice', 'Wave', 'Strike', 'Branch', 'Juno', 'Albert', 'Karat', 'Majority', 'Purple', 'Copper', 'Fold', 'Point', 'Level', 'Wallet', 'Cash', 'Cogni', 'Aspire', 'Jupiter', 'Maya', 'Rainbow', 'Phantom', 'Lunar', 'Neon', 'Amber', 'Carbon', 'Indy', 'blu', 'Up', 'Boost', 'DANA', 'KAST']);
@@ -32,7 +35,7 @@ const SIGNAL = [
 ];
 const GOOD_SOURCES = /techcrunch|bloomberg|reuters|financial times|ft\.com|cnbc|finextra|sifted|american banker|fintech futures|techcabal|the paypers|business insider|forbes|wsj|wall street journal|coindesk|the block/i;
 /* listicle / evergreen / opinion / sponsored junk */
-const JUNK = /best neobanks?|top \d+|how to|what is|review:|vs\.?\s|promo|bonus|deals?\b|coupon|\breferral\b|stocks? to (buy|watch)|price prediction|horoscope|^why |^opinion|^analysis|full list|explained$|\?$/i;
+const JUNK = /best neobanks?|top \d+|how to|what is|review:|vs\.?\s|promo|bonus|deals?\b|coupon|\breferral\b|stocks? to (buy|watch)|price prediction|horoscope|^why |^opinion|^analysis|full list|explained$|\?$|pre-?seed|skyrocket|retail investors|^forget|millionaires?\b|motley fool/i;
 
 const QUERIES = [
   'neobank when:7d',
@@ -40,10 +43,12 @@ const QUERIES = [
   'neobank raises OR acquires OR IPO OR stablecoin when:7d',
   'Revolut OR Nubank OR Monzo OR Chime OR N26 OR "Starling Bank" OR bunq OR Wise when:7d',
   'Mercury OR Brex OR Ramp OR Klarna OR "Cash App" OR Moniepoint OR OPay OR GCash when:7d',
-  /* wider nets for the big stories of the past weeks */
-  'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:30d',
-  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:30d',
-  '"stablecoin" bank OR card OR payments launch when:30d',
+  /* wider nets for the big stories of the past two months */
+  'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:60d',
+  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:60d',
+  'Mercury OR Brex OR Ramp OR Wise OR Starling OR bunq funding OR IPO OR launch when:60d',
+  '"stablecoin" bank OR card OR payments launch when:60d',
+  'fintech "billion" valuation OR round when:60d',
 ];
 
 const get = async url => {
@@ -105,17 +110,25 @@ for (const q of QUERIES) {
   }
 }
 
-/* ── rank, one headline per entity to keep variety ── */
+/* ── rank: strongest stories first, then ONE winner per 2-day slot ──
+   walking the ranked list guarantees each slot keeps its single biggest story;
+   one headline per entity keeps variety across the two months */
 const ranked = [...items.values()].sort((a, b) => b.score - a.score || b.pub - a.pub);
 const chosen = [];
 const usedEntity = new Set();
+const usedSlot = new Set();
 for (const it of ranked) {
+  if (it.score < 6) continue; // "most important only" — raise the floor
+  const slot = Math.floor((Date.now() - it.pub.getTime()) / (SLOT_DAYS * 864e5));
+  if (usedSlot.has(slot)) continue;
   const dupEntity = it.matched.length && it.matched.every(n => usedEntity.has(n));
   if (dupEntity) continue;
+  usedSlot.add(slot);
   it.matched.forEach(n => usedEntity.add(n));
   chosen.push(it);
   if (chosen.length === MAX_ITEMS) break;
 }
+chosen.sort((a, b) => b.pub - a.pub); // display newest → oldest
 
 console.log(`fetched ${items.size} candidates → keeping ${chosen.length}`);
 chosen.forEach(it => console.log(`  [${it.score.toFixed(1)}] ${it.pub.toISOString().slice(0, 10)} ${it.title} (${it.source})`));
