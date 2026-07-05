@@ -1280,13 +1280,16 @@ function clearAll(){
 }
 document.getElementById('clearall').addEventListener('click',clearAll);
 
-/* ── black & white mode ── */
+/* ── black & white mode (persisted across pages via localStorage) ── */
 const bwbtn=document.getElementById('bwtoggle');
-bwbtn.addEventListener('click',()=>{
-  const on=document.body.classList.toggle('bw');
+function setBW(on){
+  document.body.classList.toggle('bw',on);
   bwbtn.setAttribute('aria-pressed',on);
   bwbtn.textContent=on?"◑ color":"◐ black & white";
-});
+  try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}
+}
+try{if(localStorage.getItem('nbbw')==='1')setBW(true)}catch(e){}
+bwbtn.addEventListener('click',()=>setBW(!document.body.classList.contains('bw')));
 
 render();
 </script>

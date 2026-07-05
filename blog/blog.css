@@ -6,6 +6,12 @@
   --disp:'Space Grotesk',system-ui,-apple-system,sans-serif;
   --mono:'Noto Sans Mono',ui-monospace,'SF Mono',Menlo,monospace;
 }
+body.bw{
+  --bg:#FFFFFF; --panel:#FFFFFF; --panel2:#F2F2F2; --line:#111111;
+  --text:#111111; --muted:#555555; --dim:#8A8A8A;
+  --t:#111111; --h:#5A5A5A; --w:#9C9C9C; --accent:#111111; --acc:#111111;
+  --t-bg:rgba(17,17,17,.07); --h-bg:rgba(90,90,90,.10); --w-bg:rgba(156,156,156,.14);
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--disp);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -21,6 +27,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.85);backdrop-f
 .hnav a{color:var(--muted);white-space:nowrap}
 .hnav a:hover{color:var(--text);text-decoration:none}
 .hnav a.on{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:2px}
+.bwbtn{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.bwbtn:hover{border-color:var(--accent)}
+body.bw header{background:rgba(255,255,255,.88)}
+body.bw .logo .dot{text-decoration:underline;text-underline-offset:4px}
+body.bw article p,body.bw article ul,body.bw article ol,body.bw article td,body.bw .callout{color:#333}
+body.bw .subbtn,body.bw .subform button{color:#fff}
+body.bw img[src*="og-"],body.bw img[src*="cover-"]{filter:grayscale(1) contrast(1.05)}
+body.bw .jmap{filter:grayscale(1) contrast(1.1)}
 
 /* layout */
 .wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px}
