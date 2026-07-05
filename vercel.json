@@ -27,6 +27,12 @@
       ]
     },
     {
+      "source": "/index.md",
+      "headers": [
+        { "key": "Link", "value": "<https://www.neobankbeat.com/>; rel=\"canonical\", </.well-known/api-catalog>; rel=\"api-catalog\", </sitemap.md>; rel=\"sitemap\"; type=\"text/markdown\"" }
+      ]
+    },
+    {
       "source": "/(openapi|data)\\.json",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }

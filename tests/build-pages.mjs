@@ -415,14 +415,72 @@ const urls = [
   ...vsIndex.map(v => ({ loc: `${BASE}/vs/${v.slug}/`, lastmod: TODAY, priority: '0.7' })),
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n` +
-    (u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : '') +
+  urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod || TODAY}</lastmod>\n` +
     (u.changefreq ? `    <changefreq>${u.changefreq}</changefreq>\n` : '') +
     (u.priority ? `    <priority>${u.priority}</priority>\n` : '') + `  </url>`).join('\n') + `\n</urlset>\n`;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
+/* ═══ sitemap.md — markdown sitemap for agents ═══ */
+const sitemapMd = `# neobankbeat — sitemap
+
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](${BASE}/data.json); the agent guide at [/llms.txt](${BASE}/llms.txt). Updated ${TODAY}.
+
+## Main
+
+- [Directory](${BASE}/) — searchable grid of all ${E.length} neobanks
+- [FAQ](${BASE}/faq/) — 20 honest answers
+- [Glossary](${BASE}/glossary/) — 50 terms defined
+- [Investors in neobanks](${BASE}/investors/) — VC → portfolio map
+- [Jobs board](${BASE}/jobs/) — live roles from official career APIs
+- [Blog](${BASE}/blog/) — deep dives grounded in the dataset
+- [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)
+
+## Data & agent endpoints
+
+- [data.json](${BASE}/data.json) — full dataset
+- [jobs/data.json](${BASE}/jobs/data.json) — job board feed
+- [openapi.json](${BASE}/openapi.json) — OpenAPI 3.1 description
+- [llms.txt](${BASE}/llms.txt) · [llms-full.txt](${BASE}/llms-full.txt) · [AGENTS.md](${BASE}/AGENTS.md)
+- [API catalog](${BASE}/.well-known/api-catalog) · [agent skills](${BASE}/.well-known/agent-skills/index.json)
+
+## Jobs by department
+
+${['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people'].map(d => `- [${d}](${BASE}/jobs/${d}/)`).join('\n')}
+
+## Blog posts
+
+${BLOG_POSTS.map(([slug, d]) => `- [${slug.replace(/-/g, ' ')}](${BASE}/blog/${slug}/) (${d})`).join('\n')}
+
+## Neobank profiles (${E.length})
+
+${E.map(e => `- [${e.name}](${BASE}/n/${slugs.get(e.name)}/)`).join('\n')}
+
+## Comparisons (${vsIndex.length})
+
+${vsIndex.map(v => `- [${v.an} vs ${v.bn}](${BASE}/vs/${v.slug}/)`).join('\n')}
+`;
+fs.writeFileSync(path.join(ROOT, 'sitemap.md'), sitemapMd);
+
+/* ═══ llms-full.txt — llms.txt + one-line summary of every entity ═══ */
+const llmsTxt = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
+const entLine = e => {
+  const bits = [e.category, e.custody, e.regulation_type, e.hq, e.founded && `founded ${e.founded}`,
+    e.reported_users && `${e.reported_users.value_millions}M ${e.reported_users.metric}`].filter(Boolean).join(' · ');
+  return `- [${e.name}](${BASE}/n/${slugs.get(e.name)}/): ${bits}`;
+};
+fs.writeFileSync(path.join(ROOT, 'llms-full.txt'), llmsTxt +
+  `\n## Full directory (${E.length} entities, one line each)\n\n` +
+  E.map(entLine).join('\n') + '\n');
+
 /* /index.md — markdown twin of the homepage for Accept: text/markdown
-   content negotiation (see vercel.json rewrite); kept in sync with llms.txt */
-fs.copyFileSync(path.join(ROOT, 'llms.txt'), path.join(ROOT, 'index.md'));
+   content negotiation (middleware.js); llms.txt body + YAML frontmatter */
+fs.writeFileSync(path.join(ROOT, 'index.md'), `---
+title: "neobankbeat · who watches the neobanks?"
+description: "Independent, open-source directory of ${E.length} verified-active neobanks — compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography."
+canonical: https://www.neobankbeat.com/
+date: ${TODAY}
+---
+
+` + llmsTxt);
 
 console.log(`built ${nPages} profile pages, ${vsPages} comparison pages, sitemap with ${urls.length} URLs`);
