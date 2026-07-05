@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The rise of the self-custodial neobank: 47 apps where you hold the keys · neobankbeat</title>
+<meta name="description" content="A new category of neobank holds none of your money: self-custodial wallets with IBANs, cards and yield. What MetaMask, Gnosis Pay, Payy and 44 others are actually building, and where the model still leaks.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/self-custodial-neobanks/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="The rise of the self-custodial neobank: 47 apps where you hold the keys">
+<meta property="og:description" content="A new category of neobank holds none of your money. What MetaMask, Gnosis Pay, Payy and 44 others are building, and where the model still leaks.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/self-custodial-neobanks/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"The rise of the self-custodial neobank: 47 apps where you hold the keys","description":"A new category of neobank holds none of your money. What MetaMask, Gnosis Pay, Payy and 44 others are building, and where the model still leaks.","datePublished":"2025-12-09","dateModified":"2025-12-09","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/self-custodial-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/#datasec">data</a>
+      <a href="/#newssec">news</a>
+      <a href="/blog/" class="on">blog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">web3-native</div>
+  <h1>The rise of the <em>self-custodial</em> neobank: 47 apps where you hold the keys</h1>
+  <p class="meta"><b>December 9, 2025</b> · 8 min read · <a href="/blog/">← all posts</a></p>
+
+  <p>Every bank in history has worked the same way: you give them your money, they give you promises. The third wave of neobanks breaks that contract. In a self-custodial neobank, the company <strong>never holds your funds</strong> — your balance is stablecoins in a wallet only you control, and everything bank-like (a card, an IBAN, yield, payments) is software wrapped around it.</p>
+
+  <p>We track <a href="/?cat=W">47 web3-native neobanks</a>. Of the full 357-entity directory, <strong>40 are fully self-custodial and 2 use MPC self-custody</strong>. Two years ago most of these didn't exist. This post is about what they actually are, why now, and where the model still leaks.</p>
+
+  <h2>From wallet to bank in three steps</h2>
+  <p>The category emerged from two directions converging:</p>
+  <ul>
+    <li><strong>Wallets grew banking features.</strong> MetaMask, Phantom, Trust Wallet, Exodus and Xverse started as key managers for crypto users. Then came in-app buy/sell ramps, then debit cards (MetaMask and Phantom both ship them), then yield. The wallet became the account.</li>
+    <li><strong>Banking products grew self-custody.</strong> Gnosis Pay built a Visa card on a Safe smart account; Payy and EtherFi Cash followed with their own takes; apps like Peanut and Daimo made stablecoin payments feel like Venmo. The account became a wallet.</li>
+  </ul>
+  <p>The meeting point is a phone app where you can receive a salary in USDC, earn on it, tap a card at a supermarket, and send money to a friend — while the operating company holds nothing and, in the cleanest designs, <em>can't</em> touch your funds even if compromised or coerced.</p>
+
+  <h2>How the pieces work</h2>
+  <table>
+    <tr><th>bank feature</th><th>self-custodial equivalent</th><th>who provides it</th></tr>
+    <tr><td>Account</td><td>Wallet / smart account (often a Safe)</td><td>You + open-source contracts</td></tr>
+    <tr><td>Balance</td><td>Stablecoins (USDC, USDT, EURe…)</td><td>Regulated issuers</td></tr>
+    <tr><td>Debit card</td><td>Card programme with on-chain spending allowance</td><td>Licensed issuer + network</td></tr>
+    <tr><td>IBAN / account number</td><td>Named virtual IBAN routing to your wallet</td><td>Banking-rails partner</td></tr>
+    <tr><td>Interest</td><td>On-chain yield (lending markets, T-bill-backed tokens)</td><td>DeFi protocols / RWA issuers</td></tr>
+    <tr><td>Fraud protection</td><td>Spending limits + module permissions in the smart account</td><td>Contract logic</td></tr>
+  </table>
+
+  <h2>What you gain</h2>
+  <ul>
+    <li><strong>No custodian to fail.</strong> The Synapse collapse froze customer funds for months (<a href="/blog/are-neobanks-safe/">that story here</a>); FTX vaporised them. A self-custodial balance cannot be frozen by a bankruptcy trustee, because it was never part of anyone's estate.</li>
+    <li><strong>Global by default.</strong> A wallet doesn't care about your passport. For people in high-inflation or capital-controlled economies, apps like MiniPay (on cheap Android phones, running on Celo) or El Dorado in Latin America are dollar accounts that no local institution can gate.</li>
+    <li><strong>Yield without a middleman's cut.</strong> The spread a bank keeps between what your deposit earns and what it pays you is the oldest business model in finance. On-chain, you hold the earning asset directly.</li>
+  </ul>
+
+  <h2>Where the model still leaks</h2>
+  <p>Honesty section — the risks don't vanish, they move:</p>
+  <ul>
+    <li><strong>Key loss is unforgiving.</strong> Seed phrases are terrible UX. The better apps now use passkeys, MPC (Zengo has no seed phrase at all), or social recovery — but "I forgot my password" still has no 1-800 number.</li>
+    <li><strong>The edges are custodial anyway.</strong> The moment you touch fiat — the card issuer, the IBAN provider, the on/off-ramp — a regulated intermediary appears, with KYC and the power to decline. The core is trustless; the perimeter isn't.</li>
+    <li><strong>Stablecoin issuer risk.</strong> Your "dollars" are Circle's or Tether's liabilities. The GENIUS Act and MiCA hardened reserve rules considerably, but issuer risk is now the systemic question of this whole category.</li>
+    <li><strong>Smart-contract risk.</strong> Audited, battle-tested contracts like Safe carry low but nonzero risk. Newer programmes carry more.</li>
+    <li><strong>No chargebacks.</strong> Push payments on-chain are final. Consumer protection here is genuinely worse than a Visa dispute — card programmes reintroduce some of it, wallet transfers have none.</li>
+  </ul>
+
+  <div class="callout"><span class="k">compare custody models</span>The directory's custody filter separates <a href="/?custody=Self-custodial">self-custodial</a> from custodial apps across all 357 entities — the exact line this post is about. The <a href="/#methodology">methodology</a> explains how we classify edge cases.</div>
+
+  <h2>Why this category will matter</h2>
+  <p>The bear case says self-custody is a niche for the crypto-native 1%. The bull case runs through three doors: <strong>emerging markets</strong> (where a self-custodial dollar account beats the local alternative on day one — see <a href="/blog/neobanks-africa-latam-underbanked/">where neobanks actually win</a>), <strong>AI agents</strong> (software that needs to hold and spend money can't pass bank KYC, but it can hold keys — this is why we track agent wallets in the directory), and <strong>the simple fact that the custodial waves keep having accidents</strong>. Every freeze, every bankruptcy, every "temporarily suspended withdrawals" headline is marketing for wave three.</p>
+  <p>Speculative, flagged as such: we expect the traditional/web3 boundary in our own dataset to blur within two years — traditional neobanks are already adding stablecoin support (103 of 357 have some), and several web3-native apps are acquiring the licences that would technically reclassify them. The categories will converge before the vocabulary does.</p>
+
+  <div class="postnav">
+    <a href="/blog/stablecoin-cards-explained/">← stablecoin cards explained</a>
+    <a href="/blog/no-kyc-crypto-wallets-cards/">no-KYC money apps →</a>
+  </div>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><p>Newsletter coming soon. Meanwhile: <a href="/blog/feed.xml">RSS feed</a> · <a href="https://github.com/andreolf/neobankbeat">watch the repo</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+</div></footer>
+</body>
+</html>

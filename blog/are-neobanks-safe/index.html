@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Are neobanks safe? Deposit insurance, partner banks and the Synapse lesson · neobankbeat</title>
+<meta name="description" content="Whether your money in a neobank is protected depends on its regulatory model: licensed bank, partner bank, e-money or self-custody. How each works, what Synapse taught us, and the questions to ask before you deposit.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/are-neobanks-safe/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Are neobanks safe? Deposit insurance, partner banks and the Synapse lesson">
+<meta property="og:description" content="Whether your money is protected depends on the regulatory model behind the app. How each one works, and what the Synapse collapse taught us.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/are-neobanks-safe/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Are neobanks safe? Deposit insurance, partner banks and the Synapse lesson","description":"Whether your money is protected depends on the regulatory model behind the app. How each one works, and what the Synapse collapse taught us.","datePublished":"2025-10-28","dateModified":"2025-10-28","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/are-neobanks-safe/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/#datasec">data</a>
+      <a href="/#newssec">news</a>
+      <a href="/blog/" class="on">blog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">risk &amp; regulation</div>
+  <h1>Are neobanks <em>safe</em>? Deposit insurance, partner banks and the Synapse lesson</h1>
+  <p class="meta"><b>October 28, 2025</b> · 9 min read · <a href="/blog/">← all posts</a></p>
+
+  <p>Short answer: it depends entirely on the regulatory model behind the app, and the app usually doesn't make that model obvious. "FDIC insured" on a landing page can mean four different things, one of which failed spectacularly in 2024. This post is the fine print, decoded.</p>
+
+  <h2>The four models, ranked by what happens when things break</h2>
+
+  <h3>1. Licensed bank — the strongest promise</h3>
+  <p>92 of the 357 neobanks in <a href="/">our directory</a> hold a full banking licence: Monzo, Starling, Nubank, KakaoBank, WeBank, TymeBank, Kaspi and others. Your deposit sits on the bank's own balance sheet, and the national deposit-insurance scheme (FDIC in the US, FSCS in the UK, national schemes under the EU's DGSD, and equivalents elsewhere) covers you <em>directly</em>, typically up to $250k / £85k / €100k. If the bank fails, the scheme pays out. This is the same protection an incumbent bank offers — full stop.</p>
+
+  <h3>2. Partner-bank model — strong, with a catch</h3>
+  <p>Chime, Current, Dave, One, Step, Mercury, Brex and at least 20 other tracked neobanks don't hold a licence. They're technology companies whose customer funds sit at a chartered partner bank, insured on a <strong>pass-through</strong> basis: the FDIC covers you as if you banked with the partner directly — <em>provided the records establishing who owns what are accurate</em>.</p>
+  <p>That proviso is the whole story. In April 2024, Synapse — a middleware company connecting fintech apps to partner banks — filed for bankruptcy with a reported shortfall between its ledgers and the actual bank balances. No bank failed, so FDIC insurance never triggered. Result: over 100,000 end users of apps like Yotta and Juno had funds frozen for months, and some money was simply missing. The FDIC has since finalised a recordkeeping rule for custodial deposit accounts (effective 2025) specifically to force cleaner ledgers, and the biggest partner-bank neobanks now emphasise direct integrations with their banks rather than middleware. It was the single most instructive failure in neobank history: <strong>the risk wasn't the bank, it was the bookkeeping between you and the bank.</strong></p>
+
+  <h3>3. E-money institutions — safeguarded, not insured</h3>
+  <p>Europe's favourite model (Wise, Tide, ANNA Money, and most EU/UK apps that aren't banks). An EMI must <em>safeguard</em> customer funds in segregated accounts at real banks; it may not lend them out. There is <strong>no deposit insurance</strong> — if the EMI fails, you rely on the safeguarding having been done correctly, and you may wait through an administration process. In practice safeguarding has held up well, but "your money is safeguarded" and "your money is insured" are legally different sentences, and marketing loves to blur them.</p>
+
+  <h3>4. Self-custodial — no custodian to fail</h3>
+  <p>The 47 <a href="/?cat=W">web3-native neobanks</a> we track invert the question. MetaMask, Phantom, Gnosis Pay, Payy — your balance is stablecoins in a wallet you control; the company never holds it. There's no deposit insurance because there's no deposit. The failure modes move to <em>you</em> (seed phrase loss, signing a malicious transaction), to the <em>stablecoin issuer</em> (is USDC fully reserved? — post-GENIUS Act, US payment stablecoins are now under a federal reserve-and-audit regime), and to <em>smart-contract risk</em>. Different risks, not zero risks. We cover the model in depth in <a href="/blog/self-custodial-neobanks/">the self-custodial neobank post</a>.</p>
+
+  <h2>Quick reference</h2>
+  <table>
+    <tr><th>model</th><th>if the company fails</th><th>insurance</th><th>examples</th></tr>
+    <tr><td>Licensed bank</td><td>Deposit scheme pays you directly</td><td>Yes, direct</td><td>Monzo, Nubank, Starling</td></tr>
+    <tr><td>Partner bank</td><td>Depends on ledger integrity</td><td>Pass-through</td><td>Chime, Mercury, Dave</td></tr>
+    <tr><td>E-money</td><td>Administration; safeguarded funds returned</td><td>No</td><td>Wise, Tide, Qonto*</td></tr>
+    <tr><td>Self-custody</td><td>Nothing happens to your funds</td><td>N/A</td><td>MetaMask, Gnosis Pay</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--dim)">*Qonto operates as a payment institution — same safeguarding logic. Always check the current licence; these change as companies upgrade.</p>
+
+  <h2>Five questions to ask before you deposit</h2>
+  <ol>
+    <li><strong>Who legally holds my money?</strong> The app, a named partner bank, or me? The answer is in the terms of service — every verified profile in our directory links the actual terms document.</li>
+    <li><strong>Which insurance scheme applies, and does it apply to <em>me</em>?</strong> A US partner bank's FDIC coverage does nothing for you if you signed up with the entity in another jurisdiction.</li>
+    <li><strong>Is there middleware between the app and the bank?</strong> Post-Synapse, direct bank integrations are meaningfully safer than ledger-keeping middlemen.</li>
+    <li><strong>What happens to the crypto side?</strong> In <a href="/?cat=H">hybrid apps</a>, custodial crypto is never deposit-insured, even when the fiat side is.</li>
+    <li><strong>Yield from where?</strong> If an app pays well above market, the yield comes with a balance sheet attached. Find out whose.</li>
+  </ol>
+
+  <div class="callout"><span class="k">check any app</span>Every profile in the <a href="/">directory</a> shows the regulation type — licensed bank, partner-bank, EMI, MiCA CASP, self-custodial software — with links to official registers (EBA, ESMA, FCA, NMLS). Filter by regulation directly: <a href="/?reg=Licensed%20bank">licensed banks →</a></div>
+
+  <h2>The honest bottom line</h2>
+  <p>Neobanks as a class are not unsafe. A licensed-bank neobank is exactly as protected as a traditional bank; a well-run partner-bank app with direct integration is close behind. The danger zone is the gap between what the marketing implies and what the legal structure delivers — and that gap is widest in the models with the shiniest landing pages. Read the licence line, not the hero banner.</p>
+
+  <div class="postnav">
+    <a href="/blog/neobank-vs-traditional-bank/">← neobank vs traditional bank</a>
+    <a href="/blog/stablecoin-cards-explained/">stablecoin cards explained →</a>
+  </div>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><p>Newsletter coming soon. Meanwhile: <a href="/blog/feed.xml">RSS feed</a> · <a href="https://github.com/andreolf/neobankbeat">watch the repo</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+</div></footer>
+</body>
+</html>

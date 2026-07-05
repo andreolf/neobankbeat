@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>the neobankbeat blog</title>
+  <link>https://www.neobankbeat.com/blog/</link>
+  <description>Deep dives on the neobank landscape — the three waves, stablecoin cards, self-custody, safety, MiCA, niche banking and emerging markets — grounded in open data on 357 tracked neobanks.</description>
+  <language>en</language>
+  <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Best neobanks for freelancers and small businesses (2026 field guide)</title>
+    <link>https://www.neobankbeat.com/blog/best-neobanks-freelancers-smb-2026/</link>
+    <guid>https://www.neobankbeat.com/blog/best-neobanks-freelancers-smb-2026/</guid>
+    <pubDate>Tue, 02 Jun 2026 09:00:00 GMT</pubDate>
+    <description>43 tracked neobanks are built for freelancers, creators or SMBs — from Mercury and Qonto to Hnry, which files your taxes for you. How to choose, what actually differs, and the global picks by region.</description>
+  </item>
+  <item>
+    <title>MiCA and the crypto neobank: who's actually licensed in Europe</title>
+    <link>https://www.neobankbeat.com/blog/mica-crypto-neobanks-europe/</link>
+    <guid>https://www.neobankbeat.com/blog/mica-crypto-neobanks-europe/</guid>
+    <pubDate>Tue, 21 Apr 2026 09:00:00 GMT</pubDate>
+    <description>What CASP authorisation means, which tracked neobanks hold it, how e-money tokens changed euro stablecoins, and where the gaps are.</description>
+  </item>
+  <item>
+    <title>Where neobanks actually win: Africa, Latin America and the underbanked billion</title>
+    <link>https://www.neobankbeat.com/blog/neobanks-africa-latam-underbanked/</link>
+    <guid>https://www.neobankbeat.com/blog/neobanks-africa-latam-underbanked/</guid>
+    <pubDate>Tue, 17 Mar 2026 09:00:00 GMT</pubDate>
+    <description>Nubank has 131M customers — more than every US neobank combined. The data on why emerging markets are the real neobank story.</description>
+  </item>
+  <item>
+    <title>Niche neobanks: 117 banks for women, teens, immigrants, freelancers and the faithful</title>
+    <link>https://www.neobankbeat.com/blog/niche-neobanks/</link>
+    <guid>https://www.neobankbeat.com/blog/niche-neobanks/</guid>
+    <pubDate>Tue, 10 Feb 2026 09:00:00 GMT</pubDate>
+    <description>A third of all neobanks now serve a specific audience. The full map of 117 niche neobanks and why the strategy works.</description>
+  </item>
+  <item>
+    <title>No-KYC money apps in 2026: what's actually possible (and what isn't)</title>
+    <link>https://www.neobankbeat.com/blog/no-kyc-crypto-wallets-cards/</link>
+    <guid>https://www.neobankbeat.com/blog/no-kyc-crypto-wallets-cards/</guid>
+    <pubDate>Tue, 13 Jan 2026 09:00:00 GMT</pubDate>
+    <description>Only 12 of 357 tracked neobanks work without identity checks — all of them self-custodial wallets. What no-KYC really means and where the line sits.</description>
+  </item>
+  <item>
+    <title>The rise of the self-custodial neobank: 47 apps where you hold the keys</title>
+    <link>https://www.neobankbeat.com/blog/self-custodial-neobanks/</link>
+    <guid>https://www.neobankbeat.com/blog/self-custodial-neobanks/</guid>
+    <pubDate>Tue, 09 Dec 2025 09:00:00 GMT</pubDate>
+    <description>A new category of neobank holds none of your money. What MetaMask, Gnosis Pay, Payy and 44 others are building, and where the model still leaks.</description>
+  </item>
+  <item>
+    <title>Stablecoin cards explained: how a Visa that spends USDC actually works</title>
+    <link>https://www.neobankbeat.com/blog/stablecoin-cards-explained/</link>
+    <guid>https://www.neobankbeat.com/blog/stablecoin-cards-explained/</guid>
+    <pubDate>Tue, 18 Nov 2025 09:00:00 GMT</pubDate>
+    <description>The full mechanics of stablecoin cards — authorization, conversion, settlement — plus custody models and what GENIUS and MiCA changed.</description>
+  </item>
+  <item>
+    <title>Are neobanks safe? Deposit insurance, partner banks and the Synapse lesson</title>
+    <link>https://www.neobankbeat.com/blog/are-neobanks-safe/</link>
+    <guid>https://www.neobankbeat.com/blog/are-neobanks-safe/</guid>
+    <pubDate>Tue, 28 Oct 2025 09:00:00 GMT</pubDate>
+    <description>Whether your money is protected depends on the regulatory model behind the app. How each one works, and what the Synapse collapse taught us.</description>
+  </item>
+  <item>
+    <title>Neobank vs traditional bank: what actually changes (and what doesn't)</title>
+    <link>https://www.neobankbeat.com/blog/neobank-vs-traditional-bank/</link>
+    <guid>https://www.neobankbeat.com/blog/neobank-vs-traditional-bank/</guid>
+    <pubDate>Tue, 07 Oct 2025 09:00:00 GMT</pubDate>
+    <description>Fees, speed, deposit insurance, credit, branches — an honest side-by-side, including the licence question most comparisons skip.</description>
+  </item>
+  <item>
+    <title>What is a neobank? The three waves explained (2026 guide)</title>
+    <link>https://www.neobankbeat.com/blog/what-is-a-neobank/</link>
+    <guid>https://www.neobankbeat.com/blog/what-is-a-neobank/</guid>
+    <pubDate>Tue, 16 Sep 2025 09:00:00 GMT</pubDate>
+    <description>Traditional challengers, hybrid crypto apps and self-custodial web3 wallets — how the three neobank waves differ, with data on all 357 tracked entities.</description>
+  </item>
+</channel>
+</rss>

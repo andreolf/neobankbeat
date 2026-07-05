@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stablecoin cards explained: how a Visa that spends USDC actually works · neobankbeat</title>
+<meta name="description" content="103 of the 357 neobanks we track support stablecoins, and dozens issue cards that spend them at any terminal. Here's the full mechanics — authorization, conversion, settlement — plus custody models and what GENIUS and MiCA changed.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/stablecoin-cards-explained/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Stablecoin cards explained: how a Visa that spends USDC actually works">
+<meta property="og:description" content="The full mechanics of stablecoin cards — authorization, conversion, settlement — plus custody models and what GENIUS and MiCA changed.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/stablecoin-cards-explained/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Stablecoin cards explained: how a Visa that spends USDC actually works","description":"The full mechanics of stablecoin cards — authorization, conversion, settlement — plus custody models and what GENIUS and MiCA changed.","datePublished":"2025-11-18","dateModified":"2025-11-18","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/stablecoin-cards-explained/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/#datasec">data</a>
+      <a href="/#newssec">news</a>
+      <a href="/blog/" class="on">blog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">stablecoins</div>
+  <h1>Stablecoin cards explained: how a Visa that spends <em>USDC</em> actually works</h1>
+  <p class="meta"><b>November 18, 2025</b> · 8 min read · <a href="/blog/">← all posts</a></p>
+
+  <p>You tap a card at a café in Lisbon. The terminal thinks it received euros from Mastercard. What actually happened: USDC left a wallet — possibly one only you control — got converted mid-flight, and settled through the same card rails as everyone else's bank card. <strong>103 of the 357 neobanks</strong> in <a href="/?s=1">our directory</a> now support stablecoins, and the card is where that support becomes spendable in the real world.</p>
+
+  <h2>The five-second version</h2>
+  <p>A stablecoin card is a normal Visa/Mastercard whose funding source is a stablecoin balance instead of a bank deposit. The magic is in <em>when and how</em> the conversion from stablecoin to fiat happens — and in <em>who holds the stablecoins</em> before it does.</p>
+
+  <h2>What happens during a tap</h2>
+  <ol>
+    <li><strong>Authorization.</strong> The merchant's terminal asks the card network to approve, say, €4.50. The network routes this to the card's issuer — a licensed issuing partner (in Europe often an e-money institution, in the US a sponsor bank).</li>
+    <li><strong>The balance check.</strong> The issuer's processor asks the card programme: does this user have enough? For a custodial programme, that's a database lookup. For a self-custodial one like Gnosis Pay, the answer comes from an on-chain balance in a smart account the user controls — approved or declined against the chain state within the network's latency budget.</li>
+    <li><strong>Conversion.</strong> The stablecoin amount is earmarked or moved at the moment of authorization; the programme (or its liquidity provider) converts to fiat either instantly per-transaction or in netted batches.</li>
+    <li><strong>Settlement.</strong> The issuer settles with the network in fiat like any other card, typically T+1. The merchant never knows crypto was involved. Notably, Visa and Mastercard themselves now settle some of these flows directly in USDC with their crypto-native issuers.</li>
+  </ol>
+
+  <h2>The custody spectrum — where the models really differ</h2>
+  <table>
+    <tr><th>model</th><th>who holds the stablecoins</th><th>examples</th><th>trade-off</th></tr>
+    <tr><td>Exchange card <span class="chip h">hybrid</span></td><td>The exchange, custodially</td><td>Crypto.com, Coinbase Card, Binance Card, Bybit Card</td><td>Easy, but full counterparty risk — it's a crypto bank account</td></tr>
+    <tr><td>Fintech wallet <span class="chip h">hybrid</span></td><td>The app, custodially</td><td>Wirex, Uphold, RedotPay, KAST</td><td>Same, often with better card perks than exchanges</td></tr>
+    <tr><td>Self-custodial card <span class="chip w">web3-native</span></td><td>You — smart account or wallet</td><td>Gnosis Pay, EtherFi Cash, Payy, 1inch Card, Cypher</td><td>No custodian to fail; KYC still applies for the card itself</td></tr>
+  </table>
+  <p>The last row is the structurally new thing. In a Gnosis Pay-style setup, your EURe/GBPe or USDC sits in a Safe smart account that <em>you</em> control; the card programme has a spending allowance enforced by the smart contract, not by holding your money. If the company disappears tomorrow, your funds don't. That's the design shift we track across the whole <a href="/?cat=W">web3-native category</a> — 47 apps and counting.</p>
+
+  <h2>Why this exploded after 2023</h2>
+  <ul>
+    <li><strong>Regulatory clarity.</strong> The US GENIUS Act (July 2025) created a federal regime for payment stablecoins — full reserves, audits, redemption rights. In the EU, MiCA's e-money-token rules did the same a year earlier, which is why euro stablecoins like EURe and licensed CASPs matter so much for European cards (see <a href="/blog/mica-crypto-neobanks-europe/">our MiCA post</a>).</li>
+    <li><strong>Network buy-in.</strong> Visa and Mastercard stopped treating crypto programmes as reputational risk and started competing for them — stablecoin settlement, dedicated crypto-card teams, faster BIN sponsorship.</li>
+    <li><strong>The yield story.</strong> A dollar balance that earns on-chain yield until the moment you spend it is a genuinely better product than a checking account paying zero — especially outside the US, where dollar access itself is the feature.</li>
+  </ul>
+
+  <h2>The catches, honestly</h2>
+  <ul>
+    <li><strong>Spread and fees hide in conversion.</strong> "No FX fee" often means the fee lives in the stablecoin-to-fiat spread. Compare effective rates, not fee tables.</li>
+    <li><strong>Cashback is usually "up to".</strong> Headline rates (we track them across the <a href="/">directory</a>) typically require staking, subscription tiers, or token lockups. Always read the tier table.</li>
+    <li><strong>Taxes.</strong> In several jurisdictions, spending a stablecoin is technically a disposal event. Boring, real, widely ignored.</li>
+    <li><strong>KYC comes with the card.</strong> Even fully self-custodial programmes must identify cardholders — the card rails require it. The wallet may be permissionless; the plastic isn't. (The exceptions are the subject of <a href="/blog/no-kyc-crypto-wallets-cards/">the no-KYC post</a>.)</li>
+    <li><strong>Issuer risk replaces bank risk.</strong> Your stablecoin's peg and reserves are now part of your checking account's risk model. Post-GENIUS/MiCA this is far better than 2022, but it's not zero.</li>
+  </ul>
+
+  <div class="callout"><span class="k">explore the data</span>Filter the directory to the <a href="/?s=1">103 stablecoin-supporting neobanks</a>, or see the <a href="/#datasec">data tab</a> for the stablecoin card curve and how stablecoins actually get spent.</div>
+
+  <h2>Where it goes next</h2>
+  <p>Watch two things. First, <strong>traditional neobanks adding stablecoin rails</strong> — when the apps with tens of millions of users flip the switch, stablecoin cards stop being a crypto product. Second, <strong>merchant-side settlement</strong>: once merchants take stablecoins directly, the card networks' conversion step becomes optional, and the economics get renegotiated. The 2030 scenarios on our <a href="/#datasec">data page</a> sketch how big that could get.</p>
+
+  <div class="postnav">
+    <a href="/blog/are-neobanks-safe/">← are neobanks safe?</a>
+    <a href="/blog/self-custodial-neobanks/">self-custodial neobanks →</a>
+  </div>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><p>Newsletter coming soon. Meanwhile: <a href="/blog/feed.xml">RSS feed</a> · <a href="https://github.com/andreolf/neobankbeat">watch the repo</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+</div></footer>
+</body>
+</html>
