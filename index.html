@@ -177,6 +177,9 @@ body.bw .chip{border:1px solid currentColor}
 .ov-head{display:flex;align-items:center;margin-bottom:24px}
 .ov-head h2{font-size:26px;letter-spacing:-.02em}
 .ov-close{margin-left:auto;font-family:var(--mono);font-size:12.5px;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:8px 16px;border-radius:8px}
+.ov-share{font-family:var(--mono);font-size:12.5px;background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:8px 16px;border-radius:8px;margin-left:auto}
+.ov-share:hover{border-color:var(--accent);color:var(--text)}
+.ov-share+.ov-close{margin-left:0}
 .ov-close:hover{border-color:var(--accent)}
 table.cmp{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12.5px}
 table.cmp th,table.cmp td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
@@ -664,7 +667,7 @@ body.on-map .minimap{display:none}
 
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Side by side comparison">
   <div class="ov-wrap">
-    <div class="ov-head"><h2>side by side</h2><button class="ov-close" id="ovclose">close ✕</button></div>
+    <div class="ov-head"><h2>side by side</h2><button class="ov-share" id="ovshare" title="copy a link to this comparison">copy link</button><button class="ov-close" id="ovclose">close ✕</button></div>
     <div style="overflow-x:auto"><table class="cmp" id="cmptable"></table></div>
   </div>
 </div>
@@ -3283,6 +3286,52 @@ render();
     e.preventDefault();
     if(window.showView)showView('directory');
     document.getElementById('q').focus();
+  });
+})();
+
+/* ── compare flow ⇄ browser history + URL ──
+   1. the tray selection lives in the URL (?cmp=A,B) → reload/share keeps it
+   2. opening the side-by-side overlay pushes a history entry → the back
+      button closes the table instead of leaving the page (same as ✕/Esc) */
+(function compareHistory(){
+  /* keep ?cmp= in sync — the v14 layer rebuilds the query string on every
+     render, so we append after it */
+  const _r=render;
+  render=function(){
+    _r();
+    if((document.body.dataset.view||'directory')!=='directory'||!cmp.size)return;
+    try{
+      const u=new URL(location.href);
+      u.searchParams.set('cmp',[...cmp].join(','));
+      history.replaceState(history.state,'',u.pathname+'?'+u.searchParams.toString());
+    }catch(_){}
+  };
+  /* restore the tray from a shared / reloaded URL */
+  const p=new URLSearchParams(location.search);
+  if(p.get('cmp')){
+    p.get('cmp').split(',').forEach(n=>{
+      const r=D.find(x=>x[0].toLowerCase()===n.trim().toLowerCase());
+      if(r&&cmp.size<4)cmp.add(r[0]);
+    });
+    if(cmp.size){renderTray();render();}
+  }
+  /* overlay ⇄ history */
+  const ov=document.getElementById('overlay');
+  let owned=false;
+  new MutationObserver(()=>{
+    const show=ov.classList.contains('show');
+    if(show&&!owned){owned=true;try{history.pushState({nbCmpOv:1},'',location.href)}catch(_){}}
+    else if(!show&&owned){owned=false;try{history.back()}catch(_){}}
+  }).observe(ov,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('popstate',()=>{
+    if(owned){owned=false;ov.classList.remove('show');}
+  });
+  /* copy-link: the query string already carries ?cmp=A,B */
+  const share=document.getElementById('ovshare');
+  if(share)share.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(location.href);share.textContent='copied ✓';}
+    catch(_){share.textContent=location.search;}
+    setTimeout(()=>{share.textContent='copy link';},1600);
   });
 })();
 

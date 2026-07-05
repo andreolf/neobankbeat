@@ -184,9 +184,10 @@ click(cell);
 const afW=w.eval("D.filter(r=>r[1]==='W'&&macrosOf(r).includes('AF')).length");
 ok(countText().includes('showing '+afW),'heat cell filters Africa×web3 → '+afW+' ('+countText()+')');
 click(d.getElementById('navdir'));
-// news refresh
-ok(d.getElementById('newssec').textContent.includes('$243.5B'),'Wise headline added to news');
-ok(d.getElementById('newssec').textContent.includes('$2.95B'),'RedotPay headline corrected');
+// news refresh — headlines rotate via cron, so assert structure not content
+const newsRows=[...d.querySelectorAll('#newssec .newsrow')];
+ok(newsRows.length>=8,'news section has 8+ headlines ('+newsRows.length+')');
+ok(newsRows.every(r=>r.querySelector('.n-head').textContent.trim().length>20&&r.querySelector('a.n-link[href^="http"]')),'every headline has a title and an external link');
 // profile shows researched volume
 w.openDetail('RedotPay');
 ok(d.getElementById('dwrap').textContent.includes('$2.95B'),'RedotPay profile shows hard volume');
@@ -329,12 +330,14 @@ ok(mm.querySelectorAll('.mmdot[data-m]').length>100,'region dots rendered ('+mm.
 const afDot=mm.querySelector('.mmdot[data-m="AF"]');
 afDot.dispatchEvent(new w.MouseEvent('mouseover',{bubbles:true}));
 ok(mm.dataset.hov==='AF'&&d.getElementById('mmlabel').textContent.includes('Africa'),'hover highlights Africa with count');
-// click filters directory + switches view
+// click a region dot: switches back to the directory and applies the region filter
 click(d.querySelectorAll('.hnav a')[0]); // go to map view first to prove switch-back
-ok(d.querySelector('#grid').style.display==='none','on map view before minimap... wait first nav link is map');
+ok(d.querySelector('#grid').style.display==='none','on map view before minimap click');
 click(afDot);
-ok(d.querySelector('#mapsec').style.display!=='none'&&d.querySelector('#grid').style.display==='none','minimap click opens the full map view');
+ok(d.querySelector('#grid').style.display!=='none','minimap region click returns to the directory');
+ok(w.eval('mapFilter')==='AF','minimap region click applies the Africa filter');
 click(d.getElementById('navdir'));
+w.eval('setMap(null)');
 // expand button opens the map view; minimap hides there
 click(d.getElementById('mmexpand'));
 ok(d.querySelector('#mapsec').style.display!=='none','expand opens the full map');
@@ -399,7 +402,28 @@ const expW=w2.eval("D.filter(r=>r[1]==='W'&&r[10]).length");
 ok(d2.getElementById('count').textContent.includes('showing '+expW),'shared URL applies cat=W + stablecoins → '+expW+' ('+d2.getElementById('count').textContent+')');
 ok(d2.querySelector('.pill[data-cat="W"]').classList.contains('on'),'W pill reflects the shared URL state');
 
+(async()=>{
+console.log('— flow 24: shareable compare URLs + overlay history');
+// fresh session opening a shared ?cmp= URL restores the tray
+const dom3=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'https://neobankbeat.test/?cmp=Nubank,Chime',
+  beforeParse(window){window.Element.prototype.scrollIntoView=function(){};window.alert=()=>{};window.matchMedia=window.matchMedia||(()=>({matches:false,addListener(){},removeListener(){}}));}});
+const w3=dom3.window,d3=w3.document;
+ok(w3.eval('cmp.size')===2,'shared ?cmp= URL restores 2 entities into the tray');
+ok(d3.getElementById('tray').classList.contains('show'),'tray visible from shared URL');
+ok(!d3.getElementById('gocmp').disabled,'compare button ready from shared URL');
+// overlay pushes a history entry; back closes it (MutationObserver is async → wait a tick)
+const click3=el=>el.dispatchEvent(new w3.MouseEvent('click',{bubbles:true,cancelable:true}));
+click3(d3.getElementById('gocmp'));
+ok(d3.getElementById('overlay').classList.contains('show'),'compare overlay opens from restored tray');
+await new Promise(r=>setTimeout(r,100));
+w3.history.back();
+await new Promise(r=>setTimeout(r,300));
+ok(!d3.getElementById('overlay').classList.contains('show'),'browser back closes the compare overlay');
+ok(w3.location.search.includes('cmp='),'tray selection still in the URL after back');
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
 console.log('ALL FLOWS PASS ✓');
+process.exit(0);
+})();
