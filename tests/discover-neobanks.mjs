@@ -18,12 +18,15 @@ const norm = s => String(s).toLowerCase().replace(/\s*\(.*?\)\s*/g, '').replace(
 /* "Varo Bank" should match tracked "Varo": index and compare both the raw norm
    and a variant with a trailing bank/banking/financial word stripped */
 const variants = n => {
-  const s = n.replace(/\s+(bank|banking|financial)$/, '').trim();
-  return s && s !== n ? [n, s] : [n];
+  const out = new Set([n]);
+  out.add(n.replace(/\s+(bank|banking|financial)$/, '').trim());   // "Varo Bank" → "Varo"
+  out.add(n.replace(/^(neobank|digital bank|challenger bank)\s+/, '').trim()); // "Neobank Douugh" → "Douugh"
+  out.delete('');
+  return [...out];
 };
 const tracked = new Set(E.flatMap(e => [...variants(norm(e.name)), (e.domain || '').toLowerCase()]).filter(Boolean));
 /* parent brands whose neobank product is already tracked under the product name */
-for (const alias of ['chase', 'wema', 'jpmorgan chase']) tracked.add(alias); // Chase UK, ALAT by Wema
+for (const alias of ['chase', 'wema', 'jpmorgan chase', 'tinkoff', 'tinkoff bank']) tracked.add(alias); // Chase UK, ALAT by Wema, Tinkoff → T-Bank
 /* famously defunct neobanks — excluded from the dataset by design, but still
    sitting in Wikipedia's Neobanks/Online_banks categories */
 const DEFUNCT = new Set(['simple', 'xinja', '86 400', 'volt', 'azlo', 'moven', 'finn by chase', 'finn', 'denizen', 'loot', 'bnext', 'orange bank', 'orange', 'dozens', 'lanistar', 'yolt']);
