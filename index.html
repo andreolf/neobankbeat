@@ -752,6 +752,12 @@ body.on-map .minimap{display:none}
 cat: T/H/W · custody: C=Custodial S=Self-custodial M=MPC self-custodial X=Mixed
 kyc: Y / N / CO (card only) · niche codes in NICHE map
 ────────────────────────────────────────────────────────────────── */
+/* ── boot render coalescing ──
+   the layers below re-wrap render() and call it ~10× while booting, each pass
+   rebuilding the full 357-card grid. The grid is invisible until .booted, so
+   during boot the base render marks itself dirty and returns; the final script
+   flips the flag and runs the fully-wrapped chain exactly once. */
+window.__nbBoot=true;window.__nbDirty=false;
 const NICHE={g:"general",w:"women",k:"teens & youth",i:"immigrants & migrants",b:"Black community",l:"LGBTQ+",f:"freelancers & creators",s:"SMB & startups",gg:"gig workers",sr:"seniors",md:"healthcare pros",ds:"disabilities",fb:"faith-based",tr:"travel",cl:"climate",ub:"underbanked"};
 const CUST={C:"Custodial",S:"Self-custodial",M:"MPC self-custodial",X:"Mixed (fiat custodial + self-custody crypto)"};
 const KYC={Y:"Yes",N:"No",CO:"Card only"};
@@ -1189,6 +1195,7 @@ function logoHTML(dom,name){
   return `<div class="logo-box"><img loading="lazy" alt="${esc(name)} logo" src="https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="logo-fb">${initial}</div></div>`;
 }
 function render(){
+  if(window.__nbBoot){window.__nbDirty=true;return}
   const list=currentList();
   document.getElementById('count').innerHTML=`showing <b>${list.length}</b> of <b>${D.length}</b> neobanks`;
   const tN=list.filter(r=>r[1]==="T").length||.0001,hN=list.filter(r=>r[1]==="H").length||.0001,wN=list.filter(r=>r[1]==="W").length||.0001;
@@ -2089,6 +2096,7 @@ function updateActiveBar(){
 
 /* redefine render(): same grid, plus active-filter bar sync */
 function render(){
+  if(window.__nbBoot){window.__nbDirty=true;return}
   const list=currentList();
   document.getElementById('count').innerHTML='showing <b>'+list.length+'</b> of <b>'+D.length+'</b> neobanks';
   const tN=list.filter(r=>r[1]==="T").length||.0001,hN=list.filter(r=>r[1]==="H").length||.0001,wN=list.filter(r=>r[1]==="W").length||.0001;
@@ -3257,9 +3265,11 @@ render();
     if(owned){owned=false;_close();} /* back pressed while a profile is open */
   });
 })();
-/* boot complete: reveal the grid (kept hidden through the layer passes to avoid CLS) */
+/* boot complete: run the one coalesced render (full wrapper chain), then reveal */
+window.__nbBoot=false;
+if(window.__nbDirty){window.__nbDirty=false;render();}
 document.body.classList.add('booted');
 </script>
-<script>document.body.classList.add('booted');/* failsafe: separate block in case a layer above throws */</script>
+<script>window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}catch(_){}}document.body.classList.add('booted');/* failsafe: separate block in case a layer above throws */</script>
 </body>
 </html>
