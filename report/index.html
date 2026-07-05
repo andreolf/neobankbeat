@@ -28,8 +28,20 @@
 </script>
 <style>
 :root{--acc:var(--accent,#FF5C16)}
-.rhero{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start;margin-top:8px}
-.rcover{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.5);transform:rotate(1.2deg)}
+main.wrap{max-width:1080px}
+main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
+.rhero{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start;margin-top:14px}
+.rcoverlink{display:block;text-decoration:none;position:sticky;top:80px}
+.rcover{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.55);transition:transform .22s,box-shadow .22s}
+.rcoverlink:hover .rcover{transform:translateY(-5px);box-shadow:0 40px 90px rgba(0,0,0,.65),0 0 40px rgba(255,92,22,.10)}
+.rcovercap{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--dim);text-align:center;margin-top:12px}
+.rcoverlink:hover .rcovercap{color:var(--acc)}
+.ctarow{display:flex;gap:12px;flex-wrap:wrap;margin:2px 0 28px}
+.cta-pri,.cta-sec{font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;border-radius:10px;padding:14px 26px;text-decoration:none;display:inline-flex;align-items:center;gap:9px}
+.cta-pri{background:var(--acc);color:#0A0A10;box-shadow:0 8px 28px rgba(255,92,22,.28)}
+.cta-pri:hover{filter:brightness(1.1);text-decoration:none;transform:translateY(-1px)}
+.cta-sec{background:var(--panel);color:var(--text);border:1px solid var(--line)}
+.cta-sec:hover{border-color:var(--acc);text-decoration:none}
 .rbadge{display:inline-flex;align-items:center;gap:8px;font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 14px;margin-bottom:18px}
 .rbadge b{color:var(--acc);font-weight:500}
 .rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}
@@ -44,7 +56,7 @@
 .chlist li b{font-family:'Noto Sans Mono',monospace;color:var(--acc);font-weight:500;margin-right:8px}
 .faq dt{font-weight:700;margin-top:16px}
 .faq dd{color:var(--muted);margin:4px 0 0;font-size:15px}
-@media(max-width:760px){.rhero{grid-template-columns:1fr}.rcover{max-width:260px;margin:0 auto}.rstats{grid-template-columns:repeat(2,1fr)}.chlist{columns:1}}
+@media(max-width:860px){.rhero{grid-template-columns:1fr}.rcoverlink{position:static;max-width:330px;margin:0 auto}.rstats{grid-template-columns:repeat(2,1fr)}.chlist{columns:1}.ctarow{flex-direction:column}.cta-pri,.cta-sec{justify-content:center}}
 </style>
 </head>
 <body>
@@ -71,14 +83,17 @@
       <h1>the state of <em>neobanks</em></h1>
       <p class="meta">A 57-page, designed PDF on the industry as it actually exists: <b>357 verified-active neobanks</b>, measured across custody, licences, cards, stablecoins, geography and niches. Every figure reproducible from the <a href="/data.json">open dataset</a>. New edition every month.</p>
 
+      <div class="ctarow">
+        <a class="cta-pri" href="/report/2026-07/">read the opening chapters free →</a>
+        <a class="cta-sec" href="#gate">get the full PDF ↓</a>
+      </div>
+
       <div class="rstats">
         <div class="rstat"><div class="n">57</div><div class="l">designed pages</div></div>
         <div class="rstat"><div class="n">15</div><div class="l">chapters</div></div>
         <div class="rstat"><div class="n">15+</div><div class="l">original charts</div></div>
         <div class="rstat"><div class="n">357</div><div class="l">neobanks covered</div></div>
       </div>
-
-      <p style="margin:0 0 18px"><a href="/report/2026-07/" style="font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 14px;display:inline-block">preview the opening chapters online →</a></p>
 
       <h2>inside the july edition</h2>
       <ul class="chlist">
@@ -99,7 +114,10 @@
         <li><b>15</b>Method, appendices &amp; the full 357-entity directory</li>
       </ul>
     </article>
-    <img class="rcover" src="/report/cover-2026-07.png" alt="Cover of The State of Neobanks — July 2026 report" width="794" height="1123" loading="eager">
+    <a class="rcoverlink" href="/report/2026-07/" aria-label="Read the opening chapters online">
+      <img class="rcover" src="/report/cover-2026-07.png" alt="Cover of The State of Neobanks — July 2026 report" width="794" height="1123" loading="eager">
+      <div class="rcovercap">click to start reading →</div>
+    </a>
   </div>
 
   <div class="gate" id="gate">
