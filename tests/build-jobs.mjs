@@ -108,6 +108,28 @@ function fmtSalary(txt) {
   return `${sym}${Math.round(lo / 1000)}–${Math.round(hi / 1000)}K`;
 }
 
+/* ── workplace type: Lever/Ashby expose workplaceType; Greenhouse is inferred
+   from location text, then a "hybrid" mention in the description ── */
+function workplaceOf(explicit, loc, desc) {
+  const e = String(explicit || '').toLowerCase();
+  if (e.includes('remote')) return 'remote';
+  if (e.includes('hybrid')) return 'hybrid';
+  if (e.includes('onsite') || e.includes('on-site')) return 'onsite';
+  const l = String(loc || '');
+  if (/\bremote\b|anywhere|distributed|work from home/i.test(l)) return 'remote';
+  if (/\bhybrid\b/i.test(l)) return 'hybrid';
+  if (/\bhybrid\b/i.test(String(desc || '').slice(0, 5000))) return 'hybrid';
+  return 'onsite';
+}
+
+/* ── visa sponsorship: flagged only when the posting offers it and doesn't negate it ── */
+const VISA_YES = /visa sponsorship|sponsor(?:ship)? (?:a |for |of )?(?:work )?(?:visa|permit)|work (?:visa|permit) sponsorship|relocation (?:and|&) visa|visa support/i;
+const VISA_NO = /(?:not?|unable|cannot|can't|won't|will not)[^.]{0,80}?sponsor|no visa sponsorship|without (?:visa )?sponsorship|sponsorship (?:is )?not (?:available|offered|provided)|must (?:already )?(?:have|hold|possess)[^.]{0,50}?(?:right to work|work authori[sz]ation)/i;
+function visaOf(desc) {
+  const d = String(desc || '');
+  return VISA_YES.test(d) && !VISA_NO.test(d) ? true : undefined;
+}
+
 /* ── fetch + normalize ── */
 async function fetchSource([display, entityName, ats, slug]) {
   const ent = E.find(e => e.name === entityName);
@@ -131,23 +153,23 @@ async function fetchSource([display, entityName, ats, slug]) {
     let rows = [];
     if (ats === 'gh') rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.absolute_url, l: x.location?.name || '', d: null, p: (x.updated_at || '').slice(0, 10),
-      s: stripHtml(x.content),
+      s: stripHtml(x.content), w: null,
     }));
     else if (ats === 'lever') rows = (Array.isArray(j) ? j : []).map(x => ({
       t: x.text, u: x.hostedUrl, l: x.categories?.location || '', d: x.categories?.team || x.categories?.department || null,
       p: x.createdAt ? new Date(x.createdAt).toISOString().slice(0, 10) : '',
-      s: (x.descriptionPlain || '') + ' ' + (x.additionalPlain || ''),
+      s: (x.descriptionPlain || '') + ' ' + (x.additionalPlain || ''), w: x.workplaceType,
     }));
     else rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.jobUrl || x.applyUrl, l: [x.location, ...(x.secondaryLocations || []).map(s => s.location)].filter(Boolean).join(' · '),
       d: x.department || x.team || null, p: (x.publishedDate || '').slice(0, 10), r: !!x.isRemote,
-      s: x.descriptionPlain || '',
+      s: x.descriptionPlain || '', w: x.workplaceType || (x.isRemote ? 'remote' : null),
     }));
     return rows.filter(x => x.t && x.u).map(x => ({
       title: x.t.trim(), url: x.u, company: display, profile,
       location: (x.l || '').trim() || 'Not specified',
       dept: classify(x.t, x.d), region: region(`${x.l} ${x.t}`, x.r), posted: x.p || null,
-      salary: fmtSalary(x.s),
+      salary: fmtSalary(x.s), wp: workplaceOf(x.w, x.l, x.s), visa: visaOf(x.s),
     }));
   } catch (err) {
     console.error(`  !! ${display}: ${err.message}`);
@@ -171,8 +193,19 @@ const byCompany = {};
 for (const j of all) byCompany[j.company] = (byCompany[j.company] || 0) + 1;
 const nCompanies = Object.keys(byCompany).length;
 
+/* company → logo domain (google favicon service, same as the directory) */
+const COMPANY_META = {};
+for (const [display, entityName] of SOURCES) {
+  const ent = E.find(e => e.name === entityName);
+  const dom = ent?.domain || (ent?.website || '').replace(/^https?:\/\//, '').replace(/\/.*$/, '') || null;
+  if (dom) COMPANY_META[display] = dom;
+}
+const logoImg = co => COMPANY_META[co]
+  ? `<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(COMPANY_META[co])}&amp;sz=64" onerror="this.style.visibility='hidden'">`
+  : `<span class="jlogo jlogo-fb">${esc(co.charAt(0))}</span>`;
+
 fs.mkdirSync(path.join(ROOT, 'jobs'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generated: TODAY, count: all.length, companies: nCompanies, jobs: all }));
+fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generated: TODAY, count: all.length, companies: nCompanies, logos: COMPANY_META, jobs: all }));
 
 /* ── shared page chrome ── */
 const CSS = `
@@ -213,6 +246,9 @@ main.wrap{max-width:1150px}
 .joblist{display:flex;flex-direction:column;gap:6px}
 .job{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px;text-decoration:none;transition:border-color .12s;min-width:0}
 .job:hover{border-color:var(--acc)}
+.jlogo{flex:0 0 auto;width:22px;height:22px;border-radius:6px;object-fit:contain;background:var(--panel2,#141420)}
+.jlogo-fb{display:inline-flex;align-items:center;justify-content:center;font-family:'Noto Sans Mono',monospace;font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line)}
+.job .visa{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:#BAF24A;border:1px solid color-mix(in srgb,#BAF24A 35%,transparent);border-radius:99px;padding:2px 8px;white-space:nowrap}
 .job .t{font-weight:700;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 0;min-width:150px}
 .job .co{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);white-space:nowrap;flex:0 0 auto}
 .job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
@@ -293,10 +329,12 @@ const foot = `
 `;
 
 const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="noopener">
+  ${logoImg(j.company)}
   <span class="t">${esc(j.title)}</span>
   <span class="co">${esc(j.company)}</span>
   <span class="loc">${esc(j.location)}</span>
   ${j.salary ? `<span class="sal">${esc(j.salary)}</span>` : ''}
+  ${j.visa ? '<span class="visa">visa ✓</span>' : ''}
   <span class="jtag">${DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other'}</span>
   <span class="apply">apply →</span>
 </a>`;
@@ -317,6 +355,10 @@ const mapDots = GRID.map(row => {
 const byRegion = {};
 for (const j of all) byRegion[j.region] = (byRegion[j.region] || 0) + 1;
 const salN = all.filter(j => j.salary).length;
+const byWp = {};
+for (const j of all) byWp[j.wp] = (byWp[j.wp] || 0) + 1;
+const visaN = all.filter(j => j.visa).length;
+const WP_LABELS = { remote: 'Remote only', hybrid: 'Hybrid', onsite: 'On-site' };
 
 function sidebar(activeDept) {
   const deptRows = [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]
@@ -335,33 +377,38 @@ function sidebar(activeDept) {
     </div>
     <div class="jsec">department</div>
     <div class="sidelist">${deptRows}</div>
-    <div class="jsec">region</div>
-    <div class="sidelist">${regionRows}
-      <button class="srow" data-sal="1">salary disclosed<span class="c">${salN}</span></button>
+    <div class="jsec">workplace</div>
+    <div class="sidelist">
+${Object.entries(WP_LABELS).filter(([id]) => byWp[id]).map(([id, label]) => `      <button class="srow" data-wp="${id}">${label}<span class="c">${byWp[id]}</span></button>`).join('\n')}
+      <button class="srow" data-visa="1">Visa sponsorship<span class="c">${visaN}</span></button>
+      <button class="srow" data-sal="1">Salary disclosed<span class="c">${salN}</span></button>
     </div>
+    <div class="jsec">region</div>
+    <div class="sidelist">${regionRows}</div>
     <button class="jclear" id="jclear">× clear all filters</button>
   </aside>`;
 }
 
 const filterScript = (preset) => `<script>
-let JOBS=[],shown=0,f={dept:${preset ? `'${preset}'` : 'null'},region:null,q:'',sal:false};
+let JOBS=[],LOGOS={},shown=0,f={dept:${preset ? `'${preset}'` : 'null'},region:null,q:'',sal:false,wp:null,visa:false};
 const PRESET=${preset ? `'${preset}'` : 'null'};
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName=${JSON.stringify(Object.fromEntries(DEPTS.map(d => [d[0], d[1]])))};deptName.other='Other';
 const regName=${JSON.stringify(REGION_LABELS)};
 const regCount=${JSON.stringify(byRegion)};
-fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;render(true)});
-function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
+fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
+function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
-a.innerHTML='<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
+const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64" onerror="this.style.visibility=\\'hidden\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
+a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
 a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
 const hits=JOBS.filter(match);
 document.querySelectorAll('#jcount').forEach(el=>el.textContent=hits.length.toLocaleString('en-US'));
 const batch=hits.slice(shown,shown+STEP);batch.forEach(j=>list.appendChild(card(j)));shown+=batch.length;
 more.style.display=shown<hits.length?'':'none';
-document.getElementById('jclear').style.display=(f.region||f.q||f.sal||(f.dept&&f.dept!==PRESET))?'block':'none'}
+document.getElementById('jclear').style.display=(f.region||f.q||f.sal||f.wp||f.visa||(f.dept&&f.dept!==PRESET))?'block':'none'}
 more.querySelector('button').addEventListener('click',()=>render(false));
 document.getElementById('jsearch').addEventListener('input',e=>{f.q=e.target.value.toLowerCase().trim();render(true)});
 document.querySelectorAll('button[data-dept]').forEach(c=>c.addEventListener('click',()=>{
@@ -372,6 +419,10 @@ document.querySelectorAll('button[data-region]').forEach(x=>x.classList.toggle('
 syncMap();render(true)}
 document.querySelectorAll('button[data-region]').forEach(c=>c.addEventListener('click',()=>setRegion(c.dataset.region)));
 document.querySelectorAll('button[data-sal]').forEach(c=>c.addEventListener('click',()=>{f.sal=!f.sal;c.classList.toggle('on',f.sal);render(true)}));
+document.querySelectorAll('button[data-visa]').forEach(c=>c.addEventListener('click',()=>{f.visa=!f.visa;c.classList.toggle('on',f.visa);render(true)}));
+document.querySelectorAll('button[data-wp]').forEach(c=>c.addEventListener('click',()=>{
+const v=c.dataset.wp;f.wp=f.wp===v?null:v;
+document.querySelectorAll('button[data-wp]').forEach(x=>x.classList.toggle('on',x.dataset.wp===f.wp));render(true)}));
 /* the map is a filter: click a continent */
 const jmap=document.getElementById('jmap'),jlbl=document.getElementById('jmaplabel');
 function syncMap(){jmap.classList.toggle('hasfilter',!!f.region);
@@ -383,7 +434,7 @@ if(r){jmap.dataset.hov=r;jmap.querySelectorAll('span[data-region]').forEach(s=>s
 jlbl.textContent=regName[r]+' · '+(regCount[r]||0)+' roles'}});
 jmap.addEventListener('mouseleave',()=>{delete jmap.dataset.hov;jmap.querySelectorAll('.hov').forEach(s=>s.classList.remove('hov'));syncMap()});
 document.getElementById('jclear').addEventListener('click',()=>{
-f.region=null;f.q='';f.sal=false;if(!PRESET)f.dept=null;
+f.region=null;f.q='';f.sal=false;f.wp=null;f.visa=false;if(!PRESET)f.dept=null;
 document.getElementById('jsearch').value='';
 document.querySelectorAll('.srow.on').forEach(x=>{if(!x.href)x.classList.remove('on')});
 syncMap();render(true)});

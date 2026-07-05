@@ -1,0 +1,39 @@
+name: discover new neobanks
+
+on:
+  schedule:
+    # Monday 07:00 UTC (09:00 CEST), right after the jobs refresh
+    - cron: '0 7 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # to persist tests/discovery-seen.json
+  issues: write   # to file the candidates issue
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: scout wikipedia + news for untracked neobanks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node tests/discover-neobanks.mjs
+
+      - name: persist the already-reported list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/discovery-seen.json
+          if git diff --cached --quiet; then
+            echo "no new candidates reported"
+          else
+            git commit -m "chore: discovery run $(date -u +%F) — mark reported candidates"
+            git push
+          fi

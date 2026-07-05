@@ -60,6 +60,9 @@ main.wrap{max-width:1150px}
 .joblist{display:flex;flex-direction:column;gap:6px}
 .job{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px;text-decoration:none;transition:border-color .12s;min-width:0}
 .job:hover{border-color:var(--acc)}
+.jlogo{flex:0 0 auto;width:22px;height:22px;border-radius:6px;object-fit:contain;background:var(--panel2,#141420)}
+.jlogo-fb{display:inline-flex;align-items:center;justify-content:center;font-family:'Noto Sans Mono',monospace;font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line)}
+.job .visa{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:#BAF24A;border:1px solid color-mix(in srgb,#BAF24A 35%,transparent);border-radius:99px;padding:2px 8px;white-space:nowrap}
 .job .t{font-weight:700;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 0;min-width:150px}
 .job .co{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);white-space:nowrap;flex:0 0 auto}
 .job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
@@ -131,6 +134,14 @@ main.wrap{max-width:1150px}
 <a class="srow" href="/jobs/operations/">Operations<span class="c">64</span></a>
 <a class="srow on" href="/jobs/">People & Legal<span class="c">54</span></a>
 <a class="srow" href="/jobs/other/">Other<span class="c">205</span></a></div>
+    <div class="jsec">workplace</div>
+    <div class="sidelist">
+      <button class="srow" data-wp="remote">Remote only<span class="c">455</span></button>
+      <button class="srow" data-wp="hybrid">Hybrid<span class="c">714</span></button>
+      <button class="srow" data-wp="onsite">On-site<span class="c">755</span></button>
+      <button class="srow" data-visa="1">Visa sponsorship<span class="c">87</span></button>
+      <button class="srow" data-sal="1">Salary disclosed<span class="c">460</span></button>
+    </div>
     <div class="jsec">region</div>
     <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">553</span></button>
 <button class="srow" data-region="europe">Europe<span class="c">372</span></button>
@@ -140,442 +151,548 @@ main.wrap{max-width:1150px}
 <button class="srow" data-region="mena">MENA<span class="c">5</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">130</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">4</span></button>
-<button class="srow" data-region="other">Other<span class="c">133</span></button>
-      <button class="srow" data-sal="1">salary disclosed<span class="c">460</span></button>
-    </div>
+<button class="srow" data-region="other">Other<span class="c">133</span></button></div>
     <button class="jclear" id="jclear">× clear all filters</button>
   </aside>
     <div class="jmain">
       <div class="jbar"><span><b id="jcount">54</b> roles</span><span>newest first · refreshed 2026-07-05</span></div>
       <div class="joblist" id="jlist">
 <a class="job" href="https://job-boards.eu.greenhouse.io/bitpanda/jobs/4905029101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bitpanda.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Talent Experience Intern</span>
   <span class="co">Bitpanda</span>
   <span class="loc">Vienna, Vienna, Austria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4773461101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Lead, People Business Partner (PBP)</span>
   <span class="co">Moniepoint</span>
   <span class="loc">Remote, Nigeria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4918195101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">People Business Partner</span>
   <span class="co">Moniepoint</span>
   <span class="loc">Nairobi, Kenya</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://n26.com/en-eu/careers/positions/8022924?gh_jid=8022924" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=n26.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Legal Counsel Employment Law International Markets</span>
   <span class="co">N26</span>
   <span class="loc">Barcelona</span>
   
+  <span class="visa">visa ✓</span>
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/robinhood/jobs/7943216?t=gh_src=&amp;gh_jid=7943216" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=robinhood.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Assistant General Counsel, Employment</span>
   <span class="co">Robinhood</span>
   <span class="loc">Menlo Park, CA; New York, NY; Washington, DC</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7789102003?gh_jid=7789102003" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=sofi.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Paralegal</span>
   <span class="co">SoFi</span>
   <span class="loc">United States</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4895529101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">People Business Partner</span>
   <span class="co">Moniepoint</span>
   <span class="loc">Remote, Nigeria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/bitpanda/jobs/4896304101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bitpanda.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Intern, Legal</span>
   <span class="co">Bitpanda</span>
   <span class="loc">Vienna, Vienna, Austria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8476410002?gh_jid=8476410002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=chime.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Director, People Strategy &amp; Program Management</span>
   <span class="co">Chime</span>
   <span class="loc">San Francisco, CA, USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8602160002?gh_jid=8602160002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=chime.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Executive Assistant</span>
   <span class="co">Chime</span>
   <span class="loc">San Francisco, CA, USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8326233002?gh_jid=8326233002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=chime.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior People Partner</span>
   <span class="co">Chime</span>
   <span class="loc">San Francisco, CA, USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/8030591?gh_jid=8030591" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Litigation Paralegal</span>
   <span class="co">Coinbase</span>
   <span class="loc">Remote - USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4911374101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Talent Acquisition Specialist - Tech</span>
   <span class="co">Moniepoint</span>
   <span class="loc">Remote, Lagos, Nigeria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8503145002?gh_jid=8503145002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Business Recruiter</span>
   <span class="co">Brex</span>
   <span class="loc">Vancouver, British Columbia, Canada</span>
   <span class="sal">$86–107K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7952032?gh_jid=7952032" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Paralegal, Litigation</span>
   <span class="co">Coinbase</span>
   <span class="loc">Remote - USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/7619224" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=monzo.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Tech Recruiter</span>
   <span class="co">Monzo</span>
   <span class="loc">London; Remote (UK)</span>
   <span class="sal">£45–65K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/qonto/1986ff63-adb0-41af-97dd-a4e1156f4298" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=qonto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Learning &amp; Development Manager</span>
   <span class="co">Qonto</span>
   <span class="loc">Paris</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/robinhood/jobs/7943204?t=gh_src=&amp;gh_jid=7943204" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=robinhood.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Assistant General Counsel, Credit Cards</span>
   <span class="co">Robinhood</span>
   <span class="loc">Menlo Park, CA; New York, NY; Washington, DC</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7997879?gh_jid=7997879" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">HR Business Partner</span>
   <span class="co">Coinbase</span>
   <span class="loc">Remote - USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8503146002?gh_jid=8503146002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Business Recruiter</span>
   <span class="co">Brex</span>
   <span class="loc">Salt Lake City, Utah, United States</span>
   <span class="sal">$86–107K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8503148002?gh_jid=8503148002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Business Recruiter</span>
   <span class="co">Brex</span>
   <span class="loc">San Francisco, California, United States</span>
   <span class="sal">$97–121K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8503147002?gh_jid=8503147002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Business Recruiter</span>
   <span class="co">Brex</span>
   <span class="loc">New York, New York, United States</span>
   <span class="sal">$97–121K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/bitpanda/jobs/4877467101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bitpanda.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">NetSuite Administrator</span>
   <span class="co">Bitpanda</span>
   <span class="loc">Barcelona, Spain; Vienna, Vienna, Austria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4788646101" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Principal, People Transformation &amp; Change</span>
   <span class="co">Moniepoint</span>
   <span class="loc">Remote, Nigeria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7688438003?gh_jid=7688438003" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=sofi.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Principal People Business Partner</span>
   <span class="co">SoFi</span>
   <span class="loc">Frisco, TX, Charlotte, NC</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7740954003?gh_jid=7740954003" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=sofi.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Principal People  Business Partner, Finance</span>
   <span class="co">SoFi</span>
   <span class="loc">NY - New York City; CA - San Francisco; UT - Cottonwood Heights</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7994338?gh_jid=7994338" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Counsel, Shareholder Litigation</span>
   <span class="co">Coinbase</span>
   <span class="loc">Remote - USA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8571744002?gh_jid=8571744002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Executive Assistant to CTO</span>
   <span class="co">Brex</span>
   <span class="loc">San Francisco, California, United States</span>
   <span class="sal">$104–130K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8571745002?gh_jid=8571745002" target="_blank" rel="noopener">
-  <span class="t">Executive Assistant to CTO</span>
-  <span class="co">Brex</span>
-  <span class="loc">Seattle, Washington, United States</span>
-  <span class="sal">$104–130K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8434398002?gh_jid=8434398002" target="_blank" rel="noopener">
-  <span class="t">Senior Design Recruiter</span>
-  <span class="co">Brex</span>
-  <span class="loc">San Francisco, California, United States</span>
-  <span class="sal">$142–195K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8434435002?gh_jid=8434435002" target="_blank" rel="noopener">
-  <span class="t">Senior Design Recruiter</span>
-  <span class="co">Brex</span>
-  <span class="loc">New York, New York, United States</span>
-  <span class="sal">$142–195K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8434436002?gh_jid=8434436002" target="_blank" rel="noopener">
-  <span class="t">Senior Design Recruiter</span>
-  <span class="co">Brex</span>
-  <span class="loc">Seattle, Washington, United States</span>
-  <span class="sal">$142–195K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8434439002?gh_jid=8434439002" target="_blank" rel="noopener">
-  <span class="t">Senior Design Recruiter</span>
-  <span class="co">Brex</span>
-  <span class="loc">Vancouver, British Columbia, Canada</span>
-  <span class="sal">$126–173K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8505068002?gh_jid=8505068002" target="_blank" rel="noopener">
-  <span class="t">Senior Executive Recruiter</span>
-  <span class="co">Brex</span>
-  <span class="loc">San Francisco, California, United States</span>
-  <span class="sal">$156–195K</span>
-  <span class="jtag">People & Legal</span>
-  <span class="apply">apply →</span>
-</a>
-<a class="job" href="https://n26.com/en-eu/careers/positions/7682984?gh_jid=7682984" target="_blank" rel="noopener">
-  <span class="t">Senior Legal Counsel Banking Law</span>
-  <span class="co">N26</span>
-  <span class="loc">Berlin</span>
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
+<a class="job" href="https://www.brex.com/careers/8571745002?gh_jid=8571745002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Executive Assistant to CTO</span>
+  <span class="co">Brex</span>
+  <span class="loc">Seattle, Washington, United States</span>
+  <span class="sal">$104–130K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8434398002?gh_jid=8434398002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Design Recruiter</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$142–195K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8434435002?gh_jid=8434435002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Design Recruiter</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$142–195K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8434436002?gh_jid=8434436002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Design Recruiter</span>
+  <span class="co">Brex</span>
+  <span class="loc">Seattle, Washington, United States</span>
+  <span class="sal">$142–195K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8434439002?gh_jid=8434439002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Design Recruiter</span>
+  <span class="co">Brex</span>
+  <span class="loc">Vancouver, British Columbia, Canada</span>
+  <span class="sal">$126–173K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8505068002?gh_jid=8505068002" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Executive Recruiter</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$156–195K</span>
+  
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://n26.com/en-eu/careers/positions/7682984?gh_jid=7682984" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=n26.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+  <span class="t">Senior Legal Counsel Banking Law</span>
+  <span class="co">N26</span>
+  <span class="loc">Berlin</span>
+  
+  <span class="visa">visa ✓</span>
+  <span class="jtag">People & Legal</span>
+  <span class="apply">apply →</span>
+</a>
 <a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/7621692" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=monzo.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Legal Counsel, Business Banking</span>
   <span class="co">Monzo</span>
   <span class="loc">Cardiff, London or Remote (UK)</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/a77a5e4a-9fc1-4969-9f0f-add0df81af09" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Office Administrator, Bulgaria</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Sofia, Bulgaria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/55f127b2-4520-48a8-be85-d6d465e5728f" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Corporate Secretary Officer, Hong Kong</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Hong Kong, Hong Kong SAR</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/34d6dba5-b192-4fa5-bf62-f39b65002296" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Corporate Secretary Officer, Singapore</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Singapore, Singapore</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/2cd68650-6a17-4ac6-a724-c7e36e02ad0a" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Corporate Secretarial Manager</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Singapore, Singapore</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/6288002e-5a57-4df9-9db2-5d21ad78ad51" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Corporate Secretarial Manager</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Hong Kong, Hong Kong SAR</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/qonto/1c27ac54-f8fb-4741-aa9e-f89ab0f28083" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=qonto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Legal Counsel - Central Europe</span>
   <span class="co">Qonto</span>
   <span class="loc">Berlin</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/qonto/93fd9227-813c-4a07-b172-28ac67797b62" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=qonto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Legal Counsel Intern - Portugal &amp; Spain 🇵🇹🇪🇸</span>
   <span class="co">Qonto</span>
   <span class="loc">Paris</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/a3721ae6-2cb6-44e1-9543-10f4f9e5ba60" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Executive Assistant</span>
   <span class="co">Crypto.com</span>
   <span class="loc">Hong Kong, Hong Kong SAR</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/allica-bank/b1905b7d-130f-47ad-81f8-1bf10c188a19" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=allica.bank&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">HR Graduate</span>
   <span class="co">Allica Bank</span>
   <span class="loc">Milton Keynes Office</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/allica-bank/bf9e6020-b86d-4827-8ca7-5ffee038f6bc" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=allica.bank&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">HR Advisor</span>
   <span class="co">Allica Bank</span>
   <span class="loc">Milton Keynes Office</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/koho/4e545dfa-59ef-47d4-a274-22f517f24b37" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=koho.ca&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Intermediate / Senior People Partner</span>
   <span class="co">KOHO</span>
   <span class="loc">KOHO (CAN)</span>
   <span class="sal">$110–130K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/kraken.com/f002b80f-27e2-46cd-a01c-41f7a7da73e6" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=krak.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Counsel - Product</span>
   <span class="co">Kraken</span>
   <span class="loc">United Kingdom · Ireland · Lithuania · Czech Republic · Poland · Bulgaria</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/neofinancial/9ea14a83-1cec-4c1b-9cd4-bdef1dfdb27e" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=neofinancial.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">General Counsel</span>
   <span class="co">Neo Financial</span>
   <span class="loc">Calgary, AB</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/phantom/e12e829e-3d78-4d40-9764-81f8cb52531b" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=phantom.app&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">NY Office Manager</span>
   <span class="co">Phantom</span>
   <span class="loc">San Francisco</span>
   <span class="sal">$107–126K</span>
+  
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/ramp/77c4bead-5399-4631-91bb-d80c467191ba" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=ramp.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Executive Assistant, Finance</span>
   <span class="co">Ramp</span>
   <span class="loc">New York, NY (HQ)</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/ramp/803e8ace-6c1d-4807-99d3-e35fe45b2fc9" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=ramp.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Manager, Equity Administration</span>
   <span class="co">Ramp</span>
   <span class="loc">New York, NY (HQ) · San Francisco, CA</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/ramp/ee493d8f-c75e-4ca4-b665-1576e835f522" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=ramp.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Senior Recruiter | Design</span>
   <span class="co">Ramp</span>
   <span class="loc">New York, NY (HQ)</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://jobs.ashbyhq.com/relay/94b4cf10-9dce-45b8-948a-651e308e8656" target="_blank" rel="noopener">
+  <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=relayfi.com&amp;sz=64" onerror="this.style.visibility='hidden'">
   <span class="t">Chief of Staff Associate</span>
   <span class="co">Relay</span>
   <span class="loc">London - On-site</span>
+  
   
   <span class="jtag">People & Legal</span>
   <span class="apply">apply →</span>
@@ -588,24 +705,25 @@ main.wrap{max-width:1150px}
   <article><p style="margin-top:24px"><a href="/jobs/">← all neobank jobs</a> · listings pulled from official Greenhouse/Lever/Ashby APIs · apply links go straight to the company.</p></article>
 </main>
 <script>
-let JOBS=[],shown=0,f={dept:'people',region:null,q:'',sal:false};
+let JOBS=[],LOGOS={},shown=0,f={dept:'people',region:null,q:'',sal:false,wp:null,visa:false};
 const PRESET='people';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
 const regCount={"europe":372,"remote":553,"north-america":629,"asia":130,"africa":19,"latin-america":79,"other":133,"mena":5,"oceania":4};
-fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;render(true)});
-function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
+fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
+function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
-a.innerHTML='<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
+const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64" onerror="this.style.visibility=\'hidden\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
+a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
 a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
 const hits=JOBS.filter(match);
 document.querySelectorAll('#jcount').forEach(el=>el.textContent=hits.length.toLocaleString('en-US'));
 const batch=hits.slice(shown,shown+STEP);batch.forEach(j=>list.appendChild(card(j)));shown+=batch.length;
 more.style.display=shown<hits.length?'':'none';
-document.getElementById('jclear').style.display=(f.region||f.q||f.sal||(f.dept&&f.dept!==PRESET))?'block':'none'}
+document.getElementById('jclear').style.display=(f.region||f.q||f.sal||f.wp||f.visa||(f.dept&&f.dept!==PRESET))?'block':'none'}
 more.querySelector('button').addEventListener('click',()=>render(false));
 document.getElementById('jsearch').addEventListener('input',e=>{f.q=e.target.value.toLowerCase().trim();render(true)});
 document.querySelectorAll('button[data-dept]').forEach(c=>c.addEventListener('click',()=>{
@@ -616,6 +734,10 @@ document.querySelectorAll('button[data-region]').forEach(x=>x.classList.toggle('
 syncMap();render(true)}
 document.querySelectorAll('button[data-region]').forEach(c=>c.addEventListener('click',()=>setRegion(c.dataset.region)));
 document.querySelectorAll('button[data-sal]').forEach(c=>c.addEventListener('click',()=>{f.sal=!f.sal;c.classList.toggle('on',f.sal);render(true)}));
+document.querySelectorAll('button[data-visa]').forEach(c=>c.addEventListener('click',()=>{f.visa=!f.visa;c.classList.toggle('on',f.visa);render(true)}));
+document.querySelectorAll('button[data-wp]').forEach(c=>c.addEventListener('click',()=>{
+const v=c.dataset.wp;f.wp=f.wp===v?null:v;
+document.querySelectorAll('button[data-wp]').forEach(x=>x.classList.toggle('on',x.dataset.wp===f.wp));render(true)}));
 /* the map is a filter: click a continent */
 const jmap=document.getElementById('jmap'),jlbl=document.getElementById('jmaplabel');
 function syncMap(){jmap.classList.toggle('hasfilter',!!f.region);
@@ -627,7 +749,7 @@ if(r){jmap.dataset.hov=r;jmap.querySelectorAll('span[data-region]').forEach(s=>s
 jlbl.textContent=regName[r]+' · '+(regCount[r]||0)+' roles'}});
 jmap.addEventListener('mouseleave',()=>{delete jmap.dataset.hov;jmap.querySelectorAll('.hov').forEach(s=>s.classList.remove('hov'));syncMap()});
 document.getElementById('jclear').addEventListener('click',()=>{
-f.region=null;f.q='';f.sal=false;if(!PRESET)f.dept=null;
+f.region=null;f.q='';f.sal=false;f.wp=null;f.visa=false;if(!PRESET)f.dept=null;
 document.getElementById('jsearch').value='';
 document.querySelectorAll('.srow.on').forEach(x=>{if(!x.href)x.classList.remove('on')});
 syncMap();render(true)});
