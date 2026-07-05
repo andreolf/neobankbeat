@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:630px;background:#0A0A10;color:#EDEDF2;font-family:'Menlo','SF Mono',monospace;overflow:hidden;position:relative}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse at 18% 20%,rgba(255,92,22,.14),transparent 50%)}
+.wrap{position:relative;padding:64px 80px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.top{display:flex;align-items:center;gap:18px}
+.mark{width:56px;height:56px;background:#12121A;border:1px solid #23232F;border-radius:14px;position:relative}
+.mark .mn{position:absolute;left:50%;top:50%;transform:translate(-58%,-54%);font-size:36px;font-weight:700;color:#EDEDF2}
+.mark .md{position:absolute;right:9px;bottom:11px;width:9px;height:9px;border-radius:50%;background:#FF5C16}
+.logo{font-size:30px;font-weight:700;letter-spacing:-1px}
+.logo .dot{color:#FF5C16}
+.tag{margin-left:auto;font-size:15px;color:#8A8A9A;border:1px solid #23232F;border-radius:999px;padding:8px 18px;background:#12121A}
+.tag b{color:#FF5C16;font-weight:700}
+.h1{font-family:system-ui,-apple-system,sans-serif;font-size:78px;font-weight:700;letter-spacing:-2.5px;line-height:1.04;max-width:1000px}
+.h1 em{font-style:normal;color:#FF5C16}
+.sub{font-size:20px;color:#8A8A9A;margin-top:24px}
+.sub b{color:#EDEDF2;font-weight:700}
+.bottom{display:flex;align-items:flex-end;justify-content:space-between}
+.stats{display:flex;gap:56px}
+.stat .n{font-size:42px;font-weight:700}
+.stat .l{font-size:14px;color:#8A8A9A;text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+.t{color:#89B0FF}.h{color:#D075FF}.w{color:#BAF24A}
+.cta{font-size:16px;color:#8A8A9A;text-align:right;line-height:1.7}
+.cta b{color:#EDEDF2}
+.bar{position:absolute;left:0;right:0;bottom:0;height:12px;display:flex}
+.bar div:nth-child(1){flex:256;background:#89B0FF}
+.bar div:nth-child(2){flex:54;background:#D075FF}
+.bar div:nth-child(3){flex:47;background:#BAF24A}
+</style></head><body>
+<div class="glow"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="mark"><div class="mn">n</div><div class="md"></div></div>
+    <div class="logo">neobank<span class="dot">beat</span></div>
+    <div class="tag">the <b>newsletter</b></div>
+  </div>
+  <div>
+    <div class="h1">who watches the <em>neobanks</em>?</div>
+    <div class="sub">deep dives on <b>357 tracked neobanks</b> — custody · stablecoin cards · the fine print</div>
+  </div>
+  <div class="bottom">
+    <div class="stats">
+      <div class="stat t"><div class="n">256</div><div class="l">traditional</div></div>
+      <div class="stat h"><div class="n">54</div><div class="l">hybrid crypto</div></div>
+      <div class="stat w"><div class="n">47</div><div class="l">web3-native</div></div>
+    </div>
+    <div class="cta"><b>neobankbeat.substack.com</b><br>open data · no affiliate links</div>
+  </div>
+</div>
+<div class="bar"><div></div><div></div><div></div></div>
+</body></html>
