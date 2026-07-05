@@ -111,6 +111,7 @@ index.html          the entire app: CSS + data + logic
 data.json           machine-readable export (generated, committed)
 llms.txt            agent-facing guide
 blog/               static deep dives + RSS feed
+jobs/               live job board pulled from official ATS APIs (+ data.json feed)
 report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
 n/                  357 generated entity profile pages (SEO surface)
@@ -119,6 +120,7 @@ tests/
 ├── flowtest.js     167 assertions across 23 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from index.html
 ├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
+├── build-jobs.mjs  refreshes /jobs/ from Greenhouse/Lever/Ashby APIs
 └── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
 ```
 

@@ -67,6 +67,7 @@ ${JSON.stringify(ldjson)}
       <a href="/#newssec">news</a>
       <a href="/blog/">blog</a>
       <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
     </nav>
   </div>
 </header>
@@ -75,7 +76,7 @@ ${JSON.stringify(ldjson)}
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/report/">report</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 </body>
 </html>
@@ -295,6 +296,9 @@ const urls = [
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
+  { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
+  ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people']
+    .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },
