@@ -320,6 +320,7 @@ select:hover{border-color:var(--muted)}
 .pvisit:hover{filter:brightness(1.1)}
 .pghost{font-family:var(--mono);font-size:12.5px;background:none;border:1px solid var(--line);color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer}
 .pghost:hover{border-color:var(--pc)}
+a.pghost{text-decoration:none;display:inline-block}
 .pghost.on{background:var(--pc);border-color:var(--pc);color:var(--bg);font-weight:700}
 body.bw .phero{background:var(--panel2)}
 body.bw .pmodal{border-width:2px}
@@ -3023,7 +3024,7 @@ render();
   /* back/forward buttons walk the view history */
   window.addEventListener('popstate',()=>{
     const v=HREF2VIEW[location.hash]||'directory';
-    showView(v,true);
+    if(v!==current)showView(v,true); /* unchanged view = modal-history pop; don't re-render (would scroll to top) */
   });
   /* initial view from hash */
   const h=location.hash;
@@ -3218,6 +3219,38 @@ render();
     e.preventDefault();
     if(window.showView)showView('directory');
     document.getElementById('q').focus();
+  });
+})();
+
+/* ── profile modal ⇄ browser history ──
+   opening a profile pushes its real company-page URL (/n/<slug>/) so the address bar
+   is shareable and a reload lands on the static page; the back button closes the
+   modal and returns to the filtered directory — same as clicking ✕ */
+(function modalHistory(){
+  const slugify=n=>n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'entity';
+  /* uniquify identically to tests/build-pages.mjs so the slug matches the static page */
+  const SLUG={},taken=new Set();
+  D.forEach(r=>{let s=slugify(r[0]);while(taken.has(s))s+='-2';taken.add(s);SLUG[r[0]]=s;});
+  let owned=false; /* true → the top history entry is the modal's */
+  const _open=openDetail;
+  openDetail=function(name){
+    _open(name);
+    if(!SLUG[name])return;
+    const url='/n/'+SLUG[name]+'/';
+    try{
+      if(owned)history.replaceState({nbModal:name},'',url); /* peer→peer swap inside an open profile */
+      else{history.pushState({nbModal:name},'',url);owned=true;}
+    }catch(_){}
+    const acts=document.querySelector('#dwrap .pactions');
+    if(acts&&!acts.querySelector('.ppage'))acts.insertAdjacentHTML('beforeend','<a class="pghost ppage" href="'+url+'">full page →</a>');
+  };
+  const _close=closeDetail;
+  closeDetail=function(){
+    _close();
+    if(owned){owned=false;try{history.back()}catch(_){}}
+  };
+  window.addEventListener('popstate',()=>{
+    if(owned){owned=false;_close();} /* back pressed while a profile is open */
   });
 })();
 /* boot complete: reveal the grid (kept hidden through the layer passes to avoid CLS) */
