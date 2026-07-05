@@ -2206,22 +2206,29 @@ render();
   });
 })();
 
-/* ── top news · curated headline watch (July 2026 snapshot) ── */
+/* ── top news · auto-refreshed weekly by tests/build-news.mjs (cron: Monday) ──
+   item = [date, headline, sub, link] — link is a full article URL, or a
+   Google News search query for hand-curated entries. Do not edit between
+   the AUTO markers by hand: the cron rewrites that block. */
 const NEWS=[
-["Jun 2026","MetaMask ships mUSD + Money Account","Dollar-backed stablecoin on Monad with Veda & Steakhouse; ~4% APY, unified spend/earn balance.","MetaMask mUSD Money Account"],
-["2026","RedotPay at ~60% of global crypto-card volume","Media reports put the HK issuer at the majority of worldwide crypto card spend.","RedotPay crypto card volume"],
-["2026","Revolut stablecoin enters FCA sandbox","The 50M-user super-app tests its own stablecoin after finally securing the UK licence.","Revolut stablecoin FCA"],
-["Dec 2025","SoFi launches SoFiUSD","A chartered US bank issuing its own stablecoin — the line between neobank and crypto keeps dissolving.","SoFi SoFiUSD stablecoin"],
-["2025","Deel issues DLUSD payroll stablecoin","Built on Stripe's Bridge + Privy + Tempo stack; payroll rails go onchain.","Deel DLUSD stablecoin"],
-["Sep 2025","Gemini and Klarna go public","GEMI and KLAR list within weeks of each other — fintech IPO window reopens.","Gemini Klarna IPO 2025"],
-["2025","MoneyLion acquired by Gen Digital","One of the OG US neobanks exits to the Norton/Avast parent.","MoneyLion Gen Digital acquisition"],
-["Feb 2025","Infini exploited for $49M","Stablecoin card startup loses treasury to a retained-privilege key; rebuilds after.","Infini exploit 49M"],
-["Dec 2024","TymeBank becomes a unicorn","$250M round led by Nubank — the kiosk-onboarding model gets LatAm's stamp of approval.","TymeBank unicorn Nubank"],
-["2025–26","MiCA CASP authorizations roll out","EU custodial crypto neobanks race for CASP licences; self-custodial software stays outside the perimeter.","MiCA CASP authorization neobank"]];
+/*NEWS-AUTO-START*/
+["Jul 3","A $75 billion valuation, 75 million global customers and on its way to America—Revolut is London's disruptor extraordinaire","via Fortune · Revolut","https://news.google.com/rss/articles/CBMikwFBVV95cUxOTEFuZ0dBai1tdHRuZ0VndEpzckhBcUg0eDdDVnQ3Q0ctejFzLW41bnprdVNrQ1E1UDVwRW01a2JqbW1WajMtMzcydmQ2UWFEOHd2dE1kMzZlN2JmZEsxZnIwRGR6ZnlmYy0tcUgyaWtyWlcwQnVVWFI5dDhmeFhRRTMtVDBkX1NkMUVhSnJVLVVFN3c?oc=5"],
+["Jul 1","Swedish court orders Google to pay Klarna $2 billion","via American Banker · Klarna","https://news.google.com/rss/articles/CBMinAFBVV95cUxORVhsTnBHcTFEbjhLVGtGSC05RVNrUnlaUTh6RzNhQ1drVHQ3Ukc0ZlFNMkthRjU0R2N2eDM2Vk5HWGJkMWZFb2tZaTNCWFZXZEs1NWFTb29YaFE2WXJQWDlTdW53RXJsNjBLZk5XM3ZnazJmOVBFWHNKYXotUURWRjZta3lFRFpKOEZoWC1vYzRhbDExUGJXSGJScXg?oc=5"],
+["Jul 3","Starling Bank to cut jobs to simplify operations as profits dip","via Financial Times · Starling Bank","https://news.google.com/rss/articles/CBMihAFBVV95cUxQeU5jQWZqc0otcEZzeWZYcVhmWnZISmhqOFZaYkVodmVDYndFNk81UFRteWFJZmhSTzZDR1ZhaHY1b2F3N0tSUkVoYnpHelBMUTlyQjJwb2xQY0xzVmtKSzl0blJVWGtFZnpFTEdyOFo1SjJab0ZoSzktY0huei13bXBkX18?oc=5"],
+["Jun 30","KakaoBank to Acquire Mastern Capital for Non-Bank Lending Tilt","via East & Partners · KakaoBank","https://news.google.com/rss/articles/CBMinAFBVV95cUxPTXB1STktX1JtYnJRT3p5TTdKOWJ6MUJUdGEzTTVWcXRZUi0xMlQyU0h5eW5ZRC1mZGowbERJc0RUQmltcjB3S1JuX3YweXBwcklzeGZoVzF2LXBSWWZMZUJ6NDQxTnkyeXJQVEs0aW5rNjVVR3FWU1JCTWtLclRCQTBINGYwOGszZGVkVTVJaFc0Undsa0xFWFQ4bjA?oc=5"],
+["Jun 29","Goldman Sachs Tests Ireland Launch for Marcus Digital Bank","via FinanceFeeds · Marcus","https://news.google.com/rss/articles/CBMijAFBVV95cUxOZld2eTI2TmlQZ05jZ1F6aWNuWkpkQWljMXh0cDhzWVRxT3doQ2pUYnFSbUowbVZ4NHBIMUYtOGVXQ3FDS3A3NndHRE16aEhwMDhXN2p1RngwWTQxWHVrQmNnVU5wRThLTUhCZ0RmREZWNzVWMzg0dGhqblNndUFWZ0l4SkdzdExzemw2Sw?oc=5"],
+["Jul 4","Tokenized Green raises €1.1 million from Wolver Ventures and Fundación Caja de Burgos to launch Twelve, a digital bank for young people - Capital-Riesgo.es","via Capital Riesgo","https://news.google.com/rss/articles/CBMiggJBVV95cUxOeXpTMHN1QVoxMzlGZTR0YXNFQlJtS0xOQ3FucE9kRlBnWnZzaXRvT1YyQXlYWFJ0V1lNdV9ZZEZ3dzVoUUtkOEtwUk9LVEhnM0dNNktJTk9IcDhLZmVnT2d3UUVaNXBtOUFnMVZuZWx2ay0yelZtX21QMnFpY043ZGhLVjE3aGY1ZHpPSVFtRnJKWXBURDVaNDFVU1hNdkY5dXR1enhFeFhvbVlxQ2xYYndxZlpObkFjSU94ZmlNeHkyVWVJRllsMEZOS0dIbU1lSFpuZ1pmUmFPeGpwdWI5SXAtZ1pvSFVsR3dLa2RjUzZPYWpkU3BFZkFaZkcwY2JVcnc?oc=5"]
+/*NEWS-AUTO-END*/
+];
+const NEWS_UPDATED="2026-07-05";
 (function buildNews(){
-  const rows=NEWS.map(([d,h,sub,qq])=>'<div class="newsrow"><div class="n-top"><span class="n-date">'+d+'</span><span class="n-head">'+esc(h)+'</span><a class="n-link" target="_blank" rel="noopener" href="https://news.google.com/search?q='+encodeURIComponent(qq)+'">coverage ↗</a></div><div class="n-sub">'+esc(sub)+'</div></div>').join("");
+  const rows=NEWS.map(([d,h,sub,qq])=>{
+    const href=/^https?:/.test(qq)?qq:'https://news.google.com/search?q='+encodeURIComponent(qq);
+    return '<div class="newsrow"><div class="n-top"><span class="n-date">'+d+'</span><span class="n-head">'+esc(h)+'</span><a class="n-link" target="_blank" rel="noopener" href="'+esc(href)+'">read ↗</a></div><div class="n-sub">'+esc(sub)+'</div></div>';
+  }).join("");
+  const sub='headline watch · refreshed every Monday from live news feeds'+(NEWS_UPDATED?' · updated '+NEWS_UPDATED:'');
   document.getElementById('grid').insertAdjacentHTML('afterend',
-    '<section class="datasec" id="newssec"><div class="dcard2"><h2>top news</h2><div class="dsub">curated headline watch · July 2026 snapshot · links open live news search — API-fed feed on the enrichment roadmap</div>'+rows+'</div></section>');
+    '<section class="datasec" id="newssec"><div class="dcard2"><h2>top news</h2><div class="dsub">'+sub+'</div>'+rows+'</div></section>');
 })();
 
 /* ── extended profiles: legal links, users/volume tiles, position, peers ── */
@@ -2412,12 +2419,6 @@ render();
       row.querySelector('.n-sub').textContent='CoinDesk/StraitsX data: over 4x its next 13 competitors combined; Visa carries >90% of on-chain card volume.';
     }
   });
-  /* fresh headlines */
-  const card=document.querySelector('#newssec .dcard2');
-  const firstRow=card.querySelector('.newsrow');
-  firstRow.insertAdjacentHTML('beforebegin',
-    '<div class="newsrow"><div class="n-top"><span class="n-date">Jun 2026</span><span class="n-head">Wise FY26: $243.5B moved cross-border, +31%</span><a class="n-link" target="_blank" rel="noopener" href="https://owners.wise.com/">source ↗</a></div><div class="n-sub">Card spend $43.6B (+37%), 19M active customers; primary listing moved to Nasdaq in May.</div></div>'+
-    '<div class="newsrow"><div class="n-top"><span class="n-date">Q3 2025</span><span class="n-head">MetaMask and Phantom launch native stablecoins to fund their cards</span><a class="n-link" target="_blank" rel="noopener" href="https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how">Artemis ↗</a></div><div class="n-sub">mUSD and CASH designed as the funding mechanism for wallet debit cards — wallets become issuers.</div></div>');
 })();
 
 /* ── researched volume table (with real source links) ── */

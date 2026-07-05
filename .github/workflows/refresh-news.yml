@@ -1,0 +1,36 @@
+name: refresh top news
+
+on:
+  schedule:
+    # Monday 06:15 UTC (08:15 CEST) — before the jobs refresh at 06:00 runs its commit
+    - cron: '15 6 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: pull & rank this week's headlines
+        run: node tests/build-news.mjs
+
+      - name: commit & push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "no changes — news kept from last run"
+          else
+            git commit -m "chore: weekly top-news refresh ($(date -u +%F))"
+            git push
+          fi
