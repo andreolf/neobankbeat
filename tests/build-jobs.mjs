@@ -226,7 +226,13 @@ async function fetchSource([display, entityName, ats, slug]) {
   const profile = ent ? `/n/${slugify(ent.name)}/` : null;
   if (ats === 'deel' || ats === 'bunq') {
     try {
-      const raw = ats === 'deel' ? await deelRows(slug) : await bunqRows();
+      /* retry — transient socket failures are common with 69 boards fetching at once */
+      let raw, err;
+      for (let a = 0; a < 3; a++) {
+        try { raw = ats === 'deel' ? await deelRows(slug) : await bunqRows(); err = null; break; }
+        catch (e) { err = e; await new Promise(res => setTimeout(res, 2000 * (a + 1))); }
+      }
+      if (err) throw err;
       return raw.filter(x => x.t && x.u).map(x => ({
         title: x.t.trim(), url: x.u, company: display, profile,
         location: (x.l || '').trim() || 'Not specified',
@@ -300,7 +306,15 @@ async function fetchSource([display, entityName, ats, slug]) {
 }
 
 console.log('fetching live postings from', SOURCES.length, 'ATS boards…');
-const all = (await Promise.all(SOURCES.map(fetchSource))).flat();
+/* pool of 8 — firing all ~70 boards at once causes random socket failures */
+async function pooled(items, fn, size = 8) {
+  const out = new Array(items.length); let i = 0;
+  await Promise.all(Array.from({ length: size }, async () => {
+    while (i < items.length) { const idx = i++; out[idx] = await fn(items[idx]); }
+  }));
+  return out;
+}
+const all = (await pooled(SOURCES, fetchSource)).flat();
 // safety: if the APIs are having a bad day, refuse to overwrite a good board
 if (all.length < 2000) {
   console.error(`only ${all.length} jobs fetched (expected 4000+) — aborting to avoid publishing a broken board`);
