@@ -29,23 +29,44 @@
 .jstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
 .jstat .n{font-family:'Noto Sans Mono',monospace;font-size:20px;font-weight:700}
 .jstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.chip{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:6px 13px;cursor:pointer;text-decoration:none;display:inline-block}
-.chip:hover{color:var(--text);border-color:var(--muted)}
-.chip.on{background:var(--acc);border-color:var(--acc);color:#0A0A10;font-weight:700}
-.chip .c{opacity:.65;margin-left:4px}
-#jsearch{width:100%;max-width:420px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:13px;padding:11px 14px;margin:6px 0 4px}
+main.wrap{max-width:1150px}
+.jhero,main.wrap>article{max-width:760px}
+.jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
+.jmain{min-width:0}
+.jside{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
+#jsearch{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box}
 #jsearch:focus{outline:none;border-color:var(--acc)}
-.joblist{margin:18px 0;display:flex;flex-direction:column;gap:10px}
-.job{display:grid;grid-template-columns:1fr auto;gap:4px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;text-decoration:none;transition:border-color .15s}
+.jsec{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.jsec::before{content:"—— ";color:var(--acc)}
+.jmap{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px 9px}
+.jmapgrid{display:grid;gap:0;line-height:0}
+.jmapgrid span{width:3.4px;height:3.4px;border-radius:50%;display:inline-block}
+.jmapgrid span.sea{background:transparent}
+.jmapgrid span[data-region]{cursor:pointer}
+.jmap.hasfilter span[data-region]{opacity:.18}
+.jmap.hasfilter span.actv{opacity:1;filter:brightness(1.3)}
+.jmap[data-hov] span[data-region]{opacity:.25}
+.jmap[data-hov] span.hov{opacity:1;filter:brightness(1.3)}
+.jmaplabel{font-family:'Noto Sans Mono',monospace;font-size:9.5px;color:var(--dim);margin-top:8px;min-height:12px}
+.sidelist{display:flex;flex-direction:column}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);background:none;border:none;border-radius:7px;padding:6px 9px;cursor:pointer;text-decoration:none;text-align:left;width:100%;box-sizing:border-box}
+.srow:hover{background:var(--panel);color:var(--text)}
+.srow.on{background:var(--acc);color:#0A0A10;font-weight:700}
+.srow .c{color:var(--dim);font-size:10.5px}
+.srow.on .c{color:#0A0A10;opacity:.7}
+.jclear{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);background:none;border:none;cursor:pointer;text-align:left;padding:2px 9px;display:none}
+.jbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.jbar b{color:var(--text);font-size:14px}
+.joblist{display:flex;flex-direction:column;gap:6px}
+.job{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px;text-decoration:none;transition:border-color .12s;min-width:0}
 .job:hover{border-color:var(--acc)}
-.job .t{font-weight:700;font-size:15.5px;color:var(--text)}
-.job .m{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--muted)}
-.job .m b{color:var(--acc);font-weight:500}
-.job .tags{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
-.jtag{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 9px}
-.job .apply{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);align-self:start;white-space:nowrap}
-.jmore{text-align:center;margin:18px 0}
+.job .t{font-weight:700;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 0;min-width:150px}
+.job .co{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);white-space:nowrap;flex:0 0 auto}
+.job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
+.job .sal{font-family:'Noto Sans Mono',monospace;font-size:10.5px;font-weight:700;color:var(--w,#BAF24A);border:1px solid color-mix(in srgb,var(--w,#BAF24A) 35%,transparent);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
+.jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
 .cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:16px 0}
@@ -53,7 +74,16 @@
 .cocard:hover{border-color:var(--acc)}
 .cocard .n{font-weight:700;color:var(--text);font-size:14px}
 .cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
-@media(max-width:640px){.job{grid-template-columns:1fr}.job .apply{display:none}}
+@media(max-width:860px){
+  .jlayout{grid-template-columns:minmax(0,1fr)}
+  .jside{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+  .jside>*{flex:1 1 100%}
+  .jside .jmap{flex:1 1 230px;max-width:260px}
+  .jside .sidelist{flex:1 1 46%;min-width:170px}
+  .job{flex-wrap:wrap;row-gap:3px}
+  .job .t{flex:1 1 100%;white-space:normal}
+  .job .apply{display:none}
+}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
@@ -80,421 +110,735 @@
   <p class="meta"><b><span id="jcount">97</span> live roles</b> at 21 digital banks · Growth, performance, content, community and brand roles. Refreshed 2026-07-05.</p>
   </article>
 
-  <input id="jsearch" type="search" placeholder="search title, company, city…" aria-label="Search jobs">
-  <div class="chips">
-<a class="chip" href="/jobs/engineering/">Engineering<span class="c">671</span></a>
-<a class="chip" href="/jobs/data/">Data & AI<span class="c">102</span></a>
-<a class="chip" href="/jobs/product/">Product<span class="c">103</span></a>
-<a class="chip" href="/jobs/design/">Design<span class="c">75</span></a>
-<a class="chip" href="/jobs/compliance/">Compliance & Risk<span class="c">148</span></a>
-<a class="chip" href="/jobs/onboarding/">Onboarding & KYC<span class="c">8</span></a>
-<a class="chip" href="/jobs/support/">Customer Support<span class="c">52</span></a>
-<a class="chip" href="/jobs/sales/">Sales & Partnerships<span class="c">287</span></a>
-<a class="chip on" href="/jobs/marketing/">Marketing & Growth<span class="c">97</span></a>
-<a class="chip" href="/jobs/finance/">Finance & Treasury<span class="c">58</span></a>
-<a class="chip" href="/jobs/operations/">Operations<span class="c">64</span></a>
-<a class="chip" href="/jobs/people/">People & Legal<span class="c">54</span></a>
-
-</div>
-  <div class="chips">
-<span class="chip" data-region="remote">Remote<span class="c">553</span></span>
-<span class="chip" data-region="europe">Europe<span class="c">372</span></span>
-<span class="chip" data-region="north-america">North America<span class="c">629</span></span>
-<span class="chip" data-region="latin-america">Latin America<span class="c">79</span></span>
-<span class="chip" data-region="africa">Africa<span class="c">19</span></span>
-<span class="chip" data-region="mena">MENA<span class="c">5</span></span>
-<span class="chip" data-region="asia">Asia<span class="c">130</span></span>
-<span class="chip" data-region="oceania">Oceania<span class="c">4</span></span>
-<span class="chip" data-region="other">Other<span class="c">133</span></span>
-</div>
-
-  <div class="joblist" id="jlist">
+  <div class="jlayout">
+    <aside class="jside">
+    <input id="jsearch" type="search" placeholder="search title, company, city…" aria-label="Search jobs">
+    <div class="jmap" id="jmap" title="click a region to filter">
+      <div class="jmapgrid" style="grid-template-columns:repeat(62,3.4px)"><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="europe" style="background:#D075FF"></span><span data-region="europe" style="background:#D075FF"></span><span class="sea"></span><span class="sea"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="north-america" style="background:#89B0FF"></span><span data-region="north-america" style="background:#89B0FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="mena" style="background:#FFA680"></span><span data-region="mena" style="background:#FFA680"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span data-region="asia" style="background:#CCE7FF"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="africa" style="background:#BAF24A"></span><span data-region="africa" style="background:#BAF24A"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="oceania" style="background:#E5FFC3"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span data-region="latin-america" style="background:#FF5C16"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span><span class="sea"></span></div>
+      <div class="jmaplabel" id="jmaplabel">click a region to filter</div>
+    </div>
+    <div class="jsec">department</div>
+    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">671</span></a>
+<a class="srow" href="/jobs/data/">Data & AI<span class="c">102</span></a>
+<a class="srow" href="/jobs/product/">Product<span class="c">103</span></a>
+<a class="srow" href="/jobs/design/">Design<span class="c">75</span></a>
+<a class="srow" href="/jobs/compliance/">Compliance & Risk<span class="c">148</span></a>
+<a class="srow" href="/jobs/onboarding/">Onboarding & KYC<span class="c">8</span></a>
+<a class="srow" href="/jobs/support/">Customer Support<span class="c">52</span></a>
+<a class="srow" href="/jobs/sales/">Sales & Partnerships<span class="c">287</span></a>
+<a class="srow on" href="/jobs/">Marketing & Growth<span class="c">97</span></a>
+<a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">58</span></a>
+<a class="srow" href="/jobs/operations/">Operations<span class="c">64</span></a>
+<a class="srow" href="/jobs/people/">People & Legal<span class="c">54</span></a>
+<a class="srow" href="/jobs/other/">Other<span class="c">205</span></a></div>
+    <div class="jsec">region</div>
+    <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">553</span></button>
+<button class="srow" data-region="europe">Europe<span class="c">372</span></button>
+<button class="srow" data-region="north-america">North America<span class="c">629</span></button>
+<button class="srow" data-region="latin-america">Latin America<span class="c">79</span></button>
+<button class="srow" data-region="africa">Africa<span class="c">19</span></button>
+<button class="srow" data-region="mena">MENA<span class="c">5</span></button>
+<button class="srow" data-region="asia">Asia<span class="c">130</span></button>
+<button class="srow" data-region="oceania">Oceania<span class="c">4</span></button>
+<button class="srow" data-region="other">Other<span class="c">133</span></button>
+      <button class="srow" data-sal="1">salary disclosed<span class="c">460</span></button>
+    </div>
+    <button class="jclear" id="jclear">× clear all filters</button>
+  </aside>
+    <div class="jmain">
+      <div class="jbar"><span><b id="jcount">97</b> roles</span><span>newest first · refreshed 2026-07-05</span></div>
+      <div class="joblist" id="jlist">
 <a class="job" href="https://jobs.lever.co/crypto/5a488d90-b241-4092-85aa-a3982fd8b62c" target="_blank" rel="noopener">
   <span class="t">Growth Content Manager (Sports &amp; Prediction Markets)</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Malta</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · Malta · 2026-07-03</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/7b32ec5a-4e8e-41b7-83f9-e381576c526e" target="_blank" rel="noopener">
   <span class="t">Growth Content Manager (Sports &amp; Prediction Markets)</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Cyprus</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · Cyprus · 2026-07-03</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/cc31108b-6663-42db-8a57-5c9cb725ddfa" target="_blank" rel="noopener">
   <span class="t">Growth Content Manager (Sports &amp; Prediction Markets)</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Dallas, Texas</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · Dallas, Texas · 2026-07-03</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/ec7ba497-91b8-4df8-8c0c-38d370889e76" target="_blank" rel="noopener">
   <span class="t">Growth Content Manager (Sports &amp; Prediction Markets)</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">London, United Kingdom</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · London, United Kingdom · 2026-07-03</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/bitpanda/jobs/4917781101" target="_blank" rel="noopener">
   <span class="t">Senior Product Marketing Specialist</span>
+  <span class="co">Bitpanda</span>
+  <span class="loc">Vienna, Vienna, Austria</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Bitpanda</b> · Vienna, Vienna, Austria · 2026-07-02</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8616009002?gh_jid=8616009002" target="_blank" rel="noopener">
   <span class="t">Internal Communications Specialist</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$109–131K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-07-02</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://n26.com/en-eu/careers/positions/7981883?gh_jid=7981883" target="_blank" rel="noopener">
   <span class="t">Growth Marketing Manager, Italy - Affiliate/Influencer Marketing</span>
+  <span class="co">N26</span>
+  <span class="loc">Milan</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>N26</b> · Milan · 2026-07-02</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/robinhood/jobs/7961175?t=gh_src=&amp;gh_jid=7961175" target="_blank" rel="noopener">
   <span class="t">Credit Business Analyst, Growth</span>
+  <span class="co">Robinhood</span>
+  <span class="loc">Menlo Park, CA; New York, NY; Washington, DC</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Robinhood</b> · Menlo Park, CA; New York, NY; Washington, DC · 2026-07-02</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/bitpanda/jobs/4909101101" target="_blank" rel="noopener">
   <span class="t">SEO Specialist</span>
+  <span class="co">Bitpanda</span>
+  <span class="loc">Vienna, Vienna, Austria</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Bitpanda</b> · Vienna, Vienna, Austria · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8393494002?gh_jid=8393494002" target="_blank" rel="noopener">
   <span class="t">Product Design Director, Growth</span>
+  <span class="co">Chime</span>
+  <span class="loc">San Francisco, CA, USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Chime</b> · San Francisco, CA, USA · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://n26.com/en-eu/careers/positions/7845570?gh_jid=7845570" target="_blank" rel="noopener">
   <span class="t">Influencer &amp; Affiliate Marketing Manager</span>
+  <span class="co">N26</span>
+  <span class="loc">Madrid</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>N26</b> · Madrid · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://n26.com/en-eu/careers/positions/7995198?gh_jid=7995198" target="_blank" rel="noopener">
   <span class="t">Senior Copywriter - Fluent German</span>
+  <span class="co">N26</span>
+  <span class="loc">Barcelona</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>N26</b> · Barcelona · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://n26.com/en-eu/careers/positions/7981885?gh_jid=7981885" target="_blank" rel="noopener">
   <span class="t">Senior Copywriter - Fluent German</span>
+  <span class="co">N26</span>
+  <span class="loc">Berlin</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>N26</b> · Berlin · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/qonto/4442a8c2-a644-4880-a1da-dda5830ff399" target="_blank" rel="noopener">
   <span class="t">Website Project Manager Intern</span>
+  <span class="co">Qonto</span>
+  <span class="loc">Berlin</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Qonto</b> · Berlin · 2026-07-01</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8579106002?gh_jid=8579106002" target="_blank" rel="noopener">
   <span class="t">Director, Growth Marketing (TV &amp; Offline Media)</span>
+  <span class="co">Chime</span>
+  <span class="loc">San Francisco, CA, USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Chime</b> · San Francisco, CA, USA · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8593034002?gh_jid=8593034002" target="_blank" rel="noopener">
   <span class="t">Growth Product Marketing Manager</span>
+  <span class="co">Chime</span>
+  <span class="loc">San Francisco, CA, USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Chime</b> · San Francisco, CA, USA · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/chime/jobs/8529549002?gh_jid=8529549002" target="_blank" rel="noopener">
   <span class="t">Senior Director, Strategy and Growth Initiatives</span>
+  <span class="co">Chime</span>
+  <span class="loc">San Francisco, CA, USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Chime</b> · San Francisco, CA, USA · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/mercury/jobs/5983426004" target="_blank" rel="noopener">
   <span class="t">Senior Product Marketing Manager - API &amp; Agentic Banking</span>
+  <span class="co">Mercury</span>
+  <span class="loc">San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States</span>
+  <span class="sal">$171–214K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Mercury</b> · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/nubank/jobs/7769465" target="_blank" rel="noopener">
   <span class="t">Marketing Senior Expert (Campaigns Lead)</span>
+  <span class="co">Nubank</span>
+  <span class="loc">USA, Miami</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Nubank</b> · USA, Miami · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/nubank/jobs/8022283" target="_blank" rel="noopener">
   <span class="t">Marketing Specialist (Product Marketing &amp; Customer Lifecycle)</span>
+  <span class="co">Nubank</span>
+  <span class="loc">Brazil, Sao Paulo</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Nubank</b> · Brazil, Sao Paulo · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Latin America</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/nubank/jobs/7746464" target="_blank" rel="noopener">
   <span class="t">Product Marketing Lead</span>
+  <span class="co">Nubank</span>
+  <span class="loc">USA, Miami</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Nubank</b> · USA, Miami · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7722402003?gh_jid=7722402003" target="_blank" rel="noopener">
   <span class="t">Director, Internal Communications</span>
+  <span class="co">SoFi</span>
+  <span class="loc">United States</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · United States · 2026-06-29</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8402259002?gh_jid=8402259002" target="_blank" rel="noopener">
   <span class="t">Product Marketing Lead, Startups</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$249–280K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-26</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7746572?gh_jid=7746572" target="_blank" rel="noopener">
   <span class="t">Communications Manager, Policy &amp; Public Affairs</span>
+  <span class="co">Coinbase</span>
+  <span class="loc">Remote - USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Coinbase</b> · Remote - USA · 2026-06-26</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7762143003" target="_blank" rel="noopener">
   <span class="t">CRM Lead - Membership Engagement Marketing</span>
+  <span class="co">Tide</span>
+  <span class="loc">United Kingdom</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · United Kingdom · 2026-06-26</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7778786003" target="_blank" rel="noopener">
   <span class="t">Midweight Copywriter (ENG)</span>
+  <span class="co">Tide</span>
+  <span class="loc">Bulgaria</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · Bulgaria · 2026-06-26</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7771714003" target="_blank" rel="noopener">
   <span class="t">CRM Manager - Member Activation</span>
+  <span class="co">Tide</span>
+  <span class="loc">Bulgaria</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · Bulgaria · 2026-06-25</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7779748003" target="_blank" rel="noopener">
   <span class="t">CRM Manager - Member Activation</span>
+  <span class="co">Tide</span>
+  <span class="loc">Romania</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · Romania · 2026-06-25</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
-</a>
-<a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7635657003" target="_blank" rel="noopener">
-  <span class="t">CRM Manager – Subscriptions</span>
-  <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · Romania · 2026-06-25</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7627762003" target="_blank" rel="noopener">
   <span class="t">CRM Manager – Subscriptions</span>
+  <span class="co">Tide</span>
+  <span class="loc">Bulgaria</span>
+  <span class="sal">€32–36K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · Bulgaria · 2026-06-25</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
-<a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/8023158" target="_blank" rel="noopener">
-  <span class="t">PR Manager, Expansion Markets</span>
+<a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7635657003" target="_blank" rel="noopener">
+  <span class="t">CRM Manager – Subscriptions</span>
+  <span class="co">Tide</span>
+  <span class="loc">Romania</span>
+  <span class="sal">€31–34K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Monzo</b> · Madrid · 2026-06-23</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/8023153" target="_blank" rel="noopener">
   <span class="t">PR Manager, Expansion Markets</span>
+  <span class="co">Monzo</span>
+  <span class="loc">Barcelona</span>
+  <span class="sal">€51–62K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Monzo</b> · Barcelona · 2026-06-23</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
+</a>
+<a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/8023158" target="_blank" rel="noopener">
+  <span class="t">PR Manager, Expansion Markets</span>
+  <span class="co">Monzo</span>
+  <span class="loc">Madrid</span>
+  <span class="sal">€51–62K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7771864003?gh_jid=7771864003" target="_blank" rel="noopener">
   <span class="t">Content Strategist, Podcasts &amp; Video (Part time)</span>
+  <span class="co">SoFi</span>
+  <span class="loc">NY - New York City; CA - San Francisco</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · NY - New York City; CA - San Francisco · 2026-06-22</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7771883003?gh_jid=7771883003" target="_blank" rel="noopener">
   <span class="t">Content Strategist, Product Education (Part time)</span>
+  <span class="co">SoFi</span>
+  <span class="loc">NY - New York City; CA - San Francisco</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · NY - New York City; CA - San Francisco · 2026-06-22</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://job-boards.eu.greenhouse.io/moniepoint/jobs/4244613101" target="_blank" rel="noopener">
   <span class="t">Performance Marketing Specialist</span>
+  <span class="co">Moniepoint</span>
+  <span class="loc">Remote, India</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Moniepoint</b> · Remote, India · 2026-06-21</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/8008372?gh_jid=8008372" target="_blank" rel="noopener">
   <span class="t">Performance Marketing Manager , Global</span>
+  <span class="co">Coinbase</span>
+  <span class="loc">Remote - USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Coinbase</b> · Remote - USA · 2026-06-18</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7753094003?gh_jid=7753094003" target="_blank" rel="noopener">
   <span class="t">Lifecycle Operations Manager</span>
+  <span class="co">SoFi</span>
+  <span class="loc">Cottonwood Heights, UT</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · Cottonwood Heights, UT · 2026-06-18</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Other</span></span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7753098003?gh_jid=7753098003" target="_blank" rel="noopener">
   <span class="t">Senior Content Strategist</span>
+  <span class="co">SoFi</span>
+  <span class="loc">New York, NY</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · New York, NY · 2026-06-18</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://sofi.com/careers/job/7610717003?gh_jid=7610717003" target="_blank" rel="noopener">
   <span class="t">Senior Lifecycle Marketing Manager, Home Loans</span>
+  <span class="co">SoFi</span>
+  <span class="loc">San Francisco, CA; New York; Seattle, WA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>SoFi</b> · San Francisco, CA; New York; Seattle, WA · 2026-06-18</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8590271002?gh_jid=8590271002" target="_blank" rel="noopener">
   <span class="t">Lead, Social Media</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$174–217K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-12</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8580837002?gh_jid=8580837002" target="_blank" rel="noopener">
   <span class="t">Customer Marketing Manager</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$132–165K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8580423002?gh_jid=8580423002" target="_blank" rel="noopener">
   <span class="t">Customer Marketing Manager</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$132–165K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · New York, New York, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8522876002?gh_jid=8522876002" target="_blank" rel="noopener">
   <span class="t">Director, Organic Growth &amp; Discoverability</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$220–276K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8522918002?gh_jid=8522918002" target="_blank" rel="noopener">
   <span class="t">Director, Organic Growth &amp; Discoverability</span>
+  <span class="co">Brex</span>
+  <span class="loc">Seattle, Washington, United States</span>
+  <span class="sal">$220–276K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · Seattle, Washington, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8522919002?gh_jid=8522919002" target="_blank" rel="noopener">
   <span class="t">Director, Organic Growth &amp; Discoverability</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$220–276K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · New York, New York, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8446669002?gh_jid=8446669002" target="_blank" rel="noopener">
-  <span class="t">Director, Product Marketing</span>
-  <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8447171002?gh_jid=8447171002" target="_blank" rel="noopener">
   <span class="t">Director, Product Marketing</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$249–311K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · New York, New York, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
-<a class="job" href="https://www.brex.com/careers/8372636002?gh_jid=8372636002" target="_blank" rel="noopener">
-  <span class="t">Senior Marketing Operations Manager, Product-Led Growth</span>
+<a class="job" href="https://www.brex.com/careers/8446669002?gh_jid=8446669002" target="_blank" rel="noopener">
+  <span class="t">Director, Product Marketing</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$249–311K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8380681002?gh_jid=8380681002" target="_blank" rel="noopener">
   <span class="t">Senior Marketing Operations Manager, Product-Led Growth</span>
+  <span class="co">Brex</span>
+  <span class="loc">Seattle, Washington, United States</span>
+  <span class="sal">$135–168K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · Seattle, Washington, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8372636002?gh_jid=8372636002" target="_blank" rel="noopener">
+  <span class="t">Senior Marketing Operations Manager, Product-Led Growth</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$135–168K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8372631002?gh_jid=8372631002" target="_blank" rel="noopener">
   <span class="t">Senior Marketing Operations Manager, Product-Led Growth</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$135–168K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · New York, New York, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8578101002?gh_jid=8578101002" target="_blank" rel="noopener">
-  <span class="t">Senior Partner Marketing Manager</span>
-  <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · San Francisco, California, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
-</a>
-<a class="job" href="https://www.brex.com/careers/8578102002?gh_jid=8578102002" target="_blank" rel="noopener">
-  <span class="t">Senior Partner Marketing Manager</span>
-  <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · New York, New York, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://www.brex.com/careers/8578103002?gh_jid=8578103002" target="_blank" rel="noopener">
   <span class="t">Senior Partner Marketing Manager</span>
+  <span class="co">Brex</span>
+  <span class="loc">Seattle, Washington, United States</span>
+  <span class="sal">$131–164K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Brex</b> · Seattle, Washington, United States · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8578102002?gh_jid=8578102002" target="_blank" rel="noopener">
+  <span class="t">Senior Partner Marketing Manager</span>
+  <span class="co">Brex</span>
+  <span class="loc">New York, New York, United States</span>
+  <span class="sal">$131–164K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://www.brex.com/careers/8578101002?gh_jid=8578101002" target="_blank" rel="noopener">
+  <span class="t">Senior Partner Marketing Manager</span>
+  <span class="co">Brex</span>
+  <span class="loc">San Francisco, California, United States</span>
+  <span class="sal">$131–164K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7982771?gh_jid=7982771" target="_blank" rel="noopener">
   <span class="t">Product Marketing Manager, Prediction Markets</span>
+  <span class="co">Coinbase</span>
+  <span class="loc">Remote - USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Coinbase</b> · Remote - USA · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://www.coinbase.com/careers/positions/7572514?gh_jid=7572514" target="_blank" rel="noopener">
   <span class="t">Product Marketing Manager, Prime &amp; Markets</span>
+  <span class="co">Coinbase</span>
+  <span class="loc">Remote - USA</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Coinbase</b> · Remote - USA · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Remote</span></span>
 </a>
 <a class="job" href="https://boards.greenhouse.io/embed/job_app?for=gemini&amp;token=7951043&amp;gh_jid=7951043" target="_blank" rel="noopener">
   <span class="t">Associate, Growth Marketing (Advanced Trading Products)</span>
+  <span class="co">Gemini</span>
+  <span class="loc">New York, New York</span>
+  <span class="sal">$83–110K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Gemini</b> · New York, New York · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">North America</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7719609003" target="_blank" rel="noopener">
   <span class="t">CRM Manager</span>
+  <span class="co">Tide</span>
+  <span class="loc">India, Hyderabad</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Tide</b> · India, Hyderabad · 2026-06-10</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Asia</span></span>
 </a>
 <a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/7861991" target="_blank" rel="noopener">
   <span class="t">Senior Product Marketing Manager, Borrowing</span>
+  <span class="co">Monzo</span>
+  <span class="loc">London</span>
+  <span class="sal">£78–100K</span>
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Monzo</b> · London · 2026-06-09</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Europe</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/0a231d17-6f5c-4b0c-acf9-551bb99e8dc3" target="_blank" rel="noopener">
   <span class="t">Senior CRM MarTech Associate/ CRM MarTech Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Hong Kong, Hong Kong SAR</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · Hong Kong, Hong Kong SAR · 2026-06-08</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Asia</span></span>
 </a>
 <a class="job" href="https://jobs.lever.co/crypto/19217e0e-3298-4b29-afa6-68d5c68fb380" target="_blank" rel="noopener">
   <span class="t">Senior CRM MarTech Associate/ CRM MarTech Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Singapore, Singapore</span>
+  
+  <span class="jtag">Marketing & Growth</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>Crypto.com</b> · Singapore, Singapore · 2026-06-08</span>
-  <span class="tags"><span class="jtag">Marketing & Growth</span><span class="jtag">Asia</span></span>
 </a>
+<a class="job" href="https://jobs.lever.co/crypto/4e7f0bc1-426a-49bd-b7d1-ab8bc7f9a82c" target="_blank" rel="noopener">
+  <span class="t">Senior CRM MarTech Associate/ CRM MarTech Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Dubai, United Arab Emirates</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/crypto/946573b6-08c8-4b95-9050-37e9eebdc8f2" target="_blank" rel="noopener">
+  <span class="t">Senior CRM MarTech Associate/ CRM MarTech Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Taipei, Taiwan</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://job-boards.greenhouse.io/tide/jobs/7709627003" target="_blank" rel="noopener">
+  <span class="t">Social Media Associate with German</span>
+  <span class="co">Tide</span>
+  <span class="loc">Bulgaria</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/qonto/0f2c56ec-c400-4786-b22a-19e66cbdc066" target="_blank" rel="noopener">
+  <span class="t">Lead Marketing — Accountants - France 🇫🇷</span>
+  <span class="co">Qonto</span>
+  <span class="loc">Paris</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://job-boards.greenhouse.io/monzo/jobs/7966820" target="_blank" rel="noopener">
+  <span class="t">Product Marketing Lead, Core Banking</span>
+  <span class="co">Monzo</span>
+  <span class="loc">London</span>
+  <span class="sal">£94–124K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/crypto/65cc07a4-8c4a-44bd-a700-af49a8ebf9ba" target="_blank" rel="noopener">
+  <span class="t">Social Media Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Singapore, Singapore</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/crypto/fbea23b8-07c6-4cdf-b37f-5cf1e5e54d58" target="_blank" rel="noopener">
+  <span class="t">Social Media Manager</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Hong Kong, Hong Kong SAR</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/crypto/ff3dc7ba-662e-4e49-82c2-e6143bb93712" target="_blank" rel="noopener">
+  <span class="t">Social Media Manager/ Content Creator</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Dallas, Texas</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/qonto/9a1d56b8-fb0c-4d7a-b53a-fe72d17d040c" target="_blank" rel="noopener">
+  <span class="t">Events Apprentice / Apprenti Événementiel</span>
+  <span class="co">Qonto</span>
+  <span class="loc">Paris</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/qonto/1f5f1d97-7e68-4d29-9a55-f3ef6e53e829" target="_blank" rel="noopener">
+  <span class="t">Events &amp; Customer Loyalty Apprentice</span>
+  <span class="co">Qonto</span>
+  <span class="loc">Paris</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.lever.co/qonto/9eb1aac8-7f5e-4b62-b0dc-c5759256a793" target="_blank" rel="noopener">
+  <span class="t">Senior Product Marketing Manager - Italian Market (1 year fixed term contract)</span>
+  <span class="co">Qonto</span>
+  <span class="loc">Milan</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/allica-bank/720552e5-c86d-4db9-b5f4-f1f94d267092" target="_blank" rel="noopener">
+  <span class="t">Growth Lead (Kriya)</span>
+  <span class="co">Allica Bank</span>
+  <span class="loc">London Office</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/found/7194d349-910a-4bc2-b4fb-053960d6982e" target="_blank" rel="noopener">
+  <span class="t">Product Marketing Manager</span>
+  <span class="co">Found</span>
+  <span class="loc">San Francisco Bay Area</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/found/e4bca10f-655a-46fd-9685-1d47c4f415ca" target="_blank" rel="noopener">
+  <span class="t">Growth Marketing Lead</span>
+  <span class="co">Found</span>
+  <span class="loc">San Francisco Bay Area</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/koho/267ac8f7-0927-43f4-a076-c923a47eace4" target="_blank" rel="noopener">
+  <span class="t">Performance Marketing Manager</span>
+  <span class="co">KOHO</span>
+  <span class="loc">KOHO (CAN)</span>
+  <span class="sal">$115–130K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/koho/4fe215d0-9107-4b49-a134-fbde57ea535f" target="_blank" rel="noopener">
+  <span class="t">CRO Specialist</span>
+  <span class="co">KOHO</span>
+  <span class="loc">KOHO (CAN)</span>
+  <span class="sal">$60–75K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/koho/9b619cdc-0016-4be4-9006-ae0d6225e3e6" target="_blank" rel="noopener">
+  <span class="t">Affiliate Marketing Coordinator</span>
+  <span class="co">KOHO</span>
+  <span class="loc">KOHO (CAN)</span>
+  <span class="sal">$60–70K</span>
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/neofinancial/194a7508-e77b-483f-9cee-118f3fee283b" target="_blank" rel="noopener">
+  <span class="t">Director, Community Engagement</span>
+  <span class="co">Neo Financial</span>
+  <span class="loc">Calgary, AB</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/neofinancial/32ddbbc8-ba36-4ba5-80d2-a2c616a66beb" target="_blank" rel="noopener">
+  <span class="t">Head of Marketing Technology</span>
+  <span class="co">Neo Financial</span>
+  <span class="loc">Calgary, AB · Toronto, ON</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+<a class="job" href="https://jobs.ashbyhq.com/neofinancial/34bcebf1-e394-41af-8feb-7a98e7146066" target="_blank" rel="noopener">
+  <span class="t">VP Product, Customer Growth &amp; Experience</span>
+  <span class="co">Neo Financial</span>
+  <span class="loc">Calgary, AB · Toronto, ON</span>
+  
+  <span class="jtag">Marketing & Growth</span>
+  <span class="apply">apply →</span>
+</a>
+      </div>
+      <div class="jmore" id="jmore"><button>show more roles</button></div>
+    </div>
   </div>
-  <div class="jmore" id="jmore"><button>show more roles</button></div>
 
   <article><p style="margin-top:24px"><a href="/jobs/">← all neobank jobs</a> · listings pulled from official Greenhouse/Lever/Ashby APIs · apply links go straight to the company.</p></article>
 </main>
 <script>
-let JOBS=[],shown=0,f={dept:'marketing',region:null,q:''};
-const STEP=60,list=document.getElementById('jlist'),more=document.getElementById('jmore');
+let JOBS=[],shown=0,f={dept:'marketing',region:null,q:'',sal:false};
+const PRESET='marketing';
+const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
+const regCount={"europe":372,"remote":553,"north-america":629,"asia":130,"africa":19,"latin-america":79,"other":133,"mena":5,"oceania":4};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;render(true)});
-function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
-function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
-a.innerHTML='<span class="t"></span><span class="apply">apply →</span><span class="m"><b></b> · '+esc(j.location)+(j.posted?' · '+j.posted:'')+'</span><span class="tags"><span class="jtag">'+deptName[j.dept]+'</span><span class="jtag">'+regName[j.region]+'</span></span>';
-a.querySelector('.t').textContent=j.title;a.querySelector('.m b').textContent=j.company;return a}
+function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
+a.innerHTML='<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
+a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
-const hits=JOBS.filter(match);document.getElementById('jcount').textContent=hits.length;
+const hits=JOBS.filter(match);
+document.querySelectorAll('#jcount').forEach(el=>el.textContent=hits.length.toLocaleString('en-US'));
 const batch=hits.slice(shown,shown+STEP);batch.forEach(j=>list.appendChild(card(j)));shown+=batch.length;
-more.style.display=shown<hits.length?'':'none'}
+more.style.display=shown<hits.length?'':'none';
+document.getElementById('jclear').style.display=(f.region||f.q||f.sal||(f.dept&&f.dept!==PRESET))?'block':'none'}
 more.querySelector('button').addEventListener('click',()=>render(false));
 document.getElementById('jsearch').addEventListener('input',e=>{f.q=e.target.value.toLowerCase().trim();render(true)});
-document.querySelectorAll('[data-dept]').forEach(c=>c.addEventListener('click',e=>{e.preventDefault();
-const v=c.dataset.dept||null;f.dept=f.dept===v?null:v;document.querySelectorAll('[data-dept]').forEach(x=>x.classList.toggle('on',x.dataset.dept===f.dept&&f.dept));render(true)}));
-document.querySelectorAll('[data-region]').forEach(c=>c.addEventListener('click',()=>{const v=c.dataset.region||null;
-f.region=f.region===v?null:v;document.querySelectorAll('[data-region]').forEach(x=>x.classList.toggle('on',x.dataset.region===f.region&&f.region));render(true)}));
+document.querySelectorAll('button[data-dept]').forEach(c=>c.addEventListener('click',()=>{
+const v=c.dataset.dept;f.dept=f.dept===v?null:v;
+document.querySelectorAll('button[data-dept]').forEach(x=>x.classList.toggle('on',x.dataset.dept===f.dept));render(true)}));
+function setRegion(v){f.region=f.region===v?null:v;
+document.querySelectorAll('button[data-region]').forEach(x=>x.classList.toggle('on',x.dataset.region===f.region));
+syncMap();render(true)}
+document.querySelectorAll('button[data-region]').forEach(c=>c.addEventListener('click',()=>setRegion(c.dataset.region)));
+document.querySelectorAll('button[data-sal]').forEach(c=>c.addEventListener('click',()=>{f.sal=!f.sal;c.classList.toggle('on',f.sal);render(true)}));
+/* the map is a filter: click a continent */
+const jmap=document.getElementById('jmap'),jlbl=document.getElementById('jmaplabel');
+function syncMap(){jmap.classList.toggle('hasfilter',!!f.region);
+jmap.querySelectorAll('span[data-region]').forEach(s=>s.classList.toggle('actv',s.dataset.region===f.region));
+jlbl.textContent=f.region?regName[f.region]+' · '+(regCount[f.region]||0)+' roles — click again to clear':'click a region to filter'}
+jmap.addEventListener('click',e=>{const r=e.target.dataset&&e.target.dataset.region;if(r)setRegion(r)});
+jmap.addEventListener('mouseover',e=>{const r=e.target.dataset&&e.target.dataset.region;
+if(r){jmap.dataset.hov=r;jmap.querySelectorAll('span[data-region]').forEach(s=>s.classList.toggle('hov',s.dataset.region===r));
+jlbl.textContent=regName[r]+' · '+(regCount[r]||0)+' roles'}});
+jmap.addEventListener('mouseleave',()=>{delete jmap.dataset.hov;jmap.querySelectorAll('.hov').forEach(s=>s.classList.remove('hov'));syncMap()});
+document.getElementById('jclear').addEventListener('click',()=>{
+f.region=null;f.q='';f.sal=false;if(!PRESET)f.dept=null;
+document.getElementById('jsearch').value='';
+document.querySelectorAll('.srow.on').forEach(x=>{if(!x.href)x.classList.remove('on')});
+syncMap();render(true)});
 </script>
 
 <footer><div class="fwrap">

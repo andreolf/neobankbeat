@@ -10,6 +10,13 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
+
+/* ── world map: reuse the homepage dot-matrix grid ── */
+const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const GRID = eval('[' + idx.match(/const GRID=\[([\s\S]*?)\];/)[1] + ']');
+const L2M = eval('(' + idx.match(/const L2M=(\{[^}]+\})/)[1] + ')');
+const MACRO2REGION = { NA: 'north-america', EU: 'europe', LATAM: 'latin-america', AF: 'africa', MENA: 'mena', ASIA: 'asia', OC: 'oceania' };
+const MMCOL = { NA: '#89B0FF', EU: '#D075FF', LATAM: '#FF5C16', AF: '#BAF24A', MENA: '#FFA680', ASIA: '#CCE7FF', OC: '#E5FFC3' };
 const slugify = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -86,35 +93,61 @@ function region(loc, isRemote) {
   return 'other';
 }
 
+/* ── salary: structured ATS fields are almost always disabled, but US/UK
+   pay-transparency rules push ranges into the description text ── */
+const stripHtml = h => String(h || '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&#?\w+;/g, ' ').replace(/<[^>]+>/g, ' ');
+function fmtSalary(txt) {
+  if (!txt) return null;
+  const m = /([$£€]|USD|CAD|EUR|GBP|CHF|C\$)\s?(\d{2,3}(?:[,.]\d{3})+|\d{2,3}(?:\.\d)?\s?[kK])\s*(?:[-–—]|to)\s*(?:[$£€]|USD|CAD|EUR|GBP|C\$)?\s?(\d{2,3}(?:[,.]\d{3})+|\d{2,3}(?:\.\d)?\s?[kK])/.exec(txt);
+  if (!m) return null;
+  const num = s => { s = s.trim().toLowerCase(); return s.endsWith('k') ? parseFloat(s) * 1000 : parseFloat(s.replace(/[,.](?=\d{3})/g, '')); };
+  const lo = num(m[2]), hi = num(m[3]);
+  if (!(lo >= 30000 && hi > lo && hi < 2000000)) return null;  // filters hourly/monthly noise
+  const sym = { usd: '$', eur: '€', gbp: '£', cad: 'C$', 'c$': 'C$', chf: 'CHF' }[m[1].toLowerCase()] || m[1];
+  return `${sym}${Math.round(lo / 1000)}–${Math.round(hi / 1000)}K`;
+}
+
 /* ── fetch + normalize ── */
 async function fetchSource([display, entityName, ats, slug]) {
   const ent = E.find(e => e.name === entityName);
   const profile = ent ? `/n/${slugify(ent.name)}/` : null;
   const url = ats === 'gh'
-    ? `https://boards-api.greenhouse.io/v1/boards/${slug}/jobs`
+    ? `https://boards-api.greenhouse.io/v1/boards/${slug}/jobs?content=true`
     : ats === 'lever'
       ? `https://api.lever.co/v0/postings/${slug}?mode=json`
       : `https://api.ashbyhq.com/posting-api/job-board/${slug}`;
   try {
-    const r = await fetch(url, { signal: AbortSignal.timeout(15000), headers: { 'user-agent': 'neobankbeat-jobs/1.0' } });
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    const j = await r.json();
+    let j;
+    for (let attempt = 0; ; attempt++) {  // content=true payloads are heavy; retry, then fall back to the light listing
+      try {
+        const u = attempt === 2 && ats === 'gh' ? url.replace('?content=true', '') : url;
+        const r = await fetch(u, { signal: AbortSignal.timeout(attempt ? 90000 : 25000), headers: { 'user-agent': 'neobankbeat-jobs/1.0' } });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        j = await r.json();
+        break;
+      } catch (e) { if (attempt >= 2) throw e; }
+    }
     let rows = [];
     if (ats === 'gh') rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.absolute_url, l: x.location?.name || '', d: null, p: (x.updated_at || '').slice(0, 10),
+      s: stripHtml(x.content),
     }));
     else if (ats === 'lever') rows = (Array.isArray(j) ? j : []).map(x => ({
       t: x.text, u: x.hostedUrl, l: x.categories?.location || '', d: x.categories?.team || x.categories?.department || null,
       p: x.createdAt ? new Date(x.createdAt).toISOString().slice(0, 10) : '',
+      s: (x.descriptionPlain || '') + ' ' + (x.additionalPlain || ''),
     }));
     else rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.jobUrl || x.applyUrl, l: [x.location, ...(x.secondaryLocations || []).map(s => s.location)].filter(Boolean).join(' · '),
       d: x.department || x.team || null, p: (x.publishedDate || '').slice(0, 10), r: !!x.isRemote,
+      s: x.descriptionPlain || '',
     }));
     return rows.filter(x => x.t && x.u).map(x => ({
       title: x.t.trim(), url: x.u, company: display, profile,
       location: (x.l || '').trim() || 'Not specified',
       dept: classify(x.t, x.d), region: region(`${x.l} ${x.t}`, x.r), posted: x.p || null,
+      salary: fmtSalary(x.s),
     }));
   } catch (err) {
     console.error(`  !! ${display}: ${err.message}`);
@@ -149,23 +182,44 @@ const CSS = `
 .jstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
 .jstat .n{font-family:'Noto Sans Mono',monospace;font-size:20px;font-weight:700}
 .jstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.chip{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:6px 13px;cursor:pointer;text-decoration:none;display:inline-block}
-.chip:hover{color:var(--text);border-color:var(--muted)}
-.chip.on{background:var(--acc);border-color:var(--acc);color:#0A0A10;font-weight:700}
-.chip .c{opacity:.65;margin-left:4px}
-#jsearch{width:100%;max-width:420px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:13px;padding:11px 14px;margin:6px 0 4px}
+main.wrap{max-width:1150px}
+.jhero,main.wrap>article{max-width:760px}
+.jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
+.jmain{min-width:0}
+.jside{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
+#jsearch{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box}
 #jsearch:focus{outline:none;border-color:var(--acc)}
-.joblist{margin:18px 0;display:flex;flex-direction:column;gap:10px}
-.job{display:grid;grid-template-columns:1fr auto;gap:4px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;text-decoration:none;transition:border-color .15s}
+.jsec{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.jsec::before{content:"—— ";color:var(--acc)}
+.jmap{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px 9px}
+.jmapgrid{display:grid;gap:0;line-height:0}
+.jmapgrid span{width:3.4px;height:3.4px;border-radius:50%;display:inline-block}
+.jmapgrid span.sea{background:transparent}
+.jmapgrid span[data-region]{cursor:pointer}
+.jmap.hasfilter span[data-region]{opacity:.18}
+.jmap.hasfilter span.actv{opacity:1;filter:brightness(1.3)}
+.jmap[data-hov] span[data-region]{opacity:.25}
+.jmap[data-hov] span.hov{opacity:1;filter:brightness(1.3)}
+.jmaplabel{font-family:'Noto Sans Mono',monospace;font-size:9.5px;color:var(--dim);margin-top:8px;min-height:12px}
+.sidelist{display:flex;flex-direction:column}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);background:none;border:none;border-radius:7px;padding:6px 9px;cursor:pointer;text-decoration:none;text-align:left;width:100%;box-sizing:border-box}
+.srow:hover{background:var(--panel);color:var(--text)}
+.srow.on{background:var(--acc);color:#0A0A10;font-weight:700}
+.srow .c{color:var(--dim);font-size:10.5px}
+.srow.on .c{color:#0A0A10;opacity:.7}
+.jclear{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);background:none;border:none;cursor:pointer;text-align:left;padding:2px 9px;display:none}
+.jbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.jbar b{color:var(--text);font-size:14px}
+.joblist{display:flex;flex-direction:column;gap:6px}
+.job{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px;text-decoration:none;transition:border-color .12s;min-width:0}
 .job:hover{border-color:var(--acc)}
-.job .t{font-weight:700;font-size:15.5px;color:var(--text)}
-.job .m{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--muted)}
-.job .m b{color:var(--acc);font-weight:500}
-.job .tags{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
-.jtag{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 9px}
-.job .apply{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);align-self:start;white-space:nowrap}
-.jmore{text-align:center;margin:18px 0}
+.job .t{font-weight:700;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 0;min-width:150px}
+.job .co{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);white-space:nowrap;flex:0 0 auto}
+.job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
+.job .sal{font-family:'Noto Sans Mono',monospace;font-size:10.5px;font-weight:700;color:var(--w,#BAF24A);border:1px solid color-mix(in srgb,var(--w,#BAF24A) 35%,transparent);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
+.jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
 .cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:16px 0}
@@ -173,7 +227,16 @@ const CSS = `
 .cocard:hover{border-color:var(--acc)}
 .cocard .n{font-weight:700;color:var(--text);font-size:14px}
 .cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
-@media(max-width:640px){.job{grid-template-columns:1fr}.job .apply{display:none}}
+@media(max-width:860px){
+  .jlayout{grid-template-columns:minmax(0,1fr)}
+  .jside{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+  .jside>*{flex:1 1 100%}
+  .jside .jmap{flex:1 1 230px;max-width:260px}
+  .jside .sidelist{flex:1 1 46%;min-width:170px}
+  .job{flex-wrap:wrap;row-gap:3px}
+  .job .t{flex:1 1 100%;white-space:normal}
+  .job .apply{display:none}
+}
 `;
 
 const head = (title, desc, canonical, ld) => `<!DOCTYPE html>
@@ -231,47 +294,100 @@ const foot = `
 
 const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="noopener">
   <span class="t">${esc(j.title)}</span>
+  <span class="co">${esc(j.company)}</span>
+  <span class="loc">${esc(j.location)}</span>
+  ${j.salary ? `<span class="sal">${esc(j.salary)}</span>` : ''}
+  <span class="jtag">${DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other'}</span>
   <span class="apply">apply →</span>
-  <span class="m"><b>${esc(j.company)}</b> · ${esc(j.location)}${j.posted ? ` · ${j.posted}` : ''}</span>
-  <span class="tags"><span class="jtag">${DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other'}</span><span class="jtag">${REGION_LABELS[j.region]}</span></span>
 </a>`;
 
+/* ── sidebar: search + dot-matrix world map + department/region lists ── */
+const mapCols = Math.max(...GRID.map(r => r.length));
+const mapDots = GRID.map(row => {
+  let out = '';
+  for (let i = 0; i < mapCols; i++) {
+    const m = L2M[row[i] || '.'];
+    out += m
+      ? `<span data-region="${MACRO2REGION[m]}" style="background:${MMCOL[m]}"></span>`
+      : '<span class="sea"></span>';
+  }
+  return out;
+}).join('');
+
+const byRegion = {};
+for (const j of all) byRegion[j.region] = (byRegion[j.region] || 0) + 1;
+const salN = all.filter(j => j.salary).length;
+
+function sidebar(activeDept) {
+  const deptRows = [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]
+    .filter(([id]) => byDept[id])
+    .map(([id, label]) => activeDept !== null
+      ? `<a class="srow${id === activeDept ? ' on' : ''}" href="${id === activeDept ? '/jobs/' : `/jobs/${id}/`}">${label}<span class="c">${byDept[id]}</span></a>`
+      : `<button class="srow" data-dept="${id}">${label}<span class="c">${byDept[id]}</span></button>`).join('\n');
+  const regionRows = Object.entries(REGION_LABELS)
+    .filter(([id]) => byRegion[id])
+    .map(([id, label]) => `<button class="srow" data-region="${id}">${label}<span class="c">${byRegion[id]}</span></button>`).join('\n');
+  return `<aside class="jside">
+    <input id="jsearch" type="search" placeholder="search title, company, city…" aria-label="Search jobs">
+    <div class="jmap" id="jmap" title="click a region to filter">
+      <div class="jmapgrid" style="grid-template-columns:repeat(${mapCols},3.4px)">${mapDots}</div>
+      <div class="jmaplabel" id="jmaplabel">click a region to filter</div>
+    </div>
+    <div class="jsec">department</div>
+    <div class="sidelist">${deptRows}</div>
+    <div class="jsec">region</div>
+    <div class="sidelist">${regionRows}
+      <button class="srow" data-sal="1">salary disclosed<span class="c">${salN}</span></button>
+    </div>
+    <button class="jclear" id="jclear">× clear all filters</button>
+  </aside>`;
+}
+
 const filterScript = (preset) => `<script>
-let JOBS=[],shown=0,f={dept:${preset ? `'${preset}'` : 'null'},region:null,q:''};
-const STEP=60,list=document.getElementById('jlist'),more=document.getElementById('jmore');
+let JOBS=[],shown=0,f={dept:${preset ? `'${preset}'` : 'null'},region:null,q:'',sal:false};
+const PRESET=${preset ? `'${preset}'` : 'null'};
+const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName=${JSON.stringify(Object.fromEntries(DEPTS.map(d => [d[0], d[1]])))};deptName.other='Other';
 const regName=${JSON.stringify(REGION_LABELS)};
+const regCount=${JSON.stringify(byRegion)};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;render(true)});
-function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
-function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
-a.innerHTML='<span class="t"></span><span class="apply">apply →</span><span class="m"><b></b> · '+esc(j.location)+(j.posted?' · '+j.posted:'')+'</span><span class="tags"><span class="jtag">'+deptName[j.dept]+'</span><span class="jtag">'+regName[j.region]+'</span></span>';
-a.querySelector('.t').textContent=j.title;a.querySelector('.m b').textContent=j.company;return a}
+function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
+a.innerHTML='<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
+a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
-const hits=JOBS.filter(match);document.getElementById('jcount').textContent=hits.length;
+const hits=JOBS.filter(match);
+document.querySelectorAll('#jcount').forEach(el=>el.textContent=hits.length.toLocaleString('en-US'));
 const batch=hits.slice(shown,shown+STEP);batch.forEach(j=>list.appendChild(card(j)));shown+=batch.length;
-more.style.display=shown<hits.length?'':'none'}
+more.style.display=shown<hits.length?'':'none';
+document.getElementById('jclear').style.display=(f.region||f.q||f.sal||(f.dept&&f.dept!==PRESET))?'block':'none'}
 more.querySelector('button').addEventListener('click',()=>render(false));
 document.getElementById('jsearch').addEventListener('input',e=>{f.q=e.target.value.toLowerCase().trim();render(true)});
-document.querySelectorAll('[data-dept]').forEach(c=>c.addEventListener('click',e=>{e.preventDefault();
-const v=c.dataset.dept||null;f.dept=f.dept===v?null:v;document.querySelectorAll('[data-dept]').forEach(x=>x.classList.toggle('on',x.dataset.dept===f.dept&&f.dept));render(true)}));
-document.querySelectorAll('[data-region]').forEach(c=>c.addEventListener('click',()=>{const v=c.dataset.region||null;
-f.region=f.region===v?null:v;document.querySelectorAll('[data-region]').forEach(x=>x.classList.toggle('on',x.dataset.region===f.region&&f.region));render(true)}));
+document.querySelectorAll('button[data-dept]').forEach(c=>c.addEventListener('click',()=>{
+const v=c.dataset.dept;f.dept=f.dept===v?null:v;
+document.querySelectorAll('button[data-dept]').forEach(x=>x.classList.toggle('on',x.dataset.dept===f.dept));render(true)}));
+function setRegion(v){f.region=f.region===v?null:v;
+document.querySelectorAll('button[data-region]').forEach(x=>x.classList.toggle('on',x.dataset.region===f.region));
+syncMap();render(true)}
+document.querySelectorAll('button[data-region]').forEach(c=>c.addEventListener('click',()=>setRegion(c.dataset.region)));
+document.querySelectorAll('button[data-sal]').forEach(c=>c.addEventListener('click',()=>{f.sal=!f.sal;c.classList.toggle('on',f.sal);render(true)}));
+/* the map is a filter: click a continent */
+const jmap=document.getElementById('jmap'),jlbl=document.getElementById('jmaplabel');
+function syncMap(){jmap.classList.toggle('hasfilter',!!f.region);
+jmap.querySelectorAll('span[data-region]').forEach(s=>s.classList.toggle('actv',s.dataset.region===f.region));
+jlbl.textContent=f.region?regName[f.region]+' · '+(regCount[f.region]||0)+' roles — click again to clear':'click a region to filter'}
+jmap.addEventListener('click',e=>{const r=e.target.dataset&&e.target.dataset.region;if(r)setRegion(r)});
+jmap.addEventListener('mouseover',e=>{const r=e.target.dataset&&e.target.dataset.region;
+if(r){jmap.dataset.hov=r;jmap.querySelectorAll('span[data-region]').forEach(s=>s.classList.toggle('hov',s.dataset.region===r));
+jlbl.textContent=regName[r]+' · '+(regCount[r]||0)+' roles'}});
+jmap.addEventListener('mouseleave',()=>{delete jmap.dataset.hov;jmap.querySelectorAll('.hov').forEach(s=>s.classList.remove('hov'));syncMap()});
+document.getElementById('jclear').addEventListener('click',()=>{
+f.region=null;f.q='';f.sal=false;if(!PRESET)f.dept=null;
+document.getElementById('jsearch').value='';
+document.querySelectorAll('.srow.on').forEach(x=>{if(!x.href)x.classList.remove('on')});
+syncMap();render(true)});
 </script>`;
-
-const deptChips = (activeId, asLinks) => `<div class="chips">
-${DEPTS.map(([id, label]) => byDept[id] ? (asLinks
-  ? `<a class="chip${id === activeId ? ' on' : ''}" href="/jobs/${id}/">${label}<span class="c">${byDept[id]}</span></a>`
-  : `<span class="chip" data-dept="${id}">${label}<span class="c">${byDept[id]}</span></span>`) : '').join('\n')}
-${byDept.other && !asLinks ? `<span class="chip" data-dept="other">Other<span class="c">${byDept.other}</span></span>` : ''}
-</div>`;
-
-const regionChips = `<div class="chips">
-${Object.entries(REGION_LABELS).map(([id, label]) => {
-  const n = all.filter(j => j.region === id).length;
-  return n ? `<span class="chip" data-region="${id}">${label}<span class="c">${n}</span></span>` : '';
-}).join('\n')}
-</div>`;
 
 /* ── index page ── */
 const topCompanies = Object.entries(byCompany).sort((a, b) => b[1] - a[1]);
@@ -289,19 +405,21 @@ const indexHtml = head(
   </article>
 
   <div class="jstats">
-    <div class="jstat"><div class="n" id="jcount">${all.length.toLocaleString('en-US')}</div><div class="l">live roles</div></div>
+    <div class="jstat"><div class="n">${all.length.toLocaleString('en-US')}</div><div class="l">live roles</div></div>
     <div class="jstat"><div class="n">${nCompanies}</div><div class="l">neobanks hiring</div></div>
-    <div class="jstat"><div class="n">${Object.keys(byDept).length}</div><div class="l">departments</div></div>
+    <div class="jstat"><div class="n">${salN}</div><div class="l">with disclosed salary</div></div>
   </div>
 
-  <input id="jsearch" type="search" placeholder="search title, company, city… " aria-label="Search jobs">
-  ${deptChips(null, false)}
-  ${regionChips}
-
-  <div class="joblist" id="jlist">
-${all.slice(0, 60).map(jobCard).join('\n')}
+  <div class="jlayout">
+    ${sidebar(null)}
+    <div class="jmain">
+      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY}</span></div>
+      <div class="joblist" id="jlist">
+${all.slice(0, 80).map(jobCard).join('\n')}
+      </div>
+      <div class="jmore" id="jmore"><button>show more roles</button></div>
+    </div>
   </div>
-  <div class="jmore" id="jmore"><button>show more roles</button></div>
 
   <article>
   <h2>who's hiring</h2>
@@ -315,7 +433,10 @@ ${topCompanies.map(([co, n]) => {
   </div>
 
   <h2>browse by department</h2>
-  ${deptChips(null, true)}
+  <div class="cogrid">
+${DEPTS.filter(([id]) => byDept[id]).map(([id, label]) =>
+  `    <a class="cocard" href="/jobs/${id}/"><div class="n">${label}</div><div class="c">${byDept[id]} open role${byDept[id] === 1 ? '' : 's'}</div></a>`).join('\n')}
+  </div>
 
   <h2>how this board works</h2>
   <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? Their ATS has no public API yet — <a href="https://github.com/andreolf/neobankbeat/issues">tell us</a> and we'll wire it in.</p>
@@ -359,14 +480,16 @@ for (const [id, label] of DEPTS) {
   <p class="meta"><b><span id="jcount">${rows.length}</span> live roles</b> at ${new Set(rows.map(r => r.company)).size} digital banks · ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.</p>
   </article>
 
-  <input id="jsearch" type="search" placeholder="search title, company, city…" aria-label="Search jobs">
-  ${deptChips(id, true)}
-  ${regionChips}
-
-  <div class="joblist" id="jlist">
-${rows.slice(0, 60).map(jobCard).join('\n')}
+  <div class="jlayout">
+    ${sidebar(id)}
+    <div class="jmain">
+      <div class="jbar"><span><b id="jcount">${rows.length}</b> roles</span><span>newest first · refreshed ${TODAY}</span></div>
+      <div class="joblist" id="jlist">
+${rows.slice(0, 80).map(jobCard).join('\n')}
+      </div>
+      <div class="jmore" id="jmore"><button>show more roles</button></div>
+    </div>
   </div>
-  <div class="jmore" id="jmore"><button>show more roles</button></div>
 
   <article><p style="margin-top:24px"><a href="/jobs/">← all neobank jobs</a> · listings pulled from official Greenhouse/Lever/Ashby APIs · apply links go straight to the company.</p></article>
 </main>
