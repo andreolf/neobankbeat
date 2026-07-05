@@ -26,10 +26,10 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/json" href="/data.json" title="neobankbeat dataset (JSON)">
 <link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="neobankbeat blog">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.google.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -119,6 +119,11 @@ select{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border-radius:8
 .count b{color:var(--text)}
 
 .grid{max-width:1320px;margin:14px auto 40px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:14px}
+.grid:empty{min-height:120vh}/* reserve space pre-render: keeps below-fold sections out of the first paint → no CLS when JS fills the grid */
+/* boot: the JS layers insert sections and re-render cards several times between paints;
+   anything that mutates mid-boot stays invisible (occupying space, so no layout shift is
+   scored) until the final script adds .booted — then it appears fully settled */
+body:not(.booted) .spectrum,body:not(.booted) #mapsec,body:not(.booted) #directory,body:not(.booted) #activebar,body:not(.booted) #count,body:not(.booted) .grid{visibility:hidden}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s, transform .15s}
 .card:hover{border-color:var(--muted);transform:translateY(-1px)}
 .card.featured{border-color:var(--accent);background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,transparent),var(--panel) 55%)}
@@ -3215,6 +3220,9 @@ render();
     document.getElementById('q').focus();
   });
 })();
+/* boot complete: reveal the grid (kept hidden through the layer passes to avoid CLS) */
+document.body.classList.add('booted');
 </script>
+<script>document.body.classList.add('booted');/* failsafe: separate block in case a layer above throws */</script>
 </body>
 </html>

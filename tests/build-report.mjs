@@ -952,9 +952,9 @@ const webHtml = `<!DOCTYPE html>
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script defer src="/_vercel/insights/script.js"></script>
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` })}
