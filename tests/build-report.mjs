@@ -1002,7 +1002,7 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     <p>If it didn't, <a href="${PDF_URL}" download style="color:var(--acc)">download the PDF directly</a>. The August edition will arrive by email. Thanks for subscribing.</p>
   </div>
 </div>
-<div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
+<div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
 /* gate: no server, so unlock is detected client-side — when the visitor
    interacts with the substack embed (blur → focus lands in the iframe),

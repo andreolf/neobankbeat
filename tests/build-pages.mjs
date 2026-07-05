@@ -82,7 +82,7 @@ const bwScript = `<script>(function(){var b=document.getElementById('bwtoggle');
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -306,6 +306,86 @@ for (const [an, bn] of PAIRS) {
   fs.writeFileSync(path.join(ROOT, 'vs', 'index.html'), html);
 }
 
+/* ═══ /investors/ — who funds the neobanks: investor → portfolio index ═══ */
+{
+  const inv = new Map(); // name -> { site, banks:[entity] }
+  for (const e of E) for (const iv of e.investors || []) {
+    if (!inv.has(iv.name)) inv.set(iv.name, { site: iv.website, banks: [] });
+    inv.get(iv.name).banks.push(e);
+  }
+  const rows = [...inv.entries()].sort((a, b) => b[1].banks.length - a[1].banks.length || a[0].localeCompare(b[0]));
+  const nBanks = new Set(rows.flatMap(([, v]) => v.banks.map(b => b.name))).size;
+  const invDom = site => String(site || '').replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+  const ivSlug = n => slugify(n) || 'investor';
+
+  const url = `${BASE}/investors/`;
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: 'Investors in neobanks', url,
+    description: `${rows.length} venture and strategic investors behind ${nBanks} neobanks, from publicly disclosed funding rounds.`,
+    isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
+    mainEntity: { '@type': 'ItemList', itemListElement: rows.slice(0, 50).map(([name, v], i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Organization', name, url: v.site } })) },
+  };
+  const style = `<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+#ivsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px}
+#ivsearch:focus{outline:none;border-color:var(--accent)}
+.ivrow{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px}
+.ivhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain}
+.ivhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
+.ivhead .nm:hover{color:var(--accent)}
+.ivhead .ct{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.ivhead .st{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;text-decoration:none}
+.ivhead .st:hover{color:var(--accent)}
+.ivbanks{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ivbanks a{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;text-decoration:none;white-space:nowrap}
+.ivbanks a:hover{border-color:var(--accent);color:var(--text)}
+</style>`;
+  const rowHtml = ([name, v]) => `<div class="ivrow" id="${ivSlug(name)}" data-q="${esc((name + ' ' + v.banks.map(b => b.name).join(' ')).toLowerCase())}">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(invDom(v.site))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(name)}</a>
+    <span class="ct">${v.banks.length} neobank${v.banks.length === 1 ? '' : 's'}</span>
+    <a class="st" href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a>
+  </div>
+  <div class="ivbanks">${v.banks.map(b => `<a href="/n/${slugs.get(b.name)}/">${esc(b.name)}</a>`).join('')}</div>
+</div>`;
+
+  const html = (head(`Investors in neobanks — ${rows.length} VCs & strategics behind ${nBanks} digital banks · neobankbeat`,
+    `Who funds the neobanks: ${rows.length} venture and strategic investors — Ribbit, Tiger Global, SoftBank, Tencent, Y Combinator and more — mapped to the ${nBanks} neobanks they backed, from publicly disclosed rounds.`,
+    url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">follow the money</div>
+  <h1>Investors <em>in neobanks</em></h1>
+  <p class="meta"><b>${rows.length} investors · ${nBanks} funded neobanks</b> · compiled from publicly disclosed funding rounds in the <a href="/">directory</a> dataset · updated ${TODAY}</p>
+
+  <div class="ivstats">
+    <div class="ivstat"><div class="n">${rows.length}</div><div class="l">investors tracked</div></div>
+    <div class="ivstat"><div class="n">${nBanks}</div><div class="l">neobanks funded</div></div>
+    <div class="ivstat"><div class="n">${rows.filter(([, v]) => v.banks.length >= 3).length}</div><div class="l">with 3+ portfolio neobanks</div></div>
+  </div>
+
+  <p>Every investor below appears in the publicly disclosed early rounds of at least one tracked neobank. Ordered by portfolio size — the top of this list is a fair map of who has shaped digital banking. Click a neobank for its full profile, or the firm for its site. Something missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a fix</a>.</p>
+
+  <input id="ivsearch" type="search" placeholder="filter by investor or neobank — e.g. sequoia, nubank…" aria-label="Filter investors">
+
+${rows.map(rowHtml).join('\n')}
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Investor lists are notable backers from disclosed rounds, not complete cap tables. Sources are linked on each neobank's profile. Not investment advice.</p>
+  ${subscribeBox}
+</article>
+</main>
+<script>(function(){var q=document.getElementById('ivsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+  fs.mkdirSync(path.join(ROOT, 'investors'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'investors', 'index.html'), html.replace('</head>', style + '\n</head>'));
+  console.log(`investors page: ${rows.length} investors, ${nBanks} neobanks`);
+}
+
 /* ═══ sitemap ═══ */
 const BLOG_POSTS = [
   ['what-is-a-neobank', '2025-09-16'], ['neobank-vs-traditional-bank', '2025-10-07'],
@@ -321,6 +401,7 @@ const urls = [
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
   { loc: `${BASE}/faq/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/glossary/`, changefreq: 'monthly', priority: '0.9' },
+  { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
