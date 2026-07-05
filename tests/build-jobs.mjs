@@ -90,6 +90,11 @@ const SOURCES = [
   ['PalmPay', 'PalmPay', 'smartr', 'palmpay'],
   ['Brubank', 'Brubank', 'smartr', 'brubank'],
   ['Trade Republic', 'Trade Republic', 'gh', 'traderepublic'],
+  /* custom-scraper additions — companies without a standard public ATS API */
+  ['Starling Bank', 'Starling Bank', 'workable', 'starling-bank'],
+  ['Kuda', 'Kuda', 'workable', 'kuda'],
+  ['Klarna', 'Klarna', 'deel', 'klarna'],
+  ['bunq', 'bunq', 'bunq', 'bunq'],
 ];
 
 /* ── department taxonomy ── */
@@ -168,10 +173,68 @@ function visaOf(desc) {
   return VISA_YES.test(d) && !VISA_NO.test(d) ? true : undefined;
 }
 
+/* ── custom scrapers: no public ATS API, but the career sites are parseable ── */
+const BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+
+/* Klarna runs on Deel's job board (jobs.deel.com/klarna) — a Next.js app whose
+   flight payload embeds the full jobPostings array server-side */
+async function deelRows(slug) {
+  const r = await fetch(`https://jobs.deel.com/${slug}`, { signal: AbortSignal.timeout(30000), headers: { 'user-agent': BROWSER_UA } });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const html = await r.text();
+  const flight = [...html.matchAll(/self\.__next_f\.push\(\[1,"((?:[^"\\]|\\.)*)"\]\)/g)]
+    .map(m => JSON.parse('"' + m[1] + '"')).join('');
+  const un = flight.replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+  const start = un.indexOf('"jobPostings":[');
+  if (start < 0) throw new Error('jobPostings not found in flight payload');
+  const chunks = un.slice(start).split(/(?=\{"id":"[0-9a-f-]{36}","jobId")/).slice(1);
+  return chunks.map(c => {
+    const pick = re => (c.match(re) || [])[1] || '';
+    const id = pick(/^\{"id":"([0-9a-f-]{36})"/);
+    const title = pick(/"title":"([^"]{3,120})"/);
+    const locs = [...c.matchAll(/"location":\{"id":"[^"]+","name":"([^"]+)"/g)].map(m => m[1]);
+    const dept = pick(/"department":\{"id":"[^"]+","name":"([^"]+)"/);
+    const posted = pick(/"createdAt":"(\d{4}-\d{2}-\d{2})/);
+    return { t: title, u: `https://jobs.deel.com/${slug}/job-details/${id}/overview`, l: locs.join(' · '), d: dept || null, p: posted, s: '', w: null };
+  }).filter(x => x.t && /^[0-9a-f-]{36}/.test(x.u.split('/job-details/')[1] || ''));
+}
+
+/* bunq's careers site is a Framer page with server-rendered position cards:
+   <a href="./positions/slug"> … <h3>Title</h3> … Location · Team */
+async function bunqRows() {
+  const r = await fetch('https://careers.bunq.com/positions', { signal: AbortSignal.timeout(30000), headers: { 'user-agent': BROWSER_UA } });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const html = await r.text();
+  const anchors = [...html.matchAll(/<a[^>]+href="\.\/positions\/([a-z0-9-]+)"/g)];
+  const seen = new Set();
+  return anchors.map((m, i) => {
+    const slug = m[1];
+    if (seen.has(slug)) return null;
+    seen.add(slug);
+    const block = html.slice(m.index, anchors[i + 1] ? anchors[i + 1].index : m.index + 6000);
+    const title = ((block.match(/<h3[^>]*>([^<]{3,100})<\/h3>/) || [])[1] || '').replace(/&amp;/g, '&').trim();
+    /* card markup: Locations → repeated data-framer-name="Name" <p>City</p>, then Department → <p>Team</p> */
+    const locs = [...block.matchAll(/data-framer-name="Name"[^>]*>\s*<p[^>]*>([^<]{2,40})<\/p>/g)].map(x => x[1].replace(/&amp;/g, '&').trim());
+    const dept = ((block.match(/data-framer-name="Department"[\s\S]{0,900}?<p[^>]*>([^<]{2,50})<\/p>/) || [])[1] || '').replace(/&amp;/g, '&').trim();
+    return title ? { t: title, u: `https://careers.bunq.com/positions/${slug}`, l: locs.join(' · ') || 'Amsterdam', d: dept || null, p: null, s: '', w: null } : null;
+  }).filter(Boolean);
+}
+
 /* ── fetch + normalize ── */
 async function fetchSource([display, entityName, ats, slug]) {
   const ent = E.find(e => e.name === entityName);
   const profile = ent ? `/n/${slugify(ent.name)}/` : null;
+  if (ats === 'deel' || ats === 'bunq') {
+    try {
+      const raw = ats === 'deel' ? await deelRows(slug) : await bunqRows();
+      return raw.filter(x => x.t && x.u).map(x => ({
+        title: x.t.trim(), url: x.u, company: display, profile,
+        location: (x.l || '').trim() || 'Not specified',
+        dept: classify(x.t, x.d), region: region(`${x.l} ${x.t}`, false), posted: x.p || null,
+        salary: null, wp: workplaceOf(null, x.l, ''), visa: undefined,
+      }));
+    } catch (err) { console.error(`  !! ${display}: ${err.message}`); return []; }
+  }
   const url = ats === 'gh'
     ? `https://boards-api.greenhouse.io/v1/boards/${slug}/jobs?content=true`
     : ats === 'lever'
