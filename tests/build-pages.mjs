@@ -143,6 +143,7 @@ for (const e of E) {
   const html = head(title, desc, url, ld) + `
 <main class="wrap">
 <article>
+  <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/n/" style="color:var(--accent)">neobank profiles</a></div>
   <h1>${esc(e.name)}</h1>
   <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · est. ${e.founded} · <a href="/?q=${encodeURIComponent(e.name)}">open in the directory →</a></p>
@@ -241,6 +242,7 @@ for (const [an, bn] of PAIRS) {
   const html = head(title, desc, url, ld) + `
 <main class="wrap">
 <article>
+  <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/vs/" style="color:var(--accent)">comparisons</a></div>
   <h1>${esc(an)} <em>vs</em> ${esc(bn)}</h1>
   <p class="meta">${catChip(a)} vs ${catChip(b)} · from the open dataset of ${E.length} tracked neobanks · no affiliate links, ever</p>
