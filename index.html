@@ -176,7 +176,15 @@ table.cmp{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:
 table.cmp th,table.cmp td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
 table.cmp th{background:var(--panel2);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:150px;font-weight:500}
 table.cmp td{background:var(--panel);min-width:180px}
-table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight:700;font-size:15px}
+table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight:700;font-size:15px;vertical-align:top}
+.cmpco{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.cmpco .logo-box{width:34px;height:34px;border-radius:8px}
+.cmpco .chip{display:inline-block;margin-top:5px}
+.cmpnm{font-size:15.5px;line-height:1.2}
+.cmplinks{display:flex;gap:7px;flex-wrap:wrap}
+.cmplinks a{font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:3px 10px;white-space:nowrap;transition:border-color .12s,color .12s}
+.cmplinks a:hover{border-color:var(--accent);color:var(--accent)}
+.tchip img{width:16px;height:16px;border-radius:4px;object-fit:contain;filter:var(--logo-filter)}
 
 .about{max-width:1320px;margin:0 auto;padding:30px 24px 10px;border-top:1px solid var(--line)}
 .about h2{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
@@ -1194,6 +1202,12 @@ function currentList(){
 /* self-hosted logo overrides — for brands whose favicon Google's s2 service gets wrong or misses */
 const LOGOMAP={"Moniepoint":"/logos/moniepoint.png"};
 function logoSrc(dom,name){return LOGOMAP[name]||`https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64`}
+/* compare-tray chip with mini logo */
+function tchipHTML(n){
+  const r=D.find(x=>x[0]===n),d=r&&r[13];
+  const im=(d||LOGOMAP[n])?`<img loading="lazy" alt="" src="${logoSrc(d,n)}" onerror="this.remove()">`:'';
+  return `<span class="tchip">${im}${esc(n)}<button aria-label="remove ${esc(n)}" data-n="${esc(n)}">✕</button></span>`;
+}
 function logoHTML(dom,name){
   const initial=esc(name.replace(/^the /i,"").charAt(0).toUpperCase());
   if(!dom&&!LOGOMAP[name])return `<div class="logo-box"><div class="logo-fb" style="display:flex">${initial}</div></div>`;
@@ -1254,16 +1268,20 @@ function renderTray(){
   const tray=document.getElementById('tray'),chips=document.getElementById('traychips');
   if(!cmp.size){tray.classList.remove('show');return}
   tray.classList.add('show');
-  chips.innerHTML=[...cmp].map(n=>`<span class="tchip">${esc(n)}<button aria-label="remove ${esc(n)}" data-n="${esc(n)}">✕</button></span>`).join("");
+  chips.innerHTML=[...cmp].map(tchipHTML).join("");
   chips.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>toggleCmp(b.dataset.n)));
   document.getElementById('gocmp').disabled=cmp.size<2;
 }
 const FIELDS=[["Category",r=>CATNAME[r[1]]],["Audience",r=>NICHE[r[12]]],["Region",r=>r[2]],["HQ",r=>r[3]],["Founded",r=>r[4]],
 ["Custody",r=>CUST[r[5]]],["Card network",r=>r[6]],["Card type",r=>r[7]],["Cashback",r=>r[8]],
 ["Yield",r=>r[9]],["Stablecoins",r=>r[10]?"Yes":"No"],["KYC",r=>KYC[r[11]]],["Notes",r=>r[14]]];
+/* slug map identical to tests/build-pages.mjs so compare links hit the static profile pages */
+const CMPSLUG=(()=>{const s={},t=new Set(),sl=n=>n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'entity';D.forEach(r=>{let x=sl(r[0]);while(t.has(x))x+='-2';t.add(x);s[r[0]]=x});return s})();
 document.getElementById('gocmp').addEventListener('click',()=>{
   const rows=D.filter(r=>cmp.has(r[0]));
-  let html=`<tr class="hdr"><td style="background:var(--panel2)"></td>${rows.map(r=>`<td>${esc(r[0])} <span class="chip ${r[1]}" style="margin-left:6px">${CATNAME[r[1]]}</span></td>`).join("")}</tr>`;
+  let html=`<tr class="hdr"><td style="background:var(--panel2)"></td>${rows.map(r=>
+    `<td><div class="cmpco">${logoHTML(r[13],r[0])}<div><div class="cmpnm">${esc(r[0])}</div><span class="chip ${r[1]}">${CATNAME[r[1]]}</span></div></div>`+
+    `<div class="cmplinks"><a href="/n/${CMPSLUG[r[0]]}/">full profile →</a>${r[13]?`<a href="https://${esc(r[13])}" target="_blank" rel="noopener">${esc(r[13])} ↗</a>`:''}</div></td>`).join("")}</tr>`;
   FIELDS.forEach(([label,fn])=>{html+=`<tr><th>${label}</th>${rows.map(r=>`<td>${esc(fn(r))}</td>`).join("")}</tr>`});
   document.getElementById('cmptable').innerHTML=html;
   document.getElementById('overlay').classList.add('show');
@@ -1916,7 +1934,7 @@ function renderTray(){
   const tray=document.getElementById('tray'),chips=document.getElementById('traychips'),hint=document.getElementById('trayhint'),go=document.getElementById('gocmp');
   if(!cmp.size){tray.classList.remove('show');go.classList.remove('pulse');return}
   tray.classList.add('show');
-  chips.innerHTML=[...cmp].map(n=>'<span class="tchip">'+esc(n)+'<button aria-label="remove '+esc(n)+'" data-n="'+esc(n)+'">✕</button></span>').join("");
+  chips.innerHTML=[...cmp].map(tchipHTML).join("");
   chips.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>toggleCmp(b.dataset.n)));
   go.disabled=cmp.size<2;
   go.classList.toggle('pulse',cmp.size>=2);
