@@ -49,7 +49,7 @@ const SOURCES = [
   ['Lunar', 'Lunar', 'ashby', 'lunar'],
   ['Ether.fi', 'EtherFi Cash', 'ashby', 'ether.fi'],
   ['Phantom', 'Phantom', 'ashby', 'phantom'],
-  ['ConsenSys (MetaMask)', 'MetaMask', 'gh', 'consensys'],
+  ['Consensys (MetaMask)', 'MetaMask', 'gh', 'consensys'],
   ['Fi Money', 'Fi Money', 'lever', 'epifi'],
   ['Found', 'Found', 'ashby', 'found'],
   ['Current', 'Current', 'gh', 'current'],
@@ -317,19 +317,29 @@ main.wrap{max-width:1150px}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
-.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:16px 0}
-.cocard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none}
+.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:16px 0}
+.cocard{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;min-width:0}
 .cocard:hover{border-color:var(--acc)}
-.cocard .n{font-weight:700;color:var(--text);font-size:14px}
+.cocard .jlogo{width:26px;height:26px;border-radius:7px}
+.cocard .n{font-weight:700;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
+.cocard>div{min-width:0}
 @media(max-width:860px){
-  .jlayout{grid-template-columns:minmax(0,1fr)}
-  .jside{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
-  .jside>*{flex:1 1 100%}
-  .jside .jmap{flex:1 1 230px;max-width:260px}
-  .jside .sidelist{flex:1 1 46%;min-width:170px}
+  .jlayout{grid-template-columns:minmax(0,1fr);gap:16px}
+  /* sidebar collapses into compact filter rows: search, map, then one
+     horizontally-swipeable chip row per section — no more endless scroll */
+  .jside{position:static;gap:10px}
+  .jmap{width:100%;max-width:none;box-sizing:border-box;text-align:center}
+  .jmapgrid{width:max-content;margin:0 auto}
+  .jmaplabel{text-align:center}
+  .sidelist{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sidelist::-webkit-scrollbar{display:none}
+  .srow{flex:0 0 auto;width:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--panel);gap:6px}
+  .srow .c{font-size:10px}
+  .jsec{margin-bottom:-4px}
   .job{flex-wrap:wrap;row-gap:3px}
   .job .t{flex:1 1 100%;white-space:normal}
+  .job .loc{max-width:150px}
   .job .apply{display:none}
 }
 `;
@@ -547,7 +557,7 @@ ${topCompanies.map(([co, n]) => {
   const src = SOURCES.find(s => s[0] === co);
   const ent = src && E.find(e => e.name === src[1]);
   const href = ent ? `/n/${slugify(ent.name)}/` : '#';
-  return `    <a class="cocard" href="${href}"><div class="n">${esc(co)}</div><div class="c">${n} open role${n === 1 ? '' : 's'}</div></a>`;
+  return `    <a class="cocard" href="${href}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${n} open role${n === 1 ? '' : 's'}</div></div></a>`;
 }).join('\n')}
   </div>
 

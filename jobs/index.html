@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neobank jobs — 3,482 live roles at 65 digital banks</title>
-<meta name="description" content="Live job board for the neobank industry: 3,482 open roles at 65 tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed 2026-07-05.">
+<title>Neobank jobs — 3,481 live roles at 65 digital banks</title>
+<meta name="description" content="Live job board for the neobank industry: 3,481 open roles at 65 tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed 2026-07-05.">
 <link rel="canonical" href="https://www.neobankbeat.com/jobs/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="neobankbeat">
-<meta property="og:title" content="Neobank jobs — 3,482 live roles at 65 digital banks">
-<meta property="og:description" content="Live job board for the neobank industry: 3,482 open roles at 65 tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed 2026-07-05.">
+<meta property="og:title" content="Neobank jobs — 3,481 live roles at 65 digital banks">
+<meta property="og:description" content="Live job board for the neobank industry: 3,481 open roles at 65 tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed 2026-07-05.">
 <meta property="og:url" content="https://www.neobankbeat.com/jobs/">
 <meta property="og:image" content="https://www.neobankbeat.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -72,19 +72,29 @@ main.wrap{max-width:1150px}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
-.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:16px 0}
-.cocard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none}
+.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:16px 0}
+.cocard{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;min-width:0}
 .cocard:hover{border-color:var(--acc)}
-.cocard .n{font-weight:700;color:var(--text);font-size:14px}
+.cocard .jlogo{width:26px;height:26px;border-radius:7px}
+.cocard .n{font-weight:700;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
+.cocard>div{min-width:0}
 @media(max-width:860px){
-  .jlayout{grid-template-columns:minmax(0,1fr)}
-  .jside{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
-  .jside>*{flex:1 1 100%}
-  .jside .jmap{flex:1 1 230px;max-width:260px}
-  .jside .sidelist{flex:1 1 46%;min-width:170px}
+  .jlayout{grid-template-columns:minmax(0,1fr);gap:16px}
+  /* sidebar collapses into compact filter rows: search, map, then one
+     horizontally-swipeable chip row per section — no more endless scroll */
+  .jside{position:static;gap:10px}
+  .jmap{width:100%;max-width:none;box-sizing:border-box;text-align:center}
+  .jmapgrid{width:max-content;margin:0 auto}
+  .jmaplabel{text-align:center}
+  .sidelist{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sidelist::-webkit-scrollbar{display:none}
+  .srow{flex:0 0 auto;width:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--panel);gap:6px}
+  .srow .c{font-size:10px}
+  .jsec{margin-bottom:-4px}
   .job{flex-wrap:wrap;row-gap:3px}
   .job .t{flex:1 1 100%;white-space:normal}
+  .job .loc{max-width:150px}
   .job .apply{display:none}
 }
 </style>
@@ -92,7 +102,7 @@ main.wrap{max-width:1150px}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Neobank jobs","url":"https://www.neobankbeat.com/jobs/","description":"3482 live roles at 65 neobanks, aggregated from official career APIs.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com"}}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Neobank jobs","url":"https://www.neobankbeat.com/jobs/","description":"3481 live roles at 65 neobanks, aggregated from official career APIs.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com"}}
 </script>
 </head>
 <body>
@@ -120,9 +130,9 @@ main.wrap{max-width:1150px}
   </article>
 
   <div class="jstats">
-    <div class="jstat"><div class="n">3,482</div><div class="l">live roles</div></div>
+    <div class="jstat"><div class="n">3,481</div><div class="l">live roles</div></div>
     <div class="jstat"><div class="n">65</div><div class="l">neobanks hiring</div></div>
-    <div class="jstat"><div class="n">515</div><div class="l">with disclosed salary</div></div>
+    <div class="jstat"><div class="n">498</div><div class="l">with disclosed salary</div></div>
   </div>
 
   <div class="jlayout">
@@ -145,14 +155,14 @@ main.wrap{max-width:1150px}
 <button class="srow" data-dept="finance">Finance & Treasury<span class="c">92</span></button>
 <button class="srow" data-dept="operations">Operations<span class="c">112</span></button>
 <button class="srow" data-dept="people">People & Legal<span class="c">126</span></button>
-<button class="srow" data-dept="other">Other<span class="c">494</span></button></div>
+<button class="srow" data-dept="other">Other<span class="c">493</span></button></div>
     <div class="jsec">workplace</div>
     <div class="sidelist">
       <button class="srow" data-wp="remote">Remote only<span class="c">587</span></button>
-      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1115</span></button>
-      <button class="srow" data-wp="onsite">On-site<span class="c">1780</span></button>
+      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1096</span></button>
+      <button class="srow" data-wp="onsite">On-site<span class="c">1798</span></button>
       <button class="srow" data-visa="1">Visa sponsorship<span class="c">92</span></button>
-      <button class="srow" data-sal="1">Salary disclosed<span class="c">515</span></button>
+      <button class="srow" data-sal="1">Salary disclosed<span class="c">498</span></button>
     </div>
     <div class="jsec">region</div>
     <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">722</span></button>
@@ -160,14 +170,14 @@ main.wrap{max-width:1150px}
 <button class="srow" data-region="north-america">North America<span class="c">792</span></button>
 <button class="srow" data-region="latin-america">Latin America<span class="c">290</span></button>
 <button class="srow" data-region="africa">Africa<span class="c">20</span></button>
-<button class="srow" data-region="mena">MENA<span class="c">80</span></button>
+<button class="srow" data-region="mena">MENA<span class="c">79</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">573</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">25</span></button>
 <button class="srow" data-region="other">Other<span class="c">363</span></button></div>
     <button class="jclear" id="jclear">× clear all filters</button>
   </aside>
     <div class="jmain">
-      <div class="jbar"><span><b id="jcount">3,482</b> roles</span><span>newest first · refreshed 2026-07-05</span></div>
+      <div class="jbar"><span><b id="jcount">3,481</b> roles</span><span>newest first · refreshed 2026-07-05</span></div>
       <div class="joblist" id="jlist">
 <a class="job" href="https://job-boards.eu.greenhouse.io/bybit/jobs/4910234101" target="_blank" rel="noopener">
   <img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64" onerror="this.style.visibility='hidden'">
@@ -977,71 +987,71 @@ main.wrap{max-width:1150px}
   <article>
   <h2>who's hiring</h2>
   <div class="cogrid">
-    <a class="cocard" href="/n/wise/"><div class="n">Wise</div><div class="c">371 open roles</div></a>
-    <a class="cocard" href="/n/okx-card/"><div class="n">OKX</div><div class="c">294 open roles</div></a>
-    <a class="cocard" href="/n/brex/"><div class="n">Brex</div><div class="c">263 open roles</div></a>
-    <a class="cocard" href="/n/banco-inter/"><div class="n">Banco Inter</div><div class="c">148 open roles</div></a>
-    <a class="cocard" href="/n/c6-bank/"><div class="n">C6 Bank</div><div class="c">145 open roles</div></a>
-    <a class="cocard" href="/n/crypto-com/"><div class="n">Crypto.com</div><div class="c">144 open roles</div></a>
-    <a class="cocard" href="/n/tide/"><div class="n">Tide</div><div class="c">137 open roles</div></a>
-    <a class="cocard" href="/n/robinhood/"><div class="n">Robinhood</div><div class="c">132 open roles</div></a>
-    <a class="cocard" href="/n/neo-financial/"><div class="n">Neo Financial</div><div class="c">130 open roles</div></a>
-    <a class="cocard" href="/n/coinbase-card/"><div class="n">Coinbase</div><div class="c">129 open roles</div></a>
-    <a class="cocard" href="/n/bybit-card/"><div class="n">Bybit</div><div class="c">126 open roles</div></a>
-    <a class="cocard" href="/n/ramp/"><div class="n">Ramp</div><div class="c">125 open roles</div></a>
-    <a class="cocard" href="/n/nubank/"><div class="n">Nubank</div><div class="c">102 open roles</div></a>
-    <a class="cocard" href="/n/sofi/"><div class="n">SoFi</div><div class="c">94 open roles</div></a>
-    <a class="cocard" href="/n/paypay-bank/"><div class="n">PayPay</div><div class="c">86 open roles</div></a>
-    <a class="cocard" href="/n/eq-bank/"><div class="n">EQ Bank</div><div class="c">71 open roles</div></a>
-    <a class="cocard" href="/n/n26/"><div class="n">N26</div><div class="c">71 open roles</div></a>
-    <a class="cocard" href="/n/monzo/"><div class="n">Monzo</div><div class="c">67 open roles</div></a>
-    <a class="cocard" href="/n/moniepoint/"><div class="n">Moniepoint</div><div class="c">65 open roles</div></a>
-    <a class="cocard" href="/n/chime/"><div class="n">Chime</div><div class="c">64 open roles</div></a>
-    <a class="cocard" href="/n/krak/"><div class="n">Kraken</div><div class="c">59 open roles</div></a>
-    <a class="cocard" href="/n/phonepe/"><div class="n">PhonePe</div><div class="c">58 open roles</div></a>
-    <a class="cocard" href="/n/mercury/"><div class="n">Mercury</div><div class="c">54 open roles</div></a>
-    <a class="cocard" href="/n/bitpanda/"><div class="n">Bitpanda</div><div class="c">51 open roles</div></a>
-    <a class="cocard" href="/n/qonto/"><div class="n">Qonto</div><div class="c">48 open roles</div></a>
-    <a class="cocard" href="/n/youtrip/"><div class="n">YouTrip</div><div class="c">44 open roles</div></a>
-    <a class="cocard" href="/n/rho/"><div class="n">Rho</div><div class="c">34 open roles</div></a>
-    <a class="cocard" href="/n/wealthsimple/"><div class="n">Wealthsimple</div><div class="c">31 open roles</div></a>
-    <a class="cocard" href="/n/relay/"><div class="n">Relay</div><div class="c">30 open roles</div></a>
-    <a class="cocard" href="/n/allica-bank/"><div class="n">Allica Bank</div><div class="c">29 open roles</div></a>
-    <a class="cocard" href="/n/gemini-credit-card/"><div class="n">Gemini</div><div class="c">24 open roles</div></a>
-    <a class="cocard" href="/n/oaknorth/"><div class="n">OakNorth</div><div class="c">19 open roles</div></a>
-    <a class="cocard" href="/n/fampay/"><div class="n">FamPay</div><div class="c">17 open roles</div></a>
-    <a class="cocard" href="/n/koho/"><div class="n">KOHO</div><div class="c">15 open roles</div></a>
-    <a class="cocard" href="/n/greenlight/"><div class="n">Greenlight</div><div class="c">14 open roles</div></a>
-    <a class="cocard" href="/n/lunar/"><div class="n">Lunar</div><div class="c">14 open roles</div></a>
-    <a class="cocard" href="/n/trust-wallet/"><div class="n">Trust Wallet</div><div class="c">14 open roles</div></a>
-    <a class="cocard" href="/n/etherfi-cash/"><div class="n">Ether.fi</div><div class="c">13 open roles</div></a>
-    <a class="cocard" href="/n/novo/"><div class="n">Novo</div><div class="c">13 open roles</div></a>
-    <a class="cocard" href="/n/judo-bank/"><div class="n">Judo Bank</div><div class="c">12 open roles</div></a>
-    <a class="cocard" href="/n/phantom/"><div class="n">Phantom</div><div class="c">12 open roles</div></a>
-    <a class="cocard" href="/n/neon/"><div class="n">Neon</div><div class="c">11 open roles</div></a>
-    <a class="cocard" href="/n/branch/"><div class="n">Branch</div><div class="c">11 open roles</div></a>
-    <a class="cocard" href="/n/bitso/"><div class="n">Bitso</div><div class="c">9 open roles</div></a>
-    <a class="cocard" href="/n/metamask/"><div class="n">ConsenSys (MetaMask)</div><div class="c">8 open roles</div></a>
-    <a class="cocard" href="/n/trust-bank/"><div class="n">Trust Bank</div><div class="c">7 open roles</div></a>
-    <a class="cocard" href="/n/1inch-card/"><div class="n">1inch</div><div class="c">7 open roles</div></a>
-    <a class="cocard" href="/n/dave/"><div class="n">Dave</div><div class="c">7 open roles</div></a>
-    <a class="cocard" href="/n/fi-money/"><div class="n">Fi Money</div><div class="c">6 open roles</div></a>
-    <a class="cocard" href="/n/solflare/"><div class="n">Solflare</div><div class="c">6 open roles</div></a>
-    <a class="cocard" href="/n/found/"><div class="n">Found</div><div class="c">6 open roles</div></a>
-    <a class="cocard" href="/n/comun/"><div class="n">Comun</div><div class="c">5 open roles</div></a>
-    <a class="cocard" href="/n/gohenry/"><div class="n">GoHenry</div><div class="c">5 open roles</div></a>
-    <a class="cocard" href="/n/dakota/"><div class="n">Dakota</div><div class="c">4 open roles</div></a>
-    <a class="cocard" href="/n/meow/"><div class="n">Meow</div><div class="c">4 open roles</div></a>
-    <a class="cocard" href="/n/true-link/"><div class="n">True Link</div><div class="c">4 open roles</div></a>
-    <a class="cocard" href="/n/airtm/"><div class="n">Airtm</div><div class="c">3 open roles</div></a>
-    <a class="cocard" href="/n/up/"><div class="n">Up</div><div class="c">2 open roles</div></a>
-    <a class="cocard" href="/n/coinjar/"><div class="n">CoinJar</div><div class="c">2 open roles</div></a>
-    <a class="cocard" href="/n/current/"><div class="n">Current</div><div class="c">1 open role</div></a>
-    <a class="cocard" href="/n/trade-republic/"><div class="n">Trade Republic</div><div class="c">1 open role</div></a>
-    <a class="cocard" href="/n/palmpay/"><div class="n">PalmPay</div><div class="c">1 open role</div></a>
-    <a class="cocard" href="/n/umba/"><div class="n">Umba</div><div class="c">1 open role</div></a>
-    <a class="cocard" href="/n/brubank/"><div class="n">Brubank</div><div class="c">1 open role</div></a>
-    <a class="cocard" href="/n/plasma-one/"><div class="n">Plasma One</div><div class="c">1 open role</div></a>
+    <a class="cocard" href="/n/wise/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=wise.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Wise</div><div class="c">371 open roles</div></div></a>
+    <a class="cocard" href="/n/okx-card/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=okx.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">OKX</div><div class="c">294 open roles</div></div></a>
+    <a class="cocard" href="/n/brex/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brex.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Brex</div><div class="c">263 open roles</div></div></a>
+    <a class="cocard" href="/n/banco-inter/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=inter.co&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Banco Inter</div><div class="c">148 open roles</div></div></a>
+    <a class="cocard" href="/n/c6-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=c6bank.com.br&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">C6 Bank</div><div class="c">145 open roles</div></div></a>
+    <a class="cocard" href="/n/crypto-com/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Crypto.com</div><div class="c">144 open roles</div></div></a>
+    <a class="cocard" href="/n/tide/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=tide.co&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Tide</div><div class="c">137 open roles</div></div></a>
+    <a class="cocard" href="/n/robinhood/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=robinhood.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Robinhood</div><div class="c">132 open roles</div></div></a>
+    <a class="cocard" href="/n/neo-financial/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=neofinancial.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Neo Financial</div><div class="c">130 open roles</div></div></a>
+    <a class="cocard" href="/n/coinbase-card/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Coinbase</div><div class="c">129 open roles</div></div></a>
+    <a class="cocard" href="/n/bybit-card/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Bybit</div><div class="c">125 open roles</div></div></a>
+    <a class="cocard" href="/n/ramp/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=ramp.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Ramp</div><div class="c">125 open roles</div></div></a>
+    <a class="cocard" href="/n/nubank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=nubank.com.br&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Nubank</div><div class="c">102 open roles</div></div></a>
+    <a class="cocard" href="/n/sofi/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=sofi.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">SoFi</div><div class="c">94 open roles</div></div></a>
+    <a class="cocard" href="/n/paypay-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=paypay-bank.co.jp&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">PayPay</div><div class="c">86 open roles</div></div></a>
+    <a class="cocard" href="/n/eq-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=eqbank.ca&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">EQ Bank</div><div class="c">71 open roles</div></div></a>
+    <a class="cocard" href="/n/n26/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=n26.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">N26</div><div class="c">71 open roles</div></div></a>
+    <a class="cocard" href="/n/monzo/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=monzo.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Monzo</div><div class="c">67 open roles</div></div></a>
+    <a class="cocard" href="/n/moniepoint/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=moniepoint.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Moniepoint</div><div class="c">65 open roles</div></div></a>
+    <a class="cocard" href="/n/chime/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=chime.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Chime</div><div class="c">64 open roles</div></div></a>
+    <a class="cocard" href="/n/krak/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=krak.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Kraken</div><div class="c">59 open roles</div></div></a>
+    <a class="cocard" href="/n/phonepe/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=phonepe.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">PhonePe</div><div class="c">58 open roles</div></div></a>
+    <a class="cocard" href="/n/mercury/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=mercury.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Mercury</div><div class="c">54 open roles</div></div></a>
+    <a class="cocard" href="/n/bitpanda/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bitpanda.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Bitpanda</div><div class="c">51 open roles</div></div></a>
+    <a class="cocard" href="/n/qonto/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=qonto.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Qonto</div><div class="c">48 open roles</div></div></a>
+    <a class="cocard" href="/n/youtrip/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=you.co&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">YouTrip</div><div class="c">44 open roles</div></div></a>
+    <a class="cocard" href="/n/rho/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=rho.co&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Rho</div><div class="c">34 open roles</div></div></a>
+    <a class="cocard" href="/n/wealthsimple/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=wealthsimple.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Wealthsimple</div><div class="c">31 open roles</div></div></a>
+    <a class="cocard" href="/n/relay/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=relayfi.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Relay</div><div class="c">30 open roles</div></div></a>
+    <a class="cocard" href="/n/allica-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=allica.bank&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Allica Bank</div><div class="c">29 open roles</div></div></a>
+    <a class="cocard" href="/n/gemini-credit-card/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=gemini.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Gemini</div><div class="c">24 open roles</div></div></a>
+    <a class="cocard" href="/n/oaknorth/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=oaknorth.co.uk&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">OakNorth</div><div class="c">19 open roles</div></div></a>
+    <a class="cocard" href="/n/fampay/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=fampay.in&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">FamPay</div><div class="c">17 open roles</div></div></a>
+    <a class="cocard" href="/n/koho/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=koho.ca&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">KOHO</div><div class="c">15 open roles</div></div></a>
+    <a class="cocard" href="/n/greenlight/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=greenlight.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Greenlight</div><div class="c">14 open roles</div></div></a>
+    <a class="cocard" href="/n/lunar/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=lunar.app&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Lunar</div><div class="c">14 open roles</div></div></a>
+    <a class="cocard" href="/n/trust-wallet/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=trustwallet.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Trust Wallet</div><div class="c">14 open roles</div></div></a>
+    <a class="cocard" href="/n/etherfi-cash/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=ether.fi&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Ether.fi</div><div class="c">13 open roles</div></div></a>
+    <a class="cocard" href="/n/novo/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=novo.co&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Novo</div><div class="c">13 open roles</div></div></a>
+    <a class="cocard" href="/n/judo-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=judo.bank&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Judo Bank</div><div class="c">12 open roles</div></div></a>
+    <a class="cocard" href="/n/phantom/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=phantom.app&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Phantom</div><div class="c">12 open roles</div></div></a>
+    <a class="cocard" href="/n/neon/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=neon.com.br&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Neon</div><div class="c">11 open roles</div></div></a>
+    <a class="cocard" href="/n/branch/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=branchapp.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Branch</div><div class="c">11 open roles</div></div></a>
+    <a class="cocard" href="/n/bitso/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bitso.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Bitso</div><div class="c">9 open roles</div></div></a>
+    <a class="cocard" href="/n/metamask/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=metamask.io&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Consensys (MetaMask)</div><div class="c">8 open roles</div></div></a>
+    <a class="cocard" href="/n/trust-bank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=trustbank.sg&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Trust Bank</div><div class="c">7 open roles</div></div></a>
+    <a class="cocard" href="/n/1inch-card/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=1inch.io&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">1inch</div><div class="c">7 open roles</div></div></a>
+    <a class="cocard" href="/n/dave/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=dave.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Dave</div><div class="c">7 open roles</div></div></a>
+    <a class="cocard" href="/n/fi-money/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=fi.money&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Fi Money</div><div class="c">6 open roles</div></div></a>
+    <a class="cocard" href="/n/solflare/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=solflare.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Solflare</div><div class="c">6 open roles</div></div></a>
+    <a class="cocard" href="/n/found/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=found.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Found</div><div class="c">6 open roles</div></div></a>
+    <a class="cocard" href="/n/comun/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=comun.app&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Comun</div><div class="c">5 open roles</div></div></a>
+    <a class="cocard" href="/n/gohenry/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=gohenry.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">GoHenry</div><div class="c">5 open roles</div></div></a>
+    <a class="cocard" href="/n/dakota/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=dakota.xyz&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Dakota</div><div class="c">4 open roles</div></div></a>
+    <a class="cocard" href="/n/meow/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=meow.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Meow</div><div class="c">4 open roles</div></div></a>
+    <a class="cocard" href="/n/true-link/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=truelinkfinancial.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">True Link</div><div class="c">4 open roles</div></div></a>
+    <a class="cocard" href="/n/airtm/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=airtm.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Airtm</div><div class="c">3 open roles</div></div></a>
+    <a class="cocard" href="/n/up/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=up.com.au&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Up</div><div class="c">2 open roles</div></div></a>
+    <a class="cocard" href="/n/coinjar/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coinjar.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">CoinJar</div><div class="c">2 open roles</div></div></a>
+    <a class="cocard" href="/n/current/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=current.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Current</div><div class="c">1 open role</div></div></a>
+    <a class="cocard" href="/n/trade-republic/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=traderepublic.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Trade Republic</div><div class="c">1 open role</div></div></a>
+    <a class="cocard" href="/n/palmpay/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=palmpay.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">PalmPay</div><div class="c">1 open role</div></div></a>
+    <a class="cocard" href="/n/umba/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=umba.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Umba</div><div class="c">1 open role</div></div></a>
+    <a class="cocard" href="/n/brubank/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=brubank.com&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Brubank</div><div class="c">1 open role</div></div></a>
+    <a class="cocard" href="/n/plasma-one/"><img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=plasma.to&amp;sz=64" onerror="this.style.visibility='hidden'"><div><div class="n">Plasma One</div><div class="c">1 open role</div></div></a>
   </div>
 
   <h2>browse by department</h2>
@@ -1071,7 +1081,7 @@ const PRESET=null;
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"mena":80,"asia":573,"other":363,"remote":722,"latin-america":290,"north-america":792,"europe":617,"oceania":25,"africa":20};
+const regCount={"mena":79,"asia":573,"other":363,"remote":722,"latin-america":290,"north-america":792,"europe":617,"oceania":25,"africa":20};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}

@@ -72,19 +72,29 @@ main.wrap{max-width:1150px}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
-.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:16px 0}
-.cocard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none}
+.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:16px 0}
+.cocard{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;min-width:0}
 .cocard:hover{border-color:var(--acc)}
-.cocard .n{font-weight:700;color:var(--text);font-size:14px}
+.cocard .jlogo{width:26px;height:26px;border-radius:7px}
+.cocard .n{font-weight:700;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
+.cocard>div{min-width:0}
 @media(max-width:860px){
-  .jlayout{grid-template-columns:minmax(0,1fr)}
-  .jside{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
-  .jside>*{flex:1 1 100%}
-  .jside .jmap{flex:1 1 230px;max-width:260px}
-  .jside .sidelist{flex:1 1 46%;min-width:170px}
+  .jlayout{grid-template-columns:minmax(0,1fr);gap:16px}
+  /* sidebar collapses into compact filter rows: search, map, then one
+     horizontally-swipeable chip row per section — no more endless scroll */
+  .jside{position:static;gap:10px}
+  .jmap{width:100%;max-width:none;box-sizing:border-box;text-align:center}
+  .jmapgrid{width:max-content;margin:0 auto}
+  .jmaplabel{text-align:center}
+  .sidelist{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sidelist::-webkit-scrollbar{display:none}
+  .srow{flex:0 0 auto;width:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--panel);gap:6px}
+  .srow .c{font-size:10px}
+  .jsec{margin-bottom:-4px}
   .job{flex-wrap:wrap;row-gap:3px}
   .job .t{flex:1 1 100%;white-space:normal}
+  .job .loc{max-width:150px}
   .job .apply{display:none}
 }
 </style>
@@ -139,14 +149,14 @@ main.wrap{max-width:1150px}
 <a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">92</span></a>
 <a class="srow" href="/jobs/operations/">Operations<span class="c">112</span></a>
 <a class="srow" href="/jobs/people/">People & Legal<span class="c">126</span></a>
-<a class="srow" href="/jobs/other/">Other<span class="c">494</span></a></div>
+<a class="srow" href="/jobs/other/">Other<span class="c">493</span></a></div>
     <div class="jsec">workplace</div>
     <div class="sidelist">
       <button class="srow" data-wp="remote">Remote only<span class="c">587</span></button>
-      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1115</span></button>
-      <button class="srow" data-wp="onsite">On-site<span class="c">1780</span></button>
+      <button class="srow" data-wp="hybrid">Hybrid<span class="c">1096</span></button>
+      <button class="srow" data-wp="onsite">On-site<span class="c">1798</span></button>
       <button class="srow" data-visa="1">Visa sponsorship<span class="c">92</span></button>
-      <button class="srow" data-sal="1">Salary disclosed<span class="c">515</span></button>
+      <button class="srow" data-sal="1">Salary disclosed<span class="c">498</span></button>
     </div>
     <div class="jsec">region</div>
     <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">722</span></button>
@@ -154,7 +164,7 @@ main.wrap{max-width:1150px}
 <button class="srow" data-region="north-america">North America<span class="c">792</span></button>
 <button class="srow" data-region="latin-america">Latin America<span class="c">290</span></button>
 <button class="srow" data-region="africa">Africa<span class="c">20</span></button>
-<button class="srow" data-region="mena">MENA<span class="c">80</span></button>
+<button class="srow" data-region="mena">MENA<span class="c">79</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">573</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">25</span></button>
 <button class="srow" data-region="other">Other<span class="c">363</span></button></div>
@@ -976,7 +986,7 @@ const PRESET='compliance';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"mena":80,"asia":573,"other":363,"remote":722,"latin-america":290,"north-america":792,"europe":617,"oceania":25,"africa":20};
+const regCount={"mena":79,"asia":573,"other":363,"remote":722,"latin-america":290,"north-america":792,"europe":617,"oceania":25,"africa":20};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
