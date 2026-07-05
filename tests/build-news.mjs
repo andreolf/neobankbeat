@@ -12,9 +12,9 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const INDEX = path.join(ROOT, 'index.html');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
-const MAX_ITEMS = 10;
-const MIN_ITEMS = 5;
-const MAX_AGE_DAYS = 21;
+const MAX_ITEMS = 20;
+const MIN_ITEMS = 8;
+const MAX_AGE_DAYS = 60;   // big stories stay relevant for weeks — scoring still favours fresh ones
 
 /* entity names that are common English words — headline matches would be noise */
 const AMBIG = new Set(['One', 'Current', 'Dave', 'Step', 'Found', 'Open', 'Slice', 'Wave', 'Strike', 'Branch', 'Juno', 'Albert', 'Karat', 'Majority', 'Purple', 'Copper', 'Fold', 'Point', 'Level', 'Wallet', 'Cash', 'Cogni', 'Aspire', 'Jupiter', 'Maya', 'Rainbow', 'Phantom', 'Lunar', 'Neon', 'Amber', 'Carbon', 'Indy', 'blu', 'Up', 'Boost', 'DANA', 'KAST']);
@@ -40,6 +40,10 @@ const QUERIES = [
   'neobank raises OR acquires OR IPO OR stablecoin when:7d',
   'Revolut OR Nubank OR Monzo OR Chime OR N26 OR "Starling Bank" OR bunq OR Wise when:7d',
   'Mercury OR Brex OR Ramp OR Klarna OR "Cash App" OR Moniepoint OR OPay OR GCash when:7d',
+  /* wider nets for the big stories of the past weeks */
+  'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:30d',
+  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:30d',
+  '"stablecoin" bank OR card OR payments launch when:30d',
 ];
 
 const get = async url => {
