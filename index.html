@@ -3045,7 +3045,7 @@ render();
     '<button class="mmbtn mmexpand" id="mmexpand" title="open the full map">⤢</button>'+
     '<button class="mmbtn mmcollapse" id="mmcollapse" title="collapse">🌍</button></div>'+
     '<div class="mmgrid" id="mmgrid" style="grid-template-columns:repeat('+cols+',4px)">'+dots+'</div>'+
-    '<div class="mmlabel" id="mmlabel">drag me around · tap opens the map</div></aside>');
+    '<div class="mmlabel" id="mmlabel">click a region to filter · drag me</div></aside>');
   const mm=document.getElementById('minimap'),lbl=document.getElementById('mmlabel');
   const regionCount=m=>D.filter(r=>macrosOf(r).includes(m)).length;
   /* hover: highlight the region + show name & count */
@@ -3054,8 +3054,16 @@ render();
     if(m){mm.dataset.hov=m;lbl.innerHTML='<b>'+MACROS[m]+'</b> · '+regionCount(m)+' neobanks';}
   });
   document.getElementById('mmgrid').addEventListener('mouseleave',()=>{delete mm.dataset.hov;syncLabel();});
-  /* click anywhere on the mini-map: straight to the full map view */
-  document.getElementById('mmgrid').addEventListener('click',()=>showView('map'));
+  /* click a region: filter the directory (like the full map) · click the sea: open the full map */
+  document.getElementById('mmgrid').addEventListener('click',e=>{
+    const m=e.target.dataset&&e.target.dataset.m;
+    if(m){
+      if(document.body.dataset.view&&document.body.dataset.view!=='directory')showView('directory');
+      setMap(m);
+    }else{
+      showView('map');
+    }
+  });
   document.getElementById('mmexpand').addEventListener('click',()=>showView('map'));
   document.getElementById('mmcollapse').addEventListener('click',()=>{
     mm.classList.toggle('min');
@@ -3068,7 +3076,7 @@ render();
     syncLabel();
   }
   function syncLabel(){
-    lbl.innerHTML=mapFilter?('filtering: <b>'+MACROS[mapFilter]+'</b> · '+regionCount(mapFilter)+' shown'):'drag me around · tap opens the map';
+    lbl.innerHTML=mapFilter?('filtering: <b>'+MACROS[mapFilter]+'</b> · '+regionCount(mapFilter)+' shown'):'click a region to filter · drag me';
   }
   /* drag to move the widget anywhere — it's a toy, let people play */
   (function draggable(){
