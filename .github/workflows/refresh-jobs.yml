@@ -2,8 +2,8 @@ name: refresh jobs board
 
 on:
   schedule:
-    # every Monday 06:00 UTC (08:00 CEST) — edit to '0 6 * * *' for daily
-    - cron: '0 6 * * 1'
+    # Monday, Wednesday, Friday 06:00 UTC (08:00 CEST) — edit to '0 6 * * *' for daily
+    - cron: '0 6 * * 1,3,5'
   workflow_dispatch: {}
 
 permissions:

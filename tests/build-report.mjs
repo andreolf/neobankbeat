@@ -838,13 +838,13 @@ const tocHtml = `
 <div class="eyebrow">contents</div>
 <h1>In this edition</h1>
 <table class="toc">
-${tocEntries.map(([t, p]) => `<tr><td>${esc(t)}</td><td class="pg">${String(p).padStart(2, '0')}</td></tr>`).join('\n')}
+${tocEntries.map(([t, p]) => `<tr><td><a href="#pg-${p}" style="color:inherit">${esc(t)}</a></td><td class="pg"><a href="#pg-${p}">${String(p).padStart(2, '0')}</a></td></tr>`).join('\n')}
 </table>
-<p style="color:var(--dim);margin-top:8mm">Charts are generated from the dataset at build time; the interactive versions live at neobankbeat.com — data tab.</p>`;
+<p style="color:var(--dim);margin-top:8mm">Entries are clickable — they jump to the chapter, in this PDF and in the web edition. Charts are generated from the dataset at build time.</p>`;
 pages[TOC_IDX - 1].html = tocHtml;
 
 /* ── render ── */
-const body = pages.map((p, i) => `<section class="page ${p.cls}">${p.html}
+const body = pages.map((p, i) => `<section class="page ${p.cls}" id="pg-${i + 1}">${p.html}
 ${p.footer ? `<div class="pfoot"><span><b>the state of neobanks</b> · ${MONTH.toLowerCase()} · ${EDITION}</span><span>neobankbeat.com · ${String(i + 1).padStart(2, '0')} / ${pages.length}</span></div>` : ''}</section>`).join('\n');
 
 const html = `<!DOCTYPE html>
