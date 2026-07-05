@@ -328,7 +328,7 @@ const bwScript = `<script>(function(){var b=document.getElementById('bwtoggle');
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
