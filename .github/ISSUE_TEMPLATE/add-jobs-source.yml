@@ -1,0 +1,27 @@
+name: "+ add a company to the jobs board"
+description: point us to a neobank's careers page and we'll wire its live postings into /jobs/
+title: "[jobs] add source: <company name>"
+labels: [jobs-source]
+body:
+  - type: input
+    id: company
+    attributes: {label: company name}
+    validations: {required: true}
+  - type: input
+    id: careers
+    attributes: {label: careers page URL, placeholder: "https://company.com/careers"}
+    validations: {required: true}
+  - type: input
+    id: website
+    attributes: {label: official website}
+  - type: dropdown
+    id: ats
+    attributes:
+      label: ATS, if you know it (where the job listings are hosted)
+      options: [don't know, Greenhouse, Lever, Ashby, Workable, SmartRecruiters, other / in-house]
+  - type: input
+    id: relation
+    attributes: {label: your relation to the company (optional), placeholder: "employee / recruiter / just a fan"}
+  - type: textarea
+    id: notes
+    attributes: {label: anything else}

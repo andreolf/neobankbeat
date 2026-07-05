@@ -490,7 +490,7 @@ ${DEPTS.filter(([id]) => byDept[id]).map(([id, label]) =>
   </div>
 
   <h2>how this board works</h2>
-  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? Their ATS has no public API yet — <a href="https://github.com/andreolf/neobankbeat/issues">tell us</a> and we'll wire it in.</p>
+  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in.</p>
   <p style="font-size:12.5px;color:var(--dim)">Listings belong to the respective companies and change constantly; this board refreshes on regeneration (last: ${TODAY}). neobankbeat is independent and earns nothing from applications.</p>
   </article>
 </main>
