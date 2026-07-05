@@ -375,6 +375,9 @@ body.bw .mchip.on b{color:#fff}
 .mi-item:hover{border-color:var(--accent);color:var(--text)}
 .newsrow{padding:12px 0;border-bottom:1px dashed var(--line)}
 .newsrow:last-child{border-bottom:none}
+.n-month{font-family:var(--mono);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);margin:20px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.n-month:first-of-type{margin-top:10px}
+.n-month::before{content:"—— ";color:var(--accent)}
 .n-top{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .n-date{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.05em;flex:none}
 .n-head{color:var(--text);font-weight:500;font-size:13.5px}
@@ -2302,13 +2305,20 @@ const NEWS=[
 ];
 const NEWS_UPDATED="2026-07-05";
 (function buildNews(){
-  const rows=NEWS.map(([d,h,sub,qq])=>{
+  /* the feed is a year-to-date timeline (one top story per 2-day window) —
+     group rows under month headers so the six months scan like a chronicle */
+  const MFULL={Jan:'January',Feb:'February',Mar:'March',Apr:'April',May:'May',Jun:'June',Jul:'July',Aug:'August',Sep:'September',Oct:'October',Nov:'November',Dec:'December'};
+  const yr=(NEWS_UPDATED||'').slice(0,4);
+  let rows='',lastMon='';
+  NEWS.forEach(([d,h,sub,qq])=>{
+    const mon=d.split(' ')[0];
+    if(mon!==lastMon){lastMon=mon;rows+='<div class="n-month">'+(MFULL[mon]||mon)+(yr?' '+yr:'')+'</div>';}
     const href=/^https?:/.test(qq)?qq:'https://news.google.com/search?q='+encodeURIComponent(qq);
-    return '<div class="newsrow"><div class="n-top"><span class="n-date">'+d+'</span><span class="n-head">'+esc(h)+'</span><a class="n-link" target="_blank" rel="noopener" href="'+esc(href)+'">read ↗</a></div><div class="n-sub">'+esc(sub)+'</div></div>';
-  }).join("");
-  const sub='headline watch · refreshed every Monday from live news feeds'+(NEWS_UPDATED?' · updated '+NEWS_UPDATED:'');
+    rows+='<div class="newsrow"><div class="n-top"><span class="n-date">'+d+'</span><span class="n-head">'+esc(h)+'</span><a class="n-link" target="_blank" rel="noopener" href="'+esc(href)+'">read ↗</a></div><div class="n-sub">'+esc(sub)+'</div></div>';
+  });
+  const sub='the biggest neobank story of every couple of days, back to January · auto-curated from live feeds'+(NEWS_UPDATED?' · updated '+NEWS_UPDATED:'');
   document.getElementById('grid').insertAdjacentHTML('afterend',
-    '<section class="datasec" id="newssec"><div class="dcard2"><h2>top news</h2><div class="dsub">'+sub+'</div>'+rows+'</div></section>');
+    '<section class="datasec" id="newssec"><div class="dcard2"><h2>top news · '+yr+' timeline</h2><div class="dsub">'+sub+'</div>'+rows+'</div></section>');
 })();
 
 /* ── extended profiles: legal links, users/volume tiles, position, peers ── */
