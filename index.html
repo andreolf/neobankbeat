@@ -1189,10 +1189,13 @@ function currentList(){
   if(sortBy==="newest")list.sort((a,b)=>b[4]-a[4]);
   return list;
 }
+/* self-hosted logo overrides — for brands whose favicon Google's s2 service gets wrong or misses */
+const LOGOMAP={"Moniepoint":"/logos/moniepoint.png"};
+function logoSrc(dom,name){return LOGOMAP[name]||`https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64`}
 function logoHTML(dom,name){
   const initial=esc(name.replace(/^the /i,"").charAt(0).toUpperCase());
-  if(!dom)return `<div class="logo-box"><div class="logo-fb" style="display:flex">${initial}</div></div>`;
-  return `<div class="logo-box"><img loading="lazy" alt="${esc(name)} logo" src="https://www.google.com/s2/favicons?domain=${esc(dom)}&sz=64" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="logo-fb">${initial}</div></div>`;
+  if(!dom&&!LOGOMAP[name])return `<div class="logo-box"><div class="logo-fb" style="display:flex">${initial}</div></div>`;
+  return `<div class="logo-box"><img loading="lazy" alt="${esc(name)} logo" src="${logoSrc(dom,name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="logo-fb">${initial}</div></div>`;
 }
 function render(){
   if(window.__nbBoot){window.__nbDirty=true;return}
@@ -2303,7 +2306,7 @@ function openDetail(name){
     '<div class="phero">'+
       '<button class="pclose" id="dclose">close ✕</button>'+
       '<div class="pherotop">'+
-        '<div class="plogo">'+(dom?'<img loading="lazy" alt="'+esc(n)+' logo" src="https://www.google.com/s2/favicons?domain='+esc(dom)+'&sz=64" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
+        '<div class="plogo">'+((dom||LOGOMAP[n])?'<img loading="lazy" alt="'+esc(n)+' logo" src="'+logoSrc(dom,n)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="logo-fb">'+esc(n.charAt(0).toUpperCase())+'</div>':'<div class="logo-fb" style="display:flex">'+esc(n.charAt(0).toUpperCase())+'</div>')+'</div>'+
         '<div><div class="pname">'+esc(n)+'</div>'+
         (dom?'<div class="pdomain">'+esc(dom)+' · est. '+f+'</div>':'<div class="pdomain">est. '+f+'</div>')+
         '<div class="pchips"><span class="chip '+c+'">'+CATNAME[c]+'</span>'+
