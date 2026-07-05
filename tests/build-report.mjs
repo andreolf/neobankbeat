@@ -100,8 +100,8 @@ a{color:var(--acc);text-decoration:none}
 .toc .pg{font-family:'Noto Sans Mono',monospace;color:var(--acc);text-align:right}
 .cover{display:flex;flex-direction:column;justify-content:space-between}
 .bigbar{position:absolute;left:0;right:0;bottom:0;height:5mm;display:flex}
-.applist td{font-size:7.6pt;padding:1.3mm 1.6mm}
-.applist th{font-size:6.4pt}
+.applist td{font-size:7.4pt;padding:1.1mm 1.6mm;line-height:1.3}
+.applist th{font-size:6.4pt;padding:1.4mm 1.6mm}
 .two{columns:2;column-gap:7mm}
 .two p{break-inside:avoid-column}
 .findnum{font-family:'Noto Sans Mono',monospace;font-size:22pt;font-weight:700;color:var(--acc);line-height:1}
@@ -693,10 +693,41 @@ page(`
 <p>Why it matters beyond pedantry: the terms document is where the actual custody and insurance arrangement lives — the difference between "FDIC insured" as legal fact and as vibe. An industry that moves its legal documents without redirects, or removes them entirely, is an industry whose fine print effectively expires. Of ${N} tracked entities, only <b>${termsN} currently carry a verified, live terms link</b>.</p>
 <div class="callout"><span class="k">a standing offer</span><p>Any neobank that maintains stable, linkable legal documents gets them verified in the directory within days — issue templates at github.com/andreolf/neobankbeat.</p></div>`);
 
+/* ═══ CH: FUTURE NARRATIVES ═══ */
+chapter('Future narratives');
+page(`
+<div class="eyebrow">chapter 13 · future narratives</div>
+<h1>The stories that will<br>write the next editions</h1>
+<p>Everything before this page is measurement. This chapter is the map of narratives we expect to shape the dataset over the next 24 months — each paired, in the table overleaf, with the signal that will tell us whether it's real. All of it is editorial judgment; treat accordingly.</p>
+<h3>01 · Agentic commerce: the customer that is software</h3>
+<p>AI agents are acquiring the ability to hold value and spend it — self-custodial smart accounts, contract-enforced spending limits, and machine-payable HTTP (the x402 pattern: a server answers <span class="mono">402 Payment Required</span>, the agent pays in stablecoins, the resource unlocks). This creates a customer category that cannot pass a selfie check but can transact millions of times a day. The first neobank-shaped products for machines — balances, limits, statements, controls, but for a fleet of agents — are a matter of quarters, not years. The strategic question for every custodial player: your compliance stack is built to identify humans; who underwrites a language model with a wallet?</p>
+<h3>02 · Stablecoin payroll and the invisible dollar account</h3>
+<p>The LatAm dollar-account apps proved demand for holding wages in digital dollars. The next step is upstream: salaries, contractor payouts and creator earnings settling directly in stablecoins, with the neobank reduced to a beautiful interface over a token balance. Remittance-heavy corridors (the immigrant-banking niche of chapter 11) get there first because the pain is measured in percentage points per transfer.</p>
+<h3>03 · Tokenized deposits: the empire banks back</h3>
+<p>The incumbent answer to stablecoins is not "no" — it is deposits that settle like tokens while remaining insured bank money. If tokenized-deposit networks reach consumer rails, the neat stablecoin-vs-deposit boundary this report relies on starts to blur, and wave one gets a path to programmable money that never leaves the regulated perimeter.</p>`);
+page(`
+<div class="eyebrow">chapter 13 · future narratives</div>
+<h3>04 · The neobank as protocol</h3>
+<p>Wave three's logical endpoint: the "account" is a smart contract standard, cards and IBANs are interchangeable modules from regulated partners, and the app is just one of many front-ends. Gnosis Pay already works this way — the card rail is a platform other wallets plug into. If that pattern spreads, this directory's unit of analysis shifts from companies to <i>stacks</i>.</p>
+<h3>05 · AI-native banking: the interface dissolves</h3>
+<p>Chat-first money management is the shallow version. The deep version is delegation: an agent that idles your balance into yield, times FX, disputes fees and switches providers — the neobank's relationship moving from "user opens app" to "agent negotiates with API". Loyalty, the industry's scarcest asset, becomes a parameter in someone else's optimiser.</p>
+<h3>06 · Identity without documents</h3>
+<p>Passkeys killed the password; zero-knowledge credentials aim at the passport upload — proving "over 18, sanctioned-list-clear, EU resident" without revealing anything else. If regulators accept selective disclosure, the KYC/no-KYC binary of chapter 8 becomes a spectrum, and the card-only bucket becomes the default architecture.</p>
+<table>
+<tr><th>narrative</th><th>the signal we'll track in this dataset</th><th>status, july 2026</th></tr>
+<tr><td>Agentic commerce</td><td>First entities with agent-specific products; x402-payable services</td><td>precursors only (${noKyc.length} no-KYC self-custodial apps)</td></tr>
+<tr><td>Stablecoin payroll</td><td>Payroll/payout features in the immigrant &amp; freelancer niches</td><td>early (${niches.find(n=>/immigrant/i.test(n[0]))?.[1] ?? 9} immigrant-focused players)</td></tr>
+<tr><td>Tokenized deposits</td><td>Licensed banks (92 tracked) shipping token-settled consumer money</td><td>pilots, no consumer rails yet</td></tr>
+<tr><td>Neobank as protocol</td><td>Multiple front-ends sharing one card/account rail</td><td>live (Gnosis Pay partners)</td></tr>
+<tr><td>AI-native banking</td><td>Agent/automation features as primary interface</td><td>chat assistants only</td></tr>
+<tr><td>Identity without documents</td><td>First zk-credential onboarding accepted by a card programme</td><td>not yet observed</td></tr>
+</table>
+<div class="callout"><span class="k">how to read this chapter</span><p>Narratives are hypotheses, not findings. Each future edition re-scores this table — publicly, against the same signals — so being wrong will at least be legible.</p></div>`);
+
 /* ═══ CH: OUTLOOK ═══ */
 chapter('Outlook & watchlist');
 page(`
-<div class="eyebrow">chapter 13 · outlook</div>
+<div class="eyebrow">chapter 14 · outlook</div>
 <h1>What we're watching<br>into August</h1>
 <h3>01 · The traditional-wave stablecoin flip</h3>
 <p>The 2.7% number is the one to re-check monthly. Watch announcements-to-launch conversion, and which partner banks let US neobanks touch supervised stablecoins first.</p>
@@ -713,7 +744,7 @@ page(`
 /* ═══ CH: METHOD IN FULL ═══ */
 chapter('Method, in full');
 page(`
-<div class="eyebrow">chapter 14 · method</div>
+<div class="eyebrow">chapter 15 · method</div>
 <h1>How the sausage<br>is measured</h1>
 <h3>Inclusion pipeline</h3>
 <ol>
@@ -736,7 +767,7 @@ page(`
 /* ═══ APPENDIX A: full directory ═══ */
 chapter('Appendix A — the full directory');
 const sorted = [...E].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
-const PER = 42;
+const PER = 34;
 for (let i = 0; i < sorted.length; i += PER) {
   const chunk = sorted.slice(i, i + PER);
   page(`
@@ -833,4 +864,117 @@ ${body}
 
 fs.mkdirSync(path.join(ROOT, 'reports'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'reports', 'report-src.html'), html);
+
+/* ── web edition: free interactive version at /report/<slug>/ ─── */
+const ED_SLUG = '2026-07';
+const chapterStarts = new Map(tocEntries.map(([t, p], i) => [p, { t, i }]));
+const webSections = pages.map((p, i) => ({ ...p, no: i + 1 }))
+  .filter(p => p.footer && p.no !== TOC_IDX)
+  .map(p => {
+    const ch = chapterStarts.get(p.no);
+    return `<section class="wsec"${ch ? ` id="ch${ch.i}"` : ''}>${p.html}</section>`;
+  }).join('\n');
+
+const WEBCSS = `
+body{background:var(--bg);-webkit-font-smoothing:antialiased}
+.wtop{position:sticky;top:0;z-index:9;background:rgba(10,10,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.wtopin{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:14px;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.wtopin::-webkit-scrollbar{display:none}
+.wtopin .logo{font-family:'Noto Sans Mono',monospace;font-weight:700;font-size:13px;color:var(--text);text-decoration:none;margin-right:6px}
+.wtopin a.chl{font-family:'Noto Sans Mono',monospace;font-size:10.5px;letter-spacing:.5px;color:var(--muted);text-decoration:none;padding:4px 8px;border-radius:6px}
+.wtopin a.chl:hover{color:var(--text);background:var(--panel2)}
+.whero{max-width:960px;margin:0 auto;padding:64px 20px 34px}
+.whero .badge{display:inline-block;font-family:'Noto Sans Mono',monospace;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 13px;margin-bottom:20px}
+.whero .big{font-size:clamp(34px,7vw,58px);font-weight:700;letter-spacing:-2px;line-height:1.03}
+.whero .big em{font-style:normal;color:var(--acc)}
+.wcta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.wcta a{font-family:'Noto Sans Mono',monospace;font-size:12px;text-decoration:none;border-radius:8px;padding:10px 16px;border:1px solid var(--line);color:var(--text)}
+.wcta a.pri{background:var(--acc);border-color:var(--acc);color:#0A0A10;font-weight:700}
+.wsec{max-width:960px;margin:0 auto;padding:44px 20px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.wsec.in{opacity:1;transform:none}
+.wsec h1{font-size:clamp(22px,4vw,30px)}
+.wsec p,.wsec li{font-size:15px}
+.wsec table{font-size:13px}
+.wsec th{font-size:10px}
+.wsec .statrow{flex-wrap:wrap}
+.wsec .stat{min-width:130px}
+.wfoot{max-width:960px;margin:0 auto;padding:40px 20px;color:var(--dim);font-family:'Noto Sans Mono',monospace;font-size:11px}
+@media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}}
+`;
+
+const webHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The State of Neobanks — ${MONTH} · web edition · neobankbeat</title>
+<meta name="description" content="The full State of Neobanks ${MONTH} report, readable online: ${N} verified-active neobanks measured across custody, licences, cards, stablecoins, geography and niches.">
+<link rel="canonical" href="https://www.neobankbeat.com/report/${ED_SLUG}/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="The State of Neobanks — ${MONTH} · web edition">
+<meta property="og:description" content="The full monthly report, readable online. ${N} verified-active neobanks, measured.">
+<meta property="og:url" content="https://www.neobankbeat.com/report/${ED_SLUG}/">
+<meta property="og:image" content="https://www.neobankbeat.com/report/cover-${ED_SLUG}.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/report/cover-${ED_SLUG}.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'True', description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches.` })}
+</script>
+<style>${CSS}${WEBCSS}</style>
+</head>
+<body>
+<nav class="wtop"><div class="wtopin">
+  <a class="logo" href="/">neobank<span style="color:var(--acc)">beat</span></a>
+  ${tocEntries.map(([t], i) => `<a class="chl" href="#ch${i}">${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`).join('')}
+</div></nav>
+<div class="whero">
+  <span class="badge">monthly report · ${EDITION} · ${MONTH} · web edition</span>
+  <div class="big">the state of <em>neobanks</em></div>
+  <p style="font-size:17px;color:var(--muted);max-width:640px;margin-top:16px">${N} verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. This is the full report, free to read. ${ASOF}.</p>
+  <div class="wcta">
+    <a class="pri" href="/report/">get the designed PDF →</a>
+    <a href="https://github.com/andreolf/neobankbeat/blob/main/reports/state-of-neobanks-${ED_SLUG}.pdf">PDF on GitHub</a>
+    <a href="/data.json">raw data</a>
+  </div>
+</div>
+${webSections}
+<div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.wsec').forEach(s => io.observe(s));
+const cu = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cu.unobserve(e.target);
+  const el = e.target, raw = el.textContent, m = raw.match(/^([\\d.]+)(.*)$/); if (!m) return;
+  const target = parseFloat(m[1]), dec = (m[1].split('.')[1] || '').length, suf = m[2], t0 = performance.now();
+  const step = now => { const k = Math.min(1, (now - t0) / 900), v = target * (1 - Math.pow(1 - k, 3));
+    el.textContent = v.toFixed(dec) + suf; if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}), { rootMargin: '0px 0px -10% 0px' });
+document.querySelectorAll('.stat .n').forEach(s => cu.observe(s));
+</script>
+</body>
+</html>`;
+fs.mkdirSync(path.join(ROOT, 'report', ED_SLUG), { recursive: true });
+fs.writeFileSync(path.join(ROOT, 'report', ED_SLUG, 'index.html'), webHtml);
+console.log(`web edition written · report/${ED_SLUG}/`);
+
+/* overflow checker: run headless Chrome --dump-dom on this file and grep <title> */
+const checkHtml = html.replace('</body>', `<script>
+window.addEventListener('load', () => setTimeout(() => {
+  const bad = [...document.querySelectorAll('.page')]
+    .map((p, i) => [i + 1, p.scrollHeight - p.clientHeight])
+    .filter(([, d]) => d > 2).map(([n, d]) => 'p' + n + '+' + d + 'px');
+  document.title = 'OVERFLOW: ' + (bad.length ? bad.join(' ') : 'none');
+}, 300));
+</script></body>`);
+fs.writeFileSync(path.join(ROOT, 'reports', 'report-check.html'), checkHtml);
 console.log(`report-src.html written · ${pages.length} pages`);

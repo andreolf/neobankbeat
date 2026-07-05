@@ -294,6 +294,7 @@ const urls = [
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
+  { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },

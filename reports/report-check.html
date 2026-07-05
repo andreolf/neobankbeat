@@ -1529,5 +1529,12 @@ a{color:var(--acc);text-decoration:none}
   <div class="mono" style="font-size:8pt;color:var(--dim);text-align:center">the state of neobanks · July 2026 · № 01 · © neobankbeat, MIT — cite freely with attribution</div>
 </div><div class="bigbar"><div style="flex:256;background:var(--t)"></div><div style="flex:54;background:var(--h)"></div><div style="flex:47;background:var(--w)"></div></div>
 </section>
-</body>
+<script>
+window.addEventListener('load', () => setTimeout(() => {
+  const bad = [...document.querySelectorAll('.page')]
+    .map((p, i) => [i + 1, p.scrollHeight - p.clientHeight])
+    .filter(([, d]) => d > 2).map(([n, d]) => 'p' + n + '+' + d + 'px');
+  document.title = 'OVERFLOW: ' + (bad.length ? bad.join(' ') : 'none');
+}, 300));
+</script></body>
 </html>
