@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "(www\\.)?neobank\\.jobs" }],
+      "destination": "https://www.neobankbeat.com/jobs/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/",
