@@ -428,7 +428,7 @@ a.fdr:hover::after{color:var(--pc)}
 .inv{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:4px 13px 4px 6px;text-decoration:none;color:var(--text);font-family:var(--mono);font-size:11.5px;background:var(--panel2)}
 .inv img{width:16px;height:16px;border-radius:4px;flex:none;background:#fff;padding:1.5px;box-sizing:border-box}
 a.inv:hover{border-color:var(--pc);transform:translateY(-1px)}
-a.inv::after{content:"↗";color:var(--dim);font-size:10px}
+a.inv::after{content:"→";color:var(--dim);font-size:10px}
 a.inv:hover::after{color:var(--pc)}
 
 /* ═══ v8 · resources panel, volume charts, matrix ═══ */
@@ -2490,7 +2490,8 @@ openDetail=function(name){
   if(typeof INV!=="undefined"&&INV[name]){
     const dl=document.querySelector('#dwrap .pfacts');
     if(dl)dl.insertAdjacentHTML('beforeend','<div class="row"><dt>Early investors</dt><dd><div class="invs">'+
-      INV[name].map(([nm,d])=>'<a class="inv" target="_blank" rel="noopener" title="'+esc(nm)+'" href="https://'+esc(d)+'"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(d)+'&sz=32" onerror="this.remove()">'+esc(nm)+'</a>').join("")+'</div></dd></div>');
+      INV[name].map(([nm,d])=>{var s=nm.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'investor';
+      return '<a class="inv" title="'+esc(nm)+' — portfolio & fund profile" href="/investors/'+s+'/"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(d)+'&sz=32" onerror="this.remove()">'+esc(nm)+'</a>'}).join("")+'</div></dd></div>');
   }
   /* press & interviews link into verify row */
   const rows=document.querySelectorAll('#dwrap .srcrow');
