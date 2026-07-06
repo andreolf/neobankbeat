@@ -247,6 +247,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/hongshan/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/ifc/</loc>
     <lastmod>2026-07-06</lastmod>
     <priority>0.6</priority>
@@ -673,16 +678,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/heartcore-capital/</loc>
-    <lastmod>2026-07-06</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/hongshan/</loc>
-    <lastmod>2026-07-06</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/hongshan-sequoia-china/</loc>
     <lastmod>2026-07-06</lastmod>
     <priority>0.6</priority>
   </url>
