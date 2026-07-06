@@ -374,8 +374,11 @@ body.bw .mchip.on b{color:#fff}
 .mi-item{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:6px;padding:5px 10px;color:var(--muted);cursor:pointer;background:var(--panel2)}
 .mi-item b{color:var(--text);font-weight:700}
 .mi-item:hover{border-color:var(--accent);color:var(--text)}
-.newsrow{padding:12px 0;border-bottom:1px dashed var(--line)}
+.newsrow{position:relative;padding:12px 0;border-bottom:1px dashed var(--line)}
 .newsrow:last-child{border-bottom:none}
+/* whole row opens the article: stretch the read-link over the row */
+.n-link::after{content:"";position:absolute;inset:0}
+.newsrow:hover .n-head{color:var(--accent)}
 .n-month{font-family:var(--mono);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);margin:20px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .n-month:first-of-type{margin-top:10px}
 .n-month::before{content:"—— ";color:var(--accent)}
@@ -507,7 +510,9 @@ body.bw .intakecard{background:#fff}
 .libgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:start}
 @media(max-width:900px){.libgrid{grid-template-columns:1fr}}
 .libh3{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
-.rep{padding:12px 0;border-bottom:1px solid var(--line)}
+.rep{position:relative;padding:12px 0;border-bottom:1px solid var(--line)}
+.rep .rt a::after{content:"";position:absolute;inset:0}
+.rep:hover .rt a{color:var(--accent)}
 .rep:last-child{border-bottom:none}
 .rep .rt{font-size:14px;font-weight:700;letter-spacing:-.01em}
 .rep .rt a{color:var(--text);text-decoration:none}
@@ -515,13 +520,15 @@ body.bw .intakecard{background:#fff}
 .rep .rm{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:3px}
 .rep .rd{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.55}
 .rep .ru{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:5px;word-break:break-all}
-.rep .ru a{color:var(--dim)}
+.rep .ru a{color:var(--dim);position:relative;z-index:1}
 .rep .ru a:hover{color:var(--accent)}
 .rbadge{font-family:var(--mono);font-size:9px;border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:7px;vertical-align:middle;color:var(--muted)}
 .rbadge.pdf{color:var(--w);border-color:var(--w)}
 .rbadge.gated{color:var(--h);border-color:var(--h)}
-.lres{padding:8px 0;border-bottom:1px dashed var(--line)}
+.lres{position:relative;padding:8px 0;border-bottom:1px dashed var(--line)}
 .lres:last-child{border-bottom:none}
+.lres .lu a::after{content:"";position:absolute;inset:0}
+.lres:hover .ln2{color:var(--accent)}
 .lres .ln2{font-size:13px;font-weight:600}
 .lres .lu{font-family:var(--mono);font-size:10px;word-break:break-all}
 .lres .lu a{color:var(--dim);text-decoration:none}
