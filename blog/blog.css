@@ -95,7 +95,7 @@ article td:first-child{color:var(--text)}
 .invrow{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0 6px}
 .invchip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 15px 6px 8px;text-decoration:none;color:var(--text);font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;background:var(--panel);transition:border-color .12s,transform .12s}
 .invchip:hover{border-color:var(--accent);transform:translateY(-1px)}
-.invchip img{width:16px;height:16px;border-radius:4px;flex:none}
+.invchip img{width:16px;height:16px;border-radius:4px;flex:none;background:#fff;padding:1.5px;box-sizing:border-box}
 .nbform{display:flex;gap:8px;margin:8px 0 12px}
 .nbform input{flex:1;min-width:0;background:var(--bg,#0A0A10);border:1px solid var(--line);border-radius:8px;color:var(--text,#EDEDF2);font-family:var(--mono,'Noto Sans Mono',monospace);font-size:13px;padding:11px 14px}
 .nbform input::placeholder{color:var(--dim,#55555F)}

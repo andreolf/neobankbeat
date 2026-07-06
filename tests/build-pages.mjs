@@ -363,6 +363,7 @@ for (const [an, bn] of PAIRS) {
 }
 
 /* ═══ /investors/ — who funds the neobanks: investor → portfolio index ═══ */
+let invSlugList = [];
 {
   const inv = new Map(); // name -> { site, banks:[entity] }
   for (const e of E) for (const iv of e.investors || []) {
@@ -391,7 +392,7 @@ for (const [an, bn] of PAIRS) {
 #ivsearch:focus{outline:none;border-color:var(--accent)}
 .ivrow{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px}
 .ivhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain}
+.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
 .ivhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
 .ivhead .nm:hover{color:var(--accent)}
 .ivhead .ct{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
@@ -404,7 +405,7 @@ for (const [an, bn] of PAIRS) {
   const rowHtml = ([name, v]) => `<div class="ivrow" id="${ivSlug(name)}" data-q="${esc((name + ' ' + v.banks.map(b => b.name).join(' ')).toLowerCase())}">
   <div class="ivhead">
     <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(invDom(v.site))}&amp;sz=64" onerror="this.style.visibility='hidden'">
-    <a class="nm" href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(name)}</a>
+    <a class="nm" href="/investors/${ivSlug(name)}/">${esc(name)}</a>
     <span class="ct">${v.banks.length} neobank${v.banks.length === 1 ? '' : 's'}</span>
     <a class="st" href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a>
   </div>
@@ -440,6 +441,72 @@ ${rows.map(rowHtml).join('\n')}
   fs.mkdirSync(path.join(ROOT, 'investors'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'investors', 'index.html'), html.replace('</head>', style + '\n</head>'));
   console.log(`investors page: ${rows.length} investors, ${nBanks} neobanks`);
+
+  /* ── per-investor pages: /investors/<slug>/ ── */
+  const CATLABEL = { traditional: 'traditional', hybrid: 'hybrid crypto', 'web3-native': 'web3-native' };
+  for (const [name, v] of rows) {
+    const slug = ivSlug(name);
+    const url = `${BASE}/investors/${slug}/`;
+    const n = v.banks.length;
+    const regions = [...new Set(v.banks.flatMap(b => b.active_regions))];
+    const cats = [...new Set(v.banks.map(b => b.category))];
+    const bankNames = v.banks.map(b => b.name);
+    /* co-investors: firms sharing at least one portfolio neobank */
+    const co = rows.filter(([n2, v2]) => n2 !== name && v2.banks.some(b => bankNames.includes(b.name)))
+      .map(([n2, v2]) => [n2, v2.banks.filter(b => bankNames.includes(b.name)).length])
+      .sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const title = `${name} — neobank portfolio: ${n} digital bank${n === 1 ? '' : 's'} backed · neobankbeat`;
+    const desc = `${name} appears in the publicly disclosed funding rounds of ${n} tracked neobank${n === 1 ? '' : 's'}: ${bankNames.slice(0, 6).join(', ')}${n > 6 ? ' and more' : ''}. Portfolio mapped from the open neobankbeat dataset.`;
+    const ld = {
+      '@context': 'https://schema.org', '@graph': [
+        { '@type': 'Organization', name, url: v.site,
+          owns: v.banks.map(b => ({ '@type': 'Organization', name: b.name, url: `${BASE}/n/${slugs.get(b.name)}/` })) },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'investors', item: BASE + '/investors/' },
+          { '@type': 'ListItem', position: 3, name, item: url }] }
+      ]
+    };
+    const bankCard = b => `<a class="ivrow" style="display:block;text-decoration:none" href="/n/${slugs.get(b.name)}/">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(b.domain || invDom(b.website))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <span class="nm">${esc(b.name)}</span>
+    <span class="ct">${esc(b.hq)} · est. ${b.founded}</span>
+    <span class="st">${CATLABEL[b.category] || b.category}${b.reported_users ? ` · ${b.reported_users.value_millions}M ${esc(b.reported_users.metric)}` : ''}</span>
+  </div>
+</a>`;
+    const pageHtml = (head(title, desc, url, ld) + `
+<main class="wrap">
+<article>
+  <a class="backbtn" href="/investors/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/investors/" style="color:var(--accent)">investors in neobanks</a></div>
+  <h1>${esc(name)}</h1>
+  <p class="meta"><b>${n} tracked neobank${n === 1 ? '' : 's'} backed</b> · ${regions.join(', ')} · <a href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a></p>
+  <p>${esc(name)} appears in the publicly disclosed early funding rounds of <b>${n}</b> of the ${E.length} neobanks tracked in the <a href="/">open dataset</a>${cats.length > 1 ? ` — a portfolio spanning ${cats.map(c => CATLABEL[c] || c).join(' and ')} players` : ''}. Sources are linked on each profile; this is notable-backer data from disclosed rounds, not a complete cap table.</p>
+  <h2>Portfolio</h2>
+${v.banks.map(bankCard).join('\n')}
+  ${co.length ? `<h2>Frequent co-investors</h2>
+  <p class="meta">Firms appearing alongside ${esc(name)} in the same neobanks' disclosed rounds.</p>
+  <div class="ivbanks" style="margin-top:10px">${co.map(([n2, k]) => `<a href="/investors/${ivSlug(n2)}/">${esc(n2)} · ${k} shared</a>`).join('')}</div>` : ''}
+  <div class="callout" style="margin-top:26px"><span class="k">explore</span>Browse all <a href="/investors/">${rows.length} investors</a>, or compare ${esc(name)}'s portfolio companies side by side in the <a href="/">directory</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+    const dir = path.join(ROOT, 'investors', slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
+    invSlugList.push(slug);
+  }
+  /* prune investor dirs whose firm dropped out of the dataset */
+  const keep = new Set(invSlugList);
+  for (const d of fs.readdirSync(path.join(ROOT, 'investors'), { withFileTypes: true })) {
+    if (d.isDirectory() && !keep.has(d.name)) {
+      fs.rmSync(path.join(ROOT, 'investors', d.name), { recursive: true });
+      console.log(`investors: pruned stale ${d.name}`);
+    }
+  }
+  console.log(`investor pages: ${invSlugList.length}`);
 }
 
 /* ═══ sitemap ═══ */
@@ -449,7 +516,7 @@ const BLOG_POSTS = [
   ['self-custodial-neobanks', '2025-12-09'], ['no-kyc-crypto-wallets-cards', '2026-01-13'],
   ['niche-neobanks', '2026-02-10'], ['neobanks-africa-latam-underbanked', '2026-03-17'],
   ['mica-crypto-neobanks-europe', '2026-04-21'], ['best-neobanks-freelancers-smb-2026', '2026-06-02'],
-  ['state-of-neobanks-2026', '2026-07-05'],
+  ['state-of-neobanks-2026', '2026-07-05'], ['who-funds-the-neobanks', '2026-07-06'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
@@ -458,6 +525,7 @@ const urls = [
   { loc: `${BASE}/faq/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/glossary/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
+  ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
@@ -486,7 +554,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Directory](${BASE}/) — searchable grid of all ${E.length} neobanks
 - [FAQ](${BASE}/faq/) — 20 honest answers
 - [Glossary](${BASE}/glossary/) — 50 terms defined
-- [Investors in neobanks](${BASE}/investors/) — VC → portfolio map
+- [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
 - [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)

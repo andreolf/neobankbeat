@@ -7,7 +7,7 @@
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 358 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (199 firms)
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
 - [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-07/)
@@ -49,6 +49,7 @@
 - [mica crypto neobanks europe](https://www.neobankbeat.com/blog/mica-crypto-neobanks-europe/) (2026-04-21)
 - [best neobanks freelancers smb 2026](https://www.neobankbeat.com/blog/best-neobanks-freelancers-smb-2026/) (2026-06-02)
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
+- [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
 
 ## Neobank profiles (358)
 
