@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/newsletters/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/ribbit-capital/</loc>
     <lastmod>2026-07-06</lastmod>
     <priority>0.6</priority>

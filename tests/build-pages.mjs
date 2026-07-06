@@ -85,7 +85,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -516,6 +516,78 @@ ${v.banks.map(bankCard).join('\n')}
   console.log(`investor pages: ${invSlugList.length}`);
 }
 
+/* ═══ /newsletters/ — the neobank & fintech reading list ═══ */
+const NEWSLETTERS = [
+  ['neobankbeat', 'Francesco Andreoli', 'https://neobankbeat.substack.com', 'monthly',
+    'The newsletter behind this site: what changed in the dataset, new entrants, and the monthly State of Neobanks report.'],
+  ['Fintech Brainfood', 'Simon Taylor', 'https://www.fintechbrainfood.com', 'weekly · sundays',
+    'The industry\u2019s Sunday read — one big rant, four fintech companies that matter, and the things to know this week.'],
+  ['Fintech Takes', 'Alex Johnson', 'https://fintechtakes.com', 'weekly',
+    'Sharp long-form analysis of US fintech: bank\u2013fintech partnerships, credit, regulation, and why things actually happen.'],
+  ['This Week in Fintech', 'Nik Milanović', 'https://www.thisweekinfintech.com', 'weekly',
+    'The global funding and news roundup, with dedicated regional editions for LatAm, Africa, Asia and Europe.'],
+  ['Fintech Business Weekly', 'Jason Mikula', 'https://fintechbusinessweekly.substack.com', 'weekly · sundays',
+    'The investigative one: banking-as-a-service, sponsor banks, consent orders and enforcement — often breaking the story.'],
+  ['Net Interest', 'Marc Rubinstein', 'https://www.netinterest.co', 'weekly · fridays',
+    'A former hedge-fund manager on the economics of financial firms — the deepest \u201chow banks actually make money\u201d essays anywhere.'],
+  ['Fintech Blueprint', 'Lex Sokolin', 'https://www.fintechblueprint.com', 'weekly',
+    'Where fintech meets digital assets and AI — strategy essays and founder interviews from a former ConsenSys CFO.'],
+  ['Popular Fintech', 'Jevgenijs Kazanins', 'https://www.popularfintech.com', 'weekly',
+    'Data-heavy breakdowns of public fintech and neobank earnings — the numbers behind Nubank, SoFi, Revolut and friends.'],
+  ['Fintech Wrap Up', 'Sam Boboev', 'https://www.fintechwrapup.com', 'weekly',
+    'Fintech explained in diagrams — infographic-first summaries of business models, products and partnerships.'],
+  ['WhiteSight', 'research team', 'https://whitesight.net', 'weekly',
+    'Visual fintech research: embedded finance, BaaS and digital-bank strategy mapped into frameworks and charts.'],
+];
+{
+  const url = `${BASE}/newsletters/`;
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank & fintech newsletters', url,
+    mainEntity: { '@type': 'ItemList', itemListElement: NEWSLETTERS.map(([n, a, u], i) => ({
+      '@type': 'ListItem', position: i + 1, name: `${n} — ${a}`, url: u })) }
+  };
+  const style = `<style>
+.nlrow{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--card,transparent)}
+.nlhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nlhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
+.nlhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
+.nlhead .nm:hover{color:var(--accent)}
+.nlhead .au{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.nlhead .cad{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:auto}
+.nlrow .nd{font-size:13px;color:var(--dim);line-height:1.55;margin-top:7px}
+.nlrow .nu{font-family:var(--mono);font-size:11px;margin-top:6px}
+.nlrow .nu a{color:var(--muted);text-decoration:none}
+.nlrow .nu a:hover{color:var(--accent)}
+</style>`;
+  const rowHtml = ([n, a, u, cad, d]) => `<div class="nlrow">
+  <div class="nlhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(u.replace(/^https?:\/\//, '').replace(/\/.*/, ''))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>
+    <span class="au">by ${esc(a)}</span>
+    <span class="cad">${esc(cad)}</span>
+  </div>
+  <div class="nd">${esc(d)}</div>
+  <div class="nu"><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)} ↗</a></div>
+</div>`;
+  const html = (head(`Neobank & fintech newsletters — the ${NEWSLETTERS.length} worth your inbox · neobankbeat`,
+    `The hand-picked reading list behind neobankbeat: ${NEWSLETTERS.length} fintech and neobank newsletters with authors and what each is best at — Fintech Brainfood, Fintech Takes, This Week in Fintech, Net Interest and more.`,
+    url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">reading list</div>
+  <h1>Neobank &amp; fintech <em>newsletters</em></h1>
+  <p class="meta"><b>${NEWSLETTERS.length} newsletters</b> · hand-picked, no affiliations · updated ${TODAY}</p>
+  <p>The inbox stack we actually read to keep this site accurate. Every pick is independent — nobody paid to be here, and there are no affiliate links. Ours is first because it\u2019s ours; the rest are ordered roughly by how often they explain something before anyone else does. Missing a great one? <a href="https://github.com/andreolf/neobankbeat/issues/new">Suggest it</a>.</p>
+${NEWSLETTERS.map(rowHtml).join('\n')}
+  <div class="callout" style="margin-top:26px"><span class="k">go deeper</span>Reports, dashboards and regulatory registers live in the <a href="/#library">library</a> on the homepage. For the data itself: <a href="/data.json">data.json</a>.</div>
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'newsletters'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'newsletters', 'index.html'), html);
+  console.log(`newsletters page: ${NEWSLETTERS.length} entries`);
+}
+
 /* ═══ sitemap ═══ */
 const BLOG_POSTS = [
   ['what-is-a-neobank', '2025-09-16'], ['neobank-vs-traditional-bank', '2025-10-07'],
@@ -532,6 +604,7 @@ const urls = [
   { loc: `${BASE}/faq/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/glossary/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
@@ -562,6 +635,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [FAQ](${BASE}/faq/) — 20 honest answers
 - [Glossary](${BASE}/glossary/) — 50 terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
+- [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
 - [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)

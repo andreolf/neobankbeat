@@ -8,6 +8,7 @@
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (198 firms)
+- [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
 - [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-07/)
