@@ -3,9 +3,9 @@
 <channel>
   <title>neobank jobs · neobankbeat</title>
   <link>https://www.neobankbeat.com/jobs/</link>
-  <description>The newest roles at 56 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
+  <description>The newest roles at 69 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 06 Jul 2026 13:16:54 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 06 Jul 2026 13:18:57 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[DATA ANALYST II — Banco Inter]]></title>
@@ -48,6 +48,14 @@
     <description><![CDATA[Coinbase · Remote - Singapore · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Senior Application Security Engineer — Consensys (MetaMask)]]></title>
+    <link>https://consensys.io/open-roles/7743627?gh_jid=7743627</link>
+    <guid isPermaLink="true">https://consensys.io/open-roles/7743627?gh_jid=7743627</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Consensys (MetaMask) · UNITED STATES - Remote, EMEA - Remote · remote]]></description>
+  </item>
+  <item>
     <title><![CDATA[Legal Counsel, Europe — Crypto.com]]></title>
     <link>https://jobs.lever.co/crypto/a26d7d57-a930-49b3-8245-1f9cb91f59cd</link>
     <guid isPermaLink="true">https://jobs.lever.co/crypto/a26d7d57-a930-49b3-8245-1f9cb91f59cd</guid>
@@ -56,12 +64,36 @@
     <description><![CDATA[Crypto.com · Malta · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[Business & Partnerships Associate — FamPay]]></title>
+    <link>https://jobs.lever.co/fampay/76e5974a-aa6f-4342-81f3-2a99821c2adc</link>
+    <guid isPermaLink="true">https://jobs.lever.co/fampay/76e5974a-aa6f-4342-81f3-2a99821c2adc</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[FamPay · Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Site Reliability Engineer — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4915166101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4915166101</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, India · remote]]></description>
+  </item>
+  <item>
     <title><![CDATA[Service Analyst, Workforce Management — Monzo]]></title>
     <link>https://job-boards.greenhouse.io/monzo/jobs/8025947</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8025947</guid>
     <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £33–42K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Credit Risk Manager (Mortgage) — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7784739?gh_jid=7784739</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7784739?gh_jid=7784739</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
   </item>
   <item>
     <title><![CDATA[Regulatory Operations Analyst — N26]]></title>
@@ -296,6 +328,94 @@
     <description><![CDATA[Trust Bank · Singapore · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Quality Assurance Senior Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135997173</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135997173</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · Tallinn, EE · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Researcher — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135991973</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135991973</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Researcher — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135992209</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135992209</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Customer Support Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135991509</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135991509</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · Tallinn, EE · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[KYC Operations Associate Analyst — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135986153</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135986153</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Onboarding &amp; KYC</category>
+    <description><![CDATA[Wise · Budapest, HU · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Product Analyst - Send — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135970609</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135970609</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Lead - Send for Partners — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135958909</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135958909</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Talent Development Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135928931</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135928931</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Wise · Singapore, SG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Compliance Analyst — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000135919145</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135919145</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Tallinn, EE · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Associate / Software Engineering Manager — YouTrip]]></title>
+    <link>https://apply.workable.com/j/E9E257DDDC</link>
+    <guid isPermaLink="true">https://apply.workable.com/j/E9E257DDDC</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[YouTrip · Singapore, Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Sales Strategy Intern — YouTrip]]></title>
+    <link>https://apply.workable.com/j/EA3EC5A77E</link>
+    <guid isPermaLink="true">https://apply.workable.com/j/EA3EC5A77E</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[YouTrip · Singapore, Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Risk Operations Lead — Bybit]]></title>
     <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4910234101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4910234101</guid>
@@ -366,126 +486,6 @@
     <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[ACCOUNTING ANALYST II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4673123005?gh_jid=4673123005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4673123005?gh_jid=4673123005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[ANTI-FINANCIAL CRIME INVEST ANALYST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4697323005?gh_jid=4697323005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4697323005?gh_jid=4697323005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[BACK OFFICE ANALYST I - STOCK OPERATIONS BR — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4703998005?gh_jid=4703998005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4703998005?gh_jid=4703998005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[BANCO DE TALENTOS (OPORTUNIDADES DE ESTÁGIO) | FINANCE — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4685799005?gh_jid=4685799005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4685799005?gh_jid=4685799005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION ANALYST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4697662005?gh_jid=4697662005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4697662005?gh_jid=4697662005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION ANALYST II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4697664005?gh_jid=4697664005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4697664005?gh_jid=4697664005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COMMERCIAL ANALYST II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4681829005?gh_jid=4681829005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4681829005?gh_jid=4681829005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COMPLIANCE ANALYST III - REGULATORY COMPLIANCE — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4694668005?gh_jid=4694668005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4694668005?gh_jid=4694668005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CONTENT & CRM COORDINATOR — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4696456005?gh_jid=4696456005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4696456005?gh_jid=4696456005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CORPORATE MANAGER II - São Paulo, SP — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4683924005?gh_jid=4683924005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4683924005?gh_jid=4683924005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT ANALYST I (AGRIBUSINESS) — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4674512005?gh_jid=4674512005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4674512005?gh_jid=4674512005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT INTERN — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4702293005?gh_jid=4702293005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4702293005?gh_jid=4702293005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT POLICIES ANALYST III — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4693995005?gh_jid=4693995005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4693995005?gh_jid=4693995005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT POLICIES SPECIALIST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4643726005?gh_jid=4643726005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4643726005?gh_jid=4643726005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CUSTOMER ADVISOR ANALYST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4705966005?gh_jid=4705966005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4705966005?gh_jid=4705966005</guid>
-    <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
   </item>
 </channel>
 </rss>
