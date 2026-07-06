@@ -443,6 +443,9 @@ ${rows.map(rowHtml).join('\n')}
   console.log(`investors page: ${rows.length} investors, ${nBanks} neobanks`);
 
   /* ── per-investor pages: /investors/<slug>/ ── */
+  const PEOPLE = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'investor-people.json'), 'utf8'));
+  delete PEOPLE._comment;
+  for (const k of Object.keys(PEOPLE)) if (!inv.has(k)) console.warn(`investor-people: "${k}" not in dataset — check spelling`);
   const CATLABEL = { traditional: 'traditional', hybrid: 'hybrid crypto', 'web3-native': 'web3-native' };
   for (const [name, v] of rows) {
     const slug = ivSlug(name);
@@ -483,6 +486,8 @@ ${rows.map(rowHtml).join('\n')}
   <h1>${esc(name)}</h1>
   <p class="meta"><b>${n} tracked neobank${n === 1 ? '' : 's'} backed</b> · ${regions.join(', ')} · <a href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a></p>
   <p>${esc(name)} appears in the publicly disclosed early funding rounds of <b>${n}</b> of the ${E.length} neobanks tracked in the <a href="/">open dataset</a>${cats.length > 1 ? ` — a portfolio spanning ${cats.map(c => CATLABEL[c] || c).join(' and ')} players` : ''}. Sources are linked on each profile; this is notable-backer data from disclosed rounds, not a complete cap table.</p>
+  ${PEOPLE[name] ? `<h2>Key people</h2>
+  <div class="ivbanks" style="margin-top:10px">${PEOPLE[name].map(([p, r]) => `<a href="https://www.google.com/search?q=${encodeURIComponent(p + ' ' + name)}" target="_blank" rel="noopener nofollow">${esc(p)} — ${esc(r)} ↗</a>`).join('')}</div>` : ''}
   <h2>Portfolio</h2>
 ${v.banks.map(bankCard).join('\n')}
   ${co.length ? `<h2>Frequent co-investors</h2>
