@@ -459,7 +459,8 @@ ${rows.map(rowHtml).join('\n')}
       .map(([n2, v2]) => [n2, v2.banks.filter(b => bankNames.includes(b.name)).length])
       .sort((a, b) => b[1] - a[1]).slice(0, 10);
     const title = `${name} — neobank portfolio: ${n} digital bank${n === 1 ? '' : 's'} backed · neobankbeat`;
-    const desc = `${name} appears in the publicly disclosed funding rounds of ${n} tracked neobank${n === 1 ? '' : 's'}: ${bankNames.slice(0, 6).join(', ')}${n > 6 ? ' and more' : ''}. Portfolio mapped from the open neobankbeat dataset.`;
+    const desc = (PEOPLE[name]?.about ? PEOPLE[name].about + ' ' : '') +
+      `Backer of ${n} tracked neobank${n === 1 ? '' : 's'}: ${bankNames.slice(0, 6).join(', ')}${n > 6 ? ' and more' : ''}.`;
     const ld = {
       '@context': 'https://schema.org', '@graph': [
         { '@type': 'Organization', name, url: v.site,
@@ -485,9 +486,10 @@ ${rows.map(rowHtml).join('\n')}
   <div class="eyebrow"><a href="/investors/" style="color:var(--accent)">investors in neobanks</a></div>
   <h1>${esc(name)}</h1>
   <p class="meta"><b>${n} tracked neobank${n === 1 ? '' : 's'} backed</b> · ${regions.join(', ')} · <a href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a></p>
+  ${PEOPLE[name]?.about ? `<p>${esc(PEOPLE[name].about)}</p>` : ''}
   <p>${esc(name)} appears in the publicly disclosed early funding rounds of <b>${n}</b> of the ${E.length} neobanks tracked in the <a href="/">open dataset</a>${cats.length > 1 ? ` — a portfolio spanning ${cats.map(c => CATLABEL[c] || c).join(' and ')} players` : ''}. Sources are linked on each profile; this is notable-backer data from disclosed rounds, not a complete cap table.</p>
-  ${PEOPLE[name] ? `<h2>Key people</h2>
-  <div class="ivbanks" style="margin-top:10px">${PEOPLE[name].map(([p, r]) => `<a href="https://www.google.com/search?q=${encodeURIComponent(p + ' ' + name)}" target="_blank" rel="noopener nofollow">${esc(p)} — ${esc(r)} ↗</a>`).join('')}</div>` : ''}
+  ${PEOPLE[name]?.people?.length ? `<h2>Key people</h2>
+  <div class="ivbanks" style="margin-top:10px">${PEOPLE[name].people.map(([p, r]) => `<a href="https://www.google.com/search?q=${encodeURIComponent(p + ' ' + name)}" target="_blank" rel="noopener nofollow">${esc(p)} — ${esc(r)} ↗</a>`).join('')}</div>` : ''}
   <h2>Portfolio</h2>
 ${v.banks.map(bankCard).join('\n')}
   ${co.length ? `<h2>Frequent co-investors</h2>
