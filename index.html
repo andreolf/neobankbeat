@@ -31,6 +31,7 @@
 <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
@@ -1303,6 +1304,7 @@ document.getElementById('gocmp').addEventListener('click',()=>{
   document.getElementById('cmptable').innerHTML=html;
   document.getElementById('overlay').classList.add('show');
   document.getElementById('ovclose').focus();
+  nbevt('compare_open',{entities:rows.map(r=>r[0]).join(' vs '),count:rows.length});
 });
 document.getElementById('ovclose').addEventListener('click',()=>document.getElementById('overlay').classList.remove('show'));
 /* backdrop click closes the compare overlay too */
@@ -3350,8 +3352,22 @@ render();
     try{await navigator.clipboard.writeText(location.href);share.textContent='copied ✓';}
     catch(_){share.textContent=location.search;}
     setTimeout(()=>{share.textContent='copy link';},1600);
+    nbevt('compare_share',{cmp:new URLSearchParams(location.search).get('cmp')||''});
   });
 })();
+
+/* ── custom analytics events (vercel + ga4 via nbevt) ── */
+document.addEventListener('click',e=>{
+  const a=e.target.closest&&e.target.closest('a');if(!a)return;
+  if(a.classList.contains('n-link')){
+    const h=a.closest('.newsrow')?.querySelector('.n-head')?.textContent||'';
+    nbevt('news_read',{headline:h.slice(0,120)});
+  }else if(a.host==='neobankbeat.substack.com'){
+    nbevt('newsletter_click',{from:'home'});
+  }else if(a.pathname==='/data.json'){
+    nbevt('data_download',{from:'home'});
+  }
+});
 
 /* ── profile modal ⇄ browser history ──
    opening a profile pushes its real company-page URL (/n/<slug>/) so the address bar
