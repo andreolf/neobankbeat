@@ -2,8 +2,8 @@ name: cron health check
 
 on:
   schedule:
-    # Tuesday 07:00 UTC — the morning after all three Monday crons have run
-    - cron: '0 7 * * 2'
+    # Tuesday ~07:13 UTC — the morning after all three Monday crons have run
+    - cron: '13 7 * * 2'
   workflow_dispatch: {}
 
 permissions:

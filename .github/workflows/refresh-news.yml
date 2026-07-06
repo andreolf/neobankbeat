@@ -2,8 +2,8 @@ name: refresh top news
 
 on:
   schedule:
-    # Monday 06:15 UTC (08:15 CEST) — before the jobs refresh at 06:00 runs its commit
-    - cron: '15 6 * * 1'
+    # Monday ~06:23 UTC — odd minute to dodge GitHub's congested cron slots
+    - cron: '23 6 * * 1'
   workflow_dispatch: {}
 
 permissions:

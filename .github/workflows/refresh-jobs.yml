@@ -2,8 +2,9 @@ name: refresh jobs board
 
 on:
   schedule:
-    # Monday, Wednesday, Friday 06:00 UTC (08:00 CEST) — edit to '0 6 * * *' for daily
-    - cron: '0 6 * * 1,3,5'
+    # Monday, Wednesday, Friday ~06:07 UTC — odd minute on purpose: top-of-hour
+    # slots are congested on GitHub and runs get delayed or dropped
+    - cron: '7 6 * * 1,3,5'
   workflow_dispatch: {}
 
 permissions:

@@ -2,8 +2,9 @@ name: discover new neobanks
 
 on:
   schedule:
-    # Monday 07:00 UTC (09:00 CEST), right after the jobs refresh
-    - cron: '0 7 * * 1'
+    # Monday ~07:09 UTC, after the jobs/news refreshes — odd minute to dodge
+    # GitHub's congested cron slots
+    - cron: '9 7 * * 1'
   workflow_dispatch: {}
 
 permissions:
