@@ -229,6 +229,48 @@ const PAIRS = [
   ['Greenlight', 'GoHenry'], ['Step', 'Greenlight'], ['Found', 'Lili'], ['Hnry', 'Found'],
 ];
 const byName = new Map(E.map(e => [e.name, e]));
+
+/* ── auto pairs on top of the curated list: same category + audience +
+   overlapping region, both with reported users, biggest names first.
+   Per-entity cap keeps giants from pairing with everything. ── */
+{
+  const seen = new Set(PAIRS.map(p => [...p].sort().join('|')));
+  const perEntity = {};
+  for (const [a, b] of PAIRS) { perEntity[a] = (perEntity[a] || 0) + 1; perEntity[b] = (perEntity[b] || 0) + 1; }
+  const CAP = 5, AUTO_MAX = 120;
+  const ranked = E.filter(e => e.reported_users)
+    .sort((x, y) => y.reported_users.value_millions - x.reported_users.value_millions);
+  let added = 0;
+  const tryPair = (a, b) => {
+    if (added >= AUTO_MAX) return;
+    if (a.category !== b.category || a.audience !== b.audience) return;
+    if (!a.active_regions.some(r => b.active_regions.includes(r))) return;
+    /* two single-market apps from different countries never compete —
+       nobody searches "bKash vs GCash". International players (2+ regions
+       or a multi-country footprint) can pair across borders. */
+    const intl = e => e.active_regions.length >= 2 || (e.countries?.length || 0) >= 3;
+    const home = e => (e.hq.match(/,\s*([A-Z]{2})$/) || [])[1] || e.hq;
+    if (!intl(a) && !intl(b) && home(a) !== home(b) &&
+        !(a.countries || []).some(c => (b.countries || []).includes(c))) return;
+    if ((perEntity[a.name] || 0) >= CAP || (perEntity[b.name] || 0) >= CAP) return;
+    const key = [a.name, b.name].sort().join('|');
+    if (seen.has(key)) return;
+    seen.add(key);
+    perEntity[a.name] = (perEntity[a.name] || 0) + 1;
+    perEntity[b.name] = (perEntity[b.name] || 0) + 1;
+    PAIRS.push([a.name, b.name]);
+    added++;
+  };
+  /* pass 1: the biggest names by reported users */
+  for (let i = 0; i < ranked.length; i++)
+    for (let j = i + 1; j < ranked.length; j++) tryPair(ranked[i], ranked[j]);
+  /* pass 2: niche-audience head-to-heads (SMB vs SMB, teens vs teens…) —
+     the long-tail queries, no user figures required */
+  const niche = E.filter(e => e.audience !== 'general');
+  for (let i = 0; i < niche.length; i++)
+    for (let j = i + 1; j < niche.length; j++) tryPair(niche[i], niche[j]);
+  console.log(`vs: ${added} auto-generated pairs on top of ${PAIRS.length - added} curated`);
+}
 const VS_FIELDS = [
   ['Category', e => e.category], ['Audience', e => e.audience],
   ['HQ', e => e.hq], ['Founded', e => e.founded], ['Custody', e => e.custody],
@@ -286,6 +328,17 @@ for (const [an, bn] of PAIRS) {
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   vsIndex.push({ an, bn, slug });
   vsPages++;
+}
+
+/* prune vs/ dirs from earlier runs whose pair is no longer generated */
+{
+  const keep = new Set(vsIndex.map(v => v.slug));
+  for (const d of fs.readdirSync(path.join(ROOT, 'vs'), { withFileTypes: true })) {
+    if (d.isDirectory() && !keep.has(d.name)) {
+      fs.rmSync(path.join(ROOT, 'vs', d.name), { recursive: true });
+      console.log(`vs: pruned stale ${d.name}`);
+    }
+  }
 }
 
 /* ═══ /vs/ index ═══ */
