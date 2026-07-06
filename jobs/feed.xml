@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 69 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 06 Jul 2026 13:18:57 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 06 Jul 2026 15:10:37 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[CREDIT COORDINATOR — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4711399005?gh_jid=4711399005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4711399005?gh_jid=4711399005</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[DATA ANALYST II — Banco Inter]]></title>
     <link>https://boards.greenhouse.io/inter/jobs/4698896005?gh_jid=4698896005</link>
@@ -24,6 +32,14 @@
     <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[TECHNOLOGY EXECUTIVE MANAGER | CYBERSECURITY GRC & IAM — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4656171005?gh_jid=4656171005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4656171005?gh_jid=4656171005</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Customer Support - Phone Support - Italy — Bitpanda]]></title>
     <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4888869101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4888869101</guid>
@@ -32,12 +48,60 @@
     <description><![CDATA[Bitpanda · Milan, Italy · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[Intern, Legal & Regulatory — Bitpanda]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4896304101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4896304101</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Manager, Customer Care — Bitpanda]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4650871101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4650871101</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Software Engineer II, Frontend — Brex]]></title>
+    <link>https://www.brex.com/careers/8310523002?gh_jid=8310523002</link>
+    <guid isPermaLink="true">https://www.brex.com/careers/8310523002?gh_jid=8310523002</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Brex · São Paulo, São Paulo, Brazil · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[[L&C] AMLO, MiCAR — Bybit]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4909283101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4909283101</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Bybit · Vienna, Austria · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[[L&C] KYC Product Manager — Bybit]]></title>
     <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4860765101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4860765101</guid>
     <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
     <description><![CDATA[Bybit · Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Analista de Operações Junior | Mensageria e Monitoração Python — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4712175005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4712175005</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Pessoa Especialista de Engenharia de Plataformas | Technology Platform Engineering — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4696666005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4696666005</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Software Engineer - Trading — Coinbase]]></title>
@@ -86,6 +150,22 @@
     <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £33–42K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Backend Engineer - Engagement — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7925103?gh_jid=7925103</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7925103?gh_jid=7925103</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Backend Engineer - Payments — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7899294?gh_jid=7899294</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7899294?gh_jid=7899294</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[N26 · Berlin, Barcelona · hybrid · visa sponsorship]]></description>
   </item>
   <item>
     <title><![CDATA[Credit Risk Manager (Mortgage) — N26]]></title>
@@ -328,6 +408,38 @@
     <description><![CDATA[Trust Bank · Singapore · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Country Manager - Poland — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000136029950</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000136029950</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Wise · Warsaw, PL · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Country Manager - Romania — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000136028672</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000136028672</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Wise · Bucharest, RO · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Operations Project Manager — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000136025209</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000136025209</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · Budapest, HU · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Lead - Embedded Finance — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000136016799</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000136016799</guid>
+    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Quality Assurance Senior Specialist — Wise]]></title>
     <link>https://jobs.smartrecruiters.com/wise/744000135997173</link>
     <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135997173</guid>
@@ -374,118 +486,6 @@
     <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
     <description><![CDATA[Wise · London, GB · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Engineering Lead - Send for Partners — Wise]]></title>
-    <link>https://jobs.smartrecruiters.com/wise/744000135958909</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135958909</guid>
-    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Wise · London, GB · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Talent Development Specialist — Wise]]></title>
-    <link>https://jobs.smartrecruiters.com/wise/744000135928931</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135928931</guid>
-    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Wise · Singapore, SG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Compliance Analyst — Wise]]></title>
-    <link>https://jobs.smartrecruiters.com/wise/744000135919145</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000135919145</guid>
-    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Wise · Tallinn, EE · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Associate / Software Engineering Manager — YouTrip]]></title>
-    <link>https://apply.workable.com/j/E9E257DDDC</link>
-    <guid isPermaLink="true">https://apply.workable.com/j/E9E257DDDC</guid>
-    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[YouTrip · Singapore, Singapore, Singapore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Sales Strategy Intern — YouTrip]]></title>
-    <link>https://apply.workable.com/j/EA3EC5A77E</link>
-    <guid isPermaLink="true">https://apply.workable.com/j/EA3EC5A77E</guid>
-    <pubDate>Mon, 06 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[YouTrip · Singapore, Singapore, Singapore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Risk Operations Lead — Bybit]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4910234101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4910234101</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Bybit · Abu Dhabi, UAE; Kuala Lumpur, Malaysia · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Associate, Digital Asset Operations — Crypto.com]]></title>
-    <link>https://jobs.lever.co/crypto/b2f913e5-d4fc-4344-b2ce-c69198e1d45a</link>
-    <guid isPermaLink="true">https://jobs.lever.co/crypto/b2f913e5-d4fc-4344-b2ce-c69198e1d45a</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Crypto.com · Hong Kong, Hong Kong SAR · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Visual Designer — OKX]]></title>
-    <link>https://job-boards.greenhouse.io/okx/jobs/7726846003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7726846003</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[OKX · San Jose, California, United States · $179–268K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[システム監査担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/4944963004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/4944963004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[税務 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5507709004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5507709004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[財務企画・トレジャリー（資金調達／資金管理） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5991154004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5991154004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[グループ財務戦略（ALM・B/S管理） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5762837004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5762837004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Remote · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[財務戦略担当（キャピタルマーケット、Ｍ＆Ａ等） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5991150004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5991150004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Remote · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[財務業務企画・BPR推進 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5563411004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5563411004</guid>
-    <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
   </item>
 </channel>
 </rss>

@@ -36,6 +36,7 @@
 - [finance](https://www.neobankbeat.com/jobs/finance/)
 - [operations](https://www.neobankbeat.com/jobs/operations/)
 - [people](https://www.neobankbeat.com/jobs/people/)
+- [other](https://www.neobankbeat.com/jobs/other/)
 
 ## Blog posts
 

@@ -705,8 +705,9 @@ const DEPT_COPY = {
   finance: 'Treasury, accounting, FP&A, credit and payments-settlement roles inside the money machines.',
   operations: 'Banking ops, payment ops and the operational backbone of running a digital bank.',
   people: 'Talent, people, legal and workplace roles at hiring neobanks.',
+  other: 'Everything that doesn\u2019t fit a standard bucket — internships, executive roles, country launches and one-off specialist positions.',
 };
-for (const [id, label] of DEPTS) {
+for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]) {
   const rows = all.filter(j => j.dept === id);
   if (!rows.length) continue;
   const dir = path.join(ROOT, 'jobs', id);

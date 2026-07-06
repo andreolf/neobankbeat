@@ -550,7 +550,7 @@ const NEWSLETTERS = [
       '@type': 'ListItem', position: i + 1, name: `${n} — ${a}`, url: u })) }
   };
   const style = `<style>
-.nlrow{position:relative;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--card,transparent);transition:border-color .15s}
+.nlrow{position:relative;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel);transition:border-color .15s}
 .nlrow:has(.nm:hover){border-color:var(--accent)}
 .nlhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .nlhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
@@ -593,6 +593,31 @@ ${NEWSLETTERS.map(rowHtml).join('\n')}
   console.log(`newsletters page: ${NEWSLETTERS.length} entries`);
 }
 
+/* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
+{
+  const html = (head('Page not found · neobankbeat',
+    'That page doesn\u2019t exist — but 358 neobank profiles, live jobs, investor maps and the blog do.',
+    `${BASE}/404`, { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Page not found' }) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">404</div>
+  <h1>This page <em>doesn\u2019t exist</em></h1>
+  <p class="meta">Maybe it moved, maybe the neobank behind it pivoted to B2B SaaS. Either way, nothing is here.</p>
+  <p>Try searching the directory instead:</p>
+  <form action="/" method="get" style="display:flex;gap:8px;margin:14px 0 26px;max-width:460px">
+    <input type="search" name="q" placeholder="search 358 neobanks\u2026" aria-label="Search neobanks" style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px">
+    <button type="submit" style="background:var(--accent);border:0;border-radius:10px;color:#0A0A10;font-family:var(--mono);font-size:12.5px;font-weight:700;padding:10px 16px;cursor:pointer">search</button>
+  </form>
+  <h2>Or start from a good page</h2>
+  <p><a href="/">the directory</a> · <a href="/n/">all neobank profiles A\u2013Z</a> · <a href="/vs/">comparisons</a> · <a href="/investors/">investors</a> · <a href="/jobs/">jobs board</a> · <a href="/blog/">blog</a> · <a href="/newsletters/">newsletters</a> · <a href="/faq/">faq</a> · <a href="/glossary/">glossary</a></p>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:24px">Followed a link here from somewhere on this site? That\u2019s a bug — <a href="https://github.com/andreolf/neobankbeat/issues/new">report it</a> and it gets fixed.</p>
+</article>
+</main>` + foot)
+    .replace(`<link rel="canonical" href="${BASE}/404">`, '<meta name="robots" content="noindex">')
+    .replace('<a href="/" class="on">', '<a href="/">');
+  fs.writeFileSync(path.join(ROOT, '404.html'), html);
+}
+
 /* ═══ sitemap ═══ */
 const BLOG_POSTS = [
   ['what-is-a-neobank', '2025-09-16'], ['neobank-vs-traditional-bank', '2025-10-07'],
@@ -614,7 +639,7 @@ const urls = [
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
-  ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people']
+  ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
@@ -656,7 +681,7 @@ const sitemapMd = `# neobankbeat — sitemap
 
 ## Jobs by department
 
-${['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people'].map(d => `- [${d}](${BASE}/jobs/${d}/)`).join('\n')}
+${['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other'].map(d => `- [${d}](${BASE}/jobs/${d}/)`).join('\n')}
 
 ## Blog posts
 

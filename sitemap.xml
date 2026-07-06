@@ -1122,6 +1122,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/other/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
