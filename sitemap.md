@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-05.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-06.
 
 ## Main
 
@@ -16,6 +16,7 @@
 
 - [data.json](https://www.neobankbeat.com/data.json) — full dataset
 - [jobs/data.json](https://www.neobankbeat.com/jobs/data.json) — job board feed
+- [jobs/feed.xml](https://www.neobankbeat.com/jobs/feed.xml) — RSS of the newest roles
 - [openapi.json](https://www.neobankbeat.com/openapi.json) — OpenAPI 3.1 description
 - [llms.txt](https://www.neobankbeat.com/llms.txt) · [llms-full.txt](https://www.neobankbeat.com/llms-full.txt) · [AGENTS.md](https://www.neobankbeat.com/AGENTS.md)
 - [API catalog](https://www.neobankbeat.com/.well-known/api-catalog) · [agent skills](https://www.neobankbeat.com/.well-known/agent-skills/index.json)

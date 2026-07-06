@@ -439,6 +439,7 @@ const sitemapMd = `# neobankbeat — sitemap
 
 - [data.json](${BASE}/data.json) — full dataset
 - [jobs/data.json](${BASE}/jobs/data.json) — job board feed
+- [jobs/feed.xml](${BASE}/jobs/feed.xml) — RSS of the newest roles
 - [openapi.json](${BASE}/openapi.json) — OpenAPI 3.1 description
 - [llms.txt](${BASE}/llms.txt) · [llms-full.txt](${BASE}/llms-full.txt) · [AGENTS.md](${BASE}/AGENTS.md)
 - [API catalog](${BASE}/.well-known/api-catalog) · [agent skills](${BASE}/.well-known/agent-skills/index.json)

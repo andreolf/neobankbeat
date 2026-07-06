@@ -343,6 +343,33 @@ const logoImg = co => COMPANY_META[co]
 fs.mkdirSync(path.join(ROOT, 'jobs'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generated: TODAY, count: all.length, companies: nCompanies, logos: COMPANY_META, jobs: all }));
 
+/* ── jobs/feed.xml — RSS of the newest postings, so people & aggregators can subscribe ── */
+{
+  const cdata = s => `<![CDATA[${String(s).replace(/\]\]>/g, ']]&gt;')}]]>`;
+  const rfc822 = d => new Date(d + 'T09:00:00Z').toUTCString().replace('GMT', '+0000');
+  const items = all.filter(j => j.posted && !Number.isNaN(Date.parse(j.posted))).slice(0, 60).map(j => `  <item>
+    <title>${cdata(`${j.title} — ${j.company}`)}</title>
+    <link>${esc(j.url)}</link>
+    <guid isPermaLink="true">${esc(j.url)}</guid>
+    <pubDate>${rfc822(j.posted)}</pubDate>
+    <category>${esc(DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other')}</category>
+    <description>${cdata([j.company, j.location, j.salary, j.wp, j.visa ? 'visa sponsorship' : null].filter(Boolean).join(' · '))}</description>
+  </item>`).join('\n');
+  fs.writeFileSync(path.join(ROOT, 'jobs', 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>neobank jobs · neobankbeat</title>
+  <link>https://www.neobankbeat.com/jobs/</link>
+  <description>The newest roles at ${nCompanies} hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
+  <language>en</language>
+  <lastBuildDate>${new Date().toUTCString().replace('GMT', '+0000')}</lastBuildDate>
+  <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+${items}
+</channel>
+</rss>
+`);
+}
+
 /* ── shared page chrome ── */
 const CSS = `
 :root{--acc:var(--accent,#FF5C16)}
@@ -444,6 +471,7 @@ const head = (title, desc, canonical, ld) => `<!DOCTYPE html>
 <meta property="og:image" content="https://www.neobankbeat.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="alternate" type="application/rss+xml" title="neobank jobs · newest roles" href="/jobs/feed.xml">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -625,7 +653,7 @@ const indexHtml = head(
   <div class="jlayout">
     ${sidebar(null)}
     <div class="jmain">
-      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY}</span></div>
+      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY} · <a href="/jobs/feed.xml" style="color:var(--acc);text-decoration:none">rss</a></span></div>
       <div class="joblist" id="jlist">
 ${all.slice(0, 80).map(jobCard).join('\n')}
       </div>
@@ -652,7 +680,7 @@ ${DEPTS.filter(([id]) => byDept[id]).map(([id, label]) =>
 
   <h2>how this board works</h2>
   <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in.</p>
-  <p style="font-size:12.5px;color:var(--dim)">Listings belong to the respective companies and change constantly; this board refreshes on regeneration (last: ${TODAY}). neobankbeat is independent and earns nothing from applications.</p>
+  <p style="font-size:12.5px;color:var(--dim)">Listings belong to the respective companies and change constantly; this board refreshes on regeneration (last: ${TODAY}). Subscribe to the newest roles via <a href="/jobs/feed.xml">RSS</a> or pull the raw list from <a href="/jobs/data.json">jobs/data.json</a>. neobankbeat is independent and earns nothing from applications.</p>
   </article>
 </main>
 ${filterScript(null)}

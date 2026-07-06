@@ -1,0 +1,58 @@
+name: cron health check
+
+on:
+  schedule:
+    # Tuesday 07:00 UTC — the morning after all three Monday crons have run
+    - cron: '0 7 * * 2'
+  workflow_dispatch: {}
+
+permissions:
+  actions: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: verify every scheduled workflow ran recently and succeeded
+        run: |
+          set -euo pipefail
+          # workflow file : max age of the last completed run, in days
+          checks="refresh-news.yml:8 refresh-jobs.yml:4 discover-neobanks.yml:8"
+          problems=""
+          for c in $checks; do
+            wf="${c%%:*}"; max_days="${c##*:}"
+            run=$(gh api "repos/$REPO/actions/workflows/$wf/runs?status=completed&per_page=1" \
+              --jq '.workflow_runs[0] | if . == null then "none" else .conclusion + " " + .updated_at + " " + .html_url end')
+            if [ "$run" = "none" ]; then
+              problems="$problems- **$wf**: no completed runs found\n"
+              continue
+            fi
+            conclusion=$(echo "$run" | cut -d' ' -f1)
+            updated=$(echo "$run" | cut -d' ' -f2)
+            url=$(echo "$run" | cut -d' ' -f3)
+            age_days=$(( ( $(date -u +%s) - $(date -u -d "$updated" +%s) ) / 86400 ))
+            if [ "$conclusion" != "success" ]; then
+              problems="$problems- **$wf**: last run concluded \`$conclusion\` — $url\n"
+            elif [ "$age_days" -gt "$max_days" ]; then
+              problems="$problems- **$wf**: last successful run is ${age_days}d old (expected <${max_days}d) — the schedule may have been disabled by GitHub after 60 days of repo inactivity. $url\n"
+            else
+              echo "ok: $wf ($conclusion, ${age_days}d ago)"
+            fi
+          done
+          if [ -z "$problems" ]; then
+            echo "all crons healthy"
+            exit 0
+          fi
+          body=$(printf "The weekly cron health check found problems:\n\n$problems\nRe-run the workflow manually from the Actions tab once fixed; this issue can then be closed.")
+          existing=$(gh issue list --repo "$REPO" --state open --search "cron health in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$body"
+            echo "commented on existing issue #$existing"
+          else
+            gh issue create --repo "$REPO" --title "cron health: scheduled workflow needs attention" --body "$body"
+          fi
+          exit 1
