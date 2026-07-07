@@ -593,6 +593,66 @@ ${NEWSLETTERS.map(rowHtml).join('\n')}
   console.log(`newsletters page: ${NEWSLETTERS.length} entries`);
 }
 
+/* ═══ /stablecoin-cards/ — the U-card index: every stablecoin-spendable card, one table ═══ */
+{
+  const url = `${BASE}/stablecoin-cards/`;
+  const cards = E.filter(e => e.stablecoins && e.card_network && e.card_network !== '—' &&
+    !/wallet \(no card\)/i.test(e.card_type || ''))
+    .sort((a, b) => (a.category === b.category ? a.name.localeCompare(b.name) :
+      ['web3-native', 'hybrid', 'traditional'].indexOf(a.category) - ['web3-native', 'hybrid', 'traditional'].indexOf(b.category)));
+  const CATLBL = { 'web3-native': 'web3-native', hybrid: 'hybrid', traditional: 'traditional' };
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Stablecoin cards (U-cards) compared', url,
+    description: `${cards.length} crypto and stablecoin payment cards compared on custody, network, cashback, yield and KYC.`,
+    mainEntity: { '@type': 'ItemList', itemListElement: cards.slice(0, 60).map((e, i) => ({
+      '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) }
+  };
+  const style = `<style>
+.uctable{width:100%;border-collapse:collapse;font-size:12.5px;margin:18px 0}
+.uctable th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg,#0A0A10)}
+.uctable td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.uctable td a{color:var(--text);font-weight:600;text-decoration:none}
+.uctable td a:hover{color:var(--accent)}
+.uctable .cat{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.uctable .dim{color:var(--dim)}
+.ucwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:700px){.uctable{font-size:11.5px}.uctable td,.uctable th{padding:7px 6px}}
+</style>`;
+  const row = e => `<tr>
+    <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
+    <td class="cat">${CATLBL[e.category]}</td>
+    <td>${esc(e.custody)}</td>
+    <td class="dim">${esc(e.card_network)} · ${esc(e.card_type)}</td>
+    <td>${esc(e.cashback && e.cashback !== '—' ? e.cashback : '—')}</td>
+    <td class="dim">${esc(e.yield && e.yield !== '—' ? e.yield : '—')}</td>
+    <td class="cat">${esc(e.kyc)}</td>
+  </tr>`;
+  const html = (head(`Stablecoin cards (U-cards) — ${cards.length} crypto cards compared · neobankbeat`,
+    `The U-card index: ${cards.length} stablecoin-spendable cards compared on custody, card network, cashback, yield and KYC — EtherFi Cash, KAST, RedotPay, Gnosis Pay, MetaMask Card, Bitget Wallet and more, from the open dataset.`,
+    url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">the u-card index</div>
+  <h1>Stablecoin cards, <em>compared</em></h1>
+  <p class="meta"><b>${cards.length} cards</b> · custody, network, cashback, yield and KYC in one table · updated ${TODAY}</p>
+  <p>"U-cards" — cards that spend USDT/USDC directly — are the fastest-moving corner of digital banking, and the information about them is scattered across referral threads. This table consolidates every stablecoin-spendable card in the <a href="/">open dataset</a>. Click any name for the full profile with licence detail, founders and sources. Cashback and yield figures are headline claims that change constantly — verify with the issuer before applying. For live onchain volume and user counts per card, see <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a>.</p>
+  <div class="ucwrap"><table class="uctable">
+    <thead><tr><th>card</th><th>wave</th><th>custody</th><th>network · type</th><th>cashback</th><th>yield</th><th>kyc</th></tr></thead>
+    <tbody>
+${cards.map(row).join('\n')}
+    </tbody>
+  </table></div>
+  <p style="font-size:12.5px;color:var(--dim)">KYC "CO" = card only (wallet works without identity checks, the card itself requires them). Custody is the app's primary model — several custodial apps hold spending balances only.</p>
+  <div class="callout"><span class="k">go deeper</span>Compare any two side by side in the <a href="/">directory</a>, read <a href="/blog/stablecoin-cards-explained/">stablecoin cards explained</a>, or pull the raw fields from <a href="/data.json">data.json</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+  fs.mkdirSync(path.join(ROOT, 'stablecoin-cards'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'stablecoin-cards', 'index.html'), html.replace('</head>', style + '\n</head>'));
+  console.log(`stablecoin-cards page: ${cards.length} cards`);
+}
+
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
 {
   const html = (head('Page not found · neobankbeat',
@@ -635,6 +695,7 @@ const urls = [
   { loc: `${BASE}/glossary/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
+  { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
@@ -666,6 +727,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Glossary](${BASE}/glossary/) — 50 terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
 - [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
+- [Stablecoin cards (U-cards)](${BASE}/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
 - [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)

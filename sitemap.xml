@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/stablecoin-cards/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/ribbit-capital/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
@@ -2731,6 +2737,16 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/safepal/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/bitget-wallet/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/bfinance/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.7</priority>
   </url>

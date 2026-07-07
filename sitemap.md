@@ -4,11 +4,12 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 362 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 364 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (198 firms)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
+- [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
 - [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-07/)
@@ -53,7 +54,7 @@
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
 - [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
 
-## Neobank profiles (362)
+## Neobank profiles (364)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -362,6 +363,8 @@
 - [Exa](https://www.neobankbeat.com/n/exa/)
 - [1inch Card](https://www.neobankbeat.com/n/1inch-card/)
 - [SafePal](https://www.neobankbeat.com/n/safepal/)
+- [Bitget Wallet](https://www.neobankbeat.com/n/bitget-wallet/)
+- [BFinance](https://www.neobankbeat.com/n/bfinance/)
 - [xPortal](https://www.neobankbeat.com/n/xportal/)
 - [Avalanche Card](https://www.neobankbeat.com/n/avalanche-card/)
 - [MiniPay](https://www.neobankbeat.com/n/minipay/)
