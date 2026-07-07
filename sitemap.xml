@@ -2831,6 +2831,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/surfcash/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/onboard/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.7</priority>
@@ -3708,6 +3713,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/dakota-vs-allscale/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/karta-vs-surfcash/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.7</priority>
   </url>

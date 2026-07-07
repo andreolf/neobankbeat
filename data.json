@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 364,
+  "total": 365,
   "counts": {
    "traditional": 257,
    "hybrid": 57,
-   "web3_native": 50,
-   "niche_audience": 121
+   "web3_native": 51,
+   "niche_audience": 122
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -10935,6 +10935,30 @@
    ],
    "note": "Solana-based spending + global payouts.",
    "licence": "Self-custodial; issuer partners"
+  },
+  {
+   "name": "SurfCash",
+   "category": "web3-native",
+   "audience": "travel & digital nomads",
+   "region": "Asia",
+   "hq": "—",
+   "founded": 2025,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": null,
+   "card_type": null,
+   "cashback": null,
+   "yield": "Up to 15% (Perena)",
+   "stablecoins": true,
+   "kyc": "No",
+   "domain": "getsurf.cash",
+   "website": "https://getsurf.cash",
+   "active_regions": [
+    "Asia"
+   ],
+   "note": "USDC → VietQR/PromptPay/PIX in ~10s; 0.5% fee; the rails cards can't touch.",
+   "story": "The anti-card thesis: nomads in Vietnam, Thailand and Brazil don't need Visa — they need VietQR, PromptPay and Pix, which cards can't touch. SURF token-governed.",
+   "licence": "Self-custodial (BVI entity); decentralized protocols + licensed local partners; Circle Alliance"
   },
   {
    "name": "Onboard",

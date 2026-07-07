@@ -4,7 +4,7 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 364 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 365 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (198 firms)
@@ -54,7 +54,7 @@
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
 - [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
 
-## Neobank profiles (364)
+## Neobank profiles (365)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -381,6 +381,7 @@
 - [WeFi](https://www.neobankbeat.com/n/wefi/)
 - [UglyCash](https://www.neobankbeat.com/n/uglycash/)
 - [Decaf](https://www.neobankbeat.com/n/decaf/)
+- [SurfCash](https://www.neobankbeat.com/n/surfcash/)
 - [Onboard](https://www.neobankbeat.com/n/onboard/)
 - [Alpian](https://www.neobankbeat.com/n/alpian/)
 - [Yuh](https://www.neobankbeat.com/n/yuh/)
@@ -421,7 +422,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (137)
+## Comparisons (138)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -559,4 +560,5 @@
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
+- [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Kard vs Pixpay](https://www.neobankbeat.com/vs/kard-vs-pixpay/)
