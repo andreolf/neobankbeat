@@ -8655,6 +8655,12 @@
    "licence": "Custodial (cold storage, distributed keys) since Sept 2025",
    "founders": "Shehzan Maredia",
    "funding": "~$227M raised (Founders Fund, Khosla)",
+   "terms_url": "https://lava.xyz/termsofservice",
+   "privacy_url": "https://lava.xyz/privacypolicy",
+   "x_handle": "lava_xyz",
+   "countries": [
+    "United States"
+   ],
    "investors": [
     {
      "name": "Founders Fund",
@@ -8696,7 +8702,22 @@
    "story": "1M+ users in 75 countries; 'self-banking' — EUR IBAN and card on a wallet only the user controls.",
    "licence": "MPC self-custody; e-money card partners (UK/EU)",
    "founders": "Pavel Matveev (Wirex co-founder)",
-   "funding": "Stellar Development Foundation-backed"
+   "funding": "Stellar Development Foundation-backed",
+   "terms_url": "https://www.coca.xyz/terms",
+   "privacy_url": "https://www.coca.xyz/privacy",
+   "x_handle": "coca_card",
+   "countries": [
+    "United Kingdom",
+    "European Union",
+    "UAE",
+    "Global"
+   ],
+   "investors": [
+    {
+     "name": "Stellar Development Foundation",
+     "website": "https://stellar.org"
+    }
+   ]
   },
   {
    "name": "Trustee Plus",
@@ -10186,7 +10207,13 @@
    "note": "Telegram-first self-custody card (Rain-issued); settles on Tempo; no US.",
    "story": "25K+ monthly cardholders spending from their own wallet, reconciled on Tempo in under a second.",
    "licence": "Self-custodial (MPC via Privy); Visa issued by Rain",
-   "founders": "Nik Zimarkov"
+   "founders": "Nik Zimarkov",
+   "terms_url": "https://legal.karta.io/b2c-card-terms",
+   "privacy_url": "https://legal.karta.io/b2c-privacy-policy",
+   "x_handle": "Karta_Personal",
+   "countries": [
+    "Global"
+   ]
   },
   {
    "name": "Hyperbeat",
@@ -10216,7 +10243,29 @@
    ],
    "note": "Liquid Banking on Hyperliquid: spend cash or borrow at point of sale via Morpho.",
    "story": "Banking for the Hyperliquid economy: trade, earn and spend one balance — credit mode borrows via Morpho at the terminal.",
-   "licence": "Self-custodial smart accounts (HyperEVM); Paxos Labs stablecoin infra"
+   "licence": "Self-custodial smart accounts (HyperEVM); Paxos Labs stablecoin infra",
+   "founders": "Kilian Boshoff, 800.HL",
+   "funding": "$5.2M seed at ~$40M (ether.fi Ventures, Electric Capital, Coinbase Ventures)",
+   "terms_url": "https://hyperbeat.org/terms",
+   "privacy_url": "https://hyperbeat.org/privacy",
+   "x_handle": "hyperbeat",
+   "countries": [
+    "Global"
+   ],
+   "investors": [
+    {
+     "name": "ether.fi Ventures",
+     "website": "https://ether.fi"
+    },
+    {
+     "name": "Electric Capital",
+     "website": "https://electriccapital.com"
+    },
+    {
+     "name": "Coinbase Ventures",
+     "website": "https://coinbase.com"
+    }
+   ]
   },
   {
    "name": "Cypher",
@@ -10393,7 +10442,14 @@
    ],
    "note": "90M-user wallet; card via DCS/Immersve/Fiat24; WeChat & Alipay; no US/CA.",
    "story": "The exchange-adjacent wallet pushing hardest into cards — the only one plugged into WeChat Pay and Alipay.",
-   "licence": "Self-custodial; cards via DCS (Asia), Immersve (EU/UK/LatAm), Fiat24 (CN virtual)"
+   "licence": "Self-custodial; cards via DCS (Asia), Immersve (EU/UK/LatAm), Fiat24 (CN virtual)",
+   "funding": "Bitget ecosystem; $20M+ wallet war-chest",
+   "terms_url": "https://web3.bitget.com/en/terms-of-use",
+   "privacy_url": "https://web3.bitget.com/en/privacy-policy",
+   "x_handle": "BitgetWallet",
+   "countries": [
+    "Global"
+   ]
   },
   {
    "name": "BFinance",
@@ -10423,7 +10479,15 @@
    ],
    "note": "Telegram-bot cards; ~$20M/mo volume; $10 issue + 2% top-up fees.",
    "story": "A card programme that lives entirely inside a Telegram bot — crude, fee-heavy, and reportedly moving ~$20M a month anyway.",
-   "licence": "Czech VASP registration; Marqeta-issued cards"
+   "licence": "Czech VASP registration; Marqeta-issued cards",
+   "founders": "Knyaz Yussupov",
+   "terms_url": "https://bfinance.app/terms",
+   "privacy_url": "https://bfinance.app/privacy",
+   "countries": [
+    "Czech Republic",
+    "European Union",
+    "Global"
+   ]
   },
   {
    "name": "xPortal",
@@ -10958,7 +11022,17 @@
    ],
    "note": "USDC → VietQR/PromptPay/PIX in ~10s; 0.5% fee; the rails cards can't touch.",
    "story": "The anti-card thesis: nomads in Vietnam, Thailand and Brazil don't need Visa — they need VietQR, PromptPay and Pix, which cards can't touch. SURF token-governed.",
-   "licence": "Self-custodial (BVI entity); decentralized protocols + licensed local partners; Circle Alliance"
+   "licence": "Self-custodial (BVI entity); decentralized protocols + licensed local partners; Circle Alliance",
+   "founders": "Akshat Sharma, César Suárez",
+   "terms_url": "https://getsurf.cash/terms",
+   "privacy_url": "https://getsurf.cash/privacy",
+   "x_handle": "SurfCashX",
+   "countries": [
+    "Vietnam",
+    "Thailand",
+    "Philippines",
+    "Brazil"
+   ]
   },
   {
    "name": "Onboard",

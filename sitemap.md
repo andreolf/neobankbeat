@@ -7,7 +7,7 @@
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 365 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (198 firms)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (202 firms)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
@@ -423,7 +423,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (139)
+## Comparisons (140)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -563,4 +563,5 @@
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
+- [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
 - [Kard vs Pixpay](https://www.neobankbeat.com/vs/kard-vs-pixpay/)

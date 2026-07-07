@@ -559,6 +559,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/coinbase-ventures/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/coinfund/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
@@ -630,6 +635,16 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/eldridge/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/electric-capital/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/ether-fi-ventures/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
   </url>
@@ -985,6 +1000,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/south-park-commons/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/stellar-development-foundation/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.6</priority>
   </url>
@@ -3728,6 +3748,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/karta-vs-surfcash/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/fizen-vs-surfcash/</loc>
     <lastmod>2026-07-07</lastmod>
     <priority>0.7</priority>
   </url>
