@@ -53,6 +53,7 @@
 - [best neobanks freelancers smb 2026](https://www.neobankbeat.com/blog/best-neobanks-freelancers-smb-2026/) (2026-06-02)
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
 - [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
+- [neobanks for digital nomads](https://www.neobankbeat.com/blog/neobanks-for-digital-nomads/) (2026-07-07)
 
 ## Neobank profiles (365)
 
