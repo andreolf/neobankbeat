@@ -686,7 +686,7 @@ const BLOG_POSTS = [
   ['niche-neobanks', '2026-02-10'], ['neobanks-africa-latam-underbanked', '2026-03-17'],
   ['mica-crypto-neobanks-europe', '2026-04-21'], ['best-neobanks-freelancers-smb-2026', '2026-06-02'],
   ['state-of-neobanks-2026', '2026-07-05'], ['who-funds-the-neobanks', '2026-07-06'],
-  ['neobanks-for-digital-nomads', '2026-07-07'],
+  ['neobanks-for-digital-nomads', '2026-07-07'], ['why-neobanks-die', '2026-07-07'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
