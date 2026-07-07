@@ -656,7 +656,7 @@ ${cards.map(row).join('\n')}
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
 {
   const html = (head('Page not found · neobankbeat',
-    'That page doesn\u2019t exist — but 358 neobank profiles, live jobs, investor maps and the blog do.',
+    `That page doesn\u2019t exist — but ${E.length} neobank profiles, live jobs, investor maps and the blog do.`,
     `${BASE}/404`, { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Page not found' }) + `
 <main class="wrap">
 <article>
@@ -665,7 +665,7 @@ ${cards.map(row).join('\n')}
   <p class="meta">Maybe it moved, maybe the neobank behind it pivoted to B2B SaaS. Either way, nothing is here.</p>
   <p>Try searching the directory instead:</p>
   <form action="/" method="get" style="display:flex;gap:8px;margin:14px 0 26px;max-width:460px">
-    <input type="search" name="q" placeholder="search 358 neobanks\u2026" aria-label="Search neobanks" style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px">
+    <input type="search" name="q" placeholder="search ${E.length} neobanks\u2026" aria-label="Search neobanks" style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px">
     <button type="submit" style="background:var(--accent);border:0;border-radius:10px;color:#0A0A10;font-family:var(--mono);font-size:12.5px;font-weight:700;padding:10px 16px;cursor:pointer">search</button>
   </form>
   <h2>Or start from a good page</h2>

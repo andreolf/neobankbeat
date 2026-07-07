@@ -421,6 +421,23 @@ await new Promise(r=>setTimeout(r,300));
 ok(!d3.getElementById('overlay').classList.contains('show'),'browser back closes the compare overlay');
 ok(w3.location.search.includes('cmp='),'tray selection still in the URL after back');
 
+console.log('— flow 25: no stale entity counts on evergreen surfaces');
+{
+  const path=require('path');
+  const total=w3.eval('D.length');
+  // files whose copy claims a *current* total — dated blog posts and reports are exempt
+  const evergreen=['llms.txt','robots.txt','AGENTS.md','README.md','openapi.json','sitemap.md',
+    'faq/index.html','glossary/index.html','404.html','blog/index.html'];
+  for(const f of evergreen){
+    let txt=fs.readFileSync(path.join(__dirname,'..',f),'utf8');
+    // dated post titles in the blog index are historical snapshots, not stale copy
+    if(f==='blog/index.html')txt=txt.split('<div class="postlist">')[0];
+    const stale=[...txt.matchAll(/\b(3[0-9]{2})\b(?=[^.]{0,60}?(?:neobank|entit|verified))/gi)]
+      .map(m=>+m[1]).filter(n=>n>=300&&n<500&&n!==total);
+    ok(stale.length===0,f+' has no stale totals (found: '+[...new Set(stale)].join(',')+' vs '+total+')');
+  }
+}
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
