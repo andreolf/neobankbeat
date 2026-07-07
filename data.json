@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 358,
+  "total": 362,
   "counts": {
    "traditional": 257,
-   "hybrid": 54,
-   "web3_native": 47,
-   "niche_audience": 118
+   "hybrid": 56,
+   "web3_native": 49,
+   "niche_audience": 121
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -3323,7 +3323,7 @@
   {
    "name": "Wise",
    "category": "traditional",
-   "audience": "travel",
+   "audience": "travel & digital nomads",
    "region": "Europe",
    "hq": "London, UK",
    "founded": 2011,
@@ -4569,7 +4569,7 @@
   {
    "name": "Global66",
    "category": "traditional",
-   "audience": "travel",
+   "audience": "travel & digital nomads",
    "region": "LatAm",
    "hq": "Santiago, CL",
    "founded": 2018,
@@ -4917,7 +4917,7 @@
   {
    "name": "Niyo",
    "category": "traditional",
-   "audience": "travel",
+   "audience": "travel & digital nomads",
    "region": "Asia",
    "hq": "Bengaluru, IN",
    "founded": 2015,
@@ -8605,7 +8605,7 @@
   {
    "name": "Kolo",
    "category": "hybrid",
-   "audience": "general",
+   "audience": "travel & digital nomads",
    "region": "Global",
    "hq": "—",
    "founded": 2022,
@@ -8613,7 +8613,7 @@
    "regulation_type": "Unclassified",
    "card_network": "Visa/MC",
    "card_type": "Prepaid",
-   "cashback": "Offers",
+   "cashback": "2% BTC",
    "yield": null,
    "stablecoins": true,
    "kyc": "Yes",
@@ -8628,7 +8628,75 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Multi-card crypto spending app."
+   "note": "Zero-fee stablecoin card in 170+ countries; nomad favourite."
+  },
+  {
+   "name": "Lava",
+   "category": "hybrid",
+   "audience": "general",
+   "region": "US",
+   "hq": "New York, US",
+   "founded": 2022,
+   "custody": "Custodial",
+   "regulation_type": "Other / mixed",
+   "card_network": "Visa",
+   "card_type": "Secured credit",
+   "cashback": "Up to 5% BTC",
+   "yield": "USD yield on deposits",
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "lava.xyz",
+   "website": "https://lava.xyz",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "Bitcoin line of credit + card; dropped self-custody (DLC) for cold-storage custody in Sept 2025.",
+   "story": "Started as self-custodial DLC loans, pivoted to custody after a $200M raise — the loudest custody U-turn in bitcoin fintech.",
+   "licence": "Custodial (cold storage, distributed keys) since Sept 2025",
+   "founders": "Shehzan Maredia",
+   "funding": "~$227M raised (Founders Fund, Khosla)",
+   "investors": [
+    {
+     "name": "Founders Fund",
+     "website": "https://foundersfund.com"
+    },
+    {
+     "name": "Khosla Ventures",
+     "website": "https://khoslaventures.com"
+    }
+   ]
+  },
+  {
+   "name": "COCA",
+   "category": "hybrid",
+   "audience": "travel & digital nomads",
+   "region": "Global",
+   "hq": "Dubai, AE",
+   "founded": 2023,
+   "custody": "MPC self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "Visa/MC",
+   "card_type": "Virtual + physical",
+   "cashback": "Up to 8%",
+   "yield": "Real-time DeFi APY",
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "coca.xyz",
+   "website": "https://coca.xyz",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "MPC self-banking app: EUR IBAN + card, 75 countries; Wirex-issued cards.",
+   "story": "1M+ users in 75 countries; 'self-banking' — EUR IBAN and card on a wallet only the user controls.",
+   "licence": "MPC self-custody; e-money card partners (UK/EU)",
+   "founders": "Pavel Matveev (Wirex co-founder)",
+   "funding": "Stellar Development Foundation-backed"
   },
   {
    "name": "Trustee Plus",
@@ -10090,6 +10158,67 @@
    "note": "Self-custodial money app."
   },
   {
+   "name": "Karta",
+   "category": "web3-native",
+   "audience": "travel & digital nomads",
+   "region": "Global",
+   "hq": "Redwood City, US",
+   "founded": 2020,
+   "custody": "MPC self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "Visa",
+   "card_type": "Virtual + physical",
+   "cashback": null,
+   "yield": null,
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "karta.io",
+   "website": "https://karta.io",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "Telegram-first self-custody card (Rain-issued); settles on Tempo; no US.",
+   "story": "25K+ monthly cardholders spending from their own wallet, reconciled on Tempo in under a second.",
+   "licence": "Self-custodial (MPC via Privy); Visa issued by Rain",
+   "founders": "Nik Zimarkov"
+  },
+  {
+   "name": "Hyperbeat",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "Global",
+   "hq": "—",
+   "founded": 2024,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "Visa",
+   "card_type": "Virtual + physical",
+   "cashback": null,
+   "yield": "beatUSD / USD+ yield",
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "hyperbeat.org",
+   "website": "https://hyperbeat.org",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "Liquid Banking on Hyperliquid: spend cash or borrow at point of sale via Morpho.",
+   "story": "Banking for the Hyperliquid economy: trade, earn and spend one balance — credit mode borrows via Morpho at the terminal.",
+   "licence": "Self-custodial smart accounts (HyperEVM); Paxos Labs stablecoin infra"
+  },
+  {
    "name": "Cypher",
    "category": "web3-native",
    "audience": "general",
@@ -11097,7 +11226,7 @@
   {
    "name": "YouTrip",
    "category": "traditional",
-   "audience": "travel",
+   "audience": "travel & digital nomads",
    "region": "Asia",
    "hq": "Singapore, SG",
    "founded": 2018,
@@ -11160,7 +11289,7 @@
   {
    "name": "Nomad",
    "category": "traditional",
-   "audience": "travel",
+   "audience": "travel & digital nomads",
    "region": "LatAm",
    "hq": "São Paulo, BR",
    "founded": 2019,

@@ -1,10 +1,10 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-06.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-07.
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 358 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 362 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (198 firms)
@@ -53,7 +53,7 @@
 - [state of neobanks 2026](https://www.neobankbeat.com/blog/state-of-neobanks-2026/) (2026-07-05)
 - [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
 
-## Neobank profiles (358)
+## Neobank profiles (362)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -313,6 +313,8 @@
 - [KAST](https://www.neobankbeat.com/n/kast/)
 - [RedotPay](https://www.neobankbeat.com/n/redotpay/)
 - [Kolo](https://www.neobankbeat.com/n/kolo/)
+- [Lava](https://www.neobankbeat.com/n/lava/)
+- [COCA](https://www.neobankbeat.com/n/coca/)
 - [Trustee Plus](https://www.neobankbeat.com/n/trustee-plus/)
 - [UR](https://www.neobankbeat.com/n/ur/)
 - [XPlace](https://www.neobankbeat.com/n/xplace/)
@@ -353,6 +355,8 @@
 - [Ready](https://www.neobankbeat.com/n/ready/)
 - [Plasma One](https://www.neobankbeat.com/n/plasma-one/)
 - [Tria](https://www.neobankbeat.com/n/tria/)
+- [Karta](https://www.neobankbeat.com/n/karta/)
+- [Hyperbeat](https://www.neobankbeat.com/n/hyperbeat/)
 - [Cypher](https://www.neobankbeat.com/n/cypher/)
 - [Solayer Emerald](https://www.neobankbeat.com/n/solayer-emerald/)
 - [Exa](https://www.neobankbeat.com/n/exa/)
@@ -414,7 +418,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (136)
+## Comparisons (137)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -546,6 +550,7 @@
 - [Khazna vs MNT-Halan](https://www.neobankbeat.com/vs/khazna-vs-mnt-halan/)
 - [Grey vs Cleva](https://www.neobankbeat.com/vs/grey-vs-cleva/)
 - [D360 Bank vs Vision Bank](https://www.neobankbeat.com/vs/d360-bank-vs-vision-bank/)
+- [Kolo vs COCA](https://www.neobankbeat.com/vs/kolo-vs-coca/)
 - [Meru vs Airtm](https://www.neobankbeat.com/vs/meru-vs-airtm/)
 - [Meru vs Deel](https://www.neobankbeat.com/vs/meru-vs-deel/)
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
