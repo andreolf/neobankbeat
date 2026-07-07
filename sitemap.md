@@ -422,7 +422,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (138)
+## Comparisons (139)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -560,5 +560,6 @@
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
+- [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Kard vs Pixpay](https://www.neobankbeat.com/vs/kard-vs-pixpay/)

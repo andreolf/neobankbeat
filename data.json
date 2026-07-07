@@ -10,7 +10,7 @@
    "traditional": 257,
    "hybrid": 57,
    "web3_native": 51,
-   "niche_audience": 122
+   "niche_audience": 123
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -10678,7 +10678,7 @@
   {
    "name": "Fizen",
    "category": "web3-native",
-   "audience": "general",
+   "audience": "travel & digital nomads",
    "region": "Asia",
    "hq": "Ho Chi Minh, VN",
    "founded": 2022,
@@ -10695,7 +10695,7 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Tether-invested; APAC/MENA QR + card.",
+   "note": "Tether-invested travel neobank: card + local QR payments across APAC/MENA.",
    "founders": "Leo Vu",
    "funding": "Tether-invested"
   },
