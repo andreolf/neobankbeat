@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-07.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-12.
 
 ## Main
 
@@ -55,6 +55,7 @@
 - [who funds the neobanks](https://www.neobankbeat.com/blog/who-funds-the-neobanks/) (2026-07-06)
 - [neobanks for digital nomads](https://www.neobankbeat.com/blog/neobanks-for-digital-nomads/) (2026-07-07)
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
+- [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 
 ## Neobank profiles (365)
 
