@@ -389,7 +389,9 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jside::-webkit-scrollbar{width:5px}
 .jside::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
 .jside::-webkit-scrollbar-track{background:transparent}
-#jsearch{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box}
+#jsearch{width:100%;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box;transition:border-color .15s}
+#jsearch::placeholder{color:var(--dim)}
+#jsearch:hover{border-color:rgba(255,255,255,.6)}
 #jsearch:focus{outline:none;border-color:var(--acc)}
 .jsec{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
 .jsec::before{content:"—— ";color:var(--acc)}
