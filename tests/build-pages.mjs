@@ -388,7 +388,8 @@ let invSlugList = [];
 .ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
 .ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
 .ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
-#ivsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px}
+#ivsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px;transition:border-color .15s}
+#ivsearch:hover{border-color:rgba(255,255,255,.6)}
 #ivsearch:focus{outline:none;border-color:var(--accent)}
 .ivrow{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px;transition:border-color .15s}
 .ivrow:has(.nm:hover){border-color:var(--accent)}
@@ -665,7 +666,7 @@ ${cards.map(row).join('\n')}
   <p class="meta">Maybe it moved, maybe the neobank behind it pivoted to B2B SaaS. Either way, nothing is here.</p>
   <p>Try searching the directory instead:</p>
   <form action="/" method="get" style="display:flex;gap:8px;margin:14px 0 26px;max-width:460px">
-    <input type="search" name="q" placeholder="search ${E.length} neobanks\u2026" aria-label="Search neobanks" style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px">
+    <input type="search" name="q" placeholder="search ${E.length} neobanks\u2026" aria-label="Search neobanks" style="flex:1;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px">
     <button type="submit" style="background:var(--accent);border:0;border-radius:10px;color:#0A0A10;font-family:var(--mono);font-size:12.5px;font-weight:700;padding:10px 16px;cursor:pointer">search</button>
   </form>
   <h2>Or start from a good page</h2>

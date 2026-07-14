@@ -102,7 +102,8 @@ body.bw h1 em{text-decoration:underline;text-decoration-thickness:4px;text-under
 
 .controls{max-width:1320px;margin:30px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:16px}
 /* search gets real presence: lighter panel, stronger border, accent focus ring */
-.search{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid color-mix(in srgb,var(--line) 55%,var(--muted));border-radius:12px;padding:14px 18px;transition:border-color .15s,box-shadow .15s}
+.search{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid rgba(255,255,255,.38);border-radius:12px;padding:14px 18px;transition:border-color .15s,box-shadow .15s}
+.search:hover{border-color:rgba(255,255,255,.6)}
 .search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
 .search svg{flex:none;opacity:.75;width:17px;height:17px;color:var(--muted)}
 .search:focus-within svg{color:var(--accent);opacity:1}
