@@ -66,9 +66,7 @@ ${JSON.stringify(ldjson)}
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
       <a href="/" class="on">directory</a>
-      <a href="/#newssec">news</a>
-      <a href="/#datasec">data</a>
-      <a href="/#methodology">methodology</a>
+      <a href="/investors/">investors</a>
       <a href="/blog/">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
@@ -441,7 +439,7 @@ ${rows.map(rowHtml).join('\n')}
   ${subscribeBox}
 </article>
 </main>
-<script>(function(){var q=document.getElementById('ivsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+<script>(function(){var q=document.getElementById('ivsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors</a>', '<a href="/investors/" class="on">investors</a>');
   fs.mkdirSync(path.join(ROOT, 'investors'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'investors', 'index.html'), html.replace('</head>', style + '\n</head>'));
   console.log(`investors page: ${rows.length} investors, ${nBanks} neobanks`);
@@ -503,7 +501,7 @@ ${v.banks.map(bankCard).join('\n')}
   ${disclaimer}
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors</a>', '<a href="/investors/" class="on">investors</a>').replace('</head>', style + '\n</head>');
     const dir = path.join(ROOT, 'investors', slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
