@@ -3,7 +3,7 @@
   "info": {
     "title": "neobankbeat data API",
     "version": "1.0.0",
-    "summary": "Open dataset of 365 verified-active neobanks plus a live industry job board.",
+    "summary": "Open dataset of 366 verified-active neobanks plus a live industry job board.",
     "description": "Read-only, unauthenticated JSON endpoints behind the neobankbeat directory (https://www.neobankbeat.com). All data is MIT-licensed and compiled from public sources. No API key, no rate limits beyond CDN defaults. Field semantics are documented at https://www.neobankbeat.com/llms.txt.",
     "license": { "name": "MIT", "identifier": "MIT" },
     "contact": { "name": "neobankbeat", "url": "https://github.com/andreolf/neobankbeat" }
@@ -14,7 +14,7 @@
       "get": {
         "operationId": "getNeobanks",
         "summary": "Full neobank dataset",
-        "description": "All 365 tracked entities with category (traditional / hybrid / web3-native), custody, regulation type, card network, cashback, yield, stablecoin support, KYC posture, audience niche, HQ, founding year, active regions and countries, verified terms/privacy URLs, founders, funding, notable early investors and reported user/volume figures with sources.",
+        "description": "All 366 tracked entities with category (traditional / hybrid / web3-native), custody, regulation type, card network, cashback, yield, stablecoin support, KYC posture, audience niche, HQ, founding year, active regions and countries, verified terms/privacy URLs, founders, funding, notable early investors and reported user/volume figures with sources.",
         "responses": {
           "200": {
             "description": "The dataset.",

@@ -169,6 +169,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/crosslink-capital/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/goldman-sachs/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
@@ -220,11 +225,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/bbva/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/crosslink-capital/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
   </url>
@@ -704,6 +704,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/halo-fund/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/headline/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
@@ -924,6 +929,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/portage-ventures/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/power-corporation/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
@@ -1019,6 +1029,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/titanium-ventures/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/transsion/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
@@ -1050,6 +1065,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/warwick-capital-partners/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/wellington-management/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.6</priority>
   </url>
@@ -2651,6 +2671,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/flex/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/metamask/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.7</priority>
@@ -3747,7 +3772,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/meow-vs-flex/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/dakota-vs-allscale/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/slash-vs-flex/</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.7</priority>
   </url>

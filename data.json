@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 365,
+  "total": 366,
   "counts": {
    "traditional": 257,
-   "hybrid": 57,
+   "hybrid": 58,
    "web3_native": 51,
-   "niche_audience": 123
+   "niche_audience": 124
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -9478,6 +9478,60 @@
     {
      "name": "Y Combinator",
      "website": "https://ycombinator.com"
+    }
+   ]
+  },
+  {
+   "name": "Flex",
+   "category": "hybrid",
+   "audience": "SMB & startups",
+   "region": "US",
+   "hq": "San Francisco, US",
+   "founded": 2022,
+   "custody": "Custodial",
+   "regulation_type": "Partner-bank model",
+   "card_network": "Visa",
+   "card_type": "Business charge + credit",
+   "cashback": "Cashback + points",
+   "yield": "Up to ~2.5% APY on idle cash",
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "flex.one",
+   "website": "https://flex.one",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "AI-native private banking for business owners; Flex Global moves money in 100+ countries on stablecoin rails.",
+   "story": "Started 2022 as a business credit card, now 'AI-native private banking' for mid-market owners — hit unicorn in July 2026 as Flex Global put invisible stablecoin rails under cross-border payments in 100+ countries.",
+   "licence": "Partner banks (Column, Lead, Thread)",
+   "founders": "Zaid Rahman",
+   "funding": "~$180M equity + $300M debt (val ~$1.2B)",
+   "terms_url": "https://www.flex.one/terms-of-service",
+   "privacy_url": "https://www.flex.one/privacy",
+   "x_handle": "FlexSuperApp",
+   "countries": [
+    "United States"
+   ],
+   "investors": [
+    {
+     "name": "Halo Fund",
+     "website": "https://halo.fund"
+    },
+    {
+     "name": "Portage Ventures",
+     "website": "https://portageinvest.com"
+    },
+    {
+     "name": "Crosslink Capital",
+     "website": "https://crosslinkcapital.com"
+    },
+    {
+     "name": "Wellington Management",
+     "website": "https://wellington.com"
+    },
+    {
+     "name": "Titanium Ventures",
+     "website": "https://titaniumventures.com"
     }
    ]
   },

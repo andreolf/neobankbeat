@@ -4,10 +4,10 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 365 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 366 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (202 firms)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (206 firms)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
@@ -57,7 +57,7 @@
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 
-## Neobank profiles (365)
+## Neobank profiles (366)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -341,6 +341,7 @@
 - [Meow](https://www.neobankbeat.com/n/meow/)
 - [Dakota](https://www.neobankbeat.com/n/dakota/)
 - [Slash](https://www.neobankbeat.com/n/slash/)
+- [Flex](https://www.neobankbeat.com/n/flex/)
 - [MetaMask](https://www.neobankbeat.com/n/metamask/)
 - [Phantom](https://www.neobankbeat.com/n/phantom/)
 - [Solflare](https://www.neobankbeat.com/n/solflare/)
@@ -425,7 +426,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (140)
+## Comparisons (142)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -562,7 +563,9 @@
 - [Meru vs Deel](https://www.neobankbeat.com/vs/meru-vs-deel/)
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
+- [Meow vs Flex](https://www.neobankbeat.com/vs/meow-vs-flex/)
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
+- [Slash vs Flex](https://www.neobankbeat.com/vs/slash-vs-flex/)
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)

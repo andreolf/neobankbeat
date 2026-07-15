@@ -3,7 +3,7 @@
 <channel>
   <title>the neobankbeat blog</title>
   <link>https://www.neobankbeat.com/blog/</link>
-  <description>Deep dives on the neobank landscape — the three waves, stablecoin cards, self-custody, safety, MiCA, niche banking and emerging markets — grounded in open data on 365 tracked neobanks.</description>
+  <description>Deep dives on the neobank landscape — the three waves, stablecoin cards, self-custody, safety, MiCA, niche banking and emerging markets — grounded in open data on 366 tracked neobanks.</description>
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
@@ -18,7 +18,7 @@
     <link>https://www.neobankbeat.com/blog/why-neobanks-die/</link>
     <guid>https://www.neobankbeat.com/blog/why-neobanks-die/</guid>
     <pubDate>Tue, 07 Jul 2026 15:00:00 GMT</pubDate>
-    <description>Crypto-card top-ups just hit a $245M weekly all-time high — yet only 92 of the 365 neobanks we track hold their own licence. Everyone else rents their right to exist. WaveCrest 2018, Wirecard 2020, Binance 2023, Ready 2026: the layer-by-layer map of what actually kills neobanks.</description>
+    <description>Crypto-card top-ups just hit a $245M weekly all-time high — yet only 92 of the 366 neobanks we track hold their own licence. Everyone else rents their right to exist. WaveCrest 2018, Wirecard 2020, Binance 2023, Ready 2026: the layer-by-layer map of what actually kills neobanks.</description>
   </item>
   <item>
     <title>The best neobanks for digital nomads (2026): cards, QR rails and the custody question</title>
