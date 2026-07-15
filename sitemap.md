@@ -4,7 +4,7 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 366 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 367 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (206 firms)
@@ -57,7 +57,7 @@
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 
-## Neobank profiles (366)
+## Neobank profiles (367)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -380,6 +380,7 @@
 - [Deblock](https://www.neobankbeat.com/n/deblock/)
 - [Stables](https://www.neobankbeat.com/n/stables/)
 - [Fiat24](https://www.neobankbeat.com/n/fiat24/)
+- [Mine](https://www.neobankbeat.com/n/mine/)
 - [Infini](https://www.neobankbeat.com/n/infini/)
 - [Moon](https://www.neobankbeat.com/n/moon/)
 - [WeFi](https://www.neobankbeat.com/n/wefi/)

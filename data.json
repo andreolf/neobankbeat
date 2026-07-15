@@ -5,11 +5,11 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 366,
+  "total": 367,
   "counts": {
    "traditional": 257,
    "hybrid": 58,
-   "web3_native": 51,
+   "web3_native": 52,
    "niche_audience": 124
   },
   "field_notes": {
@@ -10916,6 +10916,37 @@
    "licence": "Swiss fintech licence (FINMA)",
    "privacy_url": "https://fiat24.com/privacy",
    "x_handle": "Fiat24Official",
+   "countries": [
+    "Switzerland",
+    "Global"
+   ]
+  },
+  {
+   "name": "Mine",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "Europe",
+   "hq": "Zug, CH",
+   "founded": 2024,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "MC",
+   "card_type": "Virtual (paid tiers soon)",
+   "cashback": null,
+   "yield": "Up to 5% via Aave V3 (opt-in)",
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "mine.financial",
+   "website": "https://mine.financial",
+   "active_regions": [
+    "Europe"
+   ],
+   "note": "Invite-only Swiss self-custody money app: CHF/EUR IBAN in your name settles as USDC in your wallet; card in 175+ countries.",
+   "story": "A Wise/Revolut pitch with the custody inverted: your Swiss IBAN receives francs or euros and they land as Circle USDC in a wallet only you hold — Mine custodies nothing, first 500 convert free.",
+   "licence": "Self-custodial software (EMM Ventures AG, Zug); card via Unblock Atomo SARL, EEA e-money institution; IBAN via regulated Swiss intermediary",
+   "terms_url": "https://mine.financial/terms",
+   "privacy_url": "https://mine.financial/privacy",
+   "x_handle": "Mine_Wallet",
    "countries": [
     "Switzerland",
     "Global"
