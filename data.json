@@ -5,11 +5,11 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 372,
+  "total": 374,
   "counts": {
    "traditional": 259,
-   "hybrid": 58,
-   "web3_native": 55,
+   "hybrid": 59,
+   "web3_native": 56,
    "niche_audience": 125
   },
   "field_notes": {
@@ -8837,6 +8837,45 @@
    "note": "Ukraine-popular crypto card."
   },
   {
+   "name": "Brighty",
+   "category": "hybrid",
+   "audience": "general",
+   "region": "Europe",
+   "hq": "Baar (Zug), CH",
+   "founded": 2021,
+   "custody": "Custodial",
+   "regulation_type": "VASP / MSB / crypto licences",
+   "card_network": "Visa/MC",
+   "card_type": "Virtual + physical",
+   "cashback": "Tiers",
+   "yield": "Up to 10% stablecoin vaults",
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "brighty.app",
+   "website": "https://brighty.app",
+   "active_regions": [
+    "Europe"
+   ],
+   "note": "Swiss hybrid by ex-Revolut engineers: EUR IBANs + crypto in one app, USDC/USDT/EURC vaults; EU/EEA + CH, 350K+ registrations.",
+   "story": "Two ex-Revolut engineers building the Swiss take on the hybrid app: everyday EUR banking with stablecoin vaults up to 10% — custody on Fireblocks, distribution across EU/EEA and Switzerland.",
+   "licence": "Razz Finanzz AG (CH); crypto via Polish VASP registration (Wireflexion); fiat, IBANs and cards via BaaS partners",
+   "founders": "Roger Buerli, Nick Denisenko (ex-Revolut)",
+   "funding": "~$16.3M raised incl. $10M from Futurecraft Ventures (Dec 2024)",
+   "terms_url": "https://brighty.app/en/termsAndPolicies",
+   "privacy_url": "https://brighty.app/en/privacy-policy",
+   "x_handle": "brightyapp",
+   "countries": [
+    "Switzerland",
+    "EEA"
+   ],
+   "investors": [
+    {
+     "name": "Futurecraft Ventures",
+     "website": "https://futurecraft.ventures"
+    }
+   ]
+  },
+  {
    "name": "UR",
    "category": "hybrid",
    "audience": "general",
@@ -10575,6 +10614,54 @@
    "note": "Hardware + software wallet with card.",
    "founders": "Veronica Wong",
    "funding": "Binance Labs-backed"
+  },
+  {
+   "name": "Tangem",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "Global",
+   "hq": "Zug, CH",
+   "founded": 2017,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "Visa",
+   "card_type": "Virtual (physical planned)",
+   "cashback": "Up to 4% (promo)",
+   "yield": null,
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "tangem.com",
+   "website": "https://tangem.com",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "Card-shaped hardware wallet maker; Tangem Pay spends self-custodial USDC on Polygon — live US/LatAm/APAC/MEA, EU/UK planned.",
+   "story": "Sold millions of card-shaped hardware wallets, then made the wallet itself spendable: Tangem Pay (Dec 2025) turns self-custodied USDC into a Visa — the hardware company quietly becoming a neobank.",
+   "licence": "Self-custodial; funds in a user-controlled smart contract (USDC on Polygon); card by Paera LLC, issued by Third National via Rain",
+   "founders": "Andrey Kurennykh, Andrew Pantyukhin, Andreas Schmucki",
+   "funding": "~$23M raised ($15M SBI Group 2019; Shima Capital 2023)",
+   "terms_url": "https://tangem.com/docs/en/terms-of-service.pdf",
+   "privacy_url": "https://tangem.com/docs/en/privacy-policy.pdf",
+   "x_handle": "tangem",
+   "countries": [
+    "Global"
+   ],
+   "investors": [
+    {
+     "name": "SBI Group",
+     "website": "https://sbigroup.co.jp"
+    },
+    {
+     "name": "Shima Capital",
+     "website": "https://shima.capital"
+    }
+   ]
   },
   {
    "name": "Bitget Wallet",

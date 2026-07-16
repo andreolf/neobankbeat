@@ -1,40 +1,1032 @@
 {
-  "_comment": "Infrastructure providers behind tracked neobanks. clients[] must use exact entity names from data.json. Relationships come from issuer disclosures on the neobanks' own sites/cards or widely reported public sources; some are historical (noted in about).",
-
-  "The Bancorp Bank": { "domain": "thebancorp.com", "type": "BIN sponsor bank", "hq": "Wilmington, US", "about": "The original fintech sponsor bank — quietly issues cards and holds deposits for a huge share of US consumer fintech, Chime included (alongside Stride).", "clients": ["Chime"] },
-  "Stride Bank": { "domain": "stridebank.com", "type": "BIN sponsor bank", "hq": "Enid, US", "about": "Oklahoma national bank that co-sponsors Chime's card programs with Bancorp — proof that a community bank charter can sit under tens of millions of fintech accounts.", "clients": ["Chime"] },
-  "Evolve Bank & Trust": { "domain": "getevolved.com", "type": "BIN sponsor bank", "hq": "Memphis, US", "about": "One of the busiest BaaS sponsor banks of the boom era; its 2024 Synapse fallout and enforcement action made it the cautionary tale of the model. Still sits under Dave and Step.", "clients": ["Dave", "Step"] },
-  "Choice Financial Group": { "domain": "bankwithchoice.com", "type": "BIN sponsor bank", "hq": "Fargo, ND, US", "about": "North Dakota sponsor bank behind some of the biggest US fintech brands — a long-time partner bank for both Current and Mercury deposits.", "clients": ["Current", "Mercury"] },
-  "Cross River Bank": { "domain": "crossriver.com", "type": "BIN sponsor bank", "hq": "Fort Lee, US", "about": "New Jersey's fintech-lending powerhouse — issues Current's credit builder card and, since 2026, the US MetaMask Card, putting a state-chartered bank under the world's default self-custody wallet.", "clients": ["Current", "MetaMask"] },
-  "Coastal Community Bank": { "domain": "coastalbank.com", "type": "BIN sponsor bank", "hq": "Everett, US", "about": "Washington-state charter that powers One (Walmart's fintech) among a large CCBX partner portfolio — one of the few sponsor banks that grew through the 2023-24 BaaS crackdown.", "clients": ["One"] },
-  "Column": { "domain": "column.com", "type": "BIN sponsor bank", "hq": "San Francisco, US", "about": "The developer-first nationally chartered bank built by Plaid co-founder William Hockey — no middleware, direct Fed access. Banks Mercury and Flex among fintech's most technical teams.", "clients": ["Mercury", "Flex"] },
-  "Lead Bank": { "domain": "lead.bank", "type": "BIN sponsor bank", "hq": "Kansas City, US", "about": "Jackie Reses' (ex-Square Capital) Kansas City charter, rebuilt as a fintech sponsor bank — issues Flex's Visa Infinite business credit card.", "clients": ["Flex"] },
-  "Thread Bank": { "domain": "thread.bank", "type": "BIN sponsor bank", "hq": "Rogersville, US", "about": "Tennessee charter behind embedded deposit programs with $3M pass-through FDIC sweep networks — sits under Relay and part of Flex's banking stack.", "clients": ["Relay", "Flex"] },
-  "Sutton Bank": { "domain": "suttonbank.com", "type": "BIN sponsor bank", "hq": "Attica, US", "about": "Ohio community bank that issues the Cash App Card — a ~$1B-asset bank under one of America's biggest consumer money apps.", "clients": ["Cash App"] },
-  "WebBank": { "domain": "webbank.com", "type": "BIN sponsor bank", "hq": "Salt Lake City, US", "about": "Utah industrial bank that issues the Klarna Card in the US — the charter of choice for point-of-sale credit programs.", "clients": ["Klarna"] },
-  "Solaris": { "domain": "solarisgroup.com", "type": "BaaS / e-money platform", "hq": "Berlin, DE", "about": "Europe's flagship banking-as-a-service platform with a full German banking licence; Tomorrow runs on it, and Vivid launched on it before getting its own EMI — BaFin pressure has since forced a hard pivot.", "clients": ["Tomorrow", "Vivid Money"] },
-  "ClearBank": { "domain": "clear.bank", "type": "BaaS / clearing bank", "hq": "London, UK", "about": "The UK's first new clearing bank in 250 years — holds Tide's customer funds and provides agency banking rails to dozens of UK fintechs.", "clients": ["Tide"] },
-  "Marqeta": { "domain": "marqeta.com", "type": "card issuing processor", "hq": "Oakland, US", "about": "The public (NASDAQ: MQ) modern card-issuing platform that grew up processing Cash App's card volume; also powers Klarna's card programs and newer entrants like BFinance.", "clients": ["Cash App", "Klarna", "BFinance"] },
-  "Galileo": { "domain": "galileo-ft.com", "type": "card issuing processor", "hq": "Salt Lake City, US", "about": "The processor under the first US neobank wave — Chime (before its in-house ChimeCore migration), Dave and MoneyLion all built on it. Acquired by SoFi in 2020 for $1.2B.", "clients": ["Chime", "Dave", "MoneyLion"] },
-  "Baanx (Monavate)": { "domain": "baanx.com", "type": "crypto card infrastructure", "hq": "London, UK", "about": "The card-program layer between self-custody wallets and Mastercard/Visa rails — powers the MetaMask Card and 1inch Card; merged with Monavate in 2026.", "clients": ["MetaMask", "1inch Card"] },
-  "Rain": { "domain": "rain.xyz", "type": "crypto card infrastructure", "hq": "New York, US", "about": "Visa-principal-member issuing platform for stablecoin-native cards — programs settle in USDC onchain. Issues Karta among a fast-growing roster of web3 card programs.", "clients": ["Karta"] },
-  "Immersve": { "domain": "immersve.com", "type": "crypto card infrastructure", "hq": "Auckland, NZ", "about": "Mastercard-partnered protocol that lets wallets spend directly from self-custody — the issuing layer behind Bitget Wallet's card.", "clients": ["Bitget Wallet"] },
-  "Unblock (Atomo)": { "domain": "unblock.ch", "type": "crypto card infrastructure", "hq": "Geneva, CH", "about": "Swiss VQF-regulated Atomo SARL is a Mastercard principal member offering white-label card programs settled in fiat or stablecoins — issues Mine's card across 175+ countries.", "clients": ["Mine"] },
-  "Wirex Pay": { "domain": "wirexapp.com", "type": "crypto card infrastructure", "hq": "London, UK", "about": "Wirex's infrastructure arm — a decade of crypto-card issuing experience packaged as white-label rails, powering COCA's cards.", "clients": ["COCA"] },
-  "Bridge (Stripe)": { "domain": "bridge.xyz", "type": "stablecoin infrastructure", "hq": "San Francisco, US", "about": "Stripe's $1.1B stablecoin-orchestration acquisition — issues branded stablecoins and moves money on stablecoin rails. Issues Deel's DLUSD and MetaMask's mUSD (with M0).", "clients": ["Deel", "MetaMask"] },
-  "Privy (Stripe)": { "domain": "privy.io", "type": "wallet infrastructure", "hq": "New York, US", "about": "Embedded-wallet layer (acquired by Stripe in 2025) that gives fintech users an onchain wallet behind a normal login — part of the stack under Deel's DLUSD and Karta.", "clients": ["Deel", "Karta"] },
-  "Tempo": { "domain": "tempo.xyz", "type": "stablecoin infrastructure", "hq": "San Francisco, US", "about": "The payments-first L1 blockchain incubated by Stripe and Paradigm — purpose-built rails for stablecoin settlement, used in Deel's and Karta's stacks.", "clients": ["Deel", "Karta"] },
-  "Monerium": { "domain": "monerium.com", "type": "stablecoin infrastructure", "hq": "Reykjavík, IS", "about": "Icelandic e-money institution issuing EURe — the regulated onchain euro with personal IBANs that Gnosis Pay accounts are built on.", "clients": ["Gnosis Pay"] },
-  "M0": { "domain": "m0.org", "type": "stablecoin infrastructure", "hq": "Zug, CH", "about": "Shared stablecoin issuance protocol that lets brands mint their own fully-reserved dollar — powers MetaMask's mUSD (issued with Bridge), the first wallet-native stablecoin.", "clients": ["MetaMask"] },
-  "Paxos": { "domain": "paxos.com", "type": "crypto brokerage infrastructure", "hq": "New York, US", "about": "NYDFS-regulated brokerage and tokenization platform that let mainstream apps switch on crypto — powered Nubank Cripto, Mercado Pago's crypto launch and Revolut's US debut.", "clients": ["Nubank", "Mercado Pago", "Revolut"] },
-  "Zero Hash": { "domain": "zerohash.com", "type": "crypto brokerage infrastructure", "hq": "Chicago, US", "about": "B2B crypto and stablecoin settlement layer with money-transmitter coverage across the US — the plumbing behind MoneyLion's and Juno's crypto features.", "clients": ["MoneyLion", "Juno"] },
-  "Fireblocks": { "domain": "fireblocks.com", "type": "crypto brokerage infrastructure", "hq": "New York, US", "about": "MPC custody and transfer network securing digital-asset operations for thousands of institutions — Revolut among the fintechs running treasury and wallet ops on it.", "clients": ["Revolut"] },
-  "Pomelo": { "domain": "pomelo.la", "type": "card issuing processor", "hq": "Buenos Aires, AR", "about": "LatAm's modern card-issuing platform, built because Marqeta never localized — issues for the region's crypto neobanks including Lemon and Belo.", "clients": ["Lemon", "Belo"] },
-  "Mambu": { "domain": "mambu.com", "type": "core banking platform", "hq": "Amsterdam, NL", "about": "The SaaS core-banking pioneer: N26 famously launched on it before building in-house, and TymeBank runs Africa's biggest digital bank on it today.", "clients": ["N26", "TymeBank"] },
-  "Thought Machine": { "domain": "thoughtmachine.net", "type": "core banking platform", "hq": "London, UK", "about": "Google-engineer-founded Vault core, the ledger under Atom Bank since 2016 — Curve and Monese both moved onto it as they scaled.", "clients": ["Atom Bank", "Curve", "Monese"] },
-  "Treezor": { "domain": "treezor.com", "type": "BaaS / e-money platform", "hq": "Paris, FR", "about": "Société Générale-owned French BaaS platform — the original rails under Shine and much of the French fintech wave.", "clients": ["Shine"] },
-  "Synapse": { "domain": "synapsefi.com", "type": "BaaS middleware", "hq": "San Francisco, US", "about": "The a16z-backed BaaS middleware whose 2024 bankruptcy froze ~$200M of end-user funds across partner banks — Juno was among the apps caught in the collapse. The reason 'who holds the ledger?' is now a due-diligence question.", "clients": ["Juno"] },
-  "Blend": { "domain": "blend.money", "type": "yield infrastructure", "hq": "—", "about": "Non-custodial yield layer for neobanks: each user gets their own Gnosis Safe with sanctions screening and audit trail built in, and capital routes across risk-rated DeFi venues (Morpho, Aave) — one SDK instead of a protocol-by-protocol integration.", "clients": [] },
-  "NAYA": { "domain": "naya.finance", "type": "ledger & reconciliation", "hq": "—", "about": "AI-powered financial-operations backbone — unified double-entry ledger, reconciliation engine and data hub sitting between a neobank's product and its banking partners, so balances and bank statements never drift apart.", "clients": [] },
-  "Plaid": { "domain": "plaid.com", "type": "data connectivity", "hq": "San Francisco, US", "about": "The account-connectivity network that links bank accounts to apps — Chime, Current, Varo and Dave all rely on it for funding flows and account linking.", "clients": ["Chime", "Current", "Varo", "Dave"] }
+ "_comment": "Infrastructure providers behind tracked neobanks. clients[] must use exact entity names from data.json. Relationships come from issuer disclosures on the neobanks' own sites/cards or widely reported public sources; some are historical (noted in about).",
+ "The Bancorp Bank": {
+  "domain": "thebancorp.com",
+  "type": "BIN sponsor bank",
+  "hq": "Wilmington, US",
+  "about": "The original fintech sponsor bank — quietly issues cards and holds deposits for a huge share of US consumer fintech, Chime included (alongside Stride).",
+  "clients": [
+   "Chime",
+   "Venmo"
+  ]
+ },
+ "Stride Bank": {
+  "domain": "stridebank.com",
+  "type": "BIN sponsor bank",
+  "hq": "Enid, US",
+  "about": "Oklahoma national bank that co-sponsors Chime's card programs with Bancorp — proof that a community bank charter can sit under tens of millions of fintech accounts.",
+  "clients": [
+   "Chime"
+  ]
+ },
+ "Evolve Bank & Trust": {
+  "domain": "getevolved.com",
+  "type": "BIN sponsor bank",
+  "hq": "Memphis, US",
+  "about": "One of the busiest BaaS sponsor banks of the boom era; its 2024 Synapse fallout and enforcement action made it the cautionary tale of the model. Still sits under Dave and Step.",
+  "clients": [
+   "Dave",
+   "Step",
+   "Copper",
+   "Wise"
+  ]
+ },
+ "Choice Financial Group": {
+  "domain": "bankwithchoice.com",
+  "type": "BIN sponsor bank",
+  "hq": "Fargo, ND, US",
+  "about": "North Dakota sponsor bank behind some of the biggest US fintech brands — a long-time partner bank for both Current and Mercury deposits.",
+  "clients": [
+   "Current",
+   "Mercury"
+  ]
+ },
+ "Cross River Bank": {
+  "domain": "crossriver.com",
+  "type": "BIN sponsor bank",
+  "hq": "Fort Lee, US",
+  "about": "New Jersey's fintech-lending powerhouse — issues Current's credit builder card and, since 2026, the US MetaMask Card, putting a state-chartered bank under the world's default self-custody wallet.",
+  "clients": [
+   "Current",
+   "MetaMask"
+  ]
+ },
+ "Coastal Community Bank": {
+  "domain": "coastalbank.com",
+  "type": "BIN sponsor bank",
+  "hq": "Everett, US",
+  "about": "Washington-state charter that powers One (Walmart's fintech) among a large CCBX partner portfolio — one of the few sponsor banks that grew through the 2023-24 BaaS crackdown.",
+  "clients": [
+   "One",
+   "Greenwood"
+  ]
+ },
+ "Column": {
+  "domain": "column.com",
+  "type": "BIN sponsor bank",
+  "hq": "San Francisco, US",
+  "about": "The developer-first nationally chartered bank built by Plaid co-founder William Hockey — no middleware, direct Fed access. Banks Mercury and Flex among fintech's most technical teams.",
+  "clients": [
+   "Mercury",
+   "Flex",
+   "Slash"
+  ]
+ },
+ "Lead Bank": {
+  "domain": "lead.bank",
+  "type": "BIN sponsor bank",
+  "hq": "Kansas City, US",
+  "about": "Jackie Reses' (ex-Square Capital) Kansas City charter, rebuilt as a fintech sponsor bank — issues Flex's Visa Infinite business credit card.",
+  "clients": [
+   "Flex",
+   "KAST",
+   "Revolut"
+  ]
+ },
+ "Thread Bank": {
+  "domain": "thread.bank",
+  "type": "BIN sponsor bank",
+  "hq": "Rogersville, US",
+  "about": "Tennessee charter behind embedded deposit programs with $3M pass-through FDIC sweep networks — sits under Relay and part of Flex's banking stack.",
+  "clients": [
+   "Relay",
+   "Flex"
+  ]
+ },
+ "Sutton Bank": {
+  "domain": "suttonbank.com",
+  "type": "BIN sponsor bank",
+  "hq": "Attica, US",
+  "about": "Ohio community bank that issues the Cash App Card — a ~$1B-asset bank under one of America's biggest consumer money apps.",
+  "clients": [
+   "Cash App",
+   "Monzo",
+   "Robinhood",
+   "Revolut"
+  ]
+ },
+ "WebBank": {
+  "domain": "webbank.com",
+  "type": "BIN sponsor bank",
+  "hq": "Salt Lake City, US",
+  "about": "Utah industrial bank that issues the Klarna Card in the US — the charter of choice for point-of-sale credit programs.",
+  "clients": [
+   "Klarna"
+  ]
+ },
+ "Solaris": {
+  "domain": "solarisgroup.com",
+  "type": "BaaS / e-money platform",
+  "hq": "Berlin, DE",
+  "about": "Europe's flagship banking-as-a-service platform with a full German banking licence; Tomorrow runs on it, and Vivid launched on it before getting its own EMI — BaFin pressure has since forced a hard pivot.",
+  "clients": [
+   "Tomorrow",
+   "Vivid Money"
+  ]
+ },
+ "ClearBank": {
+  "domain": "clear.bank",
+  "type": "BaaS / clearing bank",
+  "hq": "London, UK",
+  "about": "The UK's first new clearing bank in 250 years — holds Tide's customer funds and provides agency banking rails to dozens of UK fintechs.",
+  "clients": [
+   "Tide"
+  ]
+ },
+ "Marqeta": {
+  "domain": "marqeta.com",
+  "type": "card issuing processor",
+  "hq": "Oakland, US",
+  "about": "The public (NASDAQ: MQ) modern card-issuing platform that grew up processing Cash App's card volume; also powers Klarna's card programs and newer entrants like BFinance.",
+  "clients": [
+   "Cash App",
+   "Klarna",
+   "BFinance",
+   "Coinbase Card",
+   "Varo",
+   "Brex"
+  ]
+ },
+ "Galileo": {
+  "domain": "galileo-ft.com",
+  "type": "card issuing processor",
+  "hq": "Salt Lake City, US",
+  "about": "The processor under the first US neobank wave — Chime (before its in-house ChimeCore migration), Dave and MoneyLion all built on it. Acquired by SoFi in 2020 for $1.2B.",
+  "clients": [
+   "Chime",
+   "Dave",
+   "MoneyLion",
+   "Robinhood",
+   "Varo",
+   "Monzo",
+   "Revolut",
+   "Wise"
+  ]
+ },
+ "Baanx (Monavate)": {
+  "domain": "baanx.com",
+  "type": "crypto card infrastructure",
+  "hq": "London, UK",
+  "about": "The card-program layer between self-custody wallets and Mastercard/Visa rails — powers the MetaMask Card and 1inch Card; merged with Monavate in 2026.",
+  "clients": [
+   "MetaMask",
+   "1inch Card"
+  ]
+ },
+ "Rain": {
+  "domain": "rain.xyz",
+  "type": "crypto card infrastructure",
+  "hq": "New York, US",
+  "about": "Visa-principal-member issuing platform for stablecoin-native cards — programs settle in USDC onchain. Issues Karta among a fast-growing roster of web3 card programs.",
+  "clients": [
+   "Karta",
+   "EtherFi Cash"
+  ]
+ },
+ "Immersve": {
+  "domain": "immersve.com",
+  "type": "crypto card infrastructure",
+  "hq": "Auckland, NZ",
+  "about": "Mastercard-partnered protocol that lets wallets spend directly from self-custody — the issuing layer behind Bitget Wallet's card.",
+  "clients": [
+   "Bitget Wallet"
+  ]
+ },
+ "Unblock (Atomo)": {
+  "domain": "unblock.ch",
+  "type": "crypto card infrastructure",
+  "hq": "Geneva, CH",
+  "about": "Swiss VQF-regulated Atomo SARL is a Mastercard principal member offering white-label card programs settled in fiat or stablecoins — issues Mine's card across 175+ countries.",
+  "clients": [
+   "Mine"
+  ]
+ },
+ "Wirex Pay": {
+  "domain": "wirexapp.com",
+  "type": "crypto card infrastructure",
+  "hq": "London, UK",
+  "about": "Wirex's infrastructure arm — a decade of crypto-card issuing experience packaged as white-label rails, powering COCA's cards.",
+  "clients": [
+   "COCA"
+  ]
+ },
+ "Bridge (Stripe)": {
+  "domain": "bridge.xyz",
+  "type": "stablecoin infrastructure",
+  "hq": "San Francisco, US",
+  "about": "Stripe's $1.1B stablecoin-orchestration acquisition — issues branded stablecoins and moves money on stablecoin rails. Issues Deel's DLUSD and MetaMask's mUSD (with M0).",
+  "clients": [
+   "Deel",
+   "MetaMask",
+   "KAST"
+  ]
+ },
+ "Privy (Stripe)": {
+  "domain": "privy.io",
+  "type": "wallet infrastructure",
+  "hq": "New York, US",
+  "about": "Embedded-wallet layer (acquired by Stripe in 2025) that gives fintech users an onchain wallet behind a normal login — part of the stack under Deel's DLUSD and Karta.",
+  "clients": [
+   "Deel",
+   "Karta"
+  ]
+ },
+ "Tempo": {
+  "domain": "tempo.xyz",
+  "type": "stablecoin infrastructure",
+  "hq": "San Francisco, US",
+  "about": "The payments-first L1 blockchain incubated by Stripe and Paradigm — purpose-built rails for stablecoin settlement, used in Deel's and Karta's stacks.",
+  "clients": [
+   "Deel",
+   "Karta"
+  ]
+ },
+ "Monerium": {
+  "domain": "monerium.com",
+  "type": "stablecoin infrastructure",
+  "hq": "Reykjavík, IS",
+  "about": "Icelandic e-money institution issuing EURe — the regulated onchain euro with personal IBANs that Gnosis Pay accounts are built on.",
+  "clients": [
+   "Gnosis Pay"
+  ]
+ },
+ "M0": {
+  "domain": "m0.org",
+  "type": "stablecoin infrastructure",
+  "hq": "Zug, CH",
+  "about": "Shared stablecoin issuance protocol that lets brands mint their own fully-reserved dollar — powers MetaMask's mUSD (issued with Bridge), the first wallet-native stablecoin.",
+  "clients": [
+   "MetaMask"
+  ]
+ },
+ "Paxos": {
+  "domain": "paxos.com",
+  "type": "crypto brokerage infrastructure",
+  "hq": "New York, US",
+  "about": "NYDFS-regulated brokerage and tokenization platform that let mainstream apps switch on crypto — powered Nubank Cripto, Mercado Pago's crypto launch and Revolut's US debut.",
+  "clients": [
+   "Nubank",
+   "Mercado Pago",
+   "Revolut"
+  ]
+ },
+ "Zero Hash": {
+  "domain": "zerohash.com",
+  "type": "crypto brokerage infrastructure",
+  "hq": "Chicago, US",
+  "about": "B2B crypto and stablecoin settlement layer with money-transmitter coverage across the US — the plumbing behind MoneyLion's and Juno's crypto features.",
+  "clients": [
+   "MoneyLion",
+   "Juno",
+   "Step"
+  ]
+ },
+ "Fireblocks": {
+  "domain": "fireblocks.com",
+  "type": "crypto brokerage infrastructure",
+  "hq": "New York, US",
+  "about": "MPC custody and transfer network securing digital-asset operations for thousands of institutions — Revolut among the fintechs running treasury and wallet ops on it.",
+  "clients": [
+   "Revolut"
+  ]
+ },
+ "Pomelo": {
+  "domain": "pomelo.la",
+  "type": "card issuing processor",
+  "hq": "Buenos Aires, AR",
+  "about": "LatAm's modern card-issuing platform, built because Marqeta never localized — issues for the region's crypto neobanks including Lemon and Belo.",
+  "clients": [
+   "Lemon",
+   "Belo"
+  ]
+ },
+ "Mambu": {
+  "domain": "mambu.com",
+  "type": "core banking platform",
+  "hq": "Amsterdam, NL",
+  "about": "The SaaS core-banking pioneer: N26 famously launched on it before building in-house, and TymeBank runs Africa's biggest digital bank on it today.",
+  "clients": [
+   "N26",
+   "TymeBank",
+   "Wio Bank",
+   "GoTyme Bank"
+  ]
+ },
+ "Thought Machine": {
+  "domain": "thoughtmachine.net",
+  "type": "core banking platform",
+  "hq": "London, UK",
+  "about": "Google-engineer-founded Vault core, the ledger under Atom Bank since 2016 — Curve and Monese both moved onto it as they scaled.",
+  "clients": [
+   "Atom Bank",
+   "Curve",
+   "Monese",
+   "Mox Bank",
+   "Trust Bank",
+   "Lunar",
+   "isybank"
+  ]
+ },
+ "Treezor": {
+  "domain": "treezor.com",
+  "type": "BaaS / e-money platform",
+  "hq": "Paris, FR",
+  "about": "Société Générale-owned French BaaS platform — the original rails under Shine and much of the French fintech wave.",
+  "clients": [
+   "Shine",
+   "Pixpay"
+  ]
+ },
+ "Synapse": {
+  "domain": "synapsefi.com",
+  "type": "BaaS middleware",
+  "hq": "San Francisco, US",
+  "about": "The a16z-backed BaaS middleware whose 2024 bankruptcy froze ~$200M of end-user funds across partner banks — Juno was among the apps caught in the collapse. The reason 'who holds the ledger?' is now a due-diligence question.",
+  "clients": [
+   "Juno",
+   "Copper"
+  ]
+ },
+ "Blend": {
+  "domain": "blend.money",
+  "type": "yield infrastructure",
+  "hq": "—",
+  "about": "Non-custodial yield layer for neobanks: each user gets their own Gnosis Safe with sanctions screening and audit trail built in, and capital routes across risk-rated DeFi venues (Morpho, Aave) — one SDK instead of a protocol-by-protocol integration.",
+  "clients": []
+ },
+ "NAYA": {
+  "domain": "naya.finance",
+  "type": "ledger & reconciliation",
+  "hq": "—",
+  "about": "AI-powered financial-operations backbone — unified double-entry ledger, reconciliation engine and data hub sitting between a neobank's product and its banking partners, so balances and bank statements never drift apart.",
+  "clients": []
+ },
+ "Plaid": {
+  "domain": "plaid.com",
+  "type": "data connectivity",
+  "hq": "San Francisco, US",
+  "about": "The account-connectivity network that links bank accounts to apps — Chime, Current, Varo and Dave all rely on it for funding flows and account linking.",
+  "clients": [
+   "Chime",
+   "Current",
+   "Varo",
+   "Dave"
+  ]
+ },
+ "Pathward": {
+  "type": "BIN sponsor bank",
+  "domain": "pathward.com",
+  "hq": "Sioux Falls, US",
+  "about": "The former MetaBank, one of America's largest prepaid and BaaS charters — bank of record for MoneyLion's RoarMoney account, with the partnership extended to 2029.",
+  "clients": [
+   "MoneyLion"
+  ]
+ },
+ "Community Federal Savings Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "cfsb.com",
+  "hq": "New York, US",
+  "about": "The small Queens thrift under a startling share of global fintech's US rails — Wise's USD accounts, Crypto.com's prepaid card, Greenlight, Zolve and Comun all sit on it. A 2025 OCC order to rebuild its AML program showed how much weight the charter carries.",
+  "clients": [
+   "Wise",
+   "Crypto.com",
+   "Greenlight",
+   "Zolve",
+   "Comun"
+  ]
+ },
+ "Metropolitan Commercial Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "mcbankny.com",
+  "hq": "New York, US",
+  "about": "The New York bank that issued Crypto.com's first US Visa card (2018) and sat under Revolut US until 2024 — then exited crypto entirely in 2023 as regulators turned, handing its fintech book to successors like Lead Bank.",
+  "clients": [
+   "Crypto.com",
+   "Revolut"
+  ]
+ },
+ "Lincoln Savings Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "mylsb.com",
+  "hq": "Reinbeck, US",
+  "about": "A 1902 Iowa community bank that quietly processes Cash App's direct deposits — and was MoneyLion's original deposit bank before Pathward. Proof the first US fintech wave ran on Main Street charters.",
+  "clients": [
+   "Cash App",
+   "MoneyLion"
+  ]
+ },
+ "Sunrise Banks": {
+  "type": "BIN sponsor bank",
+  "domain": "sunrisebanks.com",
+  "hq": "St. Paul, US",
+  "about": "CDFI-certified Minnesota charter that specializes in mission-driven fintech — issues MoCaFi's cards (including city disbursement programs like LA's Angeleno Card) and the True Link prepaid Visa for vulnerable adults.",
+  "clients": [
+   "MoCaFi",
+   "True Link"
+  ]
+ },
+ "Piermont Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "piermontbank.com",
+  "hq": "New York, US",
+  "about": "A de novo New York charter (2019) built from scratch for embedded banking — issues Slash's business debit Mastercard alongside a curated fintech portfolio it keeps deliberately small.",
+  "clients": [
+   "Slash"
+  ]
+ },
+ "Green Dot": {
+  "type": "BIN sponsor bank",
+  "domain": "greendot.com",
+  "hq": "Austin, US",
+  "about": "The prepaid pioneer turned publicly listed BaaS bank (NYSE: GDOT) — its Arc platform runs Apple Cash and Walmart's money products, making it one of the biggest sponsor banks with no tracked neobank on it: its clients are mostly big tech and retail, not challengers.",
+  "clients": []
+ },
+ "Federal Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "federalbank.co.in",
+  "hq": "Aluva, IN",
+  "about": "The Kerala bank that became Indian neobanking's default charter — Jupiter and Fi Money both built on its savings accounts. Fi's 2026 wind-down, with customers pushed to the bank's own FedMobile app, showed who really owns the relationship.",
+  "clients": [
+   "Jupiter",
+   "Fi Money"
+  ]
+ },
+ "SBM Bank India": {
+  "type": "BIN sponsor bank",
+  "domain": "sbmbank.co.in",
+  "hq": "Mumbai, IN",
+  "about": "The Indian subsidiary of Mauritius' state bank, reborn as a fintech partner bank — powers Niyo Global's zero-forex savings account and debit card for travelling Indians.",
+  "clients": [
+   "Niyo"
+  ]
+ },
+ "Equitas Small Finance Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "equitasbank.com",
+  "hq": "Chennai, IN",
+  "about": "Chennai small-finance bank that hosted two tracked neobanks — Freo Save's digital savings account and Niyo's NiyoX (the Niyo tie-up ended May 2025, a reminder that Indian partner-bank deals are rented, not owned).",
+  "clients": [
+   "Freo",
+   "Niyo"
+  ]
+ },
+ "RBL Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "rblbank.com",
+  "hq": "Mumbai, IN",
+  "about": "One of India's most fintech-forward private banks — a core partner bank behind RazorpayX's business current accounts and corporate cards.",
+  "clients": [
+   "RazorpayX"
+  ]
+ },
+ "M2P Fintech": {
+  "type": "BaaS middleware",
+  "domain": "m2pfintech.com",
+  "hq": "Chennai, IN",
+  "about": "The API layer under India's card-fintech wave — Niyo, Jupiter and slice all built card programs on its bank-BIN orchestration. Now 30+ markets across MENA, ASEAN and Africa, backed by Visa and Helios.",
+  "clients": [
+   "Niyo",
+   "Jupiter",
+   "slice",
+   "RazorpayX"
+  ]
+ },
+ "Edenred Payment Solutions": {
+  "type": "BaaS / e-money platform",
+  "domain": "eps.edenred.com",
+  "hq": "London, UK",
+  "about": "Formerly PrePay Technologies/PPS, one of the UK's oldest e-money institutions (licensed 2003) — issued Monese's cards and accounts across 31 countries, the classic agent-of-EMI model that predates the BaaS label.",
+  "clients": [
+   "Monese"
+  ]
+ },
+ "Swan": {
+  "type": "BaaS / e-money platform",
+  "domain": "swan.io",
+  "hq": "Paris, FR",
+  "about": "France's developer-darling embedded-banking EMI: French SaaS apps bolt a full 'compte pro' into their product — Indy's freelancer account runs on it, alongside Pennylane and much of French fintech's second wave.",
+  "clients": [
+   "Indy"
+  ]
+ },
+ "Okali": {
+  "type": "BaaS / e-money platform",
+  "domain": "okali.eu",
+  "hq": "Paris, FR",
+  "about": "The former SFPMEI, France's original BaaS e-money institution (now Crédit Agricole-owned) — carried Lydia from 2013 until it won its own EMI licence in 2023 and dropped 'OKALI' from customers' bank statements.",
+  "clients": [
+   "Sumeria (Lydia)"
+  ]
+ },
+ "Enfuce": {
+  "type": "BaaS / e-money platform",
+  "domain": "enfuce.com",
+  "hq": "Espoo, FI",
+  "about": "Finland's card-as-a-service heavyweight, founded by two ex-bankers in a sauna — took Sweden's Rocker from zero to 100,000+ cards in two years, handling licensing, processing and compliance in one stack.",
+  "clients": [
+   "Rocker"
+  ]
+ },
+ "Engine by Starling": {
+  "type": "core banking platform",
+  "domain": "enginebystarling.com",
+  "hq": "London, UK",
+  "about": "Starling Bank's core, packaged as SaaS for other banks — powered Salt Bank's build-and-launch in under 12 months, with 100,000 Romanian customers onboarded in the first two weeks.",
+  "clients": [
+   "Salt Bank"
+  ]
+ },
+ "Modulr": {
+  "type": "BaaS / e-money platform",
+  "domain": "modulrfinance.com",
+  "hq": "London, UK",
+  "about": "UK e-money institution with direct Faster Payments and Bacs access — provides the payment accounts and scheme connectivity behind Pockit, and embedded payments for hundreds of UK platforms.",
+  "clients": [
+   "Pockit"
+  ]
+ },
+ "Griffin": {
+  "type": "BaaS / clearing bank",
+  "domain": "griffin.com",
+  "hq": "London, UK",
+  "about": "The 'bank you can build on': a full UK banking licence (2024) wrapped in an API, founded by ex-Airbnb and CircleCI engineers — the first British BaaS provider that is actually a bank rather than an EMI. No tracked neobank runs on it yet.",
+  "clients": []
+ },
+ "Dock": {
+  "type": "BaaS / e-money platform",
+  "domain": "dock.tech",
+  "hq": "São Paulo, BR",
+  "about": "LatAm's largest card-issuing and BaaS unicorn (ex-Conductor), processing for 70M+ active accounts — Mercado Pago, PagBank, C6 Bank and Neon have all run on its rails.",
+  "clients": [
+   "Mercado Pago",
+   "PagBank",
+   "C6 Bank",
+   "Neon"
+  ]
+ },
+ "Pismo": {
+  "type": "core banking platform",
+  "domain": "pismo.io",
+  "hq": "São Paulo, BR",
+  "about": "Cloud-native core banking and payments platform acquired by Visa for $1B in 2024 — NG.cash migrated its 1M+ Gen-Z accounts onto it to cut costs and ship faster.",
+  "clients": [
+   "NG.cash",
+   "Nubank",
+   "Revolut",
+   "N26",
+   "Cora"
+  ]
+ },
+ "Union54": {
+  "type": "BaaS middleware",
+  "domain": "union54.com",
+  "hq": "Lusaka, ZM",
+  "about": "The YC-backed Zambian card-issuing API that served ~100 African fintechs — until a $1.2B attempted-fraud wave and Mastercard chargeback breaches forced a 2022 shutdown, cutting off virtual dollar cards at Eversend and dozens of peers overnight. Africa's Synapse-grade cautionary tale.",
+  "clients": [
+   "Eversend"
+  ]
+ },
+ "Providus Bank": {
+  "type": "BIN sponsor bank",
+  "domain": "providusbank.com",
+  "hq": "Lagos, NG",
+  "about": "Nigeria's go-to fintech partner bank — its virtual-NUBAN and BIN-sponsorship APIs sit under Piggyvest, Paystack and much of the Lagos fintech scene, though the tracked Nigerian neobanks (Kuda, OPay, PalmPay) hold their own licences.",
+  "clients": []
+ },
+ "NymCard": {
+  "type": "BaaS / e-money platform",
+  "domain": "nymcard.com",
+  "hq": "Dubai, AE",
+  "about": "The only MENA BaaS provider fully regulated by the UAE central bank, and a Visa/Mastercard principal member — BIN sponsorship plus issuing across UAE, Saudi, Egypt and Pakistan, where it launched the country's first digital credit card with easypaisa.",
+  "clients": []
+ },
+ "RAKBANK": {
+  "type": "BIN sponsor bank",
+  "domain": "rakbank.ae",
+  "hq": "Ras Al Khaimah, AE",
+  "about": "The 1976 Emirati bank that put the UAE's first independent neobank on the map — provided IBAN and BIN sponsorship for YAP's 2021 launch (YAP has since moved to Ruya Islamic Bank).",
+  "clients": [
+   "YAP"
+  ]
+ },
+ "Thredd": {
+  "type": "card issuing processor",
+  "domain": "thredd.ai",
+  "hq": "London, UK",
+  "about": "The processor formerly known as GPS (Global Processing Services) — the issuer-processing firepower under the UK fintech wave: Revolut, Starling and Curve all scaled on it, and it still processes billions of transactions a year across 40+ countries.",
+  "clients": [
+   "Revolut",
+   "Curve",
+   "Starling Bank",
+   "WeLab Bank"
+  ]
+ },
+ "i2c": {
+  "type": "card issuing processor",
+  "domain": "i2cinc.com",
+  "hq": "Redwood City, US",
+  "about": "Silicon Valley's quiet veteran (founded 2001) with a single global SaaS platform spanning 200+ countries — the processor behind the Crypto.com Visa card's worldwide rollout and Zolve's US cards for new arrivals.",
+  "clients": [
+   "Crypto.com",
+   "Zolve"
+  ]
+ },
+ "Paymentology": {
+  "type": "card issuing processor",
+  "domain": "paymentology.com",
+  "hq": "London, UK",
+  "about": "The 2021 Paymentology–Tutuka merger created the first truly global issuer-processor, strongest in emerging markets — it processes cards for Tyme's digital banks in both South Africa and the Philippines.",
+  "clients": [
+   "TymeBank",
+   "GoTyme Bank"
+  ]
+ },
+ "Stripe Issuing": {
+  "type": "card issuing processor",
+  "domain": "stripe.com",
+  "hq": "San Francisco, US",
+  "about": "Stripe's card-issuing arm — the infrastructure under Ramp's 2M+ corporate cards since 2020, now pushing stablecoin-backed cards into markets its US clients couldn't previously reach.",
+  "clients": [
+   "Ramp"
+  ]
+ },
+ "Nium": {
+  "type": "card issuing processor",
+  "domain": "nium.com",
+  "hq": "Singapore, SG",
+  "about": "The Singapore cross-border payments platform (ex-InstaReM) whose card-issuing APIs put Visa corporate cards inside Aspire, Southeast Asia's first business neobank.",
+  "clients": [
+   "Aspire"
+  ]
+ },
+ "Lithic": {
+  "type": "card issuing processor",
+  "domain": "lithic.com",
+  "hq": "New York, US",
+  "about": "Started as consumer virtual-card app Privacy.com, then flipped its own infrastructure into a developer-first issuing API — the leanest way for US fintechs to spin up a card program.",
+  "clients": []
+ },
+ "Highnote": {
+  "type": "card issuing processor",
+  "domain": "highnote.com",
+  "hq": "San Francisco, US",
+  "about": "Built by the ex-Braintree/PayPal team as a from-scratch issuing platform with an embedded ledger — the newest US challenger to Marqeta and Lithic in embedded card programs.",
+  "clients": []
+ },
+ "Episode Six": {
+  "type": "card issuing processor",
+  "domain": "episodesix.com",
+  "hq": "Austin, US",
+  "about": "Ledger-and-issuing platform built by former Visa executives whose pitch is currency-agnostic 'anything as money' — powers HSBC's PayMe wallet in Hong Kong among bank-grade clients.",
+  "clients": []
+ },
+ "CoreCard": {
+  "type": "card issuing processor",
+  "domain": "corecard.com",
+  "hq": "Norcross, US",
+  "about": "The publicly listed (NYSE: CCRD) credit-card processing specialist that quietly runs the Apple Card for Goldman Sachs — proof that complex revolving-credit programs still need deep specialist cores.",
+  "clients": []
+ },
+ "Zeta": {
+  "type": "card issuing processor",
+  "domain": "zeta.tech",
+  "hq": "San Francisco, US",
+  "about": "Bhavin Turakhia's $1.5B-valued banking-tech bet: the cloud-native Tachyon processing stack behind HDFC Bank's PayZapp and Pixel credit card, now pushing into US credit unions.",
+  "clients": []
+ },
+ "Wallester": {
+  "type": "card issuing processor",
+  "domain": "wallester.com",
+  "hq": "Tallinn, EE",
+  "about": "Estonian Visa principal member offering white-label card issuing with a free-tier API — the fast, low-ceremony route to a European card program for early-stage fintechs.",
+  "clients": []
+ },
+ "Adyen Issuing": {
+  "type": "card issuing processor",
+  "domain": "adyen.com",
+  "hq": "Amsterdam, NL",
+  "about": "The acquiring giant's issuing arm — Adyen's EU banking licence and single-platform pitch let platforms add branded cards next to the payments they already process.",
+  "clients": []
+ },
+ "Temenos": {
+  "type": "core banking platform",
+  "domain": "temenos.com",
+  "hq": "Geneva, CH",
+  "about": "The 30-year incumbent that 3,000+ banks run on — and quietly the core under a surprising share of neobanks: Varo's US charter, Italy's Flowe (live in 5 months), Alpian, Judo Bank, EQ Bank and Ualá's Mexican bank all sit on it.",
+  "clients": [
+   "Varo",
+   "Flowe",
+   "Alpian",
+   "Judo Bank",
+   "EQ Bank",
+   "Ualá"
+  ]
+ },
+ "10x Banking": {
+  "type": "core banking platform",
+  "domain": "10xbanking.com",
+  "hq": "London, UK",
+  "about": "Ex-Barclays CEO Antony Jenkins' cloud-native 'SuperCore', backed by BlackRock and J.P. Morgan — the ledger JPMorgan chose to power Chase UK's assault on the British market.",
+  "clients": [
+   "Chase UK"
+  ]
+ },
+ "Technisys": {
+  "type": "core banking platform",
+  "domain": "technisys.com",
+  "hq": "Miami, US",
+  "about": "The LatAm-born Cyberbank core SoFi bought for $1.1B in 2022 to own its own ledger — SoFi's checking, savings and credit card are migrating onto it, folded into Galileo as 'Cyberbank Core'.",
+  "clients": [
+   "SoFi"
+  ]
+ },
+ "Finastra": {
+  "type": "core banking platform",
+  "domain": "finastra.com",
+  "hq": "London, UK",
+  "about": "The Misys+D+H legacy giant whose cloud-first Essence core got a second life with digital banks — Tonik launched Southeast Asia's first pure-play licensed neobank on it in 2021.",
+  "clients": [
+   "Tonik"
+  ]
+ },
+ "Finxact": {
+  "type": "core banking platform",
+  "domain": "finxact.com",
+  "hq": "Jacksonville, US",
+  "about": "Frank Sanchez's cloud-native 'core-as-a-service', acquired by Fiserv in 2022 — the elastic system of record One (Walmart's fintech) picked to run save-spend-borrow in a single account.",
+  "clients": [
+   "One"
+  ]
+ },
+ "Finacle": {
+  "type": "core banking platform",
+  "domain": "finacle.com",
+  "hq": "Bengaluru, IN",
+  "about": "Infosys' universal banking suite serving banks in 100 countries — the incumbent core that emerging-market digital brands are often carved out of, including Emirates NBD's Liv., the UAE's first lifestyle neobank.",
+  "clients": [
+   "Liv."
+  ]
+ },
+ "Tuum": {
+  "type": "core banking platform",
+  "domain": "tuum.com",
+  "hq": "Tallinn, EE",
+  "about": "Estonian API-first core built by ex-bank-IT veterans — migrated millions of LHV UK accounts with zero downtime, making it the credible European challenger to Mambu and Thought Machine.",
+  "clients": []
+ },
+ "Oradian": {
+  "type": "core banking platform",
+  "domain": "oradian.com",
+  "hq": "Zagreb, HR",
+  "about": "Cloud core built for emerging markets and microfinance-scale economics — FairMoney runs Nigeria's biggest credit-led neobank (12M+ accounts) on its Instafin platform.",
+  "clients": [
+   "FairMoney"
+  ]
+ },
+ "SaaScada": {
+  "type": "core banking platform",
+  "domain": "saascada.com",
+  "hq": "London, UK",
+  "about": "Event-driven core-banking engine born inside a UK charity-banking project — sells real-time data as the product, one of the few cores designed around inclusion use cases first.",
+  "clients": []
+ },
+ "Circle": {
+  "type": "stablecoin infrastructure",
+  "domain": "circle.com",
+  "hq": "New York, US",
+  "about": "Issuer of USDC, the regulated digital dollar that a whole wave of neobanks treat as their core ledger — Mine settles IBAN deposits straight into it, COCA plugs into Circle's payment platform, and USDC-native apps from Daimo to Kontigo build on its rails.",
+  "clients": [
+   "Mine",
+   "COCA",
+   "SurfCash",
+   "Daimo",
+   "Stables",
+   "Kontigo",
+   "DolarApp",
+   "Dakota"
+  ]
+ },
+ "Tether": {
+  "type": "stablecoin infrastructure",
+  "domain": "tether.to",
+  "hq": "San Salvador, SV",
+  "about": "Issuer of USDT, the world's most-held stablecoin — and increasingly a strategic investor in the apps that distribute it: Oobit and Fizen are Tether-backed, and Plasma One runs on the Tether-linked Plasma chain.",
+  "clients": [
+   "Plasma One",
+   "Oobit",
+   "Fizen"
+  ]
+ },
+ "BVNK": {
+  "type": "stablecoin infrastructure",
+  "domain": "bvnk.com",
+  "hq": "London, UK",
+  "about": "Enterprise stablecoin payments stack ($30B+ annualized volume) behind embedded wallets and payouts for Deel and Bitso — Mastercard agreed to acquire it for up to $1.8B in 2026, the largest stablecoin-infra deal on record.",
+  "clients": [
+   "Deel",
+   "Bitso"
+  ]
+ },
+ "Perena": {
+  "type": "stablecoin infrastructure",
+  "domain": "perena.org",
+  "hq": "—",
+  "about": "Solana-native stablecoin infrastructure (the USD* 'numeraire' pool) founded by Solana Foundation's ex-stablecoin lead — the yield engine behind SurfCash's up-to-15% rates.",
+  "clients": [
+   "SurfCash"
+  ]
+ },
+ "Kulipa": {
+  "type": "crypto card infrastructure",
+  "domain": "kulipa.xyz",
+  "hq": "Paris, FR",
+  "about": "Paris-based stablecoin card issuer that connects self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powers the Ready (ex-Argent) and Solflare cards; 120,000+ cards issued since 2025.",
+  "clients": [
+   "Ready",
+   "Solflare"
+  ]
+ },
+ "Reap": {
+  "type": "crypto card infrastructure",
+  "domain": "reap.global",
+  "hq": "Hong Kong, HK",
+  "about": "Hong Kong Visa Principal Issuer (also Mexico) whose white-label card-as-a-service sits under RedotPay and KAST — one of only three partners Visa names in its 160+ stablecoin card programs. Acquired by Kraken's parent Payward in 2026.",
+  "clients": [
+   "RedotPay",
+   "KAST"
+  ]
+ },
+ "Striga": {
+  "type": "crypto card infrastructure",
+  "domain": "striga.com",
+  "hq": "Tallinn, EE",
+  "about": "Estonian MiCA-licensed API stack for EU crypto neobanks — one integration covers custody, trading, virtual IBANs and Visa/Mastercard issuing from bitcoin or stablecoin balances, the plug-and-play way to launch a European crypto card.",
+  "clients": []
+ },
+ "Turnkey": {
+  "type": "wallet infrastructure",
+  "domain": "turnkey.com",
+  "hq": "New York, US",
+  "about": "Key-management infrastructure from the team that built Coinbase Custody — secure-enclave signing behind 50M+ embedded wallets, the default answer when a consumer money app needs seedless self-custody at scale.",
+  "clients": []
+ },
+ "Dfns": {
+  "type": "wallet infrastructure",
+  "domain": "dfns.co",
+  "hq": "Paris, FR",
+  "about": "Paris-based MPC wallet-as-a-service repositioned as a 'core banking platform for digital assets' — powers the self-custody wallet infrastructure behind Deblock, France's first MiCA-licensed institution.",
+  "clients": [
+   "Deblock"
+  ]
+ },
+ "Web3Auth": {
+  "type": "wallet infrastructure",
+  "domain": "web3auth.io",
+  "hq": "Singapore, SG",
+  "about": "MPC key infrastructure that turns social logins into non-custodial wallets — powers Trust Wallet's seedless onboarding and was acquired by Consensys (MetaMask's parent) in 2025.",
+  "clients": [
+   "Trust Wallet"
+  ]
+ },
+ "Safe": {
+  "type": "wallet infrastructure",
+  "domain": "safe.global",
+  "hq": "Berlin, DE",
+  "about": "The smart-account standard securing $100B+ onchain — Gnosis Pay wires its Visa card directly to each user's Safe, and EtherFi Cash holds collateral in per-user Safes. The de facto account layer of onchain banking.",
+  "clients": [
+   "Gnosis Pay",
+   "EtherFi Cash"
+  ]
+ },
+ "MoonPay": {
+  "type": "onramp infrastructure",
+  "domain": "moonpay.com",
+  "hq": "Miami, US",
+  "about": "The consumer-fintech of crypto onramps — card and bank rails into 500+ apps across 190 countries, including the buy/sell flows inside MetaMask, Trust Wallet (multi-year exclusive since 2025) and Phantom.",
+  "clients": [
+   "MetaMask",
+   "Trust Wallet",
+   "Phantom"
+  ]
+ },
+ "Transak": {
+  "type": "onramp infrastructure",
+  "domain": "transak.com",
+  "hq": "Miami, US",
+  "about": "Fiat-to-crypto ramp behind 450+ apps and MetaMask's long-time primary onramp — since September 2025 the exclusive provider of MetaMask's Deposit button, with 1:1 stablecoin purchases and named IBANs.",
+  "clients": [
+   "MetaMask"
+  ]
+ },
+ "Ramp Network": {
+  "type": "onramp infrastructure",
+  "domain": "rampnetwork.com",
+  "hq": "Warsaw, PL",
+  "about": "Warsaw-built onramp/offramp where one KYC unlocks hundreds of wallets — powers buy and L2 cash-out flows in MetaMask and crypto purchases in Trust Wallet across 150+ countries.",
+  "clients": [
+   "MetaMask",
+   "Trust Wallet"
+  ]
+ },
+ "Morpho": {
+  "type": "yield infrastructure",
+  "domain": "morpho.org",
+  "hq": "Paris, FR",
+  "about": "The DeFi lending network that neobanks embed as their savings backend — Deblock's 4% euro current account runs on a Steakhouse-curated Morpho vault, and Hyperbeat borrows via Morpho at the point of sale.",
+  "clients": [
+   "Deblock",
+   "Hyperbeat"
+  ]
+ },
+ "Aave": {
+  "type": "yield infrastructure",
+  "domain": "aave.com",
+  "hq": "London, UK",
+  "about": "DeFi's largest lending protocol (~$50B TVL), increasingly consumed as embedded yield: MetaMask's Stablecoin Earn deposits straight into Aave and auto-routes swaps into aTokens, and Mine's Earn runs on Aave V3.",
+  "clients": [
+   "MetaMask",
+   "Mine"
+  ]
+ },
+ "Linea": {
+  "type": "payments chain",
+  "domain": "linea.build",
+  "hq": "—",
+  "about": "Consensys' Ethereum L2 and MetaMask's home network for money — every MetaMask Card transaction executes on Linea, and mUSD launched natively there.",
+  "clients": [
+   "MetaMask"
+  ]
+ },
+ "Celo": {
+  "type": "payments chain",
+  "domain": "celo.org",
+  "hq": "—",
+  "about": "Mobile-first chain (now an Ethereum L2) purpose-built for cheap stablecoin payments — the rails under Opera's MiniPay and its 16M+ wallets across the Global South.",
+  "clients": [
+   "MiniPay"
+  ]
+ },
+ "Gnosis Chain": {
+  "type": "payments chain",
+  "domain": "gnosischain.com",
+  "hq": "—",
+  "about": "The low-cost EVM chain where Gnosis Pay settles — each cardholder's Safe account lives on Gnosis Chain, making it the first chain with a Visa card wired directly to it.",
+  "clients": [
+   "Gnosis Pay"
+  ]
+ },
+ "Stellar": {
+  "type": "payments chain",
+  "domain": "stellar.org",
+  "hq": "San Francisco, US",
+  "about": "The 2014-vintage payments-first blockchain with native USDC support — the settlement rails under COCA's self-banking accounts and a long roster of remittance corridors.",
+  "clients": [
+   "COCA"
+  ]
+ },
+ "Plasma": {
+  "type": "payments chain",
+  "domain": "plasma.to",
+  "hq": "—",
+  "about": "Tether-linked L1 purpose-built for zero-fee USD₮ transfers — the chain that Plasma One, its own consumer neobank, runs on. Vertical integration of chain and money app in one stack.",
+  "clients": [
+   "Plasma One"
+  ]
+ },
+ "Solana": {
+  "type": "payments chain",
+  "domain": "solana.com",
+  "hq": "—",
+  "about": "The high-throughput chain that markets itself as payments infrastructure (Solana Pay) — Sling Money's stablecoin P2P, Decaf's spending rails, KAST's stablecoin cards and Solflare all run their money features on it.",
+  "clients": [
+   "Sling Money",
+   "Decaf",
+   "KAST",
+   "Solflare",
+   "Solayer Emerald"
+  ]
+ },
+ "Mercuryo": {
+  "type": "onramp infrastructure",
+  "domain": "mercuryo.io",
+  "hq": "London, UK",
+  "about": "Payments infrastructure for wallets and exchanges — fiat on/off-ramps plus card-issuing rails (its Spend product powers wallet-linked cards across Europe).",
+  "clients": [
+   "MetaMask",
+   "Trust Wallet",
+   "1inch Card",
+   "Bitget Wallet",
+   "Bybit Card"
+  ]
+ },
+ "OpenPayd": {
+  "type": "BaaS / e-money platform",
+  "domain": "openpayd.com",
+  "hq": "London, UK",
+  "about": "Embedded-finance and banking-as-a-service platform: virtual IBANs, multi-currency accounts and stablecoin ramps consumed via a single API.",
+  "clients": [
+   "eToro Money",
+   "OKX Card"
+  ]
+ }
 }

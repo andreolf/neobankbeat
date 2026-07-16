@@ -4,11 +4,11 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 372 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 374 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (220 firms)
-- [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (36 providers)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (222 firms)
+- [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (106 providers)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
@@ -59,7 +59,7 @@
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 - [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
 
-## Neobank profiles (372)
+## Neobank profiles (374)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -324,6 +324,7 @@
 - [Lava](https://www.neobankbeat.com/n/lava/)
 - [COCA](https://www.neobankbeat.com/n/coca/)
 - [Trustee Plus](https://www.neobankbeat.com/n/trustee-plus/)
+- [Brighty](https://www.neobankbeat.com/n/brighty/)
 - [UR](https://www.neobankbeat.com/n/ur/)
 - [XPlace](https://www.neobankbeat.com/n/xplace/)
 - [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/)
@@ -371,6 +372,7 @@
 - [Exa](https://www.neobankbeat.com/n/exa/)
 - [1inch Card](https://www.neobankbeat.com/n/1inch-card/)
 - [SafePal](https://www.neobankbeat.com/n/safepal/)
+- [Tangem](https://www.neobankbeat.com/n/tangem/)
 - [Bitget Wallet](https://www.neobankbeat.com/n/bitget-wallet/)
 - [BFinance](https://www.neobankbeat.com/n/bfinance/)
 - [xPortal](https://www.neobankbeat.com/n/xportal/)

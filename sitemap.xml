@@ -55,17 +55,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/choice-financial-group/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/infra/column/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/infra/cross-river-bank/</loc>
+    <loc>https://www.neobankbeat.com/infra/community-federal-savings-bank/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -75,12 +65,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/thread-bank/</loc>
+    <loc>https://www.neobankbeat.com/infra/sutton-bank/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/coastal-community-bank/</loc>
+    <loc>https://www.neobankbeat.com/infra/column/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -90,12 +80,42 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/stride-bank/</loc>
+    <loc>https://www.neobankbeat.com/infra/choice-financial-group/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/sutton-bank/</loc>
+    <loc>https://www.neobankbeat.com/infra/coastal-community-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/cross-river-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/equitas-small-finance-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/federal-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/lincoln-savings-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/metropolitan-commercial-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/sunrise-banks/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -105,7 +125,62 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/thread-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/pathward/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/piermont-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/rakbank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/rbl-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/sbm-bank-india/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/stride-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/webbank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/green-dot/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/providus-bank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/dock/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/openpayd/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -120,7 +195,47 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/edenred-payment-solutions/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/enfuce/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/modulr/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/okali/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/swan/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/nymcard/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/clearbank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/griffin/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/m2p-fintech/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -130,12 +245,72 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/union54/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/thought-machine/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/temenos/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/pismo/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/mambu/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/10x-banking/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/engine-by-starling/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/finacle/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/finastra/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/finxact/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/oradian/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/technisys/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/saascada/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/tuum/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -150,7 +325,67 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/thredd/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/i2c/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/paymentology/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/pomelo/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/nium/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/stripe-issuing/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/adyen-issuing/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/corecard/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/episode-six/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/highnote/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/lithic/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/wallester/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/zeta/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -160,12 +395,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/immersve/</loc>
+    <loc>https://www.neobankbeat.com/infra/kulipa/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/rain/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/reap/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/immersve/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -176,6 +421,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/wirex-pay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/striga/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -195,7 +445,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/circle/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/bridge-stripe/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/tether/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/bvnk/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -215,12 +480,97 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/perena/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/mercuryo/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/moonpay/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/ramp-network/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/transak/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/aave/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/morpho/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/blend/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/privy-stripe/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/safe/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/dfns/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/web3auth/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/turnkey/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/solana/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/celo/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/gnosis-chain/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/linea/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/plasma/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/stellar/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -390,6 +740,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/sbi-group/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/speedinvest/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -531,11 +886,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/samsung-next/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/sbi-group/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -910,6 +1260,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/futurecraft-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/garage-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -1206,6 +1561,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/seven-seven-six/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/shima-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -2837,6 +3197,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/brighty/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/ur/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
@@ -3068,6 +3433,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/safepal/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/tangem/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
   </url>
