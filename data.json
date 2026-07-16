@@ -7081,12 +7081,18 @@
    "story": "Two Cameroonian engineers who met in French engineering school built the region's first chatbot neobank — a 2020 pilot hit 275% month-over-month growth with zero marketing; now in Visa's Fast Track programme.",
    "licence": "Cards issued by Ecobank Cameroon under Visa licence; PaySika Holding registered in France",
    "founders": "Roger Nengwe Ntafam, Stezen Bisselou-Nzengue",
-   "funding": "~$350K pre-seed (2021)",
+   "funding": "~$350K pre-seed (2021); Oui Capital's first Cameroon investment (2025)",
    "terms_url": "https://paysika.co/cm/en/general-conditions-of-use/",
    "x_handle": "Paysika_Afrique",
    "countries": [
     "Cameroon",
     "Côte d'Ivoire"
+   ],
+   "investors": [
+    {
+     "name": "Oui Capital",
+     "website": "https://ouicapital.vc"
+    }
    ]
   },
   {
