@@ -158,6 +158,7 @@ body.bw .chip{border:1px solid currentColor}
 .cnote{font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;line-height:1.45}
 .cfoot{display:flex;align-items:center;gap:8px;margin-top:auto;flex-wrap:wrap}
 .badge-s{font-family:var(--mono);font-size:10.5px;color:var(--w);border:1px solid var(--w);padding:3px 8px;border-radius:5px;opacity:.9}
+.badge-ai{font-family:var(--mono);font-size:10.5px;color:var(--accent);border:1px solid var(--accent);padding:3px 8px;border-radius:5px;opacity:.9;white-space:nowrap}
 .cmp-btn{margin-left:auto;font-family:var(--mono);font-size:11.5px;padding:6px 12px;border-radius:7px;border:1px solid var(--line);background:none;color:var(--muted)}
 .cmp-btn:hover{border-color:var(--accent);color:var(--text)}
 .cmp-btn.on{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
@@ -658,6 +659,7 @@ body.on-map .minimap{display:none}
     <label class="chk" id="lb-yield"><input type="checkbox" id="f-yield">offers yield</label>
     <label class="chk" id="lb-stable"><input type="checkbox" id="f-stable">stablecoins</label>
     <label class="chk" id="lb-nokyc"><input type="checkbox" id="f-nokyc">no-KYC wallet</label>
+    <label class="chk" id="lb-ai"><input type="checkbox" id="f-ai">ai in production</label>
     <span class="fsep" aria-hidden="true"></span>
     <select id="sort" aria-label="Sort">
       <option value="az">sort: A→Z</option>
@@ -1188,7 +1190,7 @@ const D=[
 ];
 
 /* ── state ── */
-let cat="ALL", q="", region="", custody="", net="", niche="", wantYield=false, wantStable=false, wantNoKyc=false, sortBy="az";
+let cat="ALL", q="", region="", custody="", net="", niche="", wantYield=false, wantStable=false, wantNoKyc=false, wantAI=false, sortBy="az";
 let cmp=new Set();
 const grid=document.getElementById('grid');
 const CATNAME={T:"traditional",H:"hybrid",W:"web3-native"};
@@ -1231,6 +1233,7 @@ function matches(r){
   if(wantYield&&(y==="—"||!y))return false;
   if(wantStable&&!st)return false;
   if(wantNoKyc&&kyc!=="N")return false;
+  if(wantAI&&!(X[name]||{}).ai)return false;
   if(q){
     const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+note).toLowerCase();
     if(!hay.includes(q))return false;
@@ -1354,13 +1357,14 @@ document.getElementById('f-niche').addEventListener('change',e=>{niche=e.target.
 document.getElementById('f-yield').addEventListener('change',e=>{wantYield=e.target.checked;document.getElementById('lb-yield').classList.toggle('on',wantYield);render()});
 document.getElementById('f-stable').addEventListener('change',e=>{wantStable=e.target.checked;document.getElementById('lb-stable').classList.toggle('on',wantStable);render()});
 document.getElementById('f-nokyc').addEventListener('change',e=>{wantNoKyc=e.target.checked;document.getElementById('lb-nokyc').classList.toggle('on',wantNoKyc);render()});
+document.getElementById('f-ai').addEventListener('change',e=>{wantAI=e.target.checked;document.getElementById('lb-ai').classList.toggle('on',wantAI);render()});
 document.getElementById('sort').addEventListener('change',e=>{sortBy=e.target.value;render()});
 function clearAll(){
-  cat="ALL";q="";region="";custody="";net="";niche="";wantYield=wantStable=wantNoKyc=false;sortBy="az";
+  cat="ALL";q="";region="";custody="";net="";niche="";wantYield=wantStable=wantNoKyc=wantAI=false;sortBy="az";
   document.getElementById('q').value="";
   ['f-region','f-custody','f-net','f-niche','sort'].forEach(id=>document.getElementById(id).selectedIndex=0);
-  ['f-yield','f-stable','f-nokyc'].forEach(id=>document.getElementById(id).checked=false);
-  ['lb-yield','lb-stable','lb-nokyc'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  ['f-yield','f-stable','f-nokyc','f-ai'].forEach(id=>document.getElementById(id).checked=false);
+  ['lb-yield','lb-stable','lb-nokyc','lb-ai'].forEach(id=>document.getElementById(id).classList.remove('on'));
   document.querySelectorAll('.pill[data-cat]').forEach(x=>x.classList.toggle('on',x.dataset.cat==="ALL"));
   render();
 }
@@ -1862,6 +1866,7 @@ function matches(r){
   if(wantYield&&(y==="—"||!y))return false;
   if(wantStable&&!st)return false;
   if(wantNoKyc&&kyc!=="N")return false;
+  if(wantAI&&!(X[name]||{}).ai)return false;
   if(mapFilter&&!macrosOf(r).includes(mapFilter))return false;
   if(q){
     const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+note).toLowerCase();
@@ -2062,10 +2067,11 @@ function matches(r){
   if(wantYield&&(y==="—"||!y))return false;
   if(wantStable&&!st)return false;
   if(wantNoKyc&&kyc!=="N")return false;
+  if(wantAI&&!(X[name]||{}).ai)return false;
   if(mapFilter&&!macrosOf(r).includes(mapFilter))return false;
   if(regF&&regTypeOf(r)!==regF)return false;
   if(q){
-    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note).toLowerCase();
+    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note+((X[name]||{}).ai?" ai "+X[name].ai:"")).toLowerCase();
     if(!hay.includes(q))return false;
   }
   return true;
@@ -2191,6 +2197,7 @@ function updateActiveBar(){
   if(wantYield)add("offers yield",()=>{wantYield=false;document.getElementById('f-yield').checked=false;document.getElementById('lb-yield').classList.remove('on')});
   if(wantStable)add("stablecoins",()=>{wantStable=false;document.getElementById('f-stable').checked=false;document.getElementById('lb-stable').classList.remove('on')});
   if(wantNoKyc)add("no-KYC",()=>{wantNoKyc=false;document.getElementById('f-nokyc').checked=false;document.getElementById('lb-nokyc').classList.remove('on')});
+  if(wantAI)add("ai in production",()=>{wantAI=false;document.getElementById('f-ai').checked=false;document.getElementById('lb-ai').classList.remove('on')});
   if(!chips.length){bar.innerHTML="";return}
   bar.innerHTML='<span class="ab-label">active filters</span>'+chips.map((c,i)=>'<button class="fchip" data-i="'+i+'">'+esc(c.label)+' <i>✕</i></button>').join("")+'<button class="clear" id="ab-clear">clear all</button>';
   bar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{chips[+b.dataset.i].fn();render()}));
@@ -2228,6 +2235,7 @@ function render(){
       '<div class="cfoot">'+
         (ni!=="g"?'<span class="nichetag">'+NICHE[ni]+'</span>':"")+
         (st?'<span class="badge-s">stablecoins</span>':"")+
+        ((X[name]||{}).ai?'<span class="badge-ai">ai · '+X[name].ai+'</span>':"")+
         '<button class="cmp-btn'+(on?" on":"")+'" data-n="'+esc(name)+'" aria-pressed="'+on+'">'+(on?"✓ comparing":"+ compare")+'</button>'+
       '</div></article>';
   }).join("");
@@ -2427,6 +2435,7 @@ function openDetail(name){
   const facts=[["Category",esc(CATLONG[c])],["Audience",esc(NICHE[ni])],["HQ",esc(hq)],["Card",esc(nw==="—"?"No card":nw+" · "+ct)],
     ["Cashback",esc(cb)],["Yield",esc(y)],["Stablecoins",st?"Yes":"No"],["KYC",kycVal],
     ["Licence detail",esc(lic)],["Founders",esc(e.f||"—")]];
+  if(e.ai)facts.splice(1,0,["AI",AITAG[e.ai]||e.ai]);
   /* peers: same audience niche, else same category+region */
   let peers=(ni!=="g")?D.filter(x=>x[12]===ni&&x[0]!==n):D.filter(x=>x[1]===c&&x[2]===reg&&x[0]!==n);
   peers=peers.slice(0,6);
@@ -2442,7 +2451,8 @@ function openDetail(name){
         (dom?'<div class="pdomain">'+esc(dom)+' · est. '+f+'</div>':'<div class="pdomain">est. '+f+'</div>')+
         '<div class="pchips"><span class="chip '+c+'">'+CATNAME[c]+'</span>'+
         (ni!=="g"?'<span class="nichetag">'+NICHE[ni]+'</span>':"")+
-        (st?'<span class="badge-s">stablecoins</span>':"")+badge+'</div></div>'+
+        (st?'<span class="badge-s">stablecoins</span>':"")+
+        (e.ai?'<span class="badge-ai">ai · '+e.ai+'</span>':"")+badge+'</div></div>'+
       '</div>'+
       (e.s?'<p class="pquote">'+esc(e.s)+'</p>':'<p class="pquote">'+esc(note)+'</p>')+
       (e.s?'<p class="pnote2">'+esc(note)+'</p>':"")+
@@ -3353,6 +3363,7 @@ render();
     if(wantYield)p.set('y','1');
     if(wantStable)p.set('s','1');
     if(wantNoKyc)p.set('nk','1');
+    if(wantAI)p.set('ai','1');
     if(typeof mapFilter!=="undefined"&&mapFilter)p.set('map',mapFilter);
     if(sortBy!=="az")p.set('sort',sortBy);
     const qs=p.toString();
@@ -3369,7 +3380,7 @@ render();
     const s=document.getElementById(id);if(!s)return;
     s.value=v;s.dispatchEvent(new Event('change',{bubbles:true}));
   });
-  [['y','f-yield'],['s','f-stable'],['nk','f-nokyc']].forEach(([k,id])=>{
+  [['y','f-yield'],['s','f-stable'],['nk','f-nokyc'],['ai','f-ai']].forEach(([k,id])=>{
     if(p.get(k)!=='1')return;
     const c=document.getElementById(id);if(!c)return;
     c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));
