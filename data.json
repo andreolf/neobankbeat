@@ -600,6 +600,7 @@
     "North America"
    ],
    "note": "Automated savings + 'Genius' advice.",
+   "ai": "interface",
    "terms_url": "https://albert.com/terms",
    "x_handle": "albertsavings",
    "countries": [
@@ -642,6 +643,7 @@
    ],
    "note": "Startup banking; 200K+ companies.",
    "story": "Startup banking that absorbed half of YC after SVB collapsed; added IO cards and personal banking.",
+   "ai": "interface",
    "licence": "Partner banks (Choice, Column)",
    "founders": "Immad Akhund",
    "funding": "~$450M (val ~$3.5B)",
@@ -1798,6 +1800,7 @@
    ],
    "note": "Profitable; Engine SaaS platform.",
    "story": "Anne Boden left a 30-year banking career at 54 to build the UK's first consistently profitable neobank.",
+   "ai": "interface",
    "licence": "UK banking licence",
    "founders": "Anne Boden",
    "funding": "~£900M raised",
@@ -2041,7 +2044,6 @@
     "Europe"
    ],
    "note": "SME banking with AI admin assistant.",
-   "ai": "interface",
    "licence": "E-money",
    "founders": "Eduard Panteleev, Boris Dyakonov",
    "terms_url": "https://anna.money/terms-and-conditions/",
@@ -2073,6 +2075,7 @@
     "Europe"
    ],
    "note": "Profitable SMB lender-bank.",
+   "ai": "underwriting",
    "investors": [
     {
      "name": "SoftBank",
@@ -2921,6 +2924,7 @@
     "Europe"
    ],
    "note": "Nordic neobank (DK/SE/NO).",
+   "ai": "interface",
    "licence": "Danish banking licence",
    "founders": "Ken Villum Klausen",
    "funding": "~$500M raised",
@@ -3422,6 +3426,7 @@
     "Europe"
    ],
    "note": "BNPL giant with full banking accounts.",
+   "ai": "interface",
    "licence": "Swedish banking licence",
    "founders": "Sebastian Siemiatkowski, Niklas Adalberth, Victor Jacobsson",
    "funding": "Public (KLAR, 2025)",
@@ -3985,6 +3990,7 @@
    ],
    "note": "Credit inclusion for underbanked Mexico; 3M+.",
    "story": "Credit cards for the 60% of Mexicans banks reject; unicorn built on inclusion economics.",
+   "ai": "underwriting",
    "licence": "Sofipo (MX)",
    "founders": "Bin Chen, Marlene Garayzar + 3",
    "funding": "~$550M incl. debt",
@@ -4728,6 +4734,7 @@
    ],
    "note": "Korea's messaging-native bank; 23M+.",
    "story": "Launched from Korea's dominant messenger; 300K accounts in 24 hours, profitable within two years.",
+   "ai": "underwriting",
    "licence": "Internet-only bank licence (KR)",
    "founders": "Kakao consortium",
    "funding": "Public (KRX)",
@@ -4764,6 +4771,7 @@
    ],
    "note": "Part of the Toss super-app.",
    "story": "A dentist-turned-founder failed eight startups before Toss; the bank arm now anchors Korea's super-app.",
+   "ai": "underwriting",
    "licence": "Internet-only bank licence (KR)",
    "founders": "Lee Seung-gun (Viva Republica)",
    "funding": "Viva Republica ~$1.7B raised",
@@ -5475,6 +5483,7 @@
     "Asia"
    ],
    "note": "Grab + Singtel digital bank.",
+   "ai": "underwriting",
    "licence": "Digital full bank (MAS)",
    "terms_url": "https://www.gxs.com.sg/terms-of-use",
    "x_handle": "gxsbank",
@@ -5572,6 +5581,7 @@
     "Asia"
    ],
    "note": "First PH neobank licence.",
+   "ai": "underwriting",
    "licence": "PH digital bank licence",
    "founders": "Greg Krasnov",
    "funding": "~$140M+ raised",
@@ -5621,6 +5631,7 @@
     "Asia"
    ],
    "note": "PH super-app; regulated custodial crypto.",
+   "ai": "underwriting",
    "licence": "PH digital bank + EMI + VASP",
    "founders": "PLDT/Voyager (Orlando Vea)",
    "funding": "~$300M+ raised",
@@ -5836,6 +5847,7 @@
     "Asia"
    ],
    "note": "Grab/Emtek/Singtel-backed.",
+   "ai": "underwriting",
    "licence": "Bank (OJK); Grab/Emtek/Singtel",
    "investors": [
     {
@@ -7001,6 +7013,7 @@
     "Africa"
    ],
    "note": "Digital lending → neobanking (KE/NG/IN).",
+   "ai": "underwriting",
    "founders": "Matt Flannery (Kiva co-founder), Daniel Jung",
    "funding": "~$260M raised"
   },
@@ -7049,6 +7062,7 @@
     "Africa"
    ],
    "note": "Egypt's lending super-app unicorn.",
+   "ai": "underwriting",
    "founders": "Mounir Nakhla, Ahmed Mohsen",
    "funding": "~$600M+ incl. debt; unicorn"
   },
@@ -7601,6 +7615,7 @@
    ],
    "note": "50M+ users; crypto trading; stablecoin in FCA sandbox 2026.",
    "story": "From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK licence took nine years.",
+   "ai": "interface",
    "licence": "UK banking licence (2024); EU licence (Lithuania)",
    "founders": "Nik Storonsky, Vlad Yatsenko",
    "funding": "~$2B raised; val ~$75B",
@@ -7849,6 +7864,7 @@
     "North America"
    ],
    "note": "Exchange card + new Amex One Card; Base builder.",
+   "ai": "agentic",
    "licence": "US state licences, MiCA; Public (COIN)",
    "founders": "Brian Armstrong, Fred Ehrsam",
    "funding": "Public (COIN)",
@@ -8467,6 +8483,7 @@
     "Oceania"
    ],
    "note": "Earliest-wave crypto card; 180+ countries.",
+   "ai": "agentic",
    "founders": "Pavel Matveev, Dmitry Lazarichev",
    "terms_url": "https://wirexapp.com/terms-and-conditions",
    "privacy_url": "https://wirexapp.com/privacy-policy",
@@ -9614,6 +9631,7 @@
    ],
    "note": "SMB banking; crypto-native verticals.",
    "story": "Founded by literal teenagers in 2020, Slash hit unicorn by banking the businesses everyone else rejects — crypto firms, performance marketers, e-commerce — and grew revenue from $10M to $250M+ annualized in 24 months.",
+   "ai": "agentic",
    "founders": "Victor Cardenas",
    "funding": "$160M raised; $100M Series C at $1.4B (Apr 2026, led by Ribbit)",
    "investors": [
@@ -9661,7 +9679,6 @@
    ],
    "note": "AI-native private banking for business owners; Flex Global moves money in 100+ countries on stablecoin rails.",
    "story": "Started 2022 as a business credit card, now 'AI-native private banking' for mid-market owners — hit unicorn in July 2026 as Flex Global put invisible stablecoin rails under cross-border payments in 100+ countries.",
-   "ai": "interface",
    "licence": "Partner banks (Column, Lead, Thread)",
    "founders": "Zaid Rahman",
    "funding": "~$180M equity + $300M debt (val ~$1.2B)",
@@ -9987,7 +10004,6 @@
     "Oceania"
    ],
    "note": "Public-company self-custody wallet (NYSE American).",
-   "ai": "agentic",
    "founders": "JP Richardson, Daniel Castagnoli",
    "funding": "Public (EXOD)",
    "terms_url": "https://www.exodus.com/terms/",
@@ -10906,7 +10922,6 @@
    ],
    "note": "Non-custodial pass-through; Tether-backed; Agent Cards for AI agents.",
    "story": "Tap-to-pay from your own wallet; first corporate crypto card for AI agents (Agent Cards).",
-   "ai": "agentic",
    "founders": "Amram Adar, Aharon Miller",
    "funding": "~$25M (Tether-led)",
    "terms_url": "https://oobit.com/terms-of-service",
