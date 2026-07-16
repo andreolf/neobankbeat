@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI neobanks: narrative vs. production — who actually ships · neobankbeat</title>
+<meta name="description" content="'AI neobank' is 90% narrative — so we tagged the 10% that isn't. Fifteen tracked neobanks with AI in production, split into underwriting, interface and the only genuinely new segment: banking for AI agents. Now a field in data.json.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/ai-neobanks/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="AI neobanks: narrative vs. production — who actually ships">
+<meta property="og:description" content="'AI neobank' is 90% narrative — so we tagged the 10% that isn't: underwriting, interface, and banking for AI agents.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/ai-neobanks/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}};document.addEventListener("submit",function(e){if(e.target.classList&&e.target.classList.contains("nbform"))nbevt("subscribe",{page:location.pathname})},true)</script><script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI neobanks: narrative vs. production — who actually ships","description":"Fifteen tracked neobanks with AI verifiably in production, split into underwriting, interface and banking for AI agents — now a field in data.json.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/ai-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/investors/">investors</a>
+      <a href="/blog/" class="on">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">narrative check</div>
+  <h1>AI neobanks: <em>narrative vs. production</em></h1>
+  <p class="meta"><b>July 16, 2026</b> · 8 min read · <a href="/blog/">← all posts</a> · <a href="/data.json">the dataset</a></p>
+
+  <p>"Time to do AI neobanks 😂 sounds like a strong narrative," someone joked on X this week. They're right — it is a strong narrative, and that's exactly the problem. Every pitch deck in fintech now says AI somewhere, which makes "AI neobank" the least informative label in the industry. So instead of adding a fourth category to the <a href="/">directory</a>, we did what a dataset should do: separated the claims that survive contact with evidence from the ones that don't.</p>
+  <p>The result is a new <code>ai</code> field in <a href="/data.json">data.json</a>, applied to the <b>15 of 374 tracked neobanks</b> where AI is verifiably in production — not planned, not "exploring." It has three values, because AI sits in three genuinely different places in a bank.</p>
+
+  <div class="callout"><span class="k">why not a category</span>The directory's axes — custody, licence, wave — are structural and verifiable. "Uses AI" is a capability claim that every player will make within 18 months, and a filter that matches everything filters nothing. It also cuts across the existing waves: Plata is traditional <em>and</em> AI-underwritten, Flex is hybrid <em>and</em> AI-fronted. So: a tag, not a category.</div>
+
+  <h2>Tier 1 — AI underwriting in production: the model <em>is</em> the business</h2>
+  <p>The strongest claim: the credit decision that makes or loses the money is made by a model, at scale, today.</p>
+  <table>
+    <tr><th>Neobank</th><th>The evidence</th></tr>
+    <tr><td><a href="/n/plata/">Plata</a></td><td>$800M loan book on an in-house AI risk engine built by 800 STEM hires; 750K first-time cardholders — people traditional scoring can't see</td></tr>
+    <tr><td><a href="/n/nubank/">Nubank</a></td><td>A decade of ML credit models behind 100M+ customers; the reference case for model-driven lending in thin-file markets</td></tr>
+    <tr><td><a href="/n/webank/">WeBank</a></td><td>The world's largest digital bank (400M+) runs AI-driven micro-lending on Tencent data rails</td></tr>
+    <tr><td><a href="/n/mybank/">MYbank</a></td><td>Ant's "3-1-0" SME lending: 3 minutes to apply, 1 second to disburse, 0 humans involved</td></tr>
+    <tr><td><a href="/n/dave/">Dave</a></td><td>Its underwriting engine is literally named CashAI — cash-flow-based advances, disclosed in public filings (NASDAQ: DAVE)</td></tr>
+    <tr><td><a href="/n/fairmoney/">FairMoney</a></td><td>AI credit scoring on smartphone data for Nigeria's thin-file borrowers, under its own microfinance licence</td></tr>
+    <tr><td><a href="/n/slice/">slice</a></td><td>Model-based underwriting for young Indians without credit history, now inside a licensed bank via the NESFB merger</td></tr>
+  </table>
+  <p>Notice the pattern: every name here lends in a market where the credit bureau is useless. AI underwriting isn't a feature for these banks — it's the only reason the business can exist. It's also the tier with real downside: none of these models has been through a full credit cycle in its current form. The 2028 edition of <a href="/blog/why-neobanks-die/">why neobanks die</a> may have a new chapter.</p>
+
+  <h2>Tier 2 — AI as the interface: the assistant up front</h2>
+  <p>The middle claim: an AI assistant isn't a support widget, it's how you use the bank.</p>
+  <table>
+    <tr><th>Neobank</th><th>The evidence</th></tr>
+    <tr><td><a href="/n/one-zero/">One Zero</a></td><td>Israel's first new bank in 40+ years, founded by Mobileye's Amnon Shashua around an AI private banker — the flagship of the thesis</td></tr>
+    <tr><td><a href="/n/ryt-bank/">Ryt Bank</a></td><td>Malaysia's YTL×Sea digital bank ships an LLM as the <em>primary</em> interface, not a sidebar</td></tr>
+    <tr><td><a href="/n/bunq/">bunq</a></td><td>Finn, Europe's first in-app GenAI bank assistant, live since 2023 across 9 markets</td></tr>
+    <tr><td><a href="/n/anna-money/">ANNA Money</a></td><td>AI admin — invoicing, expenses, tax — is the product for its UK freelancer base</td></tr>
+    <tr><td><a href="/n/flex/">Flex</a></td><td>"AI-native private banking" for business owners; the July 2026 unicorn round was priced on that pitch</td></tr>
+  </table>
+  <p>This is the tier most exposed to narrative inflation: an assistant is easy to demo and hard to prove. The test that matters is whether the AI changes retention and cost-to-serve, and only One Zero and Ryt Bank have bet the whole bank on it.</p>
+
+  <h2>The invisible tier — AI as operations</h2>
+  <p>No tag for this one, because it can't be verified from outside — but it may be the biggest deal of all. <a href="/n/kontigo/">Kontigo</a> reported $30M annualized revenue, $1B in volume and 1M users with <b>six engineers and one designer</b>. Plata built a full bank's core, CRM and risk stack in-house in three years. Whatever these teams are doing internally, the neobank org chart of 2020 — hundreds of ops and support staff per million users — is quietly becoming a liability. Watch revenue-per-employee, not press releases.</p>
+
+  <h2>Tier 3 — banking <em>for</em> AI agents: the only genuinely new thing</h2>
+  <p>Tiers 1 and 2 are better versions of existing banks. This tier changes who the customer is:</p>
+  <table>
+    <tr><th>Player</th><th>What shipped</th></tr>
+    <tr><td><a href="/n/metamask/">MetaMask</a></td><td>Agent Wallet — a wallet an AI agent operates, with Blockaid scanning, transaction simulation and MEV protection as the guardrails</td></tr>
+    <tr><td><a href="/n/oobit/">Oobit</a></td><td>Agent Cards — the first corporate crypto card issued to AI agents, spend controls included</td></tr>
+    <tr><td><a href="/n/exodus/">Exodus</a></td><td>XO Cash — a stablecoin launched explicitly for AI-agent payments (NYSE American: EXOD)</td></tr>
+  </table>
+  <p>When the account holder is an agent, everything downstream changes: KYC becomes "know your agent," spending limits become policy engines, and the card network's fraud model meets a customer that never sleeps. Add the x402 payment-required standard and agent-to-agent commerce rails, and this looks like the web3-native wave did in 2021 — tiny, weird, and structural. All three players today are self-custodial, which is not a coincidence: agents can't pass a selfie check, but they can hold a key.</p>
+  <p>This is the segment that could earn a real filter — or eventually a fourth wave — once there are more than a handful of names. For now it's three entries and a thesis.</p>
+
+  <h2>What we deliberately didn't tag</h2>
+  <p>Chatbot onboarding (<a href="/n/paysika/">PaySika</a>'s WhatsApp flows are chat-first, not AI-first), "AI-powered insights" spending graphs, roadmap promises, and anything only found in a funding announcement. The bar is: production, at scale, verifiable from disclosures or the product itself. If we got one wrong in either direction, <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">tell us</a> — the tag is data, and data takes corrections.</p>
+
+  <h2>Use it</h2>
+  <p>The <code>ai</code> field ships in <a href="/data.json">data.json</a> today (<code>underwriting</code> · <code>interface</code> · <code>agentic</code>) and shows on each tagged profile. Fifteen entities carry it; 359 don't — and that ratio is the honest headline. AI neobanks are a strong narrative. The production reality is a short, specific list, and now it's machine-readable.</p>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Tags reflect publicly verifiable production deployments as of July 2026, from filings, product documentation and company disclosures. Nothing here is investment advice. Sources on each profile page.</p>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
+</body>
+</html>

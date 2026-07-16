@@ -102,9 +102,11 @@ function peers(e, n = 6) {
     .slice(0, n);
 }
 
+const AITAG = { underwriting: 'AI underwriting in production', interface: 'AI assistant as the interface', agentic: 'banking for AI agents' };
 function factRows(e) {
   const rows = [
     ['Category', `${e.category}${e.audience !== 'general' ? ' · ' + e.audience : ''}`],
+    ['AI', e.ai ? AITAG[e.ai] || e.ai : null],
     ['HQ', e.hq], ['Founded', e.founded],
     ['Custody', e.custody],
     ['Regulation type', e.regulation_type],
@@ -838,6 +840,7 @@ const BLOG_POSTS = [
   ['neobanks-for-digital-nomads', '2026-07-07'], ['why-neobanks-die', '2026-07-07'],
   ['who-actually-uses-neobanks', '2026-07-12'],
   ['fastest-growing-neobanks-2026', '2026-07-16'],
+  ['ai-neobanks', '2026-07-16'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },

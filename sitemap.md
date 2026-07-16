@@ -58,6 +58,7 @@
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 - [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
+- [ai neobanks](https://www.neobankbeat.com/blog/ai-neobanks/) (2026-07-16)
 
 ## Neobank profiles (374)
 
