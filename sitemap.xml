@@ -520,6 +520,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/samsung-next/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/sbi-group/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/silver-lake/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -790,6 +800,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/cyber-fund/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/deciens-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -831,6 +846,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/electric-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/eterna-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1140,16 +1160,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/samsung-next/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/sbi-group/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/investors/section-32/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -1181,6 +1191,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/slow-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/sony-innovation-fund/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1236,6 +1251,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/ttv-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/uob-venture-management/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -3042,6 +3062,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/startale/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/deblock/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
@@ -3068,6 +3093,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/moon/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/moto/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
   </url>

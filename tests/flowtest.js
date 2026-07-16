@@ -24,7 +24,7 @@ const countText=()=>d.getElementById('count').textContent;
 
 console.log('— flow 1: initial render');
 ok(d.querySelectorAll('#grid .card').length>0,'cards rendered');
-ok(countText().includes('368'),'shows 368 total ('+countText()+')');
+ok(countText().includes('370'),'shows 370 total ('+countText()+')');
 ok(d.getElementById('mapsec')!==null,'map section built');
 ok(d.getElementById('newssec')!==null,'news section built');
 ok(d.getElementById('datasec')!==null,'data section built');
@@ -33,10 +33,10 @@ ok(d.getElementById('f-reg')!==null,'regulation filter present');
 
 console.log('— flow 2: category filter → active bar → nav reset');
 click(d.querySelector('.pill[data-cat="W"]'));
-ok(countText().includes('showing 52'),'W filter → 52 ('+countText()+')');
+ok(countText().includes('showing 54'),'W filter → 54 ('+countText()+')');
 ok(d.getElementById('activebar').textContent.includes('web3-native'),'active bar shows category chip');
 click(d.getElementById('navdir'));
-ok(countText().includes('368'),'directory nav resets filters ('+countText()+')');
+ok(countText().includes('370'),'directory nav resets filters ('+countText()+')');
 ok(d.getElementById('activebar').innerHTML==='','active bar cleared');
 
 console.log('— flow 3: active-filter chip removal');
@@ -47,7 +47,7 @@ ok(d.querySelectorAll('#activebar .fchip').length===2,'two filter chips shown');
 click(d.querySelectorAll('#activebar .fchip')[0]); // remove category
 ok(!d.getElementById('activebar').textContent.includes('hybrid'),'category chip removed via ✕');
 click(d.getElementById('ab-clear')||d.getElementById('navdir'));
-ok(countText().includes('368'),'clear all restores 368');
+ok(countText().includes('370'),'clear all restores 370');
 
 console.log('— flow 4: map region click filters + info panel');
 const naChip=d.querySelector('#mapsec .mchip[data-mr="AF"]');
@@ -61,7 +61,7 @@ naChip.dispatchEvent(new w.MouseEvent('mouseenter',{bubbles:true}));
 ok(d.getElementById('mapinfo').textContent.includes('Africa'),'map info shows Africa on hover');
 ok(d.querySelectorAll('#mapinfo .mi-item').length>0,'map info lists top neobanks');
 click(naChip); // toggle off
-ok(countText().includes('368'),'map filter toggles off');
+ok(countText().includes('370'),'map filter toggles off');
 
 console.log('— flow 5: profile open/close, peers, legal links');
 click(d.querySelector('#grid .card .cname'));
@@ -105,15 +105,15 @@ ok(!d.getElementById('tray').classList.contains('show'),'tray clear empties sele
 console.log('— flow 8: regulation filter');
 const fr=d.getElementById('f-reg');
 fr.value='Licensed bank';fr.dispatchEvent(new w.Event('change',{bubbles:true}));
-ok(!countText().startsWith('showing 335')&&/^showing \d+ of 368/.test(countText()),'regulation filter applies ('+countText()+')');
+ok(!countText().startsWith('showing 335')&&/^showing \d+ of 370/.test(countText()),'regulation filter applies ('+countText()+')');
 ok(d.getElementById('activebar').textContent.includes('licensed bank'),'active bar shows regulation chip');
 click(d.getElementById('navdir'));
-ok(countText().includes('368'),'nav reset clears regulation too');
+ok(countText().includes('370'),'nav reset clears regulation too');
 
 console.log('— flow 9: search + gen z audience');
 const qi=d.getElementById('q');
 qi.value='women';qi.dispatchEvent(new w.Event('input',{bubbles:true}));
-ok(/^showing \d{1,2} of 368/.test(countText()),'search women narrows ('+countText()+')');
+ok(/^showing \d{1,2} of 370/.test(countText()),'search women narrows ('+countText()+')');
 click(d.getElementById('navdir'));
 const nn=d.getElementById('f-niche');
 ok([...nn.options].some(o=>o.value==='gz'),'gen z option exists');
@@ -142,7 +142,7 @@ ok(countText().includes('showing 9'),'custom dropdown filters → 9 ('+countText
 ok(audDD.querySelector('.lbl').textContent.includes('gen z'),'button label updates');
 click(d.getElementById('navdir'));
 ok(audDD.querySelector('.lbl').textContent.includes('audience: all'),'label resets on nav clear ('+audDD.querySelector('.lbl').textContent+')');
-ok(countText().includes('368'),'count back to 368');
+ok(countText().includes('370'),'count back to 370');
 
 console.log('— flow 12: founder chips + press link');
 w.openDetail('Nubank');
@@ -219,8 +219,8 @@ ok(!dw.innerHTML.includes('tinaba.com/terms'),'no fabricated terms URL for unver
 w.closeDetail();
 
 console.log('— flow 15: gap-hunt rows + refreshed stats');
-ok(w.eval("D.length")===368,'dataset now 368');
-ok(d.getElementById('st-total').textContent==='368','hero stat refreshed to 368');
+ok(w.eval("D.length")===370,'dataset now 370');
+ok(d.getElementById('st-total').textContent==='370','hero stat refreshed to 370');
 w.openDetail('Kontigo');
 ok(d.getElementById('dwrap').textContent.includes('Venezuela'),'Kontigo gap-hunt profile works');
 w.closeDetail();
@@ -231,7 +231,7 @@ const drill=d.querySelectorAll('#mapinfo .mi-cty');
 ok(drill.length>0&&drill.length<=12,'country chips render, capped ('+drill.length+')');
 ok([...drill].some(c=>c.textContent.includes('Nigeria')),'Nigeria appears in Africa drill-down');
 click([...drill].find(c=>c.textContent.includes('Nigeria')));
-ok(/^showing \d+ of 368/.test(countText())&&!countText().startsWith('showing 368'),'country click filters directory ('+countText()+')');
+ok(/^showing \d+ of 370/.test(countText())&&!countText().startsWith('showing 370'),'country click filters directory ('+countText()+')');
 click(d.getElementById('navdir'));
 ok(d.querySelector('#mapsec')!==null&&d.getElementById('mapsec').previousElementSibling.id!=='spectrum','map relocated off the hero');
 ok([...d.querySelectorAll('.hnav a')].some(a=>a.getAttribute('href')==='#mapsec'),'map nav link added');
@@ -305,7 +305,7 @@ click(cell2);
 ok(d.querySelector('#grid').style.display!=='none','heat click lands on directory view');
 // brand click resets everything
 click(d.querySelector('.logo'));
-ok(countText().includes('368'),'brand click resets to full directory ('+countText()+')');
+ok(countText().includes('370'),'brand click resets to full directory ('+countText()+')');
 ok(d.querySelector('#grid').style.display!=='none','brand click shows directory');
 // super-app wallets in
 w.openDetail('GCash');
@@ -366,7 +366,7 @@ click(afRegion);
 const cta=d.querySelector('#mapinfo .mi-cta');
 ok(cta!==null&&/browse these \d+ in the directory/.test(cta.textContent),'region click offers a directory CTA ('+(cta?cta.textContent:'none')+')');
 click(cta);
-ok(d.querySelector('#grid').style.display!=='none'&&!countText().includes('showing 368 of 368'),'CTA lands on the filtered directory ('+countText()+')');
+ok(d.querySelector('#grid').style.display!=='none'&&!countText().includes('showing 370 of 370'),'CTA lands on the filtered directory ('+countText()+')');
 click(d.getElementById('navdir'));
 ok([...d.querySelectorAll('footer a')].some(a=>a.href.includes('issues/new')&&a.textContent.includes('submit')),'footer has the submit-a-neobank link');
 ok([...d.querySelectorAll('footer')].some(f=>f.textContent.includes('open source')),'footer declares open source');

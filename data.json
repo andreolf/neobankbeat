@@ -5,11 +5,11 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 368,
+  "total": 370,
   "counts": {
    "traditional": 258,
    "hybrid": 58,
-   "web3_native": 52,
+   "web3_native": 54,
    "niche_audience": 125
   },
   "field_notes": {
@@ -10856,6 +10856,55 @@
    "funding": "Tether-invested"
   },
   {
+   "name": "Startale",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "Asia",
+   "hq": "Singapore, SG",
+   "founded": 2023,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": "Visa",
+   "card_type": "Virtual + physical (waitlist)",
+   "cashback": "Cashback in USDSC",
+   "yield": "Assets keep earning until spent (vaults)",
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "startale.com",
+   "website": "https://startale.com",
+   "active_regions": [
+    "Asia"
+   ],
+   "note": "Sony/SBI-backed: self-custodial Visa spends Soneium L2 assets at 150M+ merchants; unveiled at WebX Tokyo 2026.",
+   "story": "The Astar founder's bet that Japan Inc. does onchain banking: a Visa card where Soneium assets keep compounding until the second they're spent, cashback in its own USDSC dollar — and JPYSC, Japan's first trust-bank yen stablecoin, in the same stack.",
+   "licence": "Self-custodial; co-develops Soneium with Sony Block Solutions Labs (Sony Group JV)",
+   "founders": "Sota Watanabe",
+   "funding": "$63M Series A (Mar 2026): $50M SBI Group + $13M Sony Innovation Fund; $7M seed (Sony, Samsung Next, UOB VM)",
+   "terms_url": "https://startale.com/en/terms",
+   "x_handle": "StartaleHQ",
+   "countries": [
+    "Global"
+   ],
+   "investors": [
+    {
+     "name": "SBI Group",
+     "website": "https://sbigroup.co.jp"
+    },
+    {
+     "name": "Sony Innovation Fund",
+     "website": "https://sonyinnovationfund.com"
+    },
+    {
+     "name": "Samsung Next",
+     "website": "https://samsungnext.com"
+    },
+    {
+     "name": "UOB Venture Management",
+     "website": "https://uobvm.com.sg"
+    }
+   ]
+  },
+  {
    "name": "Deblock",
    "category": "web3-native",
    "audience": "general",
@@ -11046,6 +11095,46 @@
     "Oceania"
    ],
    "note": "Privacy-lean virtual cards funded with crypto."
+  },
+  {
+   "name": "Moto",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "US",
+   "hq": "New York, US",
+   "founded": 2025,
+   "custody": "Self-custodial",
+   "regulation_type": "Other / mixed",
+   "card_network": "Visa",
+   "card_type": "Credit (Visa Infinite, waitlist)",
+   "cashback": "5% base, up to 8% top tier",
+   "yield": "2–5% APY on USDC collateral",
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "moto-card.com",
+   "website": "https://moto-card.com",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "DeFi charge card on Solana: USDC collateral earns yield while backing the credit line; lounge access + subscription rebates.",
+   "story": "A Visa Infinite where the credit line is your own USDC earning 2–5% in smart contracts — 5% cashback at every tier, Netflix/Spotify/FT rebated at the top, settled monthly from collateral.",
+   "licence": "Non-custodial; collateral held in Solana smart contracts, DeFi insurance pool instead of FDIC",
+   "founders": "Shimon Newman, Ramses Bautista (ex-Squads)",
+   "funding": "$1.8M pre-seed (Cyber Fund, Eterna Capital, Dec 2025)",
+   "x_handle": "usemotocard",
+   "countries": [
+    "United States"
+   ],
+   "investors": [
+    {
+     "name": "Cyber Fund",
+     "website": "https://cyber.fund"
+    },
+    {
+     "name": "Eterna Capital",
+     "website": "https://eternacapital.com"
+    }
+   ]
   },
   {
    "name": "WeFi",

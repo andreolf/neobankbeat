@@ -4,10 +4,10 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 370 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (206 firms)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (210 firms)
 - [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (36 providers)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
@@ -58,7 +58,7 @@
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 
-## Neobank profiles (368)
+## Neobank profiles (370)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -379,12 +379,14 @@
 - [Peanut](https://www.neobankbeat.com/n/peanut/)
 - [Sling Money](https://www.neobankbeat.com/n/sling-money/)
 - [Fizen](https://www.neobankbeat.com/n/fizen/)
+- [Startale](https://www.neobankbeat.com/n/startale/)
 - [Deblock](https://www.neobankbeat.com/n/deblock/)
 - [Stables](https://www.neobankbeat.com/n/stables/)
 - [Fiat24](https://www.neobankbeat.com/n/fiat24/)
 - [Mine](https://www.neobankbeat.com/n/mine/)
 - [Infini](https://www.neobankbeat.com/n/infini/)
 - [Moon](https://www.neobankbeat.com/n/moon/)
+- [Moto](https://www.neobankbeat.com/n/moto/)
 - [WeFi](https://www.neobankbeat.com/n/wefi/)
 - [UglyCash](https://www.neobankbeat.com/n/uglycash/)
 - [Decaf](https://www.neobankbeat.com/n/decaf/)

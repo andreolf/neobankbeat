@@ -12,7 +12,7 @@
         { "href": "https://www.neobankbeat.com/.well-known/agent-skills/index.json", "type": "application/json", "title": "Agent skills discovery index" }
       ],
       "item": [
-        { "href": "https://www.neobankbeat.com/data.json", "type": "application/json", "title": "Full dataset — 368 verified-active neobanks (MIT)" },
+        { "href": "https://www.neobankbeat.com/data.json", "type": "application/json", "title": "Full dataset — 370 verified-active neobanks (MIT)" },
         { "href": "https://www.neobankbeat.com/jobs/data.json", "type": "application/json", "title": "Live neobank job board data" }
       ]
     }
