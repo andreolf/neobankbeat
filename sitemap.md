@@ -4,10 +4,10 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 370 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 372 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (210 firms)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (220 firms)
 - [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (36 providers)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
@@ -57,8 +57,9 @@
 - [neobanks for digital nomads](https://www.neobankbeat.com/blog/neobanks-for-digital-nomads/) (2026-07-07)
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
+- [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
 
-## Neobank profiles (370)
+## Neobank profiles (372)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -167,6 +168,7 @@
 - [TBC UZ](https://www.neobankbeat.com/n/tbc-uz/)
 - [Nubank](https://www.neobankbeat.com/n/nubank/)
 - [Ualá](https://www.neobankbeat.com/n/uala/)
+- [Plata](https://www.neobankbeat.com/n/plata/)
 - [albo](https://www.neobankbeat.com/n/albo/)
 - [Klar](https://www.neobankbeat.com/n/klar/)
 - [Stori](https://www.neobankbeat.com/n/stori/)
@@ -412,6 +414,7 @@
 - [Beyon Money](https://www.neobankbeat.com/n/beyon-money/)
 - [Fasset](https://www.neobankbeat.com/n/fasset/)
 - [Kontigo](https://www.neobankbeat.com/n/kontigo/)
+- [Veera](https://www.neobankbeat.com/n/veera/)
 - [Rizon](https://www.neobankbeat.com/n/rizon/)
 - [AllScale](https://www.neobankbeat.com/n/allscale/)
 - [Nyla](https://www.neobankbeat.com/n/nyla/)

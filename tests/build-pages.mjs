@@ -837,6 +837,7 @@ const BLOG_POSTS = [
   ['state-of-neobanks-2026', '2026-07-05'], ['who-funds-the-neobanks', '2026-07-06'],
   ['neobanks-for-digital-nomads', '2026-07-07'], ['why-neobanks-die', '2026-07-07'],
   ['who-actually-uses-neobanks', '2026-07-12'],
+  ['fastest-growing-neobanks-2026', '2026-07-16'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },

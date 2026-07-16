@@ -5,11 +5,11 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 370,
+  "total": 372,
   "counts": {
-   "traditional": 258,
+   "traditional": 259,
    "hybrid": 58,
-   "web3_native": 54,
+   "web3_native": 55,
    "niche_audience": 125
   },
   "field_notes": {
@@ -3783,10 +3783,10 @@
     "Latin America"
    ],
    "note": "AR/MX/CO; added crypto + dollar features.",
-   "story": "Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now a regional multi-licence player.",
+   "story": "Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now ~1 in 5 Argentine adults use it, with 11M+ customers across AR/MX/CO.",
    "licence": "Bank licences (AR via Wilobank, MX via ABC Capital)",
    "founders": "Pierpaolo Barbieri",
-   "funding": "~$850M+ raised",
+   "funding": "~$1B+ raised incl. $195M round (Mar 2026) at $3.2B",
    "terms_url": "https://www.uala.com.ar/legales",
    "x_handle": "uala",
    "countries": [
@@ -3814,6 +3814,63 @@
     {
      "name": "Soros Fund Management",
      "website": "https://sorosfundmgmt.com"
+    }
+   ]
+  },
+  {
+   "name": "Plata",
+   "category": "traditional",
+   "audience": "general",
+   "region": "LatAm",
+   "hq": "Mexico City, MX",
+   "founded": 2023,
+   "custody": "Custodial",
+   "regulation_type": "Licensed bank",
+   "card_network": "MC",
+   "card_type": "Credit + debit",
+   "cashback": "Cashback",
+   "yield": "Interest on deposits",
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "platacard.mx",
+   "website": "https://platacard.mx",
+   "active_regions": [
+    "Latin America"
+   ],
+   "note": "Ex-Tinkoff team; fastest digital bank ever to $600M annualized revenue — full Mexican licence as Banco Plata (Mar 2026), 3.5M+ credit-card customers.",
+   "story": "The Tinkoff playbook replayed in Mexico: proprietary core banking + AI risk engine built by 800 STEM hires, 750K first-time cardholders, $800M loan book — LatAm's most valuable private digital bank three years after founding.",
+   "licence": "Full Mexican bank licence (Banco Plata, Mar 2026); Colombia Compañía de Financiamiento authorized",
+   "founders": "Neri Tollardo (CEO) + ex-Tinkoff team",
+   "funding": "$405M Series C at $5B (Apr 2026, Bicycle Capital, QIA, BTG Pactual) — $2B+ debt & equity total",
+   "terms_url": "https://platacard.mx/es/docs/",
+   "x_handle": "bancoplatamx",
+   "countries": [
+    "Mexico"
+   ],
+   "investors": [
+    {
+     "name": "Bicycle Capital",
+     "website": "https://bicycle.capital"
+    },
+    {
+     "name": "Qatar Investment Authority",
+     "website": "https://qia.qa"
+    },
+    {
+     "name": "BTG Pactual",
+     "website": "https://btgpactual.com"
+    },
+    {
+     "name": "Valor Capital Group",
+     "website": "https://valorcapitalgroup.com"
+    },
+    {
+     "name": "Kora",
+     "website": "https://koramgmt.com"
+    },
+    {
+     "name": "Hedosophia",
+     "website": "https://hedosophia.com"
     }
    ]
   },
@@ -9506,9 +9563,22 @@
     "North America"
    ],
    "note": "SMB banking; crypto-native verticals.",
+   "story": "Founded by literal teenagers in 2020, Slash hit unicorn by banking the businesses everyone else rejects — crypto firms, performance marketers, e-commerce — and grew revenue from $10M to $250M+ annualized in 24 months.",
    "founders": "Victor Cardenas",
-   "funding": "~$60M+ raised",
+   "funding": "$160M raised; $100M Series C at $1.4B (Apr 2026, led by Ribbit)",
    "investors": [
+    {
+     "name": "Ribbit Capital",
+     "website": "https://ribbitcap.com"
+    },
+    {
+     "name": "Khosla Ventures",
+     "website": "https://khoslaventures.com"
+    },
+    {
+     "name": "Goodwater Capital",
+     "website": "https://goodwatercap.com"
+    },
     {
      "name": "NEA",
      "website": "https://nea.com"
@@ -11880,12 +11950,89 @@
     "Latin America"
    ],
    "note": "USDC neobank for Venezuela + LatAm corridors.",
+   "story": "Ex-Venmo/Nubank/Rappi team hit $30M annualized revenue, $1B payment volume and 1M users in under 12 months — with six engineers and one designer.",
+   "founders": "Jesus Castillo, Gino Guatavita",
+   "funding": "$20M seed (Dec 2025; DST Global, Y Combinator, Coinbase Ventures)",
    "privacy_url": "https://www.kontigo.lat/privacy",
    "x_handle": "kontigoapp",
    "countries": [
     "Venezuela",
     "Colombia",
     "Mexico"
+   ],
+   "investors": [
+    {
+     "name": "DST Global",
+     "website": "https://dst-global.com"
+    },
+    {
+     "name": "Y Combinator",
+     "website": "https://ycombinator.com"
+    },
+    {
+     "name": "Coinbase Ventures",
+     "website": "https://coinbase.com"
+    },
+    {
+     "name": "Soma Capital",
+     "website": "https://somacap.com"
+    }
+   ]
+  },
+  {
+   "name": "Veera",
+   "category": "web3-native",
+   "audience": "general",
+   "region": "Global",
+   "hq": "Singapore, SG",
+   "founded": 2023,
+   "custody": "Self-custodial",
+   "regulation_type": "Self-custodial software",
+   "card_network": null,
+   "card_type": null,
+   "cashback": "Card rewards",
+   "yield": "Vault yield 3–10% across 40 chains",
+   "stablecoins": true,
+   "kyc": "Card only",
+   "domain": "veera.com",
+   "website": "https://veera.com",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "Onchain neobank: earn, invest (tokenized equities, gold, RWAs), borrow and spend self-custodially; 2M+ users in 187 countries, 30K cards.",
+   "story": "A serial founder with three exits is folding wallet, broker and bank into one self-custodial app — multichain vaults across 40 chains, tokenized gold and equities, and a card waitlist at 30K before the VEERA token even launched.",
+   "licence": "Self-custodial; passkey-secured non-exportable keys",
+   "founders": "Sukhdeep Bhogal",
+   "funding": "$10M pre-seed + seed (6th Man Ventures, Sigma Capital, CMCC Titan Fund)",
+   "terms_url": "https://veera.com/terms",
+   "privacy_url": "https://veera.com/privacy",
+   "x_handle": "On_Veera",
+   "countries": [
+    "Global"
+   ],
+   "investors": [
+    {
+     "name": "6th Man Ventures",
+     "website": "https://6thman.ventures"
+    },
+    {
+     "name": "CMCC Global",
+     "website": "https://cmcc.vc"
+    },
+    {
+     "name": "Sigma Capital",
+     "website": "https://sigmavc.com"
+    },
+    {
+     "name": "Cypher Capital",
+     "website": "https://cyphercapital.com"
+    }
    ]
   },
   {

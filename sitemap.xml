@@ -255,22 +255,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/valar-ventures/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/investors/y-combinator/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/andreessen-horowitz/</loc>
+    <loc>https://www.neobankbeat.com/investors/dst-global/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/dst-global/</loc>
+    <loc>https://www.neobankbeat.com/investors/valar-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/andreessen-horowitz/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -345,6 +345,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/qatar-investment-authority/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/allianz-x/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -370,17 +375,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/khosla-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/partech/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/paypal-ventures/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/qatar-investment-authority/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -415,6 +420,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/coinbase-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/drive-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -426,6 +436,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/emtek/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/goodwater-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -451,11 +466,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/ifc/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/khosla-ventures/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -571,6 +581,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/3one4-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/6th-man-ventures/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -700,6 +715,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/bicycle-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/bitfinex/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -735,6 +755,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/btg-pactual/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/canapi-ventures/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -760,7 +785,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/coinbase-ventures/</loc>
+    <loc>https://www.neobankbeat.com/investors/cmcc-global/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -801,6 +826,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/cyber-fund/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/cypher-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -900,11 +930,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/goodwater-capital/</loc>
-    <lastmod>2026-07-16</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/investors/google-africa-investment-fund/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -926,6 +951,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/heartcore-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/hedosophia/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -996,6 +1026,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/kleiner-perkins/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/kora/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1175,6 +1210,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/sigma-capital/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/signalfire/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -1191,6 +1231,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/slow-ventures/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/soma-capital/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1256,6 +1301,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/uob-venture-management/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/valor-capital-group/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1458,6 +1508,11 @@
   <url>
     <loc>https://www.neobankbeat.com/blog/who-actually-uses-neobanks/</loc>
     <lastmod>2026-07-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/</loc>
+    <lastmod>2026-07-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -1998,6 +2053,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/uala/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/plata/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
   </url>
@@ -3223,6 +3283,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/kontigo/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/veera/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
   </url>
