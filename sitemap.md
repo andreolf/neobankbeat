@@ -4,7 +4,7 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 367 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (206 firms)
@@ -58,7 +58,7 @@
 - [why neobanks die](https://www.neobankbeat.com/blog/why-neobanks-die/) (2026-07-07)
 - [who actually uses neobanks](https://www.neobankbeat.com/blog/who-actually-uses-neobanks/) (2026-07-12)
 
-## Neobank profiles (367)
+## Neobank profiles (368)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -271,6 +271,7 @@
 - [MNT-Halan](https://www.neobankbeat.com/n/mnt-halan/)
 - [Flouci](https://www.neobankbeat.com/n/flouci/)
 - [Grey](https://www.neobankbeat.com/n/grey/)
+- [PaySika](https://www.neobankbeat.com/n/paysika/)
 - [Cleva](https://www.neobankbeat.com/n/cleva/)
 - [Telda](https://www.neobankbeat.com/n/telda/)
 - [Wio Bank](https://www.neobankbeat.com/n/wio-bank/)
@@ -428,7 +429,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (142)
+## Comparisons (143)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -556,6 +557,7 @@
 - [PalmPay vs Djamo](https://www.neobankbeat.com/vs/palmpay-vs-djamo/)
 - [PalmPay vs Wave](https://www.neobankbeat.com/vs/palmpay-vs-wave/)
 - [PalmPay vs Khazna](https://www.neobankbeat.com/vs/palmpay-vs-khazna/)
+- [Djamo vs PaySika](https://www.neobankbeat.com/vs/djamo-vs-paysika/)
 - [Wave vs Khazna](https://www.neobankbeat.com/vs/wave-vs-khazna/)
 - [Khazna vs MNT-Halan](https://www.neobankbeat.com/vs/khazna-vs-mnt-halan/)
 - [Grey vs Cleva](https://www.neobankbeat.com/vs/grey-vs-cleva/)

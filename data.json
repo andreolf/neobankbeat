@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 367,
+  "total": 368,
   "counts": {
-   "traditional": 257,
+   "traditional": 258,
    "hybrid": 58,
    "web3_native": 52,
-   "niche_audience": 124
+   "niche_audience": 125
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -7055,6 +7055,38 @@
    "countries": [
     "Nigeria",
     "Kenya"
+   ]
+  },
+  {
+   "name": "PaySika",
+   "category": "traditional",
+   "audience": "underbanked",
+   "region": "Africa",
+   "hq": "Douala, CM",
+   "founded": 2020,
+   "custody": "Custodial",
+   "regulation_type": "Other / mixed",
+   "card_network": "Visa",
+   "card_type": "Prepaid (virtual + physical)",
+   "cashback": null,
+   "yield": null,
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "paysika.co",
+   "website": "https://paysika.co",
+   "active_regions": [
+    "Africa"
+   ],
+   "note": "Chatbot-first neobank for francophone Africa — free Visa cards managed from WhatsApp, Messenger or Telegram; issued with Ecobank Cameroon.",
+   "story": "Two Cameroonian engineers who met in French engineering school built the region's first chatbot neobank — a 2020 pilot hit 275% month-over-month growth with zero marketing; now in Visa's Fast Track programme.",
+   "licence": "Cards issued by Ecobank Cameroon under Visa licence; PaySika Holding registered in France",
+   "founders": "Roger Nengwe Ntafam, Stezen Bisselou-Nzengue",
+   "funding": "~$350K pre-seed (2021)",
+   "terms_url": "https://paysika.co/cm/en/general-conditions-of-use/",
+   "x_handle": "Paysika_Afrique",
+   "countries": [
+    "Cameroon",
+    "Côte d'Ivoire"
    ]
   },
   {

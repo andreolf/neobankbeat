@@ -5,12 +5,12 @@
 **who watches the neobanks?**
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
-[![neobanks tracked](https://img.shields.io/badge/neobanks-367-89B0FF)](https://www.neobankbeat.com)
+[![neobanks tracked](https://img.shields.io/badge/neobanks-368-89B0FF)](https://www.neobankbeat.com)
 [![tests](https://img.shields.io/badge/tests-167%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
-an independent, open-source directory of **367 verified-active neobanks** across three waves:<br>
+an independent, open-source directory of **368 verified-active neobanks** across three waves:<br>
 **traditional** (Chime, Nubank, Kaspi…) · **hybrid** fiat+crypto (Revolut, Cash App, RedotPay…) · **web3-native** self-custodial money apps (MetaMask, Gnosis Pay, Payy…)<br>
 plus the niche-audience generation and super-app wallets.
 
@@ -18,7 +18,7 @@ inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://
 
 [**→ neobankbeat.com**](https://www.neobankbeat.com)
 
-<a href="https://www.neobankbeat.com"><img src="docs/screenshot.png" alt="neobankbeat directory — 367 neobanks with filters, custody spectrum and world map" width="800"></a>
+<a href="https://www.neobankbeat.com"><img src="docs/screenshot.png" alt="neobankbeat directory — 368 neobanks with filters, custody spectrum and world map" width="800"></a>
 
 </div>
 
@@ -39,7 +39,7 @@ subscribing to the (free) newsletter is the only gate — the download starts in
 ## the dataset at a glance
 
 ```mermaid
-pie showData title 367 neobanks by category
+pie showData title 368 neobanks by category
     "traditional (fiat, custodial)" : 257
     "hybrid (fiat + custodial crypto)" : 58
     "web3-native (self-custodial)" : 52
@@ -76,7 +76,7 @@ more numbers from the current dataset:
 
 ## what's inside
 
-- **[directory](https://www.neobankbeat.com)** — 367 verified-active entities; filter by category, custody, region, country, audience niche, regulation, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
+- **[directory](https://www.neobankbeat.com)** — 368 verified-active entities; filter by category, custody, region, country, audience niche, regulation, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
 - **[map](https://www.neobankbeat.com/#mapsec)** — dot-matrix world map with region → country drill-down, plus a floating mini-map
 - **[data](https://www.neobankbeat.com/#datasec)** — nine charts: reported users, founding waves, researched volume watch (every figure links to its filing), the stablecoin card curve, region × category matrix, the neobank paradox, global banked adults, stablecoin supply 2030 scenarios, how stablecoins get spent
 - **profiles** — verified terms & privacy links, official X handles, founder LinkedIns (verified tier only), countries of operation, users/volume tiles, peers, regulation type with links to the official registers (ESMA MiCA, EBA, FCA, SEC EDGAR, NMLS)
@@ -89,7 +89,7 @@ neobankbeat is built to be a source of truth for agents, not just humans:
 
 | resource | what it is |
 |---|---|
-| [`data.json`](https://www.neobankbeat.com/data.json) | the full dataset as clean JSON — all 367 entities, every field, with sources. no HTML parsing needed |
+| [`data.json`](https://www.neobankbeat.com/data.json) | the full dataset as clean JSON — all 368 entities, every field, with sources. no HTML parsing needed |
 | [`llms.txt`](https://www.neobankbeat.com/llms.txt) | agent guide: what this site is, data semantics, field caveats, how to cite |
 | JSON-LD in the page head | `WebSite` + `Dataset` schema, marks the directory as a citable open dataset |
 
@@ -105,7 +105,7 @@ the whole app is **one self-contained `index.html`** — no build step, no backe
 
 ```
 index.html          the entire app: CSS + data + logic
-├── const D=[...]   367 entities, one row each
+├── const D=[...]   368 entities, one row each
 ├── const X={...}   enrichment: founders, licences, funding, stories
 ├── const INV={...} notable early investors per entity (public rounds)
 └── const V={...}   verified links: terms, privacy, X handles, countries
@@ -115,7 +115,7 @@ blog/               static deep dives + RSS feed
 jobs/               live job board pulled from official ATS APIs (+ data.json feed)
 report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
-n/                  367 generated entity profile pages (SEO surface)
+n/                  368 generated entity profile pages (SEO surface)
 vs/                 60 generated head-to-head comparison pages
 tests/
 ├── flowtest.js     167 assertions across 23 user flows (JSDOM)

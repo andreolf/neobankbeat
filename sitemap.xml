@@ -2502,6 +2502,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/paysika/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/cleva/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
@@ -3914,6 +3919,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/palmpay-vs-khazna/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/djamo-vs-paysika/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.7</priority>
   </url>
