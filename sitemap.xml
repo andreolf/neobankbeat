@@ -115,7 +115,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/treezor/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/clearbank/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/synapse/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/thought-machine/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/mambu/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -126,6 +146,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/marqeta/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/pomelo/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>
@@ -155,6 +180,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/paxos/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/zero-hash/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/fireblocks/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/bridge-stripe/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
@@ -165,7 +205,32 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/infra/m0/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/monerium/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/blend/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/privy-stripe/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/naya/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/plaid/</loc>
     <lastmod>2026-07-16</lastmod>
     <priority>0.6</priority>
   </url>

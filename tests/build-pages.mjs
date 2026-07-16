@@ -660,8 +660,8 @@ const infraSlugList = [];
   const known = new Set(E.map(e => e.name));
   for (const [k, v] of Object.entries(PROV))
     for (const c of v.clients) if (!known.has(c)) console.warn(`infra-providers: "${k}" client "${c}" not in dataset — check spelling`);
-  const TYPES = ['BIN sponsor bank', 'BaaS / e-money platform', 'BaaS / clearing bank', 'card issuing processor', 'crypto card infrastructure', 'stablecoin infrastructure', 'wallet infrastructure'];
-  const TYPE_PLURAL = { 'BIN sponsor bank': 'BIN sponsor banks', 'BaaS / e-money platform': 'BaaS & e-money platforms', 'BaaS / clearing bank': 'BaaS & clearing banks', 'card issuing processor': 'card issuing processors', 'crypto card infrastructure': 'crypto card infrastructure', 'stablecoin infrastructure': 'stablecoin infrastructure', 'wallet infrastructure': 'wallet infrastructure' };
+  const TYPES = ['BIN sponsor bank', 'BaaS / e-money platform', 'BaaS / clearing bank', 'BaaS middleware', 'core banking platform', 'card issuing processor', 'crypto card infrastructure', 'crypto brokerage infrastructure', 'stablecoin infrastructure', 'yield infrastructure', 'wallet infrastructure', 'ledger & reconciliation', 'data connectivity'];
+  const TYPE_PLURAL = { 'BIN sponsor bank': 'BIN sponsor banks', 'BaaS / e-money platform': 'BaaS & e-money platforms', 'BaaS / clearing bank': 'BaaS & clearing banks', 'BaaS middleware': 'BaaS middleware', 'core banking platform': 'core banking platforms', 'card issuing processor': 'card issuing processors', 'crypto card infrastructure': 'crypto card infrastructure', 'crypto brokerage infrastructure': 'crypto brokerage & custody', 'stablecoin infrastructure': 'stablecoin infrastructure', 'yield infrastructure': 'yield infrastructure', 'wallet infrastructure': 'wallet infrastructure', 'ledger & reconciliation': 'ledger & reconciliation', 'data connectivity': 'data connectivity' };
   const rows = Object.entries(PROV).sort((a, b) =>
     TYPES.indexOf(a[1].type) - TYPES.indexOf(b[1].type) || b[1].clients.length - a[1].clients.length || a[0].localeCompare(b[0]));
   const nClients = new Set(rows.flatMap(([, v]) => v.clients)).size;
@@ -701,11 +701,11 @@ const infraSlugList = [];
   <div class="ivhead">
     <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(v.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <a class="nm" href="/infra/${ifSlug(name)}/">${esc(name)}</a>
-    <span class="ct">${esc(v.hq)} · ${v.clients.length} tracked client${v.clients.length === 1 ? '' : 's'}</span>
+    <span class="ct">${v.hq !== '—' ? esc(v.hq) + ' · ' : ''}${v.clients.length ? `${v.clients.length} tracked client${v.clients.length === 1 ? '' : 's'}` : 'clients undisclosed'}</span>
     <a class="st" href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a>
   </div>
   <div class="ivabout">${esc(v.about)}</div>
-  <div class="ivbanks">${v.clients.map(c => `<a href="/n/${slugs.get(c)}/">${esc(c)}</a>`).join('')}</div>
+  ${v.clients.length ? `<div class="ivbanks">${v.clients.map(c => `<a href="/n/${slugs.get(c)}/">${esc(c)}</a>`).join('')}</div>` : ''}
 </div>`;
   let body = '';
   let lastType = '';
@@ -749,8 +749,9 @@ ${body}
     const purl = `${BASE}/infra/${slug}/`;
     const clients = v.clients.map(c => E.find(e => e.name === c)).filter(Boolean);
     const siblings = rows.filter(([n2, v2]) => n2 !== name && v2.type === v.type);
-    const title = `${name} — ${v.type} behind ${clients.length} tracked neobank${clients.length === 1 ? '' : 's'} · neobankbeat`;
-    const desc = `${v.about} Tracked neobanks on its rails: ${v.clients.join(', ')}.`;
+    const title = clients.length ? `${name} — ${v.type} behind ${clients.length} tracked neobank${clients.length === 1 ? '' : 's'} · neobankbeat`
+      : `${name} — ${v.type} for neobanks · neobankbeat`;
+    const desc = `${v.about}${clients.length ? ` Tracked neobanks on its rails: ${v.clients.join(', ')}.` : ''}`;
     const pld = {
       '@context': 'https://schema.org', '@graph': [
         { '@type': 'Organization', name, url: `https://${v.domain}`, description: v.about },
@@ -774,10 +775,10 @@ ${body}
   <a class="backbtn" href="/infra/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
   <h1>${esc(name)}</h1>
-  <p class="meta"><b>${esc(v.type)}</b> · ${esc(v.hq)} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
+  <p class="meta"><b>${esc(v.type)}</b>${v.hq !== '—' ? ` · ${esc(v.hq)}` : ''} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
   <p>${esc(v.about)}</p>
-  <h2>Tracked neobanks on its rails</h2>
-${clients.map(clientCard).join('\n')}
+  ${clients.length ? `<h2>Tracked neobanks on its rails</h2>
+${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented client among the tracked neobanks yet — client names are added only when a relationship is disclosed. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>`}
   ${siblings.length ? `<h2>Other ${esc(TYPE_PLURAL[v.type] || v.type)}</h2>
   <div class="ivbanks" style="margin-top:10px">${siblings.map(([n2]) => `<a href="/infra/${ifSlug(n2)}/">${esc(n2)}</a>`).join('')}</div>` : ''}
   <div class="callout" style="margin-top:26px"><span class="k">explore</span>Browse all <a href="/infra/">${rows.length} infra providers</a>, or see who <em>funds</em> the neobanks on the <a href="/investors/">investors map</a>.</div>
