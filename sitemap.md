@@ -4,7 +4,7 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 374 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 373 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (222 firms)
@@ -60,7 +60,7 @@
 - [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
 - [ai neobanks](https://www.neobankbeat.com/blog/ai-neobanks/) (2026-07-16)
 
-## Neobank profiles (374)
+## Neobank profiles (373)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -182,7 +182,6 @@
 - [Banco Inter](https://www.neobankbeat.com/n/banco-inter/)
 - [PicPay](https://www.neobankbeat.com/n/picpay/)
 - [PagBank](https://www.neobankbeat.com/n/pagbank/)
-- [Will Bank](https://www.neobankbeat.com/n/will-bank/)
 - [Cora](https://www.neobankbeat.com/n/cora/)
 - [Z1](https://www.neobankbeat.com/n/z1/)
 - [NG.cash](https://www.neobankbeat.com/n/ng-cash/)

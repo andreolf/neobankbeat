@@ -5,9 +5,9 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 374,
+  "total": 373,
   "counts": {
-   "traditional": 259,
+   "traditional": 258,
    "hybrid": 59,
    "web3_native": 56,
    "niche_audience": 125
@@ -194,6 +194,7 @@
    ],
    "note": "Bank charter; launched SoFiUSD stablecoin Dec 2025.",
    "story": "From Stanford alumni-funded student loans to a chartered digital bank; issued SoFiUSD stablecoin in Dec 2025.",
+   "ai": "interface",
    "licence": "National bank charter (2022)",
    "founders": "Mike Cagney, Dan Macklin, James Finnigan, Ian Brady",
    "funding": "Public (SOFI)",
@@ -314,6 +315,7 @@
     "North America"
    ],
    "note": "Banking + investing + credit-builder super-app.",
+   "ai": "underwriting",
    "licence": "Partner banks",
    "founders": "Dee Choubey",
    "funding": "Public; acquired by Gen Digital (2025)",
@@ -1890,6 +1892,7 @@
    ],
    "note": "P2P pioneer turned licensed bank.",
    "story": "Invented P2P lending in 2005, then traded the model for a full bank licence.",
+   "ai": "underwriting",
    "licence": "UK banking licence (2020)",
    "founders": "Giles Andrews, James Alexander",
    "funding": "~$1B raised",
@@ -2669,6 +2672,7 @@
    ],
    "note": "500K+ SME clients across FR/DE/ES/IT.",
    "story": "Europe's SME banking leader out of Paris; absorbed Penta to own the German market too.",
+   "ai": "interface",
    "licence": "Payment institution (ACPR); pursuing credit licence",
    "founders": "Alexandre Prot, Steve Anavi",
    "funding": "~€620M raised",
@@ -3617,6 +3621,7 @@
    ],
    "note": "Ex-Tinkoff; 40M+ customers, one of the largest standalone neobanks.",
    "story": "Tinkov built the world's largest standalone digital bank from a credit-card mailer; sanctions forced his exit.",
+   "ai": "interface",
    "licence": "Russian banking licence",
    "founders": "Oleg Tinkov (exited 2022)",
    "funding": "Public (MOEX)"
@@ -3702,6 +3707,7 @@
     "Europe"
    ],
    "note": "TBC's Uzbek digital bank; 20M+ registered.",
+   "ai": "underwriting",
    "licence": "Bank (TBC Group)",
    "funding": "Public parent (TBCG.L)"
   },
@@ -3793,6 +3799,7 @@
    ],
    "note": "AR/MX/CO; added crypto + dollar features.",
    "story": "Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now ~1 in 5 Argentine adults use it, with 11M+ customers across AR/MX/CO.",
+   "ai": "underwriting",
    "licence": "Bank licences (AR via Wilobank, MX via ABC Capital)",
    "founders": "Pierpaolo Barbieri",
    "funding": "~$1B+ raised incl. $195M round (Mar 2026) at $3.2B",
@@ -3943,6 +3950,7 @@
     "Latin America"
    ],
    "note": "Mexican credit-led neobank.",
+   "ai": "underwriting",
    "founders": "Stefan Möller, Daniel Autrique",
    "funding": "~$500M incl. debt",
    "x_handle": "klarmx",
@@ -4128,6 +4136,7 @@
     "Latin America"
    ],
    "note": "Brazilian mass-market neobank.",
+   "ai": "interface",
    "founders": "Pedro Conrade",
    "funding": "~$700M raised",
    "investors": [
@@ -4170,6 +4179,7 @@
     "Latin America"
    ],
    "note": "JPMorgan-backed full digital bank.",
+   "ai": "interface",
    "licence": "Bank licence (BCB)",
    "founders": "Marcelo Kalim, Carlos Fonseca (ex-BTG)",
    "funding": "JPMorgan ~46% owner",
@@ -4211,6 +4221,7 @@
     "Latin America"
    ],
    "note": "35M+ clients; super-app + US account.",
+   "ai": "interface",
    "licence": "Bank; Public (INTR)",
    "privacy_url": "https://inter.co/politica-de-privacidade/",
    "x_handle": "bancointer",
@@ -4251,6 +4262,7 @@
     "Latin America"
    ],
    "note": "Brazil's largest payments app; crypto + BRL stable rails.",
+   "ai": "interface",
    "licence": "Payment institution + bank (BCB)",
    "founders": "Anderson Chamon + J&F group",
    "privacy_url": "https://picpay.com/politica-de-privacidade",
@@ -4296,28 +4308,6 @@
     "metric": "TPV · 2024",
     "source": "PAGS filings"
    }
-  },
-  {
-   "name": "Will Bank",
-   "category": "traditional",
-   "audience": "general",
-   "region": "LatAm",
-   "hq": "São Paulo, BR",
-   "founded": 2017,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "MC",
-   "card_type": "Debit + credit",
-   "cashback": null,
-   "yield": "Yield",
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "willbank.com.br",
-   "website": "https://willbank.com.br",
-   "active_regions": [
-    "Latin America"
-   ],
-   "note": "Card-first Brazilian neobank."
   },
   {
    "name": "Cora",
@@ -4531,6 +4521,7 @@
     "Latin America"
    ],
    "note": "Bancolombia's wallet-bank; 20M+.",
+   "ai": "underwriting",
    "reported_users": {
     "value_millions": 20,
     "metric": "users",
@@ -5089,7 +5080,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Credit-led Indian neobank."
+   "note": "Credit-led Indian neobank.",
+   "ai": "underwriting"
   },
   {
    "name": "Open",
@@ -5407,6 +5399,7 @@
    ],
    "note": "Bangladesh's mobile money giant; 70M+.",
    "story": "'bKash me' is a verb in Bangladesh: 70M users, the reference case for mobile money outside Africa.",
+   "ai": "underwriting",
    "licence": "MFS licence (Bangladesh Bank)",
    "founders": "Kamal Quadir",
    "funding": "Ant + SoftBank-backed",
@@ -5512,6 +5505,7 @@
     "Asia"
    ],
    "note": "Sea Group's digital bank.",
+   "ai": "underwriting",
    "licence": "Digital full bank (MAS)"
   },
   {
@@ -5558,6 +5552,7 @@
     "Asia"
    ],
    "note": "Ant-backed SME wholesale digital bank.",
+   "ai": "underwriting",
    "licence": "Digital wholesale bank (MAS)"
   },
   {
@@ -5732,6 +5727,7 @@
     "Asia"
    ],
    "note": "Full-spectrum PH digital bank.",
+   "ai": "underwriting",
    "licence": "PH digital bank licence"
   },
   {
@@ -5778,6 +5774,7 @@
     "Asia"
    ],
    "note": "Sea Group's Indonesian bank; Shopee-linked.",
+   "ai": "underwriting",
    "licence": "Bank (OJK); Sea Group"
   },
   {
@@ -5959,6 +5956,7 @@
    ],
    "note": "VPBank + Be Group; 5M+ users.",
    "story": "Digital bank inside Vietnam's ride-hailing app Be; 5M users in four years.",
+   "ai": "underwriting",
    "licence": "Partner: VPBank",
    "founders": "Be Group x VPBank"
   },
@@ -6148,6 +6146,7 @@
     "Asia"
    ],
    "note": "Japan's largest online bank; 15M+.",
+   "ai": "underwriting",
    "licence": "Bank; Public (JP)"
   },
   {
@@ -6271,6 +6270,7 @@
     "Asia"
    ],
    "note": "Homegrown HK virtual bank.",
+   "ai": "underwriting",
    "licence": "HK virtual bank",
    "founders": "Simon Loong",
    "investors": [
@@ -6489,6 +6489,7 @@
     "Africa"
    ],
    "note": "Behavioural 'shared-value' digital bank.",
+   "ai": "interface",
    "licence": "SA banking licence"
   },
   {
@@ -6616,6 +6617,7 @@
     "Africa"
    ],
    "note": "35M+ users; Transsion-backed.",
+   "ai": "underwriting",
    "licence": "Mobile money licence (NG)",
    "founders": "Transsion-backed team",
    "terms_url": "https://www.palmpay.com/terms",
@@ -6665,6 +6667,7 @@
    ],
    "note": "SME banking unicorn.",
    "story": "Started as agent-banking infrastructure, became the bank behind millions of Nigerian small businesses.",
+   "ai": "underwriting",
    "licence": "MFB + switching licences (NG)",
    "founders": "Tosin Eniolorunda, Felix Ike",
    "funding": "~$180M+; unicorn",
@@ -6761,6 +6764,7 @@
     "Africa"
    ],
    "note": "Lending-first digital bank.",
+   "ai": "underwriting",
    "licence": "Microfinance bank (NG)",
    "founders": "Chijioke Dozie, Ngozi Dozie",
    "investors": [
@@ -7765,6 +7769,7 @@
     "North America"
    ],
    "note": "Broker + banking + crypto; USDG consortium member.",
+   "ai": "interface",
    "licence": "Broker-dealer + partner banks; state crypto licences",
    "founders": "Vlad Tenev, Baiju Bhatt",
    "funding": "Public (HOOD)",
@@ -7982,6 +7987,7 @@
     "Oceania"
    ],
    "note": "Best rates for active OKX users.",
+   "ai": "agentic",
    "licence": "VARA, MiCA (Malta)",
    "founders": "Star Xu"
   },
@@ -8158,6 +8164,7 @@
     "Europe"
    ],
    "note": "Broker money app + card (UK/EU).",
+   "ai": "interface",
    "founders": "Yoni Assia, Ronen Assia, David Ring",
    "funding": "Public (ETOR)"
   },
@@ -8563,6 +8570,7 @@
     "Oceania"
    ],
    "note": "Crypto credit lines; rewards in credit mode.",
+   "ai": "interface",
    "founders": "Antoni Trenchev, Kosta Kantchev",
    "terms_url": "https://nexo.com/terms",
    "privacy_url": "https://nexo.com/privacy-policy",
@@ -8706,6 +8714,7 @@
    ],
    "note": "Processed $2.95B card volume in 2025 — over 4x its next 13 competitors combined.",
    "story": "Hong Kong crypto-card leader: $2.95B card volume in 2025, more than 4x its next 13 competitors combined (CoinDesk/StraitsX).",
+   "ai": "agentic",
    "founders": "Michael Gao",
    "funding": "~$90M raised",
    "terms_url": "https://www.redotpay.com/en/terms/",
@@ -8981,6 +8990,7 @@
    ],
    "note": "LatAm super-app; crypto BR/MX; Meli Dollar.",
    "story": "MercadoLibre's payments arm became LatAm's default wallet; issues the Meli Dollar stable token in Brazil.",
+   "ai": "underwriting",
    "licence": "Payment/fintech licences region-wide; pursuing MX bank licence",
    "founders": "Marcos Galperin (MELI)",
    "funding": "Public (MELI)",
@@ -9339,6 +9349,7 @@
    ],
    "note": "Chat-based remittances on stablecoin rails.",
    "story": "Send dollars home over WhatsApp; stablecoin rails under a chat interface.",
+   "ai": "interface",
    "founders": "Manuel Godoy",
    "funding": "~$45M raised"
   },
@@ -9968,6 +9979,7 @@
     "Oceania"
    ],
    "note": "140M+ installs; Binance-linked self-custody.",
+   "ai": "agentic",
    "founders": "Viktor Radchenko",
    "funding": "Binance-owned",
    "terms_url": "https://trustwallet.com/terms-of-service",
@@ -12352,6 +12364,7 @@
     "Asia"
    ],
    "note": "The Philippines' super-app wallet; ~94M users, GCredit + GSave make it bank-like.",
+   "ai": "underwriting",
    "investors": [
     {
      "name": "Globe Telecom",
@@ -12590,6 +12603,7 @@
     "Asia"
    ],
    "note": "CP Group's wallet across 7 SEA markets; Thailand's biggest.",
+   "ai": "underwriting",
    "investors": [
     {
      "name": "CP Group",
@@ -12622,6 +12636,7 @@
     "Asia"
    ],
    "note": "Vietnam's leading e-wallet; 30M+ users, investments + savings.",
+   "ai": "underwriting",
    "investors": [
     {
      "name": "Warburg Pincus",
