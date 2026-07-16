@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infra for neobanks — the 23 providers running the rails · neobankbeat</title>
+<meta name="description" content="The picks-and-shovels layer: 23 sponsor banks, card-issuing processors, crypto card platforms and stablecoin rails, mapped to the tracked neobanks that run on them — Bancorp, Column, Marqeta, Baanx, Bridge, Rain and more.">
+<link rel="canonical" href="https://www.neobankbeat.com/infra/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Infra for neobanks — the 23 providers running the rails · neobankbeat">
+<meta property="og:description" content="The picks-and-shovels layer: 23 sponsor banks, card-issuing processors, crypto card platforms and stablecoin rails, mapped to the tracked neobanks that run on them — Bancorp, Column, Marqeta, Baanx, Bridge, Rain and more.">
+<meta property="og:url" content="https://www.neobankbeat.com/infra/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Infrastructure behind the neobanks","url":"https://www.neobankbeat.com/infra/","description":"23 sponsor banks, card issuers and stablecoin rails mapped to the 22 tracked neobanks that run on them.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"Choice Financial Group","url":"https://bankwithchoice.com"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"Column","url":"https://column.com"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Cross River Bank","url":"https://crossriver.com"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Evolve Bank & Trust","url":"https://getevolved.com"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Thread Bank","url":"https://thread.bank"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"Coastal Community Bank","url":"https://coastalbank.com"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Lead Bank","url":"https://lead.bank"}},{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Stride Bank","url":"https://stridebank.com"}},{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"Sutton Bank","url":"https://suttonbank.com"}},{"@type":"ListItem","position":10,"item":{"@type":"Organization","name":"The Bancorp Bank","url":"https://thebancorp.com"}},{"@type":"ListItem","position":11,"item":{"@type":"Organization","name":"WebBank","url":"https://webbank.com"}},{"@type":"ListItem","position":12,"item":{"@type":"Organization","name":"Solaris","url":"https://solarisgroup.com"}},{"@type":"ListItem","position":13,"item":{"@type":"Organization","name":"ClearBank","url":"https://clear.bank"}},{"@type":"ListItem","position":14,"item":{"@type":"Organization","name":"Galileo","url":"https://galileo-ft.com"}},{"@type":"ListItem","position":15,"item":{"@type":"Organization","name":"Marqeta","url":"https://marqeta.com"}},{"@type":"ListItem","position":16,"item":{"@type":"Organization","name":"Baanx (Monavate)","url":"https://baanx.com"}},{"@type":"ListItem","position":17,"item":{"@type":"Organization","name":"Immersve","url":"https://immersve.com"}},{"@type":"ListItem","position":18,"item":{"@type":"Organization","name":"Rain","url":"https://rain.xyz"}},{"@type":"ListItem","position":19,"item":{"@type":"Organization","name":"Unblock (Atomo)","url":"https://unblock.ch"}},{"@type":"ListItem","position":20,"item":{"@type":"Organization","name":"Wirex Pay","url":"https://wirexapp.com"}},{"@type":"ListItem","position":21,"item":{"@type":"Organization","name":"Bridge (Stripe)","url":"https://bridge.xyz"}},{"@type":"ListItem","position":22,"item":{"@type":"Organization","name":"Tempo","url":"https://tempo.xyz"}},{"@type":"ListItem","position":23,"item":{"@type":"Organization","name":"Privy (Stripe)","url":"https://privy.io"}}]}}
+</script>
+<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+#ifsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px;transition:border-color .15s}
+#ifsearch:hover{border-color:rgba(255,255,255,.6)}
+#ifsearch:focus{outline:none;border-color:var(--accent)}
+.ivrow{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px;transition:border-color .15s}
+.ivrow:has(.nm:hover){border-color:var(--accent)}
+.ivhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
+.ivhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
+.ivhead .nm:hover{color:var(--accent)}
+.ivhead .nm::after{content:"";position:absolute;inset:0;border-radius:12px}
+.ivhead .ct{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.ivhead .st{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;text-decoration:none;position:relative;z-index:1}
+.ivhead .st:hover{color:var(--accent)}
+.ivabout{font-size:13px;color:var(--dim);line-height:1.55;margin-top:7px}
+.ivbanks{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ivbanks a{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;text-decoration:none;white-space:nowrap;position:relative;z-index:1}
+.ivbanks a:hover{border-color:var(--accent);color:var(--text)}
+.iftype{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin:30px 0 12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/investors/">investors</a>
+      <a href="/blog/">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">picks &amp; shovels</div>
+  <h1>Infra <em>for neobanks</em></h1>
+  <p class="meta"><b>23 providers · 22 tracked neobanks running on them</b> · compiled from issuer disclosures and public reporting · updated 2026-07-16</p>
+
+  <div class="ivstats">
+    <div class="ivstat"><div class="n">23</div><div class="l">providers mapped</div></div>
+    <div class="ivstat"><div class="n">11</div><div class="l">sponsor banks</div></div>
+    <div class="ivstat"><div class="n">22</div><div class="l">neobanks mapped to rails</div></div>
+  </div>
+
+  <p>Most "neobanks" don't run their own rails: a sponsor bank holds the licence, a processor issues the cards, and increasingly a stablecoin platform moves the money. This page maps that hidden layer for the <a href="/">tracked directory</a> — because when a provider stumbles (Wirecard, Synapse, an issuer changing footprint overnight), it's the apps on top that die. Mappings come from the neobanks' own issuer disclosures and public reporting; some are partial — <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest an addition</a>.</p>
+
+  <input id="ifsearch" type="search" placeholder="filter by provider, type or neobank — e.g. column, stablecoin, chime…" aria-label="Filter providers">
+
+<div class="iftype">BIN sponsor banks</div>
+<div class="ivrow" id="choice-financial-group" data-q="choice financial group bin sponsor bank current mercury">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bankwithchoice.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/choice-financial-group/">Choice Financial Group</a>
+    <span class="ct">Fargo, ND, US · 2 tracked clients</span>
+    <a class="st" href="https://bankwithchoice.com" target="_blank" rel="noopener nofollow">bankwithchoice.com ↗</a>
+  </div>
+  <div class="ivabout">North Dakota sponsor bank behind some of the biggest US fintech brands — a long-time partner bank for both Current and Mercury deposits.</div>
+  <div class="ivbanks"><a href="/n/current/">Current</a><a href="/n/mercury/">Mercury</a></div>
+</div>
+<div class="ivrow" id="column" data-q="column bin sponsor bank mercury flex">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=column.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/column/">Column</a>
+    <span class="ct">San Francisco, US · 2 tracked clients</span>
+    <a class="st" href="https://column.com" target="_blank" rel="noopener nofollow">column.com ↗</a>
+  </div>
+  <div class="ivabout">The developer-first nationally chartered bank built by Plaid co-founder William Hockey — no middleware, direct Fed access. Banks Mercury and Flex among fintech's most technical teams.</div>
+  <div class="ivbanks"><a href="/n/mercury/">Mercury</a><a href="/n/flex/">Flex</a></div>
+</div>
+<div class="ivrow" id="cross-river-bank" data-q="cross river bank bin sponsor bank current metamask">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=crossriver.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/cross-river-bank/">Cross River Bank</a>
+    <span class="ct">Fort Lee, US · 2 tracked clients</span>
+    <a class="st" href="https://crossriver.com" target="_blank" rel="noopener nofollow">crossriver.com ↗</a>
+  </div>
+  <div class="ivabout">New Jersey's fintech-lending powerhouse — issues Current's credit builder card and, since 2026, the US MetaMask Card, putting a state-chartered bank under the world's default self-custody wallet.</div>
+  <div class="ivbanks"><a href="/n/current/">Current</a><a href="/n/metamask/">MetaMask</a></div>
+</div>
+<div class="ivrow" id="evolve-bank-trust" data-q="evolve bank &amp; trust bin sponsor bank dave step">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=getevolved.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/evolve-bank-trust/">Evolve Bank &amp; Trust</a>
+    <span class="ct">Memphis, US · 2 tracked clients</span>
+    <a class="st" href="https://getevolved.com" target="_blank" rel="noopener nofollow">getevolved.com ↗</a>
+  </div>
+  <div class="ivabout">One of the busiest BaaS sponsor banks of the boom era; its 2024 Synapse fallout and enforcement action made it the cautionary tale of the model. Still sits under Dave and Step.</div>
+  <div class="ivbanks"><a href="/n/dave/">Dave</a><a href="/n/step/">Step</a></div>
+</div>
+<div class="ivrow" id="thread-bank" data-q="thread bank bin sponsor bank relay flex">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=thread.bank&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/thread-bank/">Thread Bank</a>
+    <span class="ct">Rogersville, US · 2 tracked clients</span>
+    <a class="st" href="https://thread.bank" target="_blank" rel="noopener nofollow">thread.bank ↗</a>
+  </div>
+  <div class="ivabout">Tennessee charter behind embedded deposit programs with $3M pass-through FDIC sweep networks — sits under Relay and part of Flex's banking stack.</div>
+  <div class="ivbanks"><a href="/n/relay/">Relay</a><a href="/n/flex/">Flex</a></div>
+</div>
+<div class="ivrow" id="coastal-community-bank" data-q="coastal community bank bin sponsor bank one">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=coastalbank.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/coastal-community-bank/">Coastal Community Bank</a>
+    <span class="ct">Everett, US · 1 tracked client</span>
+    <a class="st" href="https://coastalbank.com" target="_blank" rel="noopener nofollow">coastalbank.com ↗</a>
+  </div>
+  <div class="ivabout">Washington-state charter that powers One (Walmart's fintech) among a large CCBX partner portfolio — one of the few sponsor banks that grew through the 2023-24 BaaS crackdown.</div>
+  <div class="ivbanks"><a href="/n/one/">One</a></div>
+</div>
+<div class="ivrow" id="lead-bank" data-q="lead bank bin sponsor bank flex">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=lead.bank&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/lead-bank/">Lead Bank</a>
+    <span class="ct">Kansas City, US · 1 tracked client</span>
+    <a class="st" href="https://lead.bank" target="_blank" rel="noopener nofollow">lead.bank ↗</a>
+  </div>
+  <div class="ivabout">Jackie Reses' (ex-Square Capital) Kansas City charter, rebuilt as a fintech sponsor bank — issues Flex's Visa Infinite business credit card.</div>
+  <div class="ivbanks"><a href="/n/flex/">Flex</a></div>
+</div>
+<div class="ivrow" id="stride-bank" data-q="stride bank bin sponsor bank chime">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=stridebank.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/stride-bank/">Stride Bank</a>
+    <span class="ct">Enid, US · 1 tracked client</span>
+    <a class="st" href="https://stridebank.com" target="_blank" rel="noopener nofollow">stridebank.com ↗</a>
+  </div>
+  <div class="ivabout">Oklahoma national bank that co-sponsors Chime's card programs with Bancorp — proof that a community bank charter can sit under tens of millions of fintech accounts.</div>
+  <div class="ivbanks"><a href="/n/chime/">Chime</a></div>
+</div>
+<div class="ivrow" id="sutton-bank" data-q="sutton bank bin sponsor bank cash app">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=suttonbank.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/sutton-bank/">Sutton Bank</a>
+    <span class="ct">Attica, US · 1 tracked client</span>
+    <a class="st" href="https://suttonbank.com" target="_blank" rel="noopener nofollow">suttonbank.com ↗</a>
+  </div>
+  <div class="ivabout">Ohio community bank that issues the Cash App Card — a ~$1B-asset bank under one of America's biggest consumer money apps.</div>
+  <div class="ivbanks"><a href="/n/cash-app/">Cash App</a></div>
+</div>
+<div class="ivrow" id="the-bancorp-bank" data-q="the bancorp bank bin sponsor bank chime">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=thebancorp.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/the-bancorp-bank/">The Bancorp Bank</a>
+    <span class="ct">Wilmington, US · 1 tracked client</span>
+    <a class="st" href="https://thebancorp.com" target="_blank" rel="noopener nofollow">thebancorp.com ↗</a>
+  </div>
+  <div class="ivabout">The original fintech sponsor bank — quietly issues cards and holds deposits for a huge share of US consumer fintech, Chime included (alongside Stride).</div>
+  <div class="ivbanks"><a href="/n/chime/">Chime</a></div>
+</div>
+<div class="ivrow" id="webbank" data-q="webbank bin sponsor bank klarna">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=webbank.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/webbank/">WebBank</a>
+    <span class="ct">Salt Lake City, US · 1 tracked client</span>
+    <a class="st" href="https://webbank.com" target="_blank" rel="noopener nofollow">webbank.com ↗</a>
+  </div>
+  <div class="ivabout">Utah industrial bank that issues the Klarna Card in the US — the charter of choice for point-of-sale credit programs.</div>
+  <div class="ivbanks"><a href="/n/klarna/">Klarna</a></div>
+</div>
+<div class="iftype">BaaS &amp; e-money platforms</div>
+<div class="ivrow" id="solaris" data-q="solaris baas / e-money platform tomorrow vivid money">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=solarisgroup.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/solaris/">Solaris</a>
+    <span class="ct">Berlin, DE · 2 tracked clients</span>
+    <a class="st" href="https://solarisgroup.com" target="_blank" rel="noopener nofollow">solarisgroup.com ↗</a>
+  </div>
+  <div class="ivabout">Europe's flagship banking-as-a-service platform with a full German banking licence; Tomorrow runs on it, and Vivid launched on it before getting its own EMI — BaFin pressure has since forced a hard pivot.</div>
+  <div class="ivbanks"><a href="/n/tomorrow/">Tomorrow</a><a href="/n/vivid-money/">Vivid Money</a></div>
+</div>
+<div class="iftype">BaaS &amp; clearing banks</div>
+<div class="ivrow" id="clearbank" data-q="clearbank baas / clearing bank tide">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=clear.bank&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/clearbank/">ClearBank</a>
+    <span class="ct">London, UK · 1 tracked client</span>
+    <a class="st" href="https://clear.bank" target="_blank" rel="noopener nofollow">clear.bank ↗</a>
+  </div>
+  <div class="ivabout">The UK's first new clearing bank in 250 years — holds Tide's customer funds and provides agency banking rails to dozens of UK fintechs.</div>
+  <div class="ivbanks"><a href="/n/tide/">Tide</a></div>
+</div>
+<div class="iftype">card issuing processors</div>
+<div class="ivrow" id="galileo" data-q="galileo card issuing processor chime dave moneylion">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=galileo-ft.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/galileo/">Galileo</a>
+    <span class="ct">Salt Lake City, US · 3 tracked clients</span>
+    <a class="st" href="https://galileo-ft.com" target="_blank" rel="noopener nofollow">galileo-ft.com ↗</a>
+  </div>
+  <div class="ivabout">The processor under the first US neobank wave — Chime (before its in-house ChimeCore migration), Dave and MoneyLion all built on it. Acquired by SoFi in 2020 for $1.2B.</div>
+  <div class="ivbanks"><a href="/n/chime/">Chime</a><a href="/n/dave/">Dave</a><a href="/n/moneylion/">MoneyLion</a></div>
+</div>
+<div class="ivrow" id="marqeta" data-q="marqeta card issuing processor cash app klarna bfinance">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=marqeta.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/marqeta/">Marqeta</a>
+    <span class="ct">Oakland, US · 3 tracked clients</span>
+    <a class="st" href="https://marqeta.com" target="_blank" rel="noopener nofollow">marqeta.com ↗</a>
+  </div>
+  <div class="ivabout">The public (NASDAQ: MQ) modern card-issuing platform that grew up processing Cash App's card volume; also powers Klarna's card programs and newer entrants like BFinance.</div>
+  <div class="ivbanks"><a href="/n/cash-app/">Cash App</a><a href="/n/klarna/">Klarna</a><a href="/n/bfinance/">BFinance</a></div>
+</div>
+<div class="iftype">crypto card infrastructure</div>
+<div class="ivrow" id="baanx-monavate" data-q="baanx (monavate) crypto card infrastructure metamask 1inch card">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=baanx.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/baanx-monavate/">Baanx (Monavate)</a>
+    <span class="ct">London, UK · 2 tracked clients</span>
+    <a class="st" href="https://baanx.com" target="_blank" rel="noopener nofollow">baanx.com ↗</a>
+  </div>
+  <div class="ivabout">The card-program layer between self-custody wallets and Mastercard/Visa rails — powers the MetaMask Card and 1inch Card; merged with Monavate in 2026.</div>
+  <div class="ivbanks"><a href="/n/metamask/">MetaMask</a><a href="/n/1inch-card/">1inch Card</a></div>
+</div>
+<div class="ivrow" id="immersve" data-q="immersve crypto card infrastructure bitget wallet">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=immersve.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/immersve/">Immersve</a>
+    <span class="ct">Auckland, NZ · 1 tracked client</span>
+    <a class="st" href="https://immersve.com" target="_blank" rel="noopener nofollow">immersve.com ↗</a>
+  </div>
+  <div class="ivabout">Mastercard-partnered protocol that lets wallets spend directly from self-custody — the issuing layer behind Bitget Wallet's card.</div>
+  <div class="ivbanks"><a href="/n/bitget-wallet/">Bitget Wallet</a></div>
+</div>
+<div class="ivrow" id="rain" data-q="rain crypto card infrastructure karta">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=rain.xyz&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/rain/">Rain</a>
+    <span class="ct">New York, US · 1 tracked client</span>
+    <a class="st" href="https://rain.xyz" target="_blank" rel="noopener nofollow">rain.xyz ↗</a>
+  </div>
+  <div class="ivabout">Visa-principal-member issuing platform for stablecoin-native cards — programs settle in USDC onchain. Issues Karta among a fast-growing roster of web3 card programs.</div>
+  <div class="ivbanks"><a href="/n/karta/">Karta</a></div>
+</div>
+<div class="ivrow" id="unblock-atomo" data-q="unblock (atomo) crypto card infrastructure mine">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=unblock.ch&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/unblock-atomo/">Unblock (Atomo)</a>
+    <span class="ct">Geneva, CH · 1 tracked client</span>
+    <a class="st" href="https://unblock.ch" target="_blank" rel="noopener nofollow">unblock.ch ↗</a>
+  </div>
+  <div class="ivabout">Swiss VQF-regulated Atomo SARL is a Mastercard principal member offering white-label card programs settled in fiat or stablecoins — issues Mine's card across 175+ countries.</div>
+  <div class="ivbanks"><a href="/n/mine/">Mine</a></div>
+</div>
+<div class="ivrow" id="wirex-pay" data-q="wirex pay crypto card infrastructure coca">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=wirexapp.com&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/wirex-pay/">Wirex Pay</a>
+    <span class="ct">London, UK · 1 tracked client</span>
+    <a class="st" href="https://wirexapp.com" target="_blank" rel="noopener nofollow">wirexapp.com ↗</a>
+  </div>
+  <div class="ivabout">Wirex's infrastructure arm — a decade of crypto-card issuing experience packaged as white-label rails, powering COCA's cards.</div>
+  <div class="ivbanks"><a href="/n/coca/">COCA</a></div>
+</div>
+<div class="iftype">stablecoin infrastructure</div>
+<div class="ivrow" id="bridge-stripe" data-q="bridge (stripe) stablecoin infrastructure deel metamask">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=bridge.xyz&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/bridge-stripe/">Bridge (Stripe)</a>
+    <span class="ct">San Francisco, US · 2 tracked clients</span>
+    <a class="st" href="https://bridge.xyz" target="_blank" rel="noopener nofollow">bridge.xyz ↗</a>
+  </div>
+  <div class="ivabout">Stripe's $1.1B stablecoin-orchestration acquisition — issues branded stablecoins and moves money on stablecoin rails. Issues Deel's DLUSD and MetaMask's mUSD (with M0).</div>
+  <div class="ivbanks"><a href="/n/deel/">Deel</a><a href="/n/metamask/">MetaMask</a></div>
+</div>
+<div class="ivrow" id="tempo" data-q="tempo stablecoin infrastructure deel karta">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=tempo.xyz&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/tempo/">Tempo</a>
+    <span class="ct">San Francisco, US · 2 tracked clients</span>
+    <a class="st" href="https://tempo.xyz" target="_blank" rel="noopener nofollow">tempo.xyz ↗</a>
+  </div>
+  <div class="ivabout">The payments-first L1 blockchain incubated by Stripe and Paradigm — purpose-built rails for stablecoin settlement, used in Deel's and Karta's stacks.</div>
+  <div class="ivbanks"><a href="/n/deel/">Deel</a><a href="/n/karta/">Karta</a></div>
+</div>
+<div class="iftype">wallet infrastructure</div>
+<div class="ivrow" id="privy-stripe" data-q="privy (stripe) wallet infrastructure deel karta">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=privy.io&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/privy-stripe/">Privy (Stripe)</a>
+    <span class="ct">New York, US · 2 tracked clients</span>
+    <a class="st" href="https://privy.io" target="_blank" rel="noopener nofollow">privy.io ↗</a>
+  </div>
+  <div class="ivabout">Embedded-wallet layer (acquired by Stripe in 2025) that gives fintech users an onchain wallet behind a normal login — part of the stack under Deel's DLUSD and Karta.</div>
+  <div class="ivbanks"><a href="/n/deel/">Deel</a><a href="/n/karta/">Karta</a></div>
+</div>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client lists show tracked neobanks with a publicly documented relationship — not complete customer books. Providers switch constantly; corrections welcome.</p>
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
+document.addEventListener('submit',function(e){if(e.target.classList&&e.target.classList.contains('nbform'))nbevt('subscribe',{page:location.pathname})},true);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&a.pathname==='/data.json')nbevt('data_download',{page:location.pathname})});</script>
+</body>
+</html>

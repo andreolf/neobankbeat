@@ -83,7 +83,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -652,6 +652,155 @@ ${cards.map(row).join('\n')}
   console.log(`stablecoin-cards page: ${cards.length} cards`);
 }
 
+/* ═══ /infra/ — the picks-and-shovels layer: who runs the rails under the neobanks ═══ */
+const infraSlugList = [];
+{
+  const PROV = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'infra-providers.json'), 'utf8'));
+  delete PROV._comment;
+  const known = new Set(E.map(e => e.name));
+  for (const [k, v] of Object.entries(PROV))
+    for (const c of v.clients) if (!known.has(c)) console.warn(`infra-providers: "${k}" client "${c}" not in dataset — check spelling`);
+  const TYPES = ['BIN sponsor bank', 'BaaS / e-money platform', 'BaaS / clearing bank', 'card issuing processor', 'crypto card infrastructure', 'stablecoin infrastructure', 'wallet infrastructure'];
+  const TYPE_PLURAL = { 'BIN sponsor bank': 'BIN sponsor banks', 'BaaS / e-money platform': 'BaaS & e-money platforms', 'BaaS / clearing bank': 'BaaS & clearing banks', 'card issuing processor': 'card issuing processors', 'crypto card infrastructure': 'crypto card infrastructure', 'stablecoin infrastructure': 'stablecoin infrastructure', 'wallet infrastructure': 'wallet infrastructure' };
+  const rows = Object.entries(PROV).sort((a, b) =>
+    TYPES.indexOf(a[1].type) - TYPES.indexOf(b[1].type) || b[1].clients.length - a[1].clients.length || a[0].localeCompare(b[0]));
+  const nClients = new Set(rows.flatMap(([, v]) => v.clients)).size;
+  const ifSlug = n => slugify(n) || 'provider';
+  const url = `${BASE}/infra/`;
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Infrastructure behind the neobanks', url,
+    description: `${rows.length} sponsor banks, card issuers and stablecoin rails mapped to the ${nClients} tracked neobanks that run on them.`,
+    isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
+    mainEntity: { '@type': 'ItemList', itemListElement: rows.map(([name, v], i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Organization', name, url: `https://${v.domain}` } })) },
+  };
+  const style = `<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+#ifsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px;transition:border-color .15s}
+#ifsearch:hover{border-color:rgba(255,255,255,.6)}
+#ifsearch:focus{outline:none;border-color:var(--accent)}
+.ivrow{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px;transition:border-color .15s}
+.ivrow:has(.nm:hover){border-color:var(--accent)}
+.ivhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
+.ivhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
+.ivhead .nm:hover{color:var(--accent)}
+.ivhead .nm::after{content:"";position:absolute;inset:0;border-radius:12px}
+.ivhead .ct{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.ivhead .st{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;text-decoration:none;position:relative;z-index:1}
+.ivhead .st:hover{color:var(--accent)}
+.ivabout{font-size:13px;color:var(--dim);line-height:1.55;margin-top:7px}
+.ivbanks{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ivbanks a{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;text-decoration:none;white-space:nowrap;position:relative;z-index:1}
+.ivbanks a:hover{border-color:var(--accent);color:var(--text)}
+.iftype{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin:30px 0 12px}
+</style>`;
+  const rowHtml = ([name, v]) => `<div class="ivrow" id="${ifSlug(name)}" data-q="${esc((name + ' ' + v.type + ' ' + v.clients.join(' ')).toLowerCase())}">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(v.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <a class="nm" href="/infra/${ifSlug(name)}/">${esc(name)}</a>
+    <span class="ct">${esc(v.hq)} · ${v.clients.length} tracked client${v.clients.length === 1 ? '' : 's'}</span>
+    <a class="st" href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a>
+  </div>
+  <div class="ivabout">${esc(v.about)}</div>
+  <div class="ivbanks">${v.clients.map(c => `<a href="/n/${slugs.get(c)}/">${esc(c)}</a>`).join('')}</div>
+</div>`;
+  let body = '';
+  let lastType = '';
+  for (const r of rows) {
+    if (r[1].type !== lastType) { lastType = r[1].type; body += `<div class="iftype">${esc(TYPE_PLURAL[lastType] || lastType)}</div>\n`; }
+    body += rowHtml(r) + '\n';
+  }
+  const html = (head(`Infra for neobanks — the ${rows.length} providers running the rails · neobankbeat`,
+    `The picks-and-shovels layer: ${rows.length} sponsor banks, card-issuing processors, crypto card platforms and stablecoin rails, mapped to the tracked neobanks that run on them — Bancorp, Column, Marqeta, Baanx, Bridge, Rain and more.`,
+    url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">picks &amp; shovels</div>
+  <h1>Infra <em>for neobanks</em></h1>
+  <p class="meta"><b>${rows.length} providers · ${nClients} tracked neobanks running on them</b> · compiled from issuer disclosures and public reporting · updated ${TODAY}</p>
+
+  <div class="ivstats">
+    <div class="ivstat"><div class="n">${rows.length}</div><div class="l">providers mapped</div></div>
+    <div class="ivstat"><div class="n">${rows.filter(([, v]) => v.type === 'BIN sponsor bank').length}</div><div class="l">sponsor banks</div></div>
+    <div class="ivstat"><div class="n">${nClients}</div><div class="l">neobanks mapped to rails</div></div>
+  </div>
+
+  <p>Most "neobanks" don't run their own rails: a sponsor bank holds the licence, a processor issues the cards, and increasingly a stablecoin platform moves the money. This page maps that hidden layer for the <a href="/">tracked directory</a> — because when a provider stumbles (Wirecard, Synapse, an issuer changing footprint overnight), it's the apps on top that die. Mappings come from the neobanks' own issuer disclosures and public reporting; some are partial — <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest an addition</a>.</p>
+
+  <input id="ifsearch" type="search" placeholder="filter by provider, type or neobank — e.g. column, stablecoin, chime…" aria-label="Filter providers">
+
+${body}
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client lists show tracked neobanks with a publicly documented relationship — not complete customer books. Providers switch constantly; corrections welcome.</p>
+  ${subscribeBox}
+</article>
+</main>
+<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+  fs.mkdirSync(path.join(ROOT, 'infra'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'infra', 'index.html'), html.replace('</head>', style + '\n</head>'));
+  console.log(`infra page: ${rows.length} providers, ${nClients} client neobanks`);
+
+  /* ── per-provider pages: /infra/<slug>/ ── */
+  const CATLABEL = { traditional: 'traditional', hybrid: 'hybrid crypto', 'web3-native': 'web3-native' };
+  for (const [name, v] of rows) {
+    const slug = ifSlug(name);
+    const purl = `${BASE}/infra/${slug}/`;
+    const clients = v.clients.map(c => E.find(e => e.name === c)).filter(Boolean);
+    const siblings = rows.filter(([n2, v2]) => n2 !== name && v2.type === v.type);
+    const title = `${name} — ${v.type} behind ${clients.length} tracked neobank${clients.length === 1 ? '' : 's'} · neobankbeat`;
+    const desc = `${v.about} Tracked neobanks on its rails: ${v.clients.join(', ')}.`;
+    const pld = {
+      '@context': 'https://schema.org', '@graph': [
+        { '@type': 'Organization', name, url: `https://${v.domain}`, description: v.about },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'infra', item: BASE + '/infra/' },
+          { '@type': 'ListItem', position: 3, name, item: purl }] }
+      ]
+    };
+    const clientCard = b => `<a class="ivrow" style="display:block;text-decoration:none" href="/n/${slugs.get(b.name)}/">
+  <div class="ivhead">
+    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(b.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <span class="nm">${esc(b.name)}</span>
+    <span class="ct">${esc(b.hq)} · est. ${b.founded}</span>
+    <span class="st">${CATLABEL[b.category] || b.category}${b.reported_users ? ` · ${b.reported_users.value_millions}M ${esc(b.reported_users.metric)}` : ''}</span>
+  </div>
+</a>`;
+    const pageHtml = (head(title, desc, purl, pld) + `
+<main class="wrap">
+<article>
+  <a class="backbtn" href="/infra/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
+  <h1>${esc(name)}</h1>
+  <p class="meta"><b>${esc(v.type)}</b> · ${esc(v.hq)} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
+  <p>${esc(v.about)}</p>
+  <h2>Tracked neobanks on its rails</h2>
+${clients.map(clientCard).join('\n')}
+  ${siblings.length ? `<h2>Other ${esc(TYPE_PLURAL[v.type] || v.type)}</h2>
+  <div class="ivbanks" style="margin-top:10px">${siblings.map(([n2]) => `<a href="/infra/${ifSlug(n2)}/">${esc(n2)}</a>`).join('')}</div>` : ''}
+  <div class="callout" style="margin-top:26px"><span class="k">explore</span>Browse all <a href="/infra/">${rows.length} infra providers</a>, or see who <em>funds</em> the neobanks on the <a href="/investors/">investors map</a>.</div>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client list shows tracked neobanks with a publicly documented relationship — not a complete customer book. Sourced from issuer disclosures and public reporting; <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest a fix</a>.</p>
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+    const dir = path.join(ROOT, 'infra', slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
+    infraSlugList.push(slug);
+  }
+  /* prune provider dirs that dropped out of the json */
+  const keep = new Set(infraSlugList);
+  for (const d of fs.readdirSync(path.join(ROOT, 'infra'), { withFileTypes: true })) {
+    if (d.isDirectory() && !keep.has(d.name)) {
+      fs.rmSync(path.join(ROOT, 'infra', d.name), { recursive: true });
+      console.log(`infra: pruned stale ${d.name}`);
+    }
+  }
+  console.log(`infra pages: ${infraSlugList.length}`);
+}
+
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
 {
   const html = (head('Page not found · neobankbeat',
@@ -697,6 +846,8 @@ const urls = [
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
+  ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: TODAY, priority: '0.6' })),
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
@@ -727,6 +878,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [FAQ](${BASE}/faq/) — 20 honest answers
 - [Glossary](${BASE}/glossary/) — 50 terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
+- [Infra for neobanks](${BASE}/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (${infraSlugList.length} providers)
 - [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](${BASE}/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
