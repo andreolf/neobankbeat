@@ -81,10 +81,10 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Chime](https://www.neobankbeat.com/n/chime/): traditional · Custodial · Partner-bank model · San Francisco, US · founded 2013 · 22M members
 - [Varo](https://www.neobankbeat.com/n/varo/): traditional · Custodial · Licensed bank · San Francisco, US · founded 2015
 - [Current](https://www.neobankbeat.com/n/current/): traditional · Custodial · Partner-bank model · New York, US · founded 2015
-- [SoFi](https://www.neobankbeat.com/n/sofi/): traditional · Custodial · Licensed bank · San Francisco, US · founded 2011
+- [SoFi](https://www.neobankbeat.com/n/sofi/): traditional · Custodial · Licensed bank · San Francisco, US · founded 2011 · AI in production: interface
 - [Ally Bank](https://www.neobankbeat.com/n/ally-bank/): traditional · Custodial · Licensed bank · Detroit, US · founded 2009
-- [Dave](https://www.neobankbeat.com/n/dave/): traditional · Custodial · Partner-bank model · Los Angeles, US · founded 2016
-- [MoneyLion](https://www.neobankbeat.com/n/moneylion/): traditional · Custodial · Partner-bank model · New York, US · founded 2013
+- [Dave](https://www.neobankbeat.com/n/dave/): traditional · Custodial · Partner-bank model · Los Angeles, US · founded 2016 · AI in production: underwriting
+- [MoneyLion](https://www.neobankbeat.com/n/moneylion/): traditional · Custodial · Partner-bank model · New York, US · founded 2013 · AI in production: underwriting
 - [One](https://www.neobankbeat.com/n/one/): traditional · Custodial · Partner-bank model · Sacramento, US · founded 2019
 - [Marcus](https://www.neobankbeat.com/n/marcus/): traditional · Custodial · Unclassified · New York, US · founded 2016
 - [Step](https://www.neobankbeat.com/n/step/): traditional · Custodial · Partner-bank model · Palo Alto, US · founded 2018
@@ -92,8 +92,8 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Copper](https://www.neobankbeat.com/n/copper/): traditional · Custodial · Unclassified · Seattle, US · founded 2019
 - [Till Financial](https://www.neobankbeat.com/n/till-financial/): traditional · Custodial · Unclassified · Boston, US · founded 2018
 - [GoHenry](https://www.neobankbeat.com/n/gohenry/): traditional · Custodial · Unclassified · New York/London · founded 2012
-- [Albert](https://www.neobankbeat.com/n/albert/): traditional · Custodial · Unclassified · Culver City, US · founded 2015
-- [Mercury](https://www.neobankbeat.com/n/mercury/): traditional · Custodial · Partner-bank model · San Francisco, US · founded 2017
+- [Albert](https://www.neobankbeat.com/n/albert/): traditional · Custodial · Unclassified · Culver City, US · founded 2015 · AI in production: interface
+- [Mercury](https://www.neobankbeat.com/n/mercury/): traditional · Custodial · Partner-bank model · San Francisco, US · founded 2017 · AI in production: interface
 - [Brex](https://www.neobankbeat.com/n/brex/): traditional · Custodial · Partner-bank model · San Francisco, US · founded 2017
 - [Ramp](https://www.neobankbeat.com/n/ramp/): traditional · Custodial · Partner-bank model · New York, US · founded 2019
 - [Novo](https://www.neobankbeat.com/n/novo/): traditional · Custodial · Unclassified · Miami, US · founded 2016
@@ -123,14 +123,14 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [EQ Bank](https://www.neobankbeat.com/n/eq-bank/): traditional · Custodial · Unclassified · Toronto, CA · founded 2016
 - [Mogo](https://www.neobankbeat.com/n/mogo/): hybrid · Custodial · Unclassified · Vancouver, CA · founded 2003
 - [Monzo](https://www.neobankbeat.com/n/monzo/): traditional · Custodial · Licensed bank · London, UK · founded 2015 · 12M customers
-- [Starling Bank](https://www.neobankbeat.com/n/starling-bank/): traditional · Custodial · Licensed bank · London, UK · founded 2014
+- [Starling Bank](https://www.neobankbeat.com/n/starling-bank/): traditional · Custodial · Licensed bank · London, UK · founded 2014 · AI in production: interface
 - [Atom Bank](https://www.neobankbeat.com/n/atom-bank/): traditional · Custodial · Licensed bank · Durham, UK · founded 2014
-- [Zopa Bank](https://www.neobankbeat.com/n/zopa-bank/): traditional · Custodial · Licensed bank · London, UK · founded 2020
+- [Zopa Bank](https://www.neobankbeat.com/n/zopa-bank/): traditional · Custodial · Licensed bank · London, UK · founded 2020 · AI in production: underwriting
 - [Chase UK](https://www.neobankbeat.com/n/chase-uk/): traditional · Custodial · Partner-bank model · London, UK · founded 2021
 - [Kroo](https://www.neobankbeat.com/n/kroo/): traditional · Custodial · Licensed bank · London, UK · founded 2016
 - [Tide](https://www.neobankbeat.com/n/tide/): traditional · Custodial · E-money institution · London, UK · founded 2015
 - [ANNA Money](https://www.neobankbeat.com/n/anna-money/): traditional · Custodial · E-money institution · Cardiff, UK · founded 2017
-- [OakNorth](https://www.neobankbeat.com/n/oaknorth/): traditional · Custodial · Unclassified · London, UK · founded 2015
+- [OakNorth](https://www.neobankbeat.com/n/oaknorth/): traditional · Custodial · Unclassified · London, UK · founded 2015 · AI in production: underwriting
 - [Allica Bank](https://www.neobankbeat.com/n/allica-bank/): traditional · Custodial · Unclassified · Milton Keynes, UK · founded 2019
 - [Curve](https://www.neobankbeat.com/n/curve/): traditional · Custodial · Unclassified · London, UK · founded 2015
 - [Zempler Bank](https://www.neobankbeat.com/n/zempler-bank/): traditional · Custodial · Unclassified · London, UK · founded 2005
@@ -142,13 +142,13 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Kestrl](https://www.neobankbeat.com/n/kestrl/): traditional · Custodial · Unclassified · London, UK · founded 2019
 - [Wahed](https://www.neobankbeat.com/n/wahed/): traditional · Custodial · Unclassified · New York, US · founded 2015
 - [N26](https://www.neobankbeat.com/n/n26/): traditional · Custodial · Licensed bank · Berlin, DE · founded 2013
-- [bunq](https://www.neobankbeat.com/n/bunq/): traditional · Custodial · Licensed bank · Amsterdam, NL · founded 2012
+- [bunq](https://www.neobankbeat.com/n/bunq/): traditional · Custodial · Licensed bank · Amsterdam, NL · founded 2012 · AI in production: interface
 - [Vivid Money](https://www.neobankbeat.com/n/vivid-money/): traditional · Custodial · Unclassified · Berlin, DE · founded 2019
 - [Tomorrow](https://www.neobankbeat.com/n/tomorrow/): traditional · Custodial · Unclassified · Hamburg, DE · founded 2018
 - [C24 Bank](https://www.neobankbeat.com/n/c24-bank/): traditional · Custodial · Unclassified · Frankfurt, DE · founded 2020
 - [Kontist](https://www.neobankbeat.com/n/kontist/): traditional · Custodial · Unclassified · Berlin, DE · founded 2016
 - [Fyrst](https://www.neobankbeat.com/n/fyrst/): traditional · Custodial · Unclassified · Bonn, DE · founded 2019
-- [Qonto](https://www.neobankbeat.com/n/qonto/): traditional · Custodial · Licence pending (partner model today) · Paris, FR · founded 2016
+- [Qonto](https://www.neobankbeat.com/n/qonto/): traditional · Custodial · Licence pending (partner model today) · Paris, FR · founded 2016 · AI in production: interface
 - [Shine](https://www.neobankbeat.com/n/shine/): traditional · Custodial · Unclassified · Paris, FR · founded 2017
 - [Indy](https://www.neobankbeat.com/n/indy/): traditional · Custodial · Unclassified · Lyon, FR · founded 2016
 - [Sumeria (Lydia)](https://www.neobankbeat.com/n/sumeria-lydia/): traditional · Custodial · Unclassified · Paris, FR · founded 2013
@@ -156,7 +156,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [BoursoBank](https://www.neobankbeat.com/n/boursobank/): traditional · Custodial · Licensed bank · Paris, FR · founded 1995
 - [Hello bank!](https://www.neobankbeat.com/n/hello-bank/): traditional · Custodial · Unclassified · Paris, FR · founded 2013
 - [Fortuneo](https://www.neobankbeat.com/n/fortuneo/): traditional · Custodial · Unclassified · Brest, FR · founded 2000
-- [Lunar](https://www.neobankbeat.com/n/lunar/): traditional · Custodial · Licensed bank · Aarhus, DK · founded 2015
+- [Lunar](https://www.neobankbeat.com/n/lunar/): traditional · Custodial · Licensed bank · Aarhus, DK · founded 2015 · AI in production: interface
 - [Northmill](https://www.neobankbeat.com/n/northmill/): traditional · Custodial · Unclassified · Stockholm, SE · founded 2006
 - [Rocker](https://www.neobankbeat.com/n/rocker/): traditional · Custodial · Unclassified · Stockholm, SE · founded 2017
 - [indó](https://www.neobankbeat.com/n/indo/): traditional · Custodial · Licensed bank · Reykjavík, IS · founded 2018
@@ -173,30 +173,30 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Trade Republic](https://www.neobankbeat.com/n/trade-republic/): traditional · Custodial · Licensed bank · Berlin, DE · founded 2015
 - [Finom](https://www.neobankbeat.com/n/finom/): traditional · Custodial · Unclassified · Amsterdam, NL · founded 2019
 - [Wise](https://www.neobankbeat.com/n/wise/): traditional · Custodial · E-money institution · London, UK · founded 2011 · 19M customers
-- [Klarna](https://www.neobankbeat.com/n/klarna/): traditional · Custodial · Licensed bank · Stockholm, SE · founded 2005
+- [Klarna](https://www.neobankbeat.com/n/klarna/): traditional · Custodial · Licensed bank · Stockholm, SE · founded 2005 · AI in production: interface
 - [Salt Bank](https://www.neobankbeat.com/n/salt-bank/): traditional · Custodial · Licensed bank · Bucharest, RO · founded 2024
 - [Snappi](https://www.neobankbeat.com/n/snappi/): traditional · Custodial · Unclassified · Athens, GR · founded 2024
 - [Papara](https://www.neobankbeat.com/n/papara/): traditional · Custodial · Unclassified · Istanbul, TR · founded 2016
 - [Enpara](https://www.neobankbeat.com/n/enpara/): traditional · Custodial · Licensed bank · Istanbul, TR · founded 2012
 - [Monobank](https://www.neobankbeat.com/n/monobank/): traditional · Custodial · Partner-bank model · Kyiv, UA · founded 2017
-- [T-Bank](https://www.neobankbeat.com/n/t-bank/): traditional · Custodial · Licensed bank · Moscow, RU · founded 2006
+- [T-Bank](https://www.neobankbeat.com/n/t-bank/): traditional · Custodial · Licensed bank · Moscow, RU · founded 2006 · AI in production: interface
 - [Kaspi](https://www.neobankbeat.com/n/kaspi/): traditional · Custodial · Licensed bank · Almaty, KZ · founded 2012
 - [Uzum](https://www.neobankbeat.com/n/uzum/): traditional · Custodial · Licensed bank · Tashkent, UZ · founded 2022
-- [TBC UZ](https://www.neobankbeat.com/n/tbc-uz/): traditional · Custodial · Licensed bank · Tashkent, UZ · founded 2020
-- [Nubank](https://www.neobankbeat.com/n/nubank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2013 · 131M customers
-- [Ualá](https://www.neobankbeat.com/n/uala/): traditional · Custodial · Licensed bank · Buenos Aires, AR · founded 2017
-- [Plata](https://www.neobankbeat.com/n/plata/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2023
+- [TBC UZ](https://www.neobankbeat.com/n/tbc-uz/): traditional · Custodial · Licensed bank · Tashkent, UZ · founded 2020 · AI in production: underwriting
+- [Nubank](https://www.neobankbeat.com/n/nubank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2013 · 131M customers · AI in production: underwriting
+- [Ualá](https://www.neobankbeat.com/n/uala/): traditional · Custodial · Licensed bank · Buenos Aires, AR · founded 2017 · AI in production: underwriting
+- [Plata](https://www.neobankbeat.com/n/plata/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2023 · AI in production: underwriting
 - [albo](https://www.neobankbeat.com/n/albo/): traditional · Custodial · Unclassified · Mexico City, MX · founded 2016
-- [Klar](https://www.neobankbeat.com/n/klar/): traditional · Custodial · Unclassified · Mexico City, MX · founded 2019
-- [Stori](https://www.neobankbeat.com/n/stori/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2018
+- [Klar](https://www.neobankbeat.com/n/klar/): traditional · Custodial · Unclassified · Mexico City, MX · founded 2019 · AI in production: underwriting
+- [Stori](https://www.neobankbeat.com/n/stori/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2018 · AI in production: underwriting
 - [Fondeadora](https://www.neobankbeat.com/n/fondeadora/): traditional · Custodial · Unclassified · Mexico City, MX · founded 2018
 - [Hey Banco](https://www.neobankbeat.com/n/hey-banco/): traditional · Custodial · Unclassified · Monterrey, MX · founded 2018
 - [Cuenca](https://www.neobankbeat.com/n/cuenca/): traditional · Custodial · Unclassified · Mexico City, MX · founded 2018
 - [RappiPay](https://www.neobankbeat.com/n/rappipay/): traditional · Custodial · Unclassified · Bogotá, CO · founded 2019
-- [Neon](https://www.neobankbeat.com/n/neon/): traditional · Custodial · Unclassified · São Paulo, BR · founded 2016
-- [C6 Bank](https://www.neobankbeat.com/n/c6-bank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019
-- [Banco Inter](https://www.neobankbeat.com/n/banco-inter/): traditional · Custodial · Licensed bank · Belo Horizonte, BR · founded 2015 · 35M clients
-- [PicPay](https://www.neobankbeat.com/n/picpay/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2012 · 58M users
+- [Neon](https://www.neobankbeat.com/n/neon/): traditional · Custodial · Unclassified · São Paulo, BR · founded 2016 · AI in production: interface
+- [C6 Bank](https://www.neobankbeat.com/n/c6-bank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019 · AI in production: interface
+- [Banco Inter](https://www.neobankbeat.com/n/banco-inter/): traditional · Custodial · Licensed bank · Belo Horizonte, BR · founded 2015 · 35M clients · AI in production: interface
+- [PicPay](https://www.neobankbeat.com/n/picpay/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2012 · 58M users · AI in production: interface
 - [PagBank](https://www.neobankbeat.com/n/pagbank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019 · 32M clients
 - [Cora](https://www.neobankbeat.com/n/cora/): traditional · Custodial · Unclassified · São Paulo, BR · founded 2019
 - [Z1](https://www.neobankbeat.com/n/z1/): traditional · Custodial · Unclassified · São Paulo, BR · founded 2020
@@ -205,7 +205,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Brubank](https://www.neobankbeat.com/n/brubank/): traditional · Custodial · Licensed bank · Buenos Aires, AR · founded 2017
 - [Prex](https://www.neobankbeat.com/n/prex/): traditional · Custodial · E-money institution · Montevideo, UY · founded 2015
 - [ueno bank](https://www.neobankbeat.com/n/ueno-bank/): traditional · Custodial · Licensed bank · Asunción, PY · founded 2021
-- [Nequi](https://www.neobankbeat.com/n/nequi/): traditional · Custodial · Unclassified · Medellín, CO · founded 2016 · 20M users
+- [Nequi](https://www.neobankbeat.com/n/nequi/): traditional · Custodial · Unclassified · Medellín, CO · founded 2016 · 20M users · AI in production: underwriting
 - [Daviplata](https://www.neobankbeat.com/n/daviplata/): traditional · Custodial · Unclassified · Bogotá, CO · founded 2011
 - [Movii](https://www.neobankbeat.com/n/movii/): traditional · Custodial · Unclassified · Bogotá, CO · founded 2018
 - [Lulo Bank](https://www.neobankbeat.com/n/lulo-bank/): traditional · Custodial · Licensed bank · Bogotá, CO · founded 2021
@@ -213,16 +213,16 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Global66](https://www.neobankbeat.com/n/global66/): traditional · Custodial · Unclassified · Santiago, CL · founded 2018
 - [Zinli](https://www.neobankbeat.com/n/zinli/): traditional · Custodial · Unclassified · Panama City, PA · founded 2020
 - [Qik](https://www.neobankbeat.com/n/qik/): traditional · Custodial · Unclassified · Santo Domingo, DO · founded 2021
-- [KakaoBank](https://www.neobankbeat.com/n/kakaobank/): traditional · Custodial · Licensed bank · Seongnam, KR · founded 2016 · 23M customers
-- [Toss Bank](https://www.neobankbeat.com/n/toss-bank/): traditional · Custodial · Licensed bank · Seoul, KR · founded 2021
+- [KakaoBank](https://www.neobankbeat.com/n/kakaobank/): traditional · Custodial · Licensed bank · Seongnam, KR · founded 2016 · 23M customers · AI in production: underwriting
+- [Toss Bank](https://www.neobankbeat.com/n/toss-bank/): traditional · Custodial · Licensed bank · Seoul, KR · founded 2021 · AI in production: underwriting
 - [K bank](https://www.neobankbeat.com/n/k-bank/): traditional · Custodial · Licensed bank · Seoul, KR · founded 2016
-- [WeBank](https://www.neobankbeat.com/n/webank/): traditional · Custodial · Licensed bank · Shenzhen, CN · founded 2014 · 400M customers
-- [MYbank](https://www.neobankbeat.com/n/mybank/): traditional · Custodial · Licensed bank · Hangzhou, CN · founded 2015
+- [WeBank](https://www.neobankbeat.com/n/webank/): traditional · Custodial · Licensed bank · Shenzhen, CN · founded 2014 · 400M customers · AI in production: underwriting
+- [MYbank](https://www.neobankbeat.com/n/mybank/): traditional · Custodial · Licensed bank · Hangzhou, CN · founded 2015 · AI in production: underwriting
 - [Jupiter](https://www.neobankbeat.com/n/jupiter/): traditional · Custodial · Unclassified · Mumbai, IN · founded 2019
 - [Fi Money](https://www.neobankbeat.com/n/fi-money/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2019
 - [Niyo](https://www.neobankbeat.com/n/niyo/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2015
-- [slice](https://www.neobankbeat.com/n/slice/): traditional · Custodial · Licensed bank · Bengaluru, IN · founded 2016
-- [Freo](https://www.neobankbeat.com/n/freo/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2015
+- [slice](https://www.neobankbeat.com/n/slice/): traditional · Custodial · Licensed bank · Bengaluru, IN · founded 2016 · AI in production: underwriting
+- [Freo](https://www.neobankbeat.com/n/freo/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2015 · AI in production: underwriting
 - [Open](https://www.neobankbeat.com/n/open/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2017
 - [RazorpayX](https://www.neobankbeat.com/n/razorpayx/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2019
 - [FamPay](https://www.neobankbeat.com/n/fampay/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2019
@@ -232,51 +232,51 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [SadaPay](https://www.neobankbeat.com/n/sadapay/): traditional · Custodial · Unclassified · Karachi, PK · founded 2019
 - [NayaPay](https://www.neobankbeat.com/n/nayapay/): traditional · Custodial · Unclassified · Karachi, PK · founded 2019
 - [Oraan](https://www.neobankbeat.com/n/oraan/): traditional · Custodial · Unclassified · Karachi, PK · founded 2018
-- [bKash](https://www.neobankbeat.com/n/bkash/): traditional · Custodial · Licensed bank · Dhaka, BD · founded 2011 · 70M users
+- [bKash](https://www.neobankbeat.com/n/bkash/): traditional · Custodial · Licensed bank · Dhaka, BD · founded 2011 · 70M users · AI in production: underwriting
 - [Nagad](https://www.neobankbeat.com/n/nagad/): traditional · Custodial · Unclassified · Dhaka, BD · founded 2019
-- [GXS Bank](https://www.neobankbeat.com/n/gxs-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022
-- [MariBank](https://www.neobankbeat.com/n/maribank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022
+- [GXS Bank](https://www.neobankbeat.com/n/gxs-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022 · AI in production: underwriting
+- [MariBank](https://www.neobankbeat.com/n/maribank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022 · AI in production: underwriting
 - [Trust Bank](https://www.neobankbeat.com/n/trust-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022
-- [ANEXT Bank](https://www.neobankbeat.com/n/anext-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022
-- [Tonik](https://www.neobankbeat.com/n/tonik/): traditional · Custodial · Licensed bank · Manila, PH · founded 2018
-- [Maya](https://www.neobankbeat.com/n/maya/): traditional · Custodial · Licensed bank · Manila, PH · founded 2022 · 30M users
+- [ANEXT Bank](https://www.neobankbeat.com/n/anext-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022 · AI in production: underwriting
+- [Tonik](https://www.neobankbeat.com/n/tonik/): traditional · Custodial · Licensed bank · Manila, PH · founded 2018 · AI in production: underwriting
+- [Maya](https://www.neobankbeat.com/n/maya/): traditional · Custodial · Licensed bank · Manila, PH · founded 2022 · 30M users · AI in production: underwriting
 - [GoTyme Bank](https://www.neobankbeat.com/n/gotyme-bank/): traditional · Custodial · Licensed bank · Manila, PH · founded 2022
 - [UnionDigital](https://www.neobankbeat.com/n/uniondigital/): traditional · Custodial · Licensed bank · Manila, PH · founded 2022
-- [UNO Digital Bank](https://www.neobankbeat.com/n/uno-digital-bank/): traditional · Custodial · Licensed bank · Manila, PH · founded 2021
+- [UNO Digital Bank](https://www.neobankbeat.com/n/uno-digital-bank/): traditional · Custodial · Licensed bank · Manila, PH · founded 2021 · AI in production: underwriting
 - [Bank Jago](https://www.neobankbeat.com/n/bank-jago/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2020
-- [SeaBank](https://www.neobankbeat.com/n/seabank/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2021
+- [SeaBank](https://www.neobankbeat.com/n/seabank/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2021 · AI in production: underwriting
 - [Blu by BCA](https://www.neobankbeat.com/n/blu-by-bca/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2021
 - [Allo Bank](https://www.neobankbeat.com/n/allo-bank/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2021
-- [Superbank](https://www.neobankbeat.com/n/superbank/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2023
+- [Superbank](https://www.neobankbeat.com/n/superbank/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2023 · AI in production: underwriting
 - [Jenius](https://www.neobankbeat.com/n/jenius/): traditional · Custodial · Licensed bank · Jakarta, ID · founded 2016
 - [LINE BK](https://www.neobankbeat.com/n/line-bk/): traditional · Custodial · Partner-bank model · Bangkok, TH · founded 2020
 - [Timo](https://www.neobankbeat.com/n/timo/): traditional · Custodial · Partner-bank model · Ho Chi Minh, VN · founded 2015
-- [Cake](https://www.neobankbeat.com/n/cake/): traditional · Custodial · Partner-bank model · Ho Chi Minh, VN · founded 2021
+- [Cake](https://www.neobankbeat.com/n/cake/): traditional · Custodial · Partner-bank model · Ho Chi Minh, VN · founded 2021 · AI in production: underwriting
 - [TNEX](https://www.neobankbeat.com/n/tnex/): traditional · Custodial · Unclassified · Hanoi, VN · founded 2020
 - [GXBank](https://www.neobankbeat.com/n/gxbank/): traditional · Custodial · Licensed bank · Kuala Lumpur, MY · founded 2023
 - [AEON Bank](https://www.neobankbeat.com/n/aeon-bank/): traditional · Custodial · Licensed bank · Kuala Lumpur, MY · founded 2023
 - [Boost Bank](https://www.neobankbeat.com/n/boost-bank/): traditional · Custodial · Licensed bank · Kuala Lumpur, MY · founded 2024
-- [Ryt Bank](https://www.neobankbeat.com/n/ryt-bank/): traditional · Custodial · Licensed bank · Kuala Lumpur, MY · founded 2025
+- [Ryt Bank](https://www.neobankbeat.com/n/ryt-bank/): traditional · Custodial · Licensed bank · Kuala Lumpur, MY · founded 2025 · AI in production: interface
 - [PayPay Bank](https://www.neobankbeat.com/n/paypay-bank/): traditional · Custodial · Licensed bank · Tokyo, JP · founded 2000
 - [Minna Bank](https://www.neobankbeat.com/n/minna-bank/): traditional · Custodial · Licensed bank · Fukuoka, JP · founded 2021
-- [Rakuten Bank](https://www.neobankbeat.com/n/rakuten-bank/): traditional · Custodial · Licensed bank · Tokyo, JP · founded 2001
+- [Rakuten Bank](https://www.neobankbeat.com/n/rakuten-bank/): traditional · Custodial · Licensed bank · Tokyo, JP · founded 2001 · AI in production: underwriting
 - [LINE Bank TW](https://www.neobankbeat.com/n/line-bank-tw/): traditional · Custodial · Licensed bank · Taipei, TW · founded 2021
 - [NEXT Bank](https://www.neobankbeat.com/n/next-bank/): traditional · Custodial · Licensed bank · Taipei, TW · founded 2022
 - [ZA Bank](https://www.neobankbeat.com/n/za-bank/): traditional · Custodial · Licensed bank · Hong Kong, HK · founded 2020
 - [Mox Bank](https://www.neobankbeat.com/n/mox-bank/): traditional · Custodial · Licensed bank · Hong Kong, HK · founded 2020
-- [WeLab Bank](https://www.neobankbeat.com/n/welab-bank/): traditional · Custodial · Licensed bank · Hong Kong, HK · founded 2020
+- [WeLab Bank](https://www.neobankbeat.com/n/welab-bank/): traditional · Custodial · Licensed bank · Hong Kong, HK · founded 2020 · AI in production: underwriting
 - [Up](https://www.neobankbeat.com/n/up/): traditional · Custodial · Partner-bank model · Melbourne, AU · founded 2018
 - [Judo Bank](https://www.neobankbeat.com/n/judo-bank/): traditional · Custodial · Licensed bank · Melbourne, AU · founded 2016
 - [Hnry](https://www.neobankbeat.com/n/hnry/): traditional · Custodial · Unclassified · Wellington, NZ · founded 2017
 - [TymeBank](https://www.neobankbeat.com/n/tymebank/): traditional · Custodial · Licensed bank · Johannesburg, ZA · founded 2018 · 10M customers
 - [Bank Zero](https://www.neobankbeat.com/n/bank-zero/): traditional · Custodial · Licensed bank · Johannesburg, ZA · founded 2018
-- [Discovery Bank](https://www.neobankbeat.com/n/discovery-bank/): traditional · Custodial · Licensed bank · Johannesburg, ZA · founded 2019
+- [Discovery Bank](https://www.neobankbeat.com/n/discovery-bank/): traditional · Custodial · Licensed bank · Johannesburg, ZA · founded 2019 · AI in production: interface
 - [Kuda](https://www.neobankbeat.com/n/kuda/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2019
 - [OPay](https://www.neobankbeat.com/n/opay/): traditional · Custodial · Payment institution · Lagos, NG · founded 2018 · 60M users
-- [PalmPay](https://www.neobankbeat.com/n/palmpay/): traditional · Custodial · Payment institution · Lagos, NG · founded 2019 · 35M users
-- [Moniepoint](https://www.neobankbeat.com/n/moniepoint/): traditional · Custodial · Other / mixed · Lagos, NG · founded 2015
-- [FairMoney](https://www.neobankbeat.com/n/fairmoney/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2017
-- [Carbon](https://www.neobankbeat.com/n/carbon/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2012
+- [PalmPay](https://www.neobankbeat.com/n/palmpay/): traditional · Custodial · Payment institution · Lagos, NG · founded 2019 · 35M users · AI in production: underwriting
+- [Moniepoint](https://www.neobankbeat.com/n/moniepoint/): traditional · Custodial · Other / mixed · Lagos, NG · founded 2015 · AI in production: underwriting
+- [FairMoney](https://www.neobankbeat.com/n/fairmoney/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2017 · AI in production: underwriting
+- [Carbon](https://www.neobankbeat.com/n/carbon/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2012 · AI in production: underwriting
 - [ALAT by Wema](https://www.neobankbeat.com/n/alat-by-wema/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2017
 - [Sparkle](https://www.neobankbeat.com/n/sparkle/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2019
 - [Umba](https://www.neobankbeat.com/n/umba/): traditional · Custodial · Unclassified · Lagos/Nairobi · founded 2018
@@ -284,9 +284,9 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Wave](https://www.neobankbeat.com/n/wave/): traditional · Custodial · E-money institution · Dakar, SN · founded 2018
 - [Eversend](https://www.neobankbeat.com/n/eversend/): traditional · Custodial · Unclassified · Kampala/Paris · founded 2017
 - [Fingo](https://www.neobankbeat.com/n/fingo/): traditional · Custodial · Unclassified · Nairobi, KE · founded 2021
-- [Branch Intl](https://www.neobankbeat.com/n/branch-intl/): traditional · Custodial · Unclassified · Nairobi/Lagos · founded 2015
+- [Branch Intl](https://www.neobankbeat.com/n/branch-intl/): traditional · Custodial · Unclassified · Nairobi/Lagos · founded 2015 · AI in production: underwriting
 - [Khazna](https://www.neobankbeat.com/n/khazna/): traditional · Custodial · Unclassified · Cairo, EG · founded 2020
-- [MNT-Halan](https://www.neobankbeat.com/n/mnt-halan/): traditional · Custodial · Unclassified · Cairo, EG · founded 2018
+- [MNT-Halan](https://www.neobankbeat.com/n/mnt-halan/): traditional · Custodial · Unclassified · Cairo, EG · founded 2018 · AI in production: underwriting
 - [Flouci](https://www.neobankbeat.com/n/flouci/): traditional · Custodial · Other / mixed · Tunis, TN · founded 2018
 - [Grey](https://www.neobankbeat.com/n/grey/): traditional · Custodial · Unclassified · Lagos, NG · founded 2020
 - [PaySika](https://www.neobankbeat.com/n/paysika/): traditional · Custodial · Other / mixed · Douala, CM · founded 2020
@@ -304,23 +304,23 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [STC Bank](https://www.neobankbeat.com/n/stc-bank/): traditional · Custodial · Licensed bank · Riyadh, SA · founded 2018
 - [D360 Bank](https://www.neobankbeat.com/n/d360-bank/): traditional · Custodial · Licensed bank · Riyadh, SA · founded 2023
 - [Weyay](https://www.neobankbeat.com/n/weyay/): traditional · Custodial · Licensed bank · Kuwait City, KW · founded 2021
-- [One Zero](https://www.neobankbeat.com/n/one-zero/): traditional · Custodial · Licensed bank · Tel Aviv, IL · founded 2019
+- [One Zero](https://www.neobankbeat.com/n/one-zero/): traditional · Custodial · Licensed bank · Tel Aviv, IL · founded 2019 · AI in production: interface
 - [Pride Bank](https://www.neobankbeat.com/n/pride-bank/): traditional · Custodial · Unclassified · São Paulo, BR · founded 2019
-- [Revolut](https://www.neobankbeat.com/n/revolut/): hybrid · Custodial · Licensed bank · London, UK · founded 2015 · 50M customers
+- [Revolut](https://www.neobankbeat.com/n/revolut/): hybrid · Custodial · Licensed bank · London, UK · founded 2015 · 50M customers · AI in production: interface
 - [Cash App](https://www.neobankbeat.com/n/cash-app/): hybrid · Custodial · VASP / MSB / crypto licences · Oakland, US · founded 2013 · 59M transacting actives
 - [Venmo](https://www.neobankbeat.com/n/venmo/): hybrid · Custodial · Unclassified · New York, US · founded 2009
-- [Robinhood](https://www.neobankbeat.com/n/robinhood/): hybrid · Custodial · Partner-bank model · Menlo Park, US · founded 2013
+- [Robinhood](https://www.neobankbeat.com/n/robinhood/): hybrid · Custodial · Partner-bank model · Menlo Park, US · founded 2013 · AI in production: interface
 - [Crypto.com](https://www.neobankbeat.com/n/crypto-com/): hybrid · Custodial · MiCA CASP (EU) · Singapore, SG · founded 2016
-- [Coinbase Card](https://www.neobankbeat.com/n/coinbase-card/): hybrid · Custodial · MiCA CASP (EU) · San Francisco, US · founded 2012
+- [Coinbase Card](https://www.neobankbeat.com/n/coinbase-card/): hybrid · Custodial · MiCA CASP (EU) · San Francisco, US · founded 2012 · AI in production: agentic
 - [Binance Card](https://www.neobankbeat.com/n/binance-card/): hybrid · Custodial · VASP / MSB / crypto licences · — · founded 2017
 - [Bybit Card](https://www.neobankbeat.com/n/bybit-card/): hybrid · Custodial · VASP / MSB / crypto licences · Dubai, AE · founded 2018
-- [OKX Card](https://www.neobankbeat.com/n/okx-card/): hybrid · Custodial · MiCA CASP (EU) · — · founded 2017
+- [OKX Card](https://www.neobankbeat.com/n/okx-card/): hybrid · Custodial · MiCA CASP (EU) · — · founded 2017 · AI in production: agentic
 - [Bitget Card](https://www.neobankbeat.com/n/bitget-card/): hybrid · Custodial · Unclassified · — · founded 2018
 - [KuCard](https://www.neobankbeat.com/n/kucard/): hybrid · Custodial · Unclassified · — · founded 2017
 - [CEX.IO Card](https://www.neobankbeat.com/n/cex-io-card/): hybrid · Custodial · Unclassified · London, UK · founded 2013
 - [SpectroCoin](https://www.neobankbeat.com/n/spectrocoin/): hybrid · Custodial · Unclassified · Vilnius, LT · founded 2013
 - [Bitpanda](https://www.neobankbeat.com/n/bitpanda/): hybrid · Custodial · MiCA CASP (EU) · Vienna, AT · founded 2014
-- [eToro Money](https://www.neobankbeat.com/n/etoro-money/): hybrid · Custodial · Unclassified · Tel Aviv, IL · founded 2007
+- [eToro Money](https://www.neobankbeat.com/n/etoro-money/): hybrid · Custodial · Unclassified · Tel Aviv, IL · founded 2007 · AI in production: interface
 - [Tap Global](https://www.neobankbeat.com/n/tap-global/): hybrid · Custodial · Unclassified · London, UK · founded 2018
 - [CoinJar](https://www.neobankbeat.com/n/coinjar/): hybrid · Custodial · Unclassified · Melbourne, AU · founded 2013
 - [Plutus](https://www.neobankbeat.com/n/plutus/): hybrid · Custodial · Unclassified · London, UK · founded 2015
@@ -330,12 +330,12 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Juno](https://www.neobankbeat.com/n/juno/): hybrid · Custodial · Unclassified · San Francisco, US · founded 2019
 - [Strike](https://www.neobankbeat.com/n/strike/): hybrid · Custodial · Unclassified · Chicago, US · founded 2019
 - [Xapo Bank](https://www.neobankbeat.com/n/xapo-bank/): hybrid · Custodial · Licensed bank · Gibraltar · founded 2013
-- [Wirex](https://www.neobankbeat.com/n/wirex/): hybrid · Custodial · Unclassified · London, UK · founded 2014
+- [Wirex](https://www.neobankbeat.com/n/wirex/): hybrid · Custodial · Unclassified · London, UK · founded 2014 · AI in production: agentic
 - [Uphold](https://www.neobankbeat.com/n/uphold/): hybrid · Custodial · Unclassified · New York, US · founded 2015
-- [Nexo](https://www.neobankbeat.com/n/nexo/): hybrid · Custodial · Unclassified · Zug, CH · founded 2018
+- [Nexo](https://www.neobankbeat.com/n/nexo/): hybrid · Custodial · Unclassified · Zug, CH · founded 2018 · AI in production: interface
 - [Krak](https://www.neobankbeat.com/n/krak/): hybrid · Custodial · MiCA CASP (EU) · San Francisco, US · founded 2025
 - [KAST](https://www.neobankbeat.com/n/kast/): hybrid · Custodial · Unclassified · Hong Kong, HK · founded 2024
-- [RedotPay](https://www.neobankbeat.com/n/redotpay/): hybrid · Custodial · Unclassified · Hong Kong, HK · founded 2023
+- [RedotPay](https://www.neobankbeat.com/n/redotpay/): hybrid · Custodial · Unclassified · Hong Kong, HK · founded 2023 · AI in production: agentic
 - [Kolo](https://www.neobankbeat.com/n/kolo/): hybrid · Custodial · Unclassified · — · founded 2022
 - [Lava](https://www.neobankbeat.com/n/lava/): hybrid · Custodial · Other / mixed · New York, US · founded 2022
 - [COCA](https://www.neobankbeat.com/n/coca/): hybrid · MPC self-custodial · Self-custodial software · Dubai, AE · founded 2023
@@ -343,7 +343,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Brighty](https://www.neobankbeat.com/n/brighty/): hybrid · Custodial · VASP / MSB / crypto licences · Baar (Zug), CH · founded 2021
 - [UR](https://www.neobankbeat.com/n/ur/): hybrid · Custodial · Unclassified · — · founded 2023
 - [XPlace](https://www.neobankbeat.com/n/xplace/): hybrid · Custodial · Unclassified · Dubai, AE · founded 2023
-- [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/): hybrid · Custodial · Licence pending (partner model today) · Buenos Aires, AR · founded 2003 · 78M MAU
+- [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/): hybrid · Custodial · Licence pending (partner model today) · Buenos Aires, AR · founded 2003 · 78M MAU · AI in production: underwriting
 - [Lemon](https://www.neobankbeat.com/n/lemon/): hybrid · Custodial · Unclassified · Buenos Aires, AR · founded 2019
 - [Belo](https://www.neobankbeat.com/n/belo/): hybrid · Custodial · Unclassified · Buenos Aires, AR · founded 2020
 - [Ripio](https://www.neobankbeat.com/n/ripio/): hybrid · Custodial · Unclassified · Buenos Aires, AR · founded 2013
@@ -353,7 +353,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Littio](https://www.neobankbeat.com/n/littio/): hybrid · Custodial · Other / mixed · Bogotá, CO · founded 2021
 - [Meru](https://www.neobankbeat.com/n/meru/): hybrid · Custodial · Unclassified · Bogotá, CO · founded 2021
 - [Airtm](https://www.neobankbeat.com/n/airtm/): hybrid · Custodial · Unclassified · Mexico City, MX · founded 2015
-- [Félix](https://www.neobankbeat.com/n/felix/): hybrid · Custodial · Unclassified · Mexico City, MX · founded 2022
+- [Félix](https://www.neobankbeat.com/n/felix/): hybrid · Custodial · Unclassified · Mexico City, MX · founded 2022 · AI in production: interface
 - [Chipper Cash](https://www.neobankbeat.com/n/chipper-cash/): hybrid · Custodial · Unclassified · San Francisco, US · founded 2018
 - [Yellow Card](https://www.neobankbeat.com/n/yellow-card/): hybrid · Custodial · Other / mixed · Lagos, NG · founded 2016
 - [Bitnob](https://www.neobankbeat.com/n/bitnob/): hybrid · Custodial · Unclassified · Lagos, NG · founded 2020
@@ -361,14 +361,14 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Deel](https://www.neobankbeat.com/n/deel/): hybrid · Custodial · Unclassified · San Francisco, US · founded 2019
 - [Meow](https://www.neobankbeat.com/n/meow/): hybrid · Custodial · Unclassified · New York, US · founded 2021
 - [Dakota](https://www.neobankbeat.com/n/dakota/): web3-native · Self-custodial · Self-custodial software · New York, US · founded 2023
-- [Slash](https://www.neobankbeat.com/n/slash/): hybrid · Custodial · Unclassified · San Francisco, US · founded 2021
+- [Slash](https://www.neobankbeat.com/n/slash/): hybrid · Custodial · Unclassified · San Francisco, US · founded 2021 · AI in production: agentic
 - [Flex](https://www.neobankbeat.com/n/flex/): hybrid · Custodial · Partner-bank model · San Francisco, US · founded 2022
-- [MetaMask](https://www.neobankbeat.com/n/metamask/): web3-native · Self-custodial · Self-custodial software · Consensys (global) · founded 2016
+- [MetaMask](https://www.neobankbeat.com/n/metamask/): web3-native · Self-custodial · Self-custodial software · Consensys (global) · founded 2016 · AI in production: agentic
 - [Phantom](https://www.neobankbeat.com/n/phantom/): web3-native · Self-custodial · Self-custodial software · San Francisco, US · founded 2021 · 15M MAU
 - [Solflare](https://www.neobankbeat.com/n/solflare/): web3-native · Self-custodial · Self-custodial software · Belgrade, RS · founded 2017
 - [Rainbow](https://www.neobankbeat.com/n/rainbow/): web3-native · Self-custodial · Self-custodial software · New York, US · founded 2019
 - [Xverse](https://www.neobankbeat.com/n/xverse/): web3-native · Self-custodial · Self-custodial software · London, UK · founded 2021
-- [Trust Wallet](https://www.neobankbeat.com/n/trust-wallet/): web3-native · Self-custodial · Self-custodial software · — · founded 2017
+- [Trust Wallet](https://www.neobankbeat.com/n/trust-wallet/): web3-native · Self-custodial · Self-custodial software · — · founded 2017 · AI in production: agentic
 - [Exodus](https://www.neobankbeat.com/n/exodus/): web3-native · Self-custodial · Self-custodial software · Omaha, US · founded 2015
 - [Zengo](https://www.neobankbeat.com/n/zengo/): web3-native · MPC self-custodial · Self-custodial software · Tel Aviv, IL · founded 2018
 - [Payy](https://www.neobankbeat.com/n/payy/): web3-native · Self-custodial · Self-custodial software · New York, US · founded 2023
@@ -440,14 +440,14 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Moneco](https://www.neobankbeat.com/n/moneco/): traditional · Custodial · Unclassified · Paris, FR · founded 2022
 - [Superform](https://www.neobankbeat.com/n/superform/): web3-native · Self-custodial · Self-custodial software · — · founded 2023
 - [Baraka](https://www.neobankbeat.com/n/baraka/): traditional · Custodial · Unclassified · Dubai, AE · founded 2021
-- [GCash](https://www.neobankbeat.com/n/gcash/): traditional · Custodial · Unclassified · Manila, PH · founded 2004 · 94M users
+- [GCash](https://www.neobankbeat.com/n/gcash/): traditional · Custodial · Unclassified · Manila, PH · founded 2004 · 94M users · AI in production: underwriting
 - [PhonePe](https://www.neobankbeat.com/n/phonepe/): traditional · Custodial · Unclassified · Bengaluru, IN · founded 2015 · 200M MAU
 - [Paytm](https://www.neobankbeat.com/n/paytm/): traditional · Custodial · Unclassified · Noida, IN · founded 2010
 - [GrabPay](https://www.neobankbeat.com/n/grabpay/): traditional · Custodial · Unclassified · Singapore, SG · founded 2016
 - [GoPay](https://www.neobankbeat.com/n/gopay/): traditional · Custodial · Unclassified · Jakarta, ID · founded 2016
 - [OVO](https://www.neobankbeat.com/n/ovo/): traditional · Custodial · Unclassified · Jakarta, ID · founded 2017
 - [DANA](https://www.neobankbeat.com/n/dana/): traditional · Custodial · Unclassified · Jakarta, ID · founded 2018
-- [TrueMoney](https://www.neobankbeat.com/n/truemoney/): traditional · Custodial · Unclassified · Bangkok, TH · founded 2003
-- [MoMo](https://www.neobankbeat.com/n/momo/): traditional · Custodial · Unclassified · Ho Chi Minh City, VN · founded 2013
+- [TrueMoney](https://www.neobankbeat.com/n/truemoney/): traditional · Custodial · Unclassified · Bangkok, TH · founded 2003 · AI in production: underwriting
+- [MoMo](https://www.neobankbeat.com/n/momo/): traditional · Custodial · Unclassified · Ho Chi Minh City, VN · founded 2013 · AI in production: underwriting
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/): traditional · Custodial · Unclassified · Ho Chi Minh City, VN · founded 2016
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/): traditional · Custodial · Unclassified · Kuala Lumpur, MY · founded 2017

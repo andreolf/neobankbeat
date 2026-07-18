@@ -2,7 +2,7 @@
 title: "neobankbeat · who watches the neobanks?"
 description: "Independent, open-source directory of 373 verified-active neobanks — compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography."
 canonical: https://www.neobankbeat.com/
-date: 2026-07-16
+date: 2026-07-18
 ---
 
 # neobankbeat

@@ -1,0 +1,48 @@
+name: indexnow ping
+
+# Submits changed page URLs to IndexNow (Bing, Yandex, Seznam, Naver) on every
+# push to main, so new/updated pages get crawled within minutes instead of days.
+# The key file b0f96f66c93c03ad238377064bf95d58.txt is served from the site root.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Collect changed URLs and ping IndexNow
+        run: |
+          # give Vercel a moment to deploy the pushed commit before crawlers fetch
+          sleep 90
+          git diff --name-only --diff-filter=ACMR HEAD^ HEAD > changed-files.txt || true
+          node -e '
+            const fs=require("fs");
+            const BASE="https://www.neobankbeat.com";
+            const files=fs.readFileSync("changed-files.txt","utf8").trim().split("\n").filter(Boolean);
+            const urls=new Set();
+            for(const f of files){
+              if(/^(tests\/|\.github\/|node_modules\/|terminals\/|x-tweets\/|404\.html|README|AGENTS)/.test(f))continue;
+              if(f.endsWith("/index.html"))urls.add(BASE+"/"+f.slice(0,-10));
+              else if(f==="index.html")urls.add(BASE+"/");
+              else if(/\.(txt|json|xml|md)$/.test(f)&&!f.includes("/data/"))urls.add(BASE+"/"+f);
+            }
+            const urlList=[...urls].slice(0,10000);
+            console.log("changed URLs:",urlList.length);
+            if(!urlList.length)process.exit(0);
+            const body=JSON.stringify({host:"www.neobankbeat.com",key:"b0f96f66c93c03ad238377064bf95d58",keyLocation:BASE+"/b0f96f66c93c03ad238377064bf95d58.txt",urlList});
+            fetch("https://api.indexnow.org/indexnow",{method:"POST",headers:{"Content-Type":"application/json; charset=utf-8"},body})
+              .then(async r=>{console.log("IndexNow response:",r.status,await r.text());if(r.status>=400&&r.status!==429)process.exit(1);});
+          '

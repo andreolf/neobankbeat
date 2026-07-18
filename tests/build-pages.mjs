@@ -921,7 +921,8 @@ fs.writeFileSync(path.join(ROOT, 'sitemap.md'), sitemapMd);
 const llmsTxt = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
 const entLine = e => {
   const bits = [e.category, e.custody, e.regulation_type, e.hq, e.founded && `founded ${e.founded}`,
-    e.reported_users && `${e.reported_users.value_millions}M ${e.reported_users.metric}`].filter(Boolean).join(' · ');
+    e.reported_users && `${e.reported_users.value_millions}M ${e.reported_users.metric}`,
+    e.ai && `AI in production: ${e.ai}`].filter(Boolean).join(' · ');
   return `- [${e.name}](${BASE}/n/${slugs.get(e.name)}/): ${bits}`;
 };
 fs.writeFileSync(path.join(ROOT, 'llms-full.txt'), llmsTxt +
