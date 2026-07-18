@@ -277,7 +277,6 @@
   "about": "B2B crypto and stablecoin settlement layer with money-transmitter coverage across the US — the plumbing behind MoneyLion's and Juno's crypto features.",
   "clients": [
    "MoneyLion",
-   "Juno",
    "Step"
   ]
  },
@@ -343,7 +342,6 @@
   "hq": "San Francisco, US",
   "about": "The a16z-backed BaaS middleware whose 2024 bankruptcy froze ~$200M of end-user funds across partner banks — Juno was among the apps caught in the collapse. The reason 'who holds the ledger?' is now a due-diligence question.",
   "clients": [
-   "Juno",
    "Copper"
   ]
  },
@@ -447,8 +445,7 @@
   "hq": "Aluva, IN",
   "about": "The Kerala bank that became Indian neobanking's default charter — Jupiter and Fi Money both built on its savings accounts. Fi's 2026 wind-down, with customers pushed to the bank's own FedMobile app, showed who really owns the relationship.",
   "clients": [
-   "Jupiter",
-   "Fi Money"
+   "Jupiter"
   ]
  },
  "SBM Bank India": {

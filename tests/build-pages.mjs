@@ -28,7 +28,7 @@ const CATCHIP = { 'traditional': ['t', 'traditional'], 'hybrid': ['h', 'hybrid']
 const catChip = e => { const [cls, label] = CATCHIP[e.category]; return `<span class="chip ${cls}">${label}</span>`; };
 const users = e => e.reported_users ? `${esc(e.reported_users.value_millions)}M ${esc(e.reported_users.metric)}${e.reported_users.as_of ? ' (' + esc(e.reported_users.as_of) + ')' : ''}` : null;
 
-const head = (title, desc, canonical, ldjson) => `<!DOCTYPE html>
+const head = (title, desc, canonical, ldjson, ogImage) => `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -42,9 +42,11 @@ const head = (title, desc, canonical, ldjson) => `<!DOCTYPE html>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${BASE}/og.png">
+<meta property="og:image" content="${ogImage || BASE + '/og.png'}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${BASE}/og.png">
+<meta name="twitter:image" content="${ogImage || BASE + '/og.png'}">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -83,7 +85,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -165,7 +167,8 @@ for (const e of E) {
     ]
   };
   const pr = peers(e);
-  const html = head(title, desc, url, ld) + `
+  const ogPath = fs.existsSync(path.join(ROOT, 'og', 'n', `${slug}.png`)) ? `${BASE}/og/n/${slug}.png` : undefined;
+  const html = head(title, desc, url, ld, ogPath) + `
 <main class="wrap">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
@@ -226,7 +229,7 @@ const PAIRS = [
   ['bKash', 'Nagad'], ['Airtel Payments Bank', 'Jio Payments Bank'], ['Djamo', 'Wave'], ['KakaoBank', 'Toss Bank'],
   ['Mercury', 'Brex'], ['Brex', 'Ramp'], ['Mercury', 'Novo'], ['Qonto', 'Tide'], ['Relay', 'Novo'], ['Mercury', 'Qonto'],
   ['Crypto.com', 'Coinbase Card'], ['Bybit Card', 'OKX Card'], ['Wirex', 'Plutus'], ['Nexo', 'Crypto.com'],
-  ['Bitpanda', 'eToro Money'], ['Strike', 'Cash App'], ['Xapo Bank', 'Revolut'], ['Juno', 'Wirex'],
+  ['Bitpanda', 'eToro Money'], ['Strike', 'Cash App'], ['Xapo Bank', 'Revolut'],
   ['MetaMask', 'Phantom'], ['Trust Wallet', 'Exodus'], ['Gnosis Pay', 'EtherFi Cash'], ['Gnosis Pay', 'Payy'],
   ['1inch Card', 'Gnosis Pay'], ['Zengo', 'Trust Wallet'], ['MiniPay', 'Daimo'], ['Rainbow', 'MetaMask'],
   ['Greenlight', 'GoHenry'], ['Step', 'Greenlight'], ['Found', 'Lili'], ['Hnry', 'Found'],
@@ -289,7 +292,7 @@ for (const [an, bn] of PAIRS) {
   if (!a || !b) { console.warn(`vs: skipping ${an} vs ${bn} (not in dataset)`); continue; }
   const slug = `${slugs.get(an)}-vs-${slugs.get(bn)}`;
   const url = `${BASE}/vs/${slug}/`;
-  const title = `${an} vs ${bn} (2026): custody, fees, cards & licence compared · neobankbeat`;
+  const title = `${an} vs ${bn} compared (2026) · neobankbeat`;
   const desc = `${an} vs ${bn} side by side — custody, regulation, card network, cashback, yield, stablecoin support and geography. Neutral comparison from the open neobankbeat dataset. No affiliate links.`;
   const ld = {
     '@context': 'https://schema.org', '@graph': [
@@ -416,7 +419,7 @@ let invSlugList = [];
   <div class="ivbanks">${v.banks.map(b => `<a href="/n/${slugs.get(b.name)}/">${esc(b.name)}</a>`).join('')}</div>
 </div>`;
 
-  const html = (head(`Investors in neobanks — ${rows.length} VCs & strategics behind ${nBanks} digital banks · neobankbeat`,
+  const html = (head(`Investors in neobanks — ${rows.length} VCs & strategics mapped · neobankbeat`,
     `Who funds the neobanks: ${rows.length} venture and strategic investors — Ribbit, Tiger Global, SoftBank, Tencent, Y Combinator and more — mapped to the ${nBanks} neobanks they backed, from publicly disclosed rounds.`,
     url, ld) + `
 <main class="wrap">
@@ -462,7 +465,7 @@ ${rows.map(rowHtml).join('\n')}
     const co = rows.filter(([n2, v2]) => n2 !== name && v2.banks.some(b => bankNames.includes(b.name)))
       .map(([n2, v2]) => [n2, v2.banks.filter(b => bankNames.includes(b.name)).length])
       .sort((a, b) => b[1] - a[1]).slice(0, 10);
-    const title = `${name} — neobank portfolio: ${n} digital bank${n === 1 ? '' : 's'} backed · neobankbeat`;
+    const title = `${name} — ${n} neobank${n === 1 ? '' : 's'} backed · neobankbeat`;
     const desc = (PEOPLE[name]?.about ? PEOPLE[name].about + ' ' : '') +
       `Backer of ${n} tracked neobank${n === 1 ? '' : 's'}: ${bankNames.slice(0, 6).join(', ')}${n > 6 ? ' and more' : ''}.`;
     const ld = {
@@ -575,7 +578,7 @@ const NEWSLETTERS = [
   <div class="nd">${esc(d)}</div>
   <div class="nu"><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)} ↗</a></div>
 </div>`;
-  const html = (head(`Neobank & fintech newsletters — the ${NEWSLETTERS.length} worth your inbox · neobankbeat`,
+  const html = (head(`Neobank & fintech newsletters — ${NEWSLETTERS.length} worth your inbox · neobankbeat`,
     `The hand-picked reading list behind neobankbeat: ${NEWSLETTERS.length} fintech and neobank newsletters with authors and what each is best at — Fintech Brainfood, Fintech Takes, This Week in Fintech, Net Interest and more.`,
     url, ld) + `
 <main class="wrap">
@@ -654,6 +657,76 @@ ${cards.map(row).join('\n')}
   console.log(`stablecoin-cards page: ${cards.length} cards`);
 }
 
+/* ═══ /ai/ — AI neobanks: the entities with the verified ai tag, grouped by tier ═══ */
+let aiCount = 0;
+{
+  const url = `${BASE}/ai/`;
+  const TIERS = [
+    ['underwriting', 'AI underwriting in production', 'The credit decision that makes or loses the money is made by a model, at scale, today. Almost every name lends where the credit bureau is useless — the model is the reason the business can exist.'],
+    ['interface', 'AI as the interface', 'An AI assistant is a primary way customers use the bank — executing payments and trades, or autonomously resolving the majority of support contacts.'],
+    ['agentic', 'Banking for AI agents', 'The customer is the agent: wallets, cards and accounts that AI agents operate, with spend controls and policy engines instead of selfie checks.'],
+  ];
+  const tagged = E.filter(e => e.ai);
+  aiCount = tagged.length;
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI neobanks — verified in production', url,
+    description: `The ${tagged.length} of ${E.length} tracked neobanks where AI is verifiably in production: model-driven underwriting, AI-first interfaces, and banking for AI agents.`,
+    isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
+    mainEntity: { '@type': 'ItemList', itemListElement: tagged.map((e, i) => ({
+      '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) }
+  };
+  const style = `<style>
+.uctable{width:100%;border-collapse:collapse;font-size:12.5px;margin:18px 0}
+.uctable th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.uctable td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.uctable td a{color:var(--text);font-weight:600;text-decoration:none}
+.uctable td a:hover{color:var(--accent)}
+.uctable .cat{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.uctable .dim{color:var(--dim)}
+.ucwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.aitier{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin:34px 0 6px}
+@media(max-width:700px){.uctable{font-size:11.5px}.uctable td,.uctable th{padding:7px 6px}}
+</style>`;
+  const row = e => `<tr>
+    <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
+    <td class="cat">${esc(e.category)}</td>
+    <td class="dim">${esc(e.hq)}</td>
+    <td class="dim">${users(e) || '—'}</td>
+    <td class="dim">${esc(e.regulation_type)}</td>
+  </tr>`;
+  const section = ([key, label, blurb]) => {
+    const list = tagged.filter(e => e.ai === key).sort((a, b) =>
+      (b.reported_users?.value_millions || 0) - (a.reported_users?.value_millions || 0) || a.name.localeCompare(b.name));
+    return `<div class="aitier">${esc(label)} · ${list.length}</div>
+  <p>${esc(blurb)}</p>
+  <div class="ucwrap"><table class="uctable">
+    <thead><tr><th>neobank</th><th>wave</th><th>hq</th><th>reported users</th><th>regulation</th></tr></thead>
+    <tbody>
+${list.map(row).join('\n')}
+    </tbody>
+  </table></div>`;
+  };
+  const aiOg = fs.existsSync(path.join(ROOT, 'og', 'ai.png')) ? `${BASE}/og/ai.png` : undefined;
+  const html = (head(`AI neobanks — the ${tagged.length} with AI verified in production · neobankbeat`,
+    `"AI neobank" is mostly narrative — these are the ${tagged.length} of ${E.length} tracked neobanks where AI is verifiably in production: ${tagged.filter(e => e.ai === 'underwriting').length} with model-driven underwriting, ${tagged.filter(e => e.ai === 'interface').length} with AI-first interfaces, ${tagged.filter(e => e.ai === 'agentic').length} banking AI agents. Verified against filings and disclosures.`,
+    url, ld, aiOg) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">narrative check</div>
+  <h1>AI neobanks, <em>verified</em></h1>
+  <p class="meta"><b>${tagged.length} of ${E.length} tracked neobanks</b> · every tag verified against filings, disclosures and product docs · updated ${TODAY}</p>
+  <p>Every fintech deck now says AI somewhere, which makes "AI neobank" the least informative label in the industry. This page lists only the entities where AI is <em>verifiably in production</em> — not pilots, previews, roadmap promises or partner-owned models. The full methodology and the claims that didn't survive verification are in <a href="/blog/ai-neobanks/">the write-up</a>; the tag ships as an <code>ai</code> field in <a href="/data.json">data.json</a> and as a <a href="/?ai=1">directory filter</a>.</p>
+${TIERS.map(section).join('\n')}
+  <div class="callout"><span class="k">go deeper</span>Read <a href="/blog/ai-neobanks/">AI neobanks: narrative vs. production</a>, filter the <a href="/?ai=1">directory</a>, or pull the <code>ai</code> field straight from <a href="/data.json">data.json</a>.</div>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Tags reflect publicly verifiable production deployments as of ${TODAY}, from filings, product documentation and company disclosures. Absence of a tag means no verified production AI — not necessarily none. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a correction</a>.</p>
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+  fs.mkdirSync(path.join(ROOT, 'ai'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'ai', 'index.html'), html.replace('</head>', style + '\n</head>'));
+  console.log(`ai page: ${tagged.length} tagged entities`);
+}
+
 /* ═══ /infra/ — the picks-and-shovels layer: who runs the rails under the neobanks ═══ */
 const infraSlugList = [];
 {
@@ -715,7 +788,7 @@ const infraSlugList = [];
     if (r[1].type !== lastType) { lastType = r[1].type; body += `<div class="iftype">${esc(TYPE_PLURAL[lastType] || lastType)}</div>\n`; }
     body += rowHtml(r) + '\n';
   }
-  const html = (head(`Infra for neobanks — the ${rows.length} providers running the rails · neobankbeat`,
+  const html = (head(`Infra for neobanks — ${rows.length} providers running the rails · neobankbeat`,
     `The picks-and-shovels layer: ${rows.length} sponsor banks, card-issuing processors, crypto card platforms and stablecoin rails, mapped to the tracked neobanks that run on them — Bancorp, Column, Marqeta, Baanx, Bridge, Rain and more.`,
     url, ld) + `
 <main class="wrap">
@@ -751,8 +824,7 @@ ${body}
     const purl = `${BASE}/infra/${slug}/`;
     const clients = v.clients.map(c => E.find(e => e.name === c)).filter(Boolean);
     const siblings = rows.filter(([n2, v2]) => n2 !== name && v2.type === v.type);
-    const title = clients.length ? `${name} — ${v.type} behind ${clients.length} tracked neobank${clients.length === 1 ? '' : 's'} · neobankbeat`
-      : `${name} — ${v.type} for neobanks · neobankbeat`;
+    const title = `${name} — ${v.type} for neobanks · neobankbeat`;
     const desc = `${v.about}${clients.length ? ` Tracked neobanks on its rails: ${v.clients.join(', ')}.` : ''}`;
     const pld = {
       '@context': 'https://schema.org', '@graph': [
@@ -851,6 +923,7 @@ const urls = [
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/ai/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
   ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: TODAY, priority: '0.6' })),
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
@@ -886,6 +959,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Infra for neobanks](${BASE}/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (${infraSlugList.length} providers)
 - [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](${BASE}/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
+- [AI neobanks](${BASE}/ai/) — the ${aiCount} neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
 - [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)

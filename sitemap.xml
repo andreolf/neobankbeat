@@ -49,6 +49,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/ai/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/infra/</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -100,11 +106,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/infra/federal-bank/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/infra/lincoln-savings-bank/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
@@ -126,6 +127,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/thread-bank/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/infra/federal-bank/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
   </url>
@@ -625,11 +631,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/peak-xv-partners/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/investors/sequoia-capital/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
@@ -651,6 +652,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/lightspeed/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/investors/peak-xv-partners/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
   </url>
@@ -751,11 +757,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/stripe/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/temasek/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
   </url>
@@ -915,6 +916,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/investors/temasek/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/investors/thrive-capital/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
@@ -965,11 +971,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/investors/alpha-wave/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/investors/altos-ventures/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
@@ -1006,11 +1007,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/avenir-growth/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/b-capital/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1511,11 +1507,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/pldt/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/investors/polychain-capital/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.6</priority>
   </url>
@@ -2492,11 +2483,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/n/z1/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/n/ng-cash/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
@@ -2588,11 +2574,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/jupiter/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/n/fi-money/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -3132,11 +3113,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/n/juno/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/n/strike/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
@@ -3577,11 +3553,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/n/kard/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/n/pixpay/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
@@ -3623,11 +3594,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/nomad/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/n/pomelo/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -3993,11 +3959,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/vs/juno-vs-wirex/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/vs/metamask-vs-phantom/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
@@ -4198,22 +4159,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/vs/majority-vs-pomelo/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/vs/zolve-vs-comun/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/vs/zolve-vs-pomelo/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/vs/comun-vs-pomelo/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -4319,11 +4265,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/wise-vs-youtrip/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/vs/z1-vs-ng-cash/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
   </url>
@@ -4464,11 +4405,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/fizen-vs-surfcash/</loc>
-    <lastmod>2026-07-18</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/vs/kard-vs-pixpay/</loc>
     <lastmod>2026-07-18</lastmod>
     <priority>0.7</priority>
   </url>

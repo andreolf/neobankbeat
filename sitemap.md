@@ -4,13 +4,14 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 373 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
 - [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
-- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (222 firms)
+- [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
 - [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (106 providers)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
+- [AI neobanks](https://www.neobankbeat.com/ai/) — the 67 neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
 - [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-07/)
@@ -60,7 +61,7 @@
 - [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
 - [ai neobanks](https://www.neobankbeat.com/blog/ai-neobanks/) (2026-07-16)
 
-## Neobank profiles (373)
+## Neobank profiles (368)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -183,7 +184,6 @@
 - [PicPay](https://www.neobankbeat.com/n/picpay/)
 - [PagBank](https://www.neobankbeat.com/n/pagbank/)
 - [Cora](https://www.neobankbeat.com/n/cora/)
-- [Z1](https://www.neobankbeat.com/n/z1/)
 - [NG.cash](https://www.neobankbeat.com/n/ng-cash/)
 - [Naranja X](https://www.neobankbeat.com/n/naranja-x/)
 - [Brubank](https://www.neobankbeat.com/n/brubank/)
@@ -203,7 +203,6 @@
 - [WeBank](https://www.neobankbeat.com/n/webank/)
 - [MYbank](https://www.neobankbeat.com/n/mybank/)
 - [Jupiter](https://www.neobankbeat.com/n/jupiter/)
-- [Fi Money](https://www.neobankbeat.com/n/fi-money/)
 - [Niyo](https://www.neobankbeat.com/n/niyo/)
 - [slice](https://www.neobankbeat.com/n/slice/)
 - [Freo](https://www.neobankbeat.com/n/freo/)
@@ -311,7 +310,6 @@
 - [Fold](https://www.neobankbeat.com/n/fold/)
 - [Gemini Credit Card](https://www.neobankbeat.com/n/gemini-credit-card/)
 - [BitPay Card](https://www.neobankbeat.com/n/bitpay-card/)
-- [Juno](https://www.neobankbeat.com/n/juno/)
 - [Strike](https://www.neobankbeat.com/n/strike/)
 - [Xapo Bank](https://www.neobankbeat.com/n/xapo-bank/)
 - [Wirex](https://www.neobankbeat.com/n/wirex/)
@@ -400,7 +398,6 @@
 - [Yuh](https://www.neobankbeat.com/n/yuh/)
 - [neon](https://www.neobankbeat.com/n/neon-2/)
 - [Zak](https://www.neobankbeat.com/n/zak/)
-- [Kard](https://www.neobankbeat.com/n/kard/)
 - [Pixpay](https://www.neobankbeat.com/n/pixpay/)
 - [Bling](https://www.neobankbeat.com/n/bling/)
 - [Kit](https://www.neobankbeat.com/n/kit/)
@@ -410,7 +407,6 @@
 - [YouTrip](https://www.neobankbeat.com/n/youtrip/)
 - [Mashreq Neo](https://www.neobankbeat.com/n/mashreq-neo/)
 - [Nomad](https://www.neobankbeat.com/n/nomad/)
-- [Pomelo](https://www.neobankbeat.com/n/pomelo/)
 - [Daimo](https://www.neobankbeat.com/n/daimo/)
 - [Vision Bank](https://www.neobankbeat.com/n/vision-bank/)
 - [Beyon Money](https://www.neobankbeat.com/n/beyon-money/)
@@ -436,7 +432,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (143)
+## Comparisons (137)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -485,7 +481,6 @@
 - [Bitpanda vs eToro Money](https://www.neobankbeat.com/vs/bitpanda-vs-etoro-money/)
 - [Strike vs Cash App](https://www.neobankbeat.com/vs/strike-vs-cash-app/)
 - [Xapo Bank vs Revolut](https://www.neobankbeat.com/vs/xapo-bank-vs-revolut/)
-- [Juno vs Wirex](https://www.neobankbeat.com/vs/juno-vs-wirex/)
 - [MetaMask vs Phantom](https://www.neobankbeat.com/vs/metamask-vs-phantom/)
 - [Trust Wallet vs Exodus](https://www.neobankbeat.com/vs/trust-wallet-vs-exodus/)
 - [Gnosis Pay vs EtherFi Cash](https://www.neobankbeat.com/vs/gnosis-pay-vs-etherfi-cash/)
@@ -526,10 +521,7 @@
 - [Greenwood vs MoCaFi](https://www.neobankbeat.com/vs/greenwood-vs-mocafi/)
 - [Majority vs Zolve](https://www.neobankbeat.com/vs/majority-vs-zolve/)
 - [Majority vs Comun](https://www.neobankbeat.com/vs/majority-vs-comun/)
-- [Majority vs Pomelo](https://www.neobankbeat.com/vs/majority-vs-pomelo/)
 - [Zolve vs Comun](https://www.neobankbeat.com/vs/zolve-vs-comun/)
-- [Zolve vs Pomelo](https://www.neobankbeat.com/vs/zolve-vs-pomelo/)
-- [Comun vs Pomelo](https://www.neobankbeat.com/vs/comun-vs-pomelo/)
 - [Ellevest vs First Women's Bank](https://www.neobankbeat.com/vs/ellevest-vs-first-women-s-bank/)
 - [Tide vs OakNorth](https://www.neobankbeat.com/vs/tide-vs-oaknorth/)
 - [Tide vs Allica Bank](https://www.neobankbeat.com/vs/tide-vs-allica-bank/)
@@ -551,7 +543,6 @@
 - [Wise vs Global66](https://www.neobankbeat.com/vs/wise-vs-global66/)
 - [Wise vs Niyo](https://www.neobankbeat.com/vs/wise-vs-niyo/)
 - [Wise vs YouTrip](https://www.neobankbeat.com/vs/wise-vs-youtrip/)
-- [Z1 vs NG.cash](https://www.neobankbeat.com/vs/z1-vs-ng-cash/)
 - [Daviplata vs Movii](https://www.neobankbeat.com/vs/daviplata-vs-movii/)
 - [MYbank vs Aspire](https://www.neobankbeat.com/vs/mybank-vs-aspire/)
 - [Niyo vs YouTrip](https://www.neobankbeat.com/vs/niyo-vs-youtrip/)
@@ -580,4 +571,3 @@
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
-- [Kard vs Pixpay](https://www.neobankbeat.com/vs/kard-vs-pixpay/)

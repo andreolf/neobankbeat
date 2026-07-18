@@ -10,7 +10,7 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Sitemap: https://www.neobankbeat.com/sitemap.xml
 
 # Machine-readable entry points for crawlers and AI agents:
-# https://www.neobankbeat.com/data.json          full dataset (373 neobanks)
+# https://www.neobankbeat.com/data.json          full dataset (368 neobanks)
 # https://www.neobankbeat.com/llms.txt           agent-oriented site guide
 # https://www.neobankbeat.com/openapi.json       OpenAPI description of the data endpoints
 # https://www.neobankbeat.com/.well-known/api-catalog        RFC 9727 API catalog

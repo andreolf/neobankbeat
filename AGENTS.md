@@ -2,7 +2,7 @@
 
 Guidance for AI agents and automated crawlers consuming
 [neobankbeat.com](https://www.neobankbeat.com/), the independent, MIT-licensed
-directory of 373 verified-active neobanks.
+directory of 368 verified-active neobanks.
 
 ## About this site
 

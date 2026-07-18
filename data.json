@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 373,
+  "total": 368,
   "counts": {
-   "traditional": 258,
-   "hybrid": 59,
+   "traditional": 254,
+   "hybrid": 58,
    "web3_native": 56,
-   "niche_audience": 125
+   "niche_audience": 122
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -376,7 +376,7 @@
    "hq": "New York, US",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -389,6 +389,7 @@
     "North America"
    ],
    "note": "Goldman Sachs' consumer digital bank.",
+   "licence": "Goldman Sachs Bank USA national bank charter (OCC); Member FDIC",
    "privacy_url": "https://www.marcus.com/us/en/privacy-policy",
    "x_handle": "MarcusGS",
    "countries": [
@@ -506,7 +507,7 @@
    "hq": "Seattle, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -519,6 +520,7 @@
     "North America"
    ],
    "note": "Teen banking + financial literacy.",
+   "licence": "Partner bank (Evolve Bank & Trust); relaunched family banking after 2024 Synapse collapse",
    "founders": "Eddie Behringer, Stefan Berglund",
    "funding": "~$40M raised",
    "terms_url": "https://www.getcopper.com/terms",
@@ -535,7 +537,7 @@
    "hq": "Boston, US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -547,7 +549,8 @@
    "active_regions": [
     "North America"
    ],
-   "note": "Family banking for kids' smart spending."
+   "note": "Family banking for kids' smart spending.",
+   "licence": "Partner bank (Coastal Community Bank); FDIC pass-through; Visa debit cards"
   },
   {
    "name": "GoHenry",
@@ -557,7 +560,7 @@
    "hq": "New York/London",
    "founded": 2012,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa/MC",
    "card_type": "Debit",
    "cashback": null,
@@ -571,6 +574,7 @@
    ],
    "note": "Kids' money app; acquired by Acorns.",
    "story": "UK parents crowdfunded a kids' money app that taught a generation pocket-money-by-chores.",
+   "licence": "Partner bank (Community Federal Savings Bank, US); UK cards via FCA-regulated e-money issuer",
    "founders": "Louise Hill, Dean Brauer",
    "funding": "Acquired by Acorns (2023)",
    "terms_url": "https://www.gohenry.com/us/terms-and-conditions",
@@ -589,7 +593,7 @@
    "hq": "Culver City, US",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Offers",
@@ -603,6 +607,7 @@
    ],
    "note": "Automated savings + 'Genius' advice.",
    "ai": "interface",
+   "licence": "Partner banks (Sutton Bank, Stride Bank; savings via Coastal Community Bank, Wells Fargo)",
    "terms_url": "https://albert.com/terms",
    "x_handle": "albertsavings",
    "countries": [
@@ -790,7 +795,7 @@
    "hq": "Miami, US",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -803,6 +808,7 @@
     "North America"
    ],
    "note": "SMB checking for small operators.",
+   "licence": "Partner bank (Middlesex Federal Savings, F.A.); Mastercard debit; credit card via Continental Bank",
    "founders": "Michael Rangel, Tyler McIntyre",
    "funding": "~$170M raised",
    "terms_url": "https://www.novo.co/legal",
@@ -834,7 +840,7 @@
    "hq": "Redwood City, US",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -847,6 +853,7 @@
     "North America"
    ],
    "note": "SMB checking + credit lines.",
+   "licence": "Partner bank (Coastal Community Bank) + sweep-network program banks (up to $3M FDIC); credit line via Celtic Bank",
    "founders": "Eyal Lifshitz",
    "funding": "~$770M incl. debt",
    "privacy_url": "https://www.bluevine.com/privacy-policy",
@@ -881,7 +888,7 @@
    "hq": "Toronto/US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": null,
@@ -894,6 +901,7 @@
     "North America"
    ],
    "note": "Multi-account SMB banking (Profit First).",
+   "licence": "Partner bank (Thread Bank, Member FDIC); previously Evolve Bank & Trust",
    "founders": "Yoseph West",
    "funding": "~$100M raised",
    "terms_url": "https://relayfi.com/terms/",
@@ -926,7 +934,7 @@
    "hq": "New York, US",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -939,6 +947,7 @@
     "North America"
    ],
    "note": "SMB banking for main-street businesses.",
+   "licence": "Partner bank (The Bancorp Bank, N.A.); Mastercard business debit",
    "investors": [
     {
      "name": "Battery Ventures",
@@ -958,7 +967,7 @@
    "hq": "New York, US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Corporate card",
    "cashback": "Up to 1.75%",
@@ -971,6 +980,7 @@
     "North America"
    ],
    "note": "Corporate banking + spend platform.",
+   "licence": "Partner bank (Webster Bank, N.A.); savings swept across 400+ FDIC banks via ADM",
    "founders": "Everett Cook, Alex Wheldon",
    "funding": "~$205M raised",
    "terms_url": "https://www.rho.co/policies/terms-of-service",
@@ -1021,7 +1031,7 @@
    "hq": "San Francisco, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -1034,6 +1044,7 @@
     "North America"
    ],
    "note": "Banking + taxes for the self-employed.",
+   "licence": "Partner bank (Lead Bank); FDIC pass-through up to $250k; formerly Piermont Bank",
    "funding": "~$70M raised",
    "terms_url": "https://found.com/legal",
    "privacy_url": "https://found.com/legal/privacy",
@@ -1064,7 +1075,7 @@
    "hq": "New York, US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": null,
@@ -1077,6 +1088,7 @@
     "North America"
    ],
    "note": "Freelancer banking with tax buckets.",
+   "licence": "Partner bank (Sunrise Banks, N.A.); wires via Column Bank; formerly Choice Financial",
    "founders": "Lilac Bar David, Liran Zelkha",
    "funding": "~$80M raised",
    "terms_url": "https://lili.co/legal-documents/lili-terms-of-use",
@@ -1104,7 +1116,7 @@
    "hq": "Los Angeles, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business card",
    "cashback": "Creator perks",
@@ -1118,6 +1130,7 @@
    ],
    "note": "Financial services built for creators.",
    "story": "Underwrites creators on audience data instead of FICO.",
+   "licence": "Partner bank (Grasshopper Bank, N.A.); Karat Visa credit card issued by Cross River Bank",
    "founders": "Eric Wei, Will Kim",
    "funding": "~$100M+ incl. debt",
    "investors": [
@@ -1139,7 +1152,7 @@
    "hq": "Minneapolis, US",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -1152,6 +1165,7 @@
     "North America"
    ],
    "note": "Instant pay + wallets for gig/hourly workers.",
+   "licence": "Partner banks (Lead Bank; Evolve Bank & Trust); Mastercard debit for workforce payouts",
    "founders": "Atif Siddiqi",
    "funding": "~$100M+ raised",
    "terms_url": "https://www.branchapp.com/terms",
@@ -1169,7 +1183,7 @@
    "hq": "Little Rock, US",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit + credit",
    "cashback": null,
@@ -1183,6 +1197,7 @@
    ],
    "note": "Banking for doctors, dentists, vets.",
    "story": "Founded by two physicians who couldn't get loans during residency; banking for doctors, dentists and vets.",
+   "licence": "Division of Primis Bank (NASDAQ: FRST) — operates under Primis's US bank charter; FDIC-insured",
    "founders": "Michael Jerkins, Ned Palmer"
   },
   {
@@ -1193,7 +1208,7 @@
    "hq": "New York, US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -1207,6 +1222,7 @@
    ],
    "note": "Banking for people with disabilities; ABLE-friendly.",
    "story": "Banking for people with disabilities designed not to endanger ABLE benefit eligibility.",
+   "licence": "Partner bank (OMB Bank, Member FDIC); Mastercard debit issued by OMB Bank",
    "founders": "John Ciocca",
    "terms_url": "https://www.getpurple.io/terms-of-service",
    "privacy_url": "https://www.getpurple.io/privacy-policy",
@@ -1223,7 +1239,7 @@
    "hq": "San Francisco, US",
    "founded": 2012,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": null,
@@ -1237,6 +1253,7 @@
    ],
    "note": "Cards protecting seniors + vulnerable adults.",
    "story": "Prepaid cards with guardrails protecting seniors from fraud and financial abuse.",
+   "licence": "Partner bank (Sunrise Banks, N.A.); True Link Visa prepaid cards",
    "founders": "Kai Stinchcombe, Claire McDonnell"
   },
   {
@@ -1247,7 +1264,7 @@
    "hq": "Los Angeles, US",
    "founded": 2022,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -1261,6 +1278,7 @@
    ],
    "note": "Banking built for the 62+ community.",
    "story": "Banking for the 62+ crowd: early Social Security access and fraud protection over rewards points.",
+   "licence": "Partner bank (Sutton Bank); Visa debit; FDIC pass-through insurance",
    "founders": "Kevin Nazemi",
    "funding": "~$23M raised"
   },
@@ -1272,7 +1290,7 @@
    "hq": "Atlanta, US",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -1286,6 +1304,7 @@
    ],
    "note": "Digital banking for Black + Latino communities.",
    "story": "Named for Tulsa's Black Wall Street; digital banking recirculating capital in Black and Latino communities.",
+   "licence": "Partner bank (Coastal Community Bank); Mastercard debit; FDIC pass-through",
    "founders": "Ryan Glover, Killer Mike, Andrew Young",
    "funding": "~$40M+ raised",
    "privacy_url": "https://gogreenwood.com/privacy-policy/",
@@ -1316,7 +1335,7 @@
    "hq": "New York, US",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -1330,6 +1349,7 @@
    ],
    "note": "Closing the racial wealth gap via public-sector rails.",
    "story": "Ex-JPMorgan banker's answer to Ferguson: closing the racial wealth gap via public-sector disbursement rails.",
+   "licence": "Partner bank (Sunrise Banks, N.A., Member FDIC) for accounts and Mastercard debit",
    "founders": "Wole Coaxum",
    "funding": "~$30M+ raised",
    "terms_url": "https://www.mocafi.com/terms-of-service",
@@ -1347,7 +1367,7 @@
    "hq": "Houston, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -1361,6 +1381,7 @@
    ],
    "note": "$5.99/mo membership banking for migrants; no SSN needed.",
    "story": "Membership banking for migrants: no SSN required, community advisors, bundled calling + remittance.",
+   "licence": "Partner bank (Axiom Bank, N.A.); Visa debit; credit card issued by WebBank",
    "founders": "Magnus Larsson",
    "funding": "~$100M+ raised",
    "terms_url": "https://majority.com/en/terms-conditions/",
@@ -1388,7 +1409,7 @@
    "hq": "New York/Bengaluru",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Credit + debit",
    "cashback": "Rewards",
@@ -1402,6 +1423,7 @@
    ],
    "note": "US credit for arriving immigrants (IN→US corridor).",
    "story": "Credit cards for Indians landing in the US, underwritten on home-country data before they have a FICO.",
+   "licence": "Partner bank (Community Federal Savings Bank); deposits, debit and credit cards",
    "founders": "Raghunandan G",
    "funding": "~$300M incl. debt",
    "terms_url": "https://zolve.com/policies/global/terms-of-use",
@@ -1438,7 +1460,7 @@
    "hq": "New York, US",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -1452,6 +1474,7 @@
    ],
    "note": "Banking for Latino immigrants; passport onboarding.",
    "story": "Built by Mexican founders for Latino immigrants: passport onboarding and fast remittance.",
+   "licence": "Partner bank (Community Federal Savings Bank); Visa debit; FDIC pass-through",
    "founders": "Andres Santos, Abiel Gutierrez",
    "funding": "~$50M+ raised",
    "terms_url": "https://www.comun.app/en/legal",
@@ -1483,7 +1506,7 @@
    "hq": "New York, US",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -1497,6 +1520,7 @@
    ],
    "note": "Women-first investing platform with banking roots.",
    "story": "Wall Street veteran Sallie Krawcheck's bet that investing designed around women's pay curves and lifespans closes the gender money gap.",
+   "licence": "SEC-registered investment adviser; Partner bank (Coastal Community Bank) for cash accounts",
    "founders": "Sallie Krawcheck, Charlie Kroll",
    "funding": "~$150M raised",
    "terms_url": "https://www.ellevest.com/terms-of-service",
@@ -1582,7 +1606,7 @@
    "hq": "Calgary, CA",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Credit + savings",
    "cashback": "~5% at partners",
@@ -1596,6 +1620,7 @@
    ],
    "note": "Partner-merchant cashback network.",
    "story": "SkipTheDishes founders' second act: cashback-network banking from Calgary.",
+   "licence": "Partner banks (Peoples Bank of Canada, Concentra Bank); CDIC-insured deposits",
    "founders": "Andrew Chau, Jeff Adamson",
    "funding": "~C$400M raised",
    "terms_url": "https://www.neofinancial.com/legal",
@@ -1623,7 +1648,7 @@
    "hq": "Toronto, CA",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Broker-led",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "1%",
@@ -1637,6 +1662,7 @@
    ],
    "note": "Investing-first; custodial crypto trading.",
    "story": "Canada's index-investing evangelist turned full-stack money app with crypto.",
+   "licence": "Broker-led: CIRO-registered investment dealer (WSII); cash held at CDIC member banks",
    "founders": "Michael Katchen, Brett Huneycutt",
    "funding": "Power Corp-backed; ~C$1B+",
    "terms_url": "https://www.wealthsimple.com/en-ca/legal/terms",
@@ -1676,7 +1702,7 @@
    "hq": "Toronto, CA",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "0.5%",
@@ -1689,6 +1715,7 @@
     "North America"
    ],
    "note": "Digital arm of Equitable Bank.",
+   "licence": "Trade name of Equitable Bank, Schedule I chartered bank (OSFI, Canada); CDIC member",
    "terms_url": "https://www.eqbank.ca/legal",
    "privacy_url": "https://www.eqbank.ca/legal/privacy",
    "x_handle": "EQBank",
@@ -1704,7 +1731,7 @@
    "hq": "Vancouver, CA",
    "founded": 2003,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": "BTC cashback",
@@ -1717,6 +1744,7 @@
     "North America"
    ],
    "note": "Prepaid + custodial bitcoin rewards.",
+   "licence": "Cards issued by Peoples Trust Company; MogoTrade is a CIRO-regulated broker (Canada)",
    "founders": "David Feller, Greg Feller",
    "funding": "Public (MOGO)"
   },
@@ -2065,7 +2093,7 @@
    "hq": "London, UK",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -2079,6 +2107,7 @@
    ],
    "note": "Profitable SMB lender-bank.",
    "ai": "underwriting",
+   "licence": "Full UK banking licence (PRA/FCA, 2015)",
    "investors": [
     {
      "name": "SoftBank",
@@ -2106,7 +2135,7 @@
    "hq": "Milton Keynes, UK",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Business",
    "cashback": null,
@@ -2119,6 +2148,7 @@
     "Europe"
    ],
    "note": "Established-SMB challenger bank.",
+   "licence": "Full UK banking licence (PRA/FCA authorised)",
    "investors": [
     {
      "name": "TCV",
@@ -2142,7 +2172,7 @@
    "hq": "London, UK",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Card aggregator",
    "cashback": "1% select",
@@ -2155,6 +2185,7 @@
     "Europe"
    ],
    "note": "All cards in one; go-back-in-time.",
+   "licence": "E-money institution (FCA UK, FRN 900926); EEA via Curve Europe UAB EMI (Bank of Lithuania)",
    "founders": "Shachar Bialick",
    "funding": "~$250M raised",
    "terms_url": "https://www.curve.com/en-gb/terms/",
@@ -2173,7 +2204,7 @@
    "hq": "London, UK",
    "founded": 2005,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -2185,7 +2216,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Formerly Cashplus; SME-focused."
+   "note": "Formerly Cashplus; SME-focused.",
+   "licence": "Full UK banking licence (PRA/FCA, Feb 2021, ex-Cashplus); FSCS-protected"
   },
   {
    "name": "Monese",
@@ -2195,7 +2227,7 @@
    "hq": "London, UK",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -2209,6 +2241,7 @@
    ],
    "note": "No-credit-history onboarding; consumer app scaled back to B2B (XYB).",
    "story": "An Estonian founder rejected by UK banks built no-credit-history onboarding for migrants; consumer app later folded into B2B platform XYB.",
+   "licence": "FCA-authorised e-money institution (FRN 900960); UK accounts as agent of PrePay Technologies; owned by Pockit",
    "founders": "Norris Koppel",
    "funding": "~$200M raised",
    "terms_url": "https://monese.com/gb/en/legal",
@@ -2245,7 +2278,7 @@
    "hq": "London, UK",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -2259,6 +2292,7 @@
    ],
    "note": "Accounts for the underbanked; absorbed Monese users.",
    "story": "Accounts for the UK's financially excluded; absorbed Monese's consumer base.",
+   "licence": "E-money via FCA-authorised EMIs (Modulr, PSI-Pay); owns Monese's EMI licence",
    "founders": "Virraj Jatania"
   },
   {
@@ -2269,7 +2303,7 @@
    "hq": "Cheshire, UK",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Retail cashback",
@@ -2281,7 +2315,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "No-credit-check accounts for excluded workers."
+   "note": "No-credit-check accounts for excluded workers.",
+   "licence": "E-money accounts issued by PrePay Technologies (FCA EMI, FRN 900010); Suits Me acts as agent/programme manager"
   },
   {
    "name": "Tandem Bank",
@@ -2326,7 +2361,7 @@
    "hq": "London, UK",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Ethical rewards",
@@ -2340,6 +2375,7 @@
    ],
    "note": "Shariah-aligned, ethics-first UK fintech.",
    "story": "Shariah-compliant, values-based finance for the two billion people underserved on ethics.",
+   "licence": "E-money institution (FCA, FRN 952360, UK)",
    "founders": "Zeiad Idris, Fizel Nejabat",
    "terms_url": "https://www.algbra.com/terms-and-conditions/",
    "x_handle": "algbra",
@@ -2355,7 +2391,7 @@
    "hq": "London, UK",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -2369,6 +2405,7 @@
    ],
    "note": "Muslim money app; UK + Malaysia.",
    "story": "Muslim money app helping users grow wealth without interest.",
+   "licence": "Accounts and cards issued by AF Payments Ltd, FCA-authorised e-money institution (FRN 900440)",
    "founders": "Areeb Siddiqui, Daeng Termizi"
   },
   {
@@ -2379,7 +2416,7 @@
    "hq": "New York, US",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Broker-led",
    "card_network": "Visa",
    "card_type": "Debit (US)",
    "cashback": null,
@@ -2390,6 +2427,7 @@
    "website": "https://wahed.com",
    "active_regions": [],
    "note": "Halal investing + banking features.",
+   "licence": "SEC-registered investment adviser; broker/custody via Apex Clearing (FINRA/SIPC)",
    "founders": "Junaid Wahedna",
    "funding": "~$75M raised",
    "terms_url": "https://www.wahed.com/legal",
@@ -2518,7 +2556,7 @@
    "hq": "Berlin, DE",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "MiCA CASP (EU)",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Up to 3% (tiers)",
@@ -2531,6 +2569,7 @@
     "Europe"
    ],
    "note": "Cashback + investing; custodial crypto.",
+   "licence": "E-money institution (Vivid Money S.A., CSSF Luxembourg + DNB branch); AFM investment firm; MiCAR CASP (2025)",
    "founders": "Alexander Emeshev, Artem Yamanov",
    "funding": "~$200M+ raised",
    "terms_url": "https://vivid.money/de-ch/legal-documents/",
@@ -2566,7 +2605,7 @@
    "hq": "Hamburg, DE",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -2580,6 +2619,7 @@
    ],
    "note": "Climate-positive spending.",
    "story": "Hamburg social business: card spend funds climate projects.",
+   "licence": "Partner bank (Solaris SE, full German banking licence, BaFin-supervised)",
    "founders": "Inas Nureldin, Jakob Berndt, Michael Schweikart"
   },
   {
@@ -2590,7 +2630,7 @@
    "hq": "Frankfurt, DE",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -2602,7 +2642,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "CHECK24's digital bank."
+   "note": "CHECK24's digital bank.",
+   "licence": "Full German banking licence (BaFin); CHECK24 subsidiary"
   },
   {
    "name": "Kontist",
@@ -2612,7 +2653,7 @@
    "hq": "Berlin, DE",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": null,
@@ -2626,6 +2667,7 @@
    ],
    "note": "Freelancer banking with auto tax buckets.",
    "story": "Freelancer banking that auto-reserves German taxes in real time.",
+   "licence": "Partner bank (Solaris SE, BaFin-licensed); German IBAN accounts",
    "founders": "Christopher Plantener"
   },
   {
@@ -2636,7 +2678,7 @@
    "hq": "Bonn, DE",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": null,
@@ -2648,7 +2690,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Deutsche Bank's SMB digital brand."
+   "note": "Deutsche Bank's SMB digital brand.",
+   "licence": "Brand of Deutsche Bank AG — full German banking licence (ECB/BaFin); Postbank rails"
   },
   {
    "name": "Qonto",
@@ -2715,7 +2758,7 @@
    "hq": "Paris, FR",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -2728,6 +2771,7 @@
     "Europe"
    ],
    "note": "Freelancer banking (Société Générale).",
+   "licence": "Payment institution (ACPR n°71758, France); funds safeguarded at Société Générale",
    "founders": "Nicolas Reboud, Raphaël Simon",
    "funding": "Acquired by SocGen (2020), later Ageras"
   },
@@ -2739,7 +2783,7 @@
    "hq": "Lyon, FR",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Business account",
    "cashback": null,
@@ -2752,6 +2796,7 @@
     "Europe"
    ],
    "note": "Freelancer accounting + banking.",
+   "licence": "Accounts via Swan, ACPR-licensed e-money institution (France); French IBAN",
    "investors": [
     {
      "name": "Singular",
@@ -2767,7 +2812,7 @@
    "hq": "Paris, FR",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -2781,6 +2826,7 @@
    ],
    "note": "France's P2P leader turned full account.",
    "story": "France's 'send me a Lydia' P2P verb rebranded to Sumeria to become a real current account.",
+   "licence": "E-money institution (Lydia Solutions, ACPR France, CIB 17598); credit-institution licence applied for",
    "founders": "Cyril Chiche, Antoine Porte",
    "funding": "~€260M raised",
    "terms_url": "https://www.sumeria.eu/en/legal/",
@@ -2811,7 +2857,7 @@
    "hq": "Paris, FR",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -2825,6 +2871,7 @@
    ],
    "note": "Open an account at the tabac; 4M+ across FR/ES/BE/PT/DE.",
    "story": "Opened accounts through 6,500 tobacco shops — banking where French banks refused to go.",
+   "licence": "Payment institution (Financière des Paiements Électroniques, ACPR no. 16598); BNP Paribas subsidiary",
    "founders": "Hugues Le Bret, Ryad Boulanouar",
    "funding": "Acquired by BNP Paribas (2017)",
    "x_handle": "nickel",
@@ -2871,7 +2918,7 @@
    "hq": "Paris, FR",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -2883,7 +2930,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "BNP Paribas' digital bank."
+   "note": "BNP Paribas' digital bank.",
+   "licence": "Operates under BNP Paribas' French banking licence (direct-bank brand)"
   },
   {
    "name": "Fortuneo",
@@ -2893,7 +2941,7 @@
    "hq": "Brest, FR",
    "founded": 2000,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit + credit",
    "cashback": null,
@@ -2905,7 +2953,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Crédit Mutuel Arkéa's online bank."
+   "note": "Crédit Mutuel Arkéa's online bank.",
+   "licence": "Crédit Mutuel Arkéa banking licence (ACPR, France); brand of the group's online bank"
   },
   {
    "name": "Lunar",
@@ -2966,7 +3015,7 @@
    "hq": "Stockholm, SE",
    "founded": 2006,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Cashback offers",
@@ -2978,7 +3027,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Swedish licensed digital bank."
+   "note": "Swedish licensed digital bank.",
+   "licence": "Swedish banking licence (Finansinspektionen, since 2019)"
   },
   {
    "name": "Rocker",
@@ -2988,7 +3038,7 @@
    "hq": "Stockholm, SE",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3000,7 +3050,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Swedish challenger; pay + save + loans."
+   "note": "Swedish challenger; pay + save + loans.",
+   "licence": "Operates under Bankaktiebolaget Nordiska's Swedish banking licence (Finansinspektionen); own PI licence returned Sep 2025"
   },
   {
    "name": "indó",
@@ -3034,7 +3085,7 @@
    "hq": "Milan, IT",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Offers",
@@ -3046,7 +3097,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "One of Italy's largest neobanks (Banca Sella)."
+   "note": "One of Italy's largest neobanks (Banca Sella).",
+   "licence": "E-money institution (IMEL, Banca d'Italia); being merged into Banca Sella (2026)"
   },
   {
    "name": "Tinaba",
@@ -3056,7 +3108,7 @@
    "hq": "Milan, IT",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3068,7 +3120,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Italian money app with Banca Profilo."
+   "note": "Italian money app with Banca Profilo.",
+   "licence": "Partner bank (Banca Profilo, Bank of Italy register no. 5271); Tinaba is the tech layer"
   },
   {
    "name": "Flowe",
@@ -3078,7 +3131,7 @@
    "hq": "Milan, IT",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit (wooden card)",
    "cashback": null,
@@ -3090,7 +3143,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Banca Mediolanum's green digital bank."
+   "note": "Banca Mediolanum's green digital bank.",
+   "licence": "E-money institution (IMEL, Bank of Italy, 2019); founded by Banca Mediolanum"
   },
   {
    "name": "buddybank",
@@ -3100,7 +3154,7 @@
    "hq": "Milan, IT",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3112,7 +3166,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "UniCredit's iPhone-native bank."
+   "note": "UniCredit's iPhone-native bank.",
+   "licence": "UniCredit S.p.A. digital service — operates under UniCredit's Italian banking licence (ECB supervised)"
   },
   {
    "name": "isybank",
@@ -3122,7 +3177,7 @@
    "hq": "Milan, IT",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3134,7 +3189,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Intesa Sanpaolo's cloud-native digital bank."
+   "note": "Intesa Sanpaolo's cloud-native digital bank.",
+   "licence": "Own Italian banking licence (Intesa Sanpaolo group; ECB/Banca d'Italia supervised)"
   },
   {
    "name": "Openbank",
@@ -3144,7 +3200,7 @@
    "hq": "Madrid, ES",
    "founded": 1995,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa/MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3156,7 +3212,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Santander's digital bank; now US/MX too."
+   "note": "Santander's digital bank; now US/MX too.",
+   "licence": "Full banking licence within Santander Group (ECB/Bank of Spain); US via Santander Bank N.A."
   },
   {
    "name": "imagin",
@@ -3166,7 +3223,7 @@
    "hq": "Barcelona, ES",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -3178,7 +3235,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "CaixaBank's youth-first money app."
+   "note": "CaixaBank's youth-first money app.",
+   "licence": "Operates under CaixaBank's Spanish banking licence (ECB/Bank of Spain supervised)"
   },
   {
    "name": "MyInvestor",
@@ -3188,7 +3246,7 @@
    "hq": "Madrid, ES",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -3200,7 +3258,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Andbank's digital bank + broker."
+   "note": "Andbank's digital bank + broker.",
+   "licence": "Own Spanish banking licence (MyInvestor Banco S.A., Banco de España no. 1544; Andbank group); CNMV supervised"
   },
   {
    "name": "ZEN.com",
@@ -3210,7 +3269,7 @@
    "hq": "Vilnius, LT",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Up to 1.5%",
@@ -3222,7 +3281,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "EU e-money; multicurrency + merchant tools."
+   "note": "EU e-money; multicurrency + merchant tools.",
+   "licence": "E-money institution (Bank of Lithuania, LB000457, 2018)"
   },
   {
    "name": "Paysera",
@@ -3232,7 +3292,7 @@
    "hq": "Vilnius, LT",
    "founded": 2004,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -3244,7 +3304,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Baltic multicurrency veteran."
+   "note": "Baltic multicurrency veteran.",
+   "licence": "E-money institution licence (Bank of Lithuania, 2012); EEA passported"
   },
   {
    "name": "Trade Republic",
@@ -3315,7 +3376,7 @@
    "hq": "Amsterdam, NL",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": "Up to 3%",
@@ -3328,6 +3389,7 @@
     "Europe"
    ],
    "note": "SMB/freelancer banking across the EU.",
+   "licence": "E-money institution (FINOM Payments B.V., DNB Netherlands); EU/EEA passporting",
    "founders": "Ex-Modulbank team (Novikov, Laguta, Petrov, Stiskin)",
    "funding": "~€180M raised"
   },
@@ -3499,7 +3561,7 @@
    "hq": "Athens, GR",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -3511,7 +3573,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Greek neobank (Piraeus-backed)."
+   "note": "Greek neobank (Piraeus-backed).",
+   "licence": "Full ECB banking licence (via Bank of Greece, Jun 2024); Piraeus-backed digital bank"
   },
   {
    "name": "Papara",
@@ -3521,7 +3584,7 @@
    "hq": "Istanbul, TR",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "Cashback offers",
@@ -3535,6 +3598,7 @@
    ],
    "note": "17M+ users; Turkey's leading fintech.",
    "story": "Istanbul's fintech champion: 17M users and an M&A run across Turkey and Pakistan.",
+   "licence": "E-money institution (CBRT, Turkey); licence revoked Oct 2025, reinstated under state trusteeship",
    "founders": "Ahmed Karslı",
    "funding": "Profitable; acquired SadaPay (2024)",
    "terms_url": "https://www.papara.com/en/legal-notices",
@@ -3899,7 +3963,7 @@
    "hq": "Mexico City, MX",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -3912,6 +3976,7 @@
     "Latin America"
    ],
    "note": "One of Mexico's first challengers.",
+   "licence": "IFPE licence (CNBV, Mexico, 2022) — e-money institution under Ley Fintech",
    "founders": "Ángel Sahagún",
    "funding": "~$150M+ raised",
    "investors": [
@@ -3937,7 +4002,7 @@
    "hq": "Mexico City, MX",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit + credit",
    "cashback": "Up to 4%",
@@ -3951,6 +4016,7 @@
    ],
    "note": "Mexican credit-led neobank.",
    "ai": "underwriting",
+   "licence": "SOFIPO licence (CNBV, Mexico); acquiring Bineo for its bank licence, approvals pending",
    "founders": "Stefan Möller, Daniel Autrique",
    "funding": "~$500M incl. debt",
    "x_handle": "klarmx",
@@ -4035,7 +4101,7 @@
    "hq": "Mexico City, MX",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -4047,7 +4113,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Mexican digital account."
+   "note": "Mexican digital account.",
+   "licence": "SOFIPO licence (Fondea Technologies S.F.P., CNBV Mexico, ex-Apoyo Múltiple); Prosofipo deposit insurance"
   },
   {
    "name": "Hey Banco",
@@ -4057,7 +4124,7 @@
    "hq": "Monterrey, MX",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Cashback",
@@ -4069,7 +4136,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Banregio's digital bank."
+   "note": "Banregio's digital bank.",
+   "licence": "Own Mexican banking licence (CNBV banca múltiple); independent of Banregio since Jan 2026"
   },
   {
    "name": "Cuenca",
@@ -4079,7 +4147,7 @@
    "hq": "Mexico City, MX",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -4091,7 +4159,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Mexican mobile-first account."
+   "note": "Mexican mobile-first account.",
+   "licence": "IFPE licence (CNBV, Mexico, 2021) under Ley Fintech"
   },
   {
    "name": "RappiPay",
@@ -4101,7 +4170,7 @@
    "hq": "Bogotá, CO",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit + credit",
    "cashback": "In-app cashback",
@@ -4113,7 +4182,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Banking inside the Rappi super-app."
+   "note": "Banking inside the Rappi super-app.",
+   "licence": "Finance company charter (compania de financiamiento, SFC Colombia, 2022); Rappi-Davivienda JV; Fogafin-insured"
   },
   {
    "name": "Neon",
@@ -4123,7 +4193,7 @@
    "hq": "São Paulo, BR",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit + credit",
    "cashback": null,
@@ -4137,6 +4207,7 @@
    ],
    "note": "Brazilian mass-market neobank.",
    "ai": "interface",
+   "licence": "Payment institution / e-money issuer authorised by Banco Central do Brasil (2021); Neon CTVM brokerage",
    "founders": "Pedro Conrade",
    "funding": "~$700M raised",
    "investors": [
@@ -4317,7 +4388,7 @@
    "hq": "São Paulo, BR",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "Visa",
    "card_type": "Business debit",
    "cashback": null,
@@ -4330,6 +4401,7 @@
     "Latin America"
    ],
    "note": "SMB banking for Brazilian PJs.",
+   "licence": "SCFI licence (Central Bank of Brazil, Jul 2024) + payment institution; formerly SCD",
    "founders": "Igor Senra, Leo Mendes",
    "funding": "~$200M raised",
    "investors": [
@@ -4356,30 +4428,6 @@
    ]
   },
   {
-   "name": "Z1",
-   "category": "traditional",
-   "audience": "gen z & students",
-   "region": "LatAm",
-   "hq": "São Paulo, BR",
-   "founded": 2020,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "Visa",
-   "card_type": "Debit",
-   "cashback": null,
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "z1.app",
-   "website": "https://z1.app",
-   "active_regions": [
-    "Latin America"
-   ],
-   "note": "Brazil's Gen-Z money app.",
-   "founders": "João Pedro Thompson + team",
-   "funding": "~$15M raised"
-  },
-  {
    "name": "NG.cash",
    "category": "traditional",
    "audience": "gen z & students",
@@ -4387,7 +4435,7 @@
    "hq": "Rio de Janeiro, BR",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -4399,7 +4447,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Teen neobank; added crypto features."
+   "note": "Teen neobank; added crypto features.",
+   "licence": "Payment institution (Banco Central do Brasil, e-money issuer licence, May 2025)"
   },
   {
    "name": "Naranja X",
@@ -4508,7 +4557,7 @@
    "hq": "Medellín, CO",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -4522,6 +4571,7 @@
    ],
    "note": "Bancolombia's wallet-bank; 20M+.",
    "ai": "underwriting",
+   "licence": "Licensed compañía de financiamiento (Superfinanciera Colombia); spun out of Bancolombia's banking licence",
    "reported_users": {
     "value_millions": 20,
     "metric": "users",
@@ -4536,7 +4586,7 @@
    "hq": "Bogotá, CO",
    "founded": 2011,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -4548,7 +4598,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Davivienda's mass-market wallet; 18M+."
+   "note": "Davivienda's mass-market wallet; 18M+.",
+   "licence": "Operates under Banco Davivienda's Colombian banking licence (SFC-supervised)"
   },
   {
    "name": "Movii",
@@ -4558,7 +4609,7 @@
    "hq": "Bogotá, CO",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -4570,7 +4621,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Colombian financial inclusion player."
+   "note": "Colombian financial inclusion player.",
+   "licence": "SEDPE e-money licence (Superintendencia Financiera, Colombia)"
   },
   {
    "name": "Lulo Bank",
@@ -4633,7 +4685,7 @@
    "hq": "Santiago, CL",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -4646,6 +4698,7 @@
     "Latin America"
    ],
    "note": "Cross-border multicurrency for LatAm.",
+   "licence": "Prepaid-card e-money issuer licence (CMF, Chile); cross-border FX via Global 81 SpA",
    "founders": "Tomás Bercovich",
    "funding": "~$65M raised",
    "investors": [
@@ -4667,7 +4720,7 @@
    "hq": "Panama City, PA",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": null,
@@ -4679,7 +4732,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Digital dollars for Panama + region."
+   "note": "Digital dollars for Panama + region.",
+   "licence": "Registered e-money issuer (MFTECH S.A.) with Superintendencia de Bancos de Panamá — AML/CFT supervision only"
   },
   {
    "name": "Qik",
@@ -4689,7 +4743,7 @@
    "hq": "Santo Domingo, DO",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Cashback",
@@ -4701,7 +4755,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Dominican Republic's first neobank."
+   "note": "Dominican Republic's first neobank.",
+   "licence": "Full banking licence (banco múltiple, Dominican Republic, Oct 2022; Grupo Popular)"
   },
   {
    "name": "KakaoBank",
@@ -4891,7 +4946,7 @@
    "hq": "Mumbai, IN",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "1%",
@@ -4904,6 +4959,7 @@
     "Asia"
    ],
    "note": "Indian neobank on Federal Bank rails.",
+   "licence": "Partner bank (Federal Bank); RBI PPI licence via parent Amica Financial Technologies",
    "founders": "Jitendra Gupta",
    "funding": "~$160M raised",
    "terms_url": "https://jupiter.money/terms-and-conditions/",
@@ -4932,52 +4988,6 @@
    ]
   },
   {
-   "name": "Fi Money",
-   "category": "traditional",
-   "audience": "general",
-   "region": "Asia",
-   "hq": "Bengaluru, IN",
-   "founded": 2019,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "Visa",
-   "card_type": "Debit",
-   "cashback": "Rewards",
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "fi.money",
-   "website": "https://fi.money",
-   "active_regions": [
-    "Asia"
-   ],
-   "note": "Salaried-professional neobank.",
-   "founders": "Sujith Narayanan, Sumit Gwalani",
-   "funding": "~$135M raised",
-   "investors": [
-    {
-     "name": "Peak XV Partners",
-     "website": "https://peakxv.com"
-    },
-    {
-     "name": "Ribbit Capital",
-     "website": "https://ribbitcap.com"
-    },
-    {
-     "name": "Temasek",
-     "website": "https://temasek.com.sg"
-    },
-    {
-     "name": "B Capital",
-     "website": "https://bcapgroup.com"
-    },
-    {
-     "name": "Alpha Wave",
-     "website": "https://alphawaveglobal.com"
-    }
-   ]
-  },
-  {
    "name": "Niyo",
    "category": "traditional",
    "audience": "travel & digital nomads",
@@ -4985,7 +4995,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit + forex",
    "cashback": null,
@@ -4998,6 +5008,7 @@
     "Asia"
    ],
    "note": "Zero-forex travel banking for Indians.",
+   "licence": "Partner banks (SBM Bank India, DCB Bank) — RBI-regulated issuers; no own licence",
    "founders": "Vinay Bagri, Virender Bisht",
    "funding": "~$180M raised",
    "investors": [
@@ -5068,7 +5079,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Card + savings",
    "cashback": "Rewards",
@@ -5081,7 +5092,8 @@
     "Asia"
    ],
    "note": "Credit-led Indian neobank.",
-   "ai": "underwriting"
+   "ai": "underwriting",
+   "licence": "In-house RBI-licensed NBFC; savings and accounts via partner banks (Equitas, Yes Bank)"
   },
   {
    "name": "Open",
@@ -5091,7 +5103,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business",
    "cashback": null,
@@ -5104,6 +5116,7 @@
     "Asia"
    ],
    "note": "SME neobanking platform; 3M+ businesses.",
+   "licence": "Partner banks (ICICI, Axis, Yes Bank +); RBI-licensed payment aggregator",
    "founders": "Anish Achuthan + 3",
    "funding": "~$190M raised",
    "investors": [
@@ -5133,7 +5146,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business",
    "cashback": null,
@@ -5146,6 +5159,7 @@
     "Asia"
    ],
    "note": "Business banking inside Razorpay.",
+   "licence": "Partner banks (RBL, ICICI, Yes, Axis, IDFC First); Razorpay holds RBI payment aggregator licence",
    "investors": [
     {
      "name": "Peak XV Partners",
@@ -5177,7 +5191,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "RuPay",
    "card_type": "Prepaid",
    "cashback": "Rewards",
@@ -5190,6 +5204,7 @@
     "Asia"
    ],
    "note": "India's teen payments app.",
+   "licence": "Partner bank (IDFC FIRST Bank) — co-branded RBI prepaid payment instruments; RuPay/Visa cards",
    "founders": "Sambhav Jain, Kush Taneja",
    "funding": "~$42M raised",
    "terms_url": "https://fampay.in/terms",
@@ -5225,7 +5240,7 @@
    "hq": "Delhi, IN",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "RuPay",
    "card_type": "Prepaid + loans",
    "cashback": null,
@@ -5239,6 +5254,7 @@
    ],
    "note": "Neobank for Indian women entrepreneurs.",
    "story": "From the SHEROES women's community to credit and accounts for women entrepreneurs in Bharat.",
+   "licence": "No own licence; lends on RBI-licensed NBFC partners' rails (Capital Trade Links, RupeeCircle)",
    "founders": "Sairee Chahal"
   },
   {
@@ -5295,7 +5311,7 @@
    "hq": "Karachi, PK",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -5308,6 +5324,7 @@
     "Asia"
    ],
    "note": "Pakistan's design-led neobank.",
+   "licence": "E-money institution (EMI) licence from State Bank of Pakistan; owned by Papara",
    "founders": "Brandon Timinsky",
    "funding": "~$20M; acquired by Papara",
    "terms_url": "https://sadapay.pk/terms-of-service/",
@@ -5331,7 +5348,7 @@
    "hq": "Karachi, PK",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -5344,6 +5361,7 @@
     "Asia"
    ],
    "note": "Pakistani money app + SMB rails.",
+   "licence": "E-money institution (State Bank of Pakistan EMI licence, 2021)",
    "founders": "Danish Lakhani",
    "funding": "~$13M raised",
    "terms_url": "https://www.nayapay.com/terms",
@@ -5361,7 +5379,7 @@
    "hq": "Karachi, PK",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Other / mixed",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -5375,6 +5393,7 @@
    ],
    "note": "Women-first fintech digitizing ROSCAs.",
    "story": "Digitized Pakistan's women-led savings committees (ROSCAs) into a regulated product.",
+   "licence": "SECP-registered; NBFC (non-bank finance company) licence from SECP Pakistan for lending; digital ROSCAs",
    "founders": "Halima Iqbal, Farwah Tapal"
   },
   {
@@ -5441,7 +5460,7 @@
    "hq": "Dhaka, BD",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -5453,7 +5472,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Postal-linked mobile money."
+   "note": "Postal-linked mobile money.",
+   "licence": "Mobile money licence (Bangladesh Bank MFS, with Bangladesh Post Office); 2024 digital-bank licence under review"
   },
   {
    "name": "GXS Bank",
@@ -5968,7 +5988,7 @@
    "hq": "Hanoi, VN",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -5980,7 +6000,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "MSB's Gen-Z digital bank."
+   "note": "MSB's Gen-Z digital bank.",
+   "licence": "Operates under Maritime Bank's (Vietnam) banking licence as its digital bank"
   },
   {
    "name": "GXBank",
@@ -6347,7 +6368,7 @@
    "hq": "Wellington, NZ",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -6361,6 +6382,7 @@
    ],
    "note": "Tax + banking for sole traders (NZ/AU).",
    "story": "Flat-fee 'never think about tax again' banking for NZ/AU sole traders.",
+   "licence": "Partner bank (ASB in NZ; Monoova/Cuscal in AU); registered tax agent, client accounts in own name",
    "founders": "James Fuller, Claire Fuller",
    "funding": "~A$70M raised",
    "privacy_url": "https://hnry.co.nz/privacy",
@@ -6829,7 +6851,7 @@
    "hq": "Lagos/Nairobi",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -6842,6 +6864,7 @@
     "Africa"
    ],
    "note": "NG + KE digital bank (acquired MFB licence).",
+   "licence": "Microfinance bank licence in Kenya (majority stake in Daraja MFB, CBK-approved 2022); Nigeria via partner bank",
    "founders": "Tiernan Kennedy, Barry O'Mahony",
    "funding": "~$20M raised"
   },
@@ -6853,7 +6876,7 @@
    "hq": "Abidjan, CI",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -6867,6 +6890,7 @@
    ],
    "note": "YC-backed francophone-Africa neobank; 1M+.",
    "story": "YC's first Ivorian startup; banking francophone West Africa's mobile-money generation.",
+   "licence": "Microfinance licence (BCEAO / Côte d'Ivoire MEF, Sep 2025 — first fintech); cards with partner banks",
    "founders": "Hassan Bourgi, Régis Bamba",
    "funding": "~$30M raised",
    "terms_url": "https://www.djamo.io/terms",
@@ -6957,7 +6981,7 @@
    "hq": "Kampala/Paris",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Virtual cards",
    "cashback": null,
@@ -6970,6 +6994,7 @@
     "Africa"
    ],
    "note": "Pan-African multicurrency + transfers.",
+   "licence": "E-money issuer + PSP licences (Bank of Uganda); FinCEN and FINTRAC registrations",
    "founders": "Stone Atwine"
   },
   {
@@ -6980,7 +7005,7 @@
    "hq": "Nairobi, KE",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -6993,6 +7018,7 @@
     "Africa"
    ],
    "note": "Youth neobank with Ecobank.",
+   "licence": "Partner bank (Ecobank Kenya); Central Bank of Kenya-approved product",
    "founders": "Kiiru Muhoya + team",
    "funding": "~$4M raised"
   },
@@ -7004,7 +7030,7 @@
    "hq": "Nairobi/Lagos",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -7018,6 +7044,7 @@
    ],
    "note": "Digital lending → neobanking (KE/NG/IN).",
    "ai": "underwriting",
+   "licence": "Microfinance bank licence in Kenya (84.9% of Century MFB, CBK-approved 2022); digital lending in NG/IN",
    "founders": "Matt Flannery (Kiva co-founder), Daniel Jung",
    "funding": "~$260M raised"
   },
@@ -7029,7 +7056,7 @@
    "hq": "Cairo, EG",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licence pending (partner model today)",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -7042,6 +7069,7 @@
     "Africa"
    ],
    "note": "Egyptian financial super-app.",
+   "licence": "Pursuing Central Bank of Egypt digital-bank licence (target mid-2026); lends via FRA-regulated entities",
    "founders": "Omar Saleh",
    "funding": "~$60M+ raised"
   },
@@ -7053,7 +7081,7 @@
    "hq": "Cairo, EG",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -7067,6 +7095,7 @@
    ],
    "note": "Egypt's lending super-app unicorn.",
    "ai": "underwriting",
+   "licence": "Microfinance and consumer finance licences (FRA, Egypt); e-payments arm licensed by CBE",
    "founders": "Mounir Nakhla, Ahmed Mohsen",
    "funding": "~$600M+ incl. debt; unicorn"
   },
@@ -7119,7 +7148,7 @@
    "hq": "Lagos, NG",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "MC",
    "card_type": "Virtual USD cards",
    "cashback": null,
@@ -7132,6 +7161,7 @@
     "Africa"
    ],
    "note": "USD/GBP/EUR accounts for African freelancers.",
+   "licence": "MSB registrations (FinCEN US, FINTRAC Canada); accounts via licensed banking partners",
    "founders": "Idorenyin Obong, Femi Aghedo",
    "funding": "YC-backed",
    "terms_url": "https://grey.co/legal/terms-of-service",
@@ -7188,7 +7218,7 @@
    "hq": "Lagos, NG",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Virtual USD cards",
    "cashback": null,
@@ -7201,6 +7231,7 @@
     "Africa"
    ],
    "note": "YC-backed USD accounts for Africans.",
+   "licence": "MSB registration (FinCEN); USD accounts via licensed FDIC-insured US partner banks",
    "founders": "Tolu Alabi, Philip Abel",
    "funding": "YC-backed"
   },
@@ -7313,7 +7344,7 @@
    "hq": "Dubai, AE",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -7326,6 +7357,7 @@
     "MENA"
    ],
    "note": "UAE's first independent digital banking app.",
+   "licence": "Partner bank (Ruya Community Islamic Bank, CBUAE-licensed; formerly RAKBANK)",
    "founders": "Marwan Hachem, Anas Zaidan"
   },
   {
@@ -7336,7 +7368,7 @@
    "hq": "Dubai, AE",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Rewards",
@@ -7348,7 +7380,8 @@
    "active_regions": [
     "MENA"
    ],
-   "note": "Emirates NBD's lifestyle bank."
+   "note": "Emirates NBD's lifestyle bank.",
+   "licence": "Operates under Emirates NBD's banking licence (CBUAE) as its digital bank"
   },
   {
    "name": "Pyypl",
@@ -7358,7 +7391,7 @@
    "hq": "Dubai, AE",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -7371,6 +7404,7 @@
     "MENA"
    ],
    "note": "Cards for the smartphone-first unbanked.",
+   "licence": "FSRA (ADGM) money services licence No. 170031; non-bank payment institution; also CBB Bahrain, AFSA Kazakhstan",
    "founders": "Antti Arponen",
    "funding": "~$60M raised"
   },
@@ -7382,7 +7416,7 @@
    "hq": "Dubai, AE",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Payroll + debit",
    "cashback": null,
@@ -7396,6 +7430,7 @@
    ],
    "note": "Accounts for migrant workers in the Gulf.",
    "story": "Payroll accounts for Gulf migrant workers excluded from traditional banks.",
+   "licence": "E-money institution / Stored Value Facility licence (Central Bank of UAE); funds safeguarded at UAE banks incl. CBI",
    "founders": "Katharine Budd, Ian Dillon"
   },
   {
@@ -7406,7 +7441,7 @@
    "hq": "Dubai, AE",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Broker-led",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -7419,6 +7454,7 @@
     "MENA"
    ],
    "note": "Invest + trade + cash app.",
+   "licence": "FSRA-regulated (ADGM, UAE) investment platform; robo-advisory and broker services",
    "founders": "Mark Chahwan, Jad Sayegh, Nadine Mezher"
   },
   {
@@ -7577,7 +7613,7 @@
    "hq": "São Paulo, BR",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -7591,6 +7627,7 @@
    ],
    "note": "Digital bank for Brazil's LGBTQ+ community.",
    "story": "Brazil's digital bank for the LGBTQ+ community, born from exclusion at traditional branches.",
+   "licence": "Not a bank; payment arrangement on Digital Banks' rails (BaaS, Brazil)",
    "founders": "Márcio Orlandi Jr."
   },
   {
@@ -7726,7 +7763,7 @@
    "hq": "New York, US",
    "founded": 2009,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa/MC",
    "card_type": "Debit + credit",
    "cashback": "Up to 3% (credit)",
@@ -7739,6 +7776,7 @@
     "North America"
    ],
    "note": "PayPal-owned; crypto incl. PYUSD.",
+   "licence": "PayPal's US state licences (money transmitter, NMLS 910457); crypto via NYDFS trust company PayPal Digital",
    "founders": "Andrew Kortina, Iqram Magdon-Ismail",
    "funding": "PayPal (PYPL)",
    "terms_url": "https://venmo.com/legal/us-user-agreement/",
@@ -7999,7 +8037,7 @@
    "hq": "—",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Campaign rewards",
@@ -8017,7 +8055,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Exchange-linked card."
+   "note": "Exchange-linked card.",
+   "licence": "Exchange VASP registrations (Lithuania, Bulgaria, Poland, Czechia); cards via issuer partners (DCS, Fiat24, Immersve)"
   },
   {
    "name": "KuCard",
@@ -8027,7 +8066,7 @@
    "hq": "—",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "MiCA CASP (EU)",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Rewards",
@@ -8045,7 +8084,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "KuCoin's card."
+   "note": "KuCoin's card.",
+   "licence": "Card issued by Wallester AS (Estonian payment institution); KuCoin EU holds Austrian MiCA CASP licence"
   },
   {
    "name": "CEX.IO Card",
@@ -8055,7 +8095,7 @@
    "hq": "London, UK",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Rewards",
@@ -8073,7 +8113,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Veteran exchange with card."
+   "note": "Veteran exchange with card.",
+   "licence": "MSB (FinCEN) + US state money-transmitter licences; UK FCA cryptoasset registration; EU VASP (Lithuania)"
   },
   {
    "name": "SpectroCoin",
@@ -8083,7 +8124,7 @@
    "hq": "Vilnius, LT",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": null,
@@ -8095,7 +8136,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Baltic crypto wallet + card."
+   "note": "Baltic crypto wallet + card.",
+   "licence": "Crypto VASP (Lithuania); e-money IBANs and Visa cards via UAB Pervesk (Bank of Lithuania EMI No. 17)"
   },
   {
    "name": "Bitpanda",
@@ -8151,7 +8193,7 @@
    "hq": "Tel Aviv, IL",
    "founded": 2007,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -8165,6 +8207,7 @@
    ],
    "note": "Broker money app + card (UK/EU).",
    "ai": "interface",
+   "licence": "Broker-led; e-money institution (eToro Money UK, FCA FRN 900203; eToro Money Malta, MFSA)",
    "founders": "Yoni Assia, Ronen Assia, David Ring",
    "funding": "Public (ETOR)"
   },
@@ -8176,7 +8219,7 @@
    "hq": "London, UK",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "Cashback tiers",
@@ -8188,7 +8231,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Crypto + fiat app with card."
+   "note": "Crypto + fiat app with card.",
+   "licence": "Gibraltar DLT/VASP licence (GFSC, No. 25532); cards via Transact Payments EMI"
   },
   {
    "name": "CoinJar",
@@ -8198,7 +8242,7 @@
    "hq": "Melbourne, AU",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Points",
@@ -8211,6 +8255,7 @@
     "Oceania"
    ],
    "note": "Australia's longest-running exchange + card.",
+   "licence": "VASP registrations (AUSTRAC DCE, Australia; FCA cryptoasset, UK); card issued by EML (AFSL 404131)",
    "founders": "Asher Tan, Ryan Zhou"
   },
   {
@@ -8221,7 +8266,7 @@
    "hq": "London, UK",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Self-custodial software",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Up to 8% PLU",
@@ -8233,7 +8278,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Perk-stacking rewards card."
+   "note": "Perk-stacking rewards card.",
+   "licence": "E-money card via Modulr (FCA EMI; Lithuanian EMI for EEA); PLU rewards self-custodial"
   },
   {
    "name": "Fold",
@@ -8243,7 +8289,7 @@
    "hq": "Phoenix, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Prepaid + credit",
    "cashback": "BTC rewards",
@@ -8256,6 +8302,7 @@
     "North America"
    ],
    "note": "Bitcoin-rewards card; public co (FLD).",
+   "licence": "Partner bank (Sutton Bank) issues Fold Visa prepaid card; BTC via Fortress Trust, BitGo-insured custody",
    "founders": "Will Reeves",
    "funding": "Public (FLD)",
    "terms_url": "https://foldapp.com/legal/legal-overview",
@@ -8310,7 +8357,7 @@
    "hq": "Atlanta, US",
    "founded": 2011,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -8323,41 +8370,8 @@
     "North America"
    ],
    "note": "OG crypto payments + card.",
+   "licence": "BitLicense (NYDFS) + FinCEN MSB + 20+ state money-transmitter licences",
    "founders": "Tony Gallippi, Stephen Pair"
-  },
-  {
-   "name": "Juno",
-   "category": "hybrid",
-   "audience": "general",
-   "region": "US",
-   "hq": "San Francisco, US",
-   "founded": 2019,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "MC",
-   "card_type": "Debit",
-   "cashback": "Up to 5% JCOIN",
-   "yield": "Yield on USDC/USD",
-   "stablecoins": true,
-   "kyc": "Yes",
-   "domain": "juno.finance",
-   "website": "https://juno.finance",
-   "active_regions": [
-    "North America"
-   ],
-   "note": "Checking + USDC salary splits.",
-   "founders": "Varun Deshpande, Ratnesh Ray, Siddharth Verma",
-   "funding": "~$21M raised",
-   "investors": [
-    {
-     "name": "Polychain Capital",
-     "website": "https://polychain.capital"
-    },
-    {
-     "name": "Peak XV Partners",
-     "website": "https://peakxv.com"
-    }
-   ]
   },
   {
    "name": "Strike",
@@ -8367,7 +8381,7 @@
    "hq": "Chicago, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Debit (US)",
    "cashback": "BTC rewards",
@@ -8387,6 +8401,7 @@
    ],
    "note": "Lightning-native payments + remittance.",
    "story": "Chicago Lightning evangelist turning bitcoin rails into invisible remittance infrastructure.",
+   "licence": "Money transmitter licences + NY BitLicense (NYDFS, 2026); Zap Solutions, Inc.",
    "founders": "Jack Mallers",
    "funding": "~$90M raised",
    "terms_url": "https://strike.me/legal/tos/",
@@ -8471,7 +8486,7 @@
    "hq": "London, UK",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Up to 8% Cryptoback",
@@ -8491,6 +8506,7 @@
    ],
    "note": "Earliest-wave crypto card; 180+ countries.",
    "ai": "agentic",
+   "licence": "E-money institution (FCA, FRN 902025); crypto via Wirex Digital Services VASP (OAM Italy)",
    "founders": "Pavel Matveev, Dmitry Lazarichev",
    "terms_url": "https://wirexapp.com/terms-and-conditions",
    "privacy_url": "https://wirexapp.com/privacy-policy",
@@ -8511,7 +8527,7 @@
    "hq": "New York, US",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa/MC",
    "card_type": "Debit",
    "cashback": "Up to 2%",
@@ -8530,6 +8546,7 @@
     "Oceania"
    ],
    "note": "Multi-asset: crypto, metals, FX.",
+   "licence": "FinCEN MSB + state money-transmitter licences (US); FCA-registered cryptoasset firm (UK)",
    "founders": "Halsey Minor (CNET founder)",
    "terms_url": "https://uphold.com/legal",
    "privacy_url": "https://uphold.com/legal/privacy-policy",
@@ -8551,7 +8568,7 @@
    "hq": "Zug, CH",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "MiCA CASP (EU)",
    "card_network": "Visa/MC",
    "card_type": "Dual credit/debit",
    "cashback": "Up to 2% (credit mode)",
@@ -8571,6 +8588,7 @@
    ],
    "note": "Crypto credit lines; rewards in credit mode.",
    "ai": "interface",
+   "licence": "EU VASP registrations; MiCA CASP application pending; EEA served via MiCA-licensed Tangany + DLT Finance",
    "founders": "Antoni Trenchev, Kosta Kantchev",
    "terms_url": "https://nexo.com/terms",
    "privacy_url": "https://nexo.com/privacy-policy",
@@ -8646,7 +8664,7 @@
    "hq": "Hong Kong, HK",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Prepaid (tiers)",
    "cashback": "Up to 3% stablecoin",
@@ -8666,6 +8684,7 @@
    ],
    "note": "Stablecoin neobank; ~$600M valuation.",
    "story": "Stablecoin-native neobank for the dollar-hungry global middle class; premium metal tiers, HK roots.",
+   "licence": "Runs on licensed partners' rails: custody via BitGo/Fireblocks, Visa cards via licensed issuers; not a bank",
    "funding": "~$70M+ at ~$600M valuation (2026)",
    "terms_url": "https://www.kast.xyz/terms",
    "privacy_url": "https://www.kast.xyz/legal/privacy-policy",
@@ -8694,7 +8713,7 @@
    "hq": "Hong Kong, HK",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa/MC",
    "card_type": "Prepaid",
    "cashback": "Up to 1%",
@@ -8715,6 +8734,7 @@
    "note": "Processed $2.95B card volume in 2025 — over 4x its next 13 competitors combined.",
    "story": "Hong Kong crypto-card leader: $2.95B card volume in 2025, more than 4x its next 13 competitors combined (CoinDesk/StraitsX).",
    "ai": "agentic",
+   "licence": "Hong Kong MSO, money lender + TCSP licences; VASP (RedotX UAB, Lithuania FCIS); MSB registrations (US/Canada)",
    "founders": "Michael Gao",
    "funding": "~$90M raised",
    "terms_url": "https://www.redotpay.com/en/terms/",
@@ -8742,7 +8762,7 @@
    "hq": "—",
    "founded": 2022,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa/MC",
    "card_type": "Prepaid",
    "cashback": "2% BTC",
@@ -8760,7 +8780,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Zero-fee stablecoin card in 170+ countries; nomad favourite."
+   "note": "Zero-fee stablecoin card in 170+ countries; nomad favourite.",
+   "licence": "AIFC FinTech Lab licence (Kazakhstan) + Polish VASP; cards issued by Banco Popular de Puerto Rico"
   },
   {
    "name": "Lava",
@@ -8859,7 +8880,7 @@
    "hq": "Vilnius, LT",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licence pending (partner model today)",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": null,
@@ -8871,7 +8892,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Ukraine-popular crypto card."
+   "note": "Ukraine-popular crypto card.",
+   "licence": "Lithuanian VASP (UAB Trustee Global); pursuing MiCA CASP licence after Jan 2026 wind-down"
   },
   {
    "name": "Brighty",
@@ -8920,7 +8942,7 @@
    "hq": "—",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa/MC",
    "card_type": "Debit",
    "cashback": null,
@@ -8938,7 +8960,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Global stablecoin money app."
+   "note": "Global stablecoin money app.",
+   "licence": "Swiss fintech banking licence (Art. 1b Banking Act, FINMA; SR Saphirstein AG); tokenized deposits"
   },
   {
    "name": "XPlace",
@@ -8948,7 +8971,7 @@
    "hq": "Dubai, AE",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Self-custodial software",
    "card_network": "Visa/MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -8966,7 +8989,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Crypto card (Pontech issuance)."
+   "note": "Crypto card (Pontech issuance).",
+   "licence": "Self-custodial (non-custodial Solana smart contracts); cards issued via Rain (Signify Holdings) under Visa licence"
   },
   {
    "name": "Mercado Pago",
@@ -9025,7 +9049,7 @@
    "hq": "Buenos Aires, AR",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": "Up to 2% BTC",
@@ -9039,6 +9063,7 @@
    ],
    "note": "Argentina's crypto-card leader; 3M+.",
    "story": "Argentina's crypto card leader, born in a Patagonian town, scaled on stablecoin savings culture.",
+   "licence": "Registered VASP/PSAV (CNV Argentina, No. 162); payment account via Digifin S.A.",
    "founders": "Marcelo Cavazzoli, Borja Martel",
    "funding": "~$60M raised",
    "terms_url": "https://www.lemon.me/terms",
@@ -9057,7 +9082,7 @@
    "hq": "Buenos Aires, AR",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "Crypto cashback",
@@ -9070,6 +9095,7 @@
     "Latin America"
    ],
    "note": "AR crypto neobank; travel-friendly.",
+   "licence": "VASP registration (CNV PSAV No. 52, Argentina, Jul 2024)",
    "founders": "Manuel Beaudroit",
    "funding": "~$10M raised"
   },
@@ -9081,7 +9107,7 @@
    "hq": "Buenos Aires, AR",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": "Crypto cashback",
@@ -9094,6 +9120,7 @@
     "Latin America"
    ],
    "note": "LatAm exchange + card (AR/BR/MX).",
+   "licence": "VASP: PSAV registration with CNV Argentina (Nos. 36/37, 2024); regional entities in BR/MX",
    "founders": "Sebastián Serrano",
    "funding": "~$90M raised",
    "investors": [
@@ -9119,7 +9146,7 @@
    "hq": "Buenos Aires, AR",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "Crypto cashback",
@@ -9132,6 +9159,7 @@
     "Latin America"
    ],
    "note": "Stablecoin-heavy AR exchange + card.",
+   "licence": "VASP — registered PSAV with CNV (Argentina); stablecoin-focused exchange + card",
    "founders": "Federico Ogue",
    "funding": "~$11M raised"
   },
@@ -9200,7 +9228,7 @@
    "hq": "Mexico City, MX",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "2% USDc on spend",
@@ -9214,6 +9242,7 @@
    ],
    "note": "Digital-dollar accounts for LatAm.",
    "story": "Digital-dollar accounts (USDc) that let LatAm users escape peso volatility with a card.",
+   "licence": "Digital-dollar (USDC) accounts on regulated partner banks' and custodians' rails; rebranded ARQ 2026",
    "founders": "Fernando Terrés, Zach Garman (ex-Revolut)",
    "funding": "~$60M+ raised",
    "terms_url": "https://www.arqfinance.com/en-MX/legal",
@@ -9267,7 +9296,7 @@
    "hq": "Bogotá, CO",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Virtual + physical",
    "cashback": null,
@@ -9279,7 +9308,8 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "Dollar accounts for LatAm freelancers."
+   "note": "Dollar accounts for LatAm freelancers.",
+   "licence": "MSB registration (FinCEN, R3mit Solutions Inc.); USDC accounts via licensed US/EU partners"
   },
   {
    "name": "Airtm",
@@ -9289,7 +9319,7 @@
    "hq": "Mexico City, MX",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": "Visa",
    "card_type": "Virtual",
    "cashback": null,
@@ -9302,6 +9332,7 @@
     "Latin America"
    ],
    "note": "Dollar wallet + P2P payouts.",
+   "licence": "MSB registration (FinCEN, No. 31000329787639); USDC-based dollar wallet",
    "founders": "Ruben Galindo, Antonio García",
    "funding": "~$70M raised",
    "terms_url": "https://www.airtm.com/en/terms-of-service",
@@ -9335,7 +9366,7 @@
    "hq": "Mexico City, MX",
    "founded": 2022,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -9350,6 +9381,7 @@
    "note": "Chat-based remittances on stablecoin rails.",
    "story": "Send dollars home over WhatsApp; stablecoin rails under a chat interface.",
    "ai": "interface",
+   "licence": "US money transmitter — state licences (NMLS 2302775); agent of UniTeller/Intermex; USDC rails via Bitso",
    "founders": "Manuel Godoy",
    "funding": "~$45M raised"
   },
@@ -9361,7 +9393,7 @@
    "hq": "San Francisco, US",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Virtual + physical",
    "cashback": null,
@@ -9377,6 +9409,7 @@
    ],
    "note": "Pan-African P2P + cards + crypto.",
    "story": "Ugandan-Ghanaian founders built pan-African P2P; survived the FTX-investor winter and refocused on cards + crypto.",
+   "licence": "Licensed e-money/payments across Africa (CBN, BoG, BoU, BNR); 40+ US money-transmitter licences; FCA EMI (UK)",
    "founders": "Ham Serunjogi, Maijid Moujaled",
    "funding": "~$300M raised",
    "x_handle": "chippercashapp",
@@ -9464,7 +9497,7 @@
    "hq": "Lagos, NG",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Virtual USD",
    "cashback": null,
@@ -9477,6 +9510,7 @@
     "Africa"
    ],
    "note": "BTC + stablecoin banking for Africa.",
+   "licence": "VASP applicant under Nigeria SEC's ARIP (approval-in-principle track); licensed partners for rails",
    "founders": "Bernard Parah"
   },
   {
@@ -9511,7 +9545,7 @@
    "hq": "San Francisco, US",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "VASP / MSB / crypto licences",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -9531,6 +9565,7 @@
    ],
    "note": "1.5M workers; DLUSD on Bridge+Privy+Tempo.",
    "story": "Payroll for 1.5M global workers; issued its own DLUSD stablecoin on Stripe's Bridge + Privy + Tempo stack.",
+   "licence": "MSB + US state money-transmitter licences (DPayments); US wallet via Alviere/CFSB; DLUSD via Bridge",
    "founders": "Alex Bouaziz, Shuo Wang",
    "funding": "~$680M raised",
    "terms_url": "https://www.deel.com/legal/terms-of-service/",
@@ -9581,7 +9616,7 @@
    "hq": "New York, US",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -9594,6 +9629,7 @@
     "North America"
    ],
    "note": "SMB banking born from crypto treasuries.",
+   "licence": "Partner banks (Grasshopper Bank, Cross River Bank); fintech, not a bank; FDIC via partners",
    "founders": "Brandon Arvanaghi",
    "funding": "~$40M raised"
   },
@@ -9628,7 +9664,7 @@
    "hq": "San Francisco, US",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Business",
    "cashback": "Cashback",
@@ -9643,6 +9679,7 @@
    "note": "SMB banking; crypto-native verticals.",
    "story": "Founded by literal teenagers in 2020, Slash hit unicorn by banking the businesses everyone else rejects — crypto firms, performance marketers, e-commerce — and grew revenue from $10M to $250M+ annualized in 24 months.",
    "ai": "agentic",
+   "licence": "Partner bank (Column N.A., Member FDIC); previously Piermont Bank",
    "founders": "Victor Cardenas",
    "funding": "$160M raised; $100M Series C at $1.4B (Apr 2026, led by Ribbit)",
    "investors": [
@@ -11584,7 +11621,7 @@
    "hq": "Basel, CH",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -11596,29 +11633,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Bank Cler's free banking app."
-  },
-  {
-   "name": "Kard",
-   "category": "traditional",
-   "audience": "gen alpha · kids & family",
-   "region": "Europe",
-   "hq": "Paris, FR",
-   "founded": 2018,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "MC",
-   "card_type": "Debit",
-   "cashback": null,
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "kard.eu",
-   "website": "https://kard.eu",
-   "active_regions": [
-    "Europe"
-   ],
-   "note": "French teen banking app."
+   "note": "Bank Cler's free banking app.",
+   "licence": "Operates under Bank Cler's Swiss banking licence (FINMA)"
   },
   {
    "name": "Pixpay",
@@ -11628,7 +11644,7 @@
    "hq": "Paris, FR",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -11641,6 +11657,7 @@
     "Europe"
    ],
    "note": "Teen card; acquired by GoHenry (2022).",
+   "licence": "E-money distributor — agent of Treezor (ACPR-licensed EMI, Société Générale group); acquired by GoHenry/Acorns",
    "founders": "Benoit Grassin, Nicolas Klein, Caroline Ménager",
    "funding": "Acquired by GoHenry (2022)"
   },
@@ -11652,7 +11669,7 @@
    "hq": "Berlin, DE",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -11664,7 +11681,8 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "German family money app."
+   "note": "German family money app.",
+   "licence": "E-money distributor of Treezor (ACPR-licensed French EMI, Société Générale group)"
   },
   {
    "name": "Kit",
@@ -11698,7 +11716,7 @@
    "hq": "Sydney, AU",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -11711,6 +11729,7 @@
     "Oceania"
    ],
    "note": "ASX-listed money app (AU/US).",
+   "licence": "Partner banks (Regional Australia Bank; US via Choice Bank)",
    "funding": "Public (ASX:DOU)"
   },
   {
@@ -11721,7 +11740,7 @@
    "hq": "Sydney, AU",
    "founded": 2020,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -11734,6 +11753,7 @@
     "Oceania"
    ],
    "note": "Money app for sole traders.",
+   "licence": "AFSL authorised representative (MSC Advisory AFSL 480649); accounts issued by Wise Australia (AFSL 513764)",
    "founders": "Daniel Cannizzaro"
   },
   {
@@ -11800,7 +11820,7 @@
    "hq": "Singapore, SG",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC",
    "card_type": "Prepaid multicurrency",
    "cashback": null,
@@ -11813,6 +11833,7 @@
     "Asia"
    ],
    "note": "Travel wallet for SG/TH/MY.",
+   "licence": "Major Payment Institution (MPI) licence from MAS, Singapore — e-money issuance; funds safeguarded at DBS/StanChart/UOB",
    "founders": "Caecilia Chu, Arthur Mak",
    "funding": "~$100M+ raised",
    "x_handle": "YouTripApp",
@@ -11863,7 +11884,7 @@
    "hq": "São Paulo, BR",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit (US account)",
    "cashback": null,
@@ -11876,6 +11897,7 @@
     "Latin America"
    ],
    "note": "US accounts + investing for Brazilians.",
+   "licence": "Partner bank (Community Federal Savings Bank, US); FX via Ouribank (Brazil)",
    "founders": "Lucas Vargas, Patrick Sigrist",
    "funding": "~$60M raised",
    "terms_url": "https://www.nomadglobal.com/legal",
@@ -11901,38 +11923,6 @@
      "name": "Tiger Global",
      "website": "https://tigerglobal.com"
     }
-   ]
-  },
-  {
-   "name": "Pomelo",
-   "category": "traditional",
-   "audience": "immigrants & migrants",
-   "region": "US",
-   "hq": "San Francisco, US",
-   "founded": 2021,
-   "custody": "Custodial",
-   "regulation_type": "Unclassified",
-   "card_network": "MC",
-   "card_type": "Credit + remittance",
-   "cashback": null,
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "pomelo.com",
-   "website": "https://pomelo.com",
-   "active_regions": [
-    "North America"
-   ],
-   "note": "Send money home via credit; US↔PH corridor.",
-   "story": "Turns remittances into credit-building: send money home on a card, build US credit history.",
-   "founders": "Eric Velasquez Frenkiel",
-   "funding": "~$70M incl. debt",
-   "terms_url": "https://www.pomelo.com/terms-of-service",
-   "privacy_url": "https://www.pomelo.com/privacy-policy",
-   "x_handle": "pomelo",
-   "countries": [
-    "United States",
-    "Philippines"
    ]
   },
   {
@@ -11981,7 +11971,7 @@
    "hq": "Riyadh, SA",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Mada/Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -11994,6 +11984,7 @@
     "MENA"
    ],
    "note": "Saudi Arabia's third licensed digital bank.",
+   "licence": "Full Saudi digital bank licence (SAMA); full operations approved Sep 2025",
    "terms_url": "https://www.visionbank.sa/terms",
    "privacy_url": "https://www.visionbank.sa/privacy",
    "x_handle": "VisionBankSA",
@@ -12009,7 +12000,7 @@
    "hq": "Manama, BH",
    "founded": 2022,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "Visa",
    "card_type": "Debit + wealth",
    "cashback": "Rewards",
@@ -12022,6 +12013,7 @@
     "MENA"
    ],
    "note": "Bahrain telco-backed financial super-app.",
+   "licence": "CBB-licensed payment institution group (Batelco Financial Services: PSP/AISP/PISP; BRS money changer; investment Cl.2)",
    "x_handle": "beyonmoney",
    "countries": [
     "Bahrain"
@@ -12035,7 +12027,7 @@
    "hq": "Dubai, AE",
    "founded": 2019,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Licensed bank",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Rewards",
@@ -12048,6 +12040,7 @@
     "MENA"
    ],
    "note": "Ethical digital-asset super-app; UAE/ID/MY corridors.",
+   "licence": "VARA VASP licence (Dubai, broker-dealer); provisional Islamic digital-bank licence in Malaysia",
    "terms_url": "https://www.fasset.com/terms",
    "privacy_url": "https://www.fasset.com/privacy",
    "x_handle": "fassetofficial",
@@ -12066,7 +12059,7 @@
    "hq": "—",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Visa",
    "card_type": "Virtual + physical",
    "cashback": null,
@@ -12080,6 +12073,7 @@
    ],
    "note": "USDC neobank for Venezuela + LatAm corridors.",
    "story": "Ex-Venmo/Nubank/Rappi team hit $30M annualized revenue, $1B payment volume and 1M users in under 12 months — with six engineers and one designer.",
+   "licence": "Self-custodial MPC wallet (USDC); no licence of its own; fiat rails via partners",
    "founders": "Jesus Castillo, Gino Guatavita",
    "funding": "$20M seed (Dec 2025; DST Global, Y Combinator, Coinbase Ventures)",
    "privacy_url": "https://www.kontigo.lat/privacy",
@@ -12200,7 +12194,7 @@
    "hq": "—",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Self-custodial software",
    "card_network": "Visa",
    "card_type": "Business",
    "cashback": null,
@@ -12218,7 +12212,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Stablecoin business banking for global SMBs."
+   "note": "Stablecoin business banking for global SMBs.",
+   "licence": "Self-custodial stablecoin platform; not a bank; compliance and settlement via licensed partners"
   },
   {
    "name": "Nyla",
@@ -12228,7 +12223,7 @@
    "hq": "Lagos, NG",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "Verve/MC",
    "card_type": "Debit",
    "cashback": null,
@@ -12240,7 +12235,8 @@
    "active_regions": [
     "Africa"
    ],
-   "note": "Nigerian consumer neobank (new wave)."
+   "note": "Nigerian consumer neobank (new wave).",
+   "licence": "Partner banks — tech company, not a bank; launching in Ghana via a licensed commercial bank (Islamic window)"
   },
   {
    "name": "Munify",
@@ -12250,7 +12246,7 @@
    "hq": "Cairo, EG",
    "founded": 2024,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": null,
@@ -12262,7 +12258,8 @@
    "active_regions": [
     "MENA"
    ],
-   "note": "Banking for Egyptian diaspora + remittances."
+   "note": "Banking for Egyptian diaspora + remittances.",
+   "licence": "US accounts via partner banks; in-principle DFSA licence approval (UAE, Nov 2025)"
   },
   {
    "name": "Moneco",
@@ -12272,7 +12269,7 @@
    "hq": "Paris, FR",
    "founded": 2022,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": null,
@@ -12285,6 +12282,7 @@
     "Europe"
    ],
    "note": "Neobank for African diaspora in Europe.",
+   "licence": "Accounts and cards via regulated EMI partners (Europe/US); Moneco Canada registered with FINTRAC",
    "terms_url": "https://moneco.app/terms",
    "x_handle": "moneco_app",
    "countries": [
@@ -12329,7 +12327,7 @@
    "hq": "Dubai, AE",
    "founded": 2021,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Broker-led",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -12341,7 +12339,8 @@
    "active_regions": [
     "MENA"
    ],
-   "note": "MENA retail investing app expanding to money features."
+   "note": "MENA retail investing app expanding to money features.",
+   "licence": "DFSA-regulated investment firm (DIFC, ref. 4153); broker-led model, execution via licensed partners"
   },
   {
    "name": "GCash",
@@ -12351,7 +12350,7 @@
    "hq": "Manila, PH",
    "founded": 2004,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Debit (GCash Card)",
    "cashback": null,
@@ -12365,6 +12364,7 @@
    ],
    "note": "The Philippines' super-app wallet; ~94M users, GCredit + GSave make it bank-like.",
    "ai": "underwriting",
+   "licence": "E-money issuer licence (EMI-NBFI, Bangko Sentral ng Pilipinas) via G-Xchange Inc.; Mynt group",
    "investors": [
     {
      "name": "Globe Telecom",
@@ -12397,7 +12397,7 @@
    "hq": "Bengaluru, IN",
    "founded": 2015,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "RuPay/UPI",
    "card_type": "UPI + cards",
    "cashback": "Rewards",
@@ -12410,6 +12410,7 @@
     "Asia"
    ],
    "note": "India's UPI giant — 600M+ registered; wallets, deposits marketplace, insurance.",
+   "licence": "RBI PPI wallet (e-money issuer) + payment aggregator licence (2025); IRDAI insurance broking",
    "investors": [
     {
      "name": "Walmart",
@@ -12446,7 +12447,7 @@
    "hq": "Noida, IN",
    "founded": 2010,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Partner-bank model",
    "card_network": "RuPay",
    "card_type": "Wallet + UPI",
    "cashback": "Cashback offers",
@@ -12459,6 +12460,7 @@
     "Asia"
    ],
    "note": "India's OG super-app wallet; payments bank wound down, wallet + UPI live on.",
+   "licence": "UPI TPAP riding on partner banks (Axis, Yes Bank, SBI, HDFC); wallet wound down with bank unit",
    "investors": [
     {
      "name": "SoftBank",
@@ -12486,7 +12488,7 @@
    "hq": "Singapore, SG",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "MC (GrabPay Card)",
    "card_type": "Prepaid",
    "cashback": "GrabRewards",
@@ -12498,7 +12500,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "SEA super-app wallet across 8 countries; sibling of GXS Bank."
+   "note": "SEA super-app wallet across 8 countries; sibling of GXS Bank.",
+   "licence": "Major payment institution (MPI) licence (MAS Singapore, PS20200167); e-money issuer"
   },
   {
    "name": "GoPay",
@@ -12508,7 +12511,7 @@
    "hq": "Jakarta, ID",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": null,
    "card_type": null,
    "cashback": "GoPay Coins",
@@ -12520,7 +12523,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "GoTo's wallet; Indonesia's ride-hail-born money app, Jago-partnered."
+   "note": "GoTo's wallet; Indonesia's ride-hail-born money app, Jago-partnered.",
+   "licence": "E-money issuer licensed by Bank Indonesia (PT Dompet Anak Bangsa, since 2014); PJP Category 1; Bank Jago partner"
   },
   {
    "name": "OVO",
@@ -12530,7 +12534,7 @@
    "hq": "Jakarta, ID",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": null,
    "card_type": null,
    "cashback": "OVO Points",
@@ -12543,6 +12547,7 @@
     "Asia"
    ],
    "note": "Grab-backed Indonesian e-wallet with investing + lending layers.",
+   "licence": "Bank Indonesia e-money licence (PT Visionet Internasional, 2017); QRIS + funds-transfer licences",
    "investors": [
     {
      "name": "Grab",
@@ -12558,7 +12563,7 @@
    "hq": "Jakarta, ID",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -12571,6 +12576,7 @@
     "Asia"
    ],
    "note": "Ant-backed Indonesian wallet; 180M+ registered users.",
+   "licence": "E-money issuer licence (Bank Indonesia)",
    "investors": [
     {
      "name": "Ant Group",
@@ -12590,7 +12596,7 @@
    "hq": "Bangkok, TH",
    "founded": 2003,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa/MC",
    "card_type": "Prepaid",
    "cashback": null,
@@ -12604,6 +12610,7 @@
    ],
    "note": "CP Group's wallet across 7 SEA markets; Thailand's biggest.",
    "ai": "underwriting",
+   "licence": "E-money licence (Bank of Thailand) via Ascend Money; local e-money/payments licences across 7 SEA markets",
    "investors": [
     {
      "name": "CP Group",
@@ -12623,7 +12630,7 @@
    "hq": "Ho Chi Minh City, VN",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": null,
    "card_type": null,
    "cashback": null,
@@ -12637,6 +12644,7 @@
    ],
    "note": "Vietnam's leading e-wallet; 30M+ users, investments + savings.",
    "ai": "underwriting",
+   "licence": "Intermediary payment services / e-wallet licence from State Bank of Vietnam; mobile money super-app",
    "investors": [
     {
      "name": "Warburg Pincus",
@@ -12660,7 +12668,7 @@
    "hq": "Ho Chi Minh City, VN",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "Payment institution",
    "card_network": "Visa",
    "card_type": "Wallet + card",
    "cashback": null,
@@ -12672,7 +12680,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "VNG's wallet riding Zalo, Vietnam's biggest chat app."
+   "note": "VNG's wallet riding Zalo, Vietnam's biggest chat app.",
+   "licence": "Licensed payment institution (SBV intermediary payment services licence 04/GP-NHNN); Zion/VNG e-wallet"
   },
   {
    "name": "Touch 'n Go eWallet",
@@ -12682,7 +12691,7 @@
    "hq": "Kuala Lumpur, MY",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Unclassified",
+   "regulation_type": "E-money institution",
    "card_network": "Visa",
    "card_type": "Prepaid",
    "cashback": null,
@@ -12694,7 +12703,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "Malaysia's toll-born wallet turned everyday money app; Ant-backed."
+   "note": "Malaysia's toll-born wallet turned everyday money app; Ant-backed.",
+   "licence": "E-money issuer licence (Bank Negara Malaysia)"
   }
  ]
 }
