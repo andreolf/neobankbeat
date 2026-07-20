@@ -18,6 +18,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
 <meta name="twitter:title" content="neobankbeat · who watches the neobanks?">
 <meta name="twitter:description" content="368 verified-active neobanks in one place — traditional, hybrid crypto & web3-native. Compare custody, cards, yield, stablecoins & regulation.">
 <meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
@@ -691,7 +692,7 @@ body.on-map .minimap{display:none}
 
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Side by side comparison">
   <div class="ov-wrap">
-    <div class="ov-head"><h2>side by side</h2><button class="ov-share" id="ovshare" title="copy a link to this comparison">copy link</button><button class="ov-close" id="ovclose">close ✕</button></div>
+    <div class="ov-head"><h2>side by side</h2><button class="ov-share" id="ovshare" title="copy a link to this comparison">copy link</button><button class="ov-share" id="ovxshare" title="share this comparison on X">share on 𝕏</button><button class="ov-close" id="ovclose">close ✕</button></div>
     <div style="overflow-x:auto"><table class="cmp" id="cmptable"></table></div>
   </div>
 </div>
@@ -803,6 +804,7 @@ body.on-map .minimap{display:none}
       <a href="/llms.txt">llms.txt</a>
       <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=new-neobank&amp;template=new-neobank.yml" target="_blank" rel="noopener">+ submit a neobank</a>
       <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&amp;template=data-fix.yml" target="_blank" rel="noopener">suggest a data fix</a>
+      <a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
     </nav>
   </div>
   <div class="fnote">Figures compiled from public sources (July 2026), for comparison only — not financial advice. neobankbeat is independent and unaffiliated with any issuer. "Up to" cashback and yield figures are headline claims that change constantly — always confirm with the issuer.</div>
@@ -3527,6 +3529,13 @@ render();
     setTimeout(()=>{share.textContent='copy link';},1600);
     nbevt('compare_share',{cmp:new URLSearchParams(location.search).get('cmp')||''});
   });
+  const xshare=document.getElementById('ovxshare');
+  if(xshare)xshare.addEventListener('click',()=>{
+    const cmp=new URLSearchParams(location.search).get('cmp')||'';
+    const names=cmp.split(',').filter(Boolean).join(' vs ');
+    nbevt('compare_share',{cmp:cmp,to:'x'});
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent((names?names+' — ':'')+'side by side on neobankbeat:')+'&url='+encodeURIComponent(location.href)+'&via=neobankbeat','_blank');
+  });
 })();
 
 /* ── custom analytics events (vercel + ga4 via nbevt) ── */
@@ -3566,6 +3575,10 @@ document.addEventListener('click',e=>{
     }catch(_){}
     const acts=document.querySelector('#dwrap .pactions');
     if(acts&&!acts.querySelector('.ppage'))acts.insertAdjacentHTML('beforeend','<a class="pghost ppage" href="'+url+'">full page →</a>');
+    if(acts&&!acts.querySelector('.pxshare')){
+      acts.insertAdjacentHTML('beforeend','<a class="pghost pxshare" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(name+' on neobankbeat — custody, licence, cards & facts:')+'&url='+encodeURIComponent('https://www.neobankbeat.com'+url)+'&via=neobankbeat" target="_blank" rel="noopener">share on 𝕏</a>');
+      acts.querySelector('.pxshare').addEventListener('click',()=>nbevt('profile_share',{name:name}));
+    }
   };
   const _close=closeDetail;
   closeDetail=function(){
