@@ -917,6 +917,7 @@ const BLOG_POSTS = [
   ['who-actually-uses-neobanks', '2026-07-12'],
   ['fastest-growing-neobanks-2026', '2026-07-16'],
   ['ai-neobanks', '2026-07-16'],
+  ['neobank-ecosystem-map', '2026-07-20'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },

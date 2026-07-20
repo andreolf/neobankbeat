@@ -172,10 +172,13 @@ def main():
         save(entity_card(e), f"og/n/{slugs[e['name']]}.png")
     print("profile cards:", len(ents))
 
+    # slugs with hand-made OG images (e.g. cropped from the ecosystem poster)
+    OG_CUSTOM = {"neobank-ecosystem-map"}
     n_blog = 0
     for p in sorted((ROOT / "blog").iterdir()):
         idx = p / "index.html"
         if not idx.is_file(): continue
+        if p.name in OG_CUSTOM: continue
         h = idx.read_text()
         t = re.search(r"<title>([^<]*?)(?: · neobankbeat)?</title>", h)
         dt = re.search(r'<p class="meta"><b>([^<]+)</b>', h)

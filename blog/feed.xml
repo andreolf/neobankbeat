@@ -7,6 +7,13 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>The neobank ecosystem map: all 368 on one poster</title>
+    <link>https://www.neobankbeat.com/blog/neobank-ecosystem-map/</link>
+    <guid>https://www.neobankbeat.com/blog/neobank-ecosystem-map/</guid>
+    <pubDate>Mon, 20 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Market maps usually show the 40 companies the author could name. This one is every entity in the directory: 254 traditional, 58 hybrid fiat+crypto and 56 web3-native neobanks, plus the 106 infrastructure providers underneath them and the 219 investors behind them. Generated from data.json, free to reuse, regenerated as the dataset changes.</description>
+  </item>
+  <item>
     <title>AI neobanks: narrative vs. production — who actually ships</title>
     <link>https://www.neobankbeat.com/blog/ai-neobanks/</link>
     <guid>https://www.neobankbeat.com/blog/ai-neobanks/</guid>
