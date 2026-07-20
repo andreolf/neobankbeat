@@ -147,9 +147,9 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
       <div class="jmaplabel" id="jmaplabel">click a region to filter</div>
     </div>
     <div class="jsec">department</div>
-    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1189</span></a>
+    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1192</span></a>
 <a class="srow" href="/jobs/data/">Data & AI<span class="c">203</span></a>
-<a class="srow" href="/jobs/product/">Product<span class="c">197</span></a>
+<a class="srow" href="/jobs/product/">Product<span class="c">196</span></a>
 <a class="srow" href="/jobs/design/">Design<span class="c">112</span></a>
 <a class="srow" href="/jobs/compliance/">Compliance & Risk<span class="c">278</span></a>
 <a class="srow" href="/jobs/onboarding/">Onboarding & KYC<span class="c">29</span></a>
@@ -159,25 +159,25 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">100</span></a>
 <a class="srow" href="/jobs/operations/">Operations<span class="c">122</span></a>
 <a class="srow" href="/jobs/people/">People & Legal<span class="c">128</span></a>
-<a class="srow" href="/jobs/other/">Other<span class="c">547</span></a></div>
+<a class="srow" href="/jobs/other/">Other<span class="c">546</span></a></div>
     <div class="jsec">workplace</div>
     <div class="sidelist">
-      <button class="srow" data-wp="remote">Remote only<span class="c">637</span></button>
+      <button class="srow" data-wp="remote">Remote only<span class="c">639</span></button>
       <button class="srow" data-wp="hybrid">Hybrid<span class="c">1009</span></button>
-      <button class="srow" data-wp="onsite">On-site<span class="c">1935</span></button>
+      <button class="srow" data-wp="onsite">On-site<span class="c">1934</span></button>
       <button class="srow" data-visa="1">Visa sponsorship<span class="c">94</span></button>
       <button class="srow" data-sal="1">Salary disclosed<span class="c">498</span></button>
     </div>
     <div class="jsec">region</div>
-    <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">767</span></button>
+    <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">769</span></button>
 <button class="srow" data-region="europe">Europe<span class="c">756</span></button>
 <button class="srow" data-region="north-america">North America<span class="c">742</span></button>
-<button class="srow" data-region="latin-america">Latin America<span class="c">246</span></button>
+<button class="srow" data-region="latin-america">Latin America<span class="c">244</span></button>
 <button class="srow" data-region="africa">Africa<span class="c">67</span></button>
 <button class="srow" data-region="mena">MENA<span class="c">69</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">552</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">28</span></button>
-<button class="srow" data-region="other">Other<span class="c">354</span></button></div>
+<button class="srow" data-region="other">Other<span class="c">355</span></button></div>
     <button class="jclear" id="jclear">× clear all filters</button>
   </aside>
     <div class="jmain">
@@ -1076,7 +1076,7 @@ const PRESET='marketing';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"other":354,"latin-america":246,"europe":756,"north-america":742,"asia":552,"mena":69,"remote":767,"africa":67,"oceania":28};
+const regCount={"other":355,"latin-america":244,"europe":756,"north-america":742,"asia":552,"mena":69,"remote":769,"africa":67,"oceania":28};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
@@ -1126,7 +1126,7 @@ syncMap();render(true)});
 
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 <script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
 /* job_apply: the board's conversion event */

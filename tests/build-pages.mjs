@@ -86,7 +86,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -930,6 +930,7 @@ const urls = [
   { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ai/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/partner/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
   ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: TODAY, priority: '0.6' })),
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),

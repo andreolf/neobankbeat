@@ -515,7 +515,7 @@ nbevt('job_apply',{company:(a.querySelector('.co')||{}).textContent||'',title:((
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -695,7 +695,7 @@ const indexHtml = head(
   <div class="jlayout">
     ${sidebar(null)}
     <div class="jmain">
-      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY} · <a href="/jobs/feed.xml" style="color:var(--acc);text-decoration:none">rss</a></span></div>
+      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY} · <a href="/partner/" style="color:var(--acc);text-decoration:none">hiring? feature your roles</a> · <a href="/jobs/feed.xml" style="color:var(--acc);text-decoration:none">rss</a></span></div>
       <div class="joblist" id="jlist">
 ${all.slice(0, 80).map(jobCard).join('\n')}
       </div>
@@ -721,7 +721,7 @@ ${DEPTS.filter(([id]) => byDept[id]).map(([id, label]) =>
   </div>
 
   <h2>how this board works</h2>
-  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in.</p>
+  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in. Hiring and want your roles seen first? <a href="/partner/">Feature them</a>.</p>
   <p style="font-size:12.5px;color:var(--dim)">Listings belong to the respective companies and change constantly; this board refreshes on regeneration (last: ${TODAY}). Subscribe to the newest roles via <a href="/jobs/feed.xml">RSS</a> or pull the raw list from <a href="/jobs/data.json">jobs/data.json</a>. neobankbeat is independent and earns nothing from applications.</p>
   </article>
 </main>

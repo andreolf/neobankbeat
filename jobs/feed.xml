@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 20 Jul 2026 17:05:19 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 17:23:46 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[CREDIT INTERN — Banco Inter]]></title>
@@ -219,6 +219,22 @@
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
     <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4792180101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4792180101</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Bangalore · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Mobile Architect (POS Terminal) — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4932688101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4932688101</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Poland; Remote, Spain · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Mobile Architect (POS Terminal) — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4378148101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4378148101</guid>
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Bangalore · remote]]></description>
@@ -470,22 +486,6 @@
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[PhonePe · Delhi NCR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Experience Specialist, Mutual Funds — PhonePe]]></title>
-    <link>https://job-boards.greenhouse.io/phonepe/jobs/7800993003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7800993003</guid>
-    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[PhonePe · Bengaluru · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Engineering Manager, Backend — PhonePe]]></title>
-    <link>https://job-boards.greenhouse.io/phonepe/jobs/7809331003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7809331003</guid>
-    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[PhonePe · Bangalore · onsite]]></description>
   </item>
 </channel>
 </rss>
