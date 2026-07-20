@@ -3,10 +3,50 @@
 <channel>
   <title>neobank jobs · neobankbeat</title>
   <link>https://www.neobankbeat.com/jobs/</link>
-  <description>The newest roles at 67 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
+  <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 20 Jul 2026 09:31:11 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 11:43:50 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[INTERN - PEOPLE DEVELOPMENT — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4705184005?gh_jid=4705184005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4705184005?gh_jid=4705184005</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[PEOPLE DEVELOPMENT ANALYST III - CORPORATE EDUCATION — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4706074005?gh_jid=4706074005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4706074005?gh_jid=4706074005</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[PRODUCTS ANALYST II - REAL ESTATE — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4711252005?gh_jid=4711252005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4711252005?gh_jid=4711252005</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[REAL ESTATE CONSULTANT I - Rio de Janeiro, RJ — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4711317005?gh_jid=4711317005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4711317005?gh_jid=4711317005</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Rio De Janeiro, RJ · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Software Engineer Intern, Fullstack - 12 Month Internship — Bitpanda]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4918465101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4918465101</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+  </item>
   <item>
     <title><![CDATA[Data Science Manager (Credit) — Moniepoint]]></title>
     <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4736464101</link>
@@ -16,12 +56,44 @@
     <description><![CDATA[Moniepoint · Remote, Lagos, Nigeria · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4792180101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4792180101</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Bangalore · remote]]></description>
+  </item>
+  <item>
     <title><![CDATA[Team Lead, Inbound Sales — Moniepoint]]></title>
     <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4828537101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4828537101</guid>
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Sales &amp; Partnerships</category>
     <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AI Application Architect — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7761002003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7761002003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Application Architect, Java — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7766838003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7766838003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Infrastructure Stability Architect — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/6507075003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/6507075003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Principal/Senior Mobile Engineer, Trading Strategies, CEX — OKX]]></title>
@@ -80,6 +152,30 @@
     <description><![CDATA[OKX · Budapest, Budapest, Hungary · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[Senior AI Creative Innovator (Paid Ads) — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7774756003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7774756003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[OKX · Remote Roles - APAC · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Finance Manager - Group Consolidation — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7774787003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7774787003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Finance Manager - Group Consolidation — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7802200003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7802200003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Senior Manager, Web3 Growth — OKX]]></title>
     <link>https://job-boards.greenhouse.io/okx/jobs/7764403003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7764403003</guid>
@@ -94,6 +190,14 @@
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Marketing &amp; Growth</category>
     <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[(Senior) Product Director, Local Growth — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7655609003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7655609003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[(Senior) Product Director, Local Growth — OKX]]></title>
@@ -113,14 +217,6 @@
   </item>
   <item>
     <title><![CDATA[(Senior) Product Director, Local Growth — OKX]]></title>
-    <link>https://job-boards.greenhouse.io/okx/jobs/7655609003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7655609003</guid>
-    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[(Senior) Product Director, Local Growth — OKX]]></title>
     <link>https://job-boards.greenhouse.io/okx/jobs/7655632003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7655632003</guid>
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
@@ -136,12 +232,44 @@
     <description><![CDATA[OKX · APAC · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Associate Manager - Training & Quality — PhonePe]]></title>
+    <link>https://job-boards.greenhouse.io/phonepe/jobs/7809430003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7809430003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PhonePe · Delhi NCR · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Customer Experience Specialist, Mutual Funds — PhonePe]]></title>
     <link>https://job-boards.greenhouse.io/phonepe/jobs/7800993003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7800993003</guid>
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Customer Support</category>
     <description><![CDATA[PhonePe · Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Manager, Backend — PhonePe]]></title>
+    <link>https://job-boards.greenhouse.io/phonepe/jobs/7809331003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7809331003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PhonePe · Bangalore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Specialist – Vendor Compliance Management — PhonePe]]></title>
+    <link>https://job-boards.greenhouse.io/phonepe/jobs/7757498003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7757498003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[PhonePe · Banglore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Deputy CCO — Robinhood]]></title>
+    <link>https://boards.greenhouse.io/robinhood/jobs/7914059?t=gh_src=&amp;gh_jid=7914059</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/robinhood/jobs/7914059?t=gh_src=&amp;gh_jid=7914059</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Robinhood · Vilnius, Lithuania · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Product Marketing Manager, International — Robinhood]]></title>
@@ -152,12 +280,44 @@
     <description><![CDATA[Robinhood · London, UK · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Partnerships Manager (Partner Credit Services) — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7678734003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7678734003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Tide · Berlin, Germany · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Engineer, Flutter — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/6621953003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/6621953003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · Lithuania · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Data Scientist (Fraud & Risk) — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7777174003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7777174003</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Treasury Operations Manager — Tide]]></title>
     <link>https://job-boards.greenhouse.io/tide/jobs/7652154003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7652154003</guid>
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Finance &amp; Treasury</category>
     <description><![CDATA[Tide · Bulgaria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Product Analyst - Security Platform — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000138611445</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000138611445</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Backend Engineer - Account Sharing — Wise]]></title>
@@ -326,166 +486,6 @@
     <pubDate>Sun, 19 Jul 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Wise · São Paulo, BR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Finance Senior Manager — Wise]]></title>
-    <link>https://jobs.smartrecruiters.com/wise/744000138509028</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000138509028</guid>
-    <pubDate>Sun, 19 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Wise · São Paulo, BR · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Compliance Advisory Manager — Bybit]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4878079101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4878079101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Bybit · Abu Dhabi, UAE · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Sênior | Assessoria de Investimentos Local | Belo Horizonte — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4680060005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4680060005</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · Belo Horizonte, Minas Gerais, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Sênior | Assessoria de Investimentos Local | Brasília — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4696154005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4696154005</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · Brasília, Federal District, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bilingual Residential Mortgage Officer — EQ Bank]]></title>
-    <link>https://jobs.lever.co/eqbank/55ac3a56-80e7-49ad-9c88-30d391f070b0</link>
-    <guid isPermaLink="true">https://jobs.lever.co/eqbank/55ac3a56-80e7-49ad-9c88-30d391f070b0</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[EQ Bank · Montreal · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bilingual Residential Mortgage Underwriter — EQ Bank]]></title>
-    <link>https://jobs.lever.co/eqbank/4c40bfb1-9384-43b5-8c3a-b57a81d39f66</link>
-    <guid isPermaLink="true">https://jobs.lever.co/eqbank/4c40bfb1-9384-43b5-8c3a-b57a81d39f66</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[EQ Bank · Montreal · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Abia) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931500101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931500101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Abia, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Anambra) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4828016101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4828016101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Anambra, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Enugu) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931501101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931501101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Enugu, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (FCT Abuja) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4833524101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4833524101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · FCT, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Imo) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931504101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931504101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Imo, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Kaduna) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4827935101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4827935101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Kaduna, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Kano) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931495101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931495101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Kano, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Ogun) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931489101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931489101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Ogun, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Implementation Officer (Oyo) — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4827952101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4827952101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Moniepoint · Oyo, Nigeria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Regional Field Sales Manager — Moniepoint]]></title>
-    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931517101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4931517101</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[IT Specialist — OKX]]></title>
-    <link>https://job-boards.greenhouse.io/okx/jobs/7808492003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7808492003</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[OKX · New York, United States · $167–224K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Manager, Capital Markets — SoFi]]></title>
-    <link>https://sofi.com/careers/job/7809098003?gh_jid=7809098003</link>
-    <guid isPermaLink="true">https://sofi.com/careers/job/7809098003?gh_jid=7809098003</guid>
-    <pubDate>Sat, 18 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[SoFi · United States · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[BUSINESS PROCESS SPECIALIST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4712020005?gh_jid=4712020005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4712020005?gh_jid=4712020005</guid>
-    <pubDate>Fri, 17 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION POLICIES ANALYST II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4711783005?gh_jid=4711783005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4711783005?gh_jid=4711783005</guid>
-    <pubDate>Fri, 17 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
   </item>
 </channel>
 </rss>

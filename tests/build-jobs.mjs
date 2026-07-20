@@ -50,7 +50,6 @@ const SOURCES = [
   ['Ether.fi', 'EtherFi Cash', 'ashby', 'ether.fi'],
   ['Phantom', 'Phantom', 'ashby', 'phantom'],
   ['Consensys (MetaMask)', 'MetaMask', 'gh', 'consensys'],
-  ['Fi Money', 'Fi Money', 'lever', 'epifi'],
   ['Found', 'Found', 'ashby', 'found'],
   ['Current', 'Current', 'gh', 'current'],
   /* deep-probe additions (probe-deep.mjs, verified by board identity) */
@@ -633,13 +632,39 @@ document.querySelectorAll('.srow.on').forEach(x=>{if(!x.href)x.classList.remove(
 syncMap();render(true)});
 </script>`;
 
+/* ── JobPosting structured data: freshest dated roles, for Google Jobs.
+   Only roles with a posted date qualify (datePosted is required). ── */
+const jobPosting = j => ({
+  '@type': 'JobPosting',
+  title: j.title,
+  description: `<p>${esc(j.title)} at ${esc(j.company)}${j.location ? ' — ' + esc(j.location) : ''}. Apply directly on the official ${esc(j.company)} careers page.</p>`,
+  datePosted: j.posted,
+  validThrough: new Date(Date.parse(j.posted) + 60 * 86400000).toISOString().slice(0, 10),
+  hiringOrganization: { '@type': 'Organization', name: j.company, sameAs: `https://www.neobankbeat.com${j.profile}` },
+  ...(j.wp === 'remote'
+    ? { jobLocationType: 'TELECOMMUTE', applicantLocationRequirements: { '@type': 'Country', name: j.location || 'Worldwide' } }
+    : { jobLocation: { '@type': 'Place', address: j.location || '—' } }),
+  ...(j.salary ? { baseSalary: { '@type': 'MonetaryAmount', value: j.salary } } : {}),
+  employmentType: 'FULL_TIME',
+  directApply: false,
+  url: j.url,
+});
+const jobsLd = list => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: list
+    .filter(j => j.posted && !Number.isNaN(Date.parse(j.posted)))
+    .slice(0, 50)
+    .map((j, i) => ({ '@type': 'ListItem', position: i + 1, item: jobPosting(j) })),
+});
+
 /* ── index page ── */
 const topCompanies = Object.entries(byCompany).sort((a, b) => b[1] - a[1]);
 const indexHtml = head(
   `Neobank jobs — ${all.length.toLocaleString('en-US')} live roles at ${nCompanies} digital banks`,
   `Live job board for the neobank industry: ${all.length.toLocaleString('en-US')} open roles at ${nCompanies} tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed ${TODAY}.`,
   'https://www.neobankbeat.com/jobs/',
-  { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }
+  [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, jobsLd(all)]
 ) + `
 <main class="wrap">
   <div class="eyebrow">the job board</div>
@@ -716,7 +741,7 @@ for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']])
     `${label} jobs at neobanks — ${rows.length} live roles`,
     `${rows.length} live ${label.toLowerCase()} roles at ${new Set(rows.map(r => r.company)).size} neobanks, pulled from official career APIs. ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.`,
     `https://www.neobankbeat.com/jobs/${id}/`,
-    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }
+    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, jobsLd(rows)]
   ) + `
 <main class="wrap">
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · ${label.toLowerCase()}</div>

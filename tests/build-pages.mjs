@@ -224,6 +224,10 @@ const PAIRS = [
   ['Cash App', 'Chime'], ['Current', 'Step'], ['Dave', 'MoneyLion'], ['SoFi', 'Chime'], ['Varo', 'Current'],
   ['Revolut', 'N26'], ['Revolut', 'Wise'], ['Revolut', 'Monzo'], ['Monzo', 'Starling Bank'], ['N26', 'bunq'],
   ['Wise', 'N26'], ['Vivid Money', 'N26'], ['Qonto', 'Finom'], ['Tide', 'ANNA Money'], ['Revolut', 'bunq'],
+  /* SMB-Europe + high-intent pairs — /vs/qonto-vs-finom was the first organic-search
+     winner (GA, Jul 2026), so feed the cluster where demand is proven */
+  ['Qonto', 'Shine'], ['Shine', 'Finom'], ['Finom', 'Vivid Money'], ['Qonto', 'Revolut'],
+  ['Tide', 'Monzo'], ['Paytm', 'PhonePe'],
   ['Nubank', 'Banco Inter'], ['Nubank', 'C6 Bank'], ['Nubank', 'Ualá'], ['Klar', 'Stori'], ['Nubank', 'Neon'],
   ['PicPay', 'PagBank'], ['Kuda', 'OPay'], ['OPay', 'PalmPay'], ['TymeBank', 'Kuda'], ['GCash', 'Maya'],
   ['bKash', 'Nagad'], ['Airtel Payments Bank', 'Jio Payments Bank'], ['Djamo', 'Wave'], ['KakaoBank', 'Toss Bank'],

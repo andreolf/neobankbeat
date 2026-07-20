@@ -201,6 +201,15 @@ table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight
 .about{max-width:1320px;margin:0 auto;padding:30px 24px 10px;border-top:1px solid var(--line)}
 .about h2{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
 .about p{color:var(--muted);max-width:780px;font-size:13.5px;margin-bottom:10px}
+.subsec{max-width:1320px;margin:34px auto 0;padding:0 24px}
+.subbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;justify-content:space-between}
+.subbox .k{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.subbox p{color:var(--muted);font-size:13.5px;margin:0;max-width:460px}
+.subform{display:flex;gap:8px;flex:1;min-width:260px;max-width:440px}
+.subform input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:13px;padding:11px 14px}
+.subform input::placeholder{color:var(--dim)}
+.subform input:focus{outline:none;border-color:var(--accent)}
+.subform button{background:var(--accent);border:0;border-radius:8px;color:#0A0A10;font-family:var(--mono);font-size:13px;font-weight:700;padding:11px 18px;cursor:pointer;white-space:nowrap}
 footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line)}
 .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:26px}
 .fcol h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
@@ -734,6 +743,19 @@ body.on-map .minimap{display:none}
         <a class="rlink" href="https://www.bis.org" target="_blank" rel="noopener">BIS</a>
       </div>
     </aside>
+  </div>
+</section>
+
+<section class="subsec" aria-label="Newsletter">
+  <div class="subbox">
+    <div>
+      <span class="k">stay on the beat</span>
+      <p>Deletions, licence changes and deep dives from the dataset — in your inbox. Free, via Substack, unsubscribe anytime.</p>
+    </div>
+    <form class="subform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener">
+      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">subscribe →</button>
+    </form>
   </div>
 </section>
 
@@ -3505,6 +3527,9 @@ render();
 })();
 
 /* ── custom analytics events (vercel + ga4 via nbevt) ── */
+document.addEventListener('submit',e=>{
+  if(e.target.classList&&e.target.classList.contains('subform'))nbevt('subscribe',{from:'home'});
+},true);
 document.addEventListener('click',e=>{
   const a=e.target.closest&&e.target.closest('a');if(!a)return;
   if(a.classList.contains('n-link')){

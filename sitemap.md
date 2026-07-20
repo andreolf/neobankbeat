@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-18.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-20.
 
 ## Main
 
@@ -432,7 +432,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (137)
+## Comparisons (140)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -454,6 +454,12 @@
 - [Qonto vs Finom](https://www.neobankbeat.com/vs/qonto-vs-finom/)
 - [Tide vs ANNA Money](https://www.neobankbeat.com/vs/tide-vs-anna-money/)
 - [Revolut vs bunq](https://www.neobankbeat.com/vs/revolut-vs-bunq/)
+- [Qonto vs Shine](https://www.neobankbeat.com/vs/qonto-vs-shine/)
+- [Shine vs Finom](https://www.neobankbeat.com/vs/shine-vs-finom/)
+- [Finom vs Vivid Money](https://www.neobankbeat.com/vs/finom-vs-vivid-money/)
+- [Qonto vs Revolut](https://www.neobankbeat.com/vs/qonto-vs-revolut/)
+- [Tide vs Monzo](https://www.neobankbeat.com/vs/tide-vs-monzo/)
+- [Paytm vs PhonePe](https://www.neobankbeat.com/vs/paytm-vs-phonepe/)
 - [Nubank vs Banco Inter](https://www.neobankbeat.com/vs/nubank-vs-banco-inter/)
 - [Nubank vs C6 Bank](https://www.neobankbeat.com/vs/nubank-vs-c6-bank/)
 - [Nubank vs Ualá](https://www.neobankbeat.com/vs/nubank-vs-uala/)
@@ -525,14 +531,11 @@
 - [Ellevest vs First Women's Bank](https://www.neobankbeat.com/vs/ellevest-vs-first-women-s-bank/)
 - [Tide vs OakNorth](https://www.neobankbeat.com/vs/tide-vs-oaknorth/)
 - [Tide vs Allica Bank](https://www.neobankbeat.com/vs/tide-vs-allica-bank/)
-- [Tide vs Zempler Bank](https://www.neobankbeat.com/vs/tide-vs-zempler-bank/)
 - [ANNA Money vs OakNorth](https://www.neobankbeat.com/vs/anna-money-vs-oaknorth/)
 - [ANNA Money vs Allica Bank](https://www.neobankbeat.com/vs/anna-money-vs-allica-bank/)
 - [ANNA Money vs Zempler Bank](https://www.neobankbeat.com/vs/anna-money-vs-zempler-bank/)
-- [ANNA Money vs Qonto](https://www.neobankbeat.com/vs/anna-money-vs-qonto/)
 - [OakNorth vs Allica Bank](https://www.neobankbeat.com/vs/oaknorth-vs-allica-bank/)
 - [OakNorth vs Zempler Bank](https://www.neobankbeat.com/vs/oaknorth-vs-zempler-bank/)
-- [OakNorth vs Qonto](https://www.neobankbeat.com/vs/oaknorth-vs-qonto/)
 - [Allica Bank vs Zempler Bank](https://www.neobankbeat.com/vs/allica-bank-vs-zempler-bank/)
 - [Monese vs Moneco](https://www.neobankbeat.com/vs/monese-vs-moneco/)
 - [Pockit vs Suits Me](https://www.neobankbeat.com/vs/pockit-vs-suits-me/)
