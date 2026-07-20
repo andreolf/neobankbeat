@@ -497,6 +497,7 @@ ${JSON.stringify(ld)}
     <nav class="hnav" aria-label="Primary">
       <a href="/">directory</a>
       <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
       <a href="/blog/">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/" class="on">jobs</a>

@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 20 Jul 2026 16:37:15 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 17:05:19 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[CREDIT INTERN — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4714589005?gh_jid=4714589005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4714589005?gh_jid=4714589005</guid>
+    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[INTERN - PEOPLE DEVELOPMENT — Banco Inter]]></title>
     <link>https://boards.greenhouse.io/inter/jobs/4705184005?gh_jid=4705184005</link>
@@ -478,14 +486,6 @@
     <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[PhonePe · Bangalore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Specialist – Vendor Compliance Management — PhonePe]]></title>
-    <link>https://job-boards.greenhouse.io/phonepe/jobs/7757498003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7757498003</guid>
-    <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[PhonePe · Banglore · onsite]]></description>
   </item>
 </channel>
 </rss>

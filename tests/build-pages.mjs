@@ -69,6 +69,7 @@ ${JSON.stringify(ldjson)}
     <nav class="hnav" aria-label="Primary">
       <a href="/" class="on">directory</a>
       <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
       <a href="/blog/">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
@@ -816,7 +817,7 @@ ${body}
   ${subscribeBox}
 </article>
 </main>
-<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">');
+<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infra</a>', '<a href="/infra/" class="on">infra</a>');
   fs.mkdirSync(path.join(ROOT, 'infra'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'infra', 'index.html'), html.replace('</head>', style + '\n</head>'));
   console.log(`infra page: ${rows.length} providers, ${nClients} client neobanks`);
@@ -863,7 +864,7 @@ ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client list shows tracked neobanks with a publicly documented relationship — not a complete customer book. Sourced from issuer disclosures and public reporting; <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest a fix</a>.</p>
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infra</a>', '<a href="/infra/" class="on">infra</a>').replace('</head>', style + '\n</head>');
     const dir = path.join(ROOT, 'infra', slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
