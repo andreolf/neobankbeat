@@ -424,6 +424,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
 .job .sal{font-family:'Noto Sans Mono',monospace;font-size:10.5px;font-weight:700;color:var(--w,#BAF24A);border:1px solid color-mix(in srgb,var(--w,#BAF24A) 35%,transparent);border-radius:99px;padding:1px 8px;white-space:nowrap}
 .jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.jdate{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);white-space:nowrap}
 .job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
@@ -520,6 +521,13 @@ ${bwScript}
 </html>
 `;
 
+const ago = p => {
+  const days = Math.max(0, Math.floor((Date.now() - Date.parse(p)) / 86400000));
+  if (days === 0) return 'today';
+  if (days === 1) return '1d ago';
+  if (days < 31) return `${days}d ago`;
+  return new Date(p).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+};
 const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="noopener">
   ${logoImg(j.company)}
   <span class="t">${esc(j.title)}</span>
@@ -528,6 +536,7 @@ const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="n
   ${j.salary ? `<span class="sal">${esc(j.salary)}</span>` : ''}
   ${j.visa ? '<span class="visa">visa ✓</span>' : ''}
   <span class="jtag">${DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other'}</span>
+  ${j.posted && !Number.isNaN(Date.parse(j.posted)) ? `<span class="jdate">${ago(j.posted)}</span>` : ''}
   <span class="apply">apply →</span>
 </a>`;
 
@@ -591,9 +600,12 @@ const regCount=${JSON.stringify(byRegion)};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function ago(p){const t=Date.parse(p);if(isNaN(t))return'';const d=Math.max(0,Math.floor((Date.now()-t)/86400000));
+if(d===0)return'today';if(d===1)return'1d ago';if(d<31)return d+'d ago';
+return new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
 const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64" onerror="this.style.visibility=\\'hidden\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
-a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span><span class="apply">apply →</span>';
+a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">apply →</span>';
 a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
 const hits=JOBS.filter(match);
