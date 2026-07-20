@@ -5,9 +5,9 @@ Deterministic output (no timestamps in PNGs) so unchanged cards don't churn git.
 Run from repo root:  /tmp/nbchart-venv/bin/python tests/gen-og.py
 Requires: pillow, fonttools, brotli (for woff2 -> ttf conversion).
 """
-import json, os, re, sys
+import concurrent.futures, io, json, os, re, sys, urllib.request
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 W, H = 1200, 630
@@ -104,16 +104,54 @@ AITAG = {"underwriting": "AI underwriting in production",
          "interface": "AI assistant as the interface",
          "agentic": "banking for AI agents"}
 
+# ── company logos (favicon service), cached on disk like the map scripts ──
+LOGO_CACHE = Path("/tmp/nb-logos"); LOGO_CACHE.mkdir(exist_ok=True)
+
+def fetch_logo(dom):
+    out = LOGO_CACHE / (dom.replace("/", "_") + ".png")
+    if out.exists(): return
+    try:
+        req = urllib.request.Request(f"https://www.google.com/s2/favicons?domain={dom}&sz=128",
+                                     headers={"User-Agent": "Mozilla/5.0"})
+        raw = urllib.request.urlopen(req, timeout=15).read()
+        Image.open(io.BytesIO(raw)).convert("RGBA").save(out)
+    except Exception: pass
+
+def luminance(img):
+    g = img.convert("LA").resize((16, 16))
+    px = list(g.getdata())
+    tot = sum(l * (a / 255) for l, a in px); wt = sum(a / 255 for l, a in px)
+    return (tot / wt) if wt > 3 else 255
+
+def logo_tile(dom, size):
+    """Rounded logo tile, or None if no cached favicon."""
+    p = LOGO_CACHE / ((dom or "x").replace("/", "_") + ".png")
+    if not p.exists(): return None
+    try: icon = Image.open(p).convert("RGBA")
+    except Exception: return None
+    bright = luminance(icon) > 235
+    tile = Image.new("RGBA", (size, size), "#E9E9EF" if bright else "#1C1C26")
+    ic = ImageOps.contain(icon, (size - 24, size - 24))
+    tile.alpha_composite(ic, ((size - ic.width) // 2, (size - ic.height) // 2))
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, size - 1, size - 1], radius=size // 5, fill=255)
+    tile.putalpha(mask)
+    return tile
+
 def entity_card(e):
     im, d = base_card()
     color, label = CAT[e["category"]]
+    logo = logo_tile(e.get("domain"), 150)
+    if logo is not None:
+        im.paste(logo, (W - 64 - 150, 152), logo)
     y = 168
     x = chip(d, 64, y, label, color)
     if e.get("ai"):
         x = chip(d, x, y, "ai · " + e["ai"], ACCENT)
     if e.get("stablecoins"):
         chip(d, x, y, "stablecoins", "#BAF24A" if e["category"] != "web3-native" else DIM)
-    name_f = fit(d, e["name"], W - 128, 96)
+    name_w = W - 128 - (170 if logo is not None else 0)
+    name_f = fit(d, e["name"], name_w, 96)
     d.text((60, 236), e["name"], font=name_f, fill=TEXT)
     y2 = 236 + name_f.size + 34
     m1 = mono(24)
@@ -168,6 +206,9 @@ def main():
         s = base = slugify(e["name"]); i = 2
         while s in taken: s = f"{base}-{i}"; i += 1
         taken.add(s); slugs[e["name"]] = s
+    doms = sorted({e["domain"] for e in ents if e.get("domain")})
+    with concurrent.futures.ThreadPoolExecutor(24) as ex:
+        list(ex.map(fetch_logo, doms))
     for e in ents:
         save(entity_card(e), f"og/n/{slugs[e['name']]}.png")
     print("profile cards:", len(ents))
