@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-20.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-21.
 
 ## Main
 
