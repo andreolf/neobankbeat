@@ -1,0 +1,38 @@
+name: update changelog
+
+on:
+  push:
+    branches: [main]
+    paths: [data.json]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the changelog is built from the full git history of data.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: regenerate /changelog/ from git history
+        run: node tests/build-changelog.mjs
+
+      - name: commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add changelog/
+          if git diff --cached --quiet; then
+            echo "changelog unchanged"
+          else
+            git commit -m "chore: auto-update /changelog/ from data.json history"
+            git pull --rebase origin main
+            git push
+          fi
