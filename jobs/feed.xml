@@ -5,8 +5,40 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 65 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 22 Jul 2026 08:40:44 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 22 Jul 2026 15:03:27 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Senior Product Manager, Aqua — 1inch]]></title>
+    <link>https://jobs.lever.co/1inch/6b671ddb-9c9d-408f-a09b-4106343c0ab2</link>
+    <guid isPermaLink="true">https://jobs.lever.co/1inch/6b671ddb-9c9d-408f-a09b-4106343c0ab2</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[1inch · UAE - Dubai · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Intern - TA Design — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4717484005?gh_jid=4717484005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4717484005?gh_jid=4717484005</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[SOFTWARE DEVELOPER ANALYST II (Java) - Investments — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4703939005?gh_jid=4703939005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4703939005?gh_jid=4703939005</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Business Development Specialist — Bybit]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4933450101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4933450101</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Bybit · APAC - Remote; Europe - Remote; LATAM - Remote; Middle East - Remote · remote]]></description>
+  </item>
   <item>
     <title><![CDATA[IT Audit Manager — Bybit]]></title>
     <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4934261101</link>
@@ -14,6 +46,14 @@
     <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Bybit · Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Analista de Negócios Jr | Produtos Estruturados — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4710936005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4710936005</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Country Director, India — Coinbase]]></title>
@@ -24,6 +64,30 @@
     <description><![CDATA[Coinbase · Remote - India · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Senior Staff Software Engineer, Legal Automation — Coinbase]]></title>
+    <link>https://www.coinbase.com/careers/positions/8060884?gh_jid=8060884</link>
+    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8060884?gh_jid=8060884</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff ML Risk Analyst — Coinbase]]></title>
+    <link>https://www.coinbase.com/careers/positions/8002967?gh_jid=8002967</link>
+    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8002967?gh_jid=8002967</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Regional Business Manager - Estate and Trust — EQ Bank]]></title>
+    <link>https://jobs.lever.co/eqbank/15eb4609-27b0-4304-ad11-140d991fc5fa</link>
+    <guid isPermaLink="true">https://jobs.lever.co/eqbank/15eb4609-27b0-4304-ad11-140d991fc5fa</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[EQ Bank · Toronto · hybrid]]></description>
+  </item>
+  <item>
     <title><![CDATA[Buyer — Monzo]]></title>
     <link>https://job-boards.greenhouse.io/monzo/jobs/8076700</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8076700</guid>
@@ -32,12 +96,92 @@
     <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £40–52K · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[FinCrime & Fraud Operations Investigator — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/8076935</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8076935</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Dublin · €41–50K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Operations Lead - Monzo Mobile — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/8059557</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8059557</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £73–99K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Product Designer, Operations — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/7622277</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/7622277</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £110–125K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Technology Risk Senior Analyst — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/8077068</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8077068</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £60–75K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Analyst – Fraud & Financial Crime — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/8025909?gh_jid=8025909</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/8025909?gh_jid=8025909</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Project Manager - Change Management and Control — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/8054977?gh_jid=8054977</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/8054977?gh_jid=8054977</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Designer — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7953508?gh_jid=7953508</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7953508?gh_jid=7953508</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
     <title><![CDATA[Senior SRE - Cloud Network Engineering — N26]]></title>
     <link>https://n26.com/en-eu/careers/positions/8007338?gh_jid=8007338</link>
     <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/8007338?gh_jid=8007338</guid>
     <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[N26 · Berlin · hybrid · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Affiliate BD Manager — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7812562003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7812562003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[OKX · Australia; Sydney, New South Wales, Australia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Principal/Senior Product Manager, AI & Web3 Wallet — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7777028003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7777028003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Principal/Senior Product Manager, AI & Web3 Wallet — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7777029003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7777029003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Product & Strategy Director — OKX]]></title>
@@ -56,12 +200,36 @@
     <description><![CDATA[OKX · Australia; Sydney, New South Wales, Australia · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Proprietary Trading Business Development Lead — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7812572003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7812572003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[OKX · Australia; Sydney, New South Wales, Australia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior VIP Relationship Manager, CIS — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7646986003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7646986003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[OKX · Dubai, United Arab Emirates · hybrid]]></description>
+  </item>
+  <item>
     <title><![CDATA[Specialist, VIP Customer Relationship Management — OKX]]></title>
     <link>https://job-boards.greenhouse.io/okx/jobs/7795506003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7795506003</guid>
     <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[OKX · Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[VIP Relationship Manager, CIS (Russian Speaking) — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7747953003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7747953003</guid>
+    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[OKX · Dubai, United Arab Emirates · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[セキュリティエンジニア — PayPay]]></title>
@@ -317,174 +485,6 @@
     <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5677616004</guid>
     <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[ポイントソリューション営業担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/4726951004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/4726951004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[エンタープライズ営業担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/4089245004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/4089245004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[グループビジネスサポート担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6009888004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6009888004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[コーポレートガバナンス担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5979821004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5979821004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[セキュリティガバナンス担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6102341004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6102341004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[コンプライアンス担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/4954493004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/4954493004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業企画・戦略／リーダー候補（チャージ関連業務・金融機関連携） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5636632004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5636632004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画（DeFi・ステーブルコイン活用） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5991683004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5991683004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画（Web3事業の会計・税務） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5991724004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5991724004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画（ステーブルコイン・信託実務） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5997744004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5997744004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画 / リーダー候補（加盟店事業） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5850462004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5850462004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画 / 部長候補 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5686555004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5686555004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画 （金融事業） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6011134004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6011134004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・サービス企画（金融プラットフォーム開発） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6113495004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6113495004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[新規事業開発・ 戦略 / マネージャー候補（グローバル領域） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5991405004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5991405004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[業務変革・プロジェクト推進担当（AI活用推進） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5704640004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5704640004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[業務監査担当 — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6102332004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6102332004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[シニア機械学習エンジニア（金融事業領域） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/6109406004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/6109406004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[機械学習エンジニア（金融事業領域） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5149320004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5149320004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[次世代業務基盤の企画推進担当（AI活用推進） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5704642004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5704642004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[生成AI×データ分析推進リード（営業戦略） — PayPay]]></title>
-    <link>https://job-boards.greenhouse.io/paypay/jobs/5741219004</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5741219004</guid>
-    <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
     <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
   </item>
 </channel>

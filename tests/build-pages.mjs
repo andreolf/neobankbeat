@@ -87,7 +87,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -149,79 +149,7 @@ function links(e) {
   return l.join(' · ');
 }
 
-/* ═══ entity profile pages ═══ */
-let nPages = 0;
-for (const e of E) {
-  const slug = slugs.get(e.name);
-  const url = `${BASE}/n/${slug}/`;
-  const title = `${e.name} — custody, licence, cards & facts · neobankbeat`;
-  const desc = `${e.name} (${e.category} neobank, ${e.hq}, est. ${e.founded}): ${e.custody} custody, ${e.regulation_type}, ` +
-    (e.card_network && e.card_network !== '—' ? `${e.card_network} card, ` : 'no card, ') +
-    `stablecoins ${e.stablecoins ? 'yes' : 'no'}. Verified facts from the open neobankbeat dataset.`;
-  const ld = {
-    '@context': 'https://schema.org', '@graph': [
-      { '@type': 'Organization', name: e.name, url: e.website || url, foundingDate: String(e.founded), description: e.note || undefined,
-        funder: e.investors ? e.investors.map(iv => ({ '@type': 'Organization', name: iv.name, url: iv.website })) : undefined },
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-        { '@type': 'ListItem', position: 2, name: 'neobanks', item: BASE + '/n/' },
-        { '@type': 'ListItem', position: 3, name: e.name, item: url }] }
-    ]
-  };
-  const pr = peers(e);
-  const ogPath = fs.existsSync(path.join(ROOT, 'og', 'n', `${slug}.png`)) ? `${BASE}/og/n/${slug}.png` : undefined;
-  const html = head(title, desc, url, ld, ogPath) + `
-<main class="wrap">
-<article>
-  <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
-  <div class="eyebrow"><a href="/n/" style="color:var(--accent)">neobank profiles</a></div>
-  <h1>${esc(e.name)}</h1>
-  <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · est. ${e.founded} · <a href="/?q=${encodeURIComponent(e.name)}">open in the directory →</a></p>
-  ${e.story ? `<p><em>${esc(e.story)}</em></p>` : ''}
-  ${e.note ? `<p>${esc(e.note)}</p>` : ''}
-  <h2>The facts</h2>
-  <table>
-    ${factRows(e)}
-  </table>
-  ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
-  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name} — ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts:`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
-  ${investorsBlock(e)}
-  <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
-  ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
-  ${disclaimer}
-  ${subscribeBox}
-</article>
-</main>` + foot;
-  const dir = path.join(ROOT, 'n', slug);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), html);
-  nPages++;
-}
-
-/* ═══ /n/ index: A–Z of all entities ═══ */
-{
-  const url = `${BASE}/n/`;
-  const byLetter = {};
-  for (const e of [...E].sort((a, b) => a.name.localeCompare(b.name))) {
-    const L = (slugify(e.name)[0] || '#').toUpperCase();
-    (byLetter[L] = byLetter[L] || []).push(e);
-  }
-  const ld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url };
-  const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
-    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, licence, cards, stablecoins and geography.`, url, ld) + `
-<main class="wrap">
-<article>
-  <div class="eyebrow">profiles</div>
-  <h1>All <em>${E.length}</em> tracked neobanks</h1>
-  <p class="meta">Every profile links its verified facts. Prefer filters? Use the <a href="/">interactive directory</a>.</p>
-  ${Object.entries(byLetter).map(([L, es]) => `<h2>${L}</h2>\n  <p>${es.map(e => `<a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>`).join(' · ')}</p>`).join('\n  ')}
-  ${subscribeBox}
-</article>
-</main>` + foot;
-  fs.writeFileSync(path.join(ROOT, 'n', 'index.html'), html);
-}
-
-/* ═══ comparison pages ═══ */
+/* ═══ comparison pairs (computed before profiles so each profile can link its head-to-heads) ═══ */
 const PAIRS = [
   ['Chime', 'Current'], ['Chime', 'Varo'], ['Chime', 'Dave'], ['Chime', 'One'], ['Cash App', 'Venmo'],
   ['Cash App', 'Chime'], ['Current', 'Step'], ['Dave', 'MoneyLion'], ['SoFi', 'Chime'], ['Varo', 'Current'],
@@ -284,6 +212,92 @@ const byName = new Map(E.map(e => [e.name, e]));
     for (let j = i + 1; j < niche.length; j++) tryPair(niche[i], niche[j]);
   console.log(`vs: ${added} auto-generated pairs on top of ${PAIRS.length - added} curated`);
 }
+
+/* name → its comparison pages, so each profile can cross-link them (crawl paths + UX) */
+const vsFor = new Map();
+for (const [an, bn] of PAIRS) {
+  if (!byName.get(an) || !byName.get(bn)) continue;
+  const s = `${slugs.get(an)}-vs-${slugs.get(bn)}`;
+  if (!vsFor.has(an)) vsFor.set(an, []);
+  if (!vsFor.has(bn)) vsFor.set(bn, []);
+  vsFor.get(an).push({ slug: s, other: bn });
+  vsFor.get(bn).push({ slug: s, other: an });
+}
+
+/* ═══ entity profile pages ═══ */
+let nPages = 0;
+for (const e of E) {
+  const slug = slugs.get(e.name);
+  const url = `${BASE}/n/${slug}/`;
+  const title = `${e.name} — custody, licence, cards & facts · neobankbeat`;
+  const desc = `${e.name} (${e.category} neobank, ${e.hq}, est. ${e.founded}): ${e.custody} custody, ${e.regulation_type}, ` +
+    (e.card_network && e.card_network !== '—' ? `${e.card_network} card, ` : 'no card, ') +
+    `stablecoins ${e.stablecoins ? 'yes' : 'no'}. Verified facts from the open neobankbeat dataset.`;
+  const ld = {
+    '@context': 'https://schema.org', '@graph': [
+      { '@type': 'Organization', name: e.name, url: e.website || url, foundingDate: String(e.founded), description: e.note || undefined,
+        funder: e.investors ? e.investors.map(iv => ({ '@type': 'Organization', name: iv.name, url: iv.website })) : undefined },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+        { '@type': 'ListItem', position: 2, name: 'neobanks', item: BASE + '/n/' },
+        { '@type': 'ListItem', position: 3, name: e.name, item: url }] }
+    ]
+  };
+  const pr = peers(e);
+  const ogPath = fs.existsSync(path.join(ROOT, 'og', 'n', `${slug}.png`)) ? `${BASE}/og/n/${slug}.png` : undefined;
+  const html = head(title, desc, url, ld, ogPath) + `
+<main class="wrap">
+<article>
+  <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/n/" style="color:var(--accent)">neobank profiles</a></div>
+  <h1>${esc(e.name)}</h1>
+  <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · est. ${e.founded} · <a href="/?q=${encodeURIComponent(e.name)}">open in the directory →</a></p>
+  ${e.story ? `<p><em>${esc(e.story)}</em></p>` : ''}
+  ${e.note ? `<p>${esc(e.note)}</p>` : ''}
+  <h2>The facts</h2>
+  <table>
+    ${factRows(e)}
+  </table>
+  ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
+  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name} — ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts:`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
+  ${investorsBlock(e)}
+  <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
+  ${(vsFor.get(e.name) || []).length ? `<h2>Head-to-head</h2>\n  <p>${vsFor.get(e.name).slice(0, 12).map(v => `<a href="/vs/${v.slug}/">${esc(e.name)} vs ${esc(v.other)}</a>`).join(' · ')}</p>` : ''}
+  ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot;
+  const dir = path.join(ROOT, 'n', slug);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  nPages++;
+}
+
+/* ═══ /n/ index: A–Z of all entities ═══ */
+{
+  const url = `${BASE}/n/`;
+  const byLetter = {};
+  for (const e of [...E].sort((a, b) => a.name.localeCompare(b.name))) {
+    const L = (slugify(e.name)[0] || '#').toUpperCase();
+    (byLetter[L] = byLetter[L] || []).push(e);
+  }
+  const ld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url };
+  const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
+    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, licence, cards, stablecoins and geography.`, url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">profiles</div>
+  <h1>All <em>${E.length}</em> tracked neobanks</h1>
+  <p class="meta">Every profile links its verified facts. Prefer filters? Use the <a href="/">interactive directory</a>.</p>
+  ${Object.entries(byLetter).map(([L, es]) => `<h2>${L}</h2>\n  <p>${es.map(e => `<a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>`).join(' · ')}</p>`).join('\n  ')}
+  ${subscribeBox}
+</article>
+</main>` + foot;
+  fs.writeFileSync(path.join(ROOT, 'n', 'index.html'), html);
+}
+
+/* ═══ comparison pages (PAIRS + byName + vsFor computed above, before profiles) ═══ */
 const VS_FIELDS = [
   ['Category', e => e.category], ['Audience', e => e.audience],
   ['HQ', e => e.hq], ['Founded', e => e.founded], ['Custody', e => e.custody],
