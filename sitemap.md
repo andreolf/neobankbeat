@@ -576,3 +576,7 @@
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
+
+## Per-neobank answer pages
+
+Every profile also has a "who owns it" page (368) and, where a real peer set exists, an "alternatives" page (368), e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

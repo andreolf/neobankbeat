@@ -269,6 +269,7 @@ for (const e of E) {
   <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name} — ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts:`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
   ${investorsBlock(e)}
   <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
+  <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">Who owns ${esc(e.name)}?</a>${pr.length >= 4 ? ` &nbsp;·&nbsp; <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}</p>
   ${(vsFor.get(e.name) || []).length ? `<h2>Head-to-head</h2>\n  <p>${vsFor.get(e.name).slice(0, 12).map(v => `<a href="/vs/${v.slug}/">${esc(e.name)} vs ${esc(v.other)}</a>`).join(' · ')}</p>` : ''}
   ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
   ${disclaimer}
@@ -937,6 +938,206 @@ ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented
   console.log(`infra pages: ${infraSlugList.length}`);
 }
 
+/* ═══ /n/<slug>/who-owns/  +  /n/<slug>/alternatives/
+   High-intent programmatic pages that ride the licence/sponsor + peers data.
+   "who owns <neobank>" and "<neobank> alternatives" are large, poorly-served
+   queries; each page carries a unique, data-backed direct answer for GEO. ═══ */
+const whoOwnsSlugs = [], altSlugs = [];
+{
+  const PROV = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'infra-providers.json'), 'utf8'));
+  delete PROV._comment;
+  const infraOf = new Map();                 // neobank name -> [{name,type,domain}]
+  for (const [pname, v] of Object.entries(PROV))
+    for (const c of v.clients) {
+      if (!infraOf.has(c)) infraOf.set(c, []);
+      infraOf.get(c).push({ name: pname, type: v.type, domain: v.domain });
+    }
+  const vsSet = new Set(vsIndex.map(v => v.slug));
+  const vsLinkFor = (e, o) => {
+    const s1 = `${slugs.get(e.name)}-vs-${slugs.get(o.name)}`, s2 = `${slugs.get(o.name)}-vs-${slugs.get(e.name)}`;
+    return vsSet.has(s1) ? s1 : vsSet.has(s2) ? s2 : null;
+  };
+  const aAn = w => (/^[aeiou]/i.test(String(w)) ? 'an ' : 'a ') + w;
+  const nameList = a => a.length <= 1 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+  const CATLBL = { traditional: 'traditional', hybrid: 'hybrid crypto', 'web3-native': 'web3-native' };
+  /* similarity-ranked alternatives: audience + region + size dominate, category
+     is a boost not a gate — so "Revolut alternatives" can surface Wise/Monzo/N26,
+     not only other hybrid apps. */
+  const altPeers = (e, n = 8) => {
+    const er = new Set(e.active_regions);
+    return E.filter(x => x !== e).map(x => {
+      const regOv = x.active_regions.filter(r => er.has(r)).length;
+      const uv = x.reported_users ? x.reported_users.value_millions : 0;
+      let s = Math.min(regOv, 3);
+      if (regOv === 0) s -= 4;
+      if (x.audience === e.audience) s += 4;
+      if (x.category === e.category) s += 1;
+      s += Math.min(uv / 12, 4);                 // size: pull recognizable names up
+      return [x, s, uv];
+    }).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1] || b[2] - a[2]).slice(0, n).map(a => a[0]);
+  };
+
+  for (const e of E) {
+    const slug = slugs.get(e.name);
+    const rt = e.regulation_type || '';
+    const rails = infraOf.get(e.name) || [];
+    const spon = rails.filter(p => /sponsor|clearing bank/i.test(p.type));
+    const selfC = /^self-custodial/i.test(e.custody || '') || /^MPC self-custodial/i.test(e.custody || '') || /self-custodial software/i.test(rt);
+    const alts = altPeers(e, 8);
+    const hasAlts = alts.length >= 4;
+
+    /* ── ownership answer (the GEO snippet) ── */
+    let lead, isBank, safeAns;
+    if (selfC) {
+      lead = `${e.name} does not hold your money at all — it is self-custodial software. You hold your own keys, so nobody, including ${e.name}, can move or freeze your funds.`;
+      isBank = 'No — and it custodies no customer funds; you hold your own keys.';
+      safeAns = `${e.name} never holds your funds, so no deposit-insurance scheme is involved. Your security depends entirely on how you protect your own private keys and recovery phrase — lose them and no company can recover the money for you.`;
+    } else if (/^licensed bank$/i.test(rt)) {
+      lead = `${e.name} holds its own banking licence, so ${e.name} itself is the bank — customer deposits sit on its own regulated balance sheet rather than with a third-party sponsor.`;
+      isBank = 'Yes — it holds its own banking licence.';
+      safeAns = `As a licensed bank, eligible deposits at ${e.name} are typically protected by the local deposit-guarantee scheme up to the statutory limit (for example FDIC in the US, FSCS in the UK, or the €100,000 EU scheme). Confirm the exact scheme and limit for your country.`;
+    } else if (/partner-bank|partner model/i.test(rt)) {
+      lead = spon.length
+        ? `${e.name} is not itself a bank. It runs on a partner-bank (BaaS) model and works with ${nameList(spon.map(s => s.name))} — the licensed bank${spon.length > 1 ? 's' : ''} that actually hold${spon.length > 1 ? '' : 's'} customer deposits behind the app.`
+        : `${e.name} is not itself a bank. It runs on a partner-bank (BaaS) model, where a licensed sponsor bank holds the deposits behind the app while ${e.name} builds the product and interface.`;
+      isBank = spon.length ? `No — a partner bank (${nameList(spon.map(s => s.name))}) holds the money.` : 'No — it runs on a sponsor bank (BaaS model).';
+      safeAns = spon.length
+        ? `Your money is held by ${nameList(spon.map(s => s.name))}, so any deposit insurance flows through that sponsor bank — not ${e.name} itself. Check the sponsor's scheme and whether balances are "passed through" for per-customer insurance.`
+        : `Deposits are held by ${e.name}'s sponsor bank, so any insurance flows through that bank rather than ${e.name}. Check which sponsor holds your balance and whether it is passed through for per-customer coverage.`;
+    } else if (/e-?money|payment institution/i.test(rt)) {
+      lead = `${e.name} is ${aAn(rt.toLowerCase())}, not a bank. Customer money is safeguarded in segregated accounts at partner banks rather than held as insured deposits.`;
+      isBank = `No — it is ${aAn(rt.toLowerCase())}.`;
+      safeAns = `As ${aAn(rt.toLowerCase())}, ${e.name} safeguards funds in segregated accounts rather than insuring them as deposits. That protection works differently from a bank — money is generally not covered by deposit-guarantee schemes, though it must be ring-fenced from the company's own funds.`;
+    } else if (/vasp|msb|casp|crypto/i.test(rt)) {
+      lead = `${e.name} is regulated as a crypto-asset service (${rt}), not a bank. It is not a deposit-taking institution; how balances are held depends on its custody model (${e.custody}).`;
+      isBank = 'No — it is licensed as a crypto / VASP service, not a bank.';
+      safeAns = `${e.name} is not a bank, so deposit-guarantee schemes do not apply. Crypto and cash balances are handled under its VASP/e-money obligations — check its terms for exactly how client assets are segregated and safeguarded.`;
+    } else {
+      lead = `${e.name} operates as ${aAn((rt || 'a regulated financial service').toLowerCase())}${e.licence ? ` (${e.licence})` : ''}.`;
+      isBank = rt || '—';
+      safeAns = `How your money is protected depends on ${e.name}'s licence type — see the licence detail on its profile and confirm the scheme that applies in your country.`;
+    }
+    const backers = (e.investors || []).slice(0, 4).map(iv => iv.name);
+    const backLine = backers.length ? `${e.name}'s most notable disclosed backers include ${nameList(backers)}.` : '';
+    const foundLine = e.founders ? `${e.name} was founded by ${e.founders}${e.founded ? ` (${e.founded})` : ''}, headquartered in ${e.hq}.` : '';
+    const ownAnswer = [lead, backLine].filter(Boolean).join(' ');
+
+    /* ── who-owns page ── */
+    {
+      const url = `${BASE}/n/${slug}/who-owns/`;
+      const title = `Who owns ${e.name}? Is ${e.name} a bank? · neobankbeat`;
+      const desc = ownAnswer.slice(0, 300);
+      const faq = [
+        [`Who owns ${e.name}?`, ownAnswer],
+        [`Is ${e.name} a real bank?`, isBank + (e.licence ? ` Licence detail: ${e.licence}.` : '')],
+        [`Is my money safe with ${e.name}?`, safeAns],
+      ];
+      const ld = { '@context': 'https://schema.org', '@graph': [
+        { '@type': 'WebPage', name: title, url, about: { '@type': 'Organization', name: e.name, url: e.website || `${BASE}/n/${slug}/` }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+        { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: e.name, item: `${BASE}/n/${slug}/` },
+          { '@type': 'ListItem', position: 3, name: `who owns ${e.name}`, item: url }] }
+      ] };
+      const railsHtml = rails.length
+        ? `<p>${e.name} runs on: ${rails.map(p => `<a href="/infra/${slugify(p.name)}/">${esc(p.name)}</a> <span class="dim">(${esc(p.type)})</span>`).join(' · ')}. Full stack on the <a href="/infra/">infra map</a>.</p>`
+        : `<p class="dim">No sponsor bank or infrastructure provider is publicly documented for ${e.name} yet. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>`;
+      const html = head(title, desc, url, ld) + `
+<main class="wrap">
+<article>
+  <a class="backbtn" href="/n/${slug}/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/n/${slug}/" style="color:var(--accent)">${esc(e.name)} profile</a></div>
+  <h1>Who owns <em>${esc(e.name)}</em>?</h1>
+  <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · ${esc(rt || '—')} · custody: ${esc(e.custody)}</p>
+  <div class="callout"><span class="k">short answer</span>${esc(ownAnswer)}</div>
+  <h2>Is ${esc(e.name)} a licensed bank?</h2>
+  <p>${esc(isBank)}${e.licence ? ` <span class="dim">Licence detail: ${esc(e.licence)}.</span>` : ''}</p>
+  <h2>Where is your money held?</h2>
+  <p>Custody model: <b>${esc(e.custody)}</b>${/^licensed bank$/i.test(rt) ? ` — on ${esc(e.name)}'s own balance sheet as a licensed bank.` : selfC ? ' — you hold your own keys; the company never takes custody.' : '.'}</p>
+  ${selfC ? '' : railsHtml}
+  ${foundLine ? `<h2>Who's behind ${esc(e.name)}?</h2>\n  <p>${esc(foundLine)}</p>` : ''}
+  ${investorsBlock(e)}
+  <h2>Is my money safe with ${esc(e.name)}?</h2>
+  <p>${esc(safeAns)}</p>
+  <div class="callout"><span class="k">go deeper</span>See the full <a href="/n/${slug}/">${esc(e.name)} profile</a> with every verified field${hasAlts ? `, or <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}. Raw fields: <a href="/data.json">data.json</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot;
+      const dir = path.join(ROOT, 'n', slug, 'who-owns');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'index.html'), html);
+      whoOwnsSlugs.push(slug);
+    }
+
+    /* ── alternatives page (only where we have a real peer set) ── */
+    if (hasAlts) {
+      const url = `${BASE}/n/${slug}/alternatives/`;
+      const region = e.active_regions.find(r => alts[0].active_regions.includes(r)) || e.active_regions[0];
+      const top = alts.slice(0, 3).map(a => a.name);
+      const altAnswer = `The closest alternatives to ${e.name} are ${nameList(top)}. All are neobanks operating in ${region}${e.audience !== 'general' ? ` for ${e.audience}` : ''}, comparable to ${e.name} on custody, licence, cards, fees and FX — compared field by field below. No affiliate links.`;
+      const title = `${e.name} alternatives (2026): ${alts.length} compared · neobankbeat`;
+      const desc = altAnswer.slice(0, 300);
+      const faq = [
+        [`What are the best alternatives to ${e.name}?`, altAnswer],
+        [`Is there a cheaper alternative to ${e.name}?`, `Cost depends on FX markup, card fees and plan tier. Compare ${nameList(top)} against ${e.name} on the FX-markup and cashback rows in each side-by-side comparison to find the cheapest for how you actually spend.`],
+      ];
+      const ld = { '@context': 'https://schema.org', '@graph': [
+        { '@type': 'WebPage', name: title, url, about: { '@type': 'Organization', name: e.name }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+        { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+        { '@type': 'ItemList', name: `${e.name} alternatives`, itemListElement: alts.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.name, url: `${BASE}/n/${slugs.get(a.name)}/` })) },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: e.name, item: `${BASE}/n/${slug}/` },
+          { '@type': 'ListItem', position: 3, name: `${e.name} alternatives`, item: url }] }
+      ] };
+      const rows = alts.map(a => {
+        const v = vsLinkFor(e, a);
+        return `<tr>
+    <td><a href="/n/${slugs.get(a.name)}/">${esc(a.name)}</a></td>
+    <td class="dim">${esc(CATLBL[a.category] || a.category)}</td>
+    <td class="dim">${esc(a.hq)}</td>
+    <td class="dim">${esc(users(a) || '—')}</td>
+    <td>${v ? `<a href="/vs/${v}/">vs ${esc(e.name)} →</a>` : `<a href="/?q=${encodeURIComponent(a.name)}">directory →</a>`}</td>
+  </tr>`;
+      }).join('\n    ');
+      const html = head(title, desc, url, ld) + `
+<main class="wrap">
+<article>
+  <a class="backbtn" href="/n/${slug}/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/n/${slug}/" style="color:var(--accent)">${esc(e.name)} profile</a></div>
+  <h1>${esc(e.name)} <em>alternatives</em></h1>
+  <p class="meta">${alts.length} comparable ${CATLBL[e.category] || e.category} neobanks · from the open dataset of ${E.length} · no affiliate links</p>
+  <div class="callout"><span class="k">short answer</span>${esc(altAnswer)}</div>
+  <h2>The ${alts.length} closest alternatives</h2>
+  <table>
+    <tr><th>neobank</th><th>type</th><th>hq</th><th>reported users</th><th>compare</th></tr>
+    ${rows}
+  </table>
+  <div class="callout"><span class="k">go deeper</span>Back to the <a href="/n/${slug}/">${esc(e.name)} profile</a>, ask <a href="/n/${slug}/who-owns/">who owns ${esc(e.name)}?</a>, or filter your own shortlist in the <a href="/">directory</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot;
+      const dir = path.join(ROOT, 'n', slug, 'alternatives');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'index.html'), html);
+      altSlugs.push(slug);
+    }
+  }
+  /* prune subpages whose entity/qualification changed */
+  const wo = new Set(whoOwnsSlugs), al = new Set(altSlugs);
+  for (const d of fs.readdirSync(path.join(ROOT, 'n'), { withFileTypes: true })) {
+    if (!d.isDirectory()) continue;
+    if (fs.existsSync(path.join(ROOT, 'n', d.name, 'who-owns')) && !wo.has(d.name))
+      fs.rmSync(path.join(ROOT, 'n', d.name, 'who-owns'), { recursive: true });
+    if (fs.existsSync(path.join(ROOT, 'n', d.name, 'alternatives')) && !al.has(d.name))
+      fs.rmSync(path.join(ROOT, 'n', d.name, 'alternatives'), { recursive: true });
+  }
+  console.log(`who-owns pages: ${whoOwnsSlugs.length} · alternatives pages: ${altSlugs.length}`);
+}
+
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
 {
   const html = (head('Page not found · neobankbeat',
@@ -1001,6 +1202,8 @@ const urls = [
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },
   ...E.map(e => ({ loc: `${BASE}/n/${slugs.get(e.name)}/`, lastmod: TODAY, priority: '0.7' })),
+  ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: TODAY, priority: '0.6' })),
+  ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: TODAY, priority: '0.6' })),
   { loc: `${BASE}/vs/`, changefreq: 'weekly', priority: '0.8' },
   ...vsIndex.map(v => ({ loc: `${BASE}/vs/${v.slug}/`, lastmod: TODAY, priority: '0.7' })),
 ];
@@ -1053,6 +1256,10 @@ ${E.map(e => `- [${e.name}](${BASE}/n/${slugs.get(e.name)}/)`).join('\n')}
 ## Comparisons (${vsIndex.length})
 
 ${vsIndex.map(v => `- [${v.an} vs ${v.bn}](${BASE}/vs/${v.slug}/)`).join('\n')}
+
+## Per-neobank answer pages
+
+Every profile also has a "who owns it" page (${whoOwnsSlugs.length}) and, where a real peer set exists, an "alternatives" page (${altSlugs.length}), e.g. \`${BASE}/n/<slug>/who-owns/\` and \`${BASE}/n/<slug>/alternatives/\`.
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.md'), sitemapMd);
 
