@@ -2134,6 +2134,9 @@ function regTypeOf(r){
   return"Other / mixed";
 }
 let regF="";
+let countryF="";
+/* countries an entity is verified available in (V[].cc); [] when unknown → strict filter, no false positives */
+function countriesOf(r){return ((typeof V!=="undefined"&&V[r[0]])||{}).cc||[]}
 (function buildRegFilter(){
   const counts={};D.forEach(r=>{const k=regTypeOf(r);counts[k]=(counts[k]||0)+1});
   const opts=Object.entries(counts).sort((a,b)=>b[1]-a[1])
@@ -2160,8 +2163,9 @@ function matches(r){
   if(wantAI&&!(X[name]||{}).ai)return false;
   if(mapFilter&&!macrosOf(r).includes(mapFilter))return false;
   if(regF&&regTypeOf(r)!==regF)return false;
+  if(countryF&&!countriesOf(r).includes(countryF))return false;
   if(q){
-    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note+((X[name]||{}).ai?" ai "+X[name].ai:"")).toLowerCase();
+    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note+" "+countriesOf(r).join(" ")+" "+((X[name]||{}).l||"")+((X[name]||{}).ai?" ai "+X[name].ai:"")).toLowerCase();
     if(!hay.includes(q))return false;
   }
   return true;
@@ -2284,6 +2288,7 @@ function updateActiveBar(){
   if(custody)add("custody: "+custody.toLowerCase(),()=>{custody="";document.getElementById('f-custody').selectedIndex=0});
   if(net)add("card: "+(net==="—"?"wallet-only":net),()=>{net="";document.getElementById('f-net').selectedIndex=0});
   if(regF)add("regulation: "+regF.toLowerCase(),()=>{regF="";document.getElementById('f-reg').selectedIndex=0});
+  if(countryF)add("country: "+countryF,()=>{countryF="";const s=document.getElementById('f-country');if(s)s.selectedIndex=0});
   if(wantYield)add("offers yield",()=>{wantYield=false;document.getElementById('f-yield').checked=false;document.getElementById('lb-yield').classList.remove('on')});
   if(wantStable)add("stablecoins",()=>{wantStable=false;document.getElementById('f-stable').checked=false;document.getElementById('lb-stable').classList.remove('on')});
   if(wantNoKyc)add("no-KYC",()=>{wantNoKyc=false;document.getElementById('f-nokyc').checked=false;document.getElementById('lb-nokyc').classList.remove('on')});
@@ -2292,7 +2297,7 @@ function updateActiveBar(){
   bar.innerHTML='<span class="ab-label">active filters</span>'+chips.map((c,i)=>'<button class="fchip" data-i="'+i+'">'+esc(c.label)+' <i>✕</i></button>').join("")+'<button class="clear" id="ab-clear">clear all</button>';
   bar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{chips[+b.dataset.i].fn();render()}));
   const ac=document.getElementById('ab-clear');
-  if(ac)ac.addEventListener('click',()=>{clearAll();if(mapFilter)setMap(mapFilter);regF="";const fr=document.getElementById('f-reg');if(fr)fr.selectedIndex=0;render()});
+  if(ac)ac.addEventListener('click',()=>{clearAll();if(mapFilter)setMap(mapFilter);regF="";countryF="";const fr=document.getElementById('f-reg');if(fr)fr.selectedIndex=0;const fc=document.getElementById('f-country');if(fc)fc.selectedIndex=0;render()});
 }
 
 /* redefine render(): same grid, plus active-filter bar sync */
@@ -3437,6 +3442,22 @@ render();
 <script>
 /* ═══ v14 LAYER · shareable filter URLs + "/" search shortcut ═══ */
 (function shareableFilters(){
+  /* v15 · country-availability filter — uses verified V[].cc, strict (no false positives) */
+  (function buildCountryFilter(){
+    const cnt={};
+    D.forEach(r=>{((V[r[0]]||{}).cc||[]).forEach(c=>{cnt[c]=(cnt[c]||0)+1})});
+    const names=Object.keys(cnt).sort((a,b)=>a.localeCompare(b));
+    if(!names.length)return;
+    const opts=names.map(c=>'<option value="'+c+'">country: '+c+' ('+cnt[c]+')</option>').join("");
+    const sep=document.getElementById('sep-toggles');
+    if(sep)sep.insertAdjacentHTML('beforebegin','<select id="f-country" aria-label="Country availability"><option value="">country: available in…</option>'+opts+'</select>');
+    const sel=document.getElementById('f-country');
+    if(sel)sel.addEventListener('change',e=>{countryF=e.target.value;render()});
+    const ca=document.getElementById('clearall');
+    if(ca)ca.addEventListener('click',()=>{countryF="";if(sel)sel.selectedIndex=0});
+    const nd=document.getElementById('navdir');
+    if(nd)nd.addEventListener('click',()=>{countryF="";if(sel)sel.selectedIndex=0});
+  })();
   /* write the active filter state into the query string (directory view only) */
   const _render_v14=render;
   render=function(){
@@ -3449,6 +3470,7 @@ render();
     if(custody)p.set('custody',custody);
     if(net)p.set('net',net);
     if(typeof regF!=="undefined"&&regF)p.set('reg',regF);
+    if(typeof countryF!=="undefined"&&countryF)p.set('country',countryF);
     if(wantYield)p.set('y','1');
     if(wantStable)p.set('s','1');
     if(wantNoKyc)p.set('nk','1');
@@ -3464,7 +3486,7 @@ render();
   const p=new URLSearchParams(location.search);
   if(p.get('cat')){const el=document.querySelector('.pill[data-cat="'+p.get('cat')+'"]');if(el)el.click();}
   if(p.get('q')){const qi=document.getElementById('q');qi.value=p.get('q');qi.dispatchEvent(new Event('input',{bubbles:true}));}
-  [['niche','f-niche'],['region','f-region'],['custody','f-custody'],['net','f-net'],['reg','f-reg'],['sort','sort']].forEach(([k,id])=>{
+  [['niche','f-niche'],['region','f-region'],['custody','f-custody'],['net','f-net'],['reg','f-reg'],['country','f-country'],['sort','sort']].forEach(([k,id])=>{
     const v=p.get(k);if(!v)return;
     const s=document.getElementById(id);if(!s)return;
     s.value=v;s.dispatchEvent(new Event('change',{bubbles:true}));
