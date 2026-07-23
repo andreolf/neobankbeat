@@ -5,7 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
-- [FAQ](https://www.neobankbeat.com/faq/) — 20 honest answers
+- [FAQ](https://www.neobankbeat.com/faq/) — 22 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
 - [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (106 providers)

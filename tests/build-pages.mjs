@@ -987,7 +987,7 @@ const sitemapMd = `# neobankbeat — sitemap
 ## Main
 
 - [Directory](${BASE}/) — searchable grid of all ${E.length} neobanks
-- [FAQ](${BASE}/faq/) — 20 honest answers
+- [FAQ](${BASE}/faq/) — 22 honest answers
 - [Glossary](${BASE}/glossary/) — 50 terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
 - [Infra for neobanks](${BASE}/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (${infraSlugList.length} providers)
