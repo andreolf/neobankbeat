@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The open neobank dataset — 368 neobanks as JSON · neobankbeat</title>
+<meta name="description" content="The open neobankbeat dataset: 368 verified-active neobanks as machine-readable JSON — custody, regulation type, cards, cashback, yield, stablecoins, FX markup, services, geography and users. MIT-licensed, field dictionary and methodology included.">
+<link rel="canonical" href="https://www.neobankbeat.com/data/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="The open neobank dataset — 368 neobanks as JSON · neobankbeat">
+<meta property="og:description" content="The open neobankbeat dataset: 368 verified-active neobanks as machine-readable JSON — custody, regulation type, cards, cashback, yield, stablecoins, FX markup, services, geography and users. MIT-licensed, field dictionary and methodology included.">
+<meta property="og:url" content="https://www.neobankbeat.com/data/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Dataset","@id":"https://www.neobankbeat.com/data/#dataset","name":"neobankbeat: open directory of neobanks worldwide","description":"A verified, machine-readable dataset of 368 active neobanks — traditional, hybrid fiat+crypto and web3-native — with fields for custody, regulation type (licensed bank vs partner-bank/BaaS vs e-money vs self-custodial), card, cashback, yield, stablecoin support, FX markup, money-movement services, geography and reported users. Curated from primary sources, MIT-licensed, updated in the open.","url":"https://www.neobankbeat.com/data/","sameAs":"https://github.com/andreolf/neobankbeat","license":"https://opensource.org/license/mit/","isAccessibleForFree":true,"datePublished":"2026-07-03","dateModified":"2026-07-23","version":"2026-07-23","temporalCoverage":"2026","creator":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com/"},"includedInDataCatalog":{"@type":"DataCatalog","name":"GitHub","url":"https://github.com/andreolf/neobankbeat"},"measurementTechnique":"Manual curation and verification against primary sources: regulator registers, company filings, product documentation and disclosures.","variableMeasured":["name","category","audience","hq, founded","custody","regulation_type","licence","card_network, card_type","cashback, yield","stablecoins","services","fx_markup","kyc","active_regions, countries","reported_users","founders, funding, investors","ai","website, domain, x_handle, terms_url, privacy_url"],"keywords":["neobank","digital bank","fintech","challenger bank","banking as a service","stablecoin","crypto card","web3","self-custody","open dataset"],"distribution":[{"@type":"DataDownload","name":"Full dataset (JSON)","encodingFormat":"application/json","contentUrl":"https://www.neobankbeat.com/data.json"},{"@type":"DataDownload","name":"OpenAPI specification","encodingFormat":"application/json","contentUrl":"https://www.neobankbeat.com/openapi.json"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"dataset","item":"https://www.neobankbeat.com/data/"}]}]}
+</script>
+<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.dlrow{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.dlbtn{font-family:var(--mono);font-size:12.5px;color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 15px;background:var(--panel);transition:border-color .15s}
+.dlbtn:hover{border-color:var(--accent)}
+.dlbtn b{color:var(--accent)}
+.fdict{width:100%;border-collapse:collapse;font-size:12.5px;margin:16px 0}
+.fdict th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.fdict td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.fdict td:first-child{font-family:var(--mono);color:var(--text);white-space:nowrap}
+.fdict td:nth-child(2){font-family:var(--mono);color:var(--muted);font-size:11px;white-space:nowrap}
+.fdict td:last-child{color:var(--dim)}
+pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">open data</div>
+  <h1>The open <em>neobank dataset</em></h1>
+  <p class="meta"><b>368 verified-active neobanks</b> · MIT-licensed · machine-readable · updated 2026-07-23</p>
+  <p>Everything on neobankbeat is generated from one file: <a href="/data.json">data.json</a>. It's free to use, including commercially — attribution appreciated. Defunct neobanks and pure BaaS/infrastructure providers are excluded; unverified fields are <code>null</code> rather than guessed.</p>
+
+  <div class="ivstats">
+    <div class="ivstat"><div class="n">368</div><div class="l">neobanks</div></div>
+    <div class="ivstat"><div class="n">254</div><div class="l">traditional</div></div>
+    <div class="ivstat"><div class="n">58</div><div class="l">hybrid</div></div>
+    <div class="ivstat"><div class="n">56</div><div class="l">web3-native</div></div>
+    <div class="ivstat"><div class="n">122</div><div class="l">niche-audience</div></div>
+  </div>
+
+  <div class="dlrow">
+    <a class="dlbtn" href="/data.json"><b>data.json</b> — full dataset ↓</a>
+    <a class="dlbtn" href="/openapi.json"><b>openapi.json</b> — API spec ↓</a>
+    <a class="dlbtn" href="/llms.txt"><b>llms.txt</b> — agent guide ↓</a>
+    <a class="dlbtn" href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener"><b>GitHub</b> — source & issues ↗</a>
+  </div>
+
+  <h2>Field dictionary</h2>
+  <p>Each entity is an object under <code>entities</code>. Top-level <code>meta</code> carries counts, field notes and methodology.</p>
+  <table class="fdict">
+    <tr><th>field</th><th>type</th><th>meaning</th></tr>
+    <tr><td>name</td><td>string</td><td>Display name of the neobank.</td></tr>
+    <tr><td>category</td><td>enum</td><td>traditional · hybrid · web3-native (see notes).</td></tr>
+    <tr><td>audience</td><td>enum</td><td>general, or a niche: SMB, teens, gen z, women, migrants, freelancers…</td></tr>
+    <tr><td>hq · founded</td><td>string · number</td><td>Headquarters (city, country) and year founded.</td></tr>
+    <tr><td>custody</td><td>enum</td><td>Custodial · Self-custodial · MPC self-custodial · Mixed.</td></tr>
+    <tr><td>regulation_type</td><td>enum</td><td>Licensed bank · Partner-bank model · E-money institution · Payment institution · VASP/MSB · MiCA CASP · Self-custodial software · Broker-led · Other.</td></tr>
+    <tr><td>licence</td><td>string</td><td>Plain-text licence / sponsor-bank detail.</td></tr>
+    <tr><td>card_network · card_type</td><td>string</td><td>Visa/Mastercard/domestic/— and debit/prepaid/credit/virtual/crypto-settled/wallet.</td></tr>
+    <tr><td>cashback · yield</td><td>string</td><td>Headline &quot;up to&quot; figures — change constantly, always confirm with the issuer.</td></tr>
+    <tr><td>stablecoins</td><td>boolean</td><td>Whether stablecoins are supported.</td></tr>
+    <tr><td>services</td><td>array</td><td>Money-movement capabilities: on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards.</td></tr>
+    <tr><td>fx_markup</td><td>object</td><td>FX markup on the free/standard plan, with source URL + as_of date.</td></tr>
+    <tr><td>kyc</td><td>string</td><td>KYC posture.</td></tr>
+    <tr><td>active_regions · countries</td><td>array</td><td>Macro-regions and country-level availability where known.</td></tr>
+    <tr><td>reported_users</td><td>object</td><td>value_millions + metric + as_of, where disclosed.</td></tr>
+    <tr><td>founders · funding · investors</td><td>string · array</td><td>Named founders, total disclosed funding, and notable disclosed backers.</td></tr>
+    <tr><td>ai</td><td>enum</td><td>Verified in-production AI use: underwriting · interface · agentic.</td></tr>
+    <tr><td>website · domain · x_handle · terms_url · privacy_url</td><td>string</td><td>Verified links where confirmed; null when unverified (never fabricated).</td></tr>
+  </table>
+
+  <h2>Notes & methodology</h2>
+  <ul>
+    <li><b>category:</b> traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first</li>
+    <li><b>rates:</b> cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer</li>
+    <li><b>services:</b> money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence</li>
+    <li><b>fx_markup:</b> foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer</li>
+    <li><b>verification:</b> defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed</li>
+  </ul>
+
+  <h2>Load it</h2>
+  <pre class="code">import json, urllib.request
+data = json.load(urllib.request.urlopen("https://www.neobankbeat.com/data.json"))
+print(data["meta"]["total"], "neobanks")
+for e in data["entities"][:5]:
+    print(e["name"], "·", e["category"], "·", e["regulation_type"])</pre>
+
+  <h2>Cite it</h2>
+  <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> https://www.neobankbeat.com/ (MIT).</p>
+
+  <div class="callout"><span class="k">go deeper</span>Browse the <a href="/">interactive directory</a>, all <a href="/n/">368 profiles</a>, or the <a href="/vs/">comparisons</a>. Machine agents: <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.md">sitemap.md</a>.</div>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Figures compiled from public sources, for comparison only — not financial advice. "Up to" rates change constantly; always confirm with the issuer. Spotted an error? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a fix</a>.</p>
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
+document.addEventListener('submit',function(e){if(e.target.classList&&e.target.classList.contains('nbform'))nbevt('subscribe',{page:location.pathname})},true);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&a.pathname==='/data.json')nbevt('data_download',{page:location.pathname})});</script>
+</body>
+</html>

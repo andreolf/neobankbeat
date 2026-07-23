@@ -438,6 +438,35 @@ console.log('— flow 25: no stale entity counts on evergreen surfaces');
   }
 }
 
+console.log('— flow 26: generated who-owns / alternatives pages are substantive (no thin/broken pages)');
+{
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const stripArticle=h=>{const m=h.match(/<article[\s\S]*?<\/article>/);return (m?m[0]:'').replace(/<[^>]+>/g,' ').replace(/&[a-z]+;/g,' ').replace(/\s+/g,' ').trim();};
+  const ldOf=h=>[...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>{try{return JSON.parse(m[1])}catch(e){return null}});
+  let checked=0,thin=[],badld=[],nofaq=[],artifacts=[];
+  const dirs=fs.readdirSync(path.join(root,'n'),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name);
+  for(const s of dirs){
+    for(const sub of ['who-owns','alternatives']){
+      const p=path.join(root,'n',s,sub,'index.html');
+      if(!fs.existsSync(p))continue;
+      checked++;
+      const h=fs.readFileSync(p,'utf8');
+      if(stripArticle(h).length<500)thin.push(sub+'/'+s);
+      const lds=ldOf(h);
+      if(lds.some(l=>l===null))badld.push(sub+'/'+s);
+      if(!lds.some(l=>((l&&l['@graph'])||[]).some(n=>n['@type']==='FAQPage')))nofaq.push(sub+'/'+s);
+      if(/>undefined<|>NaN<|>null<|is a {2}|include \.|and \.<|\/n\/\/|\/vs\/\//.test(h))artifacts.push(sub+'/'+s);
+      if(!/short answer/.test(h))artifacts.push('noans:'+sub+'/'+s);
+    }
+  }
+  ok(checked>=700,'scanned all generated answer pages ('+checked+')');
+  ok(thin.length===0,'no thin answer pages (<500 chars): '+thin.slice(0,5).join(', '));
+  ok(badld.length===0,'all answer-page JSON-LD parses ('+badld.slice(0,5).join(', ')+')');
+  ok(nofaq.length===0,'every answer page carries FAQ schema ('+nofaq.slice(0,5).join(', ')+')');
+  ok(artifacts.length===0,'no template artifacts/broken links in answer pages ('+artifacts.slice(0,5).join(', ')+')');
+}
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}

@@ -87,7 +87,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 const foot = `
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
 </div></footer>
 ${bwScript}
 </body>
@@ -105,6 +105,25 @@ function peers(e, n = 6) {
     .sort((a, b) => (b.reported_users ? 1 : 0) - (a.reported_users ? 1 : 0))
     .slice(0, n);
 }
+
+/* ── alternatives: similarity-ranked (audience + region + size dominate,
+   category is a boost not a gate) — so "Revolut alternatives" surfaces
+   Wise/Nubank, not only other hybrid apps. Used by /n/<slug>/alternatives/,
+   and cross-linked from profiles + vs pages, so it lives at module scope. ── */
+function altPeers(e, n = 8) {
+  const er = new Set(e.active_regions);
+  return E.filter(x => x !== e).map(x => {
+    const regOv = x.active_regions.filter(r => er.has(r)).length;
+    const uv = x.reported_users ? x.reported_users.value_millions : 0;
+    let s = Math.min(regOv, 3);
+    if (regOv === 0) s -= 4;
+    if (x.audience === e.audience) s += 4;
+    if (x.category === e.category) s += 1;
+    s += Math.min(uv / 12, 4);
+    return [x, s, uv];
+  }).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1] || b[2] - a[2]).slice(0, n).map(a => a[0]);
+}
+const altEligible = new Set(E.filter(e => altPeers(e, 8).length >= 4).map(e => e.name));
 
 const AITAG = { underwriting: 'AI underwriting in production', interface: 'AI assistant as the interface', agentic: 'banking for AI agents' };
 const SVLABEL = { 'on-ramp': 'crypto on-ramp', 'off-ramp': 'crypto off-ramp', 'fiat-payin': 'fiat pay-in (bank rails)', 'fiat-payout': 'fiat pay-out (bank rails)', iban: 'own IBAN / account no.', 'multi-currency': 'multi-currency hold', 'virtual-cards': 'virtual cards', 'crypto-cards': 'crypto-settled card' };
@@ -269,7 +288,7 @@ for (const e of E) {
   <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name} — ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts:`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
   ${investorsBlock(e)}
   <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
-  <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">Who owns ${esc(e.name)}?</a>${pr.length >= 4 ? ` &nbsp;·&nbsp; <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}</p>
+  <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">Who owns ${esc(e.name)}?</a>${altEligible.has(e.name) ? ` &nbsp;·&nbsp; <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}</p>
   ${(vsFor.get(e.name) || []).length ? `<h2>Head-to-head</h2>\n  <p>${vsFor.get(e.name).slice(0, 12).map(v => `<a href="/vs/${v.slug}/">${esc(e.name)} vs ${esc(v.other)}</a>`).join(' · ')}</p>` : ''}
   ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
   ${disclaimer}
@@ -387,6 +406,7 @@ for (const [an, bn] of PAIRS) {
     ${rows}
   </table>
   <div class="callout"><span class="k">go deeper</span>Full profiles: <a href="/n/${slugs.get(an)}/">${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/">${esc(bn)}</a> — or run your own comparison of up to four in the <a href="/">directory</a>.</div>
+  <p class="meta" style="margin:12px 0 0">Who owns them? <a href="/n/${slugs.get(an)}/who-owns/">${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/who-owns/">${esc(bn)}</a>${altEligible.has(an) || altEligible.has(bn) ? `<br>Alternatives: ${[an, bn].filter(x => altEligible.has(x)).map(x => `<a href="/n/${slugs.get(x)}/alternatives/">${esc(x)}</a>`).join(' · ')}` : ''}</p>
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -425,6 +445,124 @@ for (const [an, bn] of PAIRS) {
 </article>
 </main>` + foot;
   fs.writeFileSync(path.join(ROOT, 'vs', 'index.html'), html);
+}
+
+/* ═══ /data/ — human landing page for the dataset: field dictionary + downloads
+   + methodology. Canonical, linkable home for the schema.org/Dataset node, and
+   the page HF/Kaggle mirrors point back to. ═══ */
+{
+  const url = `${BASE}/data/`;
+  const M = data.meta;
+  const c = M.counts || {};
+  const FIELDS = [
+    ['name', 'string', 'Display name of the neobank.'],
+    ['category', 'enum', 'traditional · hybrid · web3-native (see notes).'],
+    ['audience', 'enum', 'general, or a niche: SMB, teens, gen z, women, migrants, freelancers…'],
+    ['hq · founded', 'string · number', 'Headquarters (city, country) and year founded.'],
+    ['custody', 'enum', 'Custodial · Self-custodial · MPC self-custodial · Mixed.'],
+    ['regulation_type', 'enum', 'Licensed bank · Partner-bank model · E-money institution · Payment institution · VASP/MSB · MiCA CASP · Self-custodial software · Broker-led · Other.'],
+    ['licence', 'string', 'Plain-text licence / sponsor-bank detail.'],
+    ['card_network · card_type', 'string', 'Visa/Mastercard/domestic/— and debit/prepaid/credit/virtual/crypto-settled/wallet.'],
+    ['cashback · yield', 'string', 'Headline "up to" figures — change constantly, always confirm with the issuer.'],
+    ['stablecoins', 'boolean', 'Whether stablecoins are supported.'],
+    ['services', 'array', 'Money-movement capabilities: on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards.'],
+    ['fx_markup', 'object', 'FX markup on the free/standard plan, with source URL + as_of date.'],
+    ['kyc', 'string', 'KYC posture.'],
+    ['active_regions · countries', 'array', 'Macro-regions and country-level availability where known.'],
+    ['reported_users', 'object', 'value_millions + metric + as_of, where disclosed.'],
+    ['founders · funding · investors', 'string · array', 'Named founders, total disclosed funding, and notable disclosed backers.'],
+    ['ai', 'enum', 'Verified in-production AI use: underwriting · interface · agentic.'],
+    ['website · domain · x_handle · terms_url · privacy_url', 'string', 'Verified links where confirmed; null when unverified (never fabricated).'],
+  ];
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Dataset', '@id': `${BASE}/data/#dataset`, name: 'neobankbeat: open directory of neobanks worldwide',
+      description: `A verified, machine-readable dataset of ${E.length} active neobanks — traditional, hybrid fiat+crypto and web3-native — with fields for custody, regulation type (licensed bank vs partner-bank/BaaS vs e-money vs self-custodial), card, cashback, yield, stablecoin support, FX markup, money-movement services, geography and reported users. Curated from primary sources, MIT-licensed, updated in the open.`,
+      url, sameAs: M.source, license: 'https://opensource.org/license/mit/', isAccessibleForFree: true,
+      datePublished: '2026-07-03', dateModified: TODAY, version: TODAY, temporalCoverage: '2026',
+      creator: { '@type': 'Person', name: 'Francesco Andreoli', url: 'https://www.francesco-andreoli.com' },
+      publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE + '/' },
+      includedInDataCatalog: { '@type': 'DataCatalog', name: 'GitHub', url: M.source },
+      measurementTechnique: 'Manual curation and verification against primary sources: regulator registers, company filings, product documentation and disclosures.',
+      variableMeasured: FIELDS.map(f => f[0].replace(/ · /g, ', ')),
+      keywords: ['neobank', 'digital bank', 'fintech', 'challenger bank', 'banking as a service', 'stablecoin', 'crypto card', 'web3', 'self-custody', 'open dataset'],
+      distribution: [
+        { '@type': 'DataDownload', name: 'Full dataset (JSON)', encodingFormat: 'application/json', contentUrl: `${BASE}/data.json` },
+        { '@type': 'DataDownload', name: 'OpenAPI specification', encodingFormat: 'application/json', contentUrl: `${BASE}/openapi.json` }] },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+      { '@type': 'ListItem', position: 2, name: 'dataset', item: url }] }
+  ] };
+  const style = `<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.dlrow{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.dlbtn{font-family:var(--mono);font-size:12.5px;color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 15px;background:var(--panel);transition:border-color .15s}
+.dlbtn:hover{border-color:var(--accent)}
+.dlbtn b{color:var(--accent)}
+.fdict{width:100%;border-collapse:collapse;font-size:12.5px;margin:16px 0}
+.fdict th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.fdict td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.fdict td:first-child{font-family:var(--mono);color:var(--text);white-space:nowrap}
+.fdict td:nth-child(2){font-family:var(--mono);color:var(--muted);font-size:11px;white-space:nowrap}
+.fdict td:last-child{color:var(--dim)}
+pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.5}
+</style>`;
+  const desc = `The open neobankbeat dataset: ${E.length} verified-active neobanks as machine-readable JSON — custody, regulation type, cards, cashback, yield, stablecoins, FX markup, services, geography and users. MIT-licensed, field dictionary and methodology included.`;
+  const html = (head(`The open neobank dataset — ${E.length} neobanks as JSON · neobankbeat`, desc, url, ld) + `
+<main class="wrap">
+<article>
+  <div class="eyebrow">open data</div>
+  <h1>The open <em>neobank dataset</em></h1>
+  <p class="meta"><b>${E.length} verified-active neobanks</b> · MIT-licensed · machine-readable · updated ${TODAY}</p>
+  <p>Everything on neobankbeat is generated from one file: <a href="/data.json">data.json</a>. It's free to use, including commercially — attribution appreciated. Defunct neobanks and pure BaaS/infrastructure providers are excluded; unverified fields are <code>null</code> rather than guessed.</p>
+
+  <div class="ivstats">
+    <div class="ivstat"><div class="n">${E.length}</div><div class="l">neobanks</div></div>
+    <div class="ivstat"><div class="n">${c.traditional ?? ''}</div><div class="l">traditional</div></div>
+    <div class="ivstat"><div class="n">${c.hybrid ?? ''}</div><div class="l">hybrid</div></div>
+    <div class="ivstat"><div class="n">${c.web3_native ?? ''}</div><div class="l">web3-native</div></div>
+    <div class="ivstat"><div class="n">${c.niche_audience ?? ''}</div><div class="l">niche-audience</div></div>
+  </div>
+
+  <div class="dlrow">
+    <a class="dlbtn" href="/data.json"><b>data.json</b> — full dataset ↓</a>
+    <a class="dlbtn" href="/openapi.json"><b>openapi.json</b> — API spec ↓</a>
+    <a class="dlbtn" href="/llms.txt"><b>llms.txt</b> — agent guide ↓</a>
+    <a class="dlbtn" href="${esc(M.source)}" target="_blank" rel="noopener"><b>GitHub</b> — source & issues ↗</a>
+  </div>
+
+  <h2>Field dictionary</h2>
+  <p>Each entity is an object under <code>entities</code>. Top-level <code>meta</code> carries counts, field notes and methodology.</p>
+  <table class="fdict">
+    <tr><th>field</th><th>type</th><th>meaning</th></tr>
+    ${FIELDS.map(([f, t, d]) => `<tr><td>${esc(f)}</td><td>${esc(t)}</td><td>${esc(d)}</td></tr>`).join('\n    ')}
+  </table>
+
+  <h2>Notes & methodology</h2>
+  <ul>
+    ${Object.entries(M.field_notes || {}).map(([k, v]) => `<li><b>${esc(k)}:</b> ${esc(v)}</li>`).join('\n    ')}
+  </ul>
+
+  <h2>Load it</h2>
+  <pre class="code">import json, urllib.request
+data = json.load(urllib.request.urlopen("${BASE}/data.json"))
+print(data["meta"]["total"], "neobanks")
+for e in data["entities"][:5]:
+    print(e["name"], "·", e["category"], "·", e["regulation_type"])</pre>
+
+  <h2>Cite it</h2>
+  <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> ${BASE}/ (MIT).</p>
+
+  <div class="callout"><span class="k">go deeper</span>Browse the <a href="/">interactive directory</a>, all <a href="/n/">${E.length} profiles</a>, or the <a href="/vs/">comparisons</a>. Machine agents: <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.md">sitemap.md</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', style + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'data'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'data', 'index.html'), html);
+  console.log('data landing page: /data/');
 }
 
 /* ═══ /investors/ — who funds the neobanks: investor → portfolio index ═══ */
@@ -960,22 +1098,6 @@ const whoOwnsSlugs = [], altSlugs = [];
   const aAn = w => (/^[aeiou]/i.test(String(w)) ? 'an ' : 'a ') + w;
   const nameList = a => a.length <= 1 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
   const CATLBL = { traditional: 'traditional', hybrid: 'hybrid crypto', 'web3-native': 'web3-native' };
-  /* similarity-ranked alternatives: audience + region + size dominate, category
-     is a boost not a gate — so "Revolut alternatives" can surface Wise/Monzo/N26,
-     not only other hybrid apps. */
-  const altPeers = (e, n = 8) => {
-    const er = new Set(e.active_regions);
-    return E.filter(x => x !== e).map(x => {
-      const regOv = x.active_regions.filter(r => er.has(r)).length;
-      const uv = x.reported_users ? x.reported_users.value_millions : 0;
-      let s = Math.min(regOv, 3);
-      if (regOv === 0) s -= 4;
-      if (x.audience === e.audience) s += 4;
-      if (x.category === e.category) s += 1;
-      s += Math.min(uv / 12, 4);                 // size: pull recognizable names up
-      return [x, s, uv];
-    }).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1] || b[2] - a[2]).slice(0, n).map(a => a[0]);
-  };
 
   for (const e of E) {
     const slug = slugs.get(e.name);
@@ -984,7 +1106,7 @@ const whoOwnsSlugs = [], altSlugs = [];
     const spon = rails.filter(p => /sponsor|clearing bank/i.test(p.type));
     const selfC = /^self-custodial/i.test(e.custody || '') || /^MPC self-custodial/i.test(e.custody || '') || /self-custodial software/i.test(rt);
     const alts = altPeers(e, 8);
-    const hasAlts = alts.length >= 4;
+    const hasAlts = altEligible.has(e.name);
 
     /* ── ownership answer (the GEO snippet) ── */
     let lead, isBank, safeAns;
@@ -1180,6 +1302,7 @@ const BLOG_POSTS = [
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
   { loc: `${BASE}/faq/`, changefreq: 'monthly', priority: '0.9' },
