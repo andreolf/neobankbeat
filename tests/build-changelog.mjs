@@ -12,6 +12,41 @@ const git = cmd => execSync(`git ${cmd}`, { cwd: ROOT, maxBuffer: 64 * 1024 * 10
 
 const slugify = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'entity';
 
+/* plain-English "what changed for you" per commit — matched by a distinctive
+   substring of the commit subject. Keep these in five-year-old words. New
+   commits without a match fall back to humanize() below. */
+const PLAIN = [
+  [/money-movement services|FX-markup/i, 'Added the real cost and features to each app: the fee it charges to spend abroad (FX markup) and what it lets you do with money — buy/sell crypto, get your own account number/IBAN, use virtual cards. Now you can compare apps on price, not just looks.'],
+  [/regulation backfill/i, 'Labelled every neobank by how it is actually regulated — its own bank licence, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.'],
+  [/full-directory audit — \d+ verified tags/i, 'Checked all the apps for real, in-use AI and tagged only the ones that genuinely use it — for lending decisions, as the main chat interface, or built for AI "agents". Marketing fluff did not make the cut. Also removed Will Bank, which shut down.'],
+  [/apply verification results/i, 'Added the first batch of verified "uses AI" tags and dropped four weak claims.'],
+  [/feat: ai tag/i, 'Introduced an "AI" label for apps, and published a write-up on which neobanks actually use AI versus just talk about it.'],
+  [/infra map \d+.\d+ providers/i, 'Grew the behind-the-scenes "who powers these apps" list from 36 to 106 providers, and added two apps: Brighty and Tangem.'],
+  [/add Plata and Veera/i, 'Added two fast-growing apps (Plata and Veera), refreshed the figures for a few others, and published a post on the fastest-growing neobanks.'],
+  [/add Startale and Moto/i, 'Added two crypto-card apps that were missing: Startale and Moto.'],
+  [/Oui Capital backs PaySika/i, 'Recorded that investor Oui Capital backed PaySika.'],
+  [/add PaySika/i, 'Added PaySika, a chat-first neobank for French-speaking Africa.'],
+  [/add Mine/i, 'Added Mine, a Swiss app where you hold your own money (self-custody).'],
+  [/add Flex/i, 'Added Flex, a brand-new "unicorn" app, right after its big funding round.'],
+  [/close the metadata gaps/i, 'Filled in missing details — terms, privacy, home countries, founders and investors — for the seven newest apps.'],
+  [/fizen: retag/i, 'Re-labelled Fizen as a travel & digital-nomad app to match how it now describes itself.'],
+  [/\+SurfCash/i, 'Added SurfCash, an app that turns stablecoins into local QR payments for travellers.'],
+  [/the U-card index/i, 'Built a page comparing all 90 cards you can spend stablecoins with, and added two more apps.'],
+  [/\+4 nomad-wave money apps/i, 'Added four travel/nomad money apps (Lava, COCA, Karta, Hyperbeat) and renamed the travel category.'],
+  [/HongShan listed under two names/i, 'Fixed a duplicate: the investor HongShan was listed twice, now merged.'],
+  [/add Flouci/i, 'Added Flouci, a Tunisian all-in-one app with a free account and card.'],
+  [/Oui Capital.*Moniepoint/i, 'Recorded Oui Capital as an early investor in Moniepoint.'],
+  [/early investors — top VCs/i, 'Added the main investors behind each neobank, with links to them.'],
+  [/link-rot repair|shareable filter URLs/i, 'Fixed broken links and made filtered views shareable by copying the web address.'],
+  [/SEO, AI-agent surface/i, 'General polish: better search-engine visibility, support for AI crawlers, and mobile fixes.'],
+];
+/* strip a "type:" prefix and capitalise, as a readable fallback */
+const humanize = s => {
+  const t = s.replace(/^[a-z0-9+ ]+:\s*/i, '').replace(/\s*—.*$/, '').trim();
+  return t ? t.charAt(0).toUpperCase() + t.slice(1) + '.' : '';
+};
+const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humanize(subj);
+
 /* commits touching data.json, oldest → newest */
 const commits = git(`log --format='%H|%ad|%s' --date=short -- data.json`)
   .trim().split('\n').map(l => {
@@ -70,9 +105,11 @@ const rows = entries.map(e => {
   if (e.added.length) parts.push(`<div class="chg add"><span class="sign">+${e.added.length}</span> added: ${nameList(e.added)}</div>`);
   if (e.removed.length) parts.push(`<div class="chg del"><span class="sign">−${e.removed.length}</span> removed: ${nameList(e.removed)}</div>`);
   if (e.updated.length) parts.push(`<div class="chg upd"><span class="sign">~${e.updated.length}</span> updated: ${nameList(e.updated, 8)}</div>`);
+  const plain = e.baseline ? '' : plainOf(e.subject);
   return `  <div class="centry">
     <div class="chead"><span class="cdate">${fmtDate(e.date)}</span><span class="ctotal">${e.total} tracked</span></div>
-    <div class="csub">${esc(e.subject)}</div>
+    ${plain ? `<div class="cplain">${esc(plain)}</div>` : ''}
+    <div class="csub"><span class="clbl">under the hood</span>${esc(e.subject)}</div>
 ${parts.join('\n')}
   </div>`;
 }).join('\n');
@@ -85,7 +122,7 @@ const lastDate = entries[0]?.date || '';
 fs.mkdirSync(path.join(ROOT, 'changelog'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'changelog', 'changelog.json'), JSON.stringify({
   generated: lastDate, total: now.length,
-  entries: entries.map(e => ({ date: e.date, subject: e.subject, total: e.total, added: e.added, removed: e.removed, updated: e.updated })),
+  entries: entries.map(e => ({ date: e.date, summary: e.baseline ? null : plainOf(e.subject), subject: e.subject, total: e.total, added: e.added, removed: e.removed, updated: e.updated })),
 }, null, 1));
 
 const html = `<!DOCTYPE html>
@@ -121,7 +158,9 @@ const html = `<!DOCTYPE html>
 .chead{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .cdate{font-weight:700;font-size:15px}
 .ctotal{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:11.5px;color:var(--dim)}
-.csub{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12px;color:var(--muted);margin:6px 0 10px}
+.cplain{font-size:14.5px;line-height:1.62;color:var(--text);margin:9px 0 8px}
+.csub{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:11.5px;color:var(--dim);margin:4px 0 10px}
+.clbl{text-transform:uppercase;letter-spacing:1px;font-size:10px;color:var(--dim);border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-right:8px}
 .chg{font-size:13.5px;line-height:1.7;margin:4px 0;color:var(--muted)}
 .chg a{color:var(--text)}
 .chg .sign{font-family:var(--mono,'Noto Sans Mono',monospace);font-weight:700;margin-right:6px}

@@ -4,6 +4,7 @@
  "entries": [
   {
    "date": "2026-07-23",
+   "summary": "Added the real cost and features to each app: the fee it charges to spend abroad (FX markup) and what it lets you do with money — buy/sell crypto, get your own account number/IBAN, use virtual cards. Now you can compare apps on price, not just looks.",
    "subject": "feat: money-movement services + FX-markup on profiles & comparisons",
    "total": 368,
    "added": [],
@@ -45,6 +46,7 @@
   },
   {
    "date": "2026-07-18",
+   "summary": "Labelled every neobank by how it is actually regulated — its own bank licence, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.",
    "subject": "data: regulation backfill for all 173 unclassified entities + site audit fixes",
    "total": 368,
    "added": [],
@@ -228,6 +230,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Checked all the apps for real, in-use AI and tagged only the ones that genuinely use it — for lending decisions, as the main chat interface, or built for AI \"agents\". Marketing fluff did not make the cut. Also removed Will Bank, which shut down.",
    "subject": "ai tags: full-directory audit — 67 verified tags; remove liquidated Will Bank",
    "total": 373,
    "added": [],
@@ -276,6 +279,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Added the first batch of verified \"uses AI\" tags and dropped four weak claims.",
    "subject": "ai tags: apply verification results — 30 verified tags, drop 4 weak ones",
    "total": 374,
    "added": [],
@@ -308,6 +312,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Introduced an \"AI\" label for apps, and published a write-up on which neobanks actually use AI versus just talk about it.",
    "subject": "feat: ai tag (underwriting/interface/agentic) + narrative-check blog post",
    "total": 374,
    "added": [],
@@ -332,6 +337,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Grew the behind-the-scenes \"who powers these apps\" list from 36 to 106 providers, and added two apps: Brighty and Tangem.",
    "subject": "data: infra map 36→106 providers, add Brighty + Tangem (directory 374)",
    "total": 374,
    "added": [
@@ -343,6 +349,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Added two fast-growing apps (Plata and Veera), refreshed the figures for a few others, and published a post on the fastest-growing neobanks.",
    "subject": "data+blog: add Plata and Veera, refresh Slash/Ualá/Kontigo, new growth post",
    "total": 372,
    "added": [
@@ -358,6 +365,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Added two crypto-card apps that were missing: Startale and Moto.",
    "subject": "data: add Startale and Moto — the two cards missing from the crypto-card wave",
    "total": 370,
    "added": [
@@ -369,6 +377,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Recorded that investor Oui Capital backed PaySika.",
    "subject": "data: Oui Capital backs PaySika — its first Cameroon investment (2025)",
    "total": 368,
    "added": [],
@@ -379,6 +388,7 @@
   },
   {
    "date": "2026-07-16",
+   "summary": "Added PaySika, a chat-first neobank for French-speaking Africa.",
    "subject": "data: add PaySika — chatbot-first neobank for francophone Africa, 368th entity",
    "total": 368,
    "added": [
@@ -389,6 +399,7 @@
   },
   {
    "date": "2026-07-15",
+   "summary": "Added Mine, a Swiss app where you hold your own money (self-custody).",
    "subject": "data: add Mine (mine.financial) — Swiss self-custody money app, 367th entity",
    "total": 367,
    "added": [
@@ -399,6 +410,7 @@
   },
   {
    "date": "2026-07-15",
+   "summary": "Added Flex, a brand-new \"unicorn\" app, right after its big funding round.",
    "subject": "data: add Flex (flex.one) — 366th entity, fresh unicorn off its $70M Series B1",
    "total": 366,
    "added": [
@@ -409,6 +421,7 @@
   },
   {
    "date": "2026-07-07",
+   "summary": "Filled in missing details — terms, privacy, home countries, founders and investors — for the seven newest apps.",
    "subject": "audit: close the metadata gaps on the seven newest entities — verified terms/privacy URLs (all HTTP-checked 200), X handles, countries for Lava, COCA, Karta, Hyperbeat, Bitget Wallet, BFinance, SurfCash; founders for Hyperbeat (Kilian Boshoff, 800.HL), SurfCash (Akshat Sharma, César Suárez), BFinance (Knyaz Yussupov); Hyperbeat $5.2M seed + investors (ether.fi Ventures, Electric Capital, Coinbase Ventures) and COCA (Stellar Development Foundation) added to the investor map with curated fund blurbs — investor pages 198→202, llms.txt synced",
    "total": 365,
    "added": [],
@@ -425,6 +438,7 @@
   },
   {
    "date": "2026-07-07",
+   "summary": "Re-labelled Fizen as a travel & digital-nomad app to match how it now describes itself.",
    "subject": "fizen: retag to travel & digital nomads — its positioning is now explicitly 'crypto neobank for travel & QR payments' (Tether-backed)",
    "total": 365,
    "added": [],
@@ -435,6 +449,7 @@
   },
   {
    "date": "2026-07-07",
+   "summary": "Added SurfCash, an app that turns stablecoins into local QR payments for travellers.",
    "subject": "dataset: +SurfCash — self-custodial USDC→local-QR-rails app (VietQR/PromptPay/Pix) for nomads in emerging markets, Circle Alliance, tagged travel & digital nomads; 364→365",
    "total": 365,
    "added": [
@@ -445,6 +460,7 @@
   },
   {
    "date": "2026-07-07",
+   "summary": "Built a page comparing all 90 cards you can spend stablecoins with, and added two more apps.",
    "subject": "the U-card index: new /stablecoin-cards/ page comparing all 90 stablecoin-spendable cards (custody, network, cashback, yield, KYC) — the consolidation the tier-list crowd keeps asking for; +Bitget Wallet and BFinance from the Paymentscan chart (Backpack card still unlaunched, skipped); Paymentscan added to the library; 362→364",
    "total": 364,
    "added": [
@@ -456,6 +472,7 @@
   },
   {
    "date": "2026-07-07",
+   "summary": "Added four travel/nomad money apps (Lava, COCA, Karta, Hyperbeat) and renamed the travel category.",
    "subject": "dataset: +4 nomad-wave money apps from the tier-list research — Lava (BTC credit line, custody U-turn Sept 2025), COCA (MPC self-banking, 1M users), Karta (Telegram self-custody card on Tempo), Hyperbeat (Liquid Banking on Hyperliquid); travel niche renamed 'travel & digital nomads' with Kolo, COCA, Karta tagged in; 358→362 everywhere, Moto excluded (waitlist-only)",
    "total": 362,
    "added": [
@@ -476,6 +493,7 @@
   },
   {
    "date": "2026-07-06",
+   "summary": "Fixed a duplicate: the investor HongShan was listed twice, now merged.",
    "subject": "data: HongShan listed under two names (plain + 'Sequoia China' suffix) — merged to HongShan, 198 investors, stale page pruned; blog post counts updated",
    "total": 358,
    "added": [],
@@ -486,6 +504,7 @@
   },
   {
    "date": "2026-07-05",
+   "summary": "Added Flouci, a Tunisian all-in-one app with a free account and card.",
    "subject": "add Flouci (Tunisia) — 358th entity: Kaoun's BCT-sandbox super-app, free bank account + wallet, Visa card, ~7% savings; bump count 357→358 sitewide",
    "total": 358,
    "added": [
@@ -496,6 +515,7 @@
   },
   {
    "date": "2026-07-05",
+   "summary": "Recorded Oui Capital as an early investor in Moniepoint.",
    "subject": "data: add Oui Capital (first institutional cheque, TeamApt seed) to Moniepoint early investors",
    "total": 357,
    "added": [],
@@ -506,6 +526,7 @@
   },
   {
    "date": "2026-07-05",
+   "summary": "Added the main investors behind each neobank, with links to them.",
    "subject": "directory + profiles: early investors — top VCs per neobank with links (121 entities), in modal, static pages, data.json and JSON-LD funder",
    "total": 357,
    "added": [],
@@ -636,6 +657,7 @@
   },
   {
    "date": "2026-07-03",
+   "summary": "Fixed broken links and made filtered views shareable by copying the web address.",
    "subject": "link-rot repair, shareable filter URLs, search shortcut",
    "total": 357,
    "added": [],
@@ -722,6 +744,7 @@
   },
   {
    "date": "2026-07-03",
+   "summary": null,
    "subject": "SEO, AI-agent surface, mobile & UX fixes — audit pass",
    "total": 357,
    "added": [],
