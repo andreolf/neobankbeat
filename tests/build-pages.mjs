@@ -316,6 +316,32 @@ const VS_FIELDS = [
   ['Stablecoins', e => e.stablecoins ? 'Yes' : 'No'], ['KYC', e => e.kyc],
   ['Regions', e => e.active_regions.join(', ')], ['Reported users', e => users(e) || '—'],
 ];
+/* one-line "short answer" verdict — factual differentiators only, no editorialising.
+   This is the paragraph AI answer engines and featured snippets lift verbatim. */
+const vsVerdict = (a, b) => {
+  const edge = (e, o) => {
+    const bits = [];
+    if (e.regulation_type === 'Licensed bank' && o.regulation_type !== 'Licensed bank') bits.push('holds its own banking licence');
+    const eu = (e.reported_users || {}).value_millions || 0, ou = (o.reported_users || {}).value_millions || 0;
+    if (eu && eu >= Math.max(ou * 2, ou + 5)) bits.push(`is the larger platform (~${eu}M users)`);
+    if (e.yield && !o.yield) bits.push('pays yield on balances');
+    if (e.stablecoins && !o.stablecoins) bits.push('supports stablecoins');
+    if (/self-custod/i.test(e.custody) && !/self-custod/i.test(o.custody)) bits.push('lets you hold your own keys (self-custody)');
+    if (e.audience !== 'general' && e.audience !== o.audience) bits.push(`is built for ${e.audience}`);
+    return bits.slice(0, 2);
+  };
+  const cat = a.category === b.category
+    ? `Both are ${a.category} neobanks`
+    : `${a.name} is a ${a.category} neobank and ${b.name} is ${b.category}`;
+  const aE = edge(a, b), bE = edge(b, a);
+  const seg = [];
+  if (aE.length) seg.push(`${a.name} ${aE.join(' and ')}`);
+  if (bE.length) seg.push(`${b.name} ${bE.join(' and ')}`);
+  return seg.length
+    ? `${cat}. ${seg.join('; ')}. Compare custody, licence, FX markup and fees field by field below.`
+    : `${cat} with similar positioning — the real differences are FX markup, fees, licence and geography, compared field by field below.`;
+};
+
 let vsPages = 0, vsIndex = [];
 for (const [an, bn] of PAIRS) {
   const a = byName.get(an), b = byName.get(bn);
@@ -324,11 +350,15 @@ for (const [an, bn] of PAIRS) {
   const url = `${BASE}/vs/${slug}/`;
   const title = `${an} vs ${bn} compared (2026) · neobankbeat`;
   const desc = `${an} vs ${bn} side by side — custody, regulation, card network, cashback, yield, stablecoin support and geography. Neutral comparison from the open neobankbeat dataset. No affiliate links.`;
+  const verdict = vsVerdict(a, b);
   const ld = {
     '@context': 'https://schema.org', '@graph': [
       { '@type': 'Article', headline: `${an} vs ${bn}: the facts compared`, datePublished: TODAY, dateModified: TODAY,
         author: { '@type': 'Person', name: 'Francesco Andreoli' },
         publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE }, mainEntityOfPage: url },
+      { '@type': 'FAQPage', mainEntity: [
+        { '@type': 'Question', name: `${an} vs ${bn}: what's the difference?`,
+          acceptedAnswer: { '@type': 'Answer', text: verdict } }] },
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
         { '@type': 'ListItem', position: 2, name: 'comparisons', item: BASE + '/vs/' },
@@ -347,6 +377,7 @@ for (const [an, bn] of PAIRS) {
   <div class="eyebrow"><a href="/vs/" style="color:var(--accent)">comparisons</a></div>
   <h1>${esc(an)} <em>vs</em> ${esc(bn)}</h1>
   <p class="meta">${catChip(a)} vs ${catChip(b)} · from the open dataset of ${E.length} tracked neobanks · no affiliate links, ever</p>
+  <div class="callout"><span class="k">short answer</span>${esc(verdict)}</div>
   <p>${esc(a.name)}: ${esc(a.note || '')}</p>
   <p>${esc(b.name)}: ${esc(b.note || '')}</p>
   <h2>Side by side</h2>
