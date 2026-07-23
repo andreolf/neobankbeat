@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who really runs the neobanks? The BaaS rails behind the apps · neobankbeat</title>
+<meta name="description" content="Only 127 of 368 tracked neobanks hold their own bank licence. 77 are a front end on someone else's — and most won't tell you whose. The Banking-as-a-Service census, from open data: who's licensed, who rents the rails, and why the sponsor bank is the risk nobody prices.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Who really runs the neobanks? The BaaS rails behind the apps">
+<meta property="og:description" content="Only 127 of 368 tracked neobanks hold their own bank licence. 77 rent someone else's — and most won't say whose. The BaaS census, from open data.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/">
+<meta property="og:image" content="https://www.neobankbeat.com/og/blog/who-really-runs-the-neobanks.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og/blog/who-really-runs-the-neobanks.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}};document.addEventListener("submit",function(e){if(e.target.classList&&e.target.classList.contains("nbform"))nbevt("subscribe",{page:location.pathname})},true)</script><script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Who really runs the neobanks? The BaaS rails behind the apps","description":"Only 127 of 368 tracked neobanks hold their own bank licence; 77 run on a partner bank and most don't disclose which. The Banking-as-a-Service census from the open neobankbeat dataset.","datePublished":"2026-07-23","dateModified":"2026-07-23","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/who-really-runs-the-neobanks.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/" class="on">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">the rails</div>
+  <h1>Who <em>really</em> runs the neobanks?</h1>
+  <p class="meta"><b>July 23, 2026</b> · 7 min read · <a href="/blog/">← all posts</a> · <a href="/data.json">the dataset</a></p>
+
+  <p>Open any neobank app and it looks like a bank: an account number, a card, a balance, a little green tick that says your money is insured. Look one layer down and the picture splits in two. Some of these companies <em>are</em> banks — they hold a licence, they take deposits onto their own balance sheet, they answer to a regulator directly. Most are something else: a beautifully designed front end sitting on top of a bank you've never heard of, connected by a layer the industry calls <b>Banking-as-a-Service</b>.</p>
+  <p>That distinction is invisible in the marketing and decisive in a crisis. So we counted it. Every one of the <b>368 tracked neobanks</b> in the <a href="/">directory</a> carries a <code>regulation_type</code> in <a href="/data.json">data.json</a>, derived from its licence disclosures. Here's what the whole field looks like when you stop reading the homepage and start reading the small print.</p>
+
+  <h2>The licence census</h2>
+  <table>
+    <tr><th>How it's regulated</th><th>Count</th><th>What it actually means</th></tr>
+    <tr><td>Licensed bank</td><td><b>127</b></td><td>Holds its own banking charter — deposits on its own balance sheet, insured in its own name</td></tr>
+    <tr><td>Partner-bank model (BaaS)</td><td><b>77</b></td><td>A front end on a licensed sponsor bank; your money and insurance live at the sponsor, not the app</td></tr>
+    <tr><td>Self-custodial software</td><td><b>51</b></td><td>No licence because it holds no money — you hold the keys, it's an interface (web3 wallets)</td></tr>
+    <tr><td>E-money institution</td><td><b>48</b></td><td>Can issue e-money and cards, but can't lend deposits like a bank; safeguarded, not insured</td></tr>
+    <tr><td>VASP / MSB / crypto licences</td><td><b>24</b></td><td>Registered as a crypto or money-services business, not a bank</td></tr>
+    <tr><td>Payment institution</td><td><b>13</b></td><td>Licensed to move money, not to hold it as deposits</td></tr>
+    <tr><td>MiCA CASP (EU)</td><td><b>8</b></td><td>Authorised crypto-asset service provider under Europe's MiCA regime</td></tr>
+    <tr><td>Licence pending</td><td><b>6</b></td><td>Running on a partner today, applying for its own authorisation</td></tr>
+    <tr><td>Other / mixed / broker</td><td><b>14</b></td><td>Broker-led, Swiss fintech licence, or a mix that doesn't fit a single box</td></tr>
+  </table>
+  <p>The headline is the first two rows. <b>Only about a third of "banks" are banks.</b> A hair over 100 more are e-money or payment institutions — regulated, but not deposit-taking. And 77 — one in five — are pure BaaS: the app is a brand and a UX team, and an entirely separate, licensed bank holds the money and carries the regulatory weight. When Chime says "member FDIC," the member is <a href="/n/chime/">The Bancorp and Stride Bank</a>, not Chime. When <a href="/n/dave/">Dave</a> gives you an account, it's <a href="/n/dave/">Evolve</a>'s account with Dave's logo on it.</p>
+
+  <div class="callout"><span class="k">why it matters</span>This isn't a criticism of BaaS — it's how most consumer fintech gets built, and it's often the smart move. But the model relocates the risk. If your neobank is a front end, the thing that can freeze your money isn't your app going down — it's the <em>sponsor bank</em> failing, losing its own regulator's confidence, or a middleware provider between them collapsing. You can't see any of that from the app store.</div>
+
+  <h2>Everyone's renting from the same landlords</h2>
+  <p>Here's the part the app never tells you: the sponsor banks are a short list. Among the US neobanks that disclose a partner, the same names come up again and again — and these are only the ones that <em>say</em> so out loud:</p>
+  <table>
+    <tr><th>Sponsor / rail</th><th>Disclosed neobanks on it*</th></tr>
+    <tr><td>Coastal Community Bank</td><td>6</td></tr>
+    <tr><td>Evolve Bank &amp; Trust</td><td>5</td></tr>
+    <tr><td>Column</td><td>4</td></tr>
+    <tr><td>Choice Financial</td><td>4</td></tr>
+    <tr><td>Cross River</td><td>3</td></tr>
+    <tr><td>Sutton Bank</td><td>3</td></tr>
+    <tr><td>The Bancorp · Stride · Lead · Solaris · Modulr</td><td>2 each</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:-6px">*Count of tracked neobanks whose licence disclosure names this sponsor. It is an <b>undercount</b> — see the next section.</p>
+  <p>A handful of chartered community banks — Coastal, Evolve, Column, Choice, Cross River, Sutton, Bancorp — quietly sit under a large share of American fintech. That's Bogdan's point from a conversation that kicked this post off: once you accept that the rails are shared, the product on top can't really compete on the plumbing. It competes on price, on rates, on quality of experience — because the pipe is identical. It also means concentration risk that no single app discloses: when one sponsor stumbles, every brand on it stumbles at once. The 2024–25 <a href="/blog/why-neobanks-die/">Synapse collapse</a> — the middleware layer between fintechs and Evolve imploding, freezing millions in customer funds — was exactly this failure mode, and it's the reason regulators are now forcing sponsor-bank relationships into the daylight.</p>
+
+  <h2>The transparency gap is the story</h2>
+  <p>Now the honest part. That sponsor table looks thin — 6 here, 5 there — and it should. <b>Most neobanks don't name their sponsor bank at all.</b> Of the 77 on a partner-bank model, only a minority disclose <em>which</em> partner in a way you can find without a lawyer. The rest say "banking services provided by our partner banks" and stop. So the concentration is almost certainly far higher than the disclosed numbers show; we just can't prove it entity-by-entity yet.</p>
+  <p>That opacity is the actual finding. In no other regulated industry would you accept "your money is held by a bank, but we won't tell you which one." Post-Synapse, US regulators are pushing exactly this disclosure, and the EU's frameworks increasingly require naming the safeguarding institution. Until that's universal, the sponsor map has to be built the hard way — reading terms of service, cardholder agreements and FDIC/FCA registers one at a time. Which is what the next section is for.</p>
+
+  <h2>So what — for you</h2>
+  <p>Two practical takeaways fall straight out of this.</p>
+  <p><b>If you're a user:</b> since the rails are shared, stop shopping on "it's a bank" and start shopping on the things that actually differ — FX markup, real fees, yield, and whether it holds a licence you can verify. That's exactly why every profile now shows <a href="/n/revolut/">FX markup with a source</a> and money-movement services, and why the <a href="/vs/">side-by-side comparisons</a> put custody, licence and rates in one row. Two apps on the same sponsor can still charge wildly different FX — that's where the real choice is.</p>
+  <p><b>If you're a founder or operator:</b> the sponsor bank is a dependency you should treat like a critical vendor, not a footnote — concentration, financial health and the middleware in between are all part of your risk surface. The <a href="/report/">neobank failure report</a> spends its pages on custody, licences and middleware for a reason: almost nothing kills a neobank because the app was bad.</p>
+
+  <div class="callout"><span class="k">help map the rails</span>This is an open dataset, and the sponsor-bank layer is its biggest remaining gap. If you know (and can source) which bank powers a neobank we haven't mapped, add it — the <code>licence</code> field takes a partner name and a source. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Open a data-fix issue</a> or send a PR. We're actively looking for a co-contributor on exactly this.</div>
+
+  <h2>Pull the data</h2>
+  <p>The <code>regulation_type</code> field ships in <a href="/data.json">data.json</a> today, and you can slice the directory by it live: <a href="/?reg=Partner-bank%20model">partner-bank model</a>, <a href="/?reg=Licensed%20bank">licensed banks</a>, <a href="/?reg=Self-custodial%20software">self-custodial</a>. Search a sponsor name — <a href="/?q=cross%20river">cross river</a>, <a href="/?q=solaris">solaris</a>, <a href="/?q=bancorp">bancorp</a> — and the directory returns everyone known to ride it. It's a partial map of a deliberately opaque layer, and it gets less partial every time someone contributes a source.</p>
+  <p>The takeaway isn't "BaaS is bad." It's that "neobank" is a UX category, not a regulatory one — and the difference between an app that <em>is</em> a bank and an app that <em>rents</em> one is the single most important thing the marketing hides. Now it's a field you can query.</p>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Counts reflect the open dataset as of July 2026, derived from public licence and partnership disclosures. Sponsor counts are undercounts limited by what each neobank discloses. Nothing here is financial advice. Sources on each profile page.</p>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/vs/">compare</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
+</body>
+</html>

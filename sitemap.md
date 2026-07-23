@@ -61,6 +61,7 @@
 - [fastest growing neobanks 2026](https://www.neobankbeat.com/blog/fastest-growing-neobanks-2026/) (2026-07-16)
 - [ai neobanks](https://www.neobankbeat.com/blog/ai-neobanks/) (2026-07-16)
 - [neobank ecosystem map](https://www.neobankbeat.com/blog/neobank-ecosystem-map/) (2026-07-20)
+- [who really runs the neobanks](https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/) (2026-07-23)
 
 ## Neobank profiles (368)
 

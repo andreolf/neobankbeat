@@ -7,6 +7,13 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Who really runs the neobanks? The BaaS rails behind the apps</title>
+    <link>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</link>
+    <guid>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</guid>
+    <pubDate>Thu, 23 Jul 2026 10:00:00 GMT</pubDate>
+    <description>Open a neobank app and it looks like a bank. Look one layer down and only 127 of 368 tracked neobanks actually hold their own licence — 77 are a front end on a sponsor bank, and most don't disclose which. The Banking-as-a-Service census from the open dataset: who's licensed, who rents the rails, and why the shared sponsor layer is concentration risk nobody prices.</description>
+  </item>
+  <item>
     <title>The neobank ecosystem map: all 368 on one poster</title>
     <link>https://www.neobankbeat.com/blog/neobank-ecosystem-map/</link>
     <guid>https://www.neobankbeat.com/blog/neobank-ecosystem-map/</guid>
