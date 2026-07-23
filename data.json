@@ -15,6 +15,8 @@
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
    "rates": "cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer",
+   "services": "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence",
+   "fx_markup": "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer",
    "verification": "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed"
   }
  },
@@ -109,6 +111,11 @@
    "countries": [
     "United States"
    ],
+   "fx_markup": {
+    "markup": "0% foreign transaction fee, no exchange-rate markup; Visa wholesale rate",
+    "as_of": "2026-07",
+    "source": "https://support.varomoney.com/hc/en-us/articles/21998473318932-International-Travel"
+   },
    "investors": [
     {
      "name": "Warburg Pincus",
@@ -153,6 +160,11 @@
    "countries": [
     "United States"
    ],
+   "fx_markup": {
+    "markup": "3% international transaction fee on all purchases (Visa wholesale rate)",
+    "as_of": "2026-07",
+    "source": "https://support.current.com/hc/en-us/articles/4408251826715-Can-I-use-my-card-Internationally"
+   },
    "investors": [
     {
      "name": "Andreessen Horowitz",
@@ -204,6 +216,11 @@
    "countries": [
     "United States"
    ],
+   "fx_markup": {
+    "markup": "0.2% conversion fee on debit foreign purchases/ATM (Mastercard); credit cards 0%",
+    "as_of": "2026-07",
+    "source": "https://support.sofi.com/hc/en-us/articles/360061173072-What-is-the-foreign-exchange-fee-on-the-SoFi-Checking-account"
+   },
    "investors": [
     {
      "name": "SoftBank",
@@ -283,6 +300,11 @@
    "countries": [
     "United States"
    ],
+   "fx_markup": {
+    "markup": "3% foreign currency conversion fee on non-USD purchases (Mastercard wholesale rate)",
+    "as_of": "2026-07",
+    "source": "https://dave.com/deposit-agreement-coastal"
+   },
    "investors": [
     {
      "name": "Norwest Venture Partners",
@@ -660,6 +682,17 @@
    "countries": [
     "United States"
    ],
+   "services": [
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "3% currency conversion fee on all non-USD card transactions (Mastercard rate)",
+    "as_of": "2026-07",
+    "source": "https://support.mercury.com/hc/en-us/articles/32529650270484-Understanding-conversion-fees-for-non-USD-card-transactions"
+   },
    "investors": [
     {
      "name": "Andreessen Horowitz",
@@ -710,6 +743,11 @@
    "countries": [
     "United States"
    ],
+   "fx_markup": {
+    "markup": "Up to 3% FX markup on transactions needing conversion; local-currency cards avoid it",
+    "as_of": "2026-07",
+    "source": "https://www.brex.com/support/using-brex-internationally"
+   },
    "investors": [
     {
      "name": "Y Combinator",
@@ -1780,6 +1818,17 @@
     "United Kingdom",
     "United States"
    ],
+   "services": [
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "0% foreign transaction fee; Mastercard exchange rate, all tiers",
+    "as_of": "2026-07",
+    "source": "https://monzo.com/help/travelling/understanding-fees"
+   },
    "investors": [
     {
      "name": "Accel",
@@ -1840,6 +1889,11 @@
    "countries": [
     "United Kingdom"
    ],
+   "fx_markup": {
+    "markup": "0% foreign transaction fee; Mastercard rate, no markup, any day/amount",
+    "as_of": "2026-07",
+    "source": "https://www.starlingbank.com/travel/"
+   },
    "investors": [
     {
      "name": "Goldman Sachs",
@@ -2031,6 +2085,11 @@
     "India",
     "Germany"
    ],
+   "fx_markup": {
+    "markup": "Free plan 2.75% FX on non-GBP card txns; Smart/Pro/Max 0% (UK business)",
+    "as_of": "2026-07",
+    "source": "https://www.tide.co/features/expense-cards/"
+   },
    "investors": [
     {
      "name": "Apax",
@@ -2194,7 +2253,12 @@
    "countries": [
     "United Kingdom",
     "European Union"
-   ]
+   ],
+   "fx_markup": {
+    "markup": "Interbank 0% up to £/€250/mo then 2.99%; +1.5% weekend/holiday surcharge",
+    "as_of": "2026-07",
+    "source": "https://help.curve.com/en_gb/killer-fx-HyquHdnUu"
+   }
   },
   {
    "name": "Zempler Bank",
@@ -2478,6 +2542,19 @@
     "Greece",
     "Poland"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "0% N26 markup on card payments; Mastercard rate passed through (Standard plan)",
+    "as_of": "2026-07",
+    "source": "https://n26.com/en-eu/using-debit-card-abroad"
+   },
    "investors": [
     {
      "name": "Valar Ventures",
@@ -2541,6 +2618,18 @@
     "Ireland",
     "Portugal"
    ],
+   "services": [
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "Mastercard rate + 0.5% up to €1,000/yr; 3% conversion fee above that (Free plan)",
+    "as_of": "2026-07",
+    "source": "https://www.bunq.com/personal-account/banking-plans/bunq-free"
+   },
    "investors": [
     {
      "name": "Pollen Street Capital",
@@ -2582,6 +2671,20 @@
     "Italy",
     "Netherlands"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "Visa base rate + up to 1% on non-EUR (0.5% rising toward 1% outside FX-market hours)",
+    "as_of": "2026-07",
+    "source": "https://support.vivid.money/en/articles/8680120-what-s-the-exchange-rate-for-purchases-made-in-a-currency-other-than-the-euro"
+   },
    "investors": [
     {
      "name": "Ribbit Capital",
@@ -2727,6 +2830,17 @@
     "Spain",
     "Italy"
    ],
+   "services": [
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "Entry card 2% on non-EUR card payments; Plus 1%; X plan 0% (business only)",
+    "as_of": "2026-07",
+    "source": "https://support-fr.qonto.com/hc/en-us/articles/23947693926929-Can-I-use-my-Qonto-card-abroad"
+   },
    "investors": [
     {
      "name": "Valar Ventures",
@@ -3442,6 +3556,18 @@
     "Malaysia",
     "UAE"
    ],
+   "services": [
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "Mid-market rate + conversion fee, typically ~0.33–1.5%; free if you hold the currency",
+    "as_of": "2026-04",
+    "source": "https://wise.com/gateway/v1/us/disclosures/long-form"
+   },
    "investors": [
     {
      "name": "Index Ventures",
@@ -3807,6 +3933,15 @@
     "Brazil",
     "Mexico",
     "Colombia"
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards"
    ],
    "investors": [
     {
@@ -7685,6 +7820,21 @@
     "Mexico",
     "India"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards",
+    "crypto-cards"
+   ],
+   "fx_markup": {
+    "markup": "Interbank rate; free to £/$1,000/mo on weekdays, 0.5% over; +1% weekend markup",
+    "as_of": "2026-07",
+    "source": "https://www.revolut.com/en-US/legal/standard-fees/"
+   },
    "investors": [
     {
      "name": "Index Ventures",
@@ -7744,6 +7894,19 @@
    "countries": [
     "United States"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "3% foreign transaction fee; waived on card-present txns for Cash App Green users",
+    "as_of": "2026-07",
+    "source": "https://cash.app/us/en/legal/tos"
+   },
    "reported_users": {
     "value_millions": 59,
     "metric": "transacting actives",
@@ -7884,6 +8047,13 @@
     "Canada",
     "UAE",
     "South Korea"
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "crypto-cards"
    ]
   },
   {
@@ -7922,6 +8092,10 @@
     "Australia",
     "Singapore",
     "Brazil"
+   ],
+   "services": [
+    "crypto-cards",
+    "virtual-cards"
    ],
    "investors": [
     {
@@ -7996,7 +8170,16 @@
    ],
    "note": "Trader-focused; caps lower effective rates.",
    "licence": "VARA (Dubai) + regional",
-   "founders": "Ben Zhou"
+   "founders": "Ben Zhou",
+   "services": [
+    "crypto-cards",
+    "virtual-cards"
+   ],
+   "fx_markup": {
+    "markup": "Region-dependent FX on Mastercard rate: EEA 0.5%, AU 1%, BR 1.5%, APAC/MX 2%, AR 7%; +0.9% if crypto-funded",
+    "as_of": "2026-07",
+    "source": "https://www.bybit.com/en/help-center/article/Fees-and-Spending-Limits-Bybit-Card"
+   }
   },
   {
    "name": "OKX Card",
@@ -8027,7 +8210,11 @@
    "note": "Best rates for active OKX users.",
    "ai": "agentic",
    "licence": "VARA, MiCA (Malta)",
-   "founders": "Star Xu"
+   "founders": "Star Xu",
+   "services": [
+    "crypto-cards",
+    "virtual-cards"
+   ]
   },
   {
    "name": "Bitget Card",
@@ -8174,6 +8361,19 @@
     "Italy",
     "United Kingdom"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "multi-currency",
+    "crypto-cards"
+   ],
+   "fx_markup": {
+    "markup": "0% Bitpanda FX on non-EUR (Visa markup may apply); real cost is the crypto-sell spread",
+    "as_of": "2026-07",
+    "source": "https://support.bitpanda.com/hc/en-us/articles/360018933120-What-is-the-Bitpanda-Card-and-what-are-its-benefits"
+   },
    "investors": [
     {
      "name": "Valar Ventures",
@@ -8209,7 +8409,18 @@
    "ai": "interface",
    "licence": "Broker-led; e-money institution (eToro Money UK, FCA FRN 900203; eToro Money Malta, MFSA)",
    "founders": "Yoni Assia, Ronen Assia, David Ring",
-   "funding": "Public (ETOR)"
+   "funding": "Public (ETOR)",
+   "services": [
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "multi-currency"
+   ],
+   "fx_markup": {
+    "markup": "0% FX fee; interbank rate, no markup on supported currencies (UK/EU)",
+    "as_of": "2026-07",
+    "source": "https://www.etoro.com/money/using-debit-card-abroad/"
+   }
   },
   {
    "name": "Tap Global",
@@ -8279,7 +8490,17 @@
     "Europe"
    ],
    "note": "Perk-stacking rewards card.",
-   "licence": "E-money card via Modulr (FCA EMI; Lithuanian EMI for EEA); PLU rewards self-custodial"
+   "licence": "E-money card via Modulr (FCA EMI; Lithuanian EMI for EEA); PLU rewards self-custodial",
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards",
+    "crypto-cards"
+   ]
   },
   {
    "name": "Fold",
@@ -8418,6 +8639,13 @@
     "Kenya",
     "Ghana"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban"
+   ],
    "investors": [
     {
      "name": "Ten31",
@@ -8517,7 +8745,22 @@
     "Singapore",
     "Australia",
     "United States"
-   ]
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "fiat-payin",
+    "fiat-payout",
+    "iban",
+    "multi-currency",
+    "virtual-cards",
+    "crypto-cards"
+   ],
+   "fx_markup": {
+    "markup": "0% FX markup (Visa principal member), all tiers; small spread if funding from crypto",
+    "as_of": "2026-07",
+    "source": "https://www.wirexapp.com/en-gb/stablecoin-and-crypto-card"
+   }
   },
   {
    "name": "Uphold",
@@ -8599,6 +8842,12 @@
     "Switzerland",
     "Brazil",
     "Mexico"
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "crypto-cards",
+    "virtual-cards"
    ]
   },
   {
@@ -9797,6 +10046,12 @@
    "countries": [
     "Global"
    ],
+   "services": [
+    "on-ramp",
+    "off-ramp",
+    "crypto-cards",
+    "virtual-cards"
+   ],
    "investors": [
     {
      "name": "ParaFi Capital",
@@ -10024,6 +10279,10 @@
    "x_handle": "TrustWallet",
    "countries": [
     "Global"
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp"
    ]
   },
   {
@@ -10097,6 +10356,10 @@
    "x_handle": "zengo",
    "countries": [
     "Global"
+   ],
+   "services": [
+    "on-ramp",
+    "off-ramp"
    ],
    "investors": [
     {
@@ -10181,6 +10444,12 @@
     "United Kingdom",
     "European Union",
     "Brazil"
+   ],
+   "services": [
+    "on-ramp",
+    "fiat-payin",
+    "iban",
+    "crypto-cards"
    ]
   },
   {

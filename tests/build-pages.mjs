@@ -107,6 +107,7 @@ function peers(e, n = 6) {
 }
 
 const AITAG = { underwriting: 'AI underwriting in production', interface: 'AI assistant as the interface', agentic: 'banking for AI agents' };
+const SVLABEL = { 'on-ramp': 'crypto on-ramp', 'off-ramp': 'crypto off-ramp', 'fiat-payin': 'fiat pay-in (bank rails)', 'fiat-payout': 'fiat pay-out (bank rails)', iban: 'own IBAN / account no.', 'multi-currency': 'multi-currency hold', 'virtual-cards': 'virtual cards', 'crypto-cards': 'crypto-settled card' };
 function factRows(e) {
   const rows = [
     ['Category', `${e.category}${e.audience !== 'general' ? ' · ' + e.audience : ''}`],
@@ -122,8 +123,14 @@ function factRows(e) {
     ['Countries', e.countries ? e.countries.join(', ') : null],
     ['Reported users', users(e)],
     ['Founders', e.founders], ['Funding', e.funding],
+    ['Services', e.services ? e.services.map(t => SVLABEL[t] || t).join(' · ') : null],
   ];
-  return rows.filter(([, v]) => v).map(([k, v]) => `<tr><td>${k}</td><td>${esc(v)}</td></tr>`).join('\n    ');
+  let out = rows.filter(([, v]) => v).map(([k, v]) => `<tr><td>${k}</td><td>${esc(v)}</td></tr>`).join('\n    ');
+  if (e.fx_markup) {
+    const fx = e.fx_markup;
+    out += `\n    <tr><td>FX markup</td><td>${esc(fx.markup)}${fx.as_of ? ` <span class="dim">(${esc(fx.as_of)})</span>` : ''}${fx.source ? ` · <a href="${esc(fx.source)}" target="_blank" rel="noopener">source ↗</a>` : ''}</td></tr>`;
+  }
+  return out;
 }
 
 function investorsBlock(e) {
@@ -304,6 +311,8 @@ const VS_FIELDS = [
   ['Regulation', e => e.regulation_type], ['Licence detail', e => e.licence || '—'],
   ['Card', e => e.card_network && e.card_network !== '—' ? `${e.card_network} · ${e.card_type}` : 'No card'],
   ['Cashback', e => e.cashback || '—'], ['Yield', e => e.yield || '—'],
+  ['FX markup', e => e.fx_markup ? `${e.fx_markup.markup}${e.fx_markup.as_of ? ` (${e.fx_markup.as_of})` : ''}` : '—'],
+  ['Services', e => e.services ? e.services.map(t => SVLABEL[t] || t).join(', ') : '—'],
   ['Stablecoins', e => e.stablecoins ? 'Yes' : 'No'], ['KYC', e => e.kyc],
   ['Regions', e => e.active_regions.join(', ')], ['Reported users', e => users(e) || '—'],
 ];

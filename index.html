@@ -2165,7 +2165,7 @@ function matches(r){
   if(regF&&regTypeOf(r)!==regF)return false;
   if(countryF&&!countriesOf(r).includes(countryF))return false;
   if(q){
-    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note+" "+countriesOf(r).join(" ")+" "+((X[name]||{}).l||"")+((X[name]||{}).ai?" ai "+X[name].ai:"")).toLowerCase();
+    const hay=(name+" "+CATNAME[c]+" "+reg+" "+hq+" "+CUST[cu]+" "+nw+" "+ct+" "+cb+" "+y+" "+KYC[kyc]+" "+NICHE[ni]+" "+regTypeOf(r)+" "+note+" "+countriesOf(r).join(" ")+" "+((X[name]||{}).l||"")+" "+((typeof SV!=="undefined"&&SV[name])||[]).join(" ")+((X[name]||{}).ai?" ai "+X[name].ai:"")).toLowerCase();
     if(!hay.includes(q))return false;
   }
   return true;
@@ -2489,6 +2489,58 @@ const NEWS_UPDATED="2026-07-05";
 /* ── extended profiles: legal links, users/volume tiles, position, peers ── */
 const USERMAP={};USERS.forEach(([n,v,metric,yr])=>USERMAP[n]={v,metric,yr});
 const VOLMAP={};VOL.forEach(([n,fig,metric,src])=>VOLMAP[n]={fig,metric,src});
+/* ── money-movement services (verified per provider docs; tags omitted when unverified) ── */
+const SVLABEL={"on-ramp":"crypto on-ramp","off-ramp":"crypto off-ramp","fiat-payin":"fiat pay-in (bank rails)","fiat-payout":"fiat pay-out (bank rails)","iban":"own IBAN / account no.","multi-currency":"multi-currency hold","virtual-cards":"virtual cards","crypto-cards":"crypto-settled card"};
+const SV={
+"Wirex":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","multi-currency","virtual-cards","crypto-cards"],
+"Crypto.com":["on-ramp","off-ramp","fiat-payin","fiat-payout","crypto-cards"],
+"Nexo":["on-ramp","off-ramp","crypto-cards","virtual-cards"],
+"Plutus":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","multi-currency","virtual-cards","crypto-cards"],
+"Gnosis Pay":["on-ramp","fiat-payin","iban","crypto-cards"],
+"MetaMask":["on-ramp","off-ramp","crypto-cards","virtual-cards"],
+"Bybit Card":["crypto-cards","virtual-cards"],
+"OKX Card":["crypto-cards","virtual-cards"],
+"Coinbase Card":["crypto-cards","virtual-cards"],
+"Bitpanda":["on-ramp","off-ramp","fiat-payin","fiat-payout","multi-currency","crypto-cards"],
+"Strike":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban"],
+"eToro Money":["off-ramp","fiat-payin","fiat-payout","multi-currency"],
+"Zengo":["on-ramp","off-ramp"],
+"Trust Wallet":["on-ramp","off-ramp"],
+"Revolut":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","multi-currency","virtual-cards","crypto-cards"],
+"N26":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","virtual-cards"],
+"Monzo":["fiat-payin","fiat-payout","iban","virtual-cards"],
+"bunq":["fiat-payin","fiat-payout","iban","multi-currency","virtual-cards"],
+"Nubank":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","multi-currency","virtual-cards"],
+"Cash App":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","virtual-cards"],
+"Mercury":["fiat-payin","fiat-payout","iban","virtual-cards"],
+"Qonto":["fiat-payin","fiat-payout","iban","virtual-cards"],
+"Wise":["fiat-payin","fiat-payout","iban","multi-currency","virtual-cards"],
+"Vivid Money":["on-ramp","off-ramp","fiat-payin","fiat-payout","iban","multi-currency","virtual-cards"]
+};
+/* ── FX markup on the free/standard plan (r=summary, d=as-of YYYY-MM, u=source). Sourced + spot-checked; rates change, always confirm with the issuer. ── */
+const FX={
+"Revolut":{r:"Interbank rate; free to £/$1,000/mo on weekdays, 0.5% over; +1% weekend markup",d:"2026-07",u:"https://www.revolut.com/en-US/legal/standard-fees/"},
+"Wise":{r:"Mid-market rate + conversion fee, typically ~0.33–1.5%; free if you hold the currency",d:"2026-04",u:"https://wise.com/gateway/v1/us/disclosures/long-form"},
+"N26":{r:"0% N26 markup on card payments; Mastercard rate passed through (Standard plan)",d:"2026-07",u:"https://n26.com/en-eu/using-debit-card-abroad"},
+"Monzo":{r:"0% foreign transaction fee; Mastercard exchange rate, all tiers",d:"2026-07",u:"https://monzo.com/help/travelling/understanding-fees"},
+"Starling Bank":{r:"0% foreign transaction fee; Mastercard rate, no markup, any day/amount",d:"2026-07",u:"https://www.starlingbank.com/travel/"},
+"bunq":{r:"Mastercard rate + 0.5% up to €1,000/yr; 3% conversion fee above that (Free plan)",d:"2026-07",u:"https://www.bunq.com/personal-account/banking-plans/bunq-free"},
+"Vivid Money":{r:"Visa base rate + up to 1% on non-EUR (0.5% rising toward 1% outside FX-market hours)",d:"2026-07",u:"https://support.vivid.money/en/articles/8680120-what-s-the-exchange-rate-for-purchases-made-in-a-currency-other-than-the-euro"},
+"Cash App":{r:"3% foreign transaction fee; waived on card-present txns for Cash App Green users",d:"2026-07",u:"https://cash.app/us/en/legal/tos"},
+"Varo":{r:"0% foreign transaction fee, no exchange-rate markup; Visa wholesale rate",d:"2026-07",u:"https://support.varomoney.com/hc/en-us/articles/21998473318932-International-Travel"},
+"SoFi":{r:"0.2% conversion fee on debit foreign purchases/ATM (Mastercard); credit cards 0%",d:"2026-07",u:"https://support.sofi.com/hc/en-us/articles/360061173072-What-is-the-foreign-exchange-fee-on-the-SoFi-Checking-account"},
+"Current":{r:"3% international transaction fee on all purchases (Visa wholesale rate)",d:"2026-07",u:"https://support.current.com/hc/en-us/articles/4408251826715-Can-I-use-my-card-Internationally"},
+"Dave":{r:"3% foreign currency conversion fee on non-USD purchases (Mastercard wholesale rate)",d:"2026-07",u:"https://dave.com/deposit-agreement-coastal"},
+"Wirex":{r:"0% FX markup (Visa principal member), all tiers; small spread if funding from crypto",d:"2026-07",u:"https://www.wirexapp.com/en-gb/stablecoin-and-crypto-card"},
+"Bybit Card":{r:"Region-dependent FX on Mastercard rate: EEA 0.5%, AU 1%, BR 1.5%, APAC/MX 2%, AR 7%; +0.9% if crypto-funded",d:"2026-07",u:"https://www.bybit.com/en/help-center/article/Fees-and-Spending-Limits-Bybit-Card"},
+"Qonto":{r:"Entry card 2% on non-EUR card payments; Plus 1%; X plan 0% (business only)",d:"2026-07",u:"https://support-fr.qonto.com/hc/en-us/articles/23947693926929-Can-I-use-my-Qonto-card-abroad"},
+"Tide":{r:"Free plan 2.75% FX on non-GBP card txns; Smart/Pro/Max 0% (UK business)",d:"2026-07",u:"https://www.tide.co/features/expense-cards/"},
+"Curve":{r:"Interbank 0% up to £/€250/mo then 2.99%; +1.5% weekend/holiday surcharge",d:"2026-07",u:"https://help.curve.com/en_gb/killer-fx-HyquHdnUu"},
+"Bitpanda":{r:"0% Bitpanda FX on non-EUR (Visa markup may apply); real cost is the crypto-sell spread",d:"2026-07",u:"https://support.bitpanda.com/hc/en-us/articles/360018933120-What-is-the-Bitpanda-Card-and-what-are-its-benefits"},
+"eToro Money":{r:"0% FX fee; interbank rate, no markup on supported currencies (UK/EU)",d:"2026-07",u:"https://www.etoro.com/money/using-debit-card-abroad/"},
+"Mercury":{r:"3% currency conversion fee on all non-USD card transactions (Mastercard rate)",d:"2026-07",u:"https://support.mercury.com/hc/en-us/articles/32529650270484-Understanding-conversion-fees-for-non-USD-card-transactions"},
+"Brex":{r:"Up to 3% FX markup on transactions needing conversion; local-currency cards avoid it",d:"2026-07",u:"https://www.brex.com/support/using-brex-internationally"}
+};
 function openDetail(name){
   const r=D.find(x=>x[0]===name);if(!r)return;
   const [n,c,reg,hq,f,cu,nw,ct,cb,y,st,kyc,ni,dom,note]=r;
@@ -2531,6 +2583,8 @@ function openDetail(name){
     ["Cashback",esc(cb)],["Yield",esc(y)],["Stablecoins",st?"Yes":"No"],["KYC",kycVal],
     ["Licence detail",esc(lic)],["Founders",esc(e.f||"—")]];
   if(e.ai)facts.splice(1,0,["AI",AITAG[e.ai]||e.ai]);
+  if(SV[n]&&SV[n].length)facts.push(["Services",SV[n].map(t=>esc(SVLABEL[t]||t)).join(" · ")]);
+  if(FX[n])facts.push(["FX markup",esc(FX[n].r)+(FX[n].d?' <span class="mi-sub">('+esc(FX[n].d)+')</span>':"")+(FX[n].u?' · <a class="srclink" href="'+FX[n].u+'" target="_blank" rel="noopener">source ↗</a>':"")]);
   /* peers: same audience niche, else same category+region */
   let peers=(ni!=="g")?D.filter(x=>x[12]===ni&&x[0]!==n):D.filter(x=>x[1]===c&&x[2]===reg&&x[0]!==n);
   peers=peers.slice(0,6);

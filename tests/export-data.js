@@ -50,6 +50,8 @@ const out = w.eval(`(function(){
     if (v.p) o.privacy_url = v.p;
     if (v.x) o.x_handle = v.x;
     if (v.cc) o.countries = v.cc;
+    if (typeof SV !== 'undefined' && SV[name]) o.services = SV[name];
+    if (typeof FX !== 'undefined' && FX[name]) o.fx_markup = { markup: FX[name].r, as_of: FX[name].d, source: FX[name].u };
     if (typeof INV !== 'undefined' && INV[name]) o.investors = INV[name].map(iv => ({ name: iv[0], website: 'https://' + iv[1] }));
     if (USERMAP[name]) o.reported_users = { value_millions: USERMAP[name].v, metric: USERMAP[name].metric, as_of: USERMAP[name].yr };
     if (VOLMAP[name]) o.volume = { figure: VOLMAP[name].fig, metric: VOLMAP[name].metric, source: VOLMAP[name].src };
@@ -72,6 +74,8 @@ const out = w.eval(`(function(){
       field_notes: {
         category: "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
         rates: "cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer",
+        services: "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence",
+        fx_markup: "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer",
         verification: "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed"
       }
     },
