@@ -5,12 +5,21 @@
    run: node build-pages.mjs                                     */
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
 const E = data.entities;
 const BASE = 'https://www.neobankbeat.com';
 const TODAY = new Date().toISOString().slice(0, 10);
+/* when the data itself last changed — the honest value for schema.org
+   dateModified. Build date would claim freshness we didn't earn. */
+const DATA_MODIFIED = (() => {
+  try {
+    const d = execSync('git log -1 --format=%cs -- data.json', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : TODAY;
+  } catch { return TODAY; }
+})();
 
 const slugify = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -478,7 +487,7 @@ for (const [an, bn] of PAIRS) {
     { '@type': 'Dataset', '@id': `${BASE}/data/#dataset`, name: 'neobankbeat: open directory of neobanks worldwide',
       description: `A verified, machine-readable dataset of ${E.length} active neobanks — traditional, hybrid fiat+crypto and web3-native — with fields for custody, regulation type (licensed bank vs partner-bank/BaaS vs e-money vs self-custodial), card, cashback, yield, stablecoin support, FX markup, money-movement services, geography and reported users. Curated from primary sources, MIT-licensed, updated in the open.`,
       url, sameAs: M.source, license: 'https://opensource.org/license/mit/', isAccessibleForFree: true,
-      datePublished: '2026-07-03', dateModified: TODAY, version: TODAY, temporalCoverage: '2026',
+      datePublished: '2026-07-03', dateModified: DATA_MODIFIED, version: DATA_MODIFIED, temporalCoverage: '2026',
       creator: { '@type': 'Person', name: 'Francesco Andreoli', url: 'https://www.francesco-andreoli.com' },
       publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE + '/' },
       includedInDataCatalog: { '@type': 'DataCatalog', name: 'GitHub', url: M.source },
@@ -1258,6 +1267,17 @@ const whoOwnsSlugs = [], altSlugs = [];
       fs.rmSync(path.join(ROOT, 'n', d.name, 'alternatives'), { recursive: true });
   }
   console.log(`who-owns pages: ${whoOwnsSlugs.length} · alternatives pages: ${altSlugs.length}`);
+}
+
+/* ═══ keep the homepage Dataset node's freshness fields honest ═══
+   index.html is hand-maintained, so its schema.org dateModified silently rots.
+   Re-stamp it from the last data.json commit on every build. */
+{
+  const p = path.join(ROOT, 'index.html');
+  const src = fs.readFileSync(p, 'utf8');
+  const out = src.replace(/"dateModified":"\d{4}-\d{2}-\d{2}","version":"\d{4}-\d{2}-\d{2}"/,
+    `"dateModified":"${DATA_MODIFIED}","version":"${DATA_MODIFIED}"`);
+  if (out !== src) { fs.writeFileSync(p, out); console.log(`index.html Dataset dateModified → ${DATA_MODIFIED}`); }
 }
 
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */

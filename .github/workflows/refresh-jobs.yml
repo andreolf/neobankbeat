@@ -33,5 +33,8 @@ jobs:
             echo "no changes — board already fresh"
           else
             git commit -m "chore: weekly jobs board refresh ($(date -u +%F))"
+            # commit before rebasing: the build leaves files dirty, and another
+            # cron may have pushed since checkout
+            git pull --rebase origin main
             git push
           fi

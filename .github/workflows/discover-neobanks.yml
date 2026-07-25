@@ -1,4 +1,4 @@
-name: discover new neobanks
+soname: discover new neobanks
 
 on:
   schedule:
@@ -36,5 +36,7 @@ jobs:
             echo "no new candidates reported"
           else
             git commit -m "chore: discovery run $(date -u +%F) — mark reported candidates"
+            # commit before rebasing: another cron may have pushed since checkout
+            git pull --rebase origin main
             git push
           fi
