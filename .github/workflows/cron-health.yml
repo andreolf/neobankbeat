@@ -47,12 +47,15 @@ jobs:
             echo "all crons healthy"
             exit 0
           fi
-          body=$(printf "The weekly cron health check found problems:\n\n$problems\nRe-run the workflow manually from the Actions tab once fixed; this issue can then be closed.")
+          # @-mention the owner: an issue on a repo you aren't watching notifies
+          # nobody, which is how the Jul-2026 news outage went unseen for 11 days.
+          # A mention always triggers a "participating" notification + email.
+          body=$(printf "@andreolf — the weekly cron health check found problems:\n\n$problems\nRe-run the workflow manually from the Actions tab once fixed; this issue can then be closed.")
           existing=$(gh issue list --repo "$REPO" --state open --search "cron health in:title" --json number --jq '.[0].number // empty')
           if [ -n "$existing" ]; then
             gh issue comment "$existing" --repo "$REPO" --body "$body"
             echo "commented on existing issue #$existing"
           else
-            gh issue create --repo "$REPO" --title "cron health: scheduled workflow needs attention" --body "$body"
+            gh issue create --repo "$REPO" --title "cron health: scheduled workflow needs attention" --body "$body" --assignee andreolf
           fi
           exit 1
