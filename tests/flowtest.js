@@ -1,6 +1,14 @@
 const fs=require('fs');
 const {JSDOM}=require('jsdom');
-const html=fs.readFileSync(require('path').join(__dirname,'..','index.html'),'utf8');
+const rawHtml=fs.readFileSync(require('path').join(__dirname,'..','index.html'),'utf8');
+
+// The homepage loads its code from /app.js. jsdom fetches external scripts
+// asynchronously, which every assertion below would race, so the file is folded
+// back inline for the DOM tests only — same bytes, same order, synchronous.
+// Flow 31 checks the real <script src> wiring separately.
+const APP_SRC=(rawHtml.match(/<script src="\/app\.js\?v=[0-9a-f]+"><\/script>/)||[])[0];
+const APP_JS=APP_SRC?fs.readFileSync(require('path').join(__dirname,'..','app.js'),'utf8'):null;
+const html=APP_SRC?rawHtml.replace(APP_SRC,()=>'<script>'+APP_JS+'</script>'):rawHtml;
 
 // polyfills BEFORE scripts execute
 const dom=new JSDOM(html,{
@@ -465,6 +473,45 @@ console.log('— flow 26: generated who-owns / alternatives pages are substantiv
   ok(badld.length===0,'all answer-page JSON-LD parses ('+badld.slice(0,5).join(', ')+')');
   ok(nofaq.length===0,'every answer page carries FAQ schema ('+nofaq.slice(0,5).join(', ')+')');
   ok(artifacts.length===0,'no template artifacts/broken links in answer pages ('+artifacts.slice(0,5).join(', ')+')');
+
+  // topic hubs: same bar, plus every row must reach a real profile and the
+  // stated count must equal the rows actually rendered
+  const HUB_FAMS=['regulation','kyc','regions','for'];
+  let hubs=0;const hthin=[],hbad=[],hcount=[],hlinks=[],hdup=new Map();
+  for(const fam of HUB_FAMS){
+    const d=path.join(root,fam);
+    if(!fs.existsSync(d))continue;
+    for(const s of fs.readdirSync(d,{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
+      const p=path.join(d,s,'index.html');
+      if(!fs.existsSync(p))continue;
+      hubs++;
+      const h=fs.readFileSync(p,'utf8'),id=fam+'/'+s;
+      if(stripArticle(h).length<900)hthin.push(id);
+      const lds=ldOf(h);
+      if(lds.some(l=>l===null)||!lds.some(l=>((l&&l['@graph'])||[]).some(n=>n['@type']==='FAQPage')))hbad.push(id);
+      const claimed=+(h.match(/<b>(\d+) of \d+ tracked neobanks<\/b>/)||[])[1];
+      const trs=(h.match(/<tbody>[\s\S]*?<\/tbody>/)||[''])[0];
+      const rows=(trs.match(/<tr>/g)||[]).length;
+      const listed=((lds.flatMap(l=>(l&&l['@graph'])||[]).find(n=>n['@type']==='ItemList')||{}).numberOfItems)|0;
+      if(!(claimed===rows&&claimed===listed&&claimed>=6))hcount.push(id+' (h1:'+claimed+' rows:'+rows+' ld:'+listed+')');
+      for(const m of trs.matchAll(/href="(\/n\/[^"]+)"/g))
+        if(!fs.existsSync(path.join(root,m[1],'index.html')))hlinks.push(id+' → '+m[1]);
+      const h1=(h.match(/<h1>([^<]*)<\/h1>/)||[])[1];
+      hdup.set(h1,(hdup.get(h1)||0)+1);
+    }
+  }
+  ok(hubs>=20,'scanned topic hub pages ('+hubs+')');
+  ok(hthin.length===0,'no thin hub pages (<900 chars): '+hthin.slice(0,5).join(', '));
+  ok(hbad.length===0,'every hub has parseable JSON-LD with FAQ schema ('+hbad.slice(0,5).join(', ')+')');
+  ok(hcount.length===0,'hub headline count == table rows == ItemList length ('+hcount.slice(0,4).join(', ')+')');
+  ok(hlinks.length===0,'every hub table row links a real profile ('+hlinks.slice(0,4).join(', ')+')');
+  ok([...hdup.values()].every(v=>v===1),'no two hubs share an h1 ('+[...hdup].filter(x=>x[1]>1).map(x=>x[0]).join(', ')+')');
+  ok(fs.existsSync(path.join(root,'browse','index.html')),'/browse/ hub index exists');
+  {
+    const b=fs.readFileSync(path.join(root,'browse','index.html'),'utf8');
+    const linked=new Set([...b.matchAll(/href="\/(regulation|kyc|regions|for)\/([^"]+)\/"/g)].map(m=>m[1]+'/'+m[2]));
+    ok(linked.size===hubs,'/browse/ links every hub ('+linked.size+' of '+hubs+')');
+  }
 }
 
 console.log('— flow 27: every footer comes from one source (no hand-edited drift)');
@@ -476,11 +523,47 @@ console.log('— flow 27: every footer comes from one source (no hand-edited dri
   let out='',code=0;
   try{ out=execSync('node '+path.join(__dirname,'sync-footers.mjs')+' --check',{encoding:'utf8'}); }
   catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
-  const drifted=[...out.matchAll(/^drift: (.+)$/gm)].map(m=>m[1]);
+  const drifted=[...out.matchAll(/^footer drift: (.+)$/gm)].map(m=>m[1]);
+  const navDrift=[...out.matchAll(/^nav drift: (.+)$/gm)].map(m=>m[1]);
   const missing=(out.match(/^index\.html footer is missing: (.+)$/m)||[])[1];
-  ok(code===0,'no footer drift'+(drifted.length?' ('+drifted.length+' file(s): '+drifted.slice(0,3).join(', ')+' — run node tests/sync-footers.mjs)':''));
+  const navMissing=(out.match(/^index\.html nav is missing: (.+)$/m)||[])[1];
+  ok(code===0,'no footer or nav drift'+(drifted.length+navDrift.length?' ('+(drifted.length+navDrift.length)+' file(s): '+[...drifted,...navDrift].slice(0,3).join(', ')+' — run node tests/sync-footers.mjs)':''));
   ok(!missing,'homepage footer reaches every canonical destination'+(missing?' (missing: '+missing+')':''));
-  ok(/flat footers match/.test(out),'footer check ran over the whole tree');
+  ok(!navMissing,'homepage nav reaches every canonical destination'+(navMissing?' (missing: '+navMissing+')':''));
+  ok(/flat footers and \d+ navs match/.test(out),'footer and nav checks ran over the whole tree');
+
+  // every nav on the site offers the same destinations in the same order, so
+  // "where am I / where can I go" never depends on which page you landed on
+  {
+    const root2=path.join(__dirname,'..');
+    const SKIP=/^(node_modules|\.git|tests|reports|substack-html|og|fonts|dataset)$/;
+    const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>
+      x.isDirectory()?(SKIP.test(x.name)?[]:walk(path.join(d,x.name))):x.name.endsWith('.html')?[path.join(d,x.name)]:[]);
+    // canonical order, read from the source the sync writes from
+    const CANON=fs.readFileSync(path.join(__dirname,'footer.mjs'),'utf8')
+      .match(/export const NAV_LINKS = \[([\s\S]*?)\];/)[1]
+      .match(/"(\/[^"]*)"/g).map(s=>s.slice(1,-1));
+    const outOfOrder=[],incomplete=[];let n=0;
+    for(const f of walk(root2)){
+      const h=fs.readFileSync(f,'utf8');
+      const m=h.match(/<nav [^>]*aria-label="Primary"[^>]*>[\s\S]*?<\/nav>/);
+      if(!m)continue;
+      n++;
+      const rel=path.relative(root2,f);
+      // drop the logo link (the report edition carries one) and on-page anchors
+      // (the homepage swaps three of its links for them, correctly)
+      const hrefs=[...m[0].matchAll(/<a(?![^>]*class="logo")[^>]*href="([^"]+)"/g)].map(x=>x[1])
+        .filter(x=>x.startsWith('/'));
+      const canonHere=CANON.filter(c=>hrefs.includes(c));
+      if(hrefs.join(' ')!==canonHere.join(' '))outOfOrder.push(rel);
+      // only the homepage may substitute anchors, and never for more than its own sections
+      if(canonHere.length<CANON.length&&rel!=='index.html')incomplete.push(rel+' (missing '+CANON.filter(c=>!hrefs.includes(c)).join(' ')+')');
+    }
+    ok(n>1600,'scanned every primary nav on the site ('+n+')');
+    ok(outOfOrder.length===0,'every nav lists its destinations in the canonical order ('+outOfOrder.slice(0,4).join(', ')+')');
+    ok(incomplete.length===0,'only the homepage substitutes nav links for on-page anchors ('+incomplete.slice(0,4).join(', ')+')');
+    ok(CANON.includes('/browse/'),'the nav includes /browse/');
+  }
 }
 
 console.log('— flow 28: every internal link resolves (no links to delisted neobanks)');
@@ -551,6 +634,33 @@ console.log('— flow 30: prose counts match the dataset (no hand-written totals
   ok(code===0,'no count drift in hand-written prose'+(drifted.length?' ('+drifted.length+': '+drifted.slice(0,3).join(' | ')+' — run node tests/sync-counts.mjs)':''));
   ok(/counts in sync across/.test(out),'count check ran');
 
+  // dated posts cite the dataset size they were written against; each must either
+  // still match live data or carry a note saying it doesn't
+  let aout='',acode=0;
+  try{ aout=execSync('node '+path.join(__dirname,'sync-blog-asof.mjs')+' --check',{encoding:'utf8'}); }
+  catch(e){ aout=(e.stdout||'')+(e.stderr||''); acode=e.status||1; }
+  const astale=[...aout.matchAll(/^\s+(blog\/\S+:.+)$/gm)].map(m=>m[1]);
+  ok(acode===0,'every dated post with stale counts carries an as-of note'+(astale.length?' ('+astale.length+': '+astale.slice(0,3).join(' | ')+' — run node tests/sync-blog-asof.mjs)':''));
+  {
+    const root2=path.join(__dirname,'..');
+    const total=w3.eval('D.length');
+    const bad=[];let stamped=0;
+    for(const d of fs.readdirSync(path.join(root2,'blog'),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
+      const f=path.join(root2,'blog',d,'index.html');
+      if(!fs.existsSync(f))continue;
+      const h=fs.readFileSync(f,'utf8');
+      if(!/asof:start/.test(h))continue;
+      stamped++;
+      const live=+(h.match(/now tracks <b>(\d+)<\/b>/)||[])[1];
+      const snap=+(h.match(/snapshot of <b>(\d+)<\/b>/)||[])[1];
+      if(live!==total)bad.push(d+' (says live '+live+')');
+      if(snap===total)bad.push(d+' (note claims a snapshot equal to live)');
+      if(!/\.asof\{/.test(h))bad.push(d+' (note has no styles)');
+    }
+    ok(stamped>=10,'dated posts carry as-of notes ('+stamped+')');
+    ok(bad.length===0,'as-of notes quote the current total ('+bad.slice(0,4).join(', ')+')');
+  }
+
   // the agent surface is generated; if it is stale the skill hash stops matching
   // and discovery clients drop the skill entirely
   const root=path.join(__dirname,'..');
@@ -565,6 +675,48 @@ console.log('— flow 30: prose counts match the dataset (no hand-written totals
       .map(m=>+m[1]).filter(n=>n>=300&&n<500&&n!==total);
     ok(stale.length===0,f+' has no stale totals (found: '+[...new Set(stale)].join(',')+' vs '+total+')');
   }
+}
+
+console.log('— flow 31: the homepage ships its code as a cacheable file, not as markup');
+{
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  ok(!!APP_SRC,'index.html loads /app.js via <script src>');
+  ok(fs.existsSync(path.join(root,'app.js')),'app.js exists on disk');
+
+  const {execSync}=require('child_process');
+  let sync=true;
+  try{ execSync('node '+path.join(__dirname,'build-app-js.mjs')+' --check',{encoding:'utf8'}); }catch(e){ sync=false; }
+  ok(sync,'app.js and index.html agree (run node tests/build-app-js.mjs)');
+
+  // the whole point: markup a crawler must parse before it sees any content
+  ok(rawHtml.length<110*1024,'index.html markup is under 110KB ('+(rawHtml.length/1024).toFixed(0)+'KB)');
+  const inlineJs=[...rawHtml.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter(m=>!/ld\+json/.test(m[1])).reduce((a,m)=>a+m[2].length,0);
+  ok(inlineJs<4*1024,'almost no inline JS left in the page ('+(inlineJs/1024).toFixed(1)+'KB, analytics stubs only)');
+
+  // an immutable cache with a stale hash would serve last week's app forever
+  const h=(APP_SRC.match(/v=([0-9a-f]+)/)||[])[1];
+  const pre=(rawHtml.match(/<link rel="preload" as="script" href="\/app\.js\?v=([0-9a-f]+)">/)||[])[1];
+  ok(pre===h,'preload hint and script tag point at the same version ('+pre+' vs '+h+')');
+  const real=require('crypto').createHash('sha256')
+    .update(fs.readFileSync(path.join(root,'app.js'),'utf8')).digest('hex').slice(0,10);
+  ok(real===h,'?v= hash matches app.js contents ('+real+' vs '+h+')');
+
+  // the dataset, the map grid and the news block are JS literals other builds parse;
+  // any script still hunting for them in index.html silently stopped working
+  const LITERALS=/const (?:GRID|L2M|NEWS_UPDATED)=|NEWS-AUTO-START|\bD\b\.map|const D=/;
+  const wrongFile=[];
+  for(const f of fs.readdirSync(__dirname).filter(x=>/\.(mjs|js)$/.test(x)&&!/^(flowtest|build-app-js|homepage-js)\./.test(x))){
+    const s=fs.readFileSync(path.join(__dirname,f),'utf8');
+    if(LITERALS.test(s)&&/['"]index\.html['"]/.test(s)&&!/homepage-js|app\.js/.test(s))wrongFile.push(f);
+  }
+  ok(wrongFile.length===0,'no build script still parses homepage JS out of index.html ('+wrongFile.join(', ')+')');
+
+  const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
+  const rule=(vercel.headers||[]).find(x=>/app\\?\.js|\/app\.js/.test(x.source));
+  ok(!!rule&&rule.headers.some(x=>/cache-control/i.test(x.key)&&/immutable/.test(x.value)),
+    'app.js is served with an immutable cache header');
 }
 
 console.log('');

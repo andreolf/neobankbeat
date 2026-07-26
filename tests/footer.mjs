@@ -17,6 +17,7 @@ const anchor = ([href, label, external]) =>
 
 export const FOOTER_LINKS = [
   ["/", "directory"],
+  ["/browse/", "browse"],
   ["/vs/", "compare"],
   ["/blog/", "blog"],
   ["/faq/", "faq"],
@@ -47,3 +48,33 @@ export const FOOTER_HTML = `<footer><div class="fwrap">
 /* Matches a rendered flat footer in any file, so the sync and the drift check
    agree on what counts as one. Non-greedy: a page has exactly one. */
 export const FOOTER_RE = /<footer><div class="fwrap">[\s\S]*?<\/div><\/footer>/;
+
+/* ═══ The header nav — same contract, different element ═══
+   Six destinations, on every page, in one order. Kept deliberately shorter than
+   the footer: the header is for the handful of surfaces someone might want from
+   anywhere, the footer is the full map.
+
+   navHtml(active) marks one link current. sync-footers.mjs reads which link a
+   page already had marked and re-emits it that way, so a page's sense of "you
+   are here" survives a nav change it wasn't edited for. */
+export const NAV_LINKS = [
+  ["/", "directory"],
+  ["/browse/", "browse"],
+  ["/investors/", "investors"],
+  ["/infra/", "infra"],
+  ["/blog/", "blog"],
+  ["/report/", "report"],
+  ["/jobs/", "jobs"],
+];
+
+export const NAV_DESTINATIONS = NAV_LINKS.map(([href]) => href);
+
+export const navHtml = (active = null, indent = "      ") =>
+  NAV_LINKS.map(([href, label]) =>
+    `${indent}<a href="${href}"${href === active ? ' class="on"' : ""}>${label}</a>`).join("\n");
+
+/* The nav's links only; the surrounding <nav> and any extra controls (the black
+   &amp; white toggle) are left to each template, since the report edition ships
+   its own standalone CSS and cannot reuse the site's classes. */
+export const NAV_RE = /(<nav class="hnav"[^>]*>)([\s\S]*?)(\n[ \t]*)(<button|<\/nav>)/;
+export const NAV_LINK_RE = /<a href="(\/[^"]*)"(?: class="on")?>[^<]*<\/a>/g;

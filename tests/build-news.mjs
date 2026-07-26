@@ -9,9 +9,11 @@
    run: node tests/build-news.mjs                                          */
 import fs from 'node:fs';
 import path from 'node:path';
+import { homepageJsPath, readHomepageJs, writeHomepageJs } from './homepage-js.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const INDEX = path.join(ROOT, 'index.html');
+const INDEX = homepageJsPath();
+const INDEX_NAME = path.basename(INDEX);
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
 const MAX_ITEMS = 40;      // covers Jan → today at one story per multi-day slot
@@ -161,9 +163,9 @@ const rows = chosen.map(it => {
   return `[${jstr(d)},${jstr(it.title)},${jstr(sub)},${jstr(it.link)}]`;
 }).join(',\n');
 
-let html = fs.readFileSync(INDEX, 'utf8');
+let html = readHomepageJs();
 if (!/\/\*NEWS-AUTO-START\*\/[\s\S]*?\/\*NEWS-AUTO-END\*\//.test(html) || !/const NEWS_UPDATED="[^"]*";/.test(html)) {
-  console.error('!! NEWS-AUTO markers not found in index.html'); process.exit(1);
+  console.error(`!! NEWS-AUTO markers not found in ${INDEX_NAME}`); process.exit(1);
 }
 const before = html;
 html = html.replace(/\/\*NEWS-AUTO-START\*\/[\s\S]*?\/\*NEWS-AUTO-END\*\//,
@@ -171,6 +173,6 @@ html = html.replace(/\/\*NEWS-AUTO-START\*\/[\s\S]*?\/\*NEWS-AUTO-END\*\//,
 const today = new Date().toISOString().slice(0, 10);
 html = html.replace(/const NEWS_UPDATED="[^"]*";/, `const NEWS_UPDATED="${today}";`);
 
-if (html === before) { console.log('headlines unchanged — index.html already fresh'); process.exit(0); }
-fs.writeFileSync(INDEX, html);
-console.log(`wrote ${chosen.length} headlines into index.html (updated ${today})`);
+if (html === before) { console.log(`headlines unchanged — ${INDEX_NAME} already fresh`); process.exit(0); }
+await writeHomepageJs(html);
+console.log(`wrote ${chosen.length} headlines into ${INDEX_NAME} (updated ${today})`);

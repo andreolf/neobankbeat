@@ -105,10 +105,13 @@ cd tests && node export-data.js
 
 ## architecture
 
-the whole app is **one self-contained `index.html`** — no build step, no backend, no framework. deploy the repo root anywhere static (Vercel: drop it in, done). the root also ships `data.json`, `llms.txt`, `robots.txt`, `sitemap.xml` and the OG/icon images.
+**two files, no framework** — `index.html` is markup and CSS, `app.js` is the data and the logic. no bundler, no backend: deploy the repo root anywhere static (Vercel: drop it in, done). the root also ships `data.json`, `llms.txt`, `robots.txt`, `sitemap.xml` and the OG/icon images.
+
+the split exists because the app used to be one 346KB file, so every crawler and cold visitor downloaded 283KB of code to read 60KB of content, and none of it could be cached apart from the content. `app.js` is referenced with a content hash (`/app.js?v=…`) and served `immutable`, so it is fetched once. `tests/build-app-js.mjs` keeps that hash in step — edit `app.js` directly, then run it.
 
 ```
-index.html          the entire app: CSS + data + logic
+index.html          markup, CSS, JSON-LD, and one <script src="/app.js?v=…">
+app.js              the app: data + logic (cached immutably)
 ├── const D=[...]   368 entities, one row each
 ├── const X={...}   enrichment: founders, licences, funding, stories
 ├── const INV={...} notable early investors per entity (public rounds)
@@ -121,35 +124,45 @@ report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
 n/                  368 generated entity profile pages (SEO surface)
 vs/                 140 generated head-to-head comparison pages
+browse/             index of every ready-made cut of the dataset
+regulation/ kyc/ regions/ for/   24 generated topic hubs (one licence, KYC posture,
+                    region or audience each — the filters, as linkable pages)
 tests/
-├── flowtest.js     205 assertions across 30 user flows (JSDOM)
-├── export-data.js  regenerates data.json from index.html
+├── flowtest.js     230 assertions across 31 user flows (JSDOM)
+├── export-data.js  regenerates data.json from app.js
+├── build-app-js.mjs keeps app.js and index.html's ?v= hash in step (--check)
+├── homepage-js.mjs  the one place that knows where the homepage's JS lives
+├── sync-blog-asof.mjs stamps dated posts whose counts no longer match live data
 ├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
 ├── build-jobs.mjs  refreshes /jobs/ from Greenhouse/Lever/Ashby APIs
 ├── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
 ├── build-agents.mjs generates openapi.json and .well-known/* from data.json
 ├── footer.mjs      the site footer, defined once
 ├── meta.mjs        the <head> description length rule, defined once
-├── sync-footers.mjs pushes the footer into hand-written HTML (--check for drift)
+├── sync-footers.mjs pushes the nav + footer into hand-written HTML (--check for drift)
 └── sync-counts.mjs  fixes dataset totals restated in prose (--check for drift)
 ```
 
-### the footer
+### the nav and the footer
 
-`tests/footer.mjs` is the only place footer links are defined. Generated pages
-import it at build time; the blog is hand-written HTML, so
-`node tests/sync-footers.mjs` rewrites those in place. Add a link there and
-nowhere else, then run:
+`tests/footer.mjs` is the only place either one is defined — `NAV_LINKS` for the
+header, `FOOTER_LINKS` for the footer. Generated pages import it at build time;
+the blog and the other hand-written pages have no build step, so
+`node tests/sync-footers.mjs` rewrites them in place, preserving whichever link
+each page had marked as current. Add a link there and nowhere else, then run:
 
 ```sh
 node tests/build-pages.mjs && node tests/build-changelog.mjs && node tests/sync-footers.mjs
 ```
 
+That is one command for 1,642 pages, which is why `/browse/` could be added to
+the nav at all.
+
 The homepage keeps its own grouped footer on purpose — columns, on-page anchors
-and a disclaimer that would be noise on an inner page. It is only held to the
-rule that it can't *omit* a destination the flat footer carries. Flowtest flow 27
-fails on any drift, which is how 19 blog posts were caught with no link to
-`/data/` at all.
+and a disclaimer that would be noise on an inner page — and its nav swaps three
+links for on-page anchors, being the page those links point at. Both are held to
+the weaker rule that they can't *omit* a destination. Flowtest flow 27 fails on
+any drift, which is how 19 blog posts were caught with no link to `/data/` at all.
 
 ### numbers written in prose
 
@@ -194,7 +207,7 @@ tracked on neobankbeat? embed the badge — it links people to your verified pro
 
 ## contributing
 
-the dataset lives in `index.html` as `const D=[...]` (one row per entity) with a verified-links layer in `const V={...}`. two ways in:
+the dataset lives in `app.js` as `const D=[...]` (one row per entity) with a verified-links layer in `const V={...}`. two ways in:
 
 - **[+ submit a neobank](https://github.com/andreolf/neobankbeat/issues/new?labels=new-neobank&template=new-neobank.yml)** — pre-filled issue form
 - **[suggest a correction](https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml)** — spotted a wrong figure or dead link?
@@ -203,7 +216,7 @@ or PR directly — see [CONTRIBUTING.md](CONTRIBUTING.md) for the row schema. be
 
 ```bash
 cd tests && npm install
-node flowtest.js       # 167 assertions must pass
+node flowtest.js       # 230 assertions must pass
 node export-data.js    # regenerate data.json, commit it with your change
 node build-pages.mjs   # regenerate /n/, /vs/ and sitemap.xml
 ```

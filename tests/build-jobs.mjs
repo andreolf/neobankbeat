@@ -8,14 +8,15 @@
    run: node build-jobs.mjs   (re-run any time to refresh listings)          */
 import fs from 'node:fs';
 import path from 'node:path';
-import { FOOTER_HTML } from './footer.mjs';
+import { FOOTER_HTML, navHtml } from './footer.mjs';
 import { clampDesc } from './meta.mjs';
+import { readHomepageJs } from './homepage-js.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
 /* ── world map: reuse the homepage dot-matrix grid ── */
-const idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const idx = readHomepageJs();
 const GRID = eval('[' + idx.match(/const GRID=\[([\s\S]*?)\];/)[1] + ']');
 const L2M = eval('(' + idx.match(/const L2M=(\{[^}]+\})/)[1] + ')');
 const MACRO2REGION = { NA: 'north-america', EU: 'europe', LATAM: 'latin-america', AF: 'africa', MENA: 'mena', ASIA: 'asia', OC: 'oceania' };
@@ -498,12 +499,7 @@ ${JSON.stringify(ld)}
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
-      <a href="/">directory</a>
-      <a href="/investors/">investors</a>
-      <a href="/infra/">infra</a>
-      <a href="/blog/">blog</a>
-      <a href="/report/">report</a>
-      <a href="/jobs/" class="on">jobs</a>
+${navHtml('/jobs/')}
       <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
     </nav>
   </div>

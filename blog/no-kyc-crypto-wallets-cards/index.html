@@ -30,6 +30,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"No-KYC money apps in 2026: what's actually possible (and what isn't)","description":"Only 13 of 365 tracked neobanks work without identity checks — all self-custodial. What no-KYC really means and where the line sits.","datePublished":"2026-01-13","dateModified":"2026-01-13","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/no-kyc-crypto-wallets-cards.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/no-kyc-crypto-wallets-cards/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
+<style>.asof{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--dim);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:18px 0}.asof b{color:var(--muted);font-weight:600}.asof a{color:var(--accent)}</style>
 </head>
 <body>
 <header>
@@ -37,12 +38,13 @@
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
       <a href="/">directory</a>
+      <a href="/browse/">browse</a>
       <a href="/investors/">investors</a>
       <a href="/infra/">infra</a>
       <a href="/blog/" class="on">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
-      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
     </nav>
   </div>
 </header>
@@ -52,6 +54,9 @@
   <div class="eyebrow">web3-native</div>
   <h1>No-KYC money apps in 2026: what's actually <em>possible</em> (and what isn't)</h1>
   <p class="meta"><b>January 13, 2026</b> · 7 min read · <a href="/blog/">← all posts</a></p>
+  <!-- asof:start -->
+  <p class="asof">Figures in this post describe a snapshot of <b>365</b> tracked neobanks. The dataset now tracks <b>368</b>, so counts here will not match the live site — the analysis stands, but for current numbers use the <a href="/browse/">browsable cuts</a>, the <a href="/">live directory</a> or <a href="/data.json">data.json</a>.</p>
+  <!-- asof:end -->
 
   <p>Out of 365 neobanks we track, exactly <a href="/?nk=1"><strong>13 work without identity checks</strong></a>. All thirteen are self-custodial. None of them issues you a card without KYC. That's the whole landscape in two sentences — the rest of this post is why the line sits exactly there, and what "no-KYC" honestly buys you in 2026.</p>
 
@@ -87,7 +92,7 @@
   </ul>
 
   <h2>The direction of travel</h2>
-  <p>Two opposing currents, flagged as our reading rather than settled fact. Regulation is tightening at the perimeter: the EU's AMLR will push identification deeper into crypto services by 2027, and self-hosted-wallet interactions face more reporting, not less. At the same time, the core keeps getting harder to gate — smart accounts, MPC (Zengo's no-seed-phrase model), and payment apps that feel like Venmo but settle on-chain. The likely equilibrium: <strong>a permissionless self-custodial core, with identity checks concentrated at every fiat boundary.</strong> Which is, in fact, exactly what the 12-of-365 number already shows.</p>
+  <p>Two opposing currents, flagged as our reading rather than settled fact. Regulation is tightening at the perimeter: the EU's AMLR will push identification deeper into crypto services by 2027, and self-hosted-wallet interactions face more reporting, not less. At the same time, the core keeps getting harder to gate — smart accounts, MPC (Zengo's no-seed-phrase model), and payment apps that feel like Venmo but settle on-chain. The likely equilibrium: <strong>a permissionless self-custodial core, with identity checks concentrated at every fiat boundary.</strong> Which is, in fact, exactly what the 13-of-365 number already shows.</p>
 
   <h2>Trade-offs, stated plainly</h2>
   <ul>
@@ -107,7 +112,7 @@
 
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
 </div></footer>
 <script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
 </body>

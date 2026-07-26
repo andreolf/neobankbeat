@@ -30,6 +30,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"The rise of the self-custodial neobank: 47 apps where you hold the keys","description":"A new category of neobank holds none of your money. What MetaMask, Gnosis Pay, Payy and 44 others are building, and where the model still leaks.","datePublished":"2025-12-09","dateModified":"2025-12-09","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/self-custodial-neobanks.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/self-custodial-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
+<style>.asof{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--dim);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:18px 0}.asof b{color:var(--muted);font-weight:600}.asof a{color:var(--accent)}</style>
 </head>
 <body>
 <header>
@@ -37,12 +38,13 @@
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
       <a href="/">directory</a>
+      <a href="/browse/">browse</a>
       <a href="/investors/">investors</a>
       <a href="/infra/">infra</a>
       <a href="/blog/" class="on">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
-      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
     </nav>
   </div>
 </header>
@@ -52,6 +54,9 @@
   <div class="eyebrow">web3-native</div>
   <h1>The rise of the <em>self-custodial</em> neobank: 47 apps where you hold the keys</h1>
   <p class="meta"><b>December 9, 2025</b> · 8 min read · <a href="/blog/">← all posts</a></p>
+  <!-- asof:start -->
+  <p class="asof">Figures in this post describe a snapshot of <b>357</b> tracked neobanks. The dataset now tracks <b>368</b>, so counts here will not match the live site — the analysis stands, but for current numbers use the <a href="/browse/">browsable cuts</a>, the <a href="/">live directory</a> or <a href="/data.json">data.json</a>.</p>
+  <!-- asof:end -->
 
   <p>Every bank in history has worked the same way: you give them your money, they give you promises. The third wave of neobanks breaks that contract. In a self-custodial neobank, the company <strong>never holds your funds</strong> — your balance is stablecoins in a wallet only you control, and everything bank-like (a card, an IBAN, yield, payments) is software wrapped around it.</p>
 
@@ -110,7 +115,7 @@
 
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
 </div></footer>
 <script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
 </body>

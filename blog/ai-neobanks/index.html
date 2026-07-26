@@ -37,12 +37,13 @@
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
       <a href="/">directory</a>
+      <a href="/browse/">browse</a>
       <a href="/investors/">investors</a>
       <a href="/infra/">infra</a>
       <a href="/blog/" class="on">blog</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
-      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
     </nav>
   </div>
 </header>
@@ -123,7 +124,7 @@
   <p>The full-directory audit left another ~60 names on the borderline, documented but untagged. The recurring failure modes: <b>still in beta or pilot</b> (Cash App's Moneybot, Robinhood's agentic trading, RazorpayX's agents, BoursoBank's Bourso.IA, Found's assistant, Bitget Wallet's agent skill, Phantom's preview); <b>the AI belongs to a partner</b> (PhonePe and One route underwriting to NBFC partners and Upstart, GoPay to Findaya, Touch 'n Go to partner banks); <b>internal-only</b> (Mox, KOHO's Kortex, Tide, Zand's board-facing tools, Salt Bank's agent-assist); <b>support widget, not majority-of-contacts</b> (Wise, DANA, Wealthsimple's Willow, Liv.'s Olivia); or <b>claims without verifiable production evidence</b> (Kuda, Uzum, Khazna, PagBank, Zolve, WeFi). Kaspi's Kasper launches next week — roadmap, not production. Ramp's autonomous back-office agents are genuinely live but serve human customers' ops — a fourth tier we may add as <code>ops</code> if it spreads. Chatbot onboarding like <a href="/n/paysika/">PaySika</a>'s WhatsApp flows is chat-first, not AI-first. The bar is: production, at scale, verifiable from disclosures or the product itself. If we got one wrong in either direction, <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">tell us</a> — the tag is data, and data takes corrections.</p>
 
   <h2>Use it</h2>
-  <p>The <code>ai</code> field ships in <a href="/data.json">data.json</a> today (<code>underwriting</code> · <code>interface</code> · <code>agentic</code>), shows on each tagged profile, and has its own directory filter: <a href="/?ai=1">neobankbeat.com/?ai=1</a>. Sixty-seven entities carry it; 306 don't — roughly one in six, and that ratio is the honest headline. AI neobanks are a strong narrative. The production reality is a specific, verified list — heavily skewed to emerging-market lenders where the model is the business — and now it's machine-readable.</p>
+  <p>The <code>ai</code> field ships in <a href="/data.json">data.json</a> today (<code>underwriting</code> · <code>interface</code> · <code>agentic</code>), shows on each tagged profile, and has its own directory filter: <a href="/?ai=1">neobankbeat.com/?ai=1</a>. Sixty-seven entities carry it; 301 don't — roughly one in six, and that ratio is the honest headline. AI neobanks are a strong narrative. The production reality is a specific, verified list — heavily skewed to emerging-market lenders where the model is the business — and now it's machine-readable.</p>
 
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Tags reflect publicly verifiable production deployments as of July 2026, from filings, product documentation and company disclosures. Nothing here is investment advice. Sources on each profile page.</p>
 
@@ -133,7 +134,7 @@
 
 <footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
 </div></footer>
 <script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
 </body>

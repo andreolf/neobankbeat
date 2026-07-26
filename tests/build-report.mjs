@@ -12,7 +12,7 @@
    data-snapshot.json in report/<slug>/ (cp data.json), then rerun.            */
 import fs from 'node:fs';
 import path from 'node:path';
-import { FOOTER_HTML } from './footer.mjs';
+import { FOOTER_HTML, NAV_LINKS } from './footer.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -988,12 +988,7 @@ ${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `T
 <body>
 <nav class="wsite" aria-label="Primary"><div class="wsitein">
   <a class="logo" href="/">neobank<span style="color:var(--acc)">beat</span></a>
-  <a href="/">directory</a>
-  <a href="/investors/">investors</a>
-  <a href="/infra/">infra</a>
-  <a href="/blog/">blog</a>
-  <a class="on" href="/report/">report</a>
-  <a href="/jobs/">jobs</a>
+${NAV_LINKS.map(([href, label]) => `  <a${href === '/report/' ? ' class="on"' : ''} href="${href}">${label}</a>`).join('\n')}
 </div></nav>
 <nav class="wtop" aria-label="Chapters"><div class="wtopin">
   <span class="chlbl">chapters</span>

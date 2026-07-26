@@ -26,11 +26,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          # the headlines live in app.js; index.html carries its ?v= cache hash
+          git add app.js index.html
           if git diff --cached --quiet; then
             echo "no changes — news kept from last run"
           else
-            # commit before pulling: build-news.mjs leaves index.html dirty, and
+            # commit before pulling: build-news.mjs leaves the tree dirty, and
             # `git pull --rebase` refuses to run with unstaged changes
             git commit -m "chore: weekly top-news refresh ($(date -u +%F))"
             git pull --rebase origin main

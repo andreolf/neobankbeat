@@ -44,6 +44,7 @@ const S = {
   alternatives: dirs('n').filter(s => fs.existsSync(p(`n/${s}/alternatives/index.html`))).length,
   investors: dirs('investors').length,
   infra: dirs('infra').length,
+  hubs: ['regulation', 'kyc', 'regions', 'for'].reduce((a, f) => a + dirs(f).length, 0),
   /* visible <h3 id> questions == FAQPage mainEntity count; keep them equal */
   faq: (faqHtml.match(/"@type":"Question"/g) || []).length,
   glossary: (fs.readFileSync(p('glossary/index.html'), 'utf8').match(/<dt id=/g) || []).length,
@@ -85,6 +86,7 @@ const RULES = {
     n('\\[All ', S.entities, ' entity profiles\\]'),
     n('\\[', S.comparisons, ' head-to-head comparisons\\]'),
     n('\\[', S.whoOwns, ' "who owns it" pages\\]'),
+    n('\\[', S.hubs, ' topic hubs\\]'),
     n('\\[', S.alternatives, ' "alternatives to it" pages\\]'),
     n('infra/\\): the ', S.infra, ' providers'),
   ],
@@ -128,6 +130,10 @@ const RULES = {
      edition, whose figures are pinned to report/<slug>/data-snapshot.json and
      must keep matching the PDF readers already downloaded. */
   'glossary/index.html': [n('<b>', S.glossary, ' terms</b>')],
+  /* the AI post's headline ratio is the one dated-post figure worth keeping live:
+     the tagged count still matches the dataset, so letting its complement drift
+     would make the post contradict itself rather than merely age */
+  'blog/ai-neobanks/index.html': [n('entities carry it; ', S.entities - S.ai, ' don')],
 };
 const DATE_RULES = asOfMonth ? {
   'llms.txt': [{ re: /(last full verification: )([A-Z][a-z]+ \d{4})/g, want: asOfMonth }],

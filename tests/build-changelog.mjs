@@ -4,7 +4,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { FOOTER_HTML } from './footer.mjs';
+import { FOOTER_HTML, navHtml } from './footer.mjs';
 import { clampDesc } from './meta.mjs';
 
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
@@ -180,12 +180,7 @@ const html = `<!DOCTYPE html>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
     <nav class="hnav" aria-label="Primary">
-      <a href="/">directory</a>
-      <a href="/investors/">investors</a>
-      <a href="/infra/">infra</a>
-      <a href="/blog/">blog</a>
-      <a href="/report/">report</a>
-      <a href="/jobs/">jobs</a>
+${navHtml(null)}
       <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
     </nav>
   </div>

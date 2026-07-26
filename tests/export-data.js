@@ -1,10 +1,17 @@
-/* Generates ../data.json from the live dataset in index.html.
+/* Generates ../data.json from the live dataset in app.js.
    Run after any change to D / X / V:  cd tests && node export-data.js */
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const ROOT = path.join(__dirname, '..');
+/* the homepage loads its code from /app.js; jsdom would fetch that asynchronously,
+   so it is folded back inline to keep this export synchronous */
+const raw = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const src = (raw.match(/<script src="\/app\.js\?v=[0-9a-f]+"><\/script>/) || [])[0];
+const html = src
+  ? raw.replace(src, () => '<script>' + fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8') + '</script>')
+  : raw;
 const dom = new JSDOM(html, {
   runScripts: 'dangerously',
   pretendToBeVisual: true,

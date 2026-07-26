@@ -36,7 +36,9 @@ jobs:
             for(const f of files){
               if(/^(tests\/|\.github\/|node_modules\/|terminals\/|x-tweets\/|404\.html|README|AGENTS)/.test(f))continue;
               if(f.endsWith("/index.html"))urls.add(BASE+"/"+f.slice(0,-10));
-              else if(f==="index.html")urls.add(BASE+"/");
+              // app.js holds the homepage content (dataset, news), so a change to it
+              // is a change to "/" even when index.html itself only moved its ?v= hash
+              else if(f==="index.html"||f==="app.js")urls.add(BASE+"/");
               else if(/\.(txt|json|xml|md)$/.test(f)&&!f.includes("/data/"))urls.add(BASE+"/"+f);
             }
             const urlList=[...urls].slice(0,10000);

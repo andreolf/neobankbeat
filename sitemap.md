@@ -5,6 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
+- [Browse](https://www.neobankbeat.com/browse/) — 24 ready-made cuts of the dataset by licence, KYC, region and audience
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
@@ -577,6 +578,33 @@
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
+
+## Topic hubs (24)
+
+- [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
+- [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
+- [/regulation/crypto-licensed-neobanks/](https://www.neobankbeat.com/regulation/crypto-licensed-neobanks/)
+- [/regulation/e-money-institutions/](https://www.neobankbeat.com/regulation/e-money-institutions/)
+- [/regulation/mica-casp-neobanks/](https://www.neobankbeat.com/regulation/mica-casp-neobanks/)
+- [/regulation/payment-institutions/](https://www.neobankbeat.com/regulation/payment-institutions/)
+- [/regulation/self-custodial-neobanks/](https://www.neobankbeat.com/regulation/self-custodial-neobanks/)
+- [/kyc/no-kyc/](https://www.neobankbeat.com/kyc/no-kyc/)
+- [/kyc/card-only-kyc/](https://www.neobankbeat.com/kyc/card-only-kyc/)
+- [/regions/north-america/](https://www.neobankbeat.com/regions/north-america/)
+- [/regions/europe/](https://www.neobankbeat.com/regions/europe/)
+- [/regions/asia/](https://www.neobankbeat.com/regions/asia/)
+- [/regions/oceania/](https://www.neobankbeat.com/regions/oceania/)
+- [/regions/latin-america/](https://www.neobankbeat.com/regions/latin-america/)
+- [/regions/africa/](https://www.neobankbeat.com/regions/africa/)
+- [/regions/mena/](https://www.neobankbeat.com/regions/mena/)
+- [/for/gen-z-and-students/](https://www.neobankbeat.com/for/gen-z-and-students/)
+- [/for/kids-and-family/](https://www.neobankbeat.com/for/kids-and-family/)
+- [/for/smb-and-startups/](https://www.neobankbeat.com/for/smb-and-startups/)
+- [/for/freelancers-and-creators/](https://www.neobankbeat.com/for/freelancers-and-creators/)
+- [/for/immigrants-and-migrants/](https://www.neobankbeat.com/for/immigrants-and-migrants/)
+- [/for/underbanked/](https://www.neobankbeat.com/for/underbanked/)
+- [/for/faith-based/](https://www.neobankbeat.com/for/faith-based/)
+- [/for/travel-and-digital-nomads/](https://www.neobankbeat.com/for/travel-and-digital-nomads/)
 
 ## Per-neobank answer pages
 

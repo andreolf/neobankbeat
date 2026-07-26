@@ -16,6 +16,12 @@
       ]
     },
     {
+      "source": "/app.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
       "source": "/.well-known/api-catalog",
       "headers": [
         { "key": "Content-Type", "value": "application/linkset+json" },
