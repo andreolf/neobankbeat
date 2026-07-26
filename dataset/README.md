@@ -21,6 +21,8 @@ task_categories:
 configs:
   - config_name: default
     data_files: "entities.jsonl"
+  - config_name: flat
+    data_files: "entities.csv"
 ---
 
 # neobankbeat — open directory of neobanks worldwide
@@ -39,7 +41,8 @@ A verified, machine-readable directory of **368 active neobanks** — traditiona
 
 | File | What it is |
 |---|---|
-| `entities.jsonl` | One neobank per line — this is what the dataset viewer and `load_dataset` read. |
+| `entities.jsonl` | One neobank per line — this is what the dataset viewer and `load_dataset` read. Nested fields (`fx_markup`, `reported_users`, `volume`, `investors`) keep their source and as-of detail. |
+| `entities.csv` | The same rows flattened to 38 plain columns, with the nested fields split out (`fx_markup`, `fx_markup_as_of`, `fx_markup_source`, …). Easiest for spreadsheets and pandas. |
 | `data.json` | The canonical file as served by the site: `{ meta, entities }`, with counts, field notes and methodology in `meta`. |
 
 ## What's in it
