@@ -70,11 +70,25 @@ push_hf() {
 
 push_kaggle() {
   command -v kaggle >/dev/null 2>&1 || { echo "✗ kaggle not installed — run: pipx install kaggle"; exit 1; }
+  # Kaggle replaced the old kaggle.json (username + key) with an OAuth /
+  # access-token model. Any of these satisfies the client; `kaggle auth login`
+  # is a browser flow with no token to handle.
+  if [ -z "${KAGGLE_API_TOKEN:-}" ] \
+     && [ ! -f "$HOME/.kaggle/access_token" ] \
+     && [ ! -f "$HOME/.kaggle/kaggle.json" ]; then
+    echo "✗ not authenticated to Kaggle. Easiest:  kaggle auth login"
+    exit 1
+  fi
+  # The access token carries no username and the CLI has no whoami, but the
+  # dataset id must be "<username>/<slug>" — so the owner has to be supplied.
   local user
-  user="${KAGGLE_USERNAME:-$(node -p "try{require(require('os').homedir()+'/.kaggle/kaggle.json').username}catch(e){''}" 2>/dev/null)}"
+  user="${KAGGLE_USERNAME:-}"
+  [ -n "$user" ] || user=$(cat "$HOME/.kaggle/username" 2>/dev/null | tr -d '[:space:]' || true)
+  [ -n "$user" ] || user=$(node -p "try{require(require('os').homedir()+'/.kaggle/kaggle.json').username}catch(e){''}" 2>/dev/null || true)
   if ! valid_name "$user"; then
-    echo "✗ couldn't read your Kaggle username (got: '${user:-empty}')."
-    echo "  Put kaggle.json in ~/.kaggle/  (kaggle.com → avatar → Settings → API → Create New Token)"
+    echo "✗ Kaggle username unknown — the access token doesn't contain it."
+    echo "  Set it once:  echo YOUR_KAGGLE_USERNAME > ~/.kaggle/username"
+    echo "  Or per run:   KAGGLE_USERNAME=you bash tests/publish-dataset.sh kaggle"
     exit 1
   fi
   prep

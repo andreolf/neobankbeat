@@ -37,12 +37,18 @@ browsers treat it as a search term.
 pipx install kaggle
 ```
 
-Then kaggle.com → your avatar → **Settings** → **API** → **Create New Token**.
-That downloads `kaggle.json`:
-
 ```bash
-mkdir -p ~/.kaggle && mv ~/Downloads/kaggle.json ~/.kaggle/ && chmod 600 ~/.kaggle/kaggle.json
+kaggle auth login          # browser flow; caches credentials, nothing to paste
+echo YOUR_KAGGLE_USERNAME > ~/.kaggle/username
 ```
+
+The username file is needed because a Kaggle dataset id is `<username>/<slug>`
+and, unlike `hf`, the Kaggle CLI has no `whoami` to look it up.
+
+Instead of the browser flow you can generate a token under kaggle.com →
+**Settings** → **API** and either `export KAGGLE_API_TOKEN=KGAT_…` or write it
+to `~/.kaggle/access_token`. This is the older `kaggle.json` file's replacement —
+if you have a legacy `~/.kaggle/kaggle.json`, that still works too.
 
 ---
 
