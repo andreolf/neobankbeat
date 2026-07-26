@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The neobank dataset is now on Hugging Face and Kaggle · neobankbeat</title>
+<meta name="description" content="All 368 verified-active neobanks are now mirrored on Hugging Face and Kaggle, with two new shapes: entities.jsonl and a flat 38-column entities.csv. One load_dataset call, no account, MIT-licensed. What shipped, what's in it, and what to watch out for.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="The neobank dataset is now on Hugging Face and Kaggle">
+<meta property="og:description" content="368 neobanks, 78 countries, 38 columns — mirrored to both hubs with a flat CSV and JSON Lines. One load_dataset call, no account needed, MIT.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/">
+<meta property="og:image" content="https://www.neobankbeat.com/og/blog/neobank-dataset-hugging-face-kaggle.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og/blog/neobank-dataset-hugging-face-kaggle.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}};document.addEventListener("submit",function(e){if(e.target.classList&&e.target.classList.contains("nbform"))nbevt("subscribe",{page:location.pathname})},true)</script><script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"The neobank dataset is now on Hugging Face and Kaggle","description":"All 368 verified-active neobanks are mirrored on Hugging Face and Kaggle, with two new shapes: entities.jsonl and a flat 38-column entities.csv. MIT-licensed, no account needed.","datePublished":"2026-07-25","dateModified":"2026-07-25","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/neobank-dataset-hugging-face-kaggle.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"},"about":{"@type":"Dataset","@id":"https://www.neobankbeat.com/data/#dataset"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/" class="on">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">open data</div>
+  <h1>The neobank dataset is now on <em>Hugging Face</em> and <em>Kaggle</em></h1>
+  <p class="meta"><b>July 25, 2026</b> · 4 min read · <a href="/blog/">← all posts</a> · <a href="/data/">the dataset</a></p>
+
+  <p>The dataset behind this site has always been public — one <a href="/data.json">data.json</a> file, MIT-licensed, no key and no rate limit. As of today it's also mirrored on the two places people actually go looking for data:</p>
+
+  <table>
+    <tr><th>Where</th><th>What you get</th></tr>
+    <tr><td><a href="https://huggingface.co/datasets/neobankbeat/neobanks" target="_blank" rel="noopener">Hugging Face · neobankbeat/neobanks ↗</a></td><td>Browsable table, one <code>load_dataset</code> call, direct file downloads without an account</td></tr>
+    <tr><td><a href="https://www.kaggle.com/datasets/neobankbeat/neobanks" target="_blank" rel="noopener">Kaggle · neobankbeat/neobanks ↗</a></td><td>Same files, plus a worked notebook that reproduces the charts below</td></tr>
+  </table>
+
+  <p>Both carry <b>368 verified-active neobanks</b> across <b>78 countries</b>, and both are generated from the same file this site runs on. If the three ever disagree, <a href="/data.json">data.json</a> is right — the mirrors are copies, not forks.</p>
+
+  <h2>Two new shapes</h2>
+  <p>The mirrors ship the data in formats the site doesn't serve, because <code>data.json</code> is one object wrapping <code>meta</code> and <code>entities</code> — convenient for a web app, awkward for pandas.</p>
+  <table>
+    <tr><th>File</th><th>Shape</th><th>Use it when</th></tr>
+    <tr><td><code>entities.csv</code></td><td>Flat, 38 columns, one row per neobank</td><td>Spreadsheets, pandas, anything that wants a table</td></tr>
+    <tr><td><code>entities.jsonl</code></td><td>One JSON object per line, nesting intact</td><td>You want <code>fx_markup</code> and friends with their source and date attached</td></tr>
+    <tr><td><code>data.json</code></td><td><code>{ meta, entities }</code></td><td>You want the counts, field notes and methodology too</td></tr>
+  </table>
+  <p>The flattening is the part worth knowing about. Several fields aren't scalars — <code>fx_markup</code>, <code>reported_users</code> and <code>volume</code> each carry a value <em>plus</em> the date it was verified and the source it came from. In the CSV those become their own columns, so <code>fx_markup</code>, <code>fx_markup_as_of</code> and <code>fx_markup_source</code> sit side by side. Nothing is dropped to make the table flat.</p>
+
+  <h2>Load it</h2>
+  <pre class="code">from datasets import load_dataset
+
+ds = load_dataset("neobankbeat/neobanks", split="train")
+print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank licence")</pre>
+  <p>Or skip the library entirely — the files are static and public:</p>
+  <pre class="code">import pandas as pd
+
+df = pd.read_csv("https://huggingface.co/datasets/neobankbeat/neobanks/resolve/main/entities.csv")
+print(df.groupby("regulation_type").size().sort_values(ascending=False))</pre>
+  <p>That last line prints the census from <a href="/blog/who-really-runs-the-neobanks/">the BaaS post</a>: <b>127</b> licensed banks, <b>77</b> running on a partner bank, <b>51</b> self-custodial apps holding no money at all. The point of publishing the raw table is that you can check that yourself instead of taking the number from a blog post.</p>
+
+  <h2>What's actually in it</h2>
+  <p>The full <a href="/data/">field dictionary lives on the dataset page</a>, but the fields that make this different from a marketing roundup are the regulatory ones: <code>regulation_type</code> (own bank licence, e-money institution, sponsor bank, or unregulated), <code>licence</code> (the named authorisation, where disclosed), and <code>custody</code> — who is actually holding the money. That layer is the thing nobody else publishes in machine-readable form, and it's the layer that decides what happens to your balance if the company dies.</p>
+  <p>Alongside it: cards and networks, verified money-movement <code>services</code>, FX markup with a source and date, stablecoin support, KYC posture, availability by country versus headquarters, founders, funding and disclosed backers.</p>
+
+  <div class="callout"><span class="k">read this before you cite it</span>Three caveats that matter. <b>Self-disclosed figures</b> — <code>reported_users_millions</code>, <code>funding</code> and <code>volume</code> are what companies chose to announce, not audited numbers; check <code>reported_users_metric</code> before comparing two rows, because a wallet download is not a funded account. <b>Rates move</b> — <code>cashback</code>, <code>yield</code> and <code>fx_markup</code> are "up to" figures that vary by region, which is why each ships with an <code>as_of</code> date; a stale rate is worse than no rate. <b>Coverage is deliberate</b> — defunct neobanks and pure BaaS/infrastructure providers are excluded, so this is not a survival-analysis dataset, and unverified fields are empty rather than guessed.</div>
+
+  <h2>Why mirror it at all</h2>
+  <p>Partly convenience: <code>load_dataset("neobankbeat/neobanks")</code> is a lower barrier than reading a schema and writing a parser. Partly reach — dataset hubs are where researchers and model pipelines look first, and a dataset that only exists as a JSON file on one domain is invisible to most of them.</p>
+  <p>And partly durability. This is a one-person project. Publishing the same MIT-licensed file to two independent hubs, with a data card explaining the methodology, means the work outlives this domain. That's the whole point of open data rather than an API with a key.</p>
+
+  <h2>Keeping it honest</h2>
+  <p>Every refresh is logged in the <a href="/changelog/">changelog</a>, the mirrors are re-pushed on material changes, and corrections go through <a href="https://github.com/andreolf/neobankbeat/issues">GitHub issues</a> in public. The biggest open gap is still the sponsor-bank layer: most partner-bank neobanks won't say <em>whose</em> licence they're using, so if you know and can source one we've missed, the <code>licence</code> field takes a partner name and a source. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Open a data-fix issue</a>.</p>
+
+  <h2>Cite it</h2>
+  <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> https://www.neobankbeat.com/ (MIT).</p>
+  <p>Free to use, including commercially. Attribution appreciated but not required — that's what MIT means. If you build something with it, <a href="https://x.com/neobankbeat" target="_blank" rel="noopener">tell me</a>; I'd like to see it.</p>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Counts reflect the open dataset as of July 2026. Figures are compiled from public filings, registers and product documentation; rates carry their own as-of dates. Nothing here is financial advice. Sources on each profile page.</p>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/vs/">compare</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
+</body>
+</html>

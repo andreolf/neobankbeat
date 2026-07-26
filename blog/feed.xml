@@ -7,6 +7,13 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>The neobank dataset is now on Hugging Face and Kaggle</title>
+    <link>https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/</link>
+    <guid>https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/</guid>
+    <pubDate>Sat, 25 Jul 2026 10:00:00 GMT</pubDate>
+    <description>All 368 verified-active neobanks are now mirrored on Hugging Face and Kaggle, in two shapes the site doesn't serve: entities.jsonl with the nesting intact, and a flat 38-column entities.csv that splits fx_markup, reported_users and volume into their own value, as-of and source columns. One load_dataset call, direct downloads without an account, still MIT-licensed — and data.json stays the source of truth.</description>
+  </item>
+  <item>
     <title>Who really runs the neobanks? The BaaS rails behind the apps</title>
     <link>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</link>
     <guid>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</guid>

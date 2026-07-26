@@ -1341,6 +1341,7 @@ const BLOG_POSTS = [
   ['ai-neobanks', '2026-07-16'],
   ['neobank-ecosystem-map', '2026-07-20'],
   ['who-really-runs-the-neobanks', '2026-07-23'],
+  ['neobank-dataset-hugging-face-kaggle', '2026-07-25'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
