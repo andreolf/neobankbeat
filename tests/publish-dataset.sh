@@ -21,7 +21,10 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STAGE="$ROOT/dataset/.staging"
-SLUG="neobankbeat"
+# Repo name on HF/Kaggle. Override to taste:  DATASET_SLUG=neobanks bash … hf
+# (your HF user is already "neobankbeat", so a descriptive name reads better
+#  and searches better than neobankbeat/neobankbeat)
+SLUG="${DATASET_SLUG:-neobanks}"
 TITLE="neobankbeat: open directory of neobanks"
 
 prep() {
@@ -35,12 +38,19 @@ prep() {
   echo "✓ staged $total entities → dataset/.staging/"
 }
 
+valid_name() { printf '%s' "$1" | grep -qE '^[A-Za-z0-9][A-Za-z0-9._-]*$'; }
+
 push_hf() {
   command -v hf >/dev/null 2>&1 || { echo "✗ hf not installed — run: brew install hf"; exit 1; }
   local user
-  user=$(hf auth whoami 2>/dev/null | head -1 | tr -d '[:space:]') || true
-  if [ -z "$user" ] || [ "$user" = "Notloggedin" ]; then
-    echo "✗ not logged in to Hugging Face — run: hf auth login  (needs a WRITE token)"; exit 1
+  # -q forces the quiet format (bare username). Without it, `hf auth whoami`
+  # switches between human ("✓ Logged in as …") and agent ("user=…") output
+  # depending on whether stdout is a TTY — and either one poisons the repo id.
+  user=$(hf auth whoami -q 2>/dev/null | head -1 | tr -d '[:space:]') || true
+  if ! valid_name "$user"; then
+    echo "✗ couldn't read your Hugging Face username (got: '${user:-empty}')."
+    echo "  Log in first:  hf auth login"
+    exit 1
   fi
   prep
   echo "→ uploading to huggingface.co/datasets/$user/$SLUG …"
@@ -53,9 +63,11 @@ push_hf() {
 push_kaggle() {
   command -v kaggle >/dev/null 2>&1 || { echo "✗ kaggle not installed — run: pipx install kaggle"; exit 1; }
   local user
-  user="${KAGGLE_USERNAME:-$(node -p "try{require(require('os').homedir()+'/.kaggle/kaggle.json').username}catch(e){''}")}"
-  if [ -z "$user" ]; then
-    echo "✗ no Kaggle credentials — put kaggle.json in ~/.kaggle/ (kaggle.com → Settings → API)"; exit 1
+  user="${KAGGLE_USERNAME:-$(node -p "try{require(require('os').homedir()+'/.kaggle/kaggle.json').username}catch(e){''}" 2>/dev/null)}"
+  if ! valid_name "$user"; then
+    echo "✗ couldn't read your Kaggle username (got: '${user:-empty}')."
+    echo "  Put kaggle.json in ~/.kaggle/  (kaggle.com → avatar → Settings → API → Create New Token)"
+    exit 1
   fi
   prep
   # NOTE: the filename is dataset-metadata.json — the CLI's own --help text
