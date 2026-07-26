@@ -8,6 +8,8 @@
 #   bash tests/publish-dataset.sh hf        push to Hugging Face
 #   bash tests/publish-dataset.sh kaggle    push to Kaggle
 #   bash tests/publish-dataset.sh all       both
+#   bash tests/publish-dataset.sh kaggle-dry       render the Kaggle card, push nothing
+#   bash tests/publish-dataset.sh kaggle-settings  re-apply the card without re-uploading
 #
 # One-time auth:
 #   Hugging Face   brew install hf && hf auth login
@@ -42,6 +44,30 @@ prep() {
 
 valid_name() { printf '%s' "$1" | grep -qE '^[A-Za-z0-9][A-Za-z0-9._-]*$'; }
 
+# A file upload carries title/subtitle/description/keywords, but the rest of the
+# data card — update frequency, provenance, per-file and per-column descriptions
+# — only lands through the settings endpoint.
+apply_settings() {
+  local user="$1"
+  [ -f "$STAGE/dataset-metadata.json" ] || prep "$user/$SLUG" "$TITLE"
+  # Kaggle scores a cover image, and auto-detects dataset-cover-image.* sitting
+  # beside the metadata. Stage it only for this call, so the file upload in
+  # push_kaggle doesn't ship the banner as though it were data.
+  local cover="$STAGE/dataset-cover-image.png"
+  [ -f "$ROOT/og.png" ] && cp "$ROOT/og.png" "$cover"
+  echo "→ applying data-card settings …"
+  # This endpoint returns an empty body while a version is still finalising,
+  # which surfaces as a JSON decode error. It succeeds on a retry.
+  local rc=0 attempt
+  for attempt in 1 2 3; do
+    rc=0
+    kaggle datasets metadata --update -p "$STAGE" "$user/$SLUG" && break || rc=$?
+    [ "$attempt" = 3 ] || { echo "   retrying in 15s …"; sleep 15; }
+  done
+  rm -f "$cover"
+  return "$rc"
+}
+
 push_hf() {
   command -v hf >/dev/null 2>&1 || { echo "✗ hf not installed — run: brew install hf"; exit 1; }
   local user
@@ -62,8 +88,8 @@ push_hf() {
   echo "✓ https://huggingface.co/datasets/$user/$SLUG"
 }
 
-push_kaggle() {
-  command -v kaggle >/dev/null 2>&1 || { echo "✗ kaggle not installed — run: pipx install kaggle"; exit 1; }
+kaggle_user() {
+  command -v kaggle >/dev/null 2>&1 || { echo "✗ kaggle not installed — run: pipx install kaggle" >&2; exit 1; }
   # Kaggle replaced the old kaggle.json (username + key) with an OAuth /
   # access-token model. `kaggle auth login` writes credentials.json; a manually
   # created token lands in access_token or the environment.
@@ -71,7 +97,7 @@ push_kaggle() {
      && [ ! -f "$HOME/.kaggle/credentials.json" ] \
      && [ ! -f "$HOME/.kaggle/access_token" ] \
      && [ ! -f "$HOME/.kaggle/kaggle.json" ]; then
-    echo "✗ not authenticated to Kaggle. Easiest:  kaggle auth login"
+    echo "✗ not authenticated to Kaggle. Easiest:  kaggle auth login" >&2
     exit 1
   fi
   # A dataset id is "<username>/<slug>" and the CLI has no whoami, so dig the
@@ -83,11 +109,17 @@ push_kaggle() {
   [ -n "$user" ] || user=$(node -p "try{require(require('os').homedir()+'/.kaggle/kaggle.json').username}catch(e){''}" 2>/dev/null || true)
   [ -n "$user" ] || user=$(tr -d '[:space:]' < "$HOME/.kaggle/username" 2>/dev/null || true)
   if ! valid_name "$user"; then
-    echo "✗ Kaggle username unknown — your credentials don't contain one."
-    echo "  Set it once:  echo YOUR_KAGGLE_USERNAME > ~/.kaggle/username"
-    echo "  Or per run:   KAGGLE_USERNAME=you bash tests/publish-dataset.sh kaggle"
+    echo "✗ Kaggle username unknown — your credentials don't contain one." >&2
+    echo "  Set it once:  echo YOUR_KAGGLE_USERNAME > ~/.kaggle/username" >&2
+    echo "  Or per run:   KAGGLE_USERNAME=you bash tests/publish-dataset.sh kaggle" >&2
     exit 1
   fi
+  printf '%s' "$user"
+}
+
+push_kaggle() {
+  local user
+  user=$(kaggle_user)
   # NOTE: the filename dataset-export.mjs writes is dataset-metadata.json — the
   # Kaggle CLI's own --help calls it "datasets-metadata.json", which is a typo
   # and will not work. Subtitle, description, keywords and column descriptions
@@ -107,19 +139,25 @@ push_kaggle() {
     # useless here: nothing can crawl or cite it.
     kaggle datasets create -p "$STAGE" -u
   fi
-  # A file upload carries title/subtitle/description/keywords but drops the
-  # settings-only fields — update frequency, provenance, per-column descriptions.
-  # Those need the settings endpoint, and it is what fills out the data card.
-  echo "→ applying data-card settings …"
-  kaggle datasets metadata --update -p "$STAGE" "$user/$SLUG"
+  # Kaggle ingests the upload asynchronously, and column descriptions only stick
+  # once it has parsed the CSV and knows the columns exist — push settings too
+  # early and they are silently dropped.
+  printf '→ waiting for Kaggle to finish processing '
+  for _ in $(seq 1 30); do
+    [ "$(kaggle datasets status "$user/$SLUG" 2>/dev/null)" = ready ] && break
+    printf '.'; sleep 5
+  done
+  echo
+  apply_settings "$user"
   echo "✓ https://www.kaggle.com/datasets/$user/$SLUG"
 }
 
 case "${1:-}" in
-  prep)       prep ;;
-  hf)         push_hf ;;
-  kaggle)     push_kaggle ;;
-  kaggle-dry) push_kaggle dry ;;
-  all)    push_hf; push_kaggle ;;
-  *)      sed -n '2,22p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
+  prep)            prep ;;
+  hf)              push_hf ;;
+  kaggle)          push_kaggle ;;
+  kaggle-dry)      push_kaggle dry ;;
+  kaggle-settings) apply_settings "$(kaggle_user)" ;;
+  all)             push_hf; push_kaggle ;;
+  *)               sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
 esac
