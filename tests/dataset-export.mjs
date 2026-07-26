@@ -12,9 +12,16 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const [root, stage, kaggleId, title] = process.argv.slice(2);
-if (!root || !stage) {
+// --card prints the file and column descriptions for pasting into Kaggle's web
+// UI. Kaggle's settings API accepts both and then silently discards them, so the
+// UI is currently the only way to make them stick.
+const cardMode = process.argv[2] === "--card";
+const [root, stage, kaggleId, title] = cardMode
+  ? [process.argv[3] || ".", null, null, null]
+  : process.argv.slice(2);
+if (!root || (!cardMode && !stage)) {
   console.error("usage: dataset-export.mjs <root> <stage> [kaggleId] [title]");
+  console.error("       dataset-export.mjs --card [root]");
   process.exit(1);
 }
 
@@ -67,6 +74,35 @@ const COLUMNS = [
   { name: "privacy_url", get: (e) => e.privacy_url, description: "Privacy policy" },
 ];
 
+const n = entities.length;
+const countries = new Set(entities.flatMap((e) => e.countries || [])).size;
+
+const FILE_NOTES = {
+  "entities.csv": `Flattened directory, one row per neobank (${n} rows, ${COLUMNS.length} columns).`,
+  "entities.jsonl": "Same data as JSON Lines, with the nested source and as-of objects intact.",
+  "data.json": "Site source of truth: a single object with meta and entities, including counts and methodology.",
+  "README.md": "Data card: provenance, field dictionary, caveats.",
+};
+
+if (cardMode) {
+  console.log("# Kaggle data card — file and column descriptions\n");
+  console.log("Paste these into the dataset page on kaggle.com. The settings API");
+  console.log("accepts them and then drops them, so the UI is the only route.\n");
+  console.log("## File information\n");
+  console.log("| File | Description |");
+  console.log("| --- | --- |");
+  for (const [file, description] of Object.entries(FILE_NOTES)) {
+    console.log(`| \`${file}\` | ${description} |`);
+  }
+  console.log("\n## Column descriptors for `entities.csv`\n");
+  console.log("| Column | Description |");
+  console.log("| --- | --- |");
+  for (const c of COLUMNS) {
+    console.log(`| \`${c.name}\` | ${c.description.replace(/\|/g, "\\|")} |`);
+  }
+  process.exit(0);
+}
+
 fs.mkdirSync(stage, { recursive: true });
 
 fs.writeFileSync(
@@ -86,9 +122,6 @@ const csv = [
   ...entities.map((e) => COLUMNS.map((c) => cell(c.get(e))).join(",")),
 ].join("\n");
 fs.writeFileSync(path.join(stage, "entities.csv"), csv + "\n");
-
-const n = entities.length;
-const countries = new Set(entities.flatMap((e) => e.countries || [])).size;
 
 if (kaggleId) {
   const c = meta.counts;
@@ -138,12 +171,6 @@ if (kaggleId) {
     })),
   };
 
-  const FILE_NOTES = {
-    "entities.csv": `Flattened directory, one row per neobank (${n} rows, ${COLUMNS.length} columns).`,
-    "entities.jsonl": "Same data as JSON Lines, with the nested source and as-of objects intact.",
-    "data.json": "Site source of truth: a single object with meta and entities, including counts and methodology.",
-    "README.md": "Data card: provenance, field dictionary, caveats.",
-  };
   const sizeOf = (f) => {
     try {
       return fs.statSync(path.join(stage, f)).size;
