@@ -463,6 +463,12 @@ for (const [an, bn] of PAIRS) {
   const url = `${BASE}/data/`;
   const M = data.meta;
   const c = M.counts || {};
+  // Mirrors. Declaring them as sameAs + distribution is the machine-readable
+  // half of the association: it tells Dataset Search and model crawlers that the
+  // Hub copies and this page are one dataset, not three competing ones.
+  const HF = 'https://huggingface.co/datasets/neobankbeat/neobanks';
+  const HF_FILE = f => `${HF}/resolve/main/${f}`;
+  const KAGGLE = 'https://www.kaggle.com/datasets/neobankbeat/neobanks';
   const FIELDS = [
     ['name', 'string', 'Display name of the neobank.'],
     ['category', 'enum', 'traditional · hybrid · web3-native (see notes).'],
@@ -486,7 +492,7 @@ for (const [an, bn] of PAIRS) {
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'Dataset', '@id': `${BASE}/data/#dataset`, name: 'neobankbeat: open directory of neobanks worldwide',
       description: `A verified, machine-readable dataset of ${E.length} active neobanks — traditional, hybrid fiat+crypto and web3-native — with fields for custody, regulation type (licensed bank vs partner-bank/BaaS vs e-money vs self-custodial), card, cashback, yield, stablecoin support, FX markup, money-movement services, geography and reported users. Curated from primary sources, MIT-licensed, updated in the open.`,
-      url, sameAs: M.source, license: 'https://opensource.org/license/mit/', isAccessibleForFree: true,
+      url, sameAs: [M.source, HF, KAGGLE], license: 'https://opensource.org/license/mit/', isAccessibleForFree: true,
       datePublished: '2026-07-03', dateModified: DATA_MODIFIED, version: DATA_MODIFIED, temporalCoverage: '2026',
       creator: { '@type': 'Person', name: 'Francesco Andreoli', url: 'https://www.francesco-andreoli.com' },
       publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE + '/' },
@@ -496,7 +502,10 @@ for (const [an, bn] of PAIRS) {
       keywords: ['neobank', 'digital bank', 'fintech', 'challenger bank', 'banking as a service', 'stablecoin', 'crypto card', 'web3', 'self-custody', 'open dataset'],
       distribution: [
         { '@type': 'DataDownload', name: 'Full dataset (JSON)', encodingFormat: 'application/json', contentUrl: `${BASE}/data.json` },
-        { '@type': 'DataDownload', name: 'OpenAPI specification', encodingFormat: 'application/json', contentUrl: `${BASE}/openapi.json` }] },
+        { '@type': 'DataDownload', name: 'OpenAPI specification', encodingFormat: 'application/json', contentUrl: `${BASE}/openapi.json` },
+        { '@type': 'DataDownload', name: 'Flattened table (CSV, Hugging Face mirror)', encodingFormat: 'text/csv', contentUrl: HF_FILE('entities.csv') },
+        { '@type': 'DataDownload', name: 'One neobank per line (JSON Lines, Hugging Face mirror)', encodingFormat: 'application/x-ndjson', contentUrl: HF_FILE('entities.jsonl') },
+        { '@type': 'DataDownload', name: 'Kaggle mirror', encodingFormat: 'text/csv', contentUrl: KAGGLE }] },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
       { '@type': 'ListItem', position: 2, name: 'dataset', item: url }] }
@@ -560,6 +569,19 @@ data = json.load(urllib.request.urlopen("${BASE}/data.json"))
 print(data["meta"]["total"], "neobanks")
 for e in data["entities"][:5]:
     print(e["name"], "·", e["category"], "·", e["regulation_type"])</pre>
+
+  <h2>Mirrors</h2>
+  <p>The same data is published on the two hubs researchers and model pipelines actually search. Both are refreshed from this file, so <a href="/data.json">data.json</a> stays the source of truth — if the three ever disagree, this one is right.</p>
+  <div class="dlrow">
+    <a class="dlbtn" href="${HF}" target="_blank" rel="noopener"><b>Hugging Face</b> — neobankbeat/neobanks ↗</a>
+    <a class="dlbtn" href="${KAGGLE}" target="_blank" rel="noopener"><b>Kaggle</b> — neobankbeat/neobanks ↗</a>
+  </div>
+  <p>The mirrors add two shapes this site doesn't serve: <code>entities.jsonl</code>, one neobank per line, and <code>entities.csv</code>, flattened to plain columns with the nested <code>fx_markup</code>, <code>reported_users</code> and <code>volume</code> objects split into their own <code>_as_of</code> and <code>_source</code> fields. Both download without an account:</p>
+  <pre class="code">from datasets import load_dataset
+
+ds = load_dataset("neobankbeat/neobanks", split="train")
+print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank licence")</pre>
+  <p class="meta">Or straight to the flat table: <a href="${HF_FILE('entities.csv')}" target="_blank" rel="noopener">entities.csv</a> · <a href="${HF_FILE('entities.jsonl')}" target="_blank" rel="noopener">entities.jsonl</a></p>
 
   <h2>Cite it</h2>
   <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> ${BASE}/ (MIT).</p>
