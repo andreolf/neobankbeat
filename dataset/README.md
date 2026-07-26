@@ -20,7 +20,7 @@ task_categories:
   - text-retrieval
 configs:
   - config_name: default
-    data_files: "data.json"
+    data_files: "entities.jsonl"
 ---
 
 # neobankbeat — open directory of neobanks worldwide
@@ -35,9 +35,16 @@ A verified, machine-readable directory of **368 active neobanks** — traditiona
 - **License:** MIT — free to use, including commercially, with attribution appreciated.
 - **Updated:** rolling; see the [changelog](https://www.neobankbeat.com/changelog/).
 
+## Files
+
+| File | What it is |
+|---|---|
+| `entities.jsonl` | One neobank per line — this is what the dataset viewer and `load_dataset` read. |
+| `data.json` | The canonical file as served by the site: `{ meta, entities }`, with counts, field notes and methodology in `meta`. |
+
 ## What's in it
 
-Each entity is an object under `entities` in `data.json`. Fields include:
+Each row is one neobank (an object under `entities` in `data.json`). Fields include:
 
 | Field | Meaning |
 |---|---|
@@ -67,6 +74,16 @@ FX) are "up to" figures that change often — always confirm with the issuer.
 > neobankbeat (2026). *Open directory of neobanks worldwide.* https://www.neobankbeat.com/ (MIT).
 
 ## Load it
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("neobankbeat/neobanks", split="train")
+print(ds)
+print(ds.filter(lambda e: e["regulation_type"] == "Partner-bank model").num_rows, "run on a sponsor bank")
+```
+
+Or straight from the site, no dependencies — this gives you `meta` too:
 
 ```python
 import json, urllib.request

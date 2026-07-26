@@ -33,9 +33,17 @@ prep() {
   rm -rf "$STAGE"; mkdir -p "$STAGE"
   cp "$ROOT/data.json" "$STAGE/data.json"
   cp "$ROOT/dataset/README.md" "$STAGE/README.md"
+  # Flat JSON Lines, one neobank per line. The Hub's dataset viewer can't parse
+  # data.json (a single object with meta + entities), and a dataset with a broken
+  # viewer gets far less pickup — the parsed rows feed Hub search and tooling.
+  node -e '
+    const fs=require("fs");
+    const d=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));
+    fs.writeFileSync(process.argv[2], d.entities.map(e=>JSON.stringify(e)).join("\n")+"\n");
+  ' "$ROOT/data.json" "$STAGE/entities.jsonl"
   local total
   total=$(node -p "require('$ROOT/data.json').entities.length")
-  echo "✓ staged $total entities → dataset/.staging/"
+  echo "✓ staged $total entities → dataset/.staging/ (data.json + entities.jsonl + README.md)"
 }
 
 valid_name() { printf '%s' "$1" | grep -qE '^[A-Za-z0-9][A-Za-z0-9._-]*$'; }
