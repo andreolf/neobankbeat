@@ -121,12 +121,30 @@ kaggle_user() {
 # A public notebook is the one part of Kaggle's usability score that metadata
 # cannot buy, and it is also the thing that actually gets the dataset in front
 # of people — notebooks surface in Kaggle search and on the dataset page.
+#
+# Caveat that costs an afternoon if you don't know it: `kernels push` can only
+# UPDATE a notebook that already has a saved version. It cannot create one, so
+# the first version has to be made in the web UI. This is long-standing and
+# acknowledged upstream: github.com/Kaggle/kaggle-api/issues/575
 push_notebook() {
-  local user nb="$ROOT/dataset/notebook"
+  local user nb="$ROOT/dataset/notebook" out
   user=$(kaggle_user)
   [ -f "$nb/kernel-metadata.json" ] || { echo "✗ $nb/kernel-metadata.json missing"; exit 1; }
   echo "→ pushing notebook to kaggle.com/code/$user/… "
-  kaggle kernels push -p "$nb"
+  out=$(kaggle kernels push -p "$nb" 2>&1) || true
+  echo "$out"
+  if printf '%s' "$out" | grep -q "Notebook not found"; then
+    cat <<'MSG'
+
+  The notebook does not exist yet, and the API cannot create it. Once only:
+    1. https://www.kaggle.com/code → New Notebook
+    2. File → Import Notebook → dataset/notebook/starter.ipynb
+    3. Add Input → your neobanks dataset
+    4. Save Version → "Save & Run All" (a quick save is not enough)
+  Then this command keeps it in sync from the repo.
+MSG
+    return 1
+  fi
 }
 
 push_kaggle() {
