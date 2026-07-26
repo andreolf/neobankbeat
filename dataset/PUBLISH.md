@@ -13,12 +13,23 @@ need to authenticate once.
 
 ### Hugging Face (highest priority — HF datasets land in retrieval/training corpora)
 
+You need a Hugging Face account first: <https://huggingface.co/join>.
+
 ```bash
 brew install hf          # the CLI is `hf`; `huggingface-cli` is deprecated
-hf auth login            # paste a token from https://hf.co/settings/tokens
+hf auth login
 ```
 
-The token must have **write** permission — a read token will fail at upload.
+`hf auth login` offers a **browser login** — take it, and you never have to
+handle a token by hand.
+
+If you'd rather paste a token, create one at
+<https://huggingface.co/settings/tokens> (in the UI: avatar → **Access Tokens**
+→ **Create new token**). Give it the **Write** role — a Read token logs in fine
+and then fails at upload, which is a confusing way to lose ten minutes.
+
+Note the full domain: `huggingface.co`. The `hf.co` shortener exists but some
+browsers treat it as a search term.
 
 ### Kaggle
 

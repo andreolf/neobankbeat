@@ -11,7 +11,9 @@
 #
 # One-time auth:
 #   Hugging Face   brew install hf && hf auth login
-#                  token from https://hf.co/settings/tokens — must be a WRITE token
+#                  Easiest: pick the browser login when prompted.
+#                  Manual token: https://huggingface.co/settings/tokens
+#                  (avatar → Access Tokens → Create new token → role: Write)
 #   Kaggle         pipx install kaggle
 #                  kaggle.com → your avatar → Settings → API → "Create New Token"
 #                  saves kaggle.json → move it to ~/.kaggle/kaggle.json && chmod 600
