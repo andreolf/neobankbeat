@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>45 ways to cut 368 neobanks — and the counts we won't merge · neobankbeat</title>
+<meta name="description" content="New browsable pages for licence type, KYC, card network, region, country and audience. Each states its own count — including where the data can't support one.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="45 ways to cut 368 neobanks — and the counts we won't merge">
+<meta property="og:description" content="Browsable pages for licence, KYC, card, region, country and audience. Every count shows its work, and two of them refuse to be added together.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/">
+<meta property="og:image" content="https://www.neobankbeat.com/og/blog/browse-neobanks-by-licence-kyc-country.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og/blog/browse-neobanks-by-licence-kyc-country.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}};document.addEventListener("submit",function(e){if(e.target.classList&&e.target.classList.contains("nbform"))nbevt("subscribe",{page:location.pathname})},true)</script><script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"45 ways to cut 368 neobanks — and the counts we won't merge","description":"New browsable pages for licence type, KYC posture, card network, region, country and audience. Each page states its own count, and where the data can't support a ranking it says so instead of inventing one.","datePublished":"2026-07-28","dateModified":"2026-07-28","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/browse-neobanks-by-licence-kyc-country.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/browse/">browse</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/" class="on">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+    <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article>
+  <div class="eyebrow">the dataset</div>
+  <h1>45 ways to cut 368 neobanks — and the <em>two counts</em> we won't merge</h1>
+  <p class="meta"><b>July 28, 2026</b> · 6 min read · <a href="/blog/">← all posts</a> · <a href="/browse/">browse the cuts</a></p>
+
+  <p>The directory has always been able to filter by licence type, custody model, KYC posture, card network, region and audience. What it couldn't do was give you a page. A filter state lives in a query string, and a query string is not something you can link in an argument, cite in a paper, or send to someone who asked which neobanks actually hold their own banking licence.</p>
+
+  <p>So the filters are now <b>45 pages</b> at <a href="/browse/">/browse/</a>. Each one answers a single question outright, states its own count, explains what the category means, and lists every member with custody, licence and geography. They're generated from <a href="/data.json">data.json</a>, so they can't disagree with the directory.</p>
+
+  <p>That part is plumbing. The interesting part was deciding what <em>not</em> to put on them.</p>
+
+  <h2>The counts that refuse to be added together</h2>
+
+  <p>Search "neobanks in Germany" and you'll get lists that quietly merge two completely different facts: companies <em>based</em> in Germany, and products <em>available</em> to someone in Germany. N26 is both. Revolut is only the second. Wise is available in Germany and headquartered in London. Merging them produces a number that means nothing, and it's the number everyone publishes.</p>
+
+  <p>In this dataset those two facts have very different reliability, and that's the whole reason to keep them apart:</p>
+
+  <table>
+    <tr><th>Fact</th><th>Known for</th><th>Why</th></tr>
+    <tr><td>Where the company is <b>headquartered</b></td><td><b>334</b> of 368</td><td>It's in filings and on the About page. Cheap to verify, rarely disputed.</td></tr>
+    <tr><td>Where the product is <b>available</b></td><td><b>167</b> of 368</td><td>Needs checking market by market, and most neobanks describe their footprint as "select regions" or "60+ countries" without naming one.</td></tr>
+  </table>
+
+  <p>So <a href="/countries/germany/">/countries/germany/</a> counts the 8 companies based there, then lists separately the ones verified as available there without being based there — and says outright that a neobank missing from the second list <b>has not been ruled out, it has not been checked</b>. Absence of evidence, labelled as such.</p>
+
+  <p>The tempting alternative was to let the availability field set the headline number. It would have looked more complete and been wrong on all 17 country pages, understating every one by an unknown margin. A 45%-complete field should never be allowed to drive a total.</p>
+
+  <div class="callout"><span class="k">the rule</span>A count is only worth publishing if you can say how it was derived and what it excludes. When those two things can't be stated, the honest output is not a smaller number — it's a sentence explaining why there isn't one.</div>
+
+  <h2>Where a ranking would have been a guess</h2>
+
+  <p>Every one of these pages sorts by reported users, which immediately exposed a problem: <b>only 22 of 368 neobanks disclose a user figure at all</b>. For the big regulatory cuts that's enough to name the giants honestly. For most of the niche cuts it isn't. Sorting 30 SMB neobanks by a field that 28 of them leave blank produces an alphabetical list — and calling the top of an alphabetical list "the biggest" is a fabrication with a plausible shape.</p>
+
+  <p>So each page checks whether it can support a ranking before offering one. Where it can't, it says so: <em>"Not answerable from public data: only 2 of these 14 disclose a user figure at all. The list below is therefore not a ranking, and anyone presenting one for this category is guessing."</em></p>
+
+  <p>That sentence appears on a lot of pages. It should appear on a lot more pages across this industry than it does.</p>
+
+  <h2>What the cuts actually show</h2>
+
+  <p>Slicing the same 368 products six different ways surfaced things the directory's default view buries.</p>
+
+  <h3>60 neobanks issue no card at all</h3>
+  <p><a href="/cards/no-card/">The card-free list</a> is the one I'd send to anyone who thinks "neobank" means "app with a debit card." It splits cleanly in two: <b>39</b> are traditional licensed institutions — Marcus, OakNorth, Atom Bank, Tandem — where deposits and lending <em>are</em> the business and a card would be a distraction. Another <b>17</b> are self-custodial wallets that leave spending to a partner or an exchange. A card is a distribution choice, and its absence usually tells you where the revenue comes from.</p>
+
+  <h3>The regulatory split is the least fashionable and most important cut</h3>
+  <p><b>127</b> hold <a href="/regulation/licensed-banks/">their own banking licence</a>. <b>77</b> run on <a href="/regulation/partner-bank-baas-neobanks/">somebody else's</a>. <b>48</b> are <a href="/regulation/e-money-institutions/">e-money institutions</a> that may issue cards but not lend your deposits. <b>51</b> are <a href="/regulation/self-custodial-neobanks/">software that never holds your money</a>, which means there is nothing to insure and nothing to freeze. Four structures, four completely different answers to "what happens to my balance if this company dies," and almost no app tells you which one it is.</p>
+
+  <h3>No-KYC is real, tiny, and structurally explainable</h3>
+  <p><b>13</b> products <a href="/kyc/no-kyc/">work with no identity check</a> — and every one of them is self-custodial, because that's the only structure where it's possible. There's no account to open and no balance held for you, so there's nobody to verify you <em>to</em>. A further <b>32</b> are <a href="/kyc/card-only-kyc/">card-only</a>: the wallet needs nothing, the card needs ID, because the card's licensed issuer carries the obligation. The line isn't ideological, it's where the regulated entity starts.</p>
+
+  <h3>16 neobanks run on domestic card rails</h3>
+  <p>RuPay in India, Verve in Nigeria, Mada in Saudi Arabia. <a href="/cards/domestic-networks/">These 16</a> trade international acceptance for cheaper interchange, usually under regulatory pressure to keep everyday payments on local infrastructure. It's a small list today and a live policy trend.</p>
+
+  <h2>Cuts that didn't get a page</h2>
+
+  <p>A page needs at least six members to exist here. That excluded eight audience niches covering 15 products — neobanks for women, for climate, for seniors, for the Black community, for gig workers, for people with disabilities. They're in <a href="/data.json">the dataset</a> and on <a href="/n/">their profiles</a>; they don't get a hub, because a page listing two companies isn't a resource, it's a stub competing with its own members for attention.</p>
+
+  <p>The threshold is arbitrary. Having one is not: the alternative is thin pages that exist to catch a search query rather than to answer it, which is how a useful dataset turns into content sludge.</p>
+
+  <h2>Use them</h2>
+
+  <p>Start at <a href="/browse/">/browse/</a>, or jump straight in: by <a href="/regulation/licensed-banks/">licence</a>, by <a href="/kyc/no-kyc/">KYC</a>, by <a href="/cards/no-card/">card</a>, by <a href="/regions/africa/">region</a>, by <a href="/countries/nigeria/">country</a>, by <a href="/for/smb-and-startups/">who it's for</a>. Every neobank's profile now links the cuts it belongs to, so you can walk sideways from any product to its structural peers.</p>
+
+  <p>And if you'd rather compute your own cuts, that's the actual point — the <a href="/data.json">raw file</a> is MIT-licensed, and it's <a href="/blog/neobank-dataset-hugging-face-kaggle/">mirrored on Hugging Face and Kaggle</a> as a flat CSV. Every count on every one of these 45 pages is reproducible in one <code>groupby</code>. Check them.</p>
+
+  <p>The availability gap is the open one. If you can confirm, with a source, that a product on this list serves a market we haven't recorded, that's a genuinely useful contribution: <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">open a data-fix issue</a>. Filling that field is what turns 17 country pages from half-answers into complete ones.</p>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Counts reflect the open dataset as of July 2026 and are regenerated from data.json, so the pages and the directory cannot disagree. Figures are compiled from public filings, registers and product documentation. Nothing here is financial advice. Sources on each profile page.</p>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
+</body>
+</html>

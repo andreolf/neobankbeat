@@ -7,6 +7,12 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>45 ways to cut 368 neobanks — and the two counts we won&#39;t merge</title>
+    <link>https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/</link>
+    <guid>https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/</guid>
+    <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
+    <description>The directory's filters are now 45 linkable pages — by licence type, KYC posture, card network, region, country and audience — each stating its own count and listing every member. Two facts stay deliberately unmerged: where a company is headquartered (known for 334 of 368) and where its product is available (167), because letting the weaker field set the headline would understate all 17 country pages. And where only 22 of 368 disclose a user figure, the pages refuse to publish a ranking at all.</description>
+  </item>
     <title>The neobank dataset is now on Hugging Face and Kaggle</title>
     <link>https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/</link>
     <guid>https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/</guid>
