@@ -467,6 +467,22 @@ console.log('— flow 26: generated who-owns / alternatives pages are substantiv
   ok(artifacts.length===0,'no template artifacts/broken links in answer pages ('+artifacts.slice(0,5).join(', ')+')');
 }
 
+console.log('— flow 27: every footer comes from one source (no hand-edited drift)');
+{
+  // Delegates to sync-footers.mjs --check rather than reimplementing it: two
+  // copies of the drift rule would be the drift this flow exists to catch.
+  const {execSync}=require('child_process');
+  const path=require('path');
+  let out='',code=0;
+  try{ out=execSync('node '+path.join(__dirname,'sync-footers.mjs')+' --check',{encoding:'utf8'}); }
+  catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
+  const drifted=[...out.matchAll(/^drift: (.+)$/gm)].map(m=>m[1]);
+  const missing=(out.match(/^index\.html footer is missing: (.+)$/m)||[])[1];
+  ok(code===0,'no footer drift'+(drifted.length?' ('+drifted.length+' file(s): '+drifted.slice(0,3).join(', ')+' — run node tests/sync-footers.mjs)':''));
+  ok(!missing,'homepage footer reaches every canonical destination'+(missing?' (missing: '+missing+')':''));
+  ok(/flat footers match/.test(out),'footer check ran over the whole tree');
+}
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}

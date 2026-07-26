@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import { FOOTER_HTML } from './footer.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
@@ -94,10 +95,7 @@ document.addEventListener('submit',function(e){if(e.target.classList&&e.target.c
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&a.pathname==='/data.json')nbevt('data_download',{page:location.pathname})});</script>`;
 
 const foot = `
-<footer><div class="fwrap">
-  <span>© neobankbeat · MIT</span>
-  <a href="/">directory</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
-</div></footer>
+${FOOTER_HTML}
 ${bwScript}
 </body>
 </html>

@@ -118,12 +118,31 @@ reports/            generated report source + PDF (robots-disallowed)
 n/                  368 generated entity profile pages (SEO surface)
 vs/                 60 generated head-to-head comparison pages
 tests/
-├── flowtest.js     167 assertions across 23 user flows (JSDOM)
+├── flowtest.js     192 assertions across 27 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from index.html
 ├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
 ├── build-jobs.mjs  refreshes /jobs/ from Greenhouse/Lever/Ashby APIs
-└── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
+├── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
+├── footer.mjs      the site footer, defined once
+└── sync-footers.mjs pushes it into hand-written HTML (--check to detect drift)
 ```
+
+### the footer
+
+`tests/footer.mjs` is the only place footer links are defined. Generated pages
+import it at build time; the blog is hand-written HTML, so
+`node tests/sync-footers.mjs` rewrites those in place. Add a link there and
+nowhere else, then run:
+
+```sh
+node tests/build-pages.mjs && node tests/build-changelog.mjs && node tests/sync-footers.mjs
+```
+
+The homepage keeps its own grouped footer on purpose — columns, on-page anchors
+and a disclaimer that would be noise on an inner page. It is only held to the
+rule that it can't *omit* a destination the flat footer carries. Flowtest flow 27
+fails on any drift, which is how 19 blog posts were caught with no link to
+`/data/` at all.
 
 ## badge
 
