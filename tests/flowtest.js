@@ -713,6 +713,21 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
   }
   ok(wrongFile.length===0,'no build script still parses homepage JS out of index.html ('+wrongFile.join(', ')+')');
 
+  // a workflow with an unrecognised top-level key is invalid, and GitHub reports it
+  // as a failed run rather than a config error — `soname:` for `name:` cost six of them
+  {
+    const VALID=new Set(['name','on','permissions','jobs','env','defaults','concurrency','run-name']);
+    const wf=path.join(root,'.github','workflows');
+    const broken=[];
+    for(const f of fs.readdirSync(wf)){
+      const keys=[...fs.readFileSync(path.join(wf,f),'utf8').matchAll(/^([A-Za-z_][\w-]*):/gm)].map(m=>m[1]);
+      const bad=keys.filter(k=>!VALID.has(k));
+      if(bad.length)broken.push(f+' ('+bad.join(',')+')');
+      else if(!keys.includes('name')||!keys.includes('on')||!keys.includes('jobs'))broken.push(f+' (missing name/on/jobs)');
+    }
+    ok(broken.length===0,'every workflow file has only valid top-level keys ('+broken.join(', ')+')');
+  }
+
   const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
   const rule=(vercel.headers||[]).find(x=>/app\\?\.js|\/app\.js/.test(x.source));
   ok(!!rule&&rule.headers.some(x=>/cache-control/i.test(x.key)&&/immutable/.test(x.value)),

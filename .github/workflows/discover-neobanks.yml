@@ -1,4 +1,4 @@
-soname: discover new neobanks
+name: discover new neobanks
 
 on:
   schedule:
