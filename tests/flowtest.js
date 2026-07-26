@@ -440,7 +440,9 @@ console.log('— flow 25: no stale entity counts on evergreen surfaces');
     let txt=fs.readFileSync(path.join(__dirname,'..',f),'utf8');
     // dated post titles in the blog index are historical snapshots, not stale copy
     if(f==='blog/index.html')txt=txt.split('<div class="postlist">')[0];
-    const stale=[...txt.matchAll(/\b(3[0-9]{2})\b(?=[^.]{0,60}?(?:neobank|entit|verified))/gi)]
+    // "334 of 368 entities" states a subset and proves it knows the total, so the
+    // only numbers worth flagging are the ones presenting themselves as the total
+    const stale=[...txt.matchAll(/\b(3[0-9]{2})\b(?! of \d)(?=[^.]{0,60}?(?:neobank|entit|verified))/gi)]
       .map(m=>+m[1]).filter(n=>n>=300&&n<500&&n!==total);
     ok(stale.length===0,f+' has no stale totals (found: '+[...new Set(stale)].join(',')+' vs '+total+')');
   }
@@ -476,16 +478,18 @@ console.log('— flow 26: generated who-owns / alternatives pages are substantiv
 
   // topic hubs: same bar, plus every row must reach a real profile and the
   // stated count must equal the rows actually rendered
-  const HUB_FAMS=['regulation','kyc','regions','for'];
+  // hub paths come from /browse/, the generated index of them: naming the families
+  // here instead meant two new ones shipped without any of these checks running
+  const HUB_PATHS=[...fs.readFileSync(path.join(root,'browse','index.html'),'utf8')
+    .matchAll(/href="\/([a-z]+\/[a-z0-9-]+)\/"(?= class="|>)/g)].map(m=>m[1])
+    .filter(p=>!/^(n|vs|blog|infra|investors|jobs|report)\//.test(p));
   let hubs=0;const hthin=[],hbad=[],hcount=[],hlinks=[],hdup=new Map();
-  for(const fam of HUB_FAMS){
-    const d=path.join(root,fam);
-    if(!fs.existsSync(d))continue;
-    for(const s of fs.readdirSync(d,{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
-      const p=path.join(d,s,'index.html');
-      if(!fs.existsSync(p))continue;
+  {
+    for(const id of HUB_PATHS){
+      const p=path.join(root,id,'index.html');
+      if(!fs.existsSync(p)){hthin.push(id+' (missing)');continue}
       hubs++;
-      const h=fs.readFileSync(p,'utf8'),id=fam+'/'+s;
+      const h=fs.readFileSync(p,'utf8');
       if(stripArticle(h).length<900)hthin.push(id);
       const lds=ldOf(h);
       if(lds.some(l=>l===null)||!lds.some(l=>((l&&l['@graph'])||[]).some(n=>n['@type']==='FAQPage')))hbad.push(id);
@@ -500,17 +504,23 @@ console.log('— flow 26: generated who-owns / alternatives pages are substantiv
       hdup.set(h1,(hdup.get(h1)||0)+1);
     }
   }
-  ok(hubs>=20,'scanned topic hub pages ('+hubs+')');
+  ok(hubs>=40,'scanned topic hub pages ('+hubs+')');
   ok(hthin.length===0,'no thin hub pages (<900 chars): '+hthin.slice(0,5).join(', '));
   ok(hbad.length===0,'every hub has parseable JSON-LD with FAQ schema ('+hbad.slice(0,5).join(', ')+')');
   ok(hcount.length===0,'hub headline count == table rows == ItemList length ('+hcount.slice(0,4).join(', ')+')');
   ok(hlinks.length===0,'every hub table row links a real profile ('+hlinks.slice(0,4).join(', ')+')');
   ok([...hdup.values()].every(v=>v===1),'no two hubs share an h1 ('+[...hdup].filter(x=>x[1]>1).map(x=>x[0]).join(', ')+')');
   ok(fs.existsSync(path.join(root,'browse','index.html')),'/browse/ hub index exists');
+  // a hub that exists on disk but is not linked from /browse/ is orphaned, and
+  // since HUB_PATHS is read *from* /browse/, the disk side is what needs checking
   {
-    const b=fs.readFileSync(path.join(root,'browse','index.html'),'utf8');
-    const linked=new Set([...b.matchAll(/href="\/(regulation|kyc|regions|for)\/([^"]+)\/"/g)].map(m=>m[1]+'/'+m[2]));
-    ok(linked.size===hubs,'/browse/ links every hub ('+linked.size+' of '+hubs+')');
+    const fams=new Set(HUB_PATHS.map(p=>p.split('/')[0]));
+    const onDisk=[...fams].flatMap(f=>fs.readdirSync(path.join(root,f),{withFileTypes:true})
+      .filter(x=>x.isDirectory()).map(x=>f+'/'+x.name));
+    const orphan=onDisk.filter(p=>!HUB_PATHS.includes(p));
+    ok(orphan.length===0,'every hub on disk is linked from /browse/ ('+orphan.slice(0,5).join(', ')+')');
+    ok(HUB_PATHS.length===onDisk.length,'/browse/ links every hub ('+HUB_PATHS.length+' linked, '+onDisk.length+' on disk)');
+    ok(fams.size>=6,'hubs span every family ('+[...fams].join(' ')+')');
   }
 }
 

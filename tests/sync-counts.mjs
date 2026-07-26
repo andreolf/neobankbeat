@@ -44,7 +44,13 @@ const S = {
   alternatives: dirs('n').filter(s => fs.existsSync(p(`n/${s}/alternatives/index.html`))).length,
   investors: dirs('investors').length,
   infra: dirs('infra').length,
-  hubs: ['regulation', 'kyc', 'regions', 'for'].reduce((a, f) => a + dirs(f).length, 0),
+  /* /browse/ is the generated index of every hub, so it is the one place that
+     knows how many there are. Listing the families here instead let two new ones
+     ship without being counted — and the check passed, because the expected
+     number was derived from the same stale list as the prose. */
+  hubs: (fs.readFileSync(p('browse/index.html'), 'utf8')
+    .match(/href="\/[a-z]+\/[a-z0-9-]+\/"(?= class="|>)/g) || [])
+    .filter(h => !/\/(n|vs|blog|infra|investors|jobs|report)\//.test(h)).length,
   /* visible <h3 id> questions == FAQPage mainEntity count; keep them equal */
   faq: (faqHtml.match(/"@type":"Question"/g) || []).length,
   glossary: (fs.readFileSync(p('glossary/index.html'), 'utf8').match(/<dt id=/g) || []).length,
