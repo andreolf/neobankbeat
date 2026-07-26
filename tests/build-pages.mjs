@@ -276,6 +276,9 @@ for (const [an, bn] of PAIRS) {
 
 const nameList = a => a.length <= 1 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
 
+/* a field is present but unknown when it reads as an em dash */
+const known = v => v && v !== '—' ? v : null;
+
 /* ═══ topic hubs: /regulation/, /kyc/, /regions/, /for/ ═══════════════
    The directory already filters on these fields client-side, but a filter state
    behind a query string is not a page anyone can link to, rank, or cite. Each
@@ -330,6 +333,55 @@ let hubsFor = () => [];
     'gen alpha · kids & family': ['kids-and-family', 'Neobanks for kids and family'],
     'faith-based': ['faith-based', 'Faith-based and Islamic neobanks'],
   };
+  /* The card layer cuts across the network field rather than partitioning it: a
+     product with a "Visa/MC" entry belongs in both, and 60 issue no card at all. */
+  const CARD_CUTS = {
+    'no-card': ['card-free neobanks', 'Neobanks with no card of their own',
+      e => !known(e.card_network),
+      'Two very different products land here. Licensed savings and lending banks never issued a card because deposits and credit are the business, and self-custodial wallets leave spending to a partner or an exchange. A card is a distribution choice, not part of the definition — and its absence usually tells you where the revenue comes from instead.',
+      'They split into licensed savings and lending banks, where deposits and credit are the business, and self-custodial wallets that leave spending to a partner.'],
+    visa: ['Visa neobanks', 'Neobanks that issue a Visa card',
+      e => /Visa/i.test(e.card_network || ''),
+      'The network on the card is chosen by whoever issues it, which for most neobanks is a sponsor bank or a BIN sponsor rather than the brand on the app. It matters for acceptance abroad and for which benefits apply, but it tells you nothing about who holds your money.'],
+    mastercard: ['Mastercard neobanks', 'Neobanks that issue a Mastercard',
+      e => /\bMC\b|Mastercard/i.test(e.card_network || ''),
+      'The network on the card is chosen by whoever issues it, which for most neobanks is a sponsor bank or a BIN sponsor rather than the brand on the app. Some products run both schemes depending on the market, so they appear on the Visa list too.'],
+    'domestic-networks': ['neobanks on domestic card networks', 'Neobanks on domestic card networks',
+      e => /RuPay|Verve|Mada|UPI|GrabPay|dom\./i.test(e.card_network || ''),
+      'RuPay in India, Verve in Nigeria, Mada in Saudi Arabia: domestic schemes with cheaper interchange and, increasingly, regulatory pressure to keep everyday payments on local rails. Cards on these networks are usually cheaper to run and harder to use abroad, which is the trade being made.'],
+  };
+
+  /* ── country hubs ────────────────────────────────────────────────────────
+     Two different facts get conflated by every "best neobanks in <country>"
+     page on the internet, so this keeps them apart.
+
+     Where a company is headquartered is recorded for 334 of the 368 entities
+     and is parsed straight out of the hq field, so those counts are complete.
+     Where a product is *available* is only recorded for 167, because it takes
+     per-market verification and most neobanks describe their footprint
+     vaguely. Merging the two would let a 45%-complete field silently set the
+     headline number, so each table says which fact it is showing and the
+     availability one says what it does not know. ── */
+  const CC = { US: 'the United States', UK: 'the United Kingdom', NG: 'Nigeria', AE: 'the UAE',
+    IN: 'India', SG: 'Singapore', FR: 'France', MX: 'Mexico', CH: 'Switzerland', BR: 'Brazil',
+    AR: 'Argentina', ID: 'Indonesia', DE: 'Germany', CO: 'Colombia', AU: 'Australia',
+    PH: 'the Philippines', VN: 'Vietnam', CA: 'Canada', IT: 'Italy', MY: 'Malaysia',
+    HK: 'Hong Kong', LT: 'Lithuania', EG: 'Egypt', SA: 'Saudi Arabia', SE: 'Sweden',
+    ES: 'Spain', KR: 'South Korea', PK: 'Pakistan', JP: 'Japan', ZA: 'South Africa',
+    IL: 'Israel', NL: 'the Netherlands', RO: 'Romania', TR: 'Turkey', UZ: 'Uzbekistan',
+    CL: 'Chile', CN: 'China', BD: 'Bangladesh', TH: 'Thailand', TW: 'Taiwan', BH: 'Bahrain',
+    DK: 'Denmark', IS: 'Iceland', GR: 'Greece', UA: 'Ukraine', RU: 'Russia', KZ: 'Kazakhstan',
+    UY: 'Uruguay', PY: 'Paraguay', PA: 'Panama', DO: 'the Dominican Republic', NZ: 'New Zealand',
+    CI: "Côte d'Ivoire", SN: 'Senegal', KE: 'Kenya', TN: 'Tunisia', CM: 'Cameroon',
+    KW: 'Kuwait', AT: 'Austria', RS: 'Serbia', CZ: 'Czechia', NO: 'Norway', PR: 'Puerto Rico' };
+  /* the availability field spells some markets out differently from the hq codes */
+  const CC_ALIAS = { US: 'United States', UK: 'United Kingdom', AE: 'UAE', PH: 'Philippines',
+    NL: 'Netherlands', DO: 'Dominican Republic', KR: 'South Korea', ZA: 'South Africa' };
+  const hqCode = e => ((e.hq || '').match(/,\s*([A-Z]{2,3})$/) || [])[1] || null;
+  const availableIn = (code) => {
+    const names = [CC_ALIAS[code] || CC[code].replace(/^the /, ''), code];
+    return E.filter(e => (e.countries || []).some(c => names.includes(c)));
+  };
 
   const HUBS = [
     ...fam('regulation', groupBy(e => REG_COPY[e.regulation_type] ? e.regulation_type : null), (key, rows) => {
@@ -359,6 +411,32 @@ let hubsFor = () => [];
         lead: `${rows.length} of the ${E.length} neobanks tracked here are ${h1.replace(/^Neobanks /, '').replace(/^Faith-based and Islamic neobanks/, 'faith-based')}.`,
       };
     }),
+    ...fam('cards', Object.fromEntries(Object.entries(CARD_CUTS)
+      .map(([slug, [, , test]]) => [slug, E.filter(test)])), (slug) => {
+      const [label, h1, , explain, gist] = CARD_CUTS[slug];
+      const net = { visa: 'Visa', mastercard: 'MC' }[slug];
+      return { slug, label, h1, explain, gist,
+        dir: net ? `/?net=${encodeURIComponent(net)}` : '/browse/',
+        lead: `${E.filter(CARD_CUTS[slug][2]).length} of the ${E.length} neobanks tracked here are ${label}.` };
+    }),
+    ...fam('countries', groupBy(e => (CC[hqCode(e)] ? hqCode(e) : null)), (code, rows) => {
+      const name = CC[code];
+      const bare = name.replace(/^the /, '');
+      const avail = availableIn(code);
+      const extra = avail.filter(e => !rows.includes(e));
+      return {
+        slug: slugify(bare), label: `neobanks in ${bare}`, h1: `Neobanks in ${bare}`,
+        gist: `Headquarters is a complete field here; availability is not, so the two are counted separately below.`,
+        explain: `These ${rows.length} are headquartered in ${name} — parsed from the registered base of each company, so the count is complete. ` +
+          `Availability is a different and much harder question: it is verified for ${avail.length} ${avail.length === 1 ? 'product' : 'products'} in ${name} so far, out of ${E.length} tracked, ` +
+          `so a neobank missing from the second table below has not been ruled out — it has not been checked. Corrections are welcome on GitHub.`,
+        dir: `/?q=${encodeURIComponent(bare)}`,
+        lead: `${rows.length} of the ${E.length} neobanks tracked here are headquartered in ${name}.`,
+        extraTable: extra.length ? [`Also verified as available in ${bare}`, extra,
+          `${extra.length} more ${extra.length === 1 ? 'product is' : 'products are'} verified as available to customers in ${bare} without being based there. ` +
+          `This list is as complete as the availability field, which is to say partial.`] : null,
+      };
+    }),
   ];
 
   hubsFor = e => HUBS.filter(h => h.rows.includes(e))
@@ -378,7 +456,19 @@ let hubsFor = () => [];
 </style>`;
 
   const CATL = { traditional: 'traditional', hybrid: 'hybrid', 'web3-native': 'web3-native' };
-  const FAMLBL = { regulation: 'by regulation', kyc: 'by KYC', regions: 'by region', for: 'by audience' };
+  const hubTable = (list) => `<div class="hubwrap"><table class="hubtable">
+  <thead><tr><th>neobank</th><th>type</th><th>hq</th><th>custody</th><th>licence / structure</th><th>reported users</th></tr></thead>
+  <tbody>
+${list.map(e => `  <tr>
+    <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
+    <td class="cat">${CATL[e.category]}</td>
+    <td class="dim">${esc(e.hq || '—')}</td>
+    <td class="dim">${esc(e.custody)}</td>
+    <td class="dim">${esc(e.licence || e.regulation_type || '—')}</td>
+    <td class="dim">${esc(users(e) || '—')}</td>
+  </tr>`).join('\n')}
+  </tbody></table></div>`;
+  const FAMLBL = { regulation: 'by regulation', kyc: 'by KYC', regions: 'by region', for: 'by audience', cards: 'by card', countries: 'by country' };
 
   for (const h of HUBS) {
     const path_ = `/${h.family}/${h.slug}/`;
@@ -394,7 +484,12 @@ let hubsFor = () => [];
     const examples = ranked
       ? `The largest by disclosed users are ${nameList(top)}`
       : `They include ${nameList(top)}`;
-    const answer = `${h.lead} ${h.explain.split('. ')[0]}. ${examples}; all ${rows.length} are listed below with custody, licence and geography.`;
+    /* the answer needs one substantive sentence of context; most explainers open
+       with one, but a few open with a lead-in and supply their own gist instead */
+    const tail = h.extraTable
+      ? `all ${rows.length} are listed below, then the ${h.extraTable[1].length} available there without being based there`
+      : `all ${rows.length} are listed below with custody, licence and geography`;
+    const answer = `${h.lead} ${h.gist || h.explain.split('. ')[0] + '.'} ${examples}; ${tail}.`;
     const title = `${h.h1} (${rows.length}, 2026) · neobankbeat`;
     const faq = [
       [`${h.h1}: how many are there?`, `${h.lead} Every entry is verified active and listed on this page with its custody model, licence detail and the regions it serves.`],
@@ -402,7 +497,7 @@ let hubsFor = () => [];
         ranked
           ? `By self-reported users, ${nameList(top)}. Only ${disclosed.length} of these ${rows.length} disclose a user figure, so treat any ranking by size as partial rather than complete.`
           : `Not answerable from public data: only ${disclosed.length} of these ${rows.length} disclose a user figure at all. The list below is therefore not a ranking, and anyone presenting one for this category is guessing.`],
-      [`What does this category actually mean?`, h.explain],
+      [h.family === 'countries' ? `How is this list of ${h.label} built?` : `What does this category actually mean?`, h.explain],
     ];
     const ld = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'CollectionPage', name: h.h1, url, description: answer, dateModified: DATA_MODIFIED,
@@ -422,19 +517,9 @@ let hubsFor = () => [];
   <p class="meta"><b>${rows.length} of ${E.length} tracked neobanks</b> · verified from public filings and product docs · updated ${TODAY}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
   <p>${esc(h.explain)}</p>
-  <h2>All ${rows.length} ${esc(h.label)}</h2>
-  <div class="hubwrap"><table class="hubtable">
-  <thead><tr><th>neobank</th><th>type</th><th>hq</th><th>custody</th><th>licence / structure</th><th>reported users</th></tr></thead>
-  <tbody>
-${rows.map(e => `  <tr>
-    <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
-    <td class="cat">${CATL[e.category]}</td>
-    <td class="dim">${esc(e.hq || '—')}</td>
-    <td class="dim">${esc(e.custody)}</td>
-    <td class="dim">${esc(e.licence || e.regulation_type || '—')}</td>
-    <td class="dim">${esc(users(e) || '—')}</td>
-  </tr>`).join('\n')}
-  </tbody></table></div>
+  <h2>${h.family === 'countries' ? `The ${rows.length} based in ${esc(h.label.replace(/^neobanks in /, ''))}` : `All ${rows.length} ${esc(h.label)}`}</h2>
+  ${hubTable(rows)}
+  ${h.extraTable ? `<h2>${esc(h.extraTable[0])}</h2>\n  <p>${esc(h.extraTable[2])}</p>\n  ${hubTable(h.extraTable[1])}` : ''}
   <h2>Common questions</h2>
   ${faq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
   ${related.length ? `<h2>Related</h2>\n  <p class="hublist">${related.map(r => `<a href="/${r.family}/${r.slug}/">${esc(r.h1)}</a> <span class="dim">(${r.rows.length})</span>`).join(' · ')}</p>` : ''}
@@ -451,7 +536,7 @@ ${rows.map(e => `  <tr>
   /* ── /browse/ — the index of every hub, and the only one that needs a footer link ── */
   {
     const url = `${BASE}/browse/`;
-    const byFam = ['regulation', 'kyc', 'regions', 'for'].map(f => [f, HUBS.filter(h => h.family === f)]).filter(([, v]) => v.length);
+    const byFam = ['regulation', 'kyc', 'cards', 'regions', 'countries', 'for'].map(f => [f, HUBS.filter(h => h.family === f)]).filter(([, v]) => v.length);
     const answer = `${hubSlugs.length} ready-made cuts of the neobank dataset: by how each product is regulated, whether it needs your ID, where it is available, and who it is built for. Every list states its own count and links every entry to a verified profile.`;
     const ld = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'CollectionPage', name: 'Browse neobanks by licence, KYC, region and audience', url, description: answer, dateModified: DATA_MODIFIED },
@@ -462,6 +547,8 @@ ${rows.map(e => `  <tr>
     const FAMH = { regulation: ['By licence and structure', 'The single most useful question about a neobank: who is legally holding your money?'],
       kyc: ['By identity verification', 'Whether you can use it without handing over ID — and where the line really sits.'],
       regions: ['By region', 'Availability rather than headquarters. Multi-region players appear in every region they serve.'],
+      cards: ['By the card in the app', `Which scheme issues it, and the ${E.filter(e => !known(e.card_network)).length} products that issue no card at all.`],
+      countries: ['By country', 'Where each company is based \u2014 a complete field \u2014 kept separate from where its product is available, which is not.'],
       for: ['By who it is built for', 'Niche products designed around one group\u2019s constraints, not general apps with different branding.'] };
     const html = (head(`Browse ${E.length} neobanks by licence, KYC, region and audience · neobankbeat`,
       answer, url, ld) + `
@@ -497,7 +584,6 @@ const readable = s => String(s || '')
   .replace(/\bMC\b/g, 'Mastercard').replace(/\bAmex\b/g, 'American Express')
   .replace(/\s*\/\s*/g, ' and ').replace(/\s*\+\s*/g, ' and ');
 const article = t => /^(self-custodial|other|broker|fintech)/i.test(t) ? '' : /^[aeiou]/i.test(t) ? 'an ' : 'a ';
-const known = v => v && v !== '—' ? v : null;
 /* lowercase the first letter mid-sentence, but never flatten an acronym:
    "Licensed bank" → "licensed bank", "VASP / MSB" and "MiCA CASP" stay as they are */
 const lcFirst = t => {

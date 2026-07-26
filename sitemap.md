@@ -5,7 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 24 ready-made cuts of the dataset by licence, KYC, region and audience
+- [Browse](https://www.neobankbeat.com/browse/) — 45 ready-made cuts of the dataset by licence, KYC, region and audience
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
@@ -579,7 +579,7 @@
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
 
-## Topic hubs (24)
+## Topic hubs (45)
 
 - [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
 - [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
@@ -605,6 +605,27 @@
 - [/for/underbanked/](https://www.neobankbeat.com/for/underbanked/)
 - [/for/faith-based/](https://www.neobankbeat.com/for/faith-based/)
 - [/for/travel-and-digital-nomads/](https://www.neobankbeat.com/for/travel-and-digital-nomads/)
+- [/cards/no-card/](https://www.neobankbeat.com/cards/no-card/)
+- [/cards/visa/](https://www.neobankbeat.com/cards/visa/)
+- [/cards/mastercard/](https://www.neobankbeat.com/cards/mastercard/)
+- [/cards/domestic-networks/](https://www.neobankbeat.com/cards/domestic-networks/)
+- [/countries/united-states/](https://www.neobankbeat.com/countries/united-states/)
+- [/countries/united-kingdom/](https://www.neobankbeat.com/countries/united-kingdom/)
+- [/countries/germany/](https://www.neobankbeat.com/countries/germany/)
+- [/countries/france/](https://www.neobankbeat.com/countries/france/)
+- [/countries/brazil/](https://www.neobankbeat.com/countries/brazil/)
+- [/countries/argentina/](https://www.neobankbeat.com/countries/argentina/)
+- [/countries/mexico/](https://www.neobankbeat.com/countries/mexico/)
+- [/countries/colombia/](https://www.neobankbeat.com/countries/colombia/)
+- [/countries/india/](https://www.neobankbeat.com/countries/india/)
+- [/countries/singapore/](https://www.neobankbeat.com/countries/singapore/)
+- [/countries/philippines/](https://www.neobankbeat.com/countries/philippines/)
+- [/countries/indonesia/](https://www.neobankbeat.com/countries/indonesia/)
+- [/countries/vietnam/](https://www.neobankbeat.com/countries/vietnam/)
+- [/countries/australia/](https://www.neobankbeat.com/countries/australia/)
+- [/countries/nigeria/](https://www.neobankbeat.com/countries/nigeria/)
+- [/countries/uae/](https://www.neobankbeat.com/countries/uae/)
+- [/countries/switzerland/](https://www.neobankbeat.com/countries/switzerland/)
 
 ## Per-neobank answer pages
 
