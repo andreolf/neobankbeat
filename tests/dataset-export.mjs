@@ -138,6 +138,30 @@ if (kaggleId) {
     })),
   };
 
+  const FILE_NOTES = {
+    "entities.csv": `Flattened directory, one row per neobank (${n} rows, ${COLUMNS.length} columns).`,
+    "entities.jsonl": "Same data as JSON Lines, with the nested source and as-of objects intact.",
+    "data.json": "Site source of truth: a single object with meta and entities, including counts and methodology.",
+    "README.md": "Data card: provenance, field dictionary, caveats.",
+  };
+  const sizeOf = (f) => {
+    try {
+      return fs.statSync(path.join(stage, f)).size;
+    } catch {
+      return 0;
+    }
+  };
+  // The CLI's own resources->data conversion never sets totalBytes, and without
+  // it the settings endpoint accepts the request but silently drops the file and
+  // column descriptions. Supplying `data` directly takes precedence over
+  // `resources`, so this is the path that actually sticks.
+  const data = Object.entries(FILE_NOTES).map(([file, description]) => ({
+    name: file,
+    description,
+    totalBytes: sizeOf(file),
+    ...(file === "entities.csv" ? { columns: schema.fields } : {}),
+  }));
+
   fs.writeFileSync(
     path.join(stage, "dataset-metadata.json"),
     JSON.stringify(
@@ -153,12 +177,14 @@ if (kaggleId) {
         expectedUpdateFrequency: "weekly",
         userSpecifiedSources:
           "Compiled by neobankbeat from provider documentation, regulator registers and company disclosures. Source repository: https://github.com/andreolf/neobankbeat",
-        resources: [
-          { path: "entities.csv", description: `Flattened directory, one row per neobank (${n} rows).`, schema },
-          { path: "entities.jsonl", description: "Same data as JSON Lines, with nested source/as_of objects intact." },
-          { path: "data.json", description: "Site source of truth: a single object with meta and entities." },
-          { path: "README.md", description: "Data card: provenance, field dictionary, caveats." },
-        ],
+        // `resources` is what the upload path reads; `data` is what the settings
+        // endpoint reads. Both are needed, and they describe the same files.
+        resources: Object.entries(FILE_NOTES).map(([file, description]) => ({
+          path: file,
+          description,
+          ...(file === "entities.csv" ? { schema } : {}),
+        })),
+        data,
       },
       null,
       2,
