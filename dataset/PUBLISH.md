@@ -77,6 +77,29 @@ after any material data change.
   `--help` calls it `datasets-metadata.json`; that is a typo and won't work.
 - **`huggingface-cli` is deprecated** in favour of `hf`. The old command still
   runs but warns.
+- **Kaggle file and column descriptions cannot be set from the API — only the
+  web UI.** This costs two "Pending Actions" on the data card ("Add file
+  information", "Include column descriptors"). Both documented routes were
+  tested against the live dataset and neither writes:
+  - `kaggle datasets metadata --update`, which sends the `data` block, returns
+    `errors: []` and stores nothing.
+  - `kaggle datasets version`, which threads the `resources` block through
+    `_upload_file` onto each upload token, also leaves them empty.
+
+  Do not trust a read-back to check this either: `get_dataset` returns
+  `files: []`, and `list_dataset_files` populates `name` and `totalBytes` but
+  always leaves `description` and `columns` empty, whatever is stored. The
+  dataset page is the only source of truth.
+
+  To fill them in, generate the text and paste it in the UI:
+
+  ```sh
+  node tests/dataset-export.mjs --card    # 4 file + 38 column descriptions
+  ```
+
+  Column descriptions live in `COLUMNS` in `tests/dataset-export.mjs`, which is
+  the single source for the CSV header, the Kaggle card and this output — so fix
+  wording there, not in the UI, or the next edit will contradict it.
 - Set the licence to MIT in the HF web UI if it isn't picked up from the card's
   frontmatter.
 
