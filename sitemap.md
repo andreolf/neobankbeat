@@ -62,7 +62,7 @@
 - [ai neobanks](https://www.neobankbeat.com/blog/ai-neobanks/) (2026-07-16)
 - [neobank ecosystem map](https://www.neobankbeat.com/blog/neobank-ecosystem-map/) (2026-07-20)
 - [who really runs the neobanks](https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/) (2026-07-23)
-- [neobank dataset hugging face kaggle](https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/) (2026-07-25)
+- [neobank dataset hugging face kaggle](https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/) (2026-07-26)
 
 ## Neobank profiles (368)
 
