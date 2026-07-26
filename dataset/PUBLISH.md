@@ -48,7 +48,11 @@ mkdir -p ~/.kaggle && mv ~/Downloads/kaggle.json ~/.kaggle/ && chmod 600 ~/.kagg
 
 ## Publishing
 
+Run these **from the repo root** — the script path is relative:
+
 ```bash
+cd ~/neobankbeat
+
 bash tests/publish-dataset.sh prep      # stage only — safe, no credentials, no network
 bash tests/publish-dataset.sh hf        # → huggingface.co/datasets/<you>/neobankbeat
 bash tests/publish-dataset.sh kaggle    # → kaggle.com/datasets/<you>/neobankbeat
