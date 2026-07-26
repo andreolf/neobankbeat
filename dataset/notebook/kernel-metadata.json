@@ -1,5 +1,6 @@
 {
-  "id": "neobankbeat/who-actually-holds-your-money-in-a-neobank",
+  "id": "neobankbeat/notebook65b52105f4",
+  "id_no": 128688563,
   "title": "Who actually holds your money in a neobank",
   "code_file": "starter.ipynb",
   "language": "python",
@@ -8,7 +9,9 @@
   "enable_gpu": false,
   "enable_tpu": false,
   "enable_internet": false,
-  "dataset_sources": ["neobankbeat/neobanks"],
+  "dataset_sources": [
+    "neobankbeat/neobanks"
+  ],
   "competition_sources": [],
   "kernel_sources": [],
   "model_sources": []

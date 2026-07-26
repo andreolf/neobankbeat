@@ -126,6 +126,14 @@ kaggle_user() {
 # UPDATE a notebook that already has a saved version. It cannot create one, so
 # the first version has to be made in the web UI. This is long-standing and
 # acknowledged upstream: github.com/Kaggle/kaggle-api/issues/575
+#
+# Two consequences of that, both learned the hard way:
+#   - The lookup that works is `id_no`, the numeric id from `kernels pull -m`.
+#     A slug alone resolves only if it already matches the notebook Kaggle
+#     generated, which it won't if you titled it in the UI.
+#   - The server ignores `title` on update, so a notebook stuck with a name like
+#     notebook65b52105f4 has to be renamed in the UI. Everything else — code,
+#     inputs, visibility — does apply from here.
 push_notebook() {
   local user nb="$ROOT/dataset/notebook" out
   user=$(kaggle_user)
