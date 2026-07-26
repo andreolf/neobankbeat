@@ -105,6 +105,45 @@ after any material data change.
 
 ---
 
+## Notebooks
+
+Public notebooks are the part of Kaggle that actually brings people to the
+dataset: they rank in Kaggle search independently of the dataset page, and they
+appear on the dataset's Code tab. They are also the one input to the usability
+score that metadata cannot buy.
+
+One directory per notebook under `dataset/notebooks/<name>/`, each with its own
+`kernel-metadata.json`. Sync them all, or one:
+
+```sh
+bash tests/publish-dataset.sh notebook                  # every notebook
+bash tests/publish-dataset.sh notebook who-holds-your-money
+```
+
+Verify locally before pushing — a notebook that errors on Kaggle is public while
+it is broken:
+
+```sh
+cd dataset/notebooks/<name> && jupyter nbconvert --to notebook --execute --stdout notebook.ipynb
+```
+
+Four traps, all hit at least once:
+
+- **Push does create new notebooks.** An earlier note here claimed otherwise;
+  that was wrong. "Notebook not found" is usually an account that is not phone
+  verified, which Kaggle requires before publishing.
+- **The slug comes from the title on create, not from your `id`.** Reconcile the
+  real `id` and `id_no` (`kaggle kernels list -m`, then `kernels pull -m`) back
+  into `kernel-metadata.json`, or the next push creates a duplicate rather than a
+  new version.
+- **`title` is ignored on update.** Renaming means doing it in the UI.
+- **Input paths differ by attachment method.** The UI mounts a dataset at
+  `/kaggle/input/<slug>/`; `dataset_sources` mounts it at
+  `/kaggle/input/datasets/<owner>/<slug>/`. Hardcoding either one breaks the
+  other, so the notebooks search `/kaggle/input` for `entities.csv`.
+
+---
+
 ## Confirm Google Dataset Search eligibility
 
 The site emits `schema.org/Dataset` JSON-LD on the homepage **and** on

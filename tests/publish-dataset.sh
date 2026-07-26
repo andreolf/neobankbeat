@@ -10,7 +10,8 @@
 #   bash tests/publish-dataset.sh all       both
 #   bash tests/publish-dataset.sh kaggle-dry       render the Kaggle card, push nothing
 #   bash tests/publish-dataset.sh kaggle-settings  re-apply the card without re-uploading
-#   bash tests/publish-dataset.sh notebook         publish the starter notebook to Kaggle
+#   bash tests/publish-dataset.sh notebook         sync every notebook in dataset/notebooks/
+#   bash tests/publish-dataset.sh notebook <slug>  sync just one
 #
 # One-time auth:
 #   Hugging Face   brew install hf && hf auth login
@@ -122,37 +123,63 @@ kaggle_user() {
 # cannot buy, and it is also the thing that actually gets the dataset in front
 # of people — notebooks surface in Kaggle search and on the dataset page.
 #
-# Caveat that costs an afternoon if you don't know it: `kernels push` can only
-# UPDATE a notebook that already has a saved version. It cannot create one, so
-# the first version has to be made in the web UI. This is long-standing and
-# acknowledged upstream: github.com/Kaggle/kaggle-api/issues/575
+# `kernels push` does create a notebook that doesn't exist yet — verified
+# 2026-07-26, both new notebooks came up as "Kernel version 1". A "Notebook not
+# found" here means something else, most likely an account that is not phone
+# verified, which Kaggle requires before you can publish one.
 #
-# Two consequences of that, both learned the hard way:
-#   - The lookup that works is `id_no`, the numeric id from `kernels pull -m`.
-#     A slug alone resolves only if it already matches the notebook Kaggle
-#     generated, which it won't if you titled it in the UI.
-#   - The server ignores `title` on update, so a notebook stuck with a name like
-#     notebook65b52105f4 has to be renamed in the UI. Everything else — code,
-#     inputs, visibility — does apply from here.
+# Four things that cost an afternoon each:
+#   - On create, Kaggle derives the slug from `title` and ignores your `id`. So
+#     "Who is a neobank actually built for?" landed at
+#     who-is-a-neobank-actually-built-for, not the id we asked for. Copy the real
+#     id and id_no back into kernel-metadata.json afterwards or the next push
+#     creates a SECOND notebook instead of updating the first.
+#   - On update the server ignores `title`, so a badly named notebook has to be
+#     renamed in the UI. Code, inputs and visibility do apply from here.
+#   - `id_no` is the lookup that always resolves. A slug only works once it
+#     matches what Kaggle generated.
+#   - The mount path differs by how the data was attached: /kaggle/input/<slug>/
+#     from the UI, but /kaggle/input/datasets/<owner>/<slug>/ when declared via
+#     dataset_sources. A notebook hardcoding the first path dies with
+#     FileNotFoundError when pushed from here even though the data is attached.
+#     The notebooks search /kaggle/input for entities.csv instead.
 push_notebook() {
-  local user nb="$ROOT/dataset/notebook" out
+  local user out dir slug code
   user=$(kaggle_user)
-  [ -f "$nb/kernel-metadata.json" ] || { echo "✗ $nb/kernel-metadata.json missing"; exit 1; }
-  echo "→ pushing notebook to kaggle.com/code/$user/… "
-  out=$(kaggle kernels push -p "$nb" 2>&1) || true
-  echo "$out"
-  if printf '%s' "$out" | grep -q "Notebook not found"; then
-    cat <<'MSG'
+  local base="$ROOT/dataset/notebooks"
+  local slugs=("$@")
+  # No argument: sync every notebook in the repo.
+  [ ${#slugs[@]} -eq 0 ] && { for d in "$base"/*/; do slugs+=("$(basename "$d")"); done; }
 
-  The notebook does not exist yet, and the API cannot create it. Once only:
-    1. https://www.kaggle.com/code → New Notebook
-    2. File → Import Notebook → dataset/notebook/starter.ipynb
-    3. Add Input → your neobanks dataset
-    4. Save Version → "Save & Run All" (a quick save is not enough)
-  Then this command keeps it in sync from the repo.
+  for slug in "${slugs[@]}"; do
+    dir="$base/$slug"
+    [ -f "$dir/kernel-metadata.json" ] || { echo "✗ no such notebook: $slug"; continue; }
+    code=$(sed -n 's/.*"code_file": "\([^"]*\)".*/\1/p' "$dir/kernel-metadata.json")
+    echo "→ $slug"
+    out=$(kaggle kernels push -p "$dir" 2>&1) || true
+    printf '%s\n' "$out" | sed 's/^/    /'
+    if printf '%s' "$out" | grep -q "Notebook not found"; then
+      cat <<MSG
+
+    Push could not create it. Check the account is phone verified
+    (kaggle.com/settings → Phone verification) — that gate is what usually
+    produces this. Failing that, create it once in the UI:
+      1. https://www.kaggle.com/code → New Notebook
+      2. File → Import Notebook → dataset/notebooks/$slug/$code
+      3. Add Input → your neobanks dataset
+      4. Save Version → "Save & Run All" (a quick save is not enough)
 MSG
-    return 1
-  fi
+    fi
+    # Kaggle names the notebook after the title on create, so the id we sent is
+    # usually not the id it now has. Left unreconciled, the next push creates a
+    # duplicate instead of a new version.
+    if printf '%s' "$out" | grep -q "does not resolve to the specified id"; then
+      echo "    ! Kaggle assigned a different slug. Reconcile before the next push:"
+      echo "        kaggle kernels list -m          # find the real ref"
+      echo "        kaggle kernels pull -m <ref> -p /tmp/k   # read id + id_no"
+      echo "      then copy both into dataset/notebooks/$slug/kernel-metadata.json"
+    fi
+  done
 }
 
 push_kaggle() {
@@ -196,7 +223,7 @@ case "${1:-}" in
   kaggle)          push_kaggle ;;
   kaggle-dry)      push_kaggle dry ;;
   kaggle-settings) apply_settings "$(kaggle_user)" ;;
-  notebook)        push_notebook ;;
+  notebook)        shift; push_notebook "$@" ;;
   all)             push_hf; push_kaggle ;;
   *)               sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
 esac
