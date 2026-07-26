@@ -10,6 +10,7 @@
 #   bash tests/publish-dataset.sh all       both
 #   bash tests/publish-dataset.sh kaggle-dry       render the Kaggle card, push nothing
 #   bash tests/publish-dataset.sh kaggle-settings  re-apply the card without re-uploading
+#   bash tests/publish-dataset.sh notebook         publish the starter notebook to Kaggle
 #
 # One-time auth:
 #   Hugging Face   brew install hf && hf auth login
@@ -117,6 +118,17 @@ kaggle_user() {
   printf '%s' "$user"
 }
 
+# A public notebook is the one part of Kaggle's usability score that metadata
+# cannot buy, and it is also the thing that actually gets the dataset in front
+# of people — notebooks surface in Kaggle search and on the dataset page.
+push_notebook() {
+  local user nb="$ROOT/dataset/notebook"
+  user=$(kaggle_user)
+  [ -f "$nb/kernel-metadata.json" ] || { echo "✗ $nb/kernel-metadata.json missing"; exit 1; }
+  echo "→ pushing notebook to kaggle.com/code/$user/… "
+  kaggle kernels push -p "$nb"
+}
+
 push_kaggle() {
   local user
   user=$(kaggle_user)
@@ -158,6 +170,7 @@ case "${1:-}" in
   kaggle)          push_kaggle ;;
   kaggle-dry)      push_kaggle dry ;;
   kaggle-settings) apply_settings "$(kaggle_user)" ;;
+  notebook)        push_notebook ;;
   all)             push_hf; push_kaggle ;;
   *)               sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
 esac

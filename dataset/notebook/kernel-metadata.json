@@ -1,0 +1,15 @@
+{
+  "id": "neobankbeat/who-actually-holds-your-money",
+  "title": "Who actually holds your money? Neobank regulation & custody",
+  "code_file": "starter.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["neobankbeat/neobanks"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
