@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { FOOTER_HTML } from './footer.mjs';
+import { clampDesc } from './meta.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
@@ -44,7 +45,7 @@ const head = (title, desc, canonical, ldjson, ogImage) => `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
-<meta name="description" content="${esc(desc)}">
+<meta name="description" content="${esc(clampDesc(desc))}">
 <link rel="canonical" href="${canonical}">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">
@@ -90,6 +91,18 @@ ${JSON.stringify(ldjson)}
 </header>
 `;
 
+/* BreadcrumbList for the collection landings, which previously shipped a bare
+   CollectionPage while their own detail pages had a full 3-level trail */
+const crumbs = (...trail) => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+    ...trail.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 2, name, item }))],
+});
+const withCrumbs = (ld, ...trail) => {
+  const { '@context': ctx, ...node } = ld;
+  return { '@context': ctx, '@graph': [node, crumbs(...trail)] };
+};
+
 const bwScript = `<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
 document.addEventListener('submit',function(e){if(e.target.classList&&e.target.classList.contains('nbform'))nbevt('subscribe',{page:location.pathname})},true);
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&a.pathname==='/data.json')nbevt('data_download',{page:location.pathname})});</script>`;
@@ -113,22 +126,31 @@ function peers(e, n = 6) {
     .slice(0, n);
 }
 
-/* ── alternatives: similarity-ranked (audience + region + size dominate,
-   category is a boost not a gate) — so "Revolut alternatives" surfaces
-   Wise/Nubank, not only other hybrid apps. Used by /n/<slug>/alternatives/,
-   and cross-linked from profiles + vs pages, so it lives at module scope. ── */
+/* ── alternatives: ranked on how substitutable two products actually are —
+   where you can use it, who holds the money, how it's regulated, who it's built
+   for. Reported users are a tiebreak only: 22 of 368 entities disclose them, so
+   weighting size pushed the same handful into every list (Revolut's "closest
+   alternatives" came out as Mercado Pago and WeBank). Used by
+   /n/<slug>/alternatives/ and cross-linked from profiles + vs pages. ── */
 function altPeers(e, n = 8) {
+  const jac = (a = [], b = []) => {
+    const B = new Set(b), hit = a.filter(x => B.has(x)).length;
+    return hit ? hit / new Set([...a, ...b]).size : 0;
+  };
   const er = new Set(e.active_regions);
-  return E.filter(x => x !== e).map(x => {
-    const regOv = x.active_regions.filter(r => er.has(r)).length;
-    const uv = x.reported_users ? x.reported_users.value_millions : 0;
-    let s = Math.min(regOv, 3);
-    if (regOv === 0) s -= 4;
-    if (x.audience === e.audience) s += 4;
-    if (x.category === e.category) s += 1;
-    s += Math.min(uv / 12, 4);
-    return [x, s, uv];
-  }).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1] || b[2] - a[2]).slice(0, n).map(a => a[0]);
+  return E.filter(x => x !== e && x.active_regions.some(r => er.has(r))).map(x => {
+    let s = 5 * jac(e.active_regions, x.active_regions);
+    if (e.countries && x.countries) s += 2 * jac(e.countries, x.countries);
+    if (x.category === e.category) s += 3;
+    if (x.custody === e.custody) s += 3;
+    if (x.regulation_type === e.regulation_type) s += 3;
+    if (x.audience === e.audience) s += e.audience === 'general' ? 2 : 5;
+    if (x.card_network === e.card_network) s += 1;
+    if (x.stablecoins === e.stablecoins) s += 1;
+    if (x.kyc === e.kyc) s += 1;
+    return [x, s, x.reported_users ? x.reported_users.value_millions : 0];
+  }).sort((a, b) => b[1] - a[1] || b[2] - a[2] || a[0].name.localeCompare(b[0].name))
+    .slice(0, n).map(a => a[0]);
 }
 const altEligible = new Set(E.filter(e => altPeers(e, 8).length >= 4).map(e => e.name));
 
@@ -316,7 +338,7 @@ for (const e of E) {
     const L = (slugify(e.name)[0] || '#').toUpperCase();
     (byLetter[L] = byLetter[L] || []).push(e);
   }
-  const ld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url };
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url }, ['neobanks', url]);
   const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
     `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, licence, cards, stablecoins and geography.`, url, ld) + `
 <main class="wrap">
@@ -380,9 +402,13 @@ for (const [an, bn] of PAIRS) {
   const verdict = vsVerdict(a, b);
   const ld = {
     '@context': 'https://schema.org', '@graph': [
-      { '@type': 'Article', headline: `${an} vs ${bn}: the facts compared`, datePublished: TODAY, dateModified: TODAY,
+      /* dateModified tracks the data, not the build — re-stamping TODAY on every
+         run claimed daily freshness these pages don't have */
+      { '@type': 'Article', headline: `${an} vs ${bn}: the facts compared`,
+        datePublished: '2026-07-03', dateModified: DATA_MODIFIED, image: `${BASE}/og.png`,
         author: { '@type': 'Person', name: 'Francesco Andreoli' },
-        publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE }, mainEntityOfPage: url },
+        publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/og.png` } },
+        mainEntityOfPage: url },
       { '@type': 'FAQPage', mainEntity: [
         { '@type': 'Question', name: `${an} vs ${bn}: what's the difference?`,
           acceptedAnswer: { '@type': 'Answer', text: verdict } }] },
@@ -439,7 +465,7 @@ for (const [an, bn] of PAIRS) {
 /* ═══ /vs/ index ═══ */
 {
   const url = `${BASE}/vs/`;
-  const ld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank comparisons', url };
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank comparisons', url }, ['comparisons', url]);
   const html = head(`Neobank comparisons: ${vsPages} head-to-heads · neobankbeat`,
     `Side-by-side neobank comparisons — custody, licence, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld) + `
 <main class="wrap">
@@ -608,13 +634,13 @@ let invSlugList = [];
   const ivSlug = n => slugify(n) || 'investor';
 
   const url = `${BASE}/investors/`;
-  const ld = {
+  const ld = withCrumbs({
     '@context': 'https://schema.org', '@type': 'CollectionPage',
     name: 'Investors in neobanks', url,
     description: `${rows.length} venture and strategic investors behind ${nBanks} neobanks, from publicly disclosed funding rounds.`,
     isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
     mainEntity: { '@type': 'ItemList', itemListElement: rows.slice(0, 50).map(([name, v], i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Organization', name, url: v.site } })) },
-  };
+  }, ['investors', url]);
   const style = `<style>
 .ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
 .ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
@@ -777,11 +803,11 @@ const NEWSLETTERS = [
 ];
 {
   const url = `${BASE}/newsletters/`;
-  const ld = {
+  const ld = withCrumbs({
     '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank & fintech newsletters', url,
     mainEntity: { '@type': 'ItemList', itemListElement: NEWSLETTERS.map(([n, a, u], i) => ({
       '@type': 'ListItem', position: i + 1, name: `${n} — ${a}`, url: u })) }
-  };
+  }, ['newsletters', url]);
   const style = `<style>
 .nlrow{position:relative;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--panel);transition:border-color .15s}
 .nlrow:has(.nm:hover){border-color:var(--accent)}
@@ -834,12 +860,12 @@ ${NEWSLETTERS.map(rowHtml).join('\n')}
     .sort((a, b) => (a.category === b.category ? a.name.localeCompare(b.name) :
       ['web3-native', 'hybrid', 'traditional'].indexOf(a.category) - ['web3-native', 'hybrid', 'traditional'].indexOf(b.category)));
   const CATLBL = { 'web3-native': 'web3-native', hybrid: 'hybrid', traditional: 'traditional' };
-  const ld = {
+  const ld = withCrumbs({
     '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Stablecoin cards (U-cards) compared', url,
     description: `${cards.length} crypto and stablecoin payment cards compared on custody, network, cashback, yield and KYC.`,
     mainEntity: { '@type': 'ItemList', itemListElement: cards.slice(0, 60).map((e, i) => ({
       '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) }
-  };
+  }, ['stablecoin cards', url]);
   const style = `<style>
 .uctable{width:100%;border-collapse:collapse;font-size:12.5px;margin:18px 0}
 .uctable th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg,#0A0A10)}
@@ -897,13 +923,13 @@ let aiCount = 0;
   ];
   const tagged = E.filter(e => e.ai);
   aiCount = tagged.length;
-  const ld = {
+  const ld = withCrumbs({
     '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI neobanks — verified in production', url,
     description: `The ${tagged.length} of ${E.length} tracked neobanks where AI is verifiably in production: model-driven underwriting, AI-first interfaces, and banking for AI agents.`,
     isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
     mainEntity: { '@type': 'ItemList', itemListElement: tagged.map((e, i) => ({
       '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) }
-  };
+  }, ['AI neobanks', url]);
   const style = `<style>
 .uctable{width:100%;border-collapse:collapse;font-size:12.5px;margin:18px 0}
 .uctable th{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
@@ -971,12 +997,12 @@ const infraSlugList = [];
   const nClients = new Set(rows.flatMap(([, v]) => v.clients)).size;
   const ifSlug = n => slugify(n) || 'provider';
   const url = `${BASE}/infra/`;
-  const ld = {
+  const ld = withCrumbs({
     '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Infrastructure behind the neobanks', url,
     description: `${rows.length} sponsor banks, card issuers and stablecoin rails mapped to the ${nClients} tracked neobanks that run on them.`,
     isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
     mainEntity: { '@type': 'ItemList', itemListElement: rows.map(([name, v], i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Organization', name, url: `https://${v.domain}` } })) },
-  };
+  }, ['infra', url]);
   const style = `<style>
 .ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
 .ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
@@ -1225,9 +1251,26 @@ const whoOwnsSlugs = [], altSlugs = [];
     /* ── alternatives page (only where we have a real peer set) ── */
     if (hasAlts) {
       const url = `${BASE}/n/${slug}/alternatives/`;
-      const region = e.active_regions.find(r => alts[0].active_regions.includes(r)) || e.active_regions[0];
-      const top = alts.slice(0, 3).map(a => a.name);
-      const altAnswer = `The closest alternatives to ${e.name} are ${nameList(top)}. All are neobanks operating in ${region}${e.audience !== 'general' ? ` for ${e.audience}` : ''}, comparable to ${e.name} on custody, licence, cards, fees and FX — compared field by field below. No affiliate links.`;
+      const top3 = alts.slice(0, 3), top = top3.map(a => a.name);
+      /* geography has to come from the subject, not from peer #1 — inferring it
+         from the first alternative told readers Revolut operates in Latin America */
+      const shared = e.active_regions.filter(r => top3.every(a => (a.active_regions || []).includes(r)));
+      const geo = shared.length
+        ? `all three are available in ${nameList(shared.slice(0, 3))}`
+        : `each overlaps ${e.name}'s markets`;
+      /* say what the ranking is actually measuring — the list is structural
+         similarity, not an editorial pick, and readers (and models quoting it)
+         should be able to see the basis rather than infer a recommendation */
+      const all3 = (k, label) => top3.every(a => a[k] === e[k]) && label;
+      const basis = [
+        all3('category', `the same ${e.category} model`),
+        all3('custody', `${String(e.custody).toLowerCase()} custody`),
+        all3('regulation_type', `the same licence type (${e.regulation_type})`),
+        e.audience !== 'general' && all3('audience', `the same audience (${e.audience})`),
+      ].filter(Boolean);
+      const altAnswer = `Ranked by how closely they match ${e.name} on structure — custody, licence type, card and overlapping markets — the nearest alternatives in the dataset are ${nameList(top)}` +
+        `${basis.length ? `, which share ${nameList(basis)}` : ''}; ${geo}. ` +
+        `This is a similarity ranking from verified fields, not a popularity list or an editorial pick — all ${alts.length} peers are compared field by field below. No affiliate links.`;
       const title = `${e.name} alternatives (2026): ${alts.length} compared · neobankbeat`;
       const desc = altAnswer.slice(0, 300);
       const faq = [
@@ -1355,8 +1398,10 @@ const urls = [
   { loc: `${BASE}/partner/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/changelog/`, changefreq: 'weekly', priority: '0.6' },
   { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
-  ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: TODAY, priority: '0.6' })),
-  ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: TODAY, priority: '0.6' })),
+  /* data-driven pages get the last data.json change, not the build date — stamping
+     1,600 URLs with TODAY on every run is a freshness claim crawlers learn to ignore */
+  ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
+  ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
@@ -1365,11 +1410,11 @@ const urls = [
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },
-  ...E.map(e => ({ loc: `${BASE}/n/${slugs.get(e.name)}/`, lastmod: TODAY, priority: '0.7' })),
-  ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: TODAY, priority: '0.6' })),
-  ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: TODAY, priority: '0.6' })),
+  ...E.map(e => ({ loc: `${BASE}/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.7' })),
+  ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
+  ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   { loc: `${BASE}/vs/`, changefreq: 'weekly', priority: '0.8' },
-  ...vsIndex.map(v => ({ loc: `${BASE}/vs/${v.slug}/`, lastmod: TODAY, priority: '0.7' })),
+  ...vsIndex.map(v => ({ loc: `${BASE}/vs/${v.slug}/`, lastmod: DATA_MODIFIED, priority: '0.7' })),
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod || TODAY}</lastmod>\n` +
@@ -1378,6 +1423,10 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
 
 /* ═══ sitemap.md — markdown sitemap for agents ═══ */
+/* faq/ and glossary/ are hand-written, so read their real length rather than
+   restating it — the two used to disagree with each other and with the pages */
+const nFaq = (fs.readFileSync(path.join(ROOT, 'faq', 'index.html'), 'utf8').match(/"@type":"Question"/g) || []).length;
+const nGlossary = (fs.readFileSync(path.join(ROOT, 'glossary', 'index.html'), 'utf8').match(/<dt id=/g) || []).length;
 const sitemapMd = `# neobankbeat — sitemap
 
 > Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](${BASE}/data.json); the agent guide at [/llms.txt](${BASE}/llms.txt). Updated ${TODAY}.
@@ -1385,8 +1434,8 @@ const sitemapMd = `# neobankbeat — sitemap
 ## Main
 
 - [Directory](${BASE}/) — searchable grid of all ${E.length} neobanks
-- [FAQ](${BASE}/faq/) — 22 honest answers
-- [Glossary](${BASE}/glossary/) — 50 terms defined
+- [FAQ](${BASE}/faq/) — ${nFaq} honest answers
+- [Glossary](${BASE}/glossary/) — ${nGlossary} terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
 - [Infra for neobanks](${BASE}/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (${infraSlugList.length} providers)
 - [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
@@ -1423,7 +1472,7 @@ ${vsIndex.map(v => `- [${v.an} vs ${v.bn}](${BASE}/vs/${v.slug}/)`).join('\n')}
 
 ## Per-neobank answer pages
 
-Every profile also has a "who owns it" page (${whoOwnsSlugs.length}) and, where a real peer set exists, an "alternatives" page (${altSlugs.length}), e.g. \`${BASE}/n/<slug>/who-owns/\` and \`${BASE}/n/<slug>/alternatives/\`.
+Every profile has a "who owns it" page (${whoOwnsSlugs.length}) answering who is behind the brand — parent company, licence holder, sponsor bank, disclosed investors — and an "alternatives" page (${altSlugs.length}) ranking its closest peers, e.g. \`${BASE}/n/<slug>/who-owns/\` and \`${BASE}/n/<slug>/alternatives/\`.
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.md'), sitemapMd);
 
@@ -1449,5 +1498,10 @@ date: ${TODAY}
 ---
 
 ` + llmsTxt);
+
+/* ═══ machine-readable agent surface + prose count sync ═══
+   dynamic so they run after this build, not hoisted above it */
+await import('./build-agents.mjs');
+await import('./sync-counts.mjs');
 
 console.log(`built ${nPages} profile pages, ${vsPages} comparison pages, sitemap with ${urls.length} URLs`);

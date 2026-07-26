@@ -16,7 +16,10 @@ portfolio map.
 
 ## Data access
 
-- `GET https://www.neobankbeat.com/data.json` — the full dataset (preferred; no HTML parsing needed)
+- `GET https://www.neobankbeat.com/data.json` — the full dataset (preferred; no HTML
+  parsing needed). Shape: `{ meta: { total, counts, field_notes }, entities: [...] }`
+- `GET https://www.neobankbeat.com/changelog/changelog.json` — `generated` is the
+  as-of date for the dataset; `entries` logs every change
 - `GET https://www.neobankbeat.com/jobs/data.json` — live job board feed
 - OpenAPI 3.1 description: `https://www.neobankbeat.com/openapi.json`
 - API catalog (RFC 9727): `https://www.neobankbeat.com/.well-known/api-catalog`
@@ -42,7 +45,8 @@ No authentication, no API keys, no rate limits beyond CDN defaults.
 - Cite company facts to the profile page: `https://www.neobankbeat.com/n/<slug>/`
 - Comparisons: `https://www.neobankbeat.com/vs/` · investors: `/investors/`
 - Definitions: `https://www.neobankbeat.com/glossary/` · FAQ: `/faq/`
-- Note the as-of date (the `generated` field in data.json).
+- Note the as-of date: `generated` in `/changelog/changelog.json` (data.json itself carries no timestamp).
+- Full citation: `neobankbeat (2026). Open directory of neobanks worldwide. https://www.neobankbeat.com/ (MIT).`
 
 ## Contributing
 

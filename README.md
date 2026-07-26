@@ -36,12 +36,13 @@ subscribing to the (free) newsletter is the only gate — the download starts in
 
 <br clear="right">
 
+<!-- stats:start -->
 ## the dataset at a glance
 
 ```mermaid
 pie showData title 368 neobanks by category
-    "traditional (fiat, custodial)" : 258
-    "hybrid (fiat + custodial crypto)" : 59
+    "traditional (fiat, custodial)" : 254
+    "hybrid (fiat + custodial crypto)" : 58
     "web3-native (self-custodial)" : 56
 ```
 
@@ -52,7 +53,7 @@ xychart-beta
     title "neobanks founded per year"
     x-axis ["<'10", "'10", "'11", "'12", "'13", "'14", "'15", "'16", "'17", "'18", "'19", "'20", "'21", "'22", "'23", "'24", "'25"]
     y-axis "founded" 0 --> 50
-    bar [17, 1, 5, 8, 17, 13, 28, 27, 31, 42, 45, 24, 35, 27, 24, 17, 5]
+    bar [17, 1, 5, 8, 17, 13, 28, 27, 31, 41, 43, 24, 35, 27, 27, 18, 6]
 ```
 
 ```mermaid
@@ -60,19 +61,22 @@ xychart-beta horizontal
     title "where they operate (multi-region players counted in every region)"
     x-axis ["Europe", "Asia", "North America", "Latin America", "Africa", "MENA", "Oceania"]
     y-axis "active neobanks" 0 --> 140
-    bar [131, 120, 111, 102, 79, 72, 61]
+    bar [139, 128, 119, 108, 88, 79, 68]
 ```
 
 more numbers from the current dataset:
 
 | | |
 |---|---|
-| niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **117** |
-| with stablecoin support | **103** |
-| licensed banks (charters, digital-bank licences) | **92** |
-| verified terms & privacy links (checked, not guessed) | **126** |
-| official X handles on file | **151** |
-| no-KYC self-custodial wallets | **12** |
+| niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **122** |
+| with stablecoin support | **116** |
+| licensed banks (charters, digital-bank licences) | **127** |
+| running on a partner bank (BaaS) | **77** |
+| with AI verifiably in production | **67** |
+| verified terms & privacy links (checked, not guessed) | **120** |
+| official X handles on file | **165** |
+| no-KYC self-custodial wallets | **13** |
+<!-- stats:end -->
 
 ## what's inside
 
@@ -116,15 +120,18 @@ jobs/               live job board pulled from official ATS APIs (+ data.json fe
 report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
 n/                  368 generated entity profile pages (SEO surface)
-vs/                 60 generated head-to-head comparison pages
+vs/                 140 generated head-to-head comparison pages
 tests/
-├── flowtest.js     192 assertions across 27 user flows (JSDOM)
+├── flowtest.js     205 assertions across 30 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from index.html
 ├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
 ├── build-jobs.mjs  refreshes /jobs/ from Greenhouse/Lever/Ashby APIs
 ├── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
+├── build-agents.mjs generates openapi.json and .well-known/* from data.json
 ├── footer.mjs      the site footer, defined once
-└── sync-footers.mjs pushes it into hand-written HTML (--check to detect drift)
+├── meta.mjs        the <head> description length rule, defined once
+├── sync-footers.mjs pushes the footer into hand-written HTML (--check for drift)
+└── sync-counts.mjs  fixes dataset totals restated in prose (--check for drift)
 ```
 
 ### the footer
@@ -143,6 +150,30 @@ and a disclaimer that would be noise on an inner page. It is only held to the
 rule that it can't *omit* a destination the flat footer carries. Flowtest flow 27
 fails on any drift, which is how 19 blog posts were caught with no link to
 `/data/` at all.
+
+### numbers written in prose
+
+Every count the site states in English — 368 neobanks, 23 FAQ answers, 219
+investors, 140 comparisons — is owned by `tests/sync-counts.mjs`, which anchors
+each claim by the words around it and rewrites only the digits. Before it existed
+the site simultaneously published three different dataset totals, three different
+FAQ answer counts, and claimed 60 comparisons when it had 140. Write prose freely;
+run the script (or any build) and the numbers correct themselves. Flow 30 fails on
+drift.
+
+The same applies to the agent surface: `openapi.json`, `.well-known/api-catalog`
+and `.well-known/agent-skills/*` are **generated** by `tests/build-agents.mjs`,
+never hand-edited. The skill's `sha256` has to match its `SKILL.md` or discovery
+clients drop the skill, so it is computed on every build.
+
+### the monthly report is a snapshot
+
+A published edition must keep saying what the PDF readers downloaded says.
+`build-report.mjs` therefore reads `report/<slug>/data-snapshot.json`, committed
+next to the edition, instead of live `data.json` — otherwise re-running the build
+rewrites a shipped edition's figures while leaving its "data as of" date alone.
+For a new edition: bump `MONTH`/`EDITION`/`ED_SLUG`, `cp data.json
+report/<slug>/data-snapshot.json`, then rerun.
 
 ## badge
 

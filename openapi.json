@@ -2,19 +2,29 @@
   "openapi": "3.1.0",
   "info": {
     "title": "neobankbeat data API",
-    "version": "1.0.0",
+    "version": "2026-07-23",
     "summary": "Open dataset of 368 verified-active neobanks plus a live industry job board.",
-    "description": "Read-only, unauthenticated JSON endpoints behind the neobankbeat directory (https://www.neobankbeat.com). All data is MIT-licensed and compiled from public sources. No API key, no rate limits beyond CDN defaults. Field semantics are documented at https://www.neobankbeat.com/llms.txt.",
-    "license": { "name": "MIT", "identifier": "MIT" },
-    "contact": { "name": "neobankbeat", "url": "https://github.com/andreolf/neobankbeat" }
+    "description": "Read-only, unauthenticated JSON endpoints behind the neobankbeat directory (https://www.neobankbeat.com). All data is MIT-licensed and compiled from public sources. No API key, no rate limits beyond CDN defaults. Field semantics are documented at https://www.neobankbeat.com/llms.txt. For an as-of date, read `generated` from /changelog/changelog.json — data.json itself carries no timestamp. Cite as: neobankbeat (2026). Open directory of neobanks worldwide. https://www.neobankbeat.com/ (MIT).",
+    "license": {
+      "name": "MIT",
+      "identifier": "MIT"
+    },
+    "contact": {
+      "name": "neobankbeat",
+      "url": "https://github.com/andreolf/neobankbeat"
+    }
   },
-  "servers": [{ "url": "https://www.neobankbeat.com" }],
+  "servers": [
+    {
+      "url": "https://www.neobankbeat.com"
+    }
+  ],
   "paths": {
     "/data.json": {
       "get": {
         "operationId": "getNeobanks",
         "summary": "Full neobank dataset",
-        "description": "All 368 tracked entities with category (traditional / hybrid / web3-native), custody, regulation type, card network, cashback, yield, stablecoin support, KYC posture, audience niche, HQ, founding year, active regions and countries, verified terms/privacy URLs, founders, funding, notable early investors and reported user/volume figures with sources.",
+        "description": "All 368 tracked entities. `meta` carries totals, category counts and field notes; `entities` carries one object per neobank. `null` means \"not publicly verifiable\" — the project never fabricates data.",
         "responses": {
           "200": {
             "description": "The dataset.",
@@ -22,49 +32,396 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "meta",
+                    "entities"
+                  ],
                   "properties": {
-                    "generated": { "type": "string", "format": "date" },
-                    "count": { "type": "integer" },
+                    "meta": {
+                      "type": "object",
+                      "description": "Dataset-level metadata. Note there is no top-level `generated` or `count` field.",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "source": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "license": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "integer",
+                          "description": "Entity count (368)."
+                        },
+                        "counts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "integer"
+                          },
+                          "description": "Breakdown by category plus niche_audience."
+                        },
+                        "field_notes": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "Caveats you must respect when quoting fields."
+                        }
+                      }
+                    },
                     "entities": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["name", "category", "custody", "active_regions"],
+                        "required": [
+                          "name",
+                          "category",
+                          "custody",
+                          "active_regions"
+                        ],
                         "properties": {
-                          "name": { "type": "string" },
-                          "category": { "type": "string", "enum": ["traditional", "hybrid", "web3-native"] },
-                          "audience": { "type": "string" },
-                          "region": { "type": "string" },
-                          "hq": { "type": ["string", "null"] },
-                          "founded": { "type": ["string", "integer", "null"] },
-                          "custody": { "type": "string" },
-                          "regulation_type": { "type": ["string", "null"] },
-                          "card_network": { "type": ["string", "null"] },
-                          "card_type": { "type": ["string", "null"] },
-                          "cashback": { "type": ["string", "null"] },
-                          "yield": { "type": ["string", "null"] },
-                          "stablecoins": { "type": "boolean" },
-                          "kyc": { "type": ["string", "null"] },
-                          "domain": { "type": ["string", "null"] },
-                          "website": { "type": ["string", "null"] },
-                          "active_regions": { "type": "array", "items": { "type": "string" } },
-                          "countries": { "type": ["array", "null"], "items": { "type": "string" } },
-                          "licence": { "type": ["string", "null"] },
-                          "founders": { "type": ["string", "null"] },
-                          "funding": { "type": ["string", "null"] },
+                          "name": {
+                            "type": "string"
+                          },
+                          "category": {
+                            "type": "string",
+                            "enum": [
+                              "hybrid",
+                              "traditional",
+                              "web3-native"
+                            ],
+                            "description": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first"
+                          },
+                          "audience": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "region": {
+                            "type": "string",
+                            "description": "Primary market, one of Europe / Asia / North America / Latin America / Africa / MENA / Oceania / Global."
+                          },
+                          "hq": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "founded": {
+                            "type": [
+                              "string",
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "custody": {
+                            "type": "string",
+                            "description": "Who holds the money. The single most important field for safety questions."
+                          },
+                          "regulation_type": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "How it is authorised. Most common: Licensed bank (127), Partner-bank model (77), Self-custodial software (51), E-money institution (48)."
+                          },
+                          "licence": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Named licence, charter or sponsor bank behind regulation_type."
+                          },
+                          "card_network": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "card_type": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "cashback": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer"
+                          },
+                          "yield": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer"
+                          },
+                          "stablecoins": {
+                            "type": "boolean",
+                            "description": "True where stablecoins can be held or spent (116 of 368)."
+                          },
+                          "kyc": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Yes / No / Card only — identity verification required to use the product."
+                          },
+                          "ai": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Verified production AI, by tier: underwriting / interface / agentic (67 of 368). Absence means unverified, not none."
+                          },
+                          "services": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence"
+                          },
+                          "fx_markup": {
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "description": "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer Present on 21 of 368 entities.",
+                            "properties": {
+                              "value": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "note": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "source": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "as_of": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "domain": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "website": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "terms_url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Verified link, not guessed from the domain."
+                          },
+                          "privacy_url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "x_handle": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "active_regions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "countries": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "founders": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "funding": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
                           "investors": {
-                            "type": ["array", "null"],
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "description": "Notable backers from publicly disclosed rounds, not complete cap tables (219 distinct firms across the dataset).",
                             "items": {
                               "type": "object",
-                              "properties": { "name": { "type": "string" }, "website": { "type": "string", "format": "uri" } }
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "website": {
+                                  "type": "string",
+                                  "format": "uri"
+                                }
+                              }
                             }
                           },
                           "reported_users": {
-                            "type": ["object", "null"],
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "description": "Self-reported scale, present on 22 of 368 entities. The metric is not comparable across companies — always cite metric and as_of alongside the number.",
                             "properties": {
-                              "value_millions": { "type": "number" },
-                              "metric": { "type": "string" },
-                              "as_of": { "type": "string" }
+                              "value_millions": {
+                                "type": "number"
+                              },
+                              "metric": {
+                                "type": "string"
+                              },
+                              "as_of": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "volume": {
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "description": "Payment or transaction volume where disclosed (10 of 368).",
+                            "properties": {
+                              "value": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "metric": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "as_of": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "story": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Editorial paragraph shown on the profile page."
+                          },
+                          "note": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Short caveat or clarification."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changelog/changelog.json": {
+      "get": {
+        "operationId": "getChangelog",
+        "summary": "Dataset changelog and as-of date",
+        "description": "Dated log of every dataset change. Read `generated` here to get the as-of date for /data.json.",
+        "responses": {
+          "200": {
+            "description": "The changelog.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "generated": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "entries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "summary": {
+                            "type": "string"
+                          },
+                          "subject": {
+                            "type": "string"
+                          },
+                          "added": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "removed": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "string"
                             }
                           }
                         }
@@ -82,7 +439,7 @@
       "get": {
         "operationId": "getJobs",
         "summary": "Live neobank job board",
-        "description": "Thousands of live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Refreshed Monday/Wednesday/Friday.",
+        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3572 roles across 65 companies. Refreshed Monday/Wednesday/Friday.",
         "responses": {
           "200": {
             "description": "The job list.",
@@ -90,27 +447,98 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "generated",
+                    "count",
+                    "jobs"
+                  ],
                   "properties": {
-                    "generated": { "type": "string", "format": "date" },
-                    "count": { "type": "integer" },
-                    "companies": { "type": "integer" },
+                    "generated": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "companies": {
+                      "type": "integer"
+                    },
+                    "logos": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Company name → logo URL."
+                    },
                     "jobs": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["title", "url", "company"],
+                        "required": [
+                          "title",
+                          "url",
+                          "company"
+                        ],
                         "properties": {
-                          "title": { "type": "string" },
-                          "url": { "type": "string", "format": "uri", "description": "Direct link to the official application page." },
-                          "company": { "type": "string" },
-                          "profile": { "type": ["string", "null"], "description": "Site-relative path to the company profile page." },
-                          "location": { "type": "string" },
-                          "dept": { "type": "string" },
-                          "region": { "type": "string" },
-                          "posted": { "type": ["string", "null"], "format": "date" },
-                          "salary": { "type": ["string", "null"] },
-                          "wp": { "type": ["string", "null"], "enum": ["remote", "hybrid", "onsite", null] },
-                          "visa": { "type": ["boolean", "null"] }
+                          "title": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Direct link to the official application page."
+                          },
+                          "company": {
+                            "type": "string"
+                          },
+                          "profile": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Site-relative path to the company profile page."
+                          },
+                          "location": {
+                            "type": "string"
+                          },
+                          "dept": {
+                            "type": "string"
+                          },
+                          "region": {
+                            "type": "string"
+                          },
+                          "posted": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date"
+                          },
+                          "salary": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "wp": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "enum": [
+                              "remote",
+                              "hybrid",
+                              "onsite",
+                              null
+                            ]
+                          },
+                          "visa": {
+                            "type": [
+                              "boolean",
+                              "null"
+                            ],
+                            "description": "Visa sponsorship where the posting states it. Sparse."
+                          }
                         }
                       }
                     }

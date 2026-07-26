@@ -3,17 +3,42 @@
     {
       "anchor": "https://www.neobankbeat.com/",
       "service-desc": [
-        { "href": "https://www.neobankbeat.com/openapi.json", "type": "application/json", "title": "OpenAPI 3.1 description of the neobankbeat data endpoints" }
+        {
+          "href": "https://www.neobankbeat.com/openapi.json",
+          "type": "application/json",
+          "title": "OpenAPI 3.1 description of the neobankbeat data endpoints"
+        }
       ],
       "service-doc": [
-        { "href": "https://www.neobankbeat.com/llms.txt", "type": "text/plain", "title": "Agent-oriented guide: data semantics, site sections, reference pages" }
+        {
+          "href": "https://www.neobankbeat.com/llms.txt",
+          "type": "text/plain",
+          "title": "Agent-oriented guide: data semantics, site sections, reference pages"
+        }
       ],
       "service-meta": [
-        { "href": "https://www.neobankbeat.com/.well-known/agent-skills/index.json", "type": "application/json", "title": "Agent skills discovery index" }
+        {
+          "href": "https://www.neobankbeat.com/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills discovery index"
+        }
       ],
       "item": [
-        { "href": "https://www.neobankbeat.com/data.json", "type": "application/json", "title": "Full dataset — 373 verified-active neobanks (MIT)" },
-        { "href": "https://www.neobankbeat.com/jobs/data.json", "type": "application/json", "title": "Live neobank job board data" }
+        {
+          "href": "https://www.neobankbeat.com/data.json",
+          "type": "application/json",
+          "title": "Full dataset — 368 verified-active neobanks (MIT)"
+        },
+        {
+          "href": "https://www.neobankbeat.com/changelog/changelog.json",
+          "type": "application/json",
+          "title": "Dataset changelog — as-of date and every change"
+        },
+        {
+          "href": "https://www.neobankbeat.com/jobs/data.json",
+          "type": "application/json",
+          "title": "Live neobank job board — 3572 roles across 65 companies"
+        }
       ]
     }
   ]

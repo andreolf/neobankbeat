@@ -1,18 +1,31 @@
 /* build-report.mjs — generates the monthly "State of Neobanks" report as
    print-designed HTML (fixed A4 pages), rendered to PDF with headless Chrome.
-   Everything is computed from data.json, so next month = rerun + edit the
-   MONTH constants and the editorial notes below.
-   run: node build-report.mjs   → writes ../reports/report-src.html          */
+   run: node build-report.mjs   → writes ../reports/report-src.html
+
+   A published edition is a dated snapshot: the PDF readers downloaded says
+   "data as of 5 July 2026" and counts 357 neobanks. Reading live data.json here
+   meant any later rebuild silently rewrote those figures to today's totals while
+   keeping the July label — the web edition drifted to 368 against a PDF that
+   still said 357. So each edition pins its own data, committed alongside it.
+
+   Next month: bump the MONTH/EDITION/ED_SLUG constants and drop a fresh
+   data-snapshot.json in report/<slug>/ (cp data.json), then rerun.            */
 import fs from 'node:fs';
 import path from 'node:path';
+import { FOOTER_HTML } from './footer.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
 
 /* ── edition constants ─────────────────────────────────────────── */
 const MONTH = 'July 2026';
 const EDITION = '№ 01';
 const ASOF = 'data as of 5 July 2026';
+const ED_SLUG = '2026-07';
+
+const SNAPSHOT = path.join(ROOT, 'report', ED_SLUG, 'data-snapshot.json');
+const DATA_SRC = fs.existsSync(SNAPSHOT) ? SNAPSHOT : path.join(ROOT, 'data.json');
+const E = JSON.parse(fs.readFileSync(DATA_SRC, 'utf8')).entities;
+console.log(`edition ${ED_SLUG}: ${E.length} entities from ${path.relative(ROOT, DATA_SRC)}`);
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -869,7 +882,6 @@ fs.writeFileSync(path.join(ROOT, 'reports', 'report-src.html'), html);
    the rest is gated: subscribe on substack → the PDF download starts.
    truncation happens at build time so the locked chapters never ship
    in the HTML (view-source clean).                                    */
-const ED_SLUG = '2026-07';
 const FREE_CHAPTERS = 6;                                     // through "A short history" — the opening third
 const PDF_URL = `/reports/dl-vq3x8k/state-of-neobanks-${ED_SLUG}.pdf`;
 const gatePage = tocEntries[FREE_CHAPTERS][1];               // first locked page
@@ -884,6 +896,16 @@ const lockedChapters = tocEntries.slice(FREE_CHAPTERS).map(([t]) => t);
 
 const WEBCSS = `
 body{background:var(--bg);-webkit-font-smoothing:antialiased}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
+.fwrap{max-width:960px;margin:0 auto;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim,#6b6b7a)}
+.fwrap a{color:var(--muted);text-decoration:none}
+.fwrap a:hover{color:var(--acc)}
+.wsite{background:var(--bg,#0A0A10);border-bottom:1px solid var(--line)}
+.wsitein{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.wsitein a{font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:.5px;color:var(--muted);text-decoration:none}
+.wsitein a:hover{color:var(--text)}
+.wsitein a.on{color:var(--acc)}
+.chlbl{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim,#6b6b7a);margin-right:2px}
 .wtop{position:sticky;top:0;z-index:9;background:rgba(10,10,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .wtopin{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:14px;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .wtopin::-webkit-scrollbar{display:none}
@@ -938,7 +960,7 @@ const webHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The State of Neobanks — ${MONTH} · web edition · neobankbeat</title>
-<meta name="description" content="The State of Neobanks ${MONTH}: the opening chapters free online — ${N} verified-active neobanks measured across custody, licences, cards and stablecoins. Full ${pages.length}-page designed PDF free for subscribers.">
+<meta name="description" content="The State of Neobanks ${MONTH}: opening chapters free online. ${N} verified-active neobanks measured on custody, licences, cards and stablecoins.">
 <link rel="canonical" href="https://www.neobankbeat.com/report/${ED_SLUG}/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="article">
@@ -964,8 +986,17 @@ ${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `T
 <style>${CSS}${WEBCSS}</style>
 </head>
 <body>
-<nav class="wtop"><div class="wtopin">
+<nav class="wsite" aria-label="Primary"><div class="wsitein">
   <a class="logo" href="/">neobank<span style="color:var(--acc)">beat</span></a>
+  <a href="/">directory</a>
+  <a href="/investors/">investors</a>
+  <a href="/infra/">infra</a>
+  <a href="/blog/">blog</a>
+  <a class="on" href="/report/">report</a>
+  <a href="/jobs/">jobs</a>
+</div></nav>
+<nav class="wtop" aria-label="Chapters"><div class="wtopin">
+  <span class="chlbl">chapters</span>
   ${tocEntries.map(([t], i) => i < FREE_CHAPTERS
     ? `<a class="chl" href="#ch${i}">${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`
     : `<a class="chl lk" href="#gate" title="subscribe to unlock">🔒 ${esc(t.replace(/ — .*| &.*|:.*/, ''))}</a>`).join('')}
@@ -999,7 +1030,7 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
   <div class="doneui">
     <span class="k">unlocked</span>
     <div class="big">🎉 Your download is starting…</div>
-    <p>If it didn't, <a href="${PDF_URL}" download style="color:var(--acc)">download the PDF directly</a>. The August edition will arrive by email. Thanks for subscribing.</p>
+    <p>If it didn't, <a href="${PDF_URL}" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. The August edition will arrive by email. Thanks for subscribing.</p>
   </div>
 </div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
@@ -1029,6 +1060,7 @@ const cu = new IntersectionObserver(es => es.forEach(e => {
 }), { rootMargin: '0px 0px -10% 0px' });
 document.querySelectorAll('.stat .n').forEach(s => cu.observe(s));
 </script>
+${FOOTER_HTML}
 </body>
 </html>`;
 fs.mkdirSync(path.join(ROOT, 'report', ED_SLUG), { recursive: true });

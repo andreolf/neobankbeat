@@ -3,6 +3,11 @@ Allow: /
 # The monthly PDF report is gated behind the (free) newsletter at /report/
 Disallow: /reports/
 
+# Paste-ready drafts for LinkedIn and Substack — the published versions live
+# on those platforms, so these are duplicates of off-site content
+Disallow: /substack-html/
+Disallow: /linkedin-article-rise-fall.html
+
 # Content Signals (https://contentsignals.org/) — this is an open, MIT-licensed
 # dataset built to be consumed by humans, search engines and AI agents alike.
 Content-Signal: search=yes, ai-input=yes, ai-train=yes

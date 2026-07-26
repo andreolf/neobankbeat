@@ -5,7 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
-- [FAQ](https://www.neobankbeat.com/faq/) — 22 honest answers
+- [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
 - [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (106 providers)
@@ -580,4 +580,4 @@
 
 ## Per-neobank answer pages
 
-Every profile also has a "who owns it" page (368) and, where a real peer set exists, an "alternatives" page (368), e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (368) answering who is behind the brand — parent company, licence holder, sponsor bank, disclosed investors — and an "alternatives" page (367) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

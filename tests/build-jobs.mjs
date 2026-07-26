@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML } from './footer.mjs';
+import { clampDesc } from './meta.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
@@ -463,7 +464,7 @@ const head = (title, desc, canonical, ld) => `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
-<meta name="description" content="${esc(desc)}">
+<meta name="description" content="${esc(clampDesc(desc))}">
 <link rel="canonical" href="${canonical}">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">

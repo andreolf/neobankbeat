@@ -5,6 +5,7 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML } from './footer.mjs';
+import { clampDesc } from './meta.mjs';
 
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
 const BASE = 'https://www.neobankbeat.com';
@@ -132,7 +133,7 @@ const html = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Changelog — every change to the neobank dataset · neobankbeat</title>
-<meta name="description" content="Every addition, removal and update to the open neobank dataset, generated from version history. ${now.length} tracked entities, ${nAdd} added and ${nDel} removed since launch. Deaths included — that's the point.">
+<meta name="description" content="${clampDesc(`Every change to the open neobank dataset, from version history: ${now.length} tracked entities, ${nAdd} added and ${nDel} removed since launch. Deaths included \u2014 that's the point.`)}">
 <link rel="canonical" href="${BASE}/changelog/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">

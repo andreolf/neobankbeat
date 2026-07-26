@@ -483,6 +483,90 @@ console.log('— flow 27: every footer comes from one source (no hand-edited dri
   ok(/flat footers match/.test(out),'footer check ran over the whole tree');
 }
 
+console.log('— flow 28: every internal link resolves (no links to delisted neobanks)');
+{
+  // A neobank leaving the dataset deletes its /n/<slug>/ page, but hand-written
+  // blog prose keeps linking to it. That is how /n/fi-money/ survived a removal.
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const SKIP=/^(node_modules|\.git|tests|reports|substack-html|og|fonts|dataset)$/;
+  const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>
+    x.isDirectory()?(SKIP.test(x.name)?[]:walk(path.join(d,x.name))):x.name.endsWith('.html')?[path.join(d,x.name)]:[]);
+  const files=walk(root);
+  const exists=p=>fs.existsSync(p)||fs.existsSync(path.join(p,'index.html'));
+  const bad=[];let links=0;
+  for(const f of files){
+    let h=fs.readFileSync(f,'utf8');
+    // strip <script> bodies: the homepage builds hrefs from template strings
+    h=h.replace(/<script[\s\S]*?<\/script>/g,'');
+    for(const m of h.matchAll(/href="(\/[^"#?]*)/g)){
+      const href=m[1];
+      if(/^\/(data\.json|llms|sitemap|openapi|robots|AGENTS|index\.md|favicon|apple-touch|_vercel|\.well-known)/.test(href))continue;
+      links++;
+      const target=path.join(root,decodeURIComponent(href));
+      if(!exists(target))bad.push(path.relative(root,f)+' → '+href);
+    }
+  }
+  ok(links>3000,'scanned internal links across the tree ('+links+' in '+files.length+' files)');
+  ok(bad.length===0,'no broken internal links'+(bad.length?' ('+bad.length+': '+[...new Set(bad)].slice(0,5).join(', ')+')':''));
+}
+
+console.log('— flow 29: head metadata is complete and snippet-sized');
+{
+  // 87% of descriptions used to run past ~160 chars, which hands the SERP snippet
+  // back to Google to rewrite. og:description keeps the full sentence.
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const SKIP=/^(node_modules|\.git|tests|reports|substack-html|og|fonts|dataset)$/;
+  const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>
+    x.isDirectory()?(SKIP.test(x.name)?[]:walk(path.join(d,x.name))):x.name.endsWith('.html')?[path.join(d,x.name)]:[]);
+  const long=[],noDesc=[],noCanon=[],badOg=[];
+  for(const f of walk(root)){
+    const h=fs.readFileSync(f,'utf8');
+    const rel=path.relative(root,f);
+    if(/<meta name="robots" content="noindex/.test(h))continue;
+    const d=(h.match(/<meta name="description" content="([^"]*)"/)||[])[1];
+    if(!d)noDesc.push(rel);
+    else if(d.replace(/&[a-z]+;/g,'x').length>160)long.push(rel+' ('+d.length+')');
+    if((h.match(/<link rel="canonical"/g)||[]).length!==1)noCanon.push(rel);
+    const og=(h.match(/<meta property="og:image" content="https:\/\/www\.neobankbeat\.com([^"]*)"/)||[])[1];
+    if(og&&!fs.existsSync(path.join(root,og)))badOg.push(rel+' → '+og);
+  }
+  ok(long.length===0,'no meta description over 160 chars'+(long.length?' ('+long.length+': '+long.slice(0,4).join(', ')+')':''));
+  ok(noDesc.length===0,'every indexable page has a meta description'+(noDesc.length?' ('+noDesc.join(', ')+')':''));
+  ok(noCanon.length===0,'every indexable page has exactly one canonical'+(noCanon.length?' ('+noCanon.join(', ')+')':''));
+  ok(badOg.length===0,'every og:image resolves to a file'+(badOg.length?' ('+badOg.slice(0,4).join(', ')+')':''));
+}
+
+console.log('— flow 30: prose counts match the dataset (no hand-written totals drifting)');
+{
+  // Delegates to sync-counts.mjs --check for the same reason flow 27 delegates
+  // to sync-footers: a second copy of the rules would drift too.
+  const {execSync}=require('child_process');
+  const path=require('path');
+  let out='',code=0;
+  try{ out=execSync('node '+path.join(__dirname,'sync-counts.mjs')+' --check',{encoding:'utf8'}); }
+  catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
+  const drifted=[...out.matchAll(/^\s+(\S+\.(?:txt|md|html):.+)$/gm)].map(m=>m[1]);
+  ok(code===0,'no count drift in hand-written prose'+(drifted.length?' ('+drifted.length+': '+drifted.slice(0,3).join(' | ')+' — run node tests/sync-counts.mjs)':''));
+  ok(/counts in sync across/.test(out),'count check ran');
+
+  // the agent surface is generated; if it is stale the skill hash stops matching
+  // and discovery clients drop the skill entirely
+  const root=path.join(__dirname,'..');
+  const idx=JSON.parse(fs.readFileSync(path.join(root,'.well-known/agent-skills/index.json'),'utf8'));
+  const skill=fs.readFileSync(path.join(root,'.well-known/agent-skills/neobank-dataset/SKILL.md'),'utf8');
+  const hash=require('crypto').createHash('sha256').update(skill).digest('hex');
+  ok(idx.skills[0].sha256===hash,'agent-skill sha256 matches SKILL.md');
+  const total=w3.eval('D.length');
+  for(const f of ['.well-known/api-catalog','.well-known/agent-skills/index.json','.well-known/agent-skills/neobank-dataset/SKILL.md','openapi.json']){
+    const txt=fs.readFileSync(path.join(root,f),'utf8');
+    const stale=[...txt.matchAll(/\b(\d{3})\b(?=[^.]{0,60}?(?:neobank|entit|verified))/gi)]
+      .map(m=>+m[1]).filter(n=>n>=300&&n<500&&n!==total);
+    ok(stale.length===0,f+' has no stale totals (found: '+[...new Set(stale)].join(',')+' vs '+total+')');
+  }
+}
+
 console.log('');
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
