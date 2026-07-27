@@ -5,8 +5,56 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 27 Jul 2026 10:05:23 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 18:40:27 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[CONTENT & CRM ANALYST JUNIOR — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4717188005?gh_jid=4717188005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4717188005?gh_jid=4717188005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[INTERN (CX) — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4716603005?gh_jid=4716603005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4716603005?gh_jid=4716603005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[PRODUCTS ANALYST III - REAL ESTATE — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4705949005?gh_jid=4705949005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4705949005?gh_jid=4705949005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[REAL ESTATE CONSULTANT I - Goiânia, GO — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4682253005?gh_jid=4682253005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4682253005?gh_jid=4682253005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Goiânia, GO · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[TECH PRODUCT SPECIALIST II — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4710711005?gh_jid=4710711005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4710711005?gh_jid=4710711005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[WEALTH MANAGEMENT SPECIALIST I - HIGH (São Paulo, SP) — Banco Inter]]></title>
+    <link>https://boards.greenhouse.io/inter/jobs/4715529005?gh_jid=4715529005</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4715529005?gh_jid=4715529005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Software Engineer Intern, Fullstack - 12 Month Internship — Bitpanda]]></title>
     <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4918465101</link>
@@ -16,12 +64,124 @@
     <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[Software Engineer, Java (Trade Services) — Bitpanda]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4938589101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4938589101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Pessoa Arquiteta Corporativa - Cartões | Enterprise Architect — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4696039005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4696039005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Pessoa Especialista Sênior de Engenharia de Plataformas | Platform Engineering — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4696666005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4696666005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Supervisor de Operações Sênior | Automação de Processos (Python) - Monitoramento e Governança — C6 Bank]]></title>
+    <link>https://job-boards.greenhouse.io/c6bank/jobs/4712934005</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4712934005</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Frontend (Consumer - Payments) — Coinbase]]></title>
+    <link>https://www.coinbase.com/careers/positions/8029035?gh_jid=8029035</link>
+    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8029035?gh_jid=8029035</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Vice President, Operations — EQ Bank]]></title>
+    <link>https://jobs.lever.co/eqbank/a2d5e65e-78d6-462e-b93e-113ebaeb7791</link>
+    <guid isPermaLink="true">https://jobs.lever.co/eqbank/a2d5e65e-78d6-462e-b93e-113ebaeb7791</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[EQ Bank · Toronto · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[iOS Engineer — Kuda]]></title>
+    <link>https://apply.workable.com/j/FC2DB1591E</link>
+    <guid isPermaLink="true">https://apply.workable.com/j/FC2DB1591E</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Kuda · Cape Town, Western Cape, South Africa · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[VP of Engineering — Kuda]]></title>
+    <link>https://apply.workable.com/j/61F507FDD7</link>
+    <guid isPermaLink="true">https://apply.workable.com/j/61F507FDD7</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Kuda · Cape Town, Western Cape, South Africa · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Science Manager (Credit) — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4938471101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4938471101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Moniepoint · London, United Kingdom · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Lead, Head Office Operations Control — Moniepoint]]></title>
     <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4781774101</link>
     <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4781774101</guid>
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
     <category>Operations</category>
     <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Motion Designer — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4686507101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4686507101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Moniepoint · Remote, Lagos, Nigeria; Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Backend Engineer (Java) — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4001262101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4001262101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Java Engineer — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4629878101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4629878101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4629845101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4629845101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Benefits Specialist — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/7866538</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/7866538</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Financial Crime Team Manager, Merchant Acquiring, Business Banking — Monzo]]></title>
@@ -38,6 +198,46 @@
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £31–39K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Atlassian Consultant — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/8074094?gh_jid=8074094</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/8074094?gh_jid=8074094</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Atlassian Consultant — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/8088746?gh_jid=8088746</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/8088746?gh_jid=8088746</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[(Senior) Product Manager - Onboarding & KYC — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7668142?gh_jid=7668142</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7668142?gh_jid=7668142</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[(Senior) Product Manager - Onboarding & KYC — N26]]></title>
+    <link>https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226</link>
+    <guid isPermaLink="true">https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Especialista de Growth - Payments | Afirmativa para Mulheres — Neon]]></title>
+    <link>https://jobs.lever.co/neon/7e259ea7-6d2d-4e3d-b8a4-881955f4e672</link>
+    <guid isPermaLink="true">https://jobs.lever.co/neon/7e259ea7-6d2d-4e3d-b8a4-881955f4e672</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Neon · Remoto · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Product Director (Pay & Card) — OKX]]></title>
@@ -64,12 +264,60 @@
     <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Analyst, Level 1, Onboarding KYX, UK — Tide]]></title>
-    <link>https://job-boards.greenhouse.io/tide/jobs/7621880003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7621880003</guid>
+    <title><![CDATA[Backend Engineer — PayPay]]></title>
+    <link>https://job-boards.greenhouse.io/paypay/jobs/5683668004</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5683668004</guid>
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Onboarding &amp; KYC</category>
-    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+    <category>Engineering</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Cloud Platform Engineer — PayPay]]></title>
+    <link>https://job-boards.greenhouse.io/paypay/jobs/5471535004</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/5471535004</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Data Science Engineer / Senior Machine Learning Engineer (Applied Insights) — PayPay]]></title>
+    <link>https://job-boards.greenhouse.io/paypay/jobs/4918512004</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/paypay/jobs/4918512004</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer - Data Lake Ingestion — Robinhood]]></title>
+    <link>https://boards.greenhouse.io/robinhood/jobs/8083951?t=gh_src=&amp;gh_jid=8083951</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/robinhood/jobs/8083951?t=gh_src=&amp;gh_jid=8083951</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Robinhood · Bellevue, WA · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Streaming Platform — Robinhood]]></title>
+    <link>https://boards.greenhouse.io/robinhood/jobs/8083811?t=gh_src=&amp;gh_jid=8083811</link>
+    <guid isPermaLink="true">https://boards.greenhouse.io/robinhood/jobs/8083811?t=gh_src=&amp;gh_jid=8083811</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Robinhood · Bellevue, WA · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Licensed Customer Service Representative, Protect — SoFi]]></title>
+    <link>https://sofi.com/careers/job/7817776003?gh_jid=7817776003</link>
+    <guid isPermaLink="true">https://sofi.com/careers/job/7817776003?gh_jid=7817776003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[SoFi · United States · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lock Desk Analyst — SoFi]]></title>
+    <link>https://sofi.com/careers/job/7784610003?gh_jid=7784610003</link>
+    <guid isPermaLink="true">https://sofi.com/careers/job/7784610003?gh_jid=7784610003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[SoFi · Frisco - TX; Charlotte - NC · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[FP&A Lead — Tide]]></title>
@@ -89,6 +337,14 @@
   </item>
   <item>
     <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7815727003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7815727003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
     <link>https://job-boards.greenhouse.io/tide/jobs/7766790003</link>
     <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7766790003</guid>
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
@@ -96,12 +352,60 @@
     <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
-    <link>https://job-boards.greenhouse.io/tide/jobs/7815727003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7815727003</guid>
+    <title><![CDATA[UK/Europe Region - Template — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7713064003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7713064003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Tide · United Kingdom · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Workforce Management Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000140064348</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000140064348</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · São Paulo, BR · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Workforce Management Senior Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000140063189</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000140063189</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · São Paulo, BR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Product Analyst - Regional Expansion — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000140052569</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000140052569</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Customer Success Manager (German Speaking) — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000140042077</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000140042077</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Lead - Ptech - HR Tech — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000140046210</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000140046210</guid>
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
-    <description><![CDATA[Tide · India, Bengaluru · onsite]]></description>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Recruiter — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139969734</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139969734</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Wise · São Paulo, BR · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Engineering Lead - Online Platforms — Wise]]></title>
@@ -182,310 +486,6 @@
     <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
     <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior/Principal Product Manager, DEX Trading — OKX]]></title>
-    <link>https://job-boards.greenhouse.io/okx/jobs/7671614003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7671614003</guid>
-    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[FinCrime Reporting Specialist — Wise]]></title>
-    <link>https://jobs.smartrecruiters.com/wise/744000139869179</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139869179</guid>
-    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Risk Analyst Expert — Bybit]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4866178101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4866178101</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Bybit · Abu Dhabi, UAE · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Risk Control Expert — Bybit]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4863827101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4863827101</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Bybit · Abu Dhabi, UAE · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Cluster Collections Manager - Mysore — PhonePe]]></title>
-    <link>https://job-boards.greenhouse.io/phonepe/jobs/7812478003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7812478003</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[PhonePe · Mysore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Cluster Collections Manager - Tirupati — PhonePe]]></title>
-    <link>https://job-boards.greenhouse.io/phonepe/jobs/7812590003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/phonepe/jobs/7812590003</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[PhonePe · Tirupati · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Information Security Operations Lead (Sydney, Australia) — Starling Bank]]></title>
-    <link>https://apply.workable.com/j/C8DD3020FA</link>
-    <guid isPermaLink="true">https://apply.workable.com/j/C8DD3020FA</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Starling Bank · Sydney, New South Wales, Australia · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Information Security Operations Lead (Toronto, Canada) — Starling Bank]]></title>
-    <link>https://apply.workable.com/j/AC8DE477C7</link>
-    <guid isPermaLink="true">https://apply.workable.com/j/AC8DE477C7</guid>
-    <pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Starling Bank · Toronto, Ontario, Canada · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION POLICIES ANALYST III — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4711785005?gh_jid=4711785005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4711785005?gh_jid=4711785005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT INTERN — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4714589005?gh_jid=4714589005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4714589005?gh_jid=4714589005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[DATA ANALYST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4702045005?gh_jid=4702045005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4702045005?gh_jid=4702045005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[DATA ANALYST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4713602005?gh_jid=4713602005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4713602005?gh_jid=4713602005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[DATA ENGINEER II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4707932005?gh_jid=4707932005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4707932005?gh_jid=4707932005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[GROWTH COORDINATOR — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4709206005?gh_jid=4709206005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4709206005?gh_jid=4709206005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[INTERNAL AUDIT IT ANALYST II — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4715323005?gh_jid=4715323005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4715323005?gh_jid=4715323005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[SOFTWARE DEVELOPER ANALYST III (iOS) - Fraud Prevention — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4709112005?gh_jid=4709112005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4709112005?gh_jid=4709112005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG; Recife, PE · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[SOFTWARE DEVELOPER ANALYST II - International Investments — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4716599005?gh_jid=4716599005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4716599005?gh_jid=4716599005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[SOFTWARE DEVELOPER ANALYST II (Java) - Investments — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4703939005?gh_jid=4703939005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4703939005?gh_jid=4703939005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[TECH OPS SPECIALIST I (Salesforce) - Customer Intelligence — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4712785005?gh_jid=4712785005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4712785005?gh_jid=4712785005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG; Curitiba, PR; Recife, PE; São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[UX UI SPECIALIST I — Banco Inter]]></title>
-    <link>https://boards.greenhouse.io/inter/jobs/4688227005?gh_jid=4688227005</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/inter/jobs/4688227005?gh_jid=4688227005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Associate, Customer Support - Live chat — Bitpanda]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4844323101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4844323101</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Software Engineer, Golang (Bitpanda Enterprise) — Bitpanda]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4933305101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4933305101</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Bitpanda · București, Bucharest, Romania · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Software Engineer, React (Bitpanda Broker) — Bitpanda]]></title>
-    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4715297101</link>
-    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4715297101</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Bitpanda · Barcelona, Spain · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Persona Test - DO NOT APPLY — Branch]]></title>
-    <link>https://job-boards.greenhouse.io/branch/jobs/7802685003</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/branch/jobs/7802685003</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Branch · Remote, US · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bill Pay Counsel — Brex]]></title>
-    <link>https://www.brex.com/careers/8649243002?gh_jid=8649243002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8649243002?gh_jid=8649243002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Brex · New York, New York, United States · $220–270K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bill Pay Counsel — Brex]]></title>
-    <link>https://www.brex.com/careers/8649258002?gh_jid=8649258002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8649258002?gh_jid=8649258002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Brex · Salt Lake City, Utah, United States · $189–230K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bill Pay Counsel — Brex]]></title>
-    <link>https://www.brex.com/careers/8649253002?gh_jid=8649253002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8649253002?gh_jid=8649253002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $220–270K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Bill Pay Counsel — Brex]]></title>
-    <link>https://www.brex.com/careers/8649220002?gh_jid=8649220002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8649220002?gh_jid=8649220002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $220–270K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director, Technical Accounting and Financial Reporting — Brex]]></title>
-    <link>https://www.brex.com/careers/8643416002?gh_jid=8643416002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8643416002?gh_jid=8643416002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Brex · New York, New York, United States · $252–315K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director, Technical Accounting and Financial Reporting — Brex]]></title>
-    <link>https://www.brex.com/careers/8643415002?gh_jid=8643415002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8643415002?gh_jid=8643415002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $252–315K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director, Technical Accounting and Financial Reporting — Brex]]></title>
-    <link>https://www.brex.com/careers/8615152002?gh_jid=8615152002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8615152002?gh_jid=8615152002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $252–315K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Enterprise Account Executive, Embedded Finance — Brex]]></title>
-    <link>https://www.brex.com/careers/8502529002?gh_jid=8502529002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8502529002?gh_jid=8502529002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · New York, New York, United States · $185–232K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Sourcer — Brex]]></title>
-    <link>https://www.brex.com/careers/8434443002?gh_jid=8434443002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8434443002?gh_jid=8434443002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $109–142K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Sourcer — Brex]]></title>
-    <link>https://www.brex.com/careers/8434444002?gh_jid=8434444002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8434444002?gh_jid=8434444002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $126–140K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Sourcer — Brex]]></title>
-    <link>https://www.brex.com/careers/8434442002?gh_jid=8434442002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8434442002?gh_jid=8434442002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · New York, New York, United States · $109–142K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Sourcer — Brex]]></title>
-    <link>https://www.brex.com/careers/8434432002?gh_jid=8434432002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8434432002?gh_jid=8434432002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $109–142K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager, AI — Brex]]></title>
-    <link>https://www.brex.com/careers/8616327002?gh_jid=8616327002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8616327002?gh_jid=8616327002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $184–230K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager, AI — Brex]]></title>
-    <link>https://www.brex.com/careers/8614858002?gh_jid=8614858002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8614858002?gh_jid=8614858002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $184–230K · onsite]]></description>
   </item>
 </channel>
 </rss>

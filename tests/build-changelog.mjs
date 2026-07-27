@@ -141,10 +141,10 @@ const html = `<!DOCTYPE html>
 <meta property="og:title" content="The neobank dataset changelog">
 <meta property="og:description" content="Every addition, removal and update, generated from version history. Deaths included — that's the point.">
 <meta property="og:url" content="${BASE}/changelog/">
-<meta property="og:image" content="${BASE}/og.png">
+<meta property="og:image" content="${BASE}/og/changelog.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@neobankbeat">
-<meta name="twitter:image" content="${BASE}/og.png">
+<meta name="twitter:image" content="${BASE}/og/changelog.png">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">

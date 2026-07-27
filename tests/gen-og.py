@@ -186,16 +186,88 @@ def blog_card(title, date, tag):
     d.text((64, min(y + 18, H - 130)), date + " · neobankbeat blog", font=mono(22), fill=DIM)
     return im
 
-def ai_page_card(n_total, n_u, n_i, n_a):
+def ai_page_card(n_total, n_all, n_u, n_i, n_a):
     im, d = base_card()
     chip(d, 64, 158, "narrative check", ACCENT)
     f = sg(72)
     d.text((60, 226), "AI neobanks, verified", font=f, fill=TEXT)
     m = mono(24)
-    d.text((64, 330), f"{n_total} of 368 tracked have AI in production", font=m, fill=TEXT)
+    d.text((64, 330), f"{n_total} of {n_all} tracked have AI in production", font=m, fill=TEXT)
     d.text((64, 380), f"{n_u} underwriting · {n_i} interface · {n_a} agentic", font=m, fill=DIM)
     d.text((64, 430), "verified against filings, disclosures & product docs", font=m, fill=DIM)
     return im
+
+INVESTOR = "#FFD166"
+INFRA = "#D075FF"
+JOBS = "#BAF24A"
+VS = "#89B0FF"
+BLUE = "#89B0FF"
+PURPLE = "#D075FF"
+
+def inv_dom(site):
+    return re.sub(r"^https?://", "", str(site or "")).split("/")[0]
+
+def org_card(name, chip_label, chip_color, line2, line3="", domain=None):
+    im, d = base_card()
+    logo = logo_tile(domain, 150) if domain else None
+    if logo is not None:
+        im.paste(logo, (W - 64 - 150, 152), logo)
+    chip(d, 64, 158, chip_label[:28], chip_color)
+    name_w = W - 128 - (170 if logo is not None else 0)
+    name_f = fit(d, name, name_w, 88)
+    d.text((60, 226), name, font=name_f, fill=TEXT)
+    m = mono(24)
+    y2 = 226 + name_f.size + 28
+    d.text((64, y2), line2[:92], font=m, fill=TEXT)
+    if line3:
+        d.text((64, y2 + 44), line3[:92], font=m, fill=DIM)
+    return im
+
+def section_card(chip_label, title, subtitle, chip_color=ACCENT):
+    im, d = base_card()
+    chip(d, 64, 158, chip_label, chip_color)
+    words = title.split()
+    for size in range(72, 36, -2):
+        f = sg(size)
+        lines, cur = [], ""
+        for w_ in words:
+            t = (cur + " " + w_).strip()
+            if tw(d, t, f) <= W - 128: cur = t
+            else: lines.append(cur); cur = w_
+        lines.append(cur)
+        if len(lines) <= 2: break
+    y = 226
+    for ln in lines[:2]:
+        d.text((60, y), ln, font=f, fill=TEXT); y += f.size + 10
+    if subtitle:
+        d.text((64, min(y + 20, H - 130)), subtitle[:95], font=mono(22), fill=DIM)
+    return im
+
+def jobs_card(dept_label, n_roles, n_companies):
+    im, d = base_card()
+    chip(d, 64, 158, dept_label.lower(), JOBS)
+    title = "Neobank jobs" if dept_label == "Job board" else f"{dept_label} jobs"
+    name_f = fit(d, title, W - 128, 68)
+    d.text((60, 226), title, font=name_f, fill=TEXT)
+    m = mono(24)
+    d.text((64, 330), f"{n_roles:,} live roles · {n_companies} neobanks hiring", font=m, fill=TEXT)
+    d.text((64, 380), "official Greenhouse, Lever & Ashby APIs", font=m, fill=DIM)
+    return im
+
+def investor_card(name, n_banks, site, top_banks):
+    dom = inv_dom(site)
+    line2 = f"{n_banks} neobank{'s' if n_banks != 1 else ''} backed"
+    line3 = " · ".join(top_banks[:4]) if top_banks else ""
+    return org_card(name, "investor", INVESTOR, line2, line3, dom or None)
+
+def infra_card(name, typ, domain, n_clients):
+    chip = typ.split("/")[0].strip()[:22]
+    line2 = typ[:72]
+    line3 = f"{n_clients} tracked client{'s' if n_clients != 1 else ''}" if n_clients else "mapped from public disclosures"
+    return org_card(name, chip, INFRA, line2, line3, domain)
+
+def hub_card(family_label, h1, n_rows, n_total):
+    return section_card(family_label, h1, f"{n_rows} of {n_total} tracked neobanks · verified active", BLUE)
 
 def main():
     data = json.loads((ROOT / "data.json").read_text())
@@ -232,11 +304,104 @@ def main():
     print("blog cards:", n_blog)
 
     tagged = [e for e in ents if e.get("ai")]
-    save(ai_page_card(len(tagged),
+    n_all = len(ents)
+    save(ai_page_card(len(tagged), n_all,
                       sum(1 for e in tagged if e["ai"] == "underwriting"),
                       sum(1 for e in tagged if e["ai"] == "interface"),
                       sum(1 for e in tagged if e["ai"] == "agentic")), "og/ai.png")
     print("ai page card: 1")
+
+    counts = data.get("meta", {}).get("counts", {})
+    trad, hyb, web3 = counts.get("traditional", 0), counts.get("hybrid", 0), counts.get("web3_native", 0)
+
+    # ── section landing cards (major pages that aren't entity-specific) ──
+    sections = [
+        ("data", "Open neobank dataset", f"{n_all} neobanks as JSON · MIT licence", ACCENT),
+        ("vs", "Neobank comparisons", "custody · cards · yield · regulation side by side", VS),
+        ("browse", "Browse the dataset", "by licence, KYC, region, card and audience", BLUE),
+        ("changelog", "Dataset changelog", "every addition, removal and update — public", ACCENT),
+        ("newsletters", "Neobank newsletters", "the reading list worth your inbox", PURPLE),
+        ("cards", "Stablecoin cards", "crypto cards you can spend anywhere", "#BAF24A"),
+        ("investors", "Investors in neobanks", "who funds the challengers — mapped to portfolios", INVESTOR),
+        ("infra", "Infra for neobanks", "sponsor banks, BaaS rails and card processors", INFRA),
+    ]
+    for slug, title, sub, col in sections:
+        save(section_card(slug.replace("-", " "), title, sub, col), f"og/{slug}.png")
+    print("section cards:", len(sections))
+
+    # ── investors: /investors/<slug>/ ──
+    inv = {}
+    for e in ents:
+        for iv in e.get("investors") or []:
+            n = iv["name"]
+            if n not in inv:
+                inv[n] = {"site": iv.get("website", ""), "banks": []}
+            inv[n]["banks"].append(e["name"])
+    inv_doms = sorted({inv_dom(v["site"]) for v in inv.values() if inv_dom(v["site"])})
+    with concurrent.futures.ThreadPoolExecutor(24) as ex:
+        list(ex.map(fetch_logo, inv_doms))
+    bank_by_name = {e["name"]: e for e in ents}
+    for name, v in sorted(inv.items(), key=lambda x: (-len(x[1]["banks"]), x[0])):
+        slug = slugify(name) or "investor"
+        top = sorted(v["banks"], key=lambda n: -((bank_by_name.get(n, {}).get("reported_users") or {}).get("value_millions", 0) or 0))[:4]
+        save(investor_card(name, len(v["banks"]), v["site"], top), f"og/investors/{slug}.png")
+    print("investor cards:", len(inv))
+
+    # ── infra: /infra/<slug>/ ──
+    prov_path = ROOT / "tests" / "infra-providers.json"
+    if prov_path.is_file():
+        prov = json.loads(prov_path.read_text())
+        prov.pop("_comment", None)
+        prov_doms = sorted({v.get("domain", "") for v in prov.values() if v.get("domain")})
+        with concurrent.futures.ThreadPoolExecutor(24) as ex:
+            list(ex.map(fetch_logo, prov_doms))
+        for name, v in sorted(prov.items(), key=lambda x: x[0]):
+            slug = slugify(name) or "provider"
+            save(infra_card(name, v.get("type", "provider"), v.get("domain"), len(v.get("clients") or [])), f"og/infra/{slug}.png")
+        print("infra cards:", len(prov))
+
+    # ── jobs: /jobs/ and /jobs/<dept>/ ──
+    jobs_path = ROOT / "jobs" / "data.json"
+    if jobs_path.is_file():
+        jobs = json.loads(jobs_path.read_text()).get("jobs") or []
+        n_companies = len({j["company"] for j in jobs})
+        save(jobs_card("Job board", len(jobs), n_companies), "og/jobs.png")
+        depts = {}
+        for j in jobs:
+            depts.setdefault(j.get("dept") or "other", []).append(j)
+        dept_labels = {
+            "engineering": "Engineering", "data": "Data & AI", "product": "Product",
+            "design": "Design", "compliance": "Compliance & Risk", "onboarding": "Onboarding & KYC",
+            "support": "Customer Support", "sales": "Sales & Partnerships",
+            "marketing": "Marketing & Growth", "finance": "Finance & Treasury",
+            "operations": "Operations", "people": "People & Legal", "other": "Other",
+        }
+        for dept_id, rows in sorted(depts.items()):
+            label = dept_labels.get(dept_id, dept_id.title())
+            cos = len({j["company"] for j in rows})
+            save(jobs_card(label, len(rows), cos), f"og/jobs/{dept_id}.png")
+        print("jobs cards:", 1 + len(depts))
+
+    # ── topic hubs: /regulation/<slug>/ etc. — read titles from built pages ──
+    fam_lbl = {"regulation": "by regulation", "kyc": "by KYC", "regions": "by region",
+               "for": "by audience", "cards": "by card", "countries": "by country"}
+    n_hub = 0
+    for fam in fam_lbl:
+        fam_dir = ROOT / fam
+        if not fam_dir.is_dir(): continue
+        for child in sorted(fam_dir.iterdir()):
+            idx = child / "index.html"
+            if not child.is_dir() or not idx.is_file(): continue
+            html = idx.read_text()
+            h1m = re.search(r"<h1>(.*?)</h1>", html, re.S)
+            nm = re.search(r"<b>(\d+) of (\d+) tracked neobanks</b>", html)
+            if not h1m: continue
+            h1 = re.sub(r"<[^>]+>", "", h1m.group(1)).replace("&amp;", "&")
+            n_rows = int(nm.group(1)) if nm else 0
+            n_tot = int(nm.group(2)) if nm else n_all
+            save(hub_card(fam_lbl[fam], h1, n_rows, n_tot), f"og/{fam}/{child.name}.png")
+            n_hub += 1
+    print("hub cards:", n_hub)
 
 if __name__ == "__main__":
     sys.exit(main())

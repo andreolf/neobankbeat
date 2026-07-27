@@ -24,6 +24,11 @@ const MMCOL = { NA: '#89B0FF', EU: '#D075FF', LATAM: '#FF5C16', AF: '#BAF24A', M
 const slugify = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const ogIf = (...parts) => {
+  const rel = path.join('og', ...parts);
+  return fs.existsSync(path.join(ROOT, rel)) ? `https://www.neobankbeat.com/og/${parts.join('/')}` : undefined;
+};
+
 /* ── confirmed sources (probe-ats.mjs) — tracked neobanks only ── */
 const SOURCES = [
   // [display, dataset entity name, ats, slug]
@@ -459,7 +464,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 }
 `;
 
-const head = (title, desc, canonical, ld) => `<!DOCTYPE html>
+const head = (title, desc, canonical, ld, ogImage) => `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -473,10 +478,12 @@ const head = (title, desc, canonical, ld) => `<!DOCTYPE html>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta property="og:image" content="${ogImage || 'https://www.neobankbeat.com/og.png'}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@neobankbeat">
-<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:image" content="${ogImage || 'https://www.neobankbeat.com/og.png'}">
 <link rel="alternate" type="application/rss+xml" title="neobank jobs · newest roles" href="/jobs/feed.xml">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
@@ -674,7 +681,8 @@ const indexHtml = head(
   `Neobank jobs — ${all.length.toLocaleString('en-US')} live roles at ${nCompanies} digital banks`,
   `Live job board for the neobank industry: ${all.length.toLocaleString('en-US')} open roles at ${nCompanies} tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed ${TODAY}.`,
   'https://www.neobankbeat.com/jobs/',
-  [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/']) }, jobsLd(all)]
+  [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/']) }, jobsLd(all)],
+  ogIf('jobs.png')
 ) + `
 <main class="wrap" id="main">
   <div class="eyebrow">the job board</div>
@@ -751,7 +759,8 @@ for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']])
     `${label} jobs at neobanks — ${rows.length} live roles`,
     `${rows.length} live ${label.toLowerCase()} roles at ${new Set(rows.map(r => r.company)).size} neobanks, pulled from official career APIs. ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.`,
     `https://www.neobankbeat.com/jobs/${id}/`,
-    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/'], [label.toLowerCase(), `https://www.neobankbeat.com/jobs/${id}/`]) }, jobsLd(rows)]
+    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/'], [label.toLowerCase(), `https://www.neobankbeat.com/jobs/${id}/`]) }, jobsLd(rows)],
+    ogIf('jobs', `${id}.png`)
   ) + `
 <main class="wrap" id="main">
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · ${label.toLowerCase()}</div>
