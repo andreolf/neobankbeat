@@ -135,12 +135,12 @@
                             ],
                             "description": "How it is authorised. Most common: Licensed bank (127), Partner-bank model (77), Self-custodial software (51), E-money institution (48)."
                           },
-                          "licence": {
+                          "license": {
                             "type": [
                               "string",
                               "null"
                             ],
-                            "description": "Named licence, charter or sponsor bank behind regulation_type."
+                            "description": "Named license, charter or sponsor bank behind regulation_type."
                           },
                           "card_network": {
                             "type": [

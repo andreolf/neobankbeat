@@ -44,18 +44,18 @@ const JUNK = /best neobanks?|top \d+|how to|what is|review:|vs\.?\s|promo|bonus|
 
 const QUERIES = [
   'neobank when:7d',
-  '"challenger bank" OR "digital bank" funding OR licence OR launch when:7d',
+  '"challenger bank" OR "digital bank" funding OR license OR launch when:7d',
   'neobank raises OR acquires OR IPO OR stablecoin when:7d',
   'Revolut OR Nubank OR Monzo OR Chime OR N26 OR "Starling Bank" OR bunq OR Wise when:7d',
   'Mercury OR Brex OR Ramp OR Klarna OR "Cash App" OR Moniepoint OR OPay OR GCash when:7d',
   /* wider nets for the big stories of the year so far */
   'neobank OR "digital bank" raises OR valuation OR IPO OR acquisition when:1y',
-  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR licence OR IPO when:1y',
+  'Revolut OR Nubank OR Chime OR Klarna OR Monzo valuation OR profit OR license OR IPO when:1y',
   'Mercury OR Brex OR Ramp OR Wise OR Starling OR bunq funding OR IPO OR launch when:1y',
   '"stablecoin" bank OR card OR payments launch when:1y',
   'fintech "billion" valuation OR round when:1y',
   'Chime OR Klarna OR "Circle" IPO 2026 when:1y',
-  'neobank "banking licence" OR charter OR acquisition 2026 when:1y',
+  'neobank "banking license" OR charter OR acquisition 2026 when:1y',
 ];
 
 const get = async url => {

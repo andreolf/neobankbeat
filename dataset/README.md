@@ -55,7 +55,7 @@ Each row is one neobank (an object under `entities` in `data.json`). Fields incl
 | `category` | `traditional` · `hybrid` · `web3-native` |
 | `custody` | who holds the money (custodial / self-custodial / MPC / mixed) |
 | `regulation_type` | licensed bank · partner-bank (BaaS) · e-money · payment institution · VASP/MSB · self-custodial software · … |
-| `licence` | plain-text licence / sponsor-bank detail |
+| `license` | plain-text license / sponsor-bank detail |
 | `card_network`, `card_type`, `cashback`, `yield` | card & rewards |
 | `stablecoins`, `services` | stablecoin support; money-movement capabilities (on/off-ramp, IBAN, virtual/crypto cards, multi-currency) |
 | `fx_markup` | foreign-exchange markup on the free/standard plan, with source + as-of date |

@@ -193,7 +193,7 @@ page(`
   <div>
     <div class="mono" style="font-size:9pt;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:8mm">—— ${MONTH}</div>
     <div style="font-size:44pt;font-weight:700;letter-spacing:-2.5px;line-height:1.02">the state of<br><span class="ca">neobanks</span></div>
-    <p style="font-size:12pt;color:var(--muted);margin-top:8mm;max-width:130mm">${N} verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. Compiled from the open neobankbeat dataset.</p>
+    <p style="font-size:12pt;color:var(--muted);margin-top:8mm;max-width:130mm">${N} verified-active digital banks, measured — custody, licenses, cards, stablecoins, geography and the fine print. Compiled from the open neobankbeat dataset.</p>
   </div>
   <div>
     <div class="statrow">
@@ -217,7 +217,7 @@ page(`
 <ul>
 <li><b>Sources:</b> regulatory registers (ESMA, EBA, FCA, NMLS, national registers), audited filings and IR disclosures, official terms-of-service documents, and provider websites.</li>
 <li><b>Verification tiers:</b> ${termsN} of ${N} entities carry verified legal-document links; ${xN} carry verified official X handles. Fields that fail verification are null.</li>
-<li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT licence). The report itself is generated from that file.</li>
+<li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT license). The report itself is generated from that file.</li>
 <li><b>Independence:</b> no affiliate links, no sponsored placements, no issuer relationships. Errors are fixed in the open on GitHub.</li>
 </ul>
 <div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — ${MONTH} (№ 01), data as of July 2026." Link: neobankbeat.com/report</p></div>
@@ -242,7 +242,7 @@ page(`
   <div class="stat"><div class="n">${noKyc.length}</div><div class="l">work with no KYC at all</div></div>
 </div>
 <p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>45 in 2019</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
-<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(92 / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining three quarters rest on partner banks, e-money safeguarding, crypto licences, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
+<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(92 / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining three quarters rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
 <div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>`);
 
 /* ═══ BASELINE METRICS (monthly deltas) ═══ */
@@ -279,7 +279,7 @@ const FINDINGS = [
   ['One in three picks an audience first', `${nicheTotal} of ${N} serve a named niche — SMB (29), underbanked (21), freelancers (14), gen z (9), immigrants (9), kids (8), faith-based (7) and a dozen more. "Right bank for someone" beats "better bank for everyone".`],
   ['No-KYC stays a rounding error — by design', `${noKyc.length} of ${N} work without identity checks; all are self-custodial wallets; none issues a card without KYC. The line is structural, not cultural.`],
   ['Legal-link hygiene is poor', `Official terms documents verifiable for only ${termsN} of ${N} — after an audit that repaired 60 dead legal links and removed 53 that resolve nowhere. For an industry holding money, basic document hygiene remains weak.`],
-  ['The categories are dissolving', `Traditional players add stablecoin rails; web3-native apps acquire e-money licences and IBANs. Our own three-way classification gets harder to maintain each quarter — which is itself the finding.`],
+  ['The categories are dissolving', `Traditional players add stablecoin rails; web3-native apps acquire e-money licenses and IBANs. Our own three-way classification gets harder to maintain each quarter — which is itself the finding.`],
 ];
 page(`
 <div class="eyebrow">the ten findings</div>
@@ -361,7 +361,7 @@ page(`
 <tr><td>MPC self-custody</td><td>Key split via multi-party computation — self-custody without a single seed phrase</td></tr>
 <tr><td>Licensed bank</td><td>Holds a banking charter; deposits sit on its own balance sheet with direct deposit insurance</td></tr>
 <tr><td>Partner-bank model</td><td>Unlicensed app fronting a chartered bank; insurance applies pass-through, contingent on accurate ledgers</td></tr>
-<tr><td>E-money institution</td><td>EU/UK licence to issue e-money; funds safeguarded in segregated accounts, not deposit-insured</td></tr>
+<tr><td>E-money institution</td><td>EU/UK license to issue e-money; funds safeguarded in segregated accounts, not deposit-insured</td></tr>
 <tr><td>CASP</td><td>Crypto-Asset Service Provider authorised under MiCA; passports across EU/EEA</td></tr>
 <tr><td>Stablecoin support</td><td>Any verified support: balances, transfer rails, funding a card, or on/off-ramps</td></tr>
 <tr><td>KYC: card only</td><td>The wallet is permissionless; identity is required only to obtain the card</td></tr>
@@ -389,10 +389,10 @@ page(`
 <table>
 <tr><th scope="col">year</th><th scope="col">what happened</th><th scope="col">why it mattered</th></tr>
 <tr><td class="mono">2009–13</td><td>Simple, Moven, GoBank; Fidor in Germany</td><td>Proved a bank could live in an app — mostly on partner charters</td></tr>
-<tr><td class="mono">2013–15</td><td>Nubank founded; UK mints Atom, Tandem, Monzo, Starling licences</td><td>The two enduring models appear: LatAm scale and UK charter-first</td></tr>
-<tr><td class="mono">2016–17</td><td>N26 gets a full licence; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
+<tr><td class="mono">2013–15</td><td>Nubank founded; UK mints Atom, Tandem, Monzo, Starling licenses</td><td>The two enduring models appear: LatAm scale and UK charter-first</td></tr>
+<tr><td class="mono">2016–17</td><td>N26 gets a full license; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
 <tr><td class="mono">2018–19</td><td>Peak formation: 85 of today's survivors founded in 24 months</td><td>BaaS turns launching a neobank into a procurement decision</td></tr>
-<tr><td class="mono">2020</td><td>COVID; Kakaobank/jiban giants scale; Australia's Xinja collapses</td><td>First proof that licences without economics don't survive</td></tr>
+<tr><td class="mono">2020</td><td>COVID; Kakaobank/jiban giants scale; Australia's Xinja collapses</td><td>First proof that licenses without economics don't survive</td></tr>
 <tr><td class="mono">2021</td><td>Bull-market echo cohort (35 survivors); Nubank IPO at ~$41B</td><td>The category gets a public-market benchmark</td></tr>
 <tr><td class="mono">2022</td><td>Rates rise; funding halves; FTX fails</td><td>Custody stops being a philosophical question</td></tr>
 <tr><td class="mono">2023</td><td>Gnosis Pay ships the first self-custodial Visa card at scale</td><td>Wave three gets its archetype: smart account + card rails</td></tr>
@@ -405,17 +405,17 @@ page(`
 <div class="eyebrow">chapter 3 · history</div>
 <h2>The graveyard as evidence</h2>
 <p>This dataset's defining choice is survivorship: we track who is alive, and remove who is not. But the removals teach as much as the roster. Four failure archetypes recur:</p>
-<h3>Licence without economics</h3>
-<p>Xinja (Australia) returned its licence and customer deposits in 2020; Volt followed in 2022. Both were fully licensed and adequately capitalised — the model failed on cost of funds vs. cost of growth, not on regulation. Contrast Up, which thrived inside Bendigo's charter, and Judo, which found profit in SMB lending: same market, different unit economics.</p>
+<h3>License without economics</h3>
+<p>Xinja (Australia) returned its license and customer deposits in 2020; Volt followed in 2022. Both were fully licensed and adequately capitalised — the model failed on cost of funds vs. cost of growth, not on regulation. Contrast Up, which thrived inside Bendigo's charter, and Judo, which found profit in SMB lending: same market, different unit economics.</p>
 <h3>Middleware collapse</h3>
 <p>Synapse (2024) was infrastructure, not a neobank — which is exactly why its bankruptcy stranded end users of apps that were "FDIC-insured" in marketing copy. Insurance protects against bank failure, not against the ledger between you and the bank going dark. The FDIC's recordkeeping rule is the regulatory scar tissue.</p>
 <h3>Growth-stage abandonment</h3>
 <p>Dozens of 2018–21 vintage niche apps quietly sunset after Series A: the audience was real, the CAC advantage was real, but the deposit base needed to fund the roadmap never arrived. This is the tail our monthly removals mostly consist of.</p>
 <h3>Crypto contagion</h3>
 <p>Custodial crypto neobanks whose balance sheets or user trust didn't survive 2022 (and whose users learned the difference between an account and a claim). The lasting effect shows up in this report as wave three's growth: the market's answer to custodial failure was less custody.</p>
-<div class="callout"><span class="k">the meta-lesson</span><p>No failure archetype involves the product being bad. Neobanks die of balance-sheet physics, middleware, and funding weather — which is why this report spends its pages on custody, licences and economics rather than app-store screenshots.</p></div>`);
+<div class="callout"><span class="k">the meta-lesson</span><p>No failure archetype involves the product being bad. Neobanks die of balance-sheet physics, middleware, and funding weather — which is why this report spends its pages on custody, licenses and economics rather than app-store screenshots.</p></div>`);
 
-divider('02', 'The machinery', 'Custody, licences, cards, stablecoins and identity: the five systems underneath every neobank, and who actually holds the money.',
+divider('02', 'The machinery', 'Custody, licenses, cards, stablecoins and identity: the five systems underneath every neobank, and who actually holds the money.',
   'Feature comparisons are entertainment; custody comparisons are due diligence.');
 
 /* ═══ CH: CUSTODY ═══ */
@@ -437,10 +437,10 @@ ${hbar([
 <p>Every consumer question about a neobank — is my money safe, can it freeze, what happens in a bankruptcy, who can see my transactions — resolves through custody before it resolves through anything else. Feature comparisons are entertainment; custody comparisons are due diligence. It's why the directory puts the custody spectrum above the fold, and why this report keeps returning to one number: the share of the industry where <b>there is no custodian at all</b> — currently ${(((cust['Self-custodial'] || 0) + (cust['MPC self-custodial'] || 0)) / N * 100).toFixed(1)}% and rising with each cohort.</p>`);
 
 /* ═══ CH: REGULATION (2pp) ═══ */
-chapter('Regulation & licences');
+chapter('Regulation & licenses');
 page(`
 <div class="eyebrow">chapter 5 · regulation</div>
-<h1>The licence behind<br>the landing page</h1>
+<h1>The license behind<br>the landing page</h1>
 <div class="chartbox"><div class="ct2">regulatory posture across ${N} neobanks</div>
 ${hbar(regTypes.slice(0, 9).map(([k, v]) => [k.length > 26 ? k.slice(0, 25) + '…' : k, v]), { labelW: 210 })}
 <div class="src">derived classification from registers, filings and terms documents · neobankbeat dataset</div></div>
@@ -611,7 +611,7 @@ ${topUsers.slice(0, 5).map(e => `<tr><td><b>${esc(e.name)}</b><br><span class="m
 })[e.name] || (e.note || '').slice(0, 160))}</td></tr>`).join('\n')}
 </table>
 <p>Notice what's absent: not one of the five is a 2010s Western app-first challenger, and not one grew primarily on cashback. All five compounded on <b>distribution the incumbents didn't have</b> — credit access, super-app ecosystems, agent networks, telco channels. Scale in this industry has never been won on interface polish; it is won on being the first workable financial rail for a population that lacked one.</p>
-<div class="callout"><span class="k">the western counter-model</span><p>Revolut (65M) is the exception that tests the rule — scaled across 35+ countries on product breadth and FX, now converting that base onto its own banking licences. Whether breadth can compound like distribution is the most interesting open experiment in wave two.</p></div>`);
+<div class="callout"><span class="k">the western counter-model</span><p>Revolut (65M) is the exception that tests the rule — scaled across 35+ countries on product breadth and FX, now converting that base onto its own banking licenses. Whether breadth can compound like distribution is the most interesting open experiment in wave two.</p></div>`);
 
 /* ═══ CH: GEOGRAPHY — overview + 7 region pages ═══ */
 chapter('Geography: seven regional markets');
@@ -621,17 +621,17 @@ page(`
 <div class="chartbox"><div class="ct2">active presence by region (multi-region players counted in each)</div>
 ${hbar(REGIONS.map(r => [r, regCount[r]]), { labelW: 170 })}
 <div class="src">presence ≠ headquarters — Wise alone is active in six regions · neobankbeat dataset</div></div>
-<p>Europe's ${regCount['Europe']} is a density record, not a size one: dozens of players per market, aggressive passporting, and the world's most active licence regimes. Asia's ${regCount['Asia']} mixes licensed digital banks (Korea, Singapore, Hong Kong, the Philippines) with wallet giants that became banks in all but name. The following pages profile each region: its model, its champions, and the number that tells its story.</p>
+<p>Europe's ${regCount['Europe']} is a density record, not a size one: dozens of players per market, aggressive passporting, and the world's most active license regimes. Asia's ${regCount['Asia']} mixes licensed digital banks (Korea, Singapore, Hong Kong, the Philippines) with wallet giants that became banks in all but name. The following pages profile each region: its model, its champions, and the number that tells its story.</p>
 <p style="color:var(--dim)">Regional pages list a representative selection; the full per-country view lives in the interactive map at neobankbeat.com.</p>`);
 
 const REGION_COPY = {
-  'Europe': ['Licence-dense, margin-thin', 'The deepest bench of licensed digital banks (Monzo, Starling, bunq, N26) plus the EMI capital of the world. MiCA has made it the clearest jurisdiction for crypto neobanks; profitability, not regulation, is the binding constraint. Watch: euro-stablecoin card programmes scaling under the EMT regime.'],
-  'Asia': ['Licensed giants & superapp gravity', 'KakaoBank and Toss Bank turned messaging distribution into top-tier banks; Singapore and Hong Kong minted purpose-built digital licences (GXS, MariBank, ZA, Mox); the Philippines and Indonesia run wallet-first (GCash, Maya, DANA). The scale ceiling here is national population, and it is high.'],
+  'Europe': ['License-dense, margin-thin', 'The deepest bench of licensed digital banks (Monzo, Starling, bunq, N26) plus the EMI capital of the world. MiCA has made it the clearest jurisdiction for crypto neobanks; profitability, not regulation, is the binding constraint. Watch: euro-stablecoin card programmes scaling under the EMT regime.'],
+  'Asia': ['Licensed giants & superapp gravity', 'KakaoBank and Toss Bank turned messaging distribution into top-tier banks; Singapore and Hong Kong minted purpose-built digital licenses (GXS, MariBank, ZA, Mox); the Philippines and Indonesia run wallet-first (GCash, Maya, DANA). The scale ceiling here is national population, and it is high.'],
   'North America': ['Partner-bank capital of the world', 'The US model: tech company in front, sponsor bank behind — Chime, Current, Dave, Mercury, Brex. Post-Synapse, direct bank integration became the trust differentiator; post-GENIUS, the stablecoin question moved from whether to when. Canada runs a small licensed cluster (EQ, Neo, KOHO, Wealthsimple).'],
   'Latin America': ['The Nubank effect', 'The region that proved neobanking at civilisational scale: Nubank (131M), Mercado Pago, PicPay, PagBank, plus strong national champions (Ualá, Klar, Stori, Nequi, Daviplata). Default-yield accounts are table stakes; dollar-stablecoin demand (DolarApp, El Dorado, Lemon) is the fastest-moving frontier.'],
-  'Africa': ['Payments first, banking second', 'Agent networks and mobile money built the rails; neobanking is being layered on top. Nigeria is the epicentre — OPay and PalmPay at mass scale, Moniepoint as SMB backbone, Kuda on a microfinance licence. TymeBank (SA) proved kiosk+app hybrid onboarding; francophone West Africa (Djamo, Wave) is the next density play.'],
-  'MENA': ['Regulator-minted digital banks', 'The Gulf hands out purpose-built licences (D360, Vision Bank, Zand, Wio, stc bank) with sovereign capital behind them; Egypt banks the informal economy (Khazna, MNT-Halan, Telda); Türkiye runs bank-backed super-wallets (Enpara, Papara). Islamic digital banking is the structural niche with global export potential.'],
-  'Oceania': ['Small market, sharp lessons', 'Australia\'s neobank experiment consolidated hard (Up thriving inside Bendigo; Judo profitable in SMB lending; Volt and Xinja gone) — proof that licences without unit economics don\'t survive. NZ\'s Hnry exports the most interesting freelancer-banking model anywhere.'],
+  'Africa': ['Payments first, banking second', 'Agent networks and mobile money built the rails; neobanking is being layered on top. Nigeria is the epicentre — OPay and PalmPay at mass scale, Moniepoint as SMB backbone, Kuda on a microfinance license. TymeBank (SA) proved kiosk+app hybrid onboarding; francophone West Africa (Djamo, Wave) is the next density play.'],
+  'MENA': ['Regulator-minted digital banks', 'The Gulf hands out purpose-built licenses (D360, Vision Bank, Zand, Wio, stc bank) with sovereign capital behind them; Egypt banks the informal economy (Khazna, MNT-Halan, Telda); Türkiye runs bank-backed super-wallets (Enpara, Papara). Islamic digital banking is the structural niche with global export potential.'],
+  'Oceania': ['Small market, sharp lessons', 'Australia\'s neobank experiment consolidated hard (Up thriving inside Bendigo; Judo profitable in SMB lending; Volt and Xinja gone) — proof that licenses without unit economics don\'t survive. NZ\'s Hnry exports the most interesting freelancer-banking model anywhere.'],
 };
 for (const r of REGIONS) {
   const list = E.filter(e => e.active_regions.includes(r));
@@ -765,7 +765,7 @@ page(`
 <li><b>Intake:</b> candidates arrive via public GitHub issue templates, our own monitoring, and reader submissions to the newsletter.</li>
 <li><b>Liveness check:</b> product must be verifiably live and onboarding — an app-store listing with recent releases, a working sign-up, or a register entry plus active status. Waitlists and "coming soon" don't count.</li>
 <li><b>Scope check:</b> consumer/SMB money app with everyday-banking ambition. We exclude pure infrastructure (BaaS, issuer-processors), trading-only apps, and superapp payment features without a banking surface.</li>
-<li><b>Field verification:</b> each field is sourced independently — registers for licences, terms documents for custody arrangements, filings for user counts. Unverifiable fields stay null.</li>
+<li><b>Field verification:</b> each field is sourced independently — registers for licenses, terms documents for custody arrangements, filings for user counts. Unverifiable fields stay null.</li>
 <li><b>Continuous review:</b> link-rot audits (chapter 12), monthly liveness re-checks on a rotating cohort, and removal on confirmed shutdown.</li>
 </ol>
 <h3>Known limitations — read before quoting</h3>
@@ -797,7 +797,7 @@ chapter('Appendix B — dataset & schema');
 page(`
 <div class="eyebrow">appendix b · reproducibility</div>
 <h1>The dataset behind<br>every number</h1>
-<p>Everything in this report derives from <span class="mono">neobankbeat.com/data.json</span> — the machine-readable export of the neobankbeat directory (MIT licence). Key fields:</p>
+<p>Everything in this report derives from <span class="mono">neobankbeat.com/data.json</span> — the machine-readable export of the neobankbeat directory (MIT license). Key fields:</p>
 <table>
 <tr><th scope="col">field</th><th scope="col">meaning</th></tr>
 <tr><td class="mono">category</td><td>traditional · hybrid · web3-native (the three waves)</td></tr>
@@ -824,7 +824,7 @@ page(`
 <li><b>UK Financial Conduct Authority — Financial Services Register</b> — register.fca.org.uk</li>
 <li><b>US FDIC — deposit insurance & the custodial-account recordkeeping rule (12 CFR Part 375)</b> — fdic.gov</li>
 <li><b>GENIUS Act of 2025</b> (Guiding and Establishing National Innovation for U.S. Stablecoins) — congress.gov</li>
-<li><b>NMLS Consumer Access</b> (US state money-transmitter licences) — nmlsconsumeraccess.org</li>
+<li><b>NMLS Consumer Access</b> (US state money-transmitter licenses) — nmlsconsumeraccess.org</li>
 <li><b>SEC EDGAR</b> — public filings for listed neobanks (Nubank, SoFi, Chime, Dave, MoneyLion et al.) — sec.gov/edgar</li>
 <li><b>World Bank — Global Findex Database</b> (banked/unbanked adults) — worldbank.org/globalfindex</li>
 <li><b>Bank for International Settlements</b> — research on stablecoins & digital payments — bis.org</li>
@@ -982,7 +982,7 @@ const webHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The State of Neobanks — ${MONTH} · web edition · neobankbeat</title>
-<meta name="description" content="The State of Neobanks ${MONTH}: opening chapters free online. ${N} verified-active neobanks measured on custody, licences, cards and stablecoins.">
+<meta name="description" content="The State of Neobanks ${MONTH}: opening chapters free online. ${N} verified-active neobanks measured on custody, licenses, cards and stablecoins.">
 <link rel="canonical" href="https://www.neobankbeat.com/report/${ED_SLUG}/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="article">
@@ -1003,7 +1003,7 @@ const webHtml = `<!DOCTYPE html>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-${JSON.stringify(withCrumbs({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` }, ['report', 'https://www.neobankbeat.com/report/'], [MONTH, `https://www.neobankbeat.com/report/${ED_SLUG}/`]))}
+${JSON.stringify(withCrumbs({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licenses, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` }, ['report', 'https://www.neobankbeat.com/report/'], [MONTH, `https://www.neobankbeat.com/report/${ED_SLUG}/`]))}
 </script>
 <style>${CSS}${WEBCSS}</style>
 </head>
@@ -1021,7 +1021,7 @@ ${NAV_LINKS.map(([href, label]) => `  <a${href === '/report/' ? ' class="on"' : 
 <div class="whero">
   <span class="badge">monthly report · ${EDITION} · ${MONTH} · web edition</span>
   <div class="big">the state of <em>neobanks</em></div>
-  <p style="font-size:17px;color:var(--muted);max-width:640px;margin-top:16px">${N} verified-active digital banks, measured — custody, licences, cards, stablecoins, geography and the fine print. The opening third is free below; the full ${pages.length}-page designed PDF is free for subscribers. ${ASOF}.</p>
+  <p style="font-size:17px;color:var(--muted);max-width:640px;margin-top:16px">${N} verified-active digital banks, measured — custody, licenses, cards, stablecoins, geography and the fine print. The opening third is free below; the full ${pages.length}-page designed PDF is free for subscribers. ${ASOF}.</p>
   <div class="wcta">
     <a class="pri" href="#gate">get the full PDF — free →</a>
     <a href="/data.json">raw data</a>

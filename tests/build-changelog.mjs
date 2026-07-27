@@ -19,7 +19,7 @@ const slugify = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerC
    commits without a match fall back to humanize() below. */
 const PLAIN = [
   [/money-movement services|FX-markup/i, 'Added the real cost and features to each app: the fee it charges to spend abroad (FX markup) and what it lets you do with money — buy/sell crypto, get your own account number/IBAN, use virtual cards. Now you can compare apps on price, not just looks.'],
-  [/regulation backfill/i, 'Labelled every neobank by how it is actually regulated — its own bank licence, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.'],
+  [/regulation backfill/i, 'Labelled every neobank by how it is actually regulated — its own bank license, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.'],
   [/full-directory audit — \d+ verified tags/i, 'Checked all the apps for real, in-use AI and tagged only the ones that genuinely use it — for lending decisions, as the main chat interface, or built for AI "agents". Marketing fluff did not make the cut. Also removed Will Bank, which shut down.'],
   [/apply verification results/i, 'Added the first batch of verified "uses AI" tags and dropped four weak claims.'],
   [/feat: ai tag/i, 'Introduced an "AI" label for apps, and published a write-up on which neobanks actually use AI versus just talk about it.'],

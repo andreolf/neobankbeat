@@ -84,7 +84,7 @@
   <pre class="code">from datasets import load_dataset
 
 ds = load_dataset("neobankbeat/neobanks", split="train")
-print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank licence")</pre>
+print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank license")</pre>
   <p>Or skip the library entirely — the files are static and public:</p>
   <pre class="code">import pandas as pd
 
@@ -93,7 +93,7 @@ print(df.groupby("regulation_type").size().sort_values(ascending=False))</pre>
   <p>That last line prints the census from <a href="/blog/who-really-runs-the-neobanks/">the BaaS post</a>: <b>127</b> licensed banks, <b>77</b> running on a partner bank, <b>51</b> self-custodial apps holding no money at all. The point of publishing the raw table is that you can check that yourself instead of taking the number from a blog post.</p>
 
   <h2>What's actually in it</h2>
-  <p>The full <a href="/data/">field dictionary lives on the dataset page</a>, but the fields that make this different from a marketing roundup are the regulatory ones: <code>regulation_type</code> (own bank licence, e-money institution, sponsor bank, or unregulated), <code>licence</code> (the named authorisation, where disclosed), and <code>custody</code> — who is actually holding the money. That layer is the thing nobody else publishes in machine-readable form, and it's the layer that decides what happens to your balance if the company dies.</p>
+  <p>The full <a href="/data/">field dictionary lives on the dataset page</a>, but the fields that make this different from a marketing roundup are the regulatory ones: <code>regulation_type</code> (own bank license, e-money institution, sponsor bank, or unregulated), <code>license</code> (the named authorisation, where disclosed), and <code>custody</code> — who is actually holding the money. That layer is the thing nobody else publishes in machine-readable form, and it's the layer that decides what happens to your balance if the company dies.</p>
   <p>Alongside it: cards and networks, verified money-movement <code>services</code>, FX markup with a source and date, stablecoin support, KYC posture, availability by country versus headquarters, founders, funding and disclosed backers.</p>
 
   <div class="callout"><span class="k">read this before you cite it</span>Three caveats that matter. <b>Self-disclosed figures</b> — <code>reported_users_millions</code>, <code>funding</code> and <code>volume</code> are what companies chose to announce, not audited numbers; check <code>reported_users_metric</code> before comparing two rows, because a wallet download is not a funded account. <b>Rates move</b> — <code>cashback</code>, <code>yield</code> and <code>fx_markup</code> are "up to" figures that vary by region, which is why each ships with an <code>as_of</code> date; a stale rate is worse than no rate. <b>Coverage is deliberate</b> — defunct neobanks and pure BaaS/infrastructure providers are excluded, so this is not a survival-analysis dataset, and unverified fields are empty rather than guessed.</div>
@@ -103,7 +103,7 @@ print(df.groupby("regulation_type").size().sort_values(ascending=False))</pre>
   <p>And partly durability. This is a one-person project. Publishing the same MIT-licensed file to two independent hubs, with a data card explaining the methodology, means the work outlives this domain. That's the whole point of open data rather than an API with a key.</p>
 
   <h2>Keeping it honest</h2>
-  <p>Every refresh is logged in the <a href="/changelog/">changelog</a>, the mirrors are re-pushed on material changes, and corrections go through <a href="https://github.com/andreolf/neobankbeat/issues">GitHub issues</a> in public. The biggest open gap is still the sponsor-bank layer: most partner-bank neobanks won't say <em>whose</em> licence they're using, so if you know and can source one we've missed, the <code>licence</code> field takes a partner name and a source. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Open a data-fix issue</a>.</p>
+  <p>Every refresh is logged in the <a href="/changelog/">changelog</a>, the mirrors are re-pushed on material changes, and corrections go through <a href="https://github.com/andreolf/neobankbeat/issues">GitHub issues</a> in public. The biggest open gap is still the sponsor-bank layer: most partner-bank neobanks won't say <em>whose</em> license they're using, so if you know and can source one we've missed, the <code>license</code> field takes a partner name and a source. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Open a data-fix issue</a>.</p>
 
   <h2>Cite it</h2>
   <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> https://www.neobankbeat.com/ (MIT).</p>

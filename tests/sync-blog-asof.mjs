@@ -1,6 +1,6 @@
 /* sync-blog-asof.mjs — stamp dated posts with the dataset size they were written against.
  *
- * Blog posts cite dataset totals ("92 of the 365 neobanks we track hold a licence").
+ * Blog posts cite dataset totals ("92 of the 365 neobanks we track hold a license").
  * Those numbers were true on the publish date and the analysis around them was written
  * against them, so rewriting them to today's total would be a lie about what was
  * observed, and recomputing every derived figure would rewrite the argument.

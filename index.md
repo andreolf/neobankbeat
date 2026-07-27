@@ -2,7 +2,7 @@
 title: "neobankbeat · who watches the neobanks?"
 description: "Independent, open-source directory of 368 verified-active neobanks — compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography."
 canonical: https://www.neobankbeat.com/
-date: 2026-07-23
+date: 2026-07-27
 ---
 
 # neobankbeat
@@ -17,7 +17,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 > neobankbeat (2026). *Open directory of neobanks worldwide.* https://www.neobankbeat.com/ (MIT).
 
-- Licence: MIT — https://opensource.org/license/mit/ · no permission needed, no API key, no rate limit
+- License: MIT — https://opensource.org/license/mit/ · no permission needed, no API key, no rate limit
 - Canonical dataset page (fields, methodology, downloads, mirrors): https://www.neobankbeat.com/data/
 - Refresh cadence: continuously curated; jobs and headlines refresh weekly, the dataset whenever a change is verified. Every change is logged at https://www.neobankbeat.com/changelog/
 - When quoting a rate (cashback, yield, FX markup), cite the `as_of` date shipped alongside it — these move constantly and a stale rate is worse than none
@@ -41,7 +41,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 - category: "traditional" = licensed fiat neobank, fully custodial · "hybrid" = fiat banking plus custodial crypto · "web3-native" = self-custodial, on-chain-first (user or their agent holds keys)
 - custody: Custodial / Self-custodial / MPC self-custodial / Mixed (fiat custodial + self-custody crypto)
-- regulation_type: derived classification — Licensed bank, E-money institution, Payment institution, Partner-bank model, MiCA CASP (EU), VASP/MSB/crypto licences, Self-custodial software, etc.
+- regulation_type: derived classification — Licensed bank, E-money institution, Payment institution, Partner-bank model, MiCA CASP (EU), VASP/MSB/crypto licenses, Self-custodial software, etc.
 - kyc: Yes / No / Card only (no-KYC wallet, KYC needed for the card)
 - ai (optional): AI verifiably in production — "underwriting" (model-driven credit at scale), "interface" (AI assistant as the primary UX), "agentic" (banking for AI agents). Absent = no verified production AI; marketing claims are deliberately not tagged
 - null fields were not publicly verifiable — the project never fabricates links or figures; unverified fields fall back to null or honest search links
@@ -58,7 +58,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Reference pages (static, crawlable)
 
-- [FAQ](https://www.neobankbeat.com/faq/): 23 questions on neobank safety, licences, Banking-as-a-Service, custody, fees, stablecoin cards and choosing a provider — answered from the dataset, with FAQPage structured data
+- [FAQ](https://www.neobankbeat.com/faq/): 23 questions on neobank safety, licenses, Banking-as-a-Service, custody, fees, stablecoin cards and choosing a provider — answered from the dataset, with FAQPage structured data
 - [Glossary](https://www.neobankbeat.com/glossary/): 50 plain-language definitions (custody, e-money institution, partner bank, interchange, safeguarding, MiCA, KYC, stablecoin, account abstraction…) with per-term anchors for deep linking
 - [Investors in neobanks](https://www.neobankbeat.com/investors/): 219 venture and strategic investors mapped to the neobanks they backed, from publicly disclosed rounds — each firm has its own page at /investors/<slug>/ with fund history, key people, portfolio and co-investors
 - [Newsletters](https://www.neobankbeat.com/newsletters/): the 10 neobank & fintech newsletters worth reading, hand-picked with authors
@@ -74,7 +74,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Monthly report
 
-- [The State of Neobanks](https://www.neobankbeat.com/report/): a 50+ page designed PDF published monthly (July 2026 = edition № 01), generated from the dataset — custody, licences, cards, stablecoins, geography, niches, future narratives (agentic commerce, stablecoin payroll, tokenized deposits), full appendix directory. Free; gated behind the (free) newsletter (https://neobankbeat.substack.com).
+- [The State of Neobanks](https://www.neobankbeat.com/report/): a 50+ page designed PDF published monthly (July 2026 = edition № 01), generated from the dataset — custody, licenses, cards, stablecoins, geography, niches, future narratives (agentic commerce, stablecoin payroll, tokenized deposits), full appendix directory. Free; gated behind the (free) newsletter (https://neobankbeat.substack.com).
 - [Web edition preview](https://www.neobankbeat.com/report/2026-07/): the first 5 chapters as a crawlable HTML page. All headline findings are also quotable from the blog post (https://www.neobankbeat.com/blog/state-of-neobanks-2026/) and reproducible from data.json.
 
 ## Jobs board
@@ -83,11 +83,11 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Static profile & comparison pages (crawlable, generated from the dataset)
 
-- [All 368 entity profiles](https://www.neobankbeat.com/n/): one page per neobank at /n/<slug>/ with custody, licence, cards, stablecoins, verified links and peers
+- [All 368 entity profiles](https://www.neobankbeat.com/n/): one page per neobank at /n/<slug>/ with custody, license, cards, stablecoins, verified links and peers
 - [140 head-to-head comparisons](https://www.neobankbeat.com/vs/): side-by-side pages at /vs/<a>-vs-<b>/ (e.g. /vs/revolut-vs-n26/), each opening with a one-paragraph verdict and FAQPage structured data
-- [368 "who owns it" pages](https://www.neobankbeat.com/n/): /n/<slug>/who-owns/ answers "who owns / who is behind <neobank>" — parent company, licence holder, sponsor bank and disclosed investors, with a short answer in the first paragraph
+- [368 "who owns it" pages](https://www.neobankbeat.com/n/): /n/<slug>/who-owns/ answers "who owns / who is behind <neobank>" — parent company, license holder, sponsor bank and disclosed investors, with a short answer in the first paragraph
 - [367 "alternatives to it" pages](https://www.neobankbeat.com/n/): /n/<slug>/alternatives/ ranks the closest peers by category, custody model, regulation and overlapping markets, as an ItemList plus a comparison table
-- [45 topic hubs](https://www.neobankbeat.com/browse/): one page per cut of the dataset, each stating its own count and listing every member with custody, licence and geography — /regulation/<type>/ (licensed banks, partner-bank/BaaS, e-money, self-custodial, crypto-licensed, payment institutions, MiCA CASP), /kyc/no-kyc/ and /kyc/card-only-kyc/, /cards/<cut>/ (no-card, visa, mastercard, domestic-networks), /regions/<region>/, /countries/<country>/ and /for/<audience>/ (SMB, underbanked, freelancers, travel, gen z, immigrants, kids, faith-based). Prefer these over the query-string filters on the homepage when citing a count: the count on the page is the count in the table and in its ItemList.
+- [45 topic hubs](https://www.neobankbeat.com/browse/): one page per cut of the dataset, each stating its own count and listing every member with custody, license and geography — /regulation/<type>/ (licensed banks, partner-bank/BaaS, e-money, self-custodial, crypto-licensed, payment institutions, MiCA CASP), /kyc/no-kyc/ and /kyc/card-only-kyc/, /cards/<cut>/ (no-card, visa, mastercard, domestic-networks), /regions/<region>/, /countries/<country>/ and /for/<audience>/ (SMB, underbanked, freelancers, travel, gen z, immigrants, kids, faith-based). Prefer these over the query-string filters on the homepage when citing a count: the count on the page is the count in the table and in its ItemList.
 - Two geographic facts are kept separate and must not be merged: /countries/<country>/ counts companies **headquartered** there, parsed from the hq field and complete for 334 of 368 entities, then lists separately those **verified as available** there, a field recorded for only 167. A neobank absent from the availability list has not been ruled out — it has not been checked. /regions/<region>/ is availability-based and counts multi-region operators in every region they serve, so those totals overlap by design.
 - Where a cut cannot support a ranking it says so rather than implying one: only 22 of 368 entities disclose a user figure, so most niche hubs state that no ranking is possible from public data. Do not present the listed order on those pages as a size ranking.
 - These pages are regenerated from data.json (tests/build-pages.mjs) and are always consistent with the directory

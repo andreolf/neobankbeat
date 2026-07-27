@@ -26,7 +26,7 @@ inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://
 
 <a href="https://www.neobankbeat.com/report/"><img src="report/cover-2026-07.png" alt="The State of Neobanks — July 2026 report cover" width="260" align="right"></a>
 
-a 57-page designed PDF measuring the industry every month — custody, licences, cards, stablecoins, geography, niches, future narratives — generated entirely from `data.json`.
+a 57-page designed PDF measuring the industry every month — custody, licenses, cards, stablecoins, geography, niches, future narratives — generated entirely from `data.json`.
 
 | edition | full pdf (free, gated) | preview online |
 |---|---|---|
@@ -70,7 +70,7 @@ more numbers from the current dataset:
 |---|---|
 | niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **122** |
 | with stablecoin support | **116** |
-| licensed banks (charters, digital-bank licences) | **127** |
+| licensed banks (charters, digital-bank licenses) | **127** |
 | running on a partner bank (BaaS) | **77** |
 | with AI verifiably in production | **67** |
 | verified terms & privacy links (checked, not guessed) | **120** |
@@ -113,7 +113,7 @@ the split exists because the app used to be one 346KB file, so every crawler and
 index.html          markup, CSS, JSON-LD, and one <script src="/app.js?v=…">
 app.js              the app: data + logic (cached immutably)
 ├── const D=[...]   368 entities, one row each
-├── const X={...}   enrichment: founders, licences, funding, stories
+├── const X={...}   enrichment: founders, licenses, funding, stories
 ├── const INV={...} notable early investors per entity (public rounds)
 └── const V={...}   verified links: terms, privacy, X handles, countries
 data.json           machine-readable export (generated, committed)
@@ -125,7 +125,7 @@ reports/            generated report source + PDF (robots-disallowed)
 n/                  368 generated entity profile pages (SEO surface)
 vs/                 140 generated head-to-head comparison pages
 browse/             index of every ready-made cut of the dataset
-regulation/ kyc/ regions/ for/   24 generated topic hubs (one licence, KYC posture,
+regulation/ kyc/ regions/ for/   24 generated topic hubs (one license, KYC posture,
                     region or audience each — the filters, as linkable pages)
 tests/
 ├── flowtest.js     281 assertion sites across 39 user flows (JSDOM)

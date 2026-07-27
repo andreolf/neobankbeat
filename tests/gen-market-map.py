@@ -4,8 +4,17 @@ import json, concurrent.futures, urllib.request, io, re
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-ROOT = Path("/Users/francescoandreoli/neobankbeat")
+ROOT = Path(__file__).resolve().parent.parent
 CACHE = Path("/tmp/nb-logos"); CACHE.mkdir(exist_ok=True)
+LOGO_DIR = ROOT / "logos"
+
+def slugify(name):
+    s = name.lower()
+    s = re.sub(r"[àáâãä]", "a", s); s = re.sub(r"[èéêë]", "e", s); s = re.sub(r"[ìíîï]", "i", s)
+    s = re.sub(r"[òóôõö]", "o", s); s = re.sub(r"[ùúûü]", "u", s); s = re.sub(r"[ñ]", "n", s)
+    s = re.sub(r"[çć]", "c", s)
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s or "x"
 
 BG, PANEL, LINE = "#0A0A10", "#12121A", "#23232E"
 TEXT, DIM, ACCENT = "#F2F2F5", "#8A8A99", "#FF5C16"
@@ -149,10 +158,15 @@ for label, color, count, sub, items in sections:
         x0 = MARG + col * (TILE + GAP)
         y0 = y + row * (TILE + GAP)
         icon = None
-        p = CACHE / ((e.get("domain") or "x").replace("/", "_") + ".png")
-        if p.exists():
-            try: icon = Image.open(p).convert("RGBA")
+        override = LOGO_DIR / f"{slugify(e['name'])}.png"
+        if override.exists():
+            try: icon = Image.open(override).convert("RGBA")
             except Exception: icon = None
+        if icon is None:
+            p = CACHE / ((e.get("domain") or "x").replace("/", "_") + ".png")
+            if p.exists():
+                try: icon = Image.open(p).convert("RGBA")
+                except Exception: icon = None
         if icon is not None:
             bright = luminance(icon) > 235
             tile_bg = "#2A2A36" if not bright else "#E9E9EF"

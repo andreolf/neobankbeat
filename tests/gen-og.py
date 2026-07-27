@@ -104,7 +104,8 @@ AITAG = {"underwriting": "AI underwriting in production",
          "interface": "AI assistant as the interface",
          "agentic": "banking for AI agents"}
 
-# ── company logos (favicon service), cached on disk like the map scripts ──
+# ── company logos (self-hosted override, then favicon service cache) ──
+LOGO_DIR = ROOT / "logos"
 LOGO_CACHE = Path("/tmp/nb-logos"); LOGO_CACHE.mkdir(exist_ok=True)
 
 def fetch_logo(dom):
@@ -123,12 +124,7 @@ def luminance(img):
     tot = sum(l * (a / 255) for l, a in px); wt = sum(a / 255 for l, a in px)
     return (tot / wt) if wt > 3 else 255
 
-def logo_tile(dom, size):
-    """Rounded logo tile, or None if no cached favicon."""
-    p = LOGO_CACHE / ((dom or "x").replace("/", "_") + ".png")
-    if not p.exists(): return None
-    try: icon = Image.open(p).convert("RGBA")
-    except Exception: return None
+def _logo_tile_from_icon(icon, size):
     bright = luminance(icon) > 235
     tile = Image.new("RGBA", (size, size), "#E9E9EF" if bright else "#1C1C26")
     ic = ImageOps.contain(icon, (size - 24, size - 24))
@@ -138,10 +134,22 @@ def logo_tile(dom, size):
     tile.putalpha(mask)
     return tile
 
-def entity_card(e):
+def logo_tile(dom, size, slug=None):
+    """Rounded logo tile, or None if no logo available."""
+    if slug:
+        override = LOGO_DIR / f"{slug}.png"
+        if override.exists():
+            try: return _logo_tile_from_icon(Image.open(override).convert("RGBA"), size)
+            except Exception: pass
+    p = LOGO_CACHE / ((dom or "x").replace("/", "_") + ".png")
+    if not p.exists(): return None
+    try: return _logo_tile_from_icon(Image.open(p).convert("RGBA"), size)
+    except Exception: return None
+
+def entity_card(e, slug=None):
     im, d = base_card()
     color, label = CAT[e["category"]]
-    logo = logo_tile(e.get("domain"), 150)
+    logo = logo_tile(e.get("domain"), 150, slug)
     if logo is not None:
         im.paste(logo, (W - 64 - 150, 152), logo)
     y = 168
@@ -282,7 +290,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(24) as ex:
         list(ex.map(fetch_logo, doms))
     for e in ents:
-        save(entity_card(e), f"og/n/{slugs[e['name']]}.png")
+        save(entity_card(e, slugs[e['name']]), f"og/n/{slugs[e['name']]}.png")
     print("profile cards:", len(ents))
 
     # slugs with hand-made OG images (e.g. cropped from the ecosystem poster)
@@ -316,9 +324,9 @@ def main():
 
     # ── section landing cards (major pages that aren't entity-specific) ──
     sections = [
-        ("data", "Open neobank dataset", f"{n_all} neobanks as JSON · MIT licence", ACCENT),
+        ("data", "Open neobank dataset", f"{n_all} neobanks as JSON · MIT license", ACCENT),
         ("vs", "Neobank comparisons", "custody · cards · yield · regulation side by side", VS),
-        ("browse", "Browse the dataset", "by licence, KYC, region, card and audience", BLUE),
+        ("browse", "Browse the dataset", "by license, KYC, region, card and audience", BLUE),
         ("changelog", "Dataset changelog", "every addition, removal and update — public", ACCENT),
         ("newsletters", "Neobank newsletters", "the reading list worth your inbox", PURPLE),
         ("cards", "Stablecoin cards", "crypto cards you can spend anywhere", "#BAF24A"),

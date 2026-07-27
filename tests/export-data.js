@@ -50,7 +50,7 @@ const out = w.eval(`(function(){
     };
     if (e.s) o.story = e.s;
     if (e.ai) o.ai = e.ai;
-    if (e.l) o.licence = e.l;
+    if (e.l) o.license = e.l;
     if (e.f) o.founders = e.f;
     if (e.m) o.funding = e.m;
     if (v.t) o.terms_url = v.t;

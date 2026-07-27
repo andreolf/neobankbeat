@@ -100,7 +100,7 @@ after any material data change.
   Column descriptions live in `COLUMNS` in `tests/dataset-export.mjs`, which is
   the single source for the CSV header, the Kaggle card and this output — so fix
   wording there, not in the UI, or the next edit will contradict it.
-- Set the licence to MIT in the HF web UI if it isn't picked up from the card's
+- Set the license to MIT in the HF web UI if it isn't picked up from the card's
   frontmatter.
 
 ---
@@ -159,7 +159,7 @@ dataset page. To verify:
 
 ## Optional third mirror
 
-**data.world** — create a project, upload `data.json` + `README.md`, licence MIT.
+**data.world** — create a project, upload `data.json` + `README.md`, license MIT.
 Its pages are crawled and it exposes a SQL endpoint some tools index. No CLI
 step in the script; it's a 5-minute web upload.
 

@@ -53,6 +53,6 @@ are excluded by design. All figures compiled from public filings and registers.
 
 ## Attribution
 
-MIT licence — reuse freely, attribution appreciated. Cite as:
+MIT license — reuse freely, attribution appreciated. Cite as:
 neobankbeat (2026). Open directory of neobanks worldwide. https://www.neobankbeat.com/ (MIT).
 Source: https://github.com/andreolf/neobankbeat

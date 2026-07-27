@@ -248,7 +248,7 @@ more numbers from the current dataset:
 |---|---|
 | niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **${S.niche}** |
 | with stablecoin support | **${S.stablecoins}** |
-| licensed banks (charters, digital-bank licences) | **${S.licensed}** |
+| licensed banks (charters, digital-bank licenses) | **${S.licensed}** |
 | running on a partner bank (BaaS) | **${S.partnerBank}** |
 | with AI verifiably in production | **${S.ai}** |
 | verified terms & privacy links (checked, not guessed) | **${S.verifiedLinks}** |

@@ -41,7 +41,7 @@
    ],
    "note": "Largest US neobank; 20M+ members; SpotMe overdraft.",
    "story": "Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe.",
-   "licence": "Partner banks (The Bancorp, Stride)",
+   "license": "Partner banks (The Bancorp, Stride)",
    "founders": "Chris Britt, Ryan King",
    "funding": "~$2.3B raised",
    "terms_url": "https://www.chime.com/policies/",
@@ -100,7 +100,7 @@
    ],
    "note": "First US consumer fintech with a national bank charter.",
    "story": "Spent three years and ~$100M to become the first US consumer fintech granted its own national bank charter.",
-   "licence": "National bank charter (2020)",
+   "license": "National bank charter (2020)",
    "founders": "Colin Walsh",
    "funding": "~$1B raised",
    "terms_url": "https://www.varomoney.com/privacy-legal/",
@@ -146,7 +146,7 @@
    ],
    "note": "Everyday + teen banking; in-app crypto trading.",
    "story": "Started as a teen debit card, expanded to full-spectrum banking for Americans living paycheck to paycheck.",
-   "licence": "Partner banks (Choice, Cross River)",
+   "license": "Partner banks (Choice, Cross River)",
    "founders": "Stuart Sopp",
    "funding": "~$400M raised",
    "x_handle": "current",
@@ -194,7 +194,7 @@
    ],
    "note": "Bank charter; launched SoFiUSD stablecoin Dec 2025.",
    "story": "From Stanford alumni-funded student loans to a chartered digital bank; issued SoFiUSD stablecoin in Dec 2025.",
-   "licence": "National bank charter (2022)",
+   "license": "National bank charter (2022)",
    "founders": "Mike Cagney, Dan Macklin, James Finnigan, Ian Brady",
    "funding": "Public (SOFI)",
    "terms_url": "https://www.sofi.com/legal/",
@@ -240,7 +240,7 @@
    ],
    "note": "Largest US digital-only bank; 3M+ customers.",
    "story": "Born from GMAC's 2009 rebrand into a branchless bank; proof digital-only could scale before the fintech era.",
-   "licence": "National bank charter",
+   "license": "National bank charter",
    "founders": "GMAC heritage",
    "funding": "Public (ALLY)",
    "terms_url": "https://www.ally.com/legal/",
@@ -272,7 +272,7 @@
    ],
    "note": "ExtraCash advances; budgeting-first.",
    "story": "Pitched as the bear that fights the banks: cash advances against overdrafts, then a full spending account.",
-   "licence": "Partner bank (Evolve)",
+   "license": "Partner bank (Evolve)",
    "founders": "Jason Wilk",
    "funding": "Public (DAVE)",
    "terms_url": "https://dave.com/terms",
@@ -313,7 +313,7 @@
     "North America"
    ],
    "note": "Banking + investing + credit-builder super-app.",
-   "licence": "Partner banks",
+   "license": "Partner banks",
    "founders": "Dee Choubey",
    "funding": "Public; acquired by Gen Digital (2025)",
    "terms_url": "https://www.moneylion.com/terms-and-conditions/",
@@ -345,7 +345,7 @@
    ],
    "note": "Walmart-backed; embedded retail banking.",
    "story": "Walmart's play to own everyday banking for its 150M weekly shoppers; BNPL + debit + high-yield savings in one app.",
-   "licence": "Partner bank (Coastal Community)",
+   "license": "Partner bank (Coastal Community)",
    "founders": "Walmart x Ribbit venture",
    "funding": "Walmart-majority",
    "terms_url": "https://www.onepay.com/legal",
@@ -414,7 +414,7 @@
    ],
    "note": "Teen banking + credit building, no fees.",
    "story": "Teen banking that builds credit history before 18 via a secured spend card.",
-   "licence": "Partner bank (Evolve)",
+   "license": "Partner bank (Evolve)",
    "founders": "CJ MacDonald",
    "funding": "~$175M+ raised",
    "terms_url": "https://step.com/legal",
@@ -463,7 +463,7 @@
     "North America"
    ],
    "note": "Family banking; chores + parental controls.",
-   "licence": "Partner bank (Community Federal)",
+   "license": "Partner bank (Community Federal)",
    "founders": "Tim Sheehan, Johnson Cook",
    "funding": "~$550M raised",
    "terms_url": "https://greenlight.com/terms",
@@ -641,7 +641,7 @@
    ],
    "note": "Startup banking; 200K+ companies.",
    "story": "Startup banking that absorbed half of YC after SVB collapsed; added IO cards and personal banking.",
-   "licence": "Partner banks (Choice, Column)",
+   "license": "Partner banks (Choice, Column)",
    "founders": "Immad Akhund",
    "funding": "~$450M (val ~$3.5B)",
    "terms_url": "https://mercury.com/legal/terms",
@@ -691,7 +691,7 @@
    ],
    "note": "Corporate cards + banking for startups.",
    "story": "Two Brazilian teens who sold a payments company before 20 rebuilt corporate cards around startup underwriting.",
-   "licence": "Partner banks",
+   "license": "Partner banks",
    "founders": "Henrique Dubugras, Pedro Franceschi",
    "funding": "~$1.5B raised",
    "terms_url": "https://www.brex.com/legal",
@@ -745,7 +745,7 @@
    ],
    "note": "Spend management + business accounts.",
    "story": "Spend management that markets itself on saving companies money; among the fastest-growing SaaS-fintechs ever.",
-   "licence": "Partner banks",
+   "license": "Partner banks",
    "founders": "Eric Glyman, Karim Atiyeh, Gene Lee",
    "funding": "~$1B+ (val ~$22B, 2025)",
    "terms_url": "https://ramp.com/legal",
@@ -1006,7 +1006,7 @@
     "North America"
    ],
    "note": "Chartered digital bank for startups + SMBs.",
-   "licence": "National bank charter (de novo 2019)"
+   "license": "National bank charter (de novo 2019)"
   },
   {
    "name": "Found",
@@ -1522,7 +1522,7 @@
    ],
    "note": "Women-founded, women-led chartered bank for women-owned SMBs.",
    "story": "The first US bank founded by women, led by women, focused on lending to women-owned businesses.",
-   "licence": "National bank charter",
+   "license": "National bank charter",
    "founders": "Marianne Markowitz + founding team"
   },
   {
@@ -1533,7 +1533,7 @@
    "hq": "Toronto, CA",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "Licence pending (partner model today)",
+   "regulation_type": "License pending (partner model today)",
    "card_network": "MC",
    "card_type": "Prepaid",
    "cashback": "Up to 2%",
@@ -1546,7 +1546,7 @@
     "North America"
    ],
    "note": "Canada's leading prepaid neobank; credit building.",
-   "licence": "Pursuing Schedule 1 bank licence",
+   "license": "Pursuing Schedule 1 bank license",
    "founders": "Daniel Eberhard",
    "funding": "~C$400M raised",
    "terms_url": "https://www.koho.ca/legal/",
@@ -1735,9 +1735,9 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "12M+ customers; UK licence; US expansion.",
+   "note": "12M+ customers; UK license; US expansion.",
    "story": "The hot-coral card that made banking a brand; born from the Mondo prepaid beta and a record 96-second crowdfund.",
-   "licence": "UK banking licence",
+   "license": "UK banking license",
    "founders": "Tom Blomfield + 4 co-founders",
    "funding": "~£1.1B raised",
    "terms_url": "https://monzo.com/legal/terms-and-conditions/",
@@ -1797,7 +1797,7 @@
    ],
    "note": "Profitable; Engine SaaS platform.",
    "story": "Anne Boden left a 30-year banking career at 54 to build the UK's first consistently profitable neobank.",
-   "licence": "UK banking licence",
+   "license": "UK banking license",
    "founders": "Anne Boden",
    "funding": "~£900M raised",
    "terms_url": "https://www.starlingbank.com/legal/",
@@ -1846,7 +1846,7 @@
     "Europe"
    ],
    "note": "App-only bank, no card.",
-   "licence": "UK banking licence",
+   "license": "UK banking license",
    "founders": "Anthony Thomson, Mark Mullen",
    "terms_url": "https://www.atombank.co.uk/terms/",
    "x_handle": "atom_bank",
@@ -1885,8 +1885,8 @@
     "Europe"
    ],
    "note": "P2P pioneer turned licensed bank.",
-   "story": "Invented P2P lending in 2005, then traded the model for a full bank licence.",
-   "licence": "UK banking licence (2020)",
+   "story": "Invented P2P lending in 2005, then traded the model for a full bank license.",
+   "license": "UK banking license (2020)",
    "founders": "Giles Andrews, James Alexander",
    "funding": "~$1B raised",
    "terms_url": "https://www.zopa.com/terms-of-use",
@@ -1927,7 +1927,7 @@
     "Europe"
    ],
    "note": "JPMorgan's UK digital bank.",
-   "licence": "UK subsidiary of JPMorgan",
+   "license": "UK subsidiary of JPMorgan",
    "terms_url": "https://www.chase.co.uk/gb/en/legal/",
    "privacy_url": "https://www.chase.co.uk/gb/en/legal/privacy-notice/",
    "x_handle": "ChaseUK",
@@ -1956,7 +1956,7 @@
     "Europe"
    ],
    "note": "Licensed UK bank; social features.",
-   "licence": "UK banking licence",
+   "license": "UK banking license",
    "founders": "Nazim Valimahomed",
    "terms_url": "https://kroo.com/documents/current-account-terms-and-conditions.html",
    "x_handle": "getkroo",
@@ -1985,7 +1985,7 @@
     "Europe"
    ],
    "note": "1M+ SME members (UK + India).",
-   "licence": "E-money; deposits via ClearBank",
+   "license": "E-money; deposits via ClearBank",
    "founders": "George Bevis",
    "funding": "~$300M raised",
    "terms_url": "https://www.tide.co/terms/",
@@ -2040,7 +2040,7 @@
     "Europe"
    ],
    "note": "SME banking with AI admin assistant.",
-   "licence": "E-money",
+   "license": "E-money",
    "founders": "Eduard Panteleev, Boris Dyakonov",
    "terms_url": "https://anna.money/terms-and-conditions/",
    "privacy_url": "https://anna.money/privacy-policy",
@@ -2297,7 +2297,7 @@
    ],
    "note": "Green digital bank; home-efficiency lending.",
    "story": "Pivoted from challenger #2 to a green lender financing home decarbonisation.",
-   "licence": "UK banking licence",
+   "license": "UK banking license",
    "privacy_url": "https://www.tandem.co.uk/privacy-policy",
    "x_handle": "tandem",
    "countries": [
@@ -2415,7 +2415,7 @@
    ],
    "note": "8M+ customers; crypto via partner in some markets.",
    "story": "Berlin's minimalist bank that scaled across the EU, retreated from UK/US, and finally reached profitability.",
-   "licence": "German banking licence",
+   "license": "German banking license",
    "founders": "Valentin Stalf, Maximilian Tayenthal",
    "funding": "~$1.8B raised",
    "x_handle": "n26",
@@ -2476,8 +2476,8 @@
     "Europe"
    ],
    "note": "EU-wide; API-first; 'Bank of The Free'.",
-   "story": "Ali Niknam bootstrapped the Netherlands' first new banking licence in 35 years with his own money.",
-   "licence": "Dutch banking licence",
+   "story": "Ali Niknam bootstrapped the Netherlands' first new banking license in 35 years with his own money.",
+   "license": "Dutch banking license",
    "founders": "Ali Niknam",
    "funding": "Founder-funded (~€100M of Niknam's own) + raises",
    "terms_url": "https://www.bunq.com/documents/personal-account-terms-conditions",
@@ -2649,7 +2649,7 @@
    "hq": "Paris, FR",
    "founded": 2016,
    "custody": "Custodial",
-   "regulation_type": "Licence pending (partner model today)",
+   "regulation_type": "License pending (partner model today)",
    "card_network": "MC",
    "card_type": "Business debit",
    "cashback": null,
@@ -2663,7 +2663,7 @@
    ],
    "note": "500K+ SME clients across FR/DE/ES/IT.",
    "story": "Europe's SME banking leader out of Paris; absorbed Penta to own the German market too.",
-   "licence": "Payment institution (ACPR); pursuing credit licence",
+   "license": "Payment institution (ACPR); pursuing credit license",
    "founders": "Alexandre Prot, Steve Anavi",
    "funding": "~€620M raised",
    "privacy_url": "https://qonto.com/en/legal-documents/privacy-notice",
@@ -2847,7 +2847,7 @@
     "Europe"
    ],
    "note": "France's largest online bank; 7M+ (SocGen).",
-   "licence": "Bank (Société Générale)",
+   "license": "Bank (Société Générale)",
    "x_handle": "BoursoBank",
    "countries": [
     "France"
@@ -2918,7 +2918,7 @@
     "Europe"
    ],
    "note": "Nordic neobank (DK/SE/NO).",
-   "licence": "Danish banking licence",
+   "license": "Danish banking license",
    "founders": "Ken Villum Klausen",
    "funding": "~$500M raised",
    "privacy_url": "https://www.lunar.app/en/privacy-policy",
@@ -3012,7 +3012,7 @@
     "Europe"
    ],
    "note": "Iceland's first neobank.",
-   "licence": "Icelandic banking licence",
+   "license": "Icelandic banking license",
    "founders": "Haukur Skúlason, Tryggvi Björn Davíðsson"
   },
   {
@@ -3255,9 +3255,9 @@
    "active_regions": [
     "Europe"
    ],
-   "note": "Broker with full bank licence; custodial crypto.",
+   "note": "Broker with full bank license; custodial crypto.",
    "story": "Berlin broker that pays ECB rate on cash and hands out 1% saveback — a bank disguised as a savings plan.",
-   "licence": "German full banking licence (2023)",
+   "license": "German full banking license (2023)",
    "founders": "Christian Hecker, Thomas Pischke, Marco Cancellieri",
    "funding": "~€1.2B raised",
    "privacy_url": "https://assets.traderepublic.com/assets/files/Privacy-Website_en-DE.pdf",
@@ -3348,7 +3348,7 @@
    ],
    "note": "Mid-market-rate FX; 16M+ customers.",
    "story": "Two Estonians tired of hidden FX fees built mid-market-rate transfers; now moving £100B+ a year.",
-   "licence": "E-money/payment licences globally",
+   "license": "E-money/payment licenses globally",
    "founders": "Kristo Käärmann, Taavet Hinrikus",
    "funding": "Public (WISE.L)",
    "terms_url": "https://wise.com/terms-and-conditions",
@@ -3419,7 +3419,7 @@
     "Europe"
    ],
    "note": "BNPL giant with full banking accounts.",
-   "licence": "Swedish banking licence",
+   "license": "Swedish banking license",
    "founders": "Sebastian Siemiatkowski, Niklas Adalberth, Victor Jacobsson",
    "funding": "Public (KLAR, 2025)",
    "terms_url": "https://www.klarna.com/us/legal/",
@@ -3477,7 +3477,7 @@
     "Europe"
    ],
    "note": "Romania's first neobank (Banca Transilvania).",
-   "licence": "Bank (Banca Transilvania)"
+   "license": "Bank (Banca Transilvania)"
   },
   {
    "name": "Snappi",
@@ -3553,7 +3553,7 @@
     "Europe"
    ],
    "note": "QNB's fee-free digital bank.",
-   "licence": "Bank (QNB Finansbank)"
+   "license": "Bank (QNB Finansbank)"
   },
   {
    "name": "Monobank",
@@ -3577,7 +3577,7 @@
    ],
    "note": "8M+ customers; Ukraine's app-first bank.",
    "story": "Built by the ex-PrivatBank team; kept Ukraine's payments running through blackouts and full-scale war, with a cat mascot.",
-   "licence": "Operates on Universal Bank licence",
+   "license": "Operates on Universal Bank license",
    "founders": "Oleh Gorokhovskyi, Mykhailo Rogalskyi",
    "funding": "Bootstrapped, profitable",
    "terms_url": "https://www.monobank.ua/terms",
@@ -3609,7 +3609,7 @@
    ],
    "note": "Ex-Tinkoff; 40M+ customers, one of the largest standalone neobanks.",
    "story": "Tinkov built the world's largest standalone digital bank from a credit-card mailer; sanctions forced his exit.",
-   "licence": "Russian banking licence",
+   "license": "Russian banking license",
    "founders": "Oleg Tinkov (exited 2022)",
    "funding": "Public (MOEX)"
   },
@@ -3635,7 +3635,7 @@
    ],
    "note": "Kazakh super-app: payments + marketplace + fintech.",
    "story": "Turned a distressed Kazakh bank into a super-app processing most of the country's payments and e-commerce.",
-   "licence": "Kazakh banking licence",
+   "license": "Kazakh banking license",
    "founders": "Mikheil Lomtadze, Vyacheslav Kim",
    "funding": "Public (KSPI)",
    "terms_url": "https://kaspi.kz/terms",
@@ -3671,7 +3671,7 @@
     "Europe"
    ],
    "note": "Uzbekistan's super-app + digital bank.",
-   "licence": "Bank licence (UZ)"
+   "license": "Bank license (UZ)"
   },
   {
    "name": "TBC UZ",
@@ -3694,7 +3694,7 @@
     "Europe"
    ],
    "note": "TBC's Uzbek digital bank; 20M+ registered.",
-   "licence": "Bank (TBC Group)",
+   "license": "Bank (TBC Group)",
    "funding": "Public parent (TBCG.L)"
   },
   {
@@ -3719,7 +3719,7 @@
    ],
    "note": "131M customers (FY25); custodial crypto; US OCC conditional approval.",
    "story": "Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution with 100M+ customers.",
-   "licence": "Bank licences BR/MX/CO; conditional US OCC approval (2026)",
+   "license": "Bank licenses BR/MX/CO; conditional US OCC approval (2026)",
    "founders": "David Vélez, Cristina Junqueira, Edward Wible",
    "funding": "Public (NU)",
    "terms_url": "https://nubank.com.br/en/contract/",
@@ -3783,8 +3783,8 @@
     "Latin America"
    ],
    "note": "AR/MX/CO; added crypto + dollar features.",
-   "story": "Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now a regional multi-licence player.",
-   "licence": "Bank licences (AR via Wilobank, MX via ABC Capital)",
+   "story": "Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now a regional multi-license player.",
+   "license": "Bank licenses (AR via Wilobank, MX via ABC Capital)",
    "founders": "Pierpaolo Barbieri",
    "funding": "~$850M+ raised",
    "terms_url": "https://www.uala.com.ar/legales",
@@ -3923,7 +3923,7 @@
    ],
    "note": "Credit inclusion for underbanked Mexico; 3M+.",
    "story": "Credit cards for the 60% of Mexicans banks reject; unicorn built on inclusion economics.",
-   "licence": "Sofipo (MX)",
+   "license": "Sofipo (MX)",
    "founders": "Bin Chen, Marlene Garayzar + 3",
    "funding": "~$550M incl. debt",
    "terms_url": "https://www.storicard.com/legales",
@@ -4102,7 +4102,7 @@
     "Latin America"
    ],
    "note": "JPMorgan-backed full digital bank.",
-   "licence": "Bank licence (BCB)",
+   "license": "Bank license (BCB)",
    "founders": "Marcelo Kalim, Carlos Fonseca (ex-BTG)",
    "funding": "JPMorgan ~46% owner",
    "terms_url": "https://www.c6bank.com.br/termos-e-condicoes",
@@ -4143,7 +4143,7 @@
     "Latin America"
    ],
    "note": "35M+ clients; super-app + US account.",
-   "licence": "Bank; Public (INTR)",
+   "license": "Bank; Public (INTR)",
    "privacy_url": "https://inter.co/politica-de-privacidade/",
    "x_handle": "bancointer",
    "countries": [
@@ -4183,7 +4183,7 @@
     "Latin America"
    ],
    "note": "Brazil's largest payments app; crypto + BRL stable rails.",
-   "licence": "Payment institution + bank (BCB)",
+   "license": "Payment institution + bank (BCB)",
    "founders": "Anderson Chamon + J&F group",
    "privacy_url": "https://picpay.com/politica-de-privacidade",
    "x_handle": "PicPay",
@@ -4217,7 +4217,7 @@
     "Latin America"
    ],
    "note": "PagSeguro's 30M+ user digital bank.",
-   "licence": "Bank; Public (PAGS)",
+   "license": "Bank; Public (PAGS)",
    "reported_users": {
     "value_millions": 32,
     "metric": "clients",
@@ -4364,7 +4364,7 @@
     "Latin America"
    ],
    "note": "Argentina's card giant gone digital.",
-   "licence": "Bank (Grupo Galicia)"
+   "license": "Bank (Grupo Galicia)"
   },
   {
    "name": "Brubank",
@@ -4387,7 +4387,7 @@
     "Latin America"
    ],
    "note": "First licensed digital bank in Argentina.",
-   "licence": "Bank licence (BCRA)",
+   "license": "Bank license (BCRA)",
    "founders": "Juan Bruchou",
    "investors": [
     {
@@ -4417,7 +4417,7 @@
     "Latin America"
    ],
    "note": "Regional prepaid (UY/AR/PE).",
-   "licence": "E-money (UY/AR/PE)"
+   "license": "E-money (UY/AR/PE)"
   },
   {
    "name": "ueno bank",
@@ -4440,7 +4440,7 @@
     "Latin America"
    ],
    "note": "Paraguay's fast-growing digital bank.",
-   "licence": "Bank licence (PY)"
+   "license": "Bank license (PY)"
   },
   {
    "name": "Nequi",
@@ -4534,7 +4534,7 @@
     "Latin America"
    ],
    "note": "Colombia's first fully digital licensed bank.",
-   "licence": "Bank licence (CO)"
+   "license": "Bank license (CO)"
   },
   {
    "name": "Tenpo",
@@ -4544,7 +4544,7 @@
    "hq": "Santiago, CL",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "Licence pending (partner model today)",
+   "regulation_type": "License pending (partner model today)",
    "card_network": "MC",
    "card_type": "Prepaid + credit",
    "cashback": "Offers",
@@ -4557,7 +4557,7 @@
     "Latin America"
    ],
    "note": "Chilean neobank; crypto + USDC features.",
-   "licence": "Preparing Chilean bank licence",
+   "license": "Preparing Chilean bank license",
    "founders": "Krealo (Credicorp)",
    "investors": [
     {
@@ -4666,7 +4666,7 @@
    ],
    "note": "Korea's messaging-native bank; 23M+.",
    "story": "Launched from Korea's dominant messenger; 300K accounts in 24 hours, profitable within two years.",
-   "licence": "Internet-only bank licence (KR)",
+   "license": "Internet-only bank license (KR)",
    "founders": "Kakao consortium",
    "funding": "Public (KRX)",
    "terms_url": "https://www.kakaobank.com/terms",
@@ -4702,7 +4702,7 @@
    ],
    "note": "Part of the Toss super-app.",
    "story": "A dentist-turned-founder failed eight startups before Toss; the bank arm now anchors Korea's super-app.",
-   "licence": "Internet-only bank licence (KR)",
+   "license": "Internet-only bank license (KR)",
    "founders": "Lee Seung-gun (Viva Republica)",
    "funding": "Viva Republica ~$1.7B raised",
    "terms_url": "https://www.tossbank.com/terms",
@@ -4752,7 +4752,7 @@
    ],
    "note": "Korea's first internet-only bank; Upbit ties.",
    "story": "Korea's first internet bank; balance sheet supercharged by being Upbit's banking partner.",
-   "licence": "Internet-only bank licence (KT-led)"
+   "license": "Internet-only bank license (KT-led)"
   },
   {
    "name": "WeBank",
@@ -4776,7 +4776,7 @@
    ],
    "note": "Tencent-backed; world's largest digital bank by users.",
    "story": "The world's largest digital bank: 400M+ customers on Tencent rails.",
-   "licence": "Private bank licence (CN)",
+   "license": "Private bank license (CN)",
    "founders": "Tencent-led consortium",
    "investors": [
     {
@@ -4811,7 +4811,7 @@
     "Asia"
    ],
    "note": "Ant Group's SME digital bank.",
-   "licence": "Private bank licence (CN)",
+   "license": "Private bank license (CN)",
    "founders": "Ant Group-led",
    "investors": [
     {
@@ -4978,7 +4978,7 @@
    ],
    "note": "Merged with a small finance bank.",
    "story": "Card-first startup that pulled off the rare feat of merging into a licensed Indian bank.",
-   "licence": "Small finance bank (via NESFB merger)",
+   "license": "Small finance bank (via NESFB merger)",
    "founders": "Rajan Bajaj",
    "funding": "~$340M raised",
    "investors": [
@@ -5197,7 +5197,7 @@
     "Asia"
    ],
    "note": "Telco-led payments bank.",
-   "licence": "Payments bank licence (RBI)"
+   "license": "Payments bank license (RBI)"
   },
   {
    "name": "Jio Payments Bank",
@@ -5220,7 +5220,7 @@
     "Asia"
    ],
    "note": "Reliance's payments bank.",
-   "licence": "Payments bank licence (RBI)"
+   "license": "Payments bank license (RBI)"
   },
   {
    "name": "SadaPay",
@@ -5334,7 +5334,7 @@
    ],
    "note": "Bangladesh's mobile money giant; 70M+.",
    "story": "'bKash me' is a verb in Bangladesh: 70M users, the reference case for mobile money outside Africa.",
-   "licence": "MFS licence (Bangladesh Bank)",
+   "license": "MFS license (Bangladesh Bank)",
    "founders": "Kamal Quadir",
    "funding": "Ant + SoftBank-backed",
    "terms_url": "https://www.bkash.com/en/terms-and-conditions",
@@ -5410,7 +5410,7 @@
     "Asia"
    ],
    "note": "Grab + Singtel digital bank.",
-   "licence": "Digital full bank (MAS)",
+   "license": "Digital full bank (MAS)",
    "terms_url": "https://www.gxs.com.sg/terms-of-use",
    "x_handle": "gxsbank",
    "countries": [
@@ -5438,7 +5438,7 @@
     "Asia"
    ],
    "note": "Sea Group's digital bank.",
-   "licence": "Digital full bank (MAS)"
+   "license": "Digital full bank (MAS)"
   },
   {
    "name": "Trust Bank",
@@ -5461,7 +5461,7 @@
     "Asia"
    ],
    "note": "StanChart + FairPrice; 1M+ users.",
-   "licence": "Bank (StanChart x FairPrice)"
+   "license": "Bank (StanChart x FairPrice)"
   },
   {
    "name": "ANEXT Bank",
@@ -5484,7 +5484,7 @@
     "Asia"
    ],
    "note": "Ant-backed SME wholesale digital bank.",
-   "licence": "Digital wholesale bank (MAS)"
+   "license": "Digital wholesale bank (MAS)"
   },
   {
    "name": "Tonik",
@@ -5506,8 +5506,8 @@
    "active_regions": [
     "Asia"
    ],
-   "note": "First PH neobank licence.",
-   "licence": "PH digital bank licence",
+   "note": "First PH neobank license.",
+   "license": "PH digital bank license",
    "founders": "Greg Krasnov",
    "funding": "~$140M+ raised",
    "terms_url": "https://tonikbank.com/terms-conditions",
@@ -5556,7 +5556,7 @@
     "Asia"
    ],
    "note": "PH super-app; regulated custodial crypto.",
-   "licence": "PH digital bank + EMI + VASP",
+   "license": "PH digital bank + EMI + VASP",
    "founders": "PLDT/Voyager (Orlando Vea)",
    "funding": "~$300M+ raised",
    "terms_url": "https://www.maya.ph/terms-and-conditions",
@@ -5610,7 +5610,7 @@
     "Asia"
    ],
    "note": "Tyme + Gokongwei; kiosk onboarding.",
-   "licence": "PH digital bank licence (Tyme x Gokongwei)"
+   "license": "PH digital bank license (Tyme x Gokongwei)"
   },
   {
    "name": "UnionDigital",
@@ -5633,7 +5633,7 @@
     "Asia"
    ],
    "note": "UnionBank's digital-bank arm.",
-   "licence": "PH digital bank licence"
+   "license": "PH digital bank license"
   },
   {
    "name": "UNO Digital Bank",
@@ -5656,7 +5656,7 @@
     "Asia"
    ],
    "note": "Full-spectrum PH digital bank.",
-   "licence": "PH digital bank licence"
+   "license": "PH digital bank license"
   },
   {
    "name": "Bank Jago",
@@ -5679,7 +5679,7 @@
     "Asia"
    ],
    "note": "GoTo-ecosystem digital bank.",
-   "licence": "Bank (OJK); GoTo ecosystem"
+   "license": "Bank (OJK); GoTo ecosystem"
   },
   {
    "name": "SeaBank",
@@ -5702,7 +5702,7 @@
     "Asia"
    ],
    "note": "Sea Group's Indonesian bank; Shopee-linked.",
-   "licence": "Bank (OJK); Sea Group"
+   "license": "Bank (OJK); Sea Group"
   },
   {
    "name": "Blu by BCA",
@@ -5725,7 +5725,7 @@
     "Asia"
    ],
    "note": "BCA's digital-native brand.",
-   "licence": "Bank (BCA Digital)"
+   "license": "Bank (BCA Digital)"
   },
   {
    "name": "Allo Bank",
@@ -5748,7 +5748,7 @@
     "Asia"
    ],
    "note": "CT Corp's digital bank.",
-   "licence": "Bank (OJK); CT Corp"
+   "license": "Bank (OJK); CT Corp"
   },
   {
    "name": "Superbank",
@@ -5771,7 +5771,7 @@
     "Asia"
    ],
    "note": "Grab/Emtek/Singtel-backed.",
-   "licence": "Bank (OJK); Grab/Emtek/Singtel",
+   "license": "Bank (OJK); Grab/Emtek/Singtel",
    "investors": [
     {
      "name": "Grab",
@@ -5812,7 +5812,7 @@
     "Asia"
    ],
    "note": "BTPN's pioneer digital bank.",
-   "licence": "Bank (BTPN/SMBC)"
+   "license": "Bank (BTPN/SMBC)"
   },
   {
    "name": "LINE BK",
@@ -5835,7 +5835,7 @@
     "Asia"
    ],
    "note": "LINE x KBank social banking.",
-   "licence": "JV on KBank licence"
+   "license": "JV on KBank license"
   },
   {
    "name": "Timo",
@@ -5858,7 +5858,7 @@
     "Asia"
    ],
    "note": "Vietnam's first digital bank brand.",
-   "licence": "Partner: Ban Viet Bank"
+   "license": "Partner: Ban Viet Bank"
   },
   {
    "name": "Cake",
@@ -5882,7 +5882,7 @@
    ],
    "note": "VPBank + Be Group; 5M+ users.",
    "story": "Digital bank inside Vietnam's ride-hailing app Be; 5M users in four years.",
-   "licence": "Partner: VPBank",
+   "license": "Partner: VPBank",
    "founders": "Be Group x VPBank"
   },
   {
@@ -5928,7 +5928,7 @@
     "Asia"
    ],
    "note": "Grab-led; Malaysia's first digital bank live.",
-   "licence": "Digital bank licence (BNM); Grab-led"
+   "license": "Digital bank license (BNM); Grab-led"
   },
   {
    "name": "AEON Bank",
@@ -5951,7 +5951,7 @@
     "Asia"
    ],
    "note": "Malaysia's first Islamic digital bank.",
-   "licence": "Islamic digital bank licence (BNM)"
+   "license": "Islamic digital bank license (BNM)"
   },
   {
    "name": "Boost Bank",
@@ -5974,7 +5974,7 @@
     "Asia"
    ],
    "note": "Axiata's digital bank.",
-   "licence": "Digital bank licence (BNM); Axiata"
+   "license": "Digital bank license (BNM); Axiata"
   },
   {
    "name": "Ryt Bank",
@@ -5998,7 +5998,7 @@
    ],
    "note": "YTL+Sea AI-first digital bank.",
    "story": "Malaysia's AI-first bank: an LLM assistant as the primary interface.",
-   "licence": "Digital bank licence (BNM)",
+   "license": "Digital bank license (BNM)",
    "founders": "YTL x Sea"
   },
   {
@@ -6022,7 +6022,7 @@
     "Asia"
    ],
    "note": "SoftBank ecosystem bank (ex-Japan Net Bank).",
-   "licence": "Bank (JP); SoftBank ecosystem"
+   "license": "Bank (JP); SoftBank ecosystem"
   },
   {
    "name": "Minna Bank",
@@ -6046,7 +6046,7 @@
    ],
    "note": "Japan's first digital-native bank.",
    "story": "Japan's first digital-native bank, built cloud-first.",
-   "licence": "Bank licence (JP)",
+   "license": "Bank license (JP)",
    "founders": "Fukuoka FG"
   },
   {
@@ -6070,7 +6070,7 @@
     "Asia"
    ],
    "note": "Japan's largest online bank; 15M+.",
-   "licence": "Bank; Public (JP)"
+   "license": "Bank; Public (JP)"
   },
   {
    "name": "LINE Bank TW",
@@ -6093,7 +6093,7 @@
     "Asia"
    ],
    "note": "Taiwan's messenger-native bank.",
-   "licence": "Virtual bank licence (TW FSC)"
+   "license": "Virtual bank license (TW FSC)"
   },
   {
    "name": "NEXT Bank",
@@ -6116,7 +6116,7 @@
     "Asia"
    ],
    "note": "Taiwan virtual bank (Chunghwa-led).",
-   "licence": "Virtual bank licence (TW FSC)"
+   "license": "Virtual bank license (TW FSC)"
   },
   {
    "name": "ZA Bank",
@@ -6140,7 +6140,7 @@
    ],
    "note": "First HK virtual bank; retail crypto trading + stablecoin-issuer banking.",
    "story": "First Hong Kong virtual bank live; first to open retail crypto trading and to bank stablecoin issuers.",
-   "licence": "HK virtual bank; SFC-aligned crypto services",
+   "license": "HK virtual bank; SFC-aligned crypto services",
    "founders": "ZhongAn Online",
    "terms_url": "https://bank.za.group/en/terms",
    "privacy_url": "https://bank.za.group/en/privacy",
@@ -6170,7 +6170,7 @@
     "Asia"
    ],
    "note": "Standard Chartered's HK virtual bank.",
-   "licence": "HK virtual bank (StanChart JV)"
+   "license": "HK virtual bank (StanChart JV)"
   },
   {
    "name": "WeLab Bank",
@@ -6193,7 +6193,7 @@
     "Asia"
    ],
    "note": "Homegrown HK virtual bank.",
-   "licence": "HK virtual bank",
+   "license": "HK virtual bank",
    "founders": "Simon Loong",
    "investors": [
     {
@@ -6228,7 +6228,7 @@
    ],
    "note": "Design-led neobank (Bendigo-backed).",
    "story": "Built by a tiny Melbourne studio; consistently Australia's most-loved banking app.",
-   "licence": "On Bendigo & Adelaide Bank licence",
+   "license": "On Bendigo & Adelaide Bank license",
    "founders": "Ferocia (Dom Pym, Grant Thomas)",
    "terms_url": "https://up.com.au/terms/",
    "privacy_url": "https://up.com.au/privacy/",
@@ -6258,7 +6258,7 @@
     "Oceania"
    ],
    "note": "Australian SME challenger.",
-   "licence": "ADI licence",
+   "license": "ADI license",
    "funding": "Public (JDO)"
   },
   {
@@ -6328,7 +6328,7 @@
    ],
    "note": "10M+ customers; kiosk onboarding; unicorn.",
    "story": "Kiosk onboarding inside Pick n Pay stores cracked mass-market South African banking; now exporting the model to Asia.",
-   "licence": "SA banking licence",
+   "license": "SA banking license",
    "founders": "Coen Jonker + team",
    "funding": "~$400M; unicorn (2024)",
    "terms_url": "https://www.tymebank.co.za/legal/",
@@ -6387,7 +6387,7 @@
    ],
    "note": "Mutual-model app-only bank.",
    "story": "Ex-FNB CEO's zero-fee mutual bank built on its own core stack.",
-   "licence": "Mutual bank licence (SA)",
+   "license": "Mutual bank license (SA)",
    "founders": "Michael Jordaan, Yatin Narsai"
   },
   {
@@ -6411,7 +6411,7 @@
     "Africa"
    ],
    "note": "Behavioural 'shared-value' digital bank.",
-   "licence": "SA banking licence"
+   "license": "SA banking license"
   },
   {
    "name": "Kuda",
@@ -6435,7 +6435,7 @@
    ],
    "note": "'Bank of the free'; NG + UK remittance.",
    "story": "'The bank of the free' — Nigeria's most-funded consumer neobank, now bridging NG↔UK remittance.",
-   "licence": "Microfinance bank (NG)",
+   "license": "Microfinance bank (NG)",
    "founders": "Babs Ogundeyi, Musty Mustapha",
    "funding": "~$90M raised",
    "terms_url": "https://kuda.com/en-ng/legal/",
@@ -6482,7 +6482,7 @@
    ],
    "note": "60M+ users; agent-network powerhouse.",
    "story": "Opera's super-app bet on Nigeria; 60M users via a massive street-agent network.",
-   "licence": "Payment licences (NG)",
+   "license": "Payment licenses (NG)",
    "founders": "Yahui Zhou (Opera)",
    "funding": "~$570M raised",
    "terms_url": "https://www.opayweb.com/terms",
@@ -6538,7 +6538,7 @@
     "Africa"
    ],
    "note": "35M+ users; Transsion-backed.",
-   "licence": "Mobile money licence (NG)",
+   "license": "Mobile money license (NG)",
    "founders": "Transsion-backed team",
    "terms_url": "https://www.palmpay.com/terms",
    "privacy_url": "https://www.palmpay.com/privacy",
@@ -6587,7 +6587,7 @@
    ],
    "note": "SME banking unicorn.",
    "story": "Started as agent-banking infrastructure, became the bank behind millions of Nigerian small businesses.",
-   "licence": "MFB + switching licences (NG)",
+   "license": "MFB + switching licenses (NG)",
    "founders": "Tosin Eniolorunda, Felix Ike",
    "funding": "~$180M+; unicorn",
    "privacy_url": "https://moniepoint.com/privacy-policy",
@@ -6640,7 +6640,7 @@
     "Africa"
    ],
    "note": "Credit-led Nigerian neobank.",
-   "licence": "Microfinance bank (NG)",
+   "license": "Microfinance bank (NG)",
    "founders": "Laurin Hainy, Matthieu Gendreau, Nicolas Berthozat",
    "investors": [
     {
@@ -6678,7 +6678,7 @@
     "Africa"
    ],
    "note": "Lending-first digital bank.",
-   "licence": "Microfinance bank (NG)",
+   "license": "Microfinance bank (NG)",
    "founders": "Chijioke Dozie, Ngozi Dozie",
    "investors": [
     {
@@ -6708,7 +6708,7 @@
     "Africa"
    ],
    "note": "Nigeria's first fully digital bank.",
-   "licence": "Bank (Wema Bank)"
+   "license": "Bank (Wema Bank)"
   },
   {
    "name": "Sparkle",
@@ -6731,7 +6731,7 @@
     "Africa"
    ],
    "note": "Lifestyle + SMB digital bank.",
-   "licence": "Microfinance bank (NG)",
+   "license": "Microfinance bank (NG)",
    "founders": "Uzoma Dozie"
   },
   {
@@ -6754,7 +6754,7 @@
    "active_regions": [
     "Africa"
    ],
-   "note": "NG + KE digital bank (acquired MFB licence).",
+   "note": "NG + KE digital bank (acquired MFB license).",
    "founders": "Tiernan Kennedy, Barry O'Mahony",
    "funding": "~$20M raised"
   },
@@ -6826,7 +6826,7 @@
    ],
    "note": "Radically cheap mobile money; 10M+ users.",
    "story": "Cut Senegal's mobile-money fees by ~70% with a Sendwave spin-out; francophone Africa's first unicorn.",
-   "licence": "First non-telecom e-money issuer (BCEAO)",
+   "license": "First non-telecom e-money issuer (BCEAO)",
    "founders": "Drew Durbin, Lincoln Quirk",
    "funding": "~$300M+; unicorn",
    "privacy_url": "https://www.wave.com/en/privacy/index.html",
@@ -7058,7 +7058,7 @@
    ],
    "note": "Egypt's Gen-Z P2P + card app.",
    "story": "Founded by Swvl's ex-CTO; Egypt's first Gen-Z money app.",
-   "licence": "CBE-regulated (Meeza)",
+   "license": "CBE-regulated (Meeza)",
    "founders": "Ahmed Sabbah, Youssef Sholqamy",
    "funding": "~$60M raised",
    "terms_url": "https://www.telda.app/terms",
@@ -7089,7 +7089,7 @@
     "MENA"
    ],
    "note": "ADQ/e&-backed; retail + SMB.",
-   "licence": "UAE banking licence",
+   "license": "UAE banking license",
    "founders": "ADQ, e&, FAB consortium",
    "terms_url": "https://www.wio.io/terms",
    "privacy_url": "https://www.wio.io/privacy-policy",
@@ -7132,9 +7132,9 @@
    "active_regions": [
     "MENA"
    ],
-   "note": "First UAE all-digital bank licence; crypto-friendly corporate banking.",
-   "story": "First fully digital UAE bank licence; corporate arm banks the Gulf's crypto companies.",
-   "licence": "UAE banking licence",
+   "note": "First UAE all-digital bank license; crypto-friendly corporate banking.",
+   "story": "First fully digital UAE bank license; corporate arm banks the Gulf's crypto companies.",
+   "license": "UAE banking license",
    "founders": "Mohamed Alabbar-led group"
   },
   {
@@ -7274,7 +7274,7 @@
     "MENA"
    ],
    "note": "Bank ABC's digital bank.",
-   "licence": "Bank (ABC Group)"
+   "license": "Bank (ABC Group)"
   },
   {
    "name": "Tweeq",
@@ -7297,7 +7297,7 @@
     "MENA"
    ],
    "note": "Saudi spending account.",
-   "licence": "SAMA e-money licence"
+   "license": "SAMA e-money license"
   },
   {
    "name": "STC Bank",
@@ -7320,7 +7320,7 @@
     "MENA"
    ],
    "note": "From STC Pay to full digital bank.",
-   "licence": "Digital bank licence (SAMA)"
+   "license": "Digital bank license (SAMA)"
   },
   {
    "name": "D360 Bank",
@@ -7343,7 +7343,7 @@
     "MENA"
    ],
    "note": "PIF-backed Islamic digital bank.",
-   "licence": "Digital bank licence (SAMA); PIF-backed"
+   "license": "Digital bank license (SAMA); PIF-backed"
   },
   {
    "name": "Weyay",
@@ -7366,7 +7366,7 @@
     "MENA"
    ],
    "note": "NBK's youth-first digital bank.",
-   "licence": "Bank (NBK)"
+   "license": "Bank (NBK)"
   },
   {
    "name": "One Zero",
@@ -7390,7 +7390,7 @@
    ],
    "note": "Israel's first new bank in 40+ years; AI banker.",
    "story": "Israel's first new bank in 40+ years, built around an AI private banker.",
-   "licence": "Israeli banking licence",
+   "license": "Israeli banking license",
    "founders": "Amnon Shashua (Mobileye founder)",
    "funding": "~$500M raised",
    "terms_url": "https://www.onezerobank.com/terms/",
@@ -7449,8 +7449,8 @@
     "Latin America"
    ],
    "note": "50M+ users; crypto trading; stablecoin in FCA sandbox 2026.",
-   "story": "From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK licence took nine years.",
-   "licence": "UK banking licence (2024); EU licence (Lithuania)",
+   "story": "From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK license took nine years.",
+   "license": "UK banking license (2024); EU license (Lithuania)",
    "founders": "Nik Storonsky, Vlad Yatsenko",
    "funding": "~$2B raised; val ~$75B",
    "terms_url": "https://www.revolut.com/legal/terms/",
@@ -7514,7 +7514,7 @@
    "hq": "Oakland, US",
    "founded": 2013,
    "custody": "Custodial",
-   "regulation_type": "VASP / MSB / crypto licences",
+   "regulation_type": "VASP / MSB / crypto licenses",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Boosts",
@@ -7528,7 +7528,7 @@
    ],
    "note": "Block's P2P giant; BTC + Lightning.",
    "story": "Square's P2P experiment became Block's consumer bank and America's biggest retail bitcoin on-ramp.",
-   "licence": "Via Block's bank + BitLicense",
+   "license": "Via Block's bank + BitLicense",
    "founders": "Block (Jack Dorsey)",
    "funding": "Public (XYZ)",
    "terms_url": "https://cash.app/legal/us/en-us/tos",
@@ -7599,7 +7599,7 @@
     "North America"
    ],
    "note": "Broker + banking + crypto; USDG consortium member.",
-   "licence": "Broker-dealer + partner banks; state crypto licences",
+   "license": "Broker-dealer + partner banks; state crypto licenses",
    "founders": "Vlad Tenev, Baiju Bhatt",
    "funding": "Public (HOOD)",
    "terms_url": "https://robinhood.com/us/en/about/legal/",
@@ -7660,7 +7660,7 @@
    ],
    "note": "Tiered staking-gated cards; 90+ countries.",
    "story": "Rebranded from Monaco after buying the crypto.com domain; the arena-naming-rights era of CeFi.",
-   "licence": "MiCA CASP, MAS MPI, US MSBs",
+   "license": "MiCA CASP, MAS MPI, US MSBs",
    "founders": "Kris Marszalek + 3",
    "terms_url": "https://crypto.com/document/terms",
    "privacy_url": "https://crypto.com/document/privacy",
@@ -7698,7 +7698,7 @@
     "North America"
    ],
    "note": "Exchange card + new Amex One Card; Base builder.",
-   "licence": "US state licences, MiCA; Public (COIN)",
+   "license": "US state licenses, MiCA; Public (COIN)",
    "founders": "Brian Armstrong, Fred Ehrsam",
    "funding": "Public (COIN)",
    "terms_url": "https://www.coinbase.com/legal/user_agreement",
@@ -7736,7 +7736,7 @@
    "hq": "—",
    "founded": 2017,
    "custody": "Custodial",
-   "regulation_type": "VASP / MSB / crypto licences",
+   "regulation_type": "VASP / MSB / crypto licenses",
    "card_network": "Visa",
    "card_type": "Debit",
    "cashback": "Up to 8% BNB",
@@ -7755,7 +7755,7 @@
     "Oceania"
    ],
    "note": "Availability varies; regional relaunches.",
-   "licence": "Jurisdiction-dependent VASP registrations",
+   "license": "Jurisdiction-dependent VASP registrations",
    "founders": "Changpeng Zhao"
   },
   {
@@ -7766,7 +7766,7 @@
    "hq": "Dubai, AE",
    "founded": 2018,
    "custody": "Custodial",
-   "regulation_type": "VASP / MSB / crypto licences",
+   "regulation_type": "VASP / MSB / crypto licenses",
    "card_network": "MC",
    "card_type": "Debit",
    "cashback": "Up to 10% campaigns",
@@ -7785,7 +7785,7 @@
     "Oceania"
    ],
    "note": "Trader-focused; caps lower effective rates.",
-   "licence": "VARA (Dubai) + regional",
+   "license": "VARA (Dubai) + regional",
    "founders": "Ben Zhou"
   },
   {
@@ -7815,7 +7815,7 @@
     "Oceania"
    ],
    "note": "Best rates for active OKX users.",
-   "licence": "VARA, MiCA (Malta)",
+   "license": "VARA, MiCA (Malta)",
    "founders": "Star Xu"
   },
   {
@@ -7945,7 +7945,7 @@
     "Europe"
    ],
    "note": "Stocks + crypto + metals broker with card.",
-   "licence": "MiCA (AT); BaFin licences",
+   "license": "MiCA (AT); BaFin licenses",
    "founders": "Eric Demuth, Paul Klanschek, Christian Trummer",
    "funding": "~$500M; unicorn",
    "terms_url": "https://www.bitpanda.com/en/legal",
@@ -8105,7 +8105,7 @@
    "hq": "New York, US",
    "founded": 2014,
    "custody": "Custodial",
-   "regulation_type": "VASP / MSB / crypto licences",
+   "regulation_type": "VASP / MSB / crypto licenses",
    "card_network": "MC",
    "card_type": "Credit",
    "cashback": "Up to 4% BTC/ETH",
@@ -8118,7 +8118,7 @@
     "North America"
    ],
    "note": "Real-time crypto-back credit.",
-   "licence": "NYDFS trust",
+   "license": "NYDFS trust",
    "founders": "Cameron & Tyler Winklevoss",
    "funding": "Public (GEMI, 2025)",
    "terms_url": "https://www.gemini.com/legal/user-agreement",
@@ -8264,7 +8264,7 @@
    ],
    "note": "Licensed private bank for BTC wealth.",
    "story": "Casares — patient zero of Silicon Valley bitcoin — built a private bank for BTC wealth after his family lost everything to Argentine devaluations.",
-   "licence": "Gibraltar banking licence",
+   "license": "Gibraltar banking license",
    "founders": "Wences Casares",
    "terms_url": "https://www.xapobank.com/en/terms",
    "x_handle": "xapobank",
@@ -8435,7 +8435,7 @@
    ],
    "note": "Kraken's consumer money app.",
    "story": "Kraken's move from exchange to money app: spend, yield and P2P Kraktags on one balance.",
-   "licence": "US state licences; MiCA (EU)",
+   "license": "US state licenses; MiCA (EU)",
    "founders": "Kraken",
    "terms_url": "https://krak.com/legal",
    "privacy_url": "https://www.kraken.com/legal/privacy",
@@ -8671,7 +8671,7 @@
    "hq": "Buenos Aires, AR",
    "founded": 2003,
    "custody": "Custodial",
-   "regulation_type": "Licence pending (partner model today)",
+   "regulation_type": "License pending (partner model today)",
    "card_network": "Visa/MC",
    "card_type": "Debit + credit",
    "cashback": "In-app offers",
@@ -8685,7 +8685,7 @@
    ],
    "note": "LatAm super-app; crypto BR/MX; Meli Dollar.",
    "story": "MercadoLibre's payments arm became LatAm's default wallet; issues the Meli Dollar stable token in Brazil.",
-   "licence": "Payment/fintech licences region-wide; pursuing MX bank licence",
+   "license": "Payment/fintech licenses region-wide; pursuing MX bank license",
    "founders": "Marcos Galperin (MELI)",
    "funding": "Public (MELI)",
    "terms_url": "https://www.mercadopago.com.br/ajuda/termos-e-condicoes_300",
@@ -8851,7 +8851,7 @@
    ],
    "note": "LatAm's largest exchange; remittance rails.",
    "story": "Mexico's first crypto unicorn; powers a meaningful share of US–MX remittances over stablecoin rails.",
-   "licence": "IFPE (MX) + regional VASP licences",
+   "license": "IFPE (MX) + regional VASP licenses",
    "founders": "Daniel Vogel, Pablo González, Ben Peters",
    "funding": "~$400M (val $2.2B)",
    "terms_url": "https://bitso.com/legal/terms-of-service",
@@ -8951,7 +8951,7 @@
     "Latin America"
    ],
    "note": "USD accounts for Colombians (onchain rails).",
-   "licence": "On/off-ramp + issuer partners; USD via onchain treasuries"
+   "license": "On/off-ramp + issuer partners; USD via onchain treasuries"
   },
   {
    "name": "Meru",
@@ -9120,7 +9120,7 @@
    ],
    "note": "Stablecoin ramps across 20+ African markets.",
    "story": "Two Auburn students' bitcoin kiosk became Africa's largest stablecoin on/off-ramp.",
-   "licence": "Licensed/registered in 20+ African markets",
+   "license": "Licensed/registered in 20+ African markets",
    "founders": "Chris Maurice, Justin Poiroux",
    "funding": "~$85M raised",
    "terms_url": "https://yellowcard.io/legal",
@@ -9193,7 +9193,7 @@
     "North America"
    ],
    "note": "Self-custodial dollars; Eco protocol.",
-   "licence": "Self-custodial (Eco protocol)",
+   "license": "Self-custodial (Eco protocol)",
    "founders": "Andy Bromberg"
   },
   {
@@ -9375,7 +9375,7 @@
    ],
    "note": "Default self-custodial wallet; Agent Wallet: Blockaid scanning, tx simulation, MEV protection.",
    "story": "Born inside Consensys in 2016, the wallet that onboarded a generation to Ethereum — now shipping mUSD, the Card, and Agent Wallet for autonomous finance.",
-   "licence": "Self-custodial software — no banking licence needed; card via licensed issuer partners",
+   "license": "Self-custodial software — no banking license needed; card via licensed issuer partners",
    "founders": "Aaron Davis, Dan Finlay (Consensys)",
    "funding": "Consensys ~$725M raised",
    "terms_url": "https://metamask.io/terms-of-use/",
@@ -9430,7 +9430,7 @@
     "Oceania"
    ],
    "note": "Solana-first multichain wallet; 15M+ users.",
-   "licence": "Self-custodial software",
+   "license": "Self-custodial software",
    "founders": "Brandon Millman, Chris Kalani, Francesco Agosti",
    "funding": "~$270M (val $3B)",
    "terms_url": "https://phantom.app/terms",
@@ -9490,7 +9490,7 @@
     "Oceania"
    ],
    "note": "Solana-native wallet with card.",
-   "licence": "Self-custodial software; card via issuer partners",
+   "license": "Self-custodial software; card via issuer partners",
    "terms_url": "https://solflare.com/terms",
    "privacy_url": "https://solflare.com/privacy",
    "x_handle": "solflare_wallet",
@@ -9675,7 +9675,7 @@
     "Oceania"
    ],
    "note": "MPC wallet, no seed phrase.",
-   "licence": "MPC self-custody; no seed phrase",
+   "license": "MPC self-custody; no seed phrase",
    "founders": "Ouriel Ohayon + 3",
    "funding": "~$24M raised",
    "terms_url": "https://zengo.com/terms-of-use/",
@@ -9723,7 +9723,7 @@
    ],
    "note": "ZK-private stablecoin L2 + card; ~$220M volume.",
    "story": "Private-by-default stablecoin payments: balances hidden with zero-knowledge proofs, spendable on a Visa.",
-   "licence": "Self-custodial ZK L2; card via issuer partners",
+   "license": "Self-custodial ZK L2; card via issuer partners",
    "founders": "Polybase Labs (Sid Gandhi + team)",
    "terms_url": "https://payy.network/terms",
    "privacy_url": "https://payy.network/privacy",
@@ -9759,7 +9759,7 @@
    ],
    "note": "Card wired to your own Safe on Gnosis Chain.",
    "story": "The first onchain bank account: a Visa card wired directly to a Safe smart account on Gnosis Chain.",
-   "licence": "E-money via Monavate (UK/EU); funds in your own Safe",
+   "license": "E-money via Monavate (UK/EU); funds in your own Safe",
    "founders": "Stefan George, Martin Köppelmann",
    "funding": "~$12.5M raised",
    "x_handle": "gnosispay",
@@ -9790,7 +9790,7 @@
     "Europe"
    ],
    "note": "IBAN + card on your external wallet; gasless.",
-   "licence": "E-money partners (EU); non-custodial top-ups"
+   "license": "E-money partners (EU); non-custodial top-ups"
   },
   {
    "name": "EtherFi Cash",
@@ -9820,7 +9820,7 @@
    ],
    "note": "Spend against restaked collateral; $145M+ deposits.",
    "story": "Borrow against restaked ETH at the point of sale — credit without selling your stack.",
-   "licence": "DeFi protocol + issuer partners",
+   "license": "DeFi protocol + issuer partners",
    "founders": "Mike Silagadze",
    "funding": "~$32M + token",
    "terms_url": "https://www.ether.fi/legal/terms-of-use",
@@ -9900,7 +9900,7 @@
     "Oceania"
    ],
    "note": "MPC key-sharding; zero FX; free ATM tier.",
-   "licence": "MPC self-custody; MC principal member",
+   "license": "MPC self-custody; MC principal member",
    "founders": "Ex-Revolut founding team"
   },
   {
@@ -9992,7 +9992,7 @@
    ],
    "note": "Stablecoin neobank on own L1; XPL −94% from high.",
    "story": "A stablecoin-native neobank running on its own chain — zero-fee USD₮ transfers, though XPL fell ~94% from its high.",
-   "licence": "Own L1; card via issuer partners",
+   "license": "Own L1; card via issuer partners",
    "founders": "Paul Faecks",
    "funding": "~$74M + XPL sale; Tether-linked",
    "terms_url": "https://www.plasma.to/terms",
@@ -10071,7 +10071,7 @@
     "Oceania"
    ],
    "note": "Multichain card; also powers Moonwell Card.",
-   "licence": "Self-custodial; principal card programs"
+   "license": "Self-custodial; principal card programs"
   },
   {
    "name": "Solayer Emerald",
@@ -10100,7 +10100,7 @@
     "Oceania"
    ],
    "note": "Solana restaking ecosystem card.",
-   "licence": "Self-custodial; Visa principal program"
+   "license": "Self-custodial; Visa principal program"
   },
   {
    "name": "Exa",
@@ -10129,7 +10129,7 @@
     "Oceania"
    ],
    "note": "DeFi credit + debit on Exactly protocol.",
-   "licence": "DeFi protocol (Exactly); card via partners"
+   "license": "DeFi protocol (Exactly); card via partners"
   },
   {
    "name": "1inch Card",
@@ -10158,7 +10158,7 @@
     "Oceania"
    ],
    "note": "Wallet-linked card; fees offset rewards.",
-   "licence": "Self-custodial; card via Baanx/Crypto Life",
+   "license": "Self-custodial; card via Baanx/Crypto Life",
    "founders": "Sergej Kunz, Anton Bukov (1inch)"
   },
   {
@@ -10247,7 +10247,7 @@
     "Oceania"
    ],
    "note": "Spend AVAX/stables self-custodially.",
-   "licence": "Self-custodial; issuer partners",
+   "license": "Self-custodial; issuer partners",
    "founders": "Ava Labs"
   },
   {
@@ -10383,7 +10383,7 @@
     "Oceania"
    ],
    "note": "Claim-link crypto transfers; open protocol.",
-   "licence": "Open-source protocol; no custody"
+   "license": "Open-source protocol; no custody"
   },
   {
    "name": "Sling Money",
@@ -10487,7 +10487,7 @@
    ],
    "note": "French-licensed account + non-custodial wallet.",
    "story": "A French-licensed current account where the crypto side stays in your own non-custodial wallet — the clearest mixed-custody design in Europe.",
-   "licence": "PSAN + payment institution (ACPR)",
+   "license": "PSAN + payment institution (ACPR)",
    "founders": "Jean Meyer + ex-Ledger/Revolut team",
    "funding": "~€16M raised",
    "terms_url": "https://deblock.com/legal/terms",
@@ -10529,7 +10529,7 @@
     "Oceania"
    ],
    "note": "Spend USDC anywhere Mastercard works.",
-   "licence": "AFSL partners; Mastercard APAC program",
+   "license": "AFSL partners; Mastercard APAC program",
    "privacy_url": "https://www.stables.money/legal/privacy-policy",
    "x_handle": "stablesmoney",
    "countries": [
@@ -10547,7 +10547,7 @@
    "hq": "Zurich, CH",
    "founded": 2021,
    "custody": "Self-custodial",
-   "regulation_type": "Fintech licence (CH)",
+   "regulation_type": "Fintech license (CH)",
    "card_network": "Visa",
    "card_type": "Virtual + physical",
    "cashback": null,
@@ -10561,7 +10561,7 @@
    ],
    "note": "Swiss-licensed; your account is an NFT on Arbitrum.",
    "story": "Your bank account is literally an NFT on Arbitrum; Swiss-regulated, onchain-settled.",
-   "licence": "Swiss fintech licence (FINMA)",
+   "license": "Swiss fintech license (FINMA)",
    "privacy_url": "https://fiat24.com/privacy",
    "x_handle": "Fiat24Official",
    "countries": [
@@ -10664,7 +10664,7 @@
    "hq": "San Juan, PR",
    "founded": 2023,
    "custody": "Custodial",
-   "regulation_type": "VASP / MSB / crypto licences",
+   "regulation_type": "VASP / MSB / crypto licenses",
    "card_network": "Visa",
    "card_type": "Virtual + physical",
    "cashback": "Up to 5%",
@@ -10677,7 +10677,7 @@
     "Latin America"
    ],
    "note": "LatAm dollar app on stablecoin rails.",
-   "licence": "US MSB + issuer partners"
+   "license": "US MSB + issuer partners"
   },
   {
    "name": "Decaf",
@@ -10700,7 +10700,7 @@
     "Latin America"
    ],
    "note": "Solana-based spending + global payouts.",
-   "licence": "Self-custodial; issuer partners"
+   "license": "Self-custodial; issuer partners"
   },
   {
    "name": "Onboard",
@@ -10756,7 +10756,7 @@
     "Europe"
    ],
    "note": "Swiss-licensed digital private bank.",
-   "licence": "Swiss banking licence",
+   "license": "Swiss banking license",
    "founders": "Schuyler Weiss",
    "funding": "~CHF200M+ raised",
    "terms_url": "https://www.alpian.com/legal",
@@ -10797,7 +10797,7 @@
     "Europe"
    ],
    "note": "Swissquote x PostFinance app; custodial crypto trading.",
-   "licence": "On Swissquote's banking licence",
+   "license": "On Swissquote's banking license",
    "founders": "Swissquote x PostFinance JV",
    "terms_url": "https://www.yuh.com/en/legal/",
    "x_handle": "yuh_app",
@@ -10826,7 +10826,7 @@
     "Europe"
    ],
    "note": "Switzerland's leading independent neobank app.",
-   "licence": "Partner: Hypothekarbank Lenzburg",
+   "license": "Partner: Hypothekarbank Lenzburg",
    "founders": "Jörg Sandrock + team",
    "x_handle": "neon_switzerland",
    "countries": [
@@ -10944,7 +10944,7 @@
     "Oceania"
    ],
    "note": "CommBank's kids' money app (x15ventures).",
-   "licence": "On CBA rails",
+   "license": "On CBA rails",
    "founders": "CommBank x15ventures"
   },
   {
@@ -11014,7 +11014,7 @@
     "Asia"
    ],
    "note": "SEA's all-in-one SMB finance OS.",
-   "licence": "MPI (MAS)",
+   "license": "MPI (MAS)",
    "founders": "Andrea Baronchelli + 3",
    "funding": "~$300M raised",
    "terms_url": "https://aspireapp.com/tnc/master-service-agreement",
@@ -11110,7 +11110,7 @@
     "MENA"
    ],
    "note": "Mashreq's digital bank.",
-   "licence": "Bank (Mashreq)"
+   "license": "Bank (Mashreq)"
   },
   {
    "name": "Nomad",
@@ -11220,7 +11220,7 @@
    ],
    "note": "Open-source self-custodial USDC wallet.",
    "story": "Open-source USDC wallet born from Devconnect payments frustration; passkey-secured, no seed phrase.",
-   "licence": "Open-source self-custodial software",
+   "license": "Open-source self-custodial software",
    "founders": "DC Posch, Nalin Bhardwaj",
    "funding": "~$7M raised",
    "terms_url": "https://daimo.com/terms-of-use",

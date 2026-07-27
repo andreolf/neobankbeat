@@ -5,6 +5,11 @@
       "has": [{ "type": "host", "value": "(www\\.)?neobank\\.jobs" }],
       "destination": "https://www.neobankbeat.com/jobs/$1",
       "permanent": true
+    },
+    {
+      "source": "/blog/browse-neobanks-by-licence-kyc-country/:path*",
+      "destination": "/blog/browse-neobanks-by-license-kyc-country/:path*",
+      "permanent": true
     }
   ],
   "headers": [

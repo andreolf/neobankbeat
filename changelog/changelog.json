@@ -46,7 +46,7 @@
   },
   {
    "date": "2026-07-18",
-   "summary": "Labelled every neobank by how it is actually regulated — its own bank licence, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.",
+   "summary": "Labelled every neobank by how it is actually regulated — its own bank license, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.",
    "subject": "data: regulation backfill for all 173 unclassified entities + site audit fixes",
    "total": 368,
    "added": [],

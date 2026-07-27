@@ -118,7 +118,7 @@
   "domain": "solarisgroup.com",
   "type": "BaaS / e-money platform",
   "hq": "Berlin, DE",
-  "about": "Europe's flagship banking-as-a-service platform with a full German banking licence; Tomorrow runs on it, and Vivid launched on it before getting its own EMI — BaFin pressure has since forced a hard pivot.",
+  "about": "Europe's flagship banking-as-a-service platform with a full German banking license; Tomorrow runs on it, and Vivid launched on it before getting its own EMI — BaFin pressure has since forced a hard pivot.",
   "clients": [
    "Tomorrow",
    "Vivid Money"
@@ -510,7 +510,7 @@
   "type": "BaaS / e-money platform",
   "domain": "okali.eu",
   "hq": "Paris, FR",
-  "about": "The former SFPMEI, France's original BaaS e-money institution (now Crédit Agricole-owned) — carried Lydia from 2013 until it won its own EMI licence in 2023 and dropped 'OKALI' from customers' bank statements.",
+  "about": "The former SFPMEI, France's original BaaS e-money institution (now Crédit Agricole-owned) — carried Lydia from 2013 until it won its own EMI license in 2023 and dropped 'OKALI' from customers' bank statements.",
   "clients": [
    "Sumeria (Lydia)"
   ]
@@ -546,7 +546,7 @@
   "type": "BaaS / clearing bank",
   "domain": "griffin.com",
   "hq": "London, UK",
-  "about": "The 'bank you can build on': a full UK banking licence (2024) wrapped in an API, founded by ex-Airbnb and CircleCI engineers — the first British BaaS provider that is actually a bank rather than an EMI. No tracked neobank runs on it yet.",
+  "about": "The 'bank you can build on': a full UK banking license (2024) wrapped in an API, founded by ex-Airbnb and CircleCI engineers — the first British BaaS provider that is actually a bank rather than an EMI. No tracked neobank runs on it yet.",
   "clients": []
  },
  "Dock": {
@@ -587,7 +587,7 @@
   "type": "BIN sponsor bank",
   "domain": "providusbank.com",
   "hq": "Lagos, NG",
-  "about": "Nigeria's go-to fintech partner bank — its virtual-NUBAN and BIN-sponsorship APIs sit under Piggyvest, Paystack and much of the Lagos fintech scene, though the tracked Nigerian neobanks (Kuda, OPay, PalmPay) hold their own licences.",
+  "about": "Nigeria's go-to fintech partner bank — its virtual-NUBAN and BIN-sponsorship APIs sit under Piggyvest, Paystack and much of the Lagos fintech scene, though the tracked Nigerian neobanks (Kuda, OPay, PalmPay) hold their own licenses.",
   "clients": []
  },
  "NymCard": {
@@ -702,7 +702,7 @@
   "type": "card issuing processor",
   "domain": "adyen.com",
   "hq": "Amsterdam, NL",
-  "about": "The acquiring giant's issuing arm — Adyen's EU banking licence and single-platform pitch let platforms add branded cards next to the payments they already process.",
+  "about": "The acquiring giant's issuing arm — Adyen's EU banking license and single-platform pitch let platforms add branded cards next to the payments they already process.",
   "clients": []
  },
  "Temenos": {

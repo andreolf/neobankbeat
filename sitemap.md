@@ -1,11 +1,11 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-23.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-27.
 
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 45 ready-made cuts of the dataset by licence, KYC, region and audience
+- [Browse](https://www.neobankbeat.com/browse/) — 45 ready-made cuts of the dataset by license, KYC, region and audience
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
@@ -64,7 +64,7 @@
 - [neobank ecosystem map](https://www.neobankbeat.com/blog/neobank-ecosystem-map/) (2026-07-20)
 - [who really runs the neobanks](https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/) (2026-07-23)
 - [neobank dataset hugging face kaggle](https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/) (2026-07-26)
-- [browse neobanks by licence kyc country](https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/) (2026-07-28)
+- [browse neobanks by license kyc country](https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/) (2026-07-28)
 
 ## Neobank profiles (368)
 
@@ -630,4 +630,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (368) answering who is behind the brand — parent company, licence holder, sponsor bank, disclosed investors — and an "alternatives" page (367) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (368) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (367) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

@@ -10,7 +10,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 > neobankbeat (2026). *Open directory of neobanks worldwide.* https://www.neobankbeat.com/ (MIT).
 
-- Licence: MIT — https://opensource.org/license/mit/ · no permission needed, no API key, no rate limit
+- License: MIT — https://opensource.org/license/mit/ · no permission needed, no API key, no rate limit
 - Canonical dataset page (fields, methodology, downloads, mirrors): https://www.neobankbeat.com/data/
 - Refresh cadence: continuously curated; jobs and headlines refresh weekly, the dataset whenever a change is verified. Every change is logged at https://www.neobankbeat.com/changelog/
 - When quoting a rate (cashback, yield, FX markup), cite the `as_of` date shipped alongside it — these move constantly and a stale rate is worse than none
@@ -34,7 +34,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 - category: "traditional" = licensed fiat neobank, fully custodial · "hybrid" = fiat banking plus custodial crypto · "web3-native" = self-custodial, on-chain-first (user or their agent holds keys)
 - custody: Custodial / Self-custodial / MPC self-custodial / Mixed (fiat custodial + self-custody crypto)
-- regulation_type: derived classification — Licensed bank, E-money institution, Payment institution, Partner-bank model, MiCA CASP (EU), VASP/MSB/crypto licences, Self-custodial software, etc.
+- regulation_type: derived classification — Licensed bank, E-money institution, Payment institution, Partner-bank model, MiCA CASP (EU), VASP/MSB/crypto licenses, Self-custodial software, etc.
 - kyc: Yes / No / Card only (no-KYC wallet, KYC needed for the card)
 - ai (optional): AI verifiably in production — "underwriting" (model-driven credit at scale), "interface" (AI assistant as the primary UX), "agentic" (banking for AI agents). Absent = no verified production AI; marketing claims are deliberately not tagged
 - null fields were not publicly verifiable — the project never fabricates links or figures; unverified fields fall back to null or honest search links
@@ -51,7 +51,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Reference pages (static, crawlable)
 
-- [FAQ](https://www.neobankbeat.com/faq/): 23 questions on neobank safety, licences, Banking-as-a-Service, custody, fees, stablecoin cards and choosing a provider — answered from the dataset, with FAQPage structured data
+- [FAQ](https://www.neobankbeat.com/faq/): 23 questions on neobank safety, licenses, Banking-as-a-Service, custody, fees, stablecoin cards and choosing a provider — answered from the dataset, with FAQPage structured data
 - [Glossary](https://www.neobankbeat.com/glossary/): 50 plain-language definitions (custody, e-money institution, partner bank, interchange, safeguarding, MiCA, KYC, stablecoin, account abstraction…) with per-term anchors for deep linking
 - [Investors in neobanks](https://www.neobankbeat.com/investors/): 219 venture and strategic investors mapped to the neobanks they backed, from publicly disclosed rounds — each firm has its own page at /investors/<slug>/ with fund history, key people, portfolio and co-investors
 - [Newsletters](https://www.neobankbeat.com/newsletters/): the 10 neobank & fintech newsletters worth reading, hand-picked with authors
@@ -67,7 +67,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Monthly report
 
-- [The State of Neobanks](https://www.neobankbeat.com/report/): a 50+ page designed PDF published monthly (July 2026 = edition № 01), generated from the dataset — custody, licences, cards, stablecoins, geography, niches, future narratives (agentic commerce, stablecoin payroll, tokenized deposits), full appendix directory. Free; gated behind the (free) newsletter (https://neobankbeat.substack.com).
+- [The State of Neobanks](https://www.neobankbeat.com/report/): a 50+ page designed PDF published monthly (July 2026 = edition № 01), generated from the dataset — custody, licenses, cards, stablecoins, geography, niches, future narratives (agentic commerce, stablecoin payroll, tokenized deposits), full appendix directory. Free; gated behind the (free) newsletter (https://neobankbeat.substack.com).
 - [Web edition preview](https://www.neobankbeat.com/report/2026-07/): the first 5 chapters as a crawlable HTML page. All headline findings are also quotable from the blog post (https://www.neobankbeat.com/blog/state-of-neobanks-2026/) and reproducible from data.json.
 
 ## Jobs board
@@ -76,11 +76,11 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 
 ## Static profile & comparison pages (crawlable, generated from the dataset)
 
-- [All 368 entity profiles](https://www.neobankbeat.com/n/): one page per neobank at /n/<slug>/ with custody, licence, cards, stablecoins, verified links and peers
+- [All 368 entity profiles](https://www.neobankbeat.com/n/): one page per neobank at /n/<slug>/ with custody, license, cards, stablecoins, verified links and peers
 - [140 head-to-head comparisons](https://www.neobankbeat.com/vs/): side-by-side pages at /vs/<a>-vs-<b>/ (e.g. /vs/revolut-vs-n26/), each opening with a one-paragraph verdict and FAQPage structured data
-- [368 "who owns it" pages](https://www.neobankbeat.com/n/): /n/<slug>/who-owns/ answers "who owns / who is behind <neobank>" — parent company, licence holder, sponsor bank and disclosed investors, with a short answer in the first paragraph
+- [368 "who owns it" pages](https://www.neobankbeat.com/n/): /n/<slug>/who-owns/ answers "who owns / who is behind <neobank>" — parent company, license holder, sponsor bank and disclosed investors, with a short answer in the first paragraph
 - [367 "alternatives to it" pages](https://www.neobankbeat.com/n/): /n/<slug>/alternatives/ ranks the closest peers by category, custody model, regulation and overlapping markets, as an ItemList plus a comparison table
-- [45 topic hubs](https://www.neobankbeat.com/browse/): one page per cut of the dataset, each stating its own count and listing every member with custody, licence and geography — /regulation/<type>/ (licensed banks, partner-bank/BaaS, e-money, self-custodial, crypto-licensed, payment institutions, MiCA CASP), /kyc/no-kyc/ and /kyc/card-only-kyc/, /cards/<cut>/ (no-card, visa, mastercard, domestic-networks), /regions/<region>/, /countries/<country>/ and /for/<audience>/ (SMB, underbanked, freelancers, travel, gen z, immigrants, kids, faith-based). Prefer these over the query-string filters on the homepage when citing a count: the count on the page is the count in the table and in its ItemList.
+- [45 topic hubs](https://www.neobankbeat.com/browse/): one page per cut of the dataset, each stating its own count and listing every member with custody, license and geography — /regulation/<type>/ (licensed banks, partner-bank/BaaS, e-money, self-custodial, crypto-licensed, payment institutions, MiCA CASP), /kyc/no-kyc/ and /kyc/card-only-kyc/, /cards/<cut>/ (no-card, visa, mastercard, domestic-networks), /regions/<region>/, /countries/<country>/ and /for/<audience>/ (SMB, underbanked, freelancers, travel, gen z, immigrants, kids, faith-based). Prefer these over the query-string filters on the homepage when citing a count: the count on the page is the count in the table and in its ItemList.
 - Two geographic facts are kept separate and must not be merged: /countries/<country>/ counts companies **headquartered** there, parsed from the hq field and complete for 334 of 368 entities, then lists separately those **verified as available** there, a field recorded for only 167. A neobank absent from the availability list has not been ruled out — it has not been checked. /regions/<region>/ is availability-based and counts multi-region operators in every region they serve, so those totals overlap by design.
 - Where a cut cannot support a ranking it says so rather than implying one: only 22 of 368 entities disclose a user figure, so most niche hubs state that no ranking is possible from public data. Do not present the listed order on those pages as a size ranking.
 - These pages are regenerated from data.json (tests/build-pages.mjs) and are always consistent with the directory
@@ -142,11 +142,11 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Comun](https://www.neobankbeat.com/n/comun/): traditional · Custodial · Partner-bank model · New York, US · founded 2021
 - [Ellevest](https://www.neobankbeat.com/n/ellevest/): traditional · Custodial · Partner-bank model · New York, US · founded 2014
 - [First Women's Bank](https://www.neobankbeat.com/n/first-women-s-bank/): traditional · Custodial · Licensed bank · Chicago, US · founded 2021
-- [KOHO](https://www.neobankbeat.com/n/koho/): traditional · Custodial · Licence pending (partner model today) · Toronto, CA · founded 2014
+- [KOHO](https://www.neobankbeat.com/n/koho/): traditional · Custodial · License pending (partner model today) · Toronto, CA · founded 2014
 - [Neo Financial](https://www.neobankbeat.com/n/neo-financial/): traditional · Custodial · Partner-bank model · Calgary, CA · founded 2019
 - [Wealthsimple](https://www.neobankbeat.com/n/wealthsimple/): traditional · Custodial · Broker-led · Toronto, CA · founded 2014
 - [EQ Bank](https://www.neobankbeat.com/n/eq-bank/): traditional · Custodial · Licensed bank · Toronto, CA · founded 2016
-- [Mogo](https://www.neobankbeat.com/n/mogo/): hybrid · Custodial · VASP / MSB / crypto licences · Vancouver, CA · founded 2003
+- [Mogo](https://www.neobankbeat.com/n/mogo/): hybrid · Custodial · VASP / MSB / crypto licenses · Vancouver, CA · founded 2003
 - [Monzo](https://www.neobankbeat.com/n/monzo/): traditional · Custodial · Licensed bank · London, UK · founded 2015 · 12M customers
 - [Starling Bank](https://www.neobankbeat.com/n/starling-bank/): traditional · Custodial · Licensed bank · London, UK · founded 2014 · AI in production: interface
 - [Atom Bank](https://www.neobankbeat.com/n/atom-bank/): traditional · Custodial · Licensed bank · Durham, UK · founded 2014
@@ -173,7 +173,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [C24 Bank](https://www.neobankbeat.com/n/c24-bank/): traditional · Custodial · Partner-bank model · Frankfurt, DE · founded 2020
 - [Kontist](https://www.neobankbeat.com/n/kontist/): traditional · Custodial · Partner-bank model · Berlin, DE · founded 2016
 - [Fyrst](https://www.neobankbeat.com/n/fyrst/): traditional · Custodial · Partner-bank model · Bonn, DE · founded 2019
-- [Qonto](https://www.neobankbeat.com/n/qonto/): traditional · Custodial · Licence pending (partner model today) · Paris, FR · founded 2016 · AI in production: interface
+- [Qonto](https://www.neobankbeat.com/n/qonto/): traditional · Custodial · License pending (partner model today) · Paris, FR · founded 2016 · AI in production: interface
 - [Shine](https://www.neobankbeat.com/n/shine/): traditional · Custodial · Payment institution · Paris, FR · founded 2017
 - [Indy](https://www.neobankbeat.com/n/indy/): traditional · Custodial · E-money institution · Lyon, FR · founded 2016
 - [Sumeria (Lydia)](https://www.neobankbeat.com/n/sumeria-lydia/): traditional · Custodial · E-money institution · Paris, FR · founded 2013
@@ -233,7 +233,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Daviplata](https://www.neobankbeat.com/n/daviplata/): traditional · Custodial · Licensed bank · Bogotá, CO · founded 2011
 - [Movii](https://www.neobankbeat.com/n/movii/): traditional · Custodial · E-money institution · Bogotá, CO · founded 2018
 - [Lulo Bank](https://www.neobankbeat.com/n/lulo-bank/): traditional · Custodial · Licensed bank · Bogotá, CO · founded 2021
-- [Tenpo](https://www.neobankbeat.com/n/tenpo/): traditional · Custodial · Licence pending (partner model today) · Santiago, CL · founded 2017
+- [Tenpo](https://www.neobankbeat.com/n/tenpo/): traditional · Custodial · License pending (partner model today) · Santiago, CL · founded 2017
 - [Global66](https://www.neobankbeat.com/n/global66/): traditional · Custodial · E-money institution · Santiago, CL · founded 2018
 - [Zinli](https://www.neobankbeat.com/n/zinli/): traditional · Custodial · E-money institution · Panama City, PA · founded 2020
 - [Qik](https://www.neobankbeat.com/n/qik/): traditional · Custodial · Licensed bank · Santo Domingo, DO · founded 2021
@@ -308,10 +308,10 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Eversend](https://www.neobankbeat.com/n/eversend/): traditional · Custodial · E-money institution · Kampala/Paris · founded 2017
 - [Fingo](https://www.neobankbeat.com/n/fingo/): traditional · Custodial · Partner-bank model · Nairobi, KE · founded 2021
 - [Branch Intl](https://www.neobankbeat.com/n/branch-intl/): traditional · Custodial · Licensed bank · Nairobi/Lagos · founded 2015 · AI in production: underwriting
-- [Khazna](https://www.neobankbeat.com/n/khazna/): traditional · Custodial · Licence pending (partner model today) · Cairo, EG · founded 2020
+- [Khazna](https://www.neobankbeat.com/n/khazna/): traditional · Custodial · License pending (partner model today) · Cairo, EG · founded 2020
 - [MNT-Halan](https://www.neobankbeat.com/n/mnt-halan/): traditional · Custodial · Licensed bank · Cairo, EG · founded 2018 · AI in production: underwriting
 - [Flouci](https://www.neobankbeat.com/n/flouci/): traditional · Custodial · Other / mixed · Tunis, TN · founded 2018
-- [Grey](https://www.neobankbeat.com/n/grey/): traditional · Custodial · VASP / MSB / crypto licences · Lagos, NG · founded 2020
+- [Grey](https://www.neobankbeat.com/n/grey/): traditional · Custodial · VASP / MSB / crypto licenses · Lagos, NG · founded 2020
 - [PaySika](https://www.neobankbeat.com/n/paysika/): traditional · Custodial · Other / mixed · Douala, CM · founded 2020
 - [Cleva](https://www.neobankbeat.com/n/cleva/): traditional · Custodial · Partner-bank model · Lagos, NG · founded 2023
 - [Telda](https://www.neobankbeat.com/n/telda/): traditional · Custodial · Other / mixed · Cairo, EG · founded 2021
@@ -330,17 +330,17 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [One Zero](https://www.neobankbeat.com/n/one-zero/): traditional · Custodial · Licensed bank · Tel Aviv, IL · founded 2019 · AI in production: interface
 - [Pride Bank](https://www.neobankbeat.com/n/pride-bank/): traditional · Custodial · Partner-bank model · São Paulo, BR · founded 2019
 - [Revolut](https://www.neobankbeat.com/n/revolut/): hybrid · Custodial · Licensed bank · London, UK · founded 2015 · 50M customers · AI in production: interface
-- [Cash App](https://www.neobankbeat.com/n/cash-app/): hybrid · Custodial · VASP / MSB / crypto licences · Oakland, US · founded 2013 · 59M transacting actives
-- [Venmo](https://www.neobankbeat.com/n/venmo/): hybrid · Custodial · VASP / MSB / crypto licences · New York, US · founded 2009
+- [Cash App](https://www.neobankbeat.com/n/cash-app/): hybrid · Custodial · VASP / MSB / crypto licenses · Oakland, US · founded 2013 · 59M transacting actives
+- [Venmo](https://www.neobankbeat.com/n/venmo/): hybrid · Custodial · VASP / MSB / crypto licenses · New York, US · founded 2009
 - [Robinhood](https://www.neobankbeat.com/n/robinhood/): hybrid · Custodial · Partner-bank model · Menlo Park, US · founded 2013 · AI in production: interface
 - [Crypto.com](https://www.neobankbeat.com/n/crypto-com/): hybrid · Custodial · MiCA CASP (EU) · Singapore, SG · founded 2016
 - [Coinbase Card](https://www.neobankbeat.com/n/coinbase-card/): hybrid · Custodial · MiCA CASP (EU) · San Francisco, US · founded 2012 · AI in production: agentic
-- [Binance Card](https://www.neobankbeat.com/n/binance-card/): hybrid · Custodial · VASP / MSB / crypto licences · — · founded 2017
-- [Bybit Card](https://www.neobankbeat.com/n/bybit-card/): hybrid · Custodial · VASP / MSB / crypto licences · Dubai, AE · founded 2018
+- [Binance Card](https://www.neobankbeat.com/n/binance-card/): hybrid · Custodial · VASP / MSB / crypto licenses · — · founded 2017
+- [Bybit Card](https://www.neobankbeat.com/n/bybit-card/): hybrid · Custodial · VASP / MSB / crypto licenses · Dubai, AE · founded 2018
 - [OKX Card](https://www.neobankbeat.com/n/okx-card/): hybrid · Custodial · MiCA CASP (EU) · — · founded 2017 · AI in production: agentic
-- [Bitget Card](https://www.neobankbeat.com/n/bitget-card/): hybrid · Custodial · VASP / MSB / crypto licences · — · founded 2018
+- [Bitget Card](https://www.neobankbeat.com/n/bitget-card/): hybrid · Custodial · VASP / MSB / crypto licenses · — · founded 2018
 - [KuCard](https://www.neobankbeat.com/n/kucard/): hybrid · Custodial · MiCA CASP (EU) · — · founded 2017
-- [CEX.IO Card](https://www.neobankbeat.com/n/cex-io-card/): hybrid · Custodial · VASP / MSB / crypto licences · London, UK · founded 2013
+- [CEX.IO Card](https://www.neobankbeat.com/n/cex-io-card/): hybrid · Custodial · VASP / MSB / crypto licenses · London, UK · founded 2013
 - [SpectroCoin](https://www.neobankbeat.com/n/spectrocoin/): hybrid · Custodial · E-money institution · Vilnius, LT · founded 2013
 - [Bitpanda](https://www.neobankbeat.com/n/bitpanda/): hybrid · Custodial · MiCA CASP (EU) · Vienna, AT · founded 2014
 - [eToro Money](https://www.neobankbeat.com/n/etoro-money/): hybrid · Custodial · E-money institution · Tel Aviv, IL · founded 2007 · AI in production: interface
@@ -348,39 +348,39 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [CoinJar](https://www.neobankbeat.com/n/coinjar/): hybrid · Custodial · Payment institution · Melbourne, AU · founded 2013
 - [Plutus](https://www.neobankbeat.com/n/plutus/): hybrid · Custodial · Self-custodial software · London, UK · founded 2015
 - [Fold](https://www.neobankbeat.com/n/fold/): hybrid · Custodial · Partner-bank model · Phoenix, US · founded 2019
-- [Gemini Credit Card](https://www.neobankbeat.com/n/gemini-credit-card/): hybrid · Custodial · VASP / MSB / crypto licences · New York, US · founded 2014
-- [BitPay Card](https://www.neobankbeat.com/n/bitpay-card/): hybrid · Custodial · VASP / MSB / crypto licences · Atlanta, US · founded 2011
-- [Strike](https://www.neobankbeat.com/n/strike/): hybrid · Custodial · VASP / MSB / crypto licences · Chicago, US · founded 2019
+- [Gemini Credit Card](https://www.neobankbeat.com/n/gemini-credit-card/): hybrid · Custodial · VASP / MSB / crypto licenses · New York, US · founded 2014
+- [BitPay Card](https://www.neobankbeat.com/n/bitpay-card/): hybrid · Custodial · VASP / MSB / crypto licenses · Atlanta, US · founded 2011
+- [Strike](https://www.neobankbeat.com/n/strike/): hybrid · Custodial · VASP / MSB / crypto licenses · Chicago, US · founded 2019
 - [Xapo Bank](https://www.neobankbeat.com/n/xapo-bank/): hybrid · Custodial · Licensed bank · Gibraltar · founded 2013
 - [Wirex](https://www.neobankbeat.com/n/wirex/): hybrid · Custodial · E-money institution · London, UK · founded 2014 · AI in production: agentic
-- [Uphold](https://www.neobankbeat.com/n/uphold/): hybrid · Custodial · VASP / MSB / crypto licences · New York, US · founded 2015
+- [Uphold](https://www.neobankbeat.com/n/uphold/): hybrid · Custodial · VASP / MSB / crypto licenses · New York, US · founded 2015
 - [Nexo](https://www.neobankbeat.com/n/nexo/): hybrid · Custodial · MiCA CASP (EU) · Zug, CH · founded 2018 · AI in production: interface
 - [Krak](https://www.neobankbeat.com/n/krak/): hybrid · Custodial · MiCA CASP (EU) · San Francisco, US · founded 2025
 - [KAST](https://www.neobankbeat.com/n/kast/): hybrid · Custodial · Partner-bank model · Hong Kong, HK · founded 2024
-- [RedotPay](https://www.neobankbeat.com/n/redotpay/): hybrid · Custodial · VASP / MSB / crypto licences · Hong Kong, HK · founded 2023 · AI in production: agentic
-- [Kolo](https://www.neobankbeat.com/n/kolo/): hybrid · Custodial · VASP / MSB / crypto licences · — · founded 2022
+- [RedotPay](https://www.neobankbeat.com/n/redotpay/): hybrid · Custodial · VASP / MSB / crypto licenses · Hong Kong, HK · founded 2023 · AI in production: agentic
+- [Kolo](https://www.neobankbeat.com/n/kolo/): hybrid · Custodial · VASP / MSB / crypto licenses · — · founded 2022
 - [Lava](https://www.neobankbeat.com/n/lava/): hybrid · Custodial · Other / mixed · New York, US · founded 2022
 - [COCA](https://www.neobankbeat.com/n/coca/): hybrid · MPC self-custodial · Self-custodial software · Dubai, AE · founded 2023
-- [Trustee Plus](https://www.neobankbeat.com/n/trustee-plus/): hybrid · Custodial · Licence pending (partner model today) · Vilnius, LT · founded 2019
-- [Brighty](https://www.neobankbeat.com/n/brighty/): hybrid · Custodial · VASP / MSB / crypto licences · Baar (Zug), CH · founded 2021
+- [Trustee Plus](https://www.neobankbeat.com/n/trustee-plus/): hybrid · Custodial · License pending (partner model today) · Vilnius, LT · founded 2019
+- [Brighty](https://www.neobankbeat.com/n/brighty/): hybrid · Custodial · VASP / MSB / crypto licenses · Baar (Zug), CH · founded 2021
 - [UR](https://www.neobankbeat.com/n/ur/): hybrid · Custodial · Licensed bank · — · founded 2023
 - [XPlace](https://www.neobankbeat.com/n/xplace/): hybrid · Custodial · Self-custodial software · Dubai, AE · founded 2023
-- [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/): hybrid · Custodial · Licence pending (partner model today) · Buenos Aires, AR · founded 2003 · 78M MAU · AI in production: underwriting
-- [Lemon](https://www.neobankbeat.com/n/lemon/): hybrid · Custodial · VASP / MSB / crypto licences · Buenos Aires, AR · founded 2019
-- [Belo](https://www.neobankbeat.com/n/belo/): hybrid · Custodial · VASP / MSB / crypto licences · Buenos Aires, AR · founded 2020
-- [Ripio](https://www.neobankbeat.com/n/ripio/): hybrid · Custodial · VASP / MSB / crypto licences · Buenos Aires, AR · founded 2013
-- [Buenbit](https://www.neobankbeat.com/n/buenbit/): hybrid · Custodial · VASP / MSB / crypto licences · Buenos Aires, AR · founded 2018
+- [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/): hybrid · Custodial · License pending (partner model today) · Buenos Aires, AR · founded 2003 · 78M MAU · AI in production: underwriting
+- [Lemon](https://www.neobankbeat.com/n/lemon/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2019
+- [Belo](https://www.neobankbeat.com/n/belo/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2020
+- [Ripio](https://www.neobankbeat.com/n/ripio/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2013
+- [Buenbit](https://www.neobankbeat.com/n/buenbit/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2018
 - [Bitso](https://www.neobankbeat.com/n/bitso/): hybrid · Custodial · Licensed bank · Mexico City, MX · founded 2014
 - [DolarApp](https://www.neobankbeat.com/n/dolarapp/): hybrid · Custodial · Partner-bank model · Mexico City, MX · founded 2021
 - [Littio](https://www.neobankbeat.com/n/littio/): hybrid · Custodial · Other / mixed · Bogotá, CO · founded 2021
-- [Meru](https://www.neobankbeat.com/n/meru/): hybrid · Custodial · VASP / MSB / crypto licences · Bogotá, CO · founded 2021
-- [Airtm](https://www.neobankbeat.com/n/airtm/): hybrid · Custodial · VASP / MSB / crypto licences · Mexico City, MX · founded 2015
+- [Meru](https://www.neobankbeat.com/n/meru/): hybrid · Custodial · VASP / MSB / crypto licenses · Bogotá, CO · founded 2021
+- [Airtm](https://www.neobankbeat.com/n/airtm/): hybrid · Custodial · VASP / MSB / crypto licenses · Mexico City, MX · founded 2015
 - [Félix](https://www.neobankbeat.com/n/felix/): hybrid · Custodial · Partner-bank model · Mexico City, MX · founded 2022 · AI in production: interface
 - [Chipper Cash](https://www.neobankbeat.com/n/chipper-cash/): hybrid · Custodial · E-money institution · San Francisco, US · founded 2018
 - [Yellow Card](https://www.neobankbeat.com/n/yellow-card/): hybrid · Custodial · Other / mixed · Lagos, NG · founded 2016
 - [Bitnob](https://www.neobankbeat.com/n/bitnob/): hybrid · Custodial · Partner-bank model · Lagos, NG · founded 2020
 - [Eco (Beam)](https://www.neobankbeat.com/n/eco-beam/): web3-native · Self-custodial · Self-custodial software · New York, US · founded 2023
-- [Deel](https://www.neobankbeat.com/n/deel/): hybrid · Custodial · VASP / MSB / crypto licences · San Francisco, US · founded 2019
+- [Deel](https://www.neobankbeat.com/n/deel/): hybrid · Custodial · VASP / MSB / crypto licenses · San Francisco, US · founded 2019
 - [Meow](https://www.neobankbeat.com/n/meow/): hybrid · Custodial · Partner-bank model · New York, US · founded 2021
 - [Dakota](https://www.neobankbeat.com/n/dakota/): web3-native · Self-custodial · Self-custodial software · New York, US · founded 2023
 - [Slash](https://www.neobankbeat.com/n/slash/): hybrid · Custodial · Partner-bank model · San Francisco, US · founded 2021 · AI in production: agentic
@@ -412,7 +412,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [SafePal](https://www.neobankbeat.com/n/safepal/): web3-native · Self-custodial · Self-custodial software · Singapore, SG · founded 2018
 - [Tangem](https://www.neobankbeat.com/n/tangem/): web3-native · Self-custodial · Self-custodial software · Zug, CH · founded 2017
 - [Bitget Wallet](https://www.neobankbeat.com/n/bitget-wallet/): web3-native · Self-custodial · Self-custodial software · — · founded 2018
-- [BFinance](https://www.neobankbeat.com/n/bfinance/): hybrid · Custodial · VASP / MSB / crypto licences · Prague, CZ · founded 2023
+- [BFinance](https://www.neobankbeat.com/n/bfinance/): hybrid · Custodial · VASP / MSB / crypto licenses · Prague, CZ · founded 2023
 - [xPortal](https://www.neobankbeat.com/n/xportal/): web3-native · Self-custodial · Self-custodial software · Sibiu, RO · founded 2021
 - [Avalanche Card](https://www.neobankbeat.com/n/avalanche-card/): web3-native · Self-custodial · Self-custodial software · — · founded 2024
 - [MiniPay](https://www.neobankbeat.com/n/minipay/): web3-native · Self-custodial · Self-custodial software · Oslo, NO · founded 2023 · 10M wallets
@@ -424,13 +424,13 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Startale](https://www.neobankbeat.com/n/startale/): web3-native · Self-custodial · Self-custodial software · Singapore, SG · founded 2023
 - [Deblock](https://www.neobankbeat.com/n/deblock/): web3-native · Mixed (fiat custodial + self-custody crypto) · Payment institution · Paris, FR · founded 2022
 - [Stables](https://www.neobankbeat.com/n/stables/): web3-native · Custodial · Payment institution · Sydney, AU · founded 2021
-- [Fiat24](https://www.neobankbeat.com/n/fiat24/): web3-native · Self-custodial · Fintech licence (CH) · Zurich, CH · founded 2021
+- [Fiat24](https://www.neobankbeat.com/n/fiat24/): web3-native · Self-custodial · Fintech license (CH) · Zurich, CH · founded 2021
 - [Mine](https://www.neobankbeat.com/n/mine/): web3-native · Self-custodial · Self-custodial software · Zug, CH · founded 2024
 - [Infini](https://www.neobankbeat.com/n/infini/): web3-native · Self-custodial · Self-custodial software · — · founded 2024
 - [Moon](https://www.neobankbeat.com/n/moon/): web3-native · Self-custodial · Self-custodial software · — · founded 2022
 - [Moto](https://www.neobankbeat.com/n/moto/): web3-native · Self-custodial · Other / mixed · New York, US · founded 2025
 - [WeFi](https://www.neobankbeat.com/n/wefi/): web3-native · Self-custodial · Self-custodial software · — · founded 2023
-- [UglyCash](https://www.neobankbeat.com/n/uglycash/): web3-native · Custodial · VASP / MSB / crypto licences · San Juan, PR · founded 2023
+- [UglyCash](https://www.neobankbeat.com/n/uglycash/): web3-native · Custodial · VASP / MSB / crypto licenses · San Juan, PR · founded 2023
 - [Decaf](https://www.neobankbeat.com/n/decaf/): web3-native · Self-custodial · Self-custodial software · — · founded 2022
 - [SurfCash](https://www.neobankbeat.com/n/surfcash/): web3-native · Self-custodial · Self-custodial software · — · founded 2025
 - [Onboard](https://www.neobankbeat.com/n/onboard/): web3-native · Self-custodial · Self-custodial software · Lagos, NG · founded 2021

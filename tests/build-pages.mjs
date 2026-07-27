@@ -195,7 +195,7 @@ function factRows(e) {
     ['HQ', e.hq], ['Founded', e.founded],
     ['Custody', e.custody],
     ['Regulation type', e.regulation_type],
-    ['Licence detail', e.licence],
+    ['License detail', e.license],
     ['Card', e.card_network && e.card_network !== '—' ? `${e.card_network} · ${e.card_type}` : 'No card'],
     ['Cashback', e.cashback], ['Yield', e.yield],
     ['Stablecoins', e.stablecoins ? 'Yes' : 'No'], ['KYC', e.kyc],
@@ -319,7 +319,7 @@ const known = v => v && v !== '—' ? v : null;
 /* ═══ topic hubs: /regulation/, /kyc/, /regions/, /for/ ═══════════════
    The directory already filters on these fields client-side, but a filter state
    behind a query string is not a page anyone can link to, rank, or cite. Each
-   hub answers one question outright ("which neobanks hold their own licence?")
+   hub answers one question outright ("which neobanks hold their own license?")
    with the count, the meaning of the category, and the full list.
 
    Only cuts with enough entities to be worth a page get one — HUB_MIN below.
@@ -339,20 +339,20 @@ let hubsFor = () => [];
 
   /* ── what each cut means, in the site's own words ── */
   const REG_COPY = {
-    'Licensed bank': ['licensed banks', 'Neobanks that hold their own banking licence',
-      'These hold a banking licence or charter in their own name, so deposits sit on their own balance sheet and the national deposit-insurance scheme applies directly. This is the strongest structure on offer — the app you use and the institution holding your money are the same legal entity.'],
-    'Partner-bank model': ['partner-bank (BaaS) neobanks', 'Neobanks running on someone else\u2019s banking licence',
+    'Licensed bank': ['licensed banks', 'Neobanks that hold their own banking license',
+      'These hold a banking license or charter in their own name, so deposits sit on their own balance sheet and the national deposit-insurance scheme applies directly. This is the strongest structure on offer — the app you use and the institution holding your money are the same legal entity.'],
+    'Partner-bank model': ['partner-bank (BaaS) neobanks', 'Neobanks running on someone else\u2019s banking license',
       'These are a brand and an interface on top of a sponsor bank that holds the money and carries the insurance. The risk is concentration and disclosure: a short list of sponsor banks sits under many brands at once, and most apps will not tell you which one holds your funds. When a sponsor or the middleware between them fails, every brand on it fails together, as the 2024 Synapse collapse showed.'],
     'E-money institution': ['e-money institutions', 'Neobanks authorised as e-money institutions',
       'An e-money institution may issue electronic money and cards but may not lend your deposits. Funds are safeguarded in segregated accounts rather than insured as deposits, which protects you in an insolvency but is not the same guarantee as deposit insurance.'],
     'Self-custodial software': ['self-custodial neobanks', 'Neobanks that never hold your money',
       'These are software, not institutions: you hold the keys and the company cannot freeze, lend or lose your balance. Company risk is replaced by key-management risk, and any card is issued by a licensed partner rather than by the app itself.'],
-    'VASP / MSB / crypto licences': ['crypto-licensed neobanks', 'Neobanks operating under crypto and money-transmitter licences',
+    'VASP / MSB / crypto licenses': ['crypto-licensed neobanks', 'Neobanks operating under crypto and money-transmitter licenses',
       'These are registered as virtual-asset service providers or money-services businesses rather than as banks. Authorisation is usually jurisdiction-by-jurisdiction, so what a product may legally offer often changes depending on where you live.'],
     'Payment institution': ['payment institutions', 'Neobanks authorised as payment institutions',
       'A payment institution may move money and issue payment instruments but may not hold deposits or issue e-money in its own right. Balances are safeguarded, not insured.'],
     'MiCA CASP (EU)': ['MiCA CASP neobanks', 'Neobanks authorised as crypto-asset service providers under MiCA',
-      'MiCA gave the EU a single rulebook for crypto services. A CASP authorisation passports across the bloc, which is why it has become the licence of choice for crypto neobanks serving Europe.'],
+      'MiCA gave the EU a single rulebook for crypto services. A CASP authorisation passports across the bloc, which is why it has become the license of choice for crypto neobanks serving Europe.'],
   };
   const KYC_COPY = {
     No: ['no-kyc', 'no-KYC neobanks', 'Neobanks that work without identity verification',
@@ -494,14 +494,14 @@ let hubsFor = () => [];
 
   const CATL = { traditional: 'traditional', hybrid: 'hybrid', 'web3-native': 'web3-native' };
   const hubTable = (list) => `<div class="hubwrap"><table class="hubtable">
-  <thead><tr><th scope="col">neobank</th><th scope="col">type</th><th scope="col">hq</th><th scope="col">custody</th><th scope="col">licence / structure</th><th scope="col">reported users</th></tr></thead>
+  <thead><tr><th scope="col">neobank</th><th scope="col">type</th><th scope="col">hq</th><th scope="col">custody</th><th scope="col">license / structure</th><th scope="col">reported users</th></tr></thead>
   <tbody>
 ${list.map(e => `  <tr>
     <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
     <td class="cat">${CATL[e.category]}</td>
     <td class="dim">${esc(e.hq || '—')}</td>
     <td class="dim">${esc(e.custody)}</td>
-    <td class="dim">${esc(e.licence || e.regulation_type || '—')}</td>
+    <td class="dim">${esc(e.license || e.regulation_type || '—')}</td>
     <td class="dim">${esc(users(e) || '—')}</td>
   </tr>`).join('\n')}
   </tbody></table></div>`;
@@ -525,11 +525,11 @@ ${list.map(e => `  <tr>
        with one, but a few open with a lead-in and supply their own gist instead */
     const tail = h.extraTable
       ? `all ${rows.length} are listed below, then the ${h.extraTable[1].length} available there without being based there`
-      : `all ${rows.length} are listed below with custody, licence and geography`;
+      : `all ${rows.length} are listed below with custody, license and geography`;
     const answer = `${h.lead} ${h.gist || h.explain.split('. ')[0] + '.'} ${examples}; ${tail}.`;
     const title = `${h.h1} (${rows.length}, 2026) · neobankbeat`;
     const faq = [
-      [`${h.h1}: how many are there?`, `${h.lead} Every entry is verified active and listed on this page with its custody model, licence detail and the regions it serves.`],
+      [`${h.h1}: how many are there?`, `${h.lead} Every entry is verified active and listed on this page with its custody model, license detail and the regions it serves.`],
       [ranked ? `Which are the biggest ${h.label}?` : `Which ${h.label} are the largest?`,
         ranked
           ? `By self-reported users, ${nameList(top)}. Only ${disclosed.length} of these ${rows.length} disclose a user figure, so treat any ranking by size as partial rather than complete.`
@@ -576,18 +576,18 @@ ${list.map(e => `  <tr>
     const byFam = ['regulation', 'kyc', 'cards', 'regions', 'countries', 'for'].map(f => [f, HUBS.filter(h => h.family === f)]).filter(([, v]) => v.length);
     const answer = `${hubSlugs.length} ready-made cuts of the neobank dataset: by how each product is regulated, whether it needs your ID, where it is available, and who it is built for. Every list states its own count and links every entry to a verified profile.`;
     const ld = { '@context': 'https://schema.org', '@graph': [
-      { '@type': 'CollectionPage', name: 'Browse neobanks by licence, KYC, region and audience', url, description: answer, dateModified: DATA_MODIFIED },
+      { '@type': 'CollectionPage', name: 'Browse neobanks by license, KYC, region and audience', url, description: answer, dateModified: DATA_MODIFIED },
       { '@type': 'ItemList', numberOfItems: HUBS.length,
         itemListElement: HUBS.map((h, i) => ({ '@type': 'ListItem', position: i + 1, name: h.h1, url: `${BASE}/${h.family}/${h.slug}/` })) },
       crumbs(['browse', url]),
     ] };
-    const FAMH = { regulation: ['By licence and structure', 'The single most useful question about a neobank: who is legally holding your money?'],
+    const FAMH = { regulation: ['By license and structure', 'The single most useful question about a neobank: who is legally holding your money?'],
       kyc: ['By identity verification', 'Whether you can use it without handing over ID — and where the line really sits.'],
       regions: ['By region', 'Availability rather than headquarters. Multi-region players appear in every region they serve.'],
       cards: ['By the card in the app', `Which scheme issues it, and the ${E.filter(e => !known(e.card_network)).length} products that issue no card at all.`],
       countries: ['By country', 'Where each company is based \u2014 a complete field \u2014 kept separate from where its product is available, which is not.'],
       for: ['By who it is built for', 'Niche products designed around one group\u2019s constraints, not general apps with different branding.'] };
-    const html = (head(`Browse ${E.length} neobanks by licence, KYC, region and audience · neobankbeat`,
+    const html = (head(`Browse ${E.length} neobanks by license, KYC, region and audience · neobankbeat`,
       answer, url, ld, ogIf('browse.png')) + `
 <main class="wrap" id="main">
 <article>
@@ -630,12 +630,12 @@ const lcFirst = t => {
 /* "regulated as a partner-bank model" is not how any of these read in English,
    so the structural cases get their own verb */
 const regSentence = (e) => {
-  const rt = e.regulation_type, lic = e.licence ? ` (${e.licence})` : '';
+  const rt = e.regulation_type, lic = e.license ? ` (${e.license})` : '';
   if (!rt) return '';
   if (/^partner-bank/i.test(rt)) return ` It operates on a partner-bank model${lic}.`;
   if (/^self-custodial/i.test(rt)) return ` It is software rather than a licensed institution${lic}.`;
   if (/^other/i.test(rt)) return ` Its regulatory structure is mixed${lic}.`;
-  if (/^licence pending/i.test(rt)) return ` Its licence is pending, so it runs on a partner-bank model today${lic}.`;
+  if (/^license pending/i.test(rt)) return ` Its license is pending, so it runs on a partner-bank model today${lic}.`;
   if (/licen[cs]es\b/i.test(rt)) return ` It holds ${lcFirst(rt)}${lic}.`;
   return ` It is regulated as ${article(rt)}${lcFirst(rt)}${lic}.`;
 };
@@ -698,7 +698,7 @@ let nPages = 0;
 for (const e of E) {
   const slug = slugs.get(e.name);
   const url = `${BASE}/n/${slug}/`;
-  const title = `${e.name} — custody, licence, cards & facts · neobankbeat`;
+  const title = `${e.name} — custody, license, cards & facts · neobankbeat`;
   const desc = `${e.name} (${e.category} neobank, ${e.hq}, est. ${e.founded}): ${e.custody} custody, ${e.regulation_type}, ` +
     (e.card_network && e.card_network !== '—' ? `${e.card_network} card, ` : 'no card, ') +
     `stablecoins ${e.stablecoins ? 'yes' : 'no'}. Verified facts from the open neobankbeat dataset.`;
@@ -740,9 +740,9 @@ for (const e of E) {
   ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
   <h2>Common questions about ${esc(e.name)}</h2>
   ${pFaq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
-  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name}: ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
+  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name}: ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, license, cards & facts`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
   ${investorsBlock(e)}
-  <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
+  <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, license, cashback, yield, stablecoins and geography in one view.</div>
   <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">Who owns ${esc(e.name)}?</a>${altEligible.has(e.name) ? ` &nbsp;·&nbsp; <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}</p>
   ${(vsFor.get(e.name) || []).length ? `<h2>Head-to-head</h2>\n  <p>${vsFor.get(e.name).slice(0, 12).map(v => `<a href="/vs/${v.slug}/">${esc(e.name)} vs ${esc(v.other)}</a>`).join(' · ')}</p>` : ''}
   ${pr.length ? `<h2>Peers</h2>\n  <p>${pr.map(p => `<a href="/n/${slugs.get(p.name)}/">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
@@ -767,7 +767,7 @@ for (const e of E) {
   }
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url }, ['neobanks', url]);
   const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
-    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, licence, cards, stablecoins and geography.`, url, ld) + `
+    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, license, cards, stablecoins and geography.`, url, ld) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">profiles</div>
@@ -784,7 +784,7 @@ for (const e of E) {
 const VS_FIELDS = [
   ['Category', e => e.category], ['Audience', e => e.audience],
   ['HQ', e => e.hq], ['Founded', e => e.founded], ['Custody', e => e.custody],
-  ['Regulation', e => e.regulation_type], ['Licence detail', e => e.licence || '—'],
+  ['Regulation', e => e.regulation_type], ['License detail', e => e.license || '—'],
   ['Card', e => e.card_network && e.card_network !== '—' ? `${e.card_network} · ${e.card_type}` : 'No card'],
   ['Cashback', e => e.cashback || '—'], ['Yield', e => e.yield || '—'],
   ['FX markup', e => e.fx_markup ? `${e.fx_markup.markup}${e.fx_markup.as_of ? ` (${e.fx_markup.as_of})` : ''}` : '—'],
@@ -797,7 +797,7 @@ const VS_FIELDS = [
 const vsVerdict = (a, b) => {
   const edge = (e, o) => {
     const bits = [];
-    if (e.regulation_type === 'Licensed bank' && o.regulation_type !== 'Licensed bank') bits.push('holds its own banking licence');
+    if (e.regulation_type === 'Licensed bank' && o.regulation_type !== 'Licensed bank') bits.push('holds its own banking license');
     const eu = (e.reported_users || {}).value_millions || 0, ou = (o.reported_users || {}).value_millions || 0;
     if (eu && eu >= Math.max(ou * 2, ou + 5)) bits.push(`is the larger platform (~${eu}M users)`);
     if (e.yield && !o.yield) bits.push('pays yield on balances');
@@ -814,8 +814,8 @@ const vsVerdict = (a, b) => {
   if (aE.length) seg.push(`${a.name} ${aE.join(' and ')}`);
   if (bE.length) seg.push(`${b.name} ${bE.join(' and ')}`);
   return seg.length
-    ? `${cat}. ${seg.join('; ')}. Compare custody, licence, FX markup and fees field by field below.`
-    : `${cat} with similar positioning — the real differences are FX markup, fees, licence and geography, compared field by field below.`;
+    ? `${cat}. ${seg.join('; ')}. Compare custody, license, FX markup and fees field by field below.`
+    : `${cat} with similar positioning — the real differences are FX markup, fees, license and geography, compared field by field below.`;
 };
 
 let vsPages = 0, vsIndex = [];
@@ -894,7 +894,7 @@ for (const [an, bn] of PAIRS) {
   const url = `${BASE}/vs/`;
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank comparisons', url }, ['comparisons', url]);
   const html = head(`Neobank comparisons: ${vsPages} head-to-heads · neobankbeat`,
-    `Side-by-side neobank comparisons — custody, licence, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld, ogIf('vs.png')) + `
+    `Side-by-side neobank comparisons — custody, license, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld, ogIf('vs.png')) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">comparisons</div>
@@ -930,7 +930,7 @@ for (const [an, bn] of PAIRS) {
     /* listing this enum by hand is what let it fall behind the data — two values
        were missing and two were abbreviated into something that never appears */
     ['regulation_type', 'enum', `${[...new Set(E.map((e) => e.regulation_type).filter(Boolean))].sort().join(' · ')}.`],
-    ['licence', 'string', 'Plain-text licence / sponsor-bank detail.'],
+    ['license', 'string', 'Plain-text license / sponsor-bank detail.'],
     ['card_network · card_type', 'string', 'Visa/Mastercard/domestic/— and debit/prepaid/credit/virtual/crypto-settled/wallet.'],
     ['cashback · yield', 'string', 'Headline "up to" figures — change constantly, always confirm with the issuer.'],
     ['stablecoins', 'boolean', 'Whether stablecoins are supported.'],
@@ -942,7 +942,7 @@ for (const [an, bn] of PAIRS) {
     ['founders · funding · investors', 'string · array', 'Named founders, total disclosed funding, and notable disclosed backers.'],
     ['ai', 'enum', 'Verified in-production AI use: underwriting · interface · agentic.'],
     ['volume', 'object', 'figure + metric + source, for the few that disclose payment or transaction volume rather than user counts.'],
-    ['note', 'string', 'One line of current, factual detail — scale, licence status, a recent launch.'],
+    ['note', 'string', 'One line of current, factual detail — scale, license status, a recent launch.'],
     ['story', 'string', 'One line on how the company got here. Editorial, not a data field: use it for context, not for analysis.'],
     ['website · domain · x_handle · terms_url · privacy_url', 'string', 'Verified links where confirmed; null when unverified (never fabricated).'],
   ];
@@ -1037,7 +1037,7 @@ for e in data["entities"][:5]:
   <pre class="code">from datasets import load_dataset
 
 ds = load_dataset("neobankbeat/neobanks", split="train")
-print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank licence")</pre>
+print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "hold a bank license")</pre>
   <p class="meta">Or straight to the flat table: <a href="${HF_FILE('entities.csv')}" target="_blank" rel="noopener">entities.csv</a> · <a href="${HF_FILE('entities.jsonl')}" target="_blank" rel="noopener">entities.jsonl</a></p>
 
   <h2>Cite it</h2>
@@ -1313,7 +1313,7 @@ ${NEWSLETTERS.map(rowHtml).join('\n')}
   <div class="eyebrow">the u-card index</div>
   <h1>Stablecoin cards, <em>compared</em></h1>
   <p class="meta"><b>${cards.length} cards</b> · custody, network, cashback, yield and KYC in one table · updated ${DATA_MODIFIED}</p>
-  <p>"U-cards" — cards that spend USDT/USDC directly — are the fastest-moving corner of digital banking, and the information about them is scattered across referral threads. This table consolidates every stablecoin-spendable card in the <a href="/">open dataset</a>. Click any name for the full profile with licence detail, founders and sources. Cashback and yield figures are headline claims that change constantly — verify with the issuer before applying. For live onchain volume and user counts per card, see <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a>.</p>
+  <p>"U-cards" — cards that spend USDT/USDC directly — are the fastest-moving corner of digital banking, and the information about them is scattered across referral threads. This table consolidates every stablecoin-spendable card in the <a href="/">open dataset</a>. Click any name for the full profile with license detail, founders and sources. Cashback and yield figures are headline claims that change constantly — verify with the issuer before applying. For live onchain volume and user counts per card, see <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a>.</p>
   <div class="ucwrap"><table class="uctable">
     <thead><tr><th scope="col">card</th><th scope="col">wave</th><th scope="col">custody</th><th scope="col">network · type</th><th scope="col">cashback</th><th scope="col">yield</th><th scope="col">kyc</th></tr></thead>
     <tbody>
@@ -1477,7 +1477,7 @@ const infraSlugList = [];
     <div class="ivstat"><div class="n">${nClients}</div><div class="l">neobanks mapped to rails</div></div>
   </div>
 
-  <p>Most "neobanks" don't run their own rails: a sponsor bank holds the licence, a processor issues the cards, and increasingly a stablecoin platform moves the money. This page maps that hidden layer for the <a href="/">tracked directory</a> — because when a provider stumbles (Wirecard, Synapse, an issuer changing footprint overnight), it's the apps on top that die. Mappings come from the neobanks' own issuer disclosures and public reporting; some are partial — <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest an addition</a>.</p>
+  <p>Most "neobanks" don't run their own rails: a sponsor bank holds the license, a processor issues the cards, and increasingly a stablecoin platform moves the money. This page maps that hidden layer for the <a href="/">tracked directory</a> — because when a provider stumbles (Wirecard, Synapse, an issuer changing footprint overnight), it's the apps on top that die. Mappings come from the neobanks' own issuer disclosures and public reporting; some are partial — <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest an addition</a>.</p>
 
   <input id="ifsearch" type="search" placeholder="filter by provider, type or neobank — e.g. column, stablecoin, chime…" aria-label="Filter providers">
 
@@ -1551,7 +1551,7 @@ ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented
 }
 
 /* ═══ /n/<slug>/who-owns/  +  /n/<slug>/alternatives/
-   High-intent programmatic pages that ride the licence/sponsor + peers data.
+   High-intent programmatic pages that ride the license/sponsor + peers data.
    "who owns <neobank>" and "<neobank> alternatives" are large, poorly-served
    queries; each page carries a unique, data-backed direct answer for GEO. ═══ */
 const whoOwnsSlugs = [], altSlugs = [];
@@ -1588,8 +1588,8 @@ const whoOwnsSlugs = [], altSlugs = [];
       isBank = 'No — and it custodies no customer funds; you hold your own keys.';
       safeAns = `${e.name} never holds your funds, so no deposit-insurance scheme is involved. Your security depends entirely on how you protect your own private keys and recovery phrase — lose them and no company can recover the money for you.`;
     } else if (/^licensed bank$/i.test(rt)) {
-      lead = `${e.name} holds its own banking licence, so ${e.name} itself is the bank — customer deposits sit on its own regulated balance sheet rather than with a third-party sponsor.`;
-      isBank = 'Yes — it holds its own banking licence.';
+      lead = `${e.name} holds its own banking license, so ${e.name} itself is the bank — customer deposits sit on its own regulated balance sheet rather than with a third-party sponsor.`;
+      isBank = 'Yes — it holds its own banking license.';
       safeAns = `As a licensed bank, eligible deposits at ${e.name} are typically protected by the local deposit-guarantee scheme up to the statutory limit (for example FDIC in the US, FSCS in the UK, or the €100,000 EU scheme). Confirm the exact scheme and limit for your country.`;
     } else if (/partner-bank|partner model/i.test(rt)) {
       lead = spon.length
@@ -1612,27 +1612,27 @@ const whoOwnsSlugs = [], altSlugs = [];
     } else {
       /* the remaining regulation_type values are labels, not noun phrases, so
          "operates as an other / mixed" is what a naive template produces. Each
-         needs its own sentence; the licence detail follows as prose rather than
+         needs its own sentence; the license detail follows as prose rather than
          a trailing bracket, which read badly when it contained brackets itself. */
-      const detail = e.licence ? ` Its stated authorisation: ${e.licence}.` : '';
+      const detail = e.license ? ` Its stated authorisation: ${e.license}.` : '';
       if (/^other/i.test(rt)) {
         lead = `${e.name} does not fit a single regulatory category — it operates under a mix of authorisations.${detail}`;
-        isBank = 'Partly — its structure is mixed; see the licence detail.';
+        isBank = 'Partly — its structure is mixed; see the license detail.';
       } else if (/^broker-led/i.test(rt)) {
         lead = `${e.name} is a broker-led platform rather than a bank: the regulated entity behind it is an investment firm or broker-dealer, and client assets sit with that entity or its custodian rather than as bank deposits.${detail}`;
         isBank = 'No — it is a regulated broker or investment firm, not a bank.';
         safeAns = `${e.name} is not a bank, so deposit-guarantee schemes do not apply. Client assets held through a broker are usually covered by an investor-compensation scheme instead — a different protection with different limits. Check which entity holds your assets and which scheme covers it.`;
-      } else if (/licence pending/i.test(rt)) {
-        lead = `${e.name} has applied for its own licence but does not hold one yet, so it runs on a partner-bank model today — a licensed bank holds the deposits behind the app.${detail}`;
-        isBank = 'Not yet — its licence is pending and a partner bank holds the money.';
-      } else if (/^fintech licence/i.test(rt)) {
-        lead = `${e.name} holds a fintech licence, a lighter authorisation than a full banking licence: it may take deposits but not lend them.${detail}`;
-        isBank = 'No — it holds a fintech licence, not a full banking licence.';
+      } else if (/license pending/i.test(rt)) {
+        lead = `${e.name} has applied for its own license but does not hold one yet, so it runs on a partner-bank model today — a licensed bank holds the deposits behind the app.${detail}`;
+        isBank = 'Not yet — its license is pending and a partner bank holds the money.';
+      } else if (/^fintech license/i.test(rt)) {
+        lead = `${e.name} holds a fintech license, a lighter authorisation than a full banking license: it may take deposits but not lend them.${detail}`;
+        isBank = 'No — it holds a fintech license, not a full banking license.';
       } else {
         lead = `${e.name} is regulated as ${aAn((rt || 'a regulated financial service').toLowerCase())}.${detail}`;
         isBank = rt || '—';
       }
-      safeAns = safeAns || `How your money is protected depends on ${e.name}'s licence type — see the licence detail on its profile and confirm the scheme that applies in your country.`;
+      safeAns = safeAns || `How your money is protected depends on ${e.name}'s license type — see the license detail on its profile and confirm the scheme that applies in your country.`;
     }
     const backers = (e.investors || []).slice(0, 4).map(iv => iv.name);
     const backLine = backers.length ? `${e.name}'s most notable disclosed backers include ${nameList(backers)}.` : '';
@@ -1646,7 +1646,7 @@ const whoOwnsSlugs = [], altSlugs = [];
       const desc = ownAnswer.slice(0, 300);
       const faq = [
         [`Who owns ${e.name}?`, ownAnswer],
-        [`Is ${e.name} a real bank?`, isBank + (e.licence ? ` Licence detail: ${e.licence}.` : '')],
+        [`Is ${e.name} a real bank?`, isBank + (e.license ? ` License detail: ${e.license}.` : '')],
         [`Is my money safe with ${e.name}?`, safeAns],
       ];
       const ld = { '@context': 'https://schema.org', '@graph': [
@@ -1670,7 +1670,7 @@ const whoOwnsSlugs = [], altSlugs = [];
   <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · ${esc(rt || '—')} · custody: ${esc(e.custody)}</p>
   <div class="callout"><span class="k">short answer</span>${esc(ownAnswer)}</div>
   <h2>Is ${esc(e.name)} a licensed bank?</h2>
-  <p>${esc(isBank)}${e.licence ? ` <span class="dim">Licence detail: ${esc(e.licence)}.</span>` : ''}</p>
+  <p>${esc(isBank)}${e.license ? ` <span class="dim">License detail: ${esc(e.license)}.</span>` : ''}</p>
   <h2>Where is your money held?</h2>
   <p>Custody model: <b>${esc(e.custody)}</b>${/^licensed bank$/i.test(rt) ? ` — on ${esc(e.name)}'s own balance sheet as a licensed bank.` : selfC ? ' — you hold your own keys; the company never takes custody.' : '.'}</p>
   ${selfC ? '' : railsHtml}
@@ -1706,10 +1706,10 @@ const whoOwnsSlugs = [], altSlugs = [];
       const basis = [
         all3('category', `the same ${e.category} model`),
         all3('custody', `${String(e.custody).toLowerCase()} custody`),
-        all3('regulation_type', `the same licence type (${e.regulation_type})`),
+        all3('regulation_type', `the same license type (${e.regulation_type})`),
         e.audience !== 'general' && all3('audience', `the same audience (${e.audience})`),
       ].filter(Boolean);
-      const altAnswer = `Ranked by how closely they match ${e.name} on structure — custody, licence type, card and overlapping markets — the nearest alternatives in the dataset are ${nameList(top)}` +
+      const altAnswer = `Ranked by how closely they match ${e.name} on structure — custody, license type, card and overlapping markets — the nearest alternatives in the dataset are ${nameList(top)}` +
         `${basis.length ? `, which share ${nameList(basis)}` : ''}; ${geo}. ` +
         `This is a similarity ranking from verified fields, not a popularity list or an editorial pick — all ${alts.length} peers are compared field by field below. No affiliate links.`;
       const title = `${e.name} alternatives (2026): ${alts.length} compared · neobankbeat`;
@@ -1825,7 +1825,7 @@ const BLOG_POSTS = [
   ['neobank-ecosystem-map', '2026-07-20'],
   ['who-really-runs-the-neobanks', '2026-07-23'],
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
-  ['browse-neobanks-by-licence-kyc-country', '2026-07-28'],
+  ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
 ];
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
@@ -1883,7 +1883,7 @@ const sitemapMd = `# neobankbeat — sitemap
 ## Main
 
 - [Directory](${BASE}/) — searchable grid of all ${E.length} neobanks
-- [Browse](${BASE}/browse/) — ${hubSlugs.length} ready-made cuts of the dataset by licence, KYC, region and audience
+- [Browse](${BASE}/browse/) — ${hubSlugs.length} ready-made cuts of the dataset by license, KYC, region and audience
 - [FAQ](${BASE}/faq/) — ${nFaq} honest answers
 - [Glossary](${BASE}/glossary/) — ${nGlossary} terms defined
 - [Investors in neobanks](${BASE}/investors/) — VC → portfolio map, with a profile page per investor (${invSlugList.length} firms)
@@ -1926,7 +1926,7 @@ ${hubSlugs.map(p => `- [${p}](${BASE}${p})`).join('\n')}
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (${whoOwnsSlugs.length}) answering who is behind the brand — parent company, licence holder, sponsor bank, disclosed investors — and an "alternatives" page (${altSlugs.length}) ranking its closest peers, e.g. \`${BASE}/n/<slug>/who-owns/\` and \`${BASE}/n/<slug>/alternatives/\`.
+Every profile has a "who owns it" page (${whoOwnsSlugs.length}) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (${altSlugs.length}) ranking its closest peers, e.g. \`${BASE}/n/<slug>/who-owns/\` and \`${BASE}/n/<slug>/alternatives/\`.
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.md'), sitemapMd);
 

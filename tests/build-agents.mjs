@@ -53,7 +53,7 @@ const entitySchema = {
     founded: { type: ['string', 'integer', 'null'] },
     custody: { type: 'string', description: 'Who holds the money. The single most important field for safety questions.' },
     regulation_type: { ...nullable('string'), description: `How it is authorised. Most common: ${Object.entries(reg).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k, v]) => `${k} (${v})`).join(', ')}.` },
-    licence: { ...nullable('string'), description: 'Named licence, charter or sponsor bank behind regulation_type.' },
+    license: { ...nullable('string'), description: 'Named license, charter or sponsor bank behind regulation_type.' },
     card_network: nullable('string'),
     card_type: nullable('string'),
     cashback: { ...nullable('string'), description: D.meta.field_notes.rates },
@@ -308,7 +308,7 @@ are excluded by design. All figures compiled from public filings and registers.
 
 ## Attribution
 
-MIT licence — reuse freely, attribution appreciated. Cite as:
+MIT license — reuse freely, attribution appreciated. Cite as:
 ${CITE}
 Source: https://github.com/andreolf/neobankbeat
 `;

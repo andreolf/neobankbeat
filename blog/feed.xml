@@ -8,10 +8,10 @@
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>45 ways to cut 368 neobanks — and the two counts we won&#39;t merge</title>
-    <link>https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/</link>
-    <guid>https://www.neobankbeat.com/blog/browse-neobanks-by-licence-kyc-country/</guid>
+    <link>https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/</link>
+    <guid>https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/</guid>
     <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
-    <description>The directory's filters are now 45 linkable pages — by licence type, KYC posture, card network, region, country and audience — each stating its own count and listing every member. Two facts stay deliberately unmerged: where a company is headquartered (known for 334 of 368) and where its product is available (167), because letting the weaker field set the headline would understate all 17 country pages. And where only 22 of 368 disclose a user figure, the pages refuse to publish a ranking at all.</description>
+    <description>The directory's filters are now 45 linkable pages — by license type, KYC posture, card network, region, country and audience — each stating its own count and listing every member. Two facts stay deliberately unmerged: where a company is headquartered (known for 334 of 368) and where its product is available (167), because letting the weaker field set the headline would understate all 17 country pages. And where only 22 of 368 disclose a user figure, the pages refuse to publish a ranking at all.</description>
   </item>
     <title>The neobank dataset is now on Hugging Face and Kaggle</title>
     <link>https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/</link>
@@ -24,7 +24,7 @@
     <link>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</link>
     <guid>https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/</guid>
     <pubDate>Thu, 23 Jul 2026 10:00:00 GMT</pubDate>
-    <description>Open a neobank app and it looks like a bank. Look one layer down and only 127 of 368 tracked neobanks actually hold their own licence — 77 are a front end on a sponsor bank, and most don't disclose which. The Banking-as-a-Service census from the open dataset: who's licensed, who rents the rails, and why the shared sponsor layer is concentration risk nobody prices.</description>
+    <description>Open a neobank app and it looks like a bank. Look one layer down and only 127 of 368 tracked neobanks actually hold their own license — 77 are a front end on a sponsor bank, and most don't disclose which. The Banking-as-a-Service census from the open dataset: who's licensed, who rents the rails, and why the shared sponsor layer is concentration risk nobody prices.</description>
   </item>
   <item>
     <title>The neobank ecosystem map: all 368 on one poster</title>
@@ -59,7 +59,7 @@
     <link>https://www.neobankbeat.com/blog/why-neobanks-die/</link>
     <guid>https://www.neobankbeat.com/blog/why-neobanks-die/</guid>
     <pubDate>Tue, 07 Jul 2026 15:00:00 GMT</pubDate>
-    <description>Crypto-card top-ups just hit a $245M weekly all-time high — yet only 127 of the 368 neobanks we track hold their own licence. Everyone else rents their right to exist. WaveCrest 2018, Wirecard 2020, Binance 2023, Ready 2026: the layer-by-layer map of what actually kills neobanks.</description>
+    <description>Crypto-card top-ups just hit a $245M weekly all-time high — yet only 127 of the 368 neobanks we track hold their own license. Everyone else rents their right to exist. WaveCrest 2018, Wirecard 2020, Binance 2023, Ready 2026: the layer-by-layer map of what actually kills neobanks.</description>
   </item>
   <item>
     <title>The best neobanks for digital nomads (2026): cards, QR rails and the custody question</title>
@@ -143,7 +143,7 @@
     <link>https://www.neobankbeat.com/blog/neobank-vs-traditional-bank/</link>
     <guid>https://www.neobankbeat.com/blog/neobank-vs-traditional-bank/</guid>
     <pubDate>Tue, 07 Oct 2025 09:00:00 GMT</pubDate>
-    <description>Fees, speed, deposit insurance, credit, branches — an honest side-by-side, including the licence question most comparisons skip.</description>
+    <description>Fees, speed, deposit insurance, credit, branches — an honest side-by-side, including the license question most comparisons skip.</description>
   </item>
   <item>
     <title>What is a neobank? The three waves explained (2026 guide)</title>
