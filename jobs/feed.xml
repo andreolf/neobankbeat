@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 27 Jul 2026 08:26:48 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 10:05:23 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Software Engineer Intern, Fullstack - 12 Month Internship — Bitpanda]]></title>
@@ -30,6 +30,14 @@
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Monzo · UK · £32–44K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Financial Crime Investigator - Merchant Acquiring — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/8074292</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8074292</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £31–39K · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Product Director (Pay & Card) — OKX]]></title>
@@ -70,6 +78,38 @@
     <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
     <category>Finance &amp; Treasury</category>
     <description><![CDATA[Tide · India, Delhi NCR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7815729003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7815729003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Delhi NCR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7766790003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7766790003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Flutter — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7815727003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7815727003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Lead - Online Platforms — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139964434</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139964434</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[FinCrime Operations Team Lead - AML Investigations — Wise]]></title>
@@ -446,46 +486,6 @@
     <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
     <category>Data &amp; AI</category>
     <description><![CDATA[Brex · San Francisco, California, United States · $184–230K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Staff Product Manager, AI — Brex]]></title>
-    <link>https://www.brex.com/careers/8616324002?gh_jid=8616324002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8616324002?gh_jid=8616324002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Brex · New York, New York, United States · $240–300K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Startups Partnership Manager — Brex]]></title>
-    <link>https://www.brex.com/careers/8642781002?gh_jid=8642781002</link>
-    <guid isPermaLink="true">https://www.brex.com/careers/8642781002?gh_jid=8642781002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Continuidade de Negócios Pleno | Processos & Controles — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4718575005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4718575005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Riscos Operacionais e Controles Internos Pleno | Processos & Controles — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4718567005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4718567005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Especialista de Negócios | Negócios Imobiliários — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4709038005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4709038005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
 </channel>
 </rss>
