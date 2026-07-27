@@ -1,0 +1,70 @@
+name: daily rebuild
+
+# Posts can be dated ahead: build-pages keeps a future-dated post out of the
+# sitemap until its day arrives, so /blog/<slug>/ is live and linked while search
+# engines are not told about it yet. Nothing was scheduled to notice that day
+# arriving — none of the other four crons run build-pages — so a post held back
+# stayed out of the sitemap until someone rebuilt by hand.
+#
+# This runs the same chain CI verifies and commits only when the output actually
+# changes, which on most days is never. The push then triggers the IndexNow ping
+# and the flowtest run, so a self-published post is submitted like any other.
+
+on:
+  schedule:
+    # daily 05:41 UTC — clear of the other crons at 06:07, 06:23, 07:09 and 07:13
+    - cron: '41 5 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      # Full history: the builders date pages from git and fall back to today
+      # when the log is empty, so a shallow clone would restamp every lastmod
+      # and dateModified on the site and commit the result every single day.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Same order as the reproducibility check in test.yml. build-jobs is absent
+      # for the same reason it is absent there: it pulls live career APIs, and
+      # refresh-jobs owns that on its own schedule.
+      - name: rebuild everything from source
+        run: |
+          node tests/build-pages.mjs
+          node tests/build-report.mjs > /dev/null
+          node tests/build-changelog.mjs > /dev/null
+          node tests/sync-tables.mjs
+          node tests/sync-footers.mjs
+          node tests/sync-crumbs.mjs
+          node tests/build-app-js.mjs
+          node tests/sync-counts.mjs
+
+      - name: commit & push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing to publish — output already matches source"
+            exit 0
+          fi
+          echo "changed:"
+          git diff --cached --stat
+          # commit before pulling: the tree is dirty and `git pull --rebase`
+          # refuses to run with unstaged changes
+          git commit -m "chore: daily rebuild ($(date -u +%F))"
+          git pull --rebase origin main
+          git push

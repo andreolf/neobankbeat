@@ -28,12 +28,25 @@ jobs:
           # give Vercel a moment to deploy the pushed commit before crawlers fetch
           sleep 90
           git diff --name-only --diff-filter=ACMR HEAD^ HEAD > changed-files.txt || true
+          git show HEAD^:sitemap.xml > prev-sitemap.xml 2>/dev/null || true
           node -e '
             const fs=require("fs");
             const BASE="https://www.neobankbeat.com";
             const files=fs.readFileSync("changed-files.txt","utf8").trim().split("\n").filter(Boolean);
             const urls=new Set();
+            // A post dated ahead goes live by entering the sitemap, with its own
+            // HTML unchanged since the day it was written — so a file diff sees
+            // nothing to submit and the page would wait for an organic crawl.
+            // Anything newly listed in the sitemap is new to search engines.
+            const locs=(s)=>new Set([...String(s).matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]));
+            try{
+              const now=locs(fs.readFileSync("sitemap.xml","utf8"));
+              const was=locs(fs.existsSync("prev-sitemap.xml")?fs.readFileSync("prev-sitemap.xml","utf8"):"");
+              if(was.size)for(const u of now)if(!was.has(u))urls.add(u);
+              console.log("new to the sitemap:",urls.size);
+            }catch(e){console.log("sitemap comparison skipped:",e.message)}
             for(const f of files){
+              if(f==="sitemap.xml")continue;   // handled above, as page URLs
               if(/^(tests\/|\.github\/|node_modules\/|terminals\/|x-tweets\/|404\.html|README|AGENTS)/.test(f))continue;
               if(f.endsWith("/index.html"))urls.add(BASE+"/"+f.slice(0,-10));
               // app.js holds the homepage content (dataset, news), so a change to it

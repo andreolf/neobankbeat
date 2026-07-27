@@ -20,8 +20,11 @@ jobs:
       - name: verify every scheduled workflow ran recently and succeeded
         run: |
           set -euo pipefail
-          # workflow file : max age of the last completed run, in days
-          checks="refresh-news.yml:8 refresh-jobs.yml:4 discover-neobanks.yml:8"
+          # workflow file : max age of the last completed run, in days.
+          # rebuild.yml is checked on run age, not on commits: it is a no-op on
+          # almost every day by design, and its job is to be there on the one day
+          # a scheduled post is due. Silently disabled, posts never self-publish.
+          checks="refresh-news.yml:8 refresh-jobs.yml:4 discover-neobanks.yml:8 rebuild.yml:2"
           problems=""
           for c in $checks; do
             wf="${c%%:*}"; max_days="${c##*:}"
