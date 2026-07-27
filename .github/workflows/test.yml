@@ -48,12 +48,15 @@ jobs:
       - name: flowtest
         run: node tests/flowtest.js
 
-      # The suite asserts the committed output matches its source. These three
-      # check the reverse: that regenerating from source reproduces what is
-      # committed. A drifted build is invisible to a test that only reads output.
+      # The suite asserts the committed output matches its source. These check the
+      # reverse: that regenerating from source reproduces what is committed. A
+      # drifted build is invisible to a test that only reads output.
+      # build-jobs is deliberately absent — it pulls live career APIs, so its
+      # output legitimately differs between runs and would make this flaky.
       - name: generated output is reproducible from source
         run: |
           node tests/build-pages.mjs > /dev/null
+          node tests/build-report.mjs > /dev/null
           node tests/build-changelog.mjs > /dev/null
           node tests/sync-tables.mjs > /dev/null
           if ! git diff --quiet; then

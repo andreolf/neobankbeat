@@ -14,32 +14,37 @@ const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
 const E = data.entities;
 const BASE = 'https://www.neobankbeat.com';
 const TODAY = new Date().toISOString().slice(0, 10);
-/* when the data itself last changed — the honest value for schema.org
-   dateModified. Build date would claim freshness we didn't earn. */
-const DATA_MODIFIED = (() => {
+/* Dates come from git rather than the clock. Every URL with no explicit lastmod
+   used to fall back to the build date, so 33 of them re-declared themselves
+   modified on any day the site was rebuilt — including hand-written pages
+   untouched for months. Google says it discounts a lastmod it decides is
+   untrustworthy, and this is how it decides that.
+
+   Uncommitted files are the exception, dated today rather than by their last
+   commit: the sitemap is generated before the commit that changes the very pages
+   it dates, so reading committed history alone left it permanently one build
+   behind, and every commit touching a generated page failed the reproducibility
+   check. Collected in one call, since this is asked ~1,600 times per build. */
+const DIRTY = (() => {
   try {
-    const d = execSync('git log -1 --format=%cs -- data.json', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
-    return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : TODAY;
-  } catch { return TODAY; }
+    return new Set(execSync('git status --porcelain -z', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 })
+      .toString().split('\0').filter(Boolean)
+      .map((l) => l.slice(3))          // strip the two status columns and the space
+      .filter(Boolean));
+  } catch { return new Set(); }
 })();
 
-/* Same rule for the pages that are not data-driven. Every URL with no explicit
-   lastmod used to fall back to the build date, so 33 of them re-declared
-   themselves modified on any day the site was rebuilt — including hand-written
-   pages untouched for months. Google says it discounts a lastmod it decides is
-   untrustworthy, and this is how it decides that. Taking the file's last commit
-   date instead is both true and stable, which also makes the build reproducible
-   across days rather than only within one. */
 const gitModified = (rel) => {
+  if (DIRTY.has(rel)) return TODAY;
   try {
     const d = execSync(`git log -1 --format=%cs -- "${rel}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
     return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : TODAY;
   } catch { return TODAY; }
 };
 
-/* The curated lists that live in this file rather than in data.json date from
-   the last time the file itself changed. */
-const SRC_MODIFIED = gitModified('tests/build-pages.mjs');
+/* When the data itself last changed — the honest value for schema.org
+   dateModified. Build date would claim freshness we didn't earn. */
+const DATA_MODIFIED = gitModified('data.json');
 
 /* A sitemap URL maps back to the file that produces it. */
 const urlModified = (loc) => {
@@ -1200,28 +1205,14 @@ ${v.banks.map(bankCard).join('\n')}
 }
 
 /* ═══ /newsletters/ — the neobank & fintech reading list ═══ */
-const NEWSLETTERS = [
-  ['neobankbeat', 'Francesco Andreoli', 'https://neobankbeat.substack.com', 'monthly',
-    'The newsletter behind this site: what changed in the dataset, new entrants, and the monthly State of Neobanks report.'],
-  ['Fintech Brainfood', 'Simon Taylor', 'https://www.fintechbrainfood.com', 'weekly · sundays',
-    'The industry\u2019s Sunday read — one big rant, four fintech companies that matter, and the things to know this week.'],
-  ['Fintech Takes', 'Alex Johnson', 'https://fintechtakes.com', 'weekly',
-    'Sharp long-form analysis of US fintech: bank\u2013fintech partnerships, credit, regulation, and why things actually happen.'],
-  ['This Week in Fintech', 'Nik Milanović', 'https://www.thisweekinfintech.com', 'weekly',
-    'The global funding and news roundup, with dedicated regional editions for LatAm, Africa, Asia and Europe.'],
-  ['Fintech Business Weekly', 'Jason Mikula', 'https://fintechbusinessweekly.substack.com', 'weekly · sundays',
-    'The investigative one: banking-as-a-service, sponsor banks, consent orders and enforcement — often breaking the story.'],
-  ['Net Interest', 'Marc Rubinstein', 'https://www.netinterest.co', 'weekly · fridays',
-    'A former hedge-fund manager on the economics of financial firms — the deepest \u201chow banks actually make money\u201d essays anywhere.'],
-  ['Fintech Blueprint', 'Lex Sokolin', 'https://www.fintechblueprint.com', 'weekly',
-    'Where fintech meets digital assets and AI — strategy essays and founder interviews from a former ConsenSys CFO.'],
-  ['Popular Fintech', 'Jevgenijs Kazanins', 'https://www.popularfintech.com', 'weekly',
-    'Data-heavy breakdowns of public fintech and neobank earnings — the numbers behind Nubank, SoFi, Revolut and friends.'],
-  ['Fintech Wrap Up', 'Sam Boboev', 'https://www.fintechwrapup.com', 'weekly',
-    'Fintech explained in diagrams — infographic-first summaries of business models, products and partnerships.'],
-  ['WhiteSight', 'research team', 'https://whitesight.net', 'weekly',
-    'Visual fintech research: embedded finance, BaaS and digital-bank strategy mapped into frameworks and charts.'],
-];
+/* The list itself lives in data/newsletters.json. Keeping it here meant the
+   page's "updated" stamp tracked the last edit to this builder rather than to
+   the list, so any unrelated change to this file re-dated the page — and, since
+   the stamp is generated before the commit that changes it, broke the build's
+   reproducibility every time. */
+const NEWSLETTERS = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'newsletters.json'), 'utf8'))
+  .newsletters.map((n) => [n.name, n.author, n.url, n.cadence, n.blurb]);
+const NEWSLETTERS_MODIFIED = gitModified('data/newsletters.json');
 {
   const url = `${BASE}/newsletters/`;
   const ld = withCrumbs({
@@ -1261,7 +1252,7 @@ const NEWSLETTERS = [
 <article>
   <div class="eyebrow">reading list</div>
   <h1>Neobank &amp; fintech <em>newsletters</em></h1>
-  <p class="meta"><b>${NEWSLETTERS.length} newsletters</b> · hand-picked, no affiliations · updated ${SRC_MODIFIED}</p>
+  <p class="meta"><b>${NEWSLETTERS.length} newsletters</b> · hand-picked, no affiliations · updated ${NEWSLETTERS_MODIFIED}</p>
   <p>The inbox stack we actually read to keep this site accurate. Every pick is independent — nobody paid to be here, and there are no affiliate links. Ours is first because it\u2019s ours; the rest are ordered roughly by how often they explain something before anyone else does. Missing a great one? <a href="https://github.com/andreolf/neobankbeat/issues/new">Suggest it</a>.</p>
 ${NEWSLETTERS.map(rowHtml).join('\n')}
   <div class="callout" style="margin-top:26px"><span class="k">go deeper</span>Reports, dashboards and regulatory registers live in the <a href="/#library">library</a> on the homepage. For the data itself: <a href="/data.json">data.json</a>.</div>

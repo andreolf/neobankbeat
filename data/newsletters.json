@@ -1,0 +1,76 @@
+{
+  "_comment": "Hand-picked reading list behind /newsletters/. Lives here rather than in build-pages.mjs so the page date tracks when the list actually changed, not when the builder was last edited.",
+  "updated_note": "the page stamps itself from this file's last commit",
+  "newsletters": [
+    {
+      "name": "neobankbeat",
+      "author": "Francesco Andreoli",
+      "url": "https://neobankbeat.substack.com",
+      "cadence": "monthly",
+      "blurb": "The newsletter behind this site: what changed in the dataset, new entrants, and the monthly State of Neobanks report."
+    },
+    {
+      "name": "Fintech Brainfood",
+      "author": "Simon Taylor",
+      "url": "https://www.fintechbrainfood.com",
+      "cadence": "weekly · sundays",
+      "blurb": "The industry’s Sunday read — one big rant, four fintech companies that matter, and the things to know this week."
+    },
+    {
+      "name": "Fintech Takes",
+      "author": "Alex Johnson",
+      "url": "https://fintechtakes.com",
+      "cadence": "weekly",
+      "blurb": "Sharp long-form analysis of US fintech: bank–fintech partnerships, credit, regulation, and why things actually happen."
+    },
+    {
+      "name": "This Week in Fintech",
+      "author": "Nik Milanović",
+      "url": "https://www.thisweekinfintech.com",
+      "cadence": "weekly",
+      "blurb": "The global funding and news roundup, with dedicated regional editions for LatAm, Africa, Asia and Europe."
+    },
+    {
+      "name": "Fintech Business Weekly",
+      "author": "Jason Mikula",
+      "url": "https://fintechbusinessweekly.substack.com",
+      "cadence": "weekly · sundays",
+      "blurb": "The investigative one: banking-as-a-service, sponsor banks, consent orders and enforcement — often breaking the story."
+    },
+    {
+      "name": "Net Interest",
+      "author": "Marc Rubinstein",
+      "url": "https://www.netinterest.co",
+      "cadence": "weekly · fridays",
+      "blurb": "A former hedge-fund manager on the economics of financial firms — the deepest “how banks actually make money” essays anywhere."
+    },
+    {
+      "name": "Fintech Blueprint",
+      "author": "Lex Sokolin",
+      "url": "https://www.fintechblueprint.com",
+      "cadence": "weekly",
+      "blurb": "Where fintech meets digital assets and AI — strategy essays and founder interviews from a former ConsenSys CFO."
+    },
+    {
+      "name": "Popular Fintech",
+      "author": "Jevgenijs Kazanins",
+      "url": "https://www.popularfintech.com",
+      "cadence": "weekly",
+      "blurb": "Data-heavy breakdowns of public fintech and neobank earnings — the numbers behind Nubank, SoFi, Revolut and friends."
+    },
+    {
+      "name": "Fintech Wrap Up",
+      "author": "Sam Boboev",
+      "url": "https://www.fintechwrapup.com",
+      "cadence": "weekly",
+      "blurb": "Fintech explained in diagrams — infographic-first summaries of business models, products and partnerships."
+    },
+    {
+      "name": "WhiteSight",
+      "author": "research team",
+      "url": "https://whitesight.net",
+      "cadence": "weekly",
+      "blurb": "Visual fintech research: embedded finance, BaaS and digital-bank strategy mapped into frameworks and charts."
+    }
+  ]
+}
