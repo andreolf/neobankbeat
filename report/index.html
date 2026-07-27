@@ -61,8 +61,14 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
 .faq dd{color:var(--muted);margin:4px 0 0;font-size:15px}
 @media(max-width:860px){.rhero{grid-template-columns:1fr}.rcoverlink{position:static;max-width:330px;margin:0 auto}.rstats{grid-template-columns:repeat(2,1fr)}.chlist{columns:1}.ctarow{flex-direction:column}.cta-pri,.cta-sec{justify-content:center}}
 </style>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"report","item":"https://www.neobankbeat.com/report/"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -79,7 +85,7 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="rhero">
     <article>
       <span class="rbadge">monthly report · <b>№ 01 — july 2026</b></span>
@@ -157,7 +163,7 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
 
   <article>
   <h2>why this report exists</h2>
-  <p>Most industry reports count announcements. This one counts survivors: the neobankbeat dataset is hand-verified, survivorship-filtered and open (MIT), so the report's core numbers — 26% licensed banks, 2.7% traditional-wave stablecoin adoption, 30% of the 2020s cohort self-custodial — can be checked by anyone with <a href="/data.json">data.json</a> and ten lines of code. July is edition № 01; every subsequent month reports the same baseline metrics with deltas, building a longitudinal record of the industry.</p>
+  <p>Most industry reports count announcements. This one counts survivors: the neobankbeat dataset is hand-verified, survivorship-filtered and open (MIT), so the report's core numbers — 26% licensed banks, 2.7% traditional-wave stablecoin adoption, 30% of the 2020s cohort self-custodial — can be checked by anyone with ten lines of code against <a href="/report/2026-07/data-snapshot.json">the 357-entity snapshot this edition was built from</a>. The live <a href="/data.json">data.json</a> has moved on since, which is the point of pinning the snapshot. July is edition № 01; every subsequent month reports the same baseline metrics with deltas, building a longitudinal record of the industry.</p>
 
   <dl class="faq">
     <dt>Is it really free?</dt>

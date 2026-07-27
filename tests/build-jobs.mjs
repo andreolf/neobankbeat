@@ -9,7 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML, navHtml } from './footer.mjs';
-import { clampDesc } from './meta.mjs';
+import { clampDesc, crumbs } from './meta.mjs';
 import { readHomepageJs } from './homepage-js.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -495,6 +495,7 @@ ${JSON.stringify(ld)}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -673,9 +674,9 @@ const indexHtml = head(
   `Neobank jobs — ${all.length.toLocaleString('en-US')} live roles at ${nCompanies} digital banks`,
   `Live job board for the neobank industry: ${all.length.toLocaleString('en-US')} open roles at ${nCompanies} tracked neobanks — engineering, compliance, onboarding, sales, support and more. Pulled directly from official career APIs, refreshed ${TODAY}.`,
   'https://www.neobankbeat.com/jobs/',
-  [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, jobsLd(all)]
+  [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank jobs', url: 'https://www.neobankbeat.com/jobs/', description: `${all.length} live roles at ${nCompanies} neobanks, aggregated from official career APIs.`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/']) }, jobsLd(all)]
 ) + `
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="eyebrow">the job board</div>
   <article class="jhero">
   <h1>neobank <em>jobs</em></h1>
@@ -750,9 +751,9 @@ for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']])
     `${label} jobs at neobanks — ${rows.length} live roles`,
     `${rows.length} live ${label.toLowerCase()} roles at ${new Set(rows.map(r => r.company)).size} neobanks, pulled from official career APIs. ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.`,
     `https://www.neobankbeat.com/jobs/${id}/`,
-    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, jobsLd(rows)]
+    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/'], [label.toLowerCase(), `https://www.neobankbeat.com/jobs/${id}/`]) }, jobsLd(rows)]
   ) + `
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · ${label.toLowerCase()}</div>
   <article class="jhero">
   <h1>${label.toLowerCase()} <em>jobs</em> at neobanks</h1>

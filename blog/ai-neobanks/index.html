@@ -30,8 +30,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"AI neobanks: narrative vs. production — who actually ships","description":"Sixty-seven tracked neobanks with AI verified in production against primary sources — the whole directory audited name by name — split into underwriting, interface and banking for AI agents — now a field in data.json.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/ai-neobanks.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/ai-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"blog","item":"https://www.neobankbeat.com/blog/"},{"@type":"ListItem","position":3,"name":"AI neobanks: narrative vs. production — who actually ships","item":"https://www.neobankbeat.com/blog/ai-neobanks/"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -48,7 +54,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">narrative check</div>
   <h1>AI neobanks: <em>narrative vs. production</em></h1>
@@ -62,7 +68,7 @@
   <h2>Tier 1 — AI underwriting in production: the model <em>is</em> the business</h2>
   <p>The strongest claim, and the biggest tier (39 entities): the credit decision that makes or loses the money is made by a model, at scale, today. The headline cases first:</p>
   <table>
-    <tr><th>Neobank</th><th>The evidence</th></tr>
+    <tr><th scope="col">Neobank</th><th scope="col">The evidence</th></tr>
     <tr><td><a href="/n/nubank/">Nubank</a></td><td>Engineering blog documents real-time feature stores and transformer foundation models in the credit decision engines behind 100M+ customers</td></tr>
     <tr><td><a href="/n/webank/">WeBank</a></td><td>Its own annual report cites 600+ production risk-control models across the credit lifecycle at 400M+ customer scale</td></tr>
     <tr><td><a href="/n/mybank/">MYbank</a></td><td>Ant's "3-1-0" SME lending (3 min apply, 1 sec disburse, 0 humans) — independently verified in an IMF working paper analyzing 1.8M actual loans</td></tr>
@@ -87,7 +93,7 @@
   <h2>Tier 2 — AI as the interface: the assistant up front</h2>
   <p>The middle claim (21 entities): an AI assistant isn't a support widget, it's how you use the bank.</p>
   <table>
-    <tr><th>Neobank</th><th>The evidence</th></tr>
+    <tr><th scope="col">Neobank</th><th scope="col">The evidence</th></tr>
     <tr><td><a href="/n/one-zero/">One Zero</a></td><td>Ella 2.0 handles 80%+ of customer service end-to-end for the bank Mobileye's Amnon Shashua built around an AI private banker</td></tr>
     <tr><td><a href="/n/ryt-bank/">Ryt Bank</a></td><td>Regulator-approved LLM (in-house "ILMU") as the <em>primary</em> interface — assembles and executes transactions from natural language; documented in a peer-reviewed EMNLP 2025 paper</td></tr>
     <tr><td><a href="/n/starling-bank/">Starling Bank</a></td><td>"Starling Assistant," the UK's first agentic AI financial assistant, live for all personal-account customers since March 2026</td></tr>
@@ -107,7 +113,7 @@
   <h2>Tier 3 — banking <em>for</em> AI agents: the only genuinely new thing</h2>
   <p>Tiers 1 and 2 are better versions of existing banks. This tier (7 entities) changes who the customer is:</p>
   <table>
-    <tr><th>Player</th><th>What shipped</th></tr>
+    <tr><th scope="col">Player</th><th scope="col">What shipped</th></tr>
     <tr><td><a href="/n/metamask/">MetaMask</a></td><td>Agent Wallet — a wallet an AI agent operates, with Blockaid scanning, transaction simulation and MEV protection; the agentic CLI is live on npm</td></tr>
     <tr><td><a href="/n/slash/">Slash</a></td><td>A hosted MCP server (mcp.slash.com) that lets any AI agent issue cards, set spend controls and send payments — with human approval gates</td></tr>
     <tr><td><a href="/n/wirex/">Wirex</a></td><td>Wirex Agents — non-custodial rails for AI agents to issue stablecoin Visa cards and transact autonomously, live since March 2026</td></tr>

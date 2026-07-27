@@ -5,7 +5,7 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML, navHtml } from './footer.mjs';
-import { clampDesc } from './meta.mjs';
+import { clampDesc, withCrumbs } from './meta.mjs';
 
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
 const BASE = 'https://www.neobankbeat.com';
@@ -172,10 +172,11 @@ const html = `<!DOCTYPE html>
 .base{color:var(--muted)}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"neobankbeat dataset changelog","url":"${BASE}/changelog/","description":"Every addition, removal and update to the open dataset of ${now.length} tracked neobanks, generated from version history.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"${BASE}"}}
+${JSON.stringify(withCrumbs({"@context":"https://schema.org","@type":"WebPage",name:"neobankbeat dataset changelog",url:`${BASE}/changelog/`,description:`Every addition, removal and update to the open dataset of ${now.length} tracked neobanks, generated from version history.`,isPartOf:{"@type":"WebSite",name:"neobankbeat",url:BASE}},["changelog",`${BASE}/changelog/`]))}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -186,7 +187,7 @@ ${navHtml(null)}
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">the changelog</div>
   <h1>every change to <em>the dataset</em></h1>

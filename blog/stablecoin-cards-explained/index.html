@@ -31,8 +31,14 @@
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Stablecoin cards explained: how a Visa that spends USDC actually works","description":"The full mechanics of stablecoin cards — authorization, conversion, settlement — plus custody models and what GENIUS and MiCA changed.","datePublished":"2025-11-18","dateModified":"2025-11-18","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/stablecoin-cards-explained.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/stablecoin-cards-explained/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
 <style>.asof{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--dim);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:18px 0}.asof b{color:var(--muted);font-weight:600}.asof a{color:var(--accent)}</style>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"blog","item":"https://www.neobankbeat.com/blog/"},{"@type":"ListItem","position":3,"name":"Stablecoin cards explained: how a Visa that spends USDC actually works","item":"https://www.neobankbeat.com/blog/stablecoin-cards-explained/"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -49,7 +55,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">stablecoins</div>
   <h1>Stablecoin cards explained: how a Visa that spends <em>USDC</em> actually works</h1>
@@ -73,7 +79,7 @@
 
   <h2>The custody spectrum — where the models really differ</h2>
   <table>
-    <tr><th>model</th><th>who holds the stablecoins</th><th>examples</th><th>trade-off</th></tr>
+    <tr><th scope="col">model</th><th scope="col">who holds the stablecoins</th><th scope="col">examples</th><th scope="col">trade-off</th></tr>
     <tr><td>Exchange card <span class="chip h">hybrid</span></td><td>The exchange, custodially</td><td>Crypto.com, Coinbase Card, Binance Card, Bybit Card</td><td>Easy, but full counterparty risk — it's a crypto bank account</td></tr>
     <tr><td>Fintech wallet <span class="chip h">hybrid</span></td><td>The app, custodially</td><td>Wirex, Uphold, RedotPay, KAST</td><td>Same, often with better card perks than exchanges</td></tr>
     <tr><td>Self-custodial card <span class="chip w">web3-native</span></td><td>You — smart account or wallet</td><td>Gnosis Pay, EtherFi Cash, Payy, 1inch Card, Cypher</td><td>No custodian to fail; KYC still applies for the card itself</td></tr>

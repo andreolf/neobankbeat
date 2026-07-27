@@ -742,6 +742,342 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
   const rule=(vercel.headers||[]).find(x=>/app\\?\.js|\/app\.js/.test(x.source));
   ok(!!rule&&rule.headers.some(x=>/cache-control/i.test(x.key)&&/immutable/.test(x.value)),
     'app.js is served with an immutable cache header');
+
+  // Headers a static site gets for free and a scanner marks it down for missing.
+  const all=(vercel.headers||[]).find(x=>x.source==='/(.*)');
+  const want=['X-Content-Type-Options','Referrer-Policy','X-Frame-Options','Permissions-Policy'];
+  const got=all?all.headers.map(x=>x.key):[];
+  ok(want.every(k=>got.includes(k)),'baseline security headers set for every path ('+want.filter(k=>!got.includes(k)).join(', ')+')');
+}
+
+console.log('— flow 32: every page below / declares a breadcrumb trail');
+{
+  // Google swaps the URL line in a result for the trail when it finds one, so a
+  // page without one looks different in the SERP to every page around it.
+  // Delegates to sync-crumbs.mjs --check, same reasoning as flow 27.
+  const {execSync}=require('child_process');
+  const path=require('path');
+  let out='',code=0;
+  try{ out=execSync('node '+path.join(__dirname,'sync-crumbs.mjs')+' --check',{encoding:'utf8'}); }
+  catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
+  const bare=[...out.matchAll(/^no breadcrumbs(?: \(generated[^)]*\))?: (.+)$/gm)].map(m=>m[1]);
+  ok(code===0,'no page is missing its BreadcrumbList'+(bare.length?' ('+bare.length+': '+bare.slice(0,3).join(' ')+' — run node tests/sync-crumbs.mjs)':''));
+  const n=+(out.match(/all (\d+) indexable pages/)||[])[1];
+  ok(n>1600,'breadcrumb check covered the whole site ('+n+' pages)');
+}
+
+console.log('— flow 33: text colours clear WCAG AA against every surface');
+{
+  // --dim was #5A5A68: 2.62–2.91:1 on the three dark surfaces, against the 4.5:1
+  // that text under 18pt requires. It is used for footers, captions, .meta and
+  // placeholders, so most of the small print on the site failed. The light theme
+  // failed too, at 3.08:1. Computed here rather than eyeballed so a future
+  // palette tweak cannot quietly undo it.
+  const lin=c=>{c/=255;return c<=0.04045?c/12.92:Math.pow((c+0.055)/1.055,2.4)};
+  const lum=h=>{const n=parseInt(h.slice(1),16);return 0.2126*lin(n>>16&255)+0.7152*lin(n>>8&255)+0.0722*lin(n&255)};
+  const ratio=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05)};
+  const AA=4.5;
+
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const css=fs.readFileSync(path.join(root,'index.html'),'utf8');
+  const grab=(block,name)=>((block.match(new RegExp('--'+name+':\\s*(#[0-9A-Fa-f]{6})'))||[])[1]||'').toUpperCase();
+  const themes={
+    dark:(css.match(/:root\{[\s\S]*?\}/)||[''])[0],
+    light:(css.match(/body\.bw\{[\s\S]*?\}/)||[''])[0],
+  };
+  for(const [label,block] of Object.entries(themes)){
+    const surfaces=['bg','panel','panel2'].map(n=>grab(block,n)).filter(Boolean);
+    ok(surfaces.length===3,label+' theme declares bg, panel and panel2');
+    for(const fg of ['text','muted','dim']){
+      const c=grab(block,fg);
+      if(!c){ok(false,label+' theme declares --'+fg);continue}
+      const worst=Math.min(...surfaces.map(s=>ratio(c,s)));
+      ok(worst>=AA,label+' --'+fg+' ('+c+') clears AA on every surface ('+worst.toFixed(2)+':1)');
+    }
+  }
+  // blog.css styles every page that is not the homepage, so it must agree
+  const blog=fs.readFileSync(path.join(root,'blog','blog.css'),'utf8');
+  for(const fg of ['muted','dim']){
+    const a=grab((css.match(/:root\{[\s\S]*?\}/)||[''])[0],fg);
+    const b=grab((blog.match(/:root\{[\s\S]*?\}/)||[''])[0],fg);
+    ok(a===b&&!!a,'blog.css --'+fg+' matches the homepage ('+b+' vs '+a+')');
+  }
+}
+
+console.log('— flow 34: every page has a skip link and one main landmark');
+{
+  // The homepage carried a skip link from the start; the other 1,664 pages left a
+  // keyboard user tabbing the whole nav on every page. The homepage's own <main>
+  // wrapped just the card grid, leaving the hero, filters, charts and library in
+  // no landmark at all.
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const SKIPDIR=new Set(['node_modules','.git','reports','substack-html']);
+  const walk=(dir,out=[])=>{
+    for(const e of fs.readdirSync(dir,{withFileTypes:true})){
+      if(e.name.startsWith('.')||SKIPDIR.has(e.name))continue;
+      const p=path.join(dir,e.name);
+      if(e.isDirectory())walk(p,out); else if(e.name.endsWith('.html'))out.push(p);
+    }
+    return out;
+  };
+  const noSkip=[],dangling=[],multiMain=[],noMain=[];
+  for(const f of walk(root)){
+    const s=fs.readFileSync(f,'utf8');
+    if(/<meta name="robots" content="noindex/.test(s)&&!/<main/.test(s))continue;
+    const rel=path.relative(root,f);
+    const mains=(s.match(/<main[\s>]/g)||[]).length;
+    if(mains===0){noMain.push(rel);continue}
+    if(mains>1)multiMain.push(rel);
+    const m=s.match(/<a class="skip" href="#([^"]+)"/);
+    if(!m){noSkip.push(rel);continue}
+    if(!new RegExp('id="'+m[1]+'"').test(s))dangling.push(rel+' -> #'+m[1]);
+  }
+  ok(noSkip.length===0,'every page with a main landmark has a skip link'+(noSkip.length?' ('+noSkip.length+' missing, e.g. '+noSkip[0]+')':''));
+  ok(dangling.length===0,'every skip link resolves to an id on the page'+(dangling.length?' ('+dangling.slice(0,3).join(', ')+')':''));
+  ok(multiMain.length===0,'no page declares more than one <main>'+(multiMain.length?' ('+multiMain.slice(0,3).join(', ')+')':''));
+
+  // and on the homepage specifically, the landmark has to hold the content
+  const m=d.querySelector('main');
+  ok(!!m&&m.id==='main','the homepage main landmark is <main id="main">');
+  for(const [label,sel] of [['the filters','.filterrow'],['the hero stats','.statrow'],['the card grid','#grid']]){
+    const el=d.querySelector(sel);
+    ok(!!el&&m.contains(el),label+' sits inside the main landmark');
+  }
+  ok(!m.contains(d.querySelector('header'))&&!m.contains(d.querySelector('footer')),
+    'the header and footer stay outside the main landmark');
+}
+
+console.log('— flow 35: share text carries no dashes');
+{
+  // Composed posts read as machine-written with an em dash in them, so the three
+  // share templates use a colon instead. This covers the static profile pages and
+  // both runtime templates in app.js.
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const decode=(s)=>{
+    const m=s.match(/intent\/tweet\?([^"']+)/);
+    if(!m)return null;
+    return new (require('url').URLSearchParams)(m[1].replace(/&amp;/g,'&')).get('text');
+  };
+  const page=fs.readFileSync(path.join(root,'n','revolut','index.html'),'utf8');
+  const t=decode(page);
+  ok(!!t,'the profile page has a share link');
+  ok(t&&!/[—–-]/.test(t),'profile share text has no dash ('+t+')');
+
+  const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+  const runtime=(app.match(/intent\/tweet\?text='\+encodeURIComponent\(([^;]{0,160})/g)||[]);
+  ok(runtime.length===2,'both runtime share templates found ('+runtime.length+')');
+  const dashed=runtime.filter(s=>/[—–]/.test(s));
+  ok(dashed.length===0,'no runtime share template contains a dash'+(dashed.length?' ('+dashed[0]+')':''));
+
+  // and the live modal, built the way a user triggers it
+  const dm=d.querySelector('.pxshare');
+  if(dm){
+    const mt=decode(dm.getAttribute('href')||'');
+    ok(mt&&!/[—–]/.test(mt),'modal share text has no dash ('+mt+')');
+  }
+}
+
+console.log('— flow 36: every table header cell declares a scope');
+{
+  // Without scope, the header-to-cell association is the screen reader's guess.
+  // Delegates to sync-tables.mjs --check, same reasoning as flows 27 and 32.
+  const {execSync}=require('child_process');
+  const path=require('path');
+  let code=0;
+  try{ execSync('node '+path.join(__dirname,'sync-tables.mjs')+' --check',{encoding:'utf8'}); }
+  catch(e){ code=1; }
+  ok(code===0,'no table header is missing a scope (run node tests/sync-tables.mjs)');
+}
+
+console.log('— flow 37: the filters are operable by keyboard alone');
+{
+  // The native <select> behind each dropdown is display:none, so the custom
+  // widget is the only way in. It shipped mouse-only: a real <button> to open,
+  // then options that were <div>s with click handlers and no tabindex, so a
+  // keyboard user could open a menu and not choose from it.
+  const key=(el,k)=>el.dispatchEvent(new w.KeyboardEvent('keydown',{key:k,bubbles:true,cancelable:true}));
+  const dd=d.querySelectorAll('.filterrow .dd')[0];
+  const btn=dd.querySelector('.dd-btn'),menu=dd.querySelector('.dd-menu');
+  const sel=dd.parentNode.querySelector('select');
+  const activeText=()=>((menu.querySelector('.dd-opt.active')||{}).textContent||'').trim();
+
+  ok(btn.getAttribute('aria-controls')===menu.id&&!!menu.id,'dropdown button points at its listbox');
+  ok(!!btn.getAttribute('aria-label'),'dropdown button carries the label from the select it replaced');
+  ok(menu.getAttribute('role')==='listbox','popup is a listbox');
+  ok([...menu.querySelectorAll('.dd-opt')].every(o=>o.id&&o.hasAttribute('aria-selected')),
+    'every option has an id and aria-selected');
+
+  key(btn,'ArrowDown');
+  ok(dd.classList.contains('open')&&btn.getAttribute('aria-expanded')==='true','ArrowDown opens the menu');
+  ok(!!d.getElementById(btn.getAttribute('aria-activedescendant')),'aria-activedescendant resolves to a real option');
+
+  const first=activeText();
+  key(btn,'ArrowDown');
+  ok(activeText()!==first&&activeText()!=='','ArrowDown moves the active option');
+  key(btn,'End');
+  const last=activeText();
+  key(btn,'Home');
+  ok(activeText()!==last,'Home and End jump to the ends');
+
+  let fired=0; sel.addEventListener('change',()=>fired++);
+  key(btn,'ArrowDown');
+  const want=activeText();
+  key(btn,'Enter');
+  ok(fired===1,'Enter fires exactly one change on the underlying select ('+fired+')');
+  ok(sel.options[sel.selectedIndex].textContent.trim()===want,'Enter selects the active option ('+want+')');
+  ok(!dd.classList.contains('open'),'menu closes after a keyboard pick');
+  ok(dd.querySelector('.lbl').textContent.trim()===want,'button label reflects the keyboard pick');
+  ok(menu.querySelectorAll('.dd-opt[aria-selected="true"]').length===1,'exactly one option is aria-selected');
+  ok(countText()!==''&&/showing/.test(countText()),'the grid re-rendered after a keyboard-only filter change');
+
+  const beforeIdx=sel.selectedIndex;
+  key(btn,'ArrowDown'); key(btn,'Escape');
+  ok(!dd.classList.contains('open'),'Escape closes the menu');
+  ok(sel.selectedIndex===beforeIdx,'Escape does not change the selection');
+  ok(btn.getAttribute('aria-activedescendant')===null,'activedescendant is cleared when closed');
+
+  // put the page back for anything downstream
+  sel.selectedIndex=0; sel.dispatchEvent(new w.Event('change',{bubbles:true}));
+}
+
+console.log('— flow 38: modals contain focus and hand it back');
+{
+  // Both overlays declared aria-modal="true" while letting Tab walk out into the
+  // page behind them, and the compare overlay never returned focus to whatever
+  // opened it. A dialog that lies about being modal is worse than one that does
+  // not claim to be.
+  const key=(el,k,shift)=>el.dispatchEvent(new w.KeyboardEvent('keydown',{key:k,shiftKey:!!shift,bubbles:true,cancelable:true}));
+  const ov=d.getElementById('overlay'),det=d.getElementById('detail');
+  const vis=el=>[...el.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+
+  ok(ov.getAttribute('aria-hidden')==='true'&&det.getAttribute('aria-hidden')==='true',
+    'closed dialogs are aria-hidden, so they do not read as empty modals');
+
+  // open it the way flow 7 does: pick two cards, then press compare
+  d.querySelectorAll('#grid .cmp-btn').forEach((b,i)=>{ if(i<2)click(b) });
+  const go=d.getElementById('gocmp');
+  go.focus();
+  const before=d.activeElement;
+  click(go);
+  await new Promise(r=>setTimeout(r,0));   // let the class observer run
+  ok(ov.classList.contains('show'),'compare overlay opened for the focus test');
+  ok(!ov.hasAttribute('aria-hidden'),'an open dialog drops aria-hidden');
+  ok(ov.contains(d.activeElement),'focus moves into the dialog on open');
+
+  const f=vis(ov);
+  ok(f.length>1,'the dialog has focusable controls to cycle ('+f.length+')');
+  f[f.length-1].focus();
+  key(f[f.length-1],'Tab');
+  ok(d.activeElement===f[0],'Tab from the last control wraps to the first, not out of the dialog');
+  f[0].focus();
+  key(f[0],'Tab',true);
+  ok(d.activeElement===f[f.length-1],'Shift+Tab from the first wraps to the last');
+
+  key(d.body,'Escape');
+  await new Promise(r=>setTimeout(r,0));
+  ok(!ov.classList.contains('show'),'Escape closes the compare overlay');
+  ok(ov.getAttribute('aria-hidden')==='true','a closed dialog is aria-hidden again');
+  ok(d.activeElement===before,'focus returns to the control that opened it');
+}
+
+console.log('— flow 39: site-wide structural SEO invariants');
+{
+  // Each assertion here exists because the audit that wrote it found a real
+  // defect: unparseable JSON-LD hidden inside a JSON array, a canonical that
+  // pointed at the wrong path, ItemList counts that disagreed with the rows
+  // rendered, and future-dated posts. None were caught by the flows above.
+  const path=require('path');
+  const root=path.join(__dirname,'..');
+  const SKIP=/^(node_modules|\.git|tests|reports|substack-html|og|fonts|dataset|\.well-known)$/;
+  const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(x=>
+    x.isDirectory()?(SKIP.test(x.name)?[]:walk(path.join(d,x.name)))
+      :x.name.endsWith('.html')?[path.join(d,x.name)]:[]);
+  // an @graph, a bare node and a top-level array are all legal shapes
+  const flat=a=>Array.isArray(a)?a.flatMap(flat):(a&&a['@graph']?flat(a['@graph']):[a]);
+  const BASE='https://www.neobankbeat.com';
+  const today=new Date().toISOString().slice(0,10);
+
+  const badLd=[],badCanon=[],future=[],badList=[],thinDesc=[];
+  const titles=new Map(),pages=new Set();
+  for(const f of walk(root)){
+    const h=fs.readFileSync(f,'utf8');
+    if(/<meta name="robots" content="noindex/.test(h))continue;
+    const rel=path.relative(root,f);
+    const url=rel==='index.html'?'/':'/'+rel.replace(/index\.html$/,'');
+    pages.add(url);
+
+    const t=(h.match(/<title>([^<]*)<\/title>/)||[])[1]||'';
+    titles.set(t,(titles.get(t)||0)+1);
+
+    const canon=(h.match(/<link rel="canonical" href="([^"]*)"/)||[])[1];
+    if(canon!==BASE+url)badCanon.push(rel+' → '+canon);
+
+    let nodes=[];
+    for(const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){
+      try{ nodes.push(...flat(JSON.parse(m[1]))); }catch(e){ badLd.push(rel); }
+    }
+    for(const nd of nodes){
+      if(!nd||!nd['@type'])badLd.push(rel+' (node with no @type)');
+      for(const k of ['datePublished','dateModified'])
+        if(nd[k]&&String(nd[k]).slice(0,10)>today)future.push(rel+' '+k+'='+nd[k]);
+      if(nd['@type']==='ItemList'&&nd.numberOfItems!==undefined
+        &&nd.numberOfItems!==(nd.itemListElement||[]).length)
+        badList.push(rel+' ('+nd.numberOfItems+' vs '+(nd.itemListElement||[]).length+')');
+      if(nd['@type']==='FAQPage')
+        for(const q of nd.mainEntity||[])
+          if(!q.name||!(q.acceptedAnswer&&q.acceptedAnswer.text&&q.acceptedAnswer.text.length>=40))
+            thinDesc.push(rel+': '+String(q.name).slice(0,40));
+    }
+  }
+
+  ok(pages.size>1600,'walked the whole indexable tree ('+pages.size+' pages)');
+  ok(badLd.length===0,'every JSON-LD block parses and every node is typed'+(badLd.length?' ('+[...new Set(badLd)].slice(0,4).join(', ')+')':''));
+  ok(badCanon.length===0,'every canonical points at the page that declares it'+(badCanon.length?' ('+badCanon.length+': '+badCanon.slice(0,3).join(', ')+')':''));
+  ok(badList.length===0,'every ItemList numberOfItems matches its elements'+(badList.length?' ('+badList.slice(0,3).join(', ')+')':''));
+  ok(thinDesc.length===0,'every FAQ entry has a question and a real answer'+(thinDesc.length?' ('+thinDesc.length+': '+thinDesc.slice(0,3).join(' | ')+')':''));
+  const dupT=[...titles].filter(x=>x[1]>1);
+  ok(dupT.length===0,'no two indexable pages share a <title>'+(dupT.length?' ('+dupT.slice(0,3).map(x=>x[1]+'× '+x[0].slice(0,40)).join(' | ')+')':''));
+
+  // sitemap and disk must agree in both directions, or pages ship uncrawled
+  const sm=new Set([...fs.readFileSync(path.join(root,'sitemap.xml'),'utf8')
+    .matchAll(/<loc>https:\/\/www\.neobankbeat\.com([^<]*)<\/loc>/g)].map(m=>m[1]||'/'));
+
+  // A future date is legal only for a post being held back: it must be absent
+  // from the sitemap, since Google discards a future lastmod and would date the
+  // result unpredictably. Dated and submitted at once is the bug to catch.
+  const scheduled=new Set(future.map(x=>'/'+x.split(' ')[0].replace(/index\.html$/,'')));
+  const leaked=[...scheduled].filter(u=>sm.has(u));
+  ok(leaked.length===0,'no future-dated page is in the sitemap'+(leaked.length?' ('+leaked.join(' ')+')':''));
+
+  const unlisted=[...pages].filter(u=>!sm.has(u)&&!scheduled.has(u));
+  const ghosts=[...sm].filter(u=>!pages.has(u)&&!/\.\w+$/.test(u));
+  ok(unlisted.length===0,'every indexable page is in the sitemap'+(unlisted.length?' ('+unlisted.length+': '+unlisted.slice(0,4).join(' ')+')':''));
+  ok(ghosts.length===0,'the sitemap lists no page that is missing from disk'+(ghosts.length?' ('+ghosts.slice(0,4).join(' ')+')':''));
+
+  // /data/ promises a dictionary of the schema, so a field or enum value that
+  // exists in data.json but not on that page is a broken promise. region, note,
+  // story and volume were all on every entity and none were documented.
+  {
+    const D=JSON.parse(fs.readFileSync(path.join(root,'data.json'),'utf8'));
+    const doc=fs.readFileSync(path.join(root,'data','index.html'),'utf8');
+    const dict=(doc.match(/<table class="fdict">[\s\S]*?<\/table>/)||[''])[0];
+    const fields=new Set();
+    for(const e of D.entities)for(const k of Object.keys(e))fields.add(k);
+    const undoc=[...fields].filter(k=>!new RegExp('(^|[>\\s·])'+k+'($|[<\\s·])').test(dict));
+    ok(undoc.length===0,'every data.json field is in the /data/ dictionary'+(undoc.length?' ('+undoc.join(', ')+')':''));
+    const regs=[...new Set(D.entities.map(e=>e.regulation_type).filter(Boolean))];
+    const missingReg=regs.filter(r=>!dict.includes(r));
+    ok(missingReg.length===0,'every regulation_type value is listed on /data/'+(missingReg.length?' ('+missingReg.join(' | ')+')':''));
+  }
+
+  // a lastmod in the future is one Google discards, taking the file's real date with it
+  const badMod=[...fs.readFileSync(path.join(root,'sitemap.xml'),'utf8')
+    .matchAll(/<loc>([^<]*)<\/loc>\s*<lastmod>([^<]*)<\/lastmod>/g)]
+    .filter(m=>m[2]>today).map(m=>m[1].replace(BASE,'')+' ('+m[2]+')');
+  ok(badMod.length===0,'no sitemap lastmod is in the future'+(badMod.length?' ('+badMod.slice(0,3).join(', ')+')':''));
 }
 
 console.log('');

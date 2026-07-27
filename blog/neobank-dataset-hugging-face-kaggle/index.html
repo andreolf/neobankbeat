@@ -30,8 +30,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"The neobank dataset is now on Hugging Face and Kaggle","description":"All 368 verified-active neobanks are mirrored on Hugging Face and Kaggle, with two new shapes: entities.jsonl and a flat 38-column entities.csv. MIT-licensed, no account needed.","datePublished":"2026-07-26","dateModified":"2026-07-26","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/neobank-dataset-hugging-face-kaggle.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"},"about":{"@type":"Dataset","@id":"https://www.neobankbeat.com/data/#dataset"}}
 </script>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"blog","item":"https://www.neobankbeat.com/blog/"},{"@type":"ListItem","position":3,"name":"The neobank dataset is now on Hugging Face and Kaggle","item":"https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -48,7 +54,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">open data</div>
   <h1>The neobank dataset is now on <em>Hugging Face</em> and <em>Kaggle</em></h1>
@@ -57,7 +63,7 @@
   <p>The dataset behind this site has always been public — one <a href="/data.json">data.json</a> file, MIT-licensed, no key and no rate limit. As of today it's also mirrored on the two places people actually go looking for data:</p>
 
   <table>
-    <tr><th>Where</th><th>What you get</th></tr>
+    <tr><th scope="col">Where</th><th scope="col">What you get</th></tr>
     <tr><td><a href="https://huggingface.co/datasets/neobankbeat/neobanks" target="_blank" rel="noopener">Hugging Face · neobankbeat/neobanks ↗</a></td><td>Browsable table, one <code>load_dataset</code> call, direct file downloads without an account</td></tr>
     <tr><td><a href="https://www.kaggle.com/datasets/neobankbeat/neobanks" target="_blank" rel="noopener">Kaggle · neobankbeat/neobanks ↗</a></td><td>Same files, plus a worked notebook that reproduces the charts below</td></tr>
   </table>
@@ -67,7 +73,7 @@
   <h2>Two new shapes</h2>
   <p>The mirrors ship the data in formats the site doesn't serve, because <code>data.json</code> is one object wrapping <code>meta</code> and <code>entities</code> — convenient for a web app, awkward for pandas.</p>
   <table>
-    <tr><th>File</th><th>Shape</th><th>Use it when</th></tr>
+    <tr><th scope="col">File</th><th scope="col">Shape</th><th scope="col">Use it when</th></tr>
     <tr><td><code>entities.csv</code></td><td>Flat, 38 columns, one row per neobank</td><td>Spreadsheets, pandas, anything that wants a table</td></tr>
     <tr><td><code>entities.jsonl</code></td><td>One JSON object per line, nesting intact</td><td>You want <code>fx_markup</code> and friends with their source and date attached</td></tr>
     <tr><td><code>data.json</code></td><td><code>{ meta, entities }</code></td><td>You want the counts, field notes and methodology too</td></tr>

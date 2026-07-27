@@ -3,10 +3,154 @@
 <channel>
   <title>neobank jobs · neobankbeat</title>
   <link>https://www.neobankbeat.com/jobs/</link>
-  <description>The newest roles at 65 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
+  <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 26 Jul 2026 19:09:28 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 08:26:48 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Software Engineer Intern, Fullstack - 12 Month Internship — Bitpanda]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bitpanda/jobs/4918465101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bitpanda/jobs/4918465101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead, Head Office Operations Control — Moniepoint]]></title>
+    <link>https://job-boards.eu.greenhouse.io/moniepoint/jobs/4781774101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/moniepoint/jobs/4781774101</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Financial Crime Team Manager, Merchant Acquiring, Business Banking — Monzo]]></title>
+    <link>https://job-boards.greenhouse.io/monzo/jobs/8079687</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/monzo/jobs/8079687</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · UK · £32–44K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Director (Pay & Card) — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7641861003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7641861003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Staff Engineer, Decentralize Exchange (DEX) — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7611329003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7611329003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Strategy PMO / Project Manager — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7650512003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7650512003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Analyst, Level 1, Onboarding KYX, UK — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7621880003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7621880003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Onboarding &amp; KYC</category>
+    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[FP&A Lead — Tide]]></title>
+    <link>https://job-boards.greenhouse.io/tide/jobs/7775822003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/tide/jobs/7775822003</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Tide · India, Delhi NCR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[FinCrime Operations Team Lead - AML Investigations — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139943538</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139943538</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Kuala Lumpur, MY · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Group & FinCrime Compliance Monitoring & Testing Senior Manager — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139941185</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139941185</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[People Operations Specialist — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139926259</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139926259</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[KYC Operations Analyst - Platform — Wise]]></title>
+    <link>https://jobs.smartrecruiters.com/wise/744000139911604</link>
+    <guid isPermaLink="true">https://jobs.smartrecruiters.com/wise/744000139911604</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · São Paulo, BR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[General Manager, Malaysia — YouTrip]]></title>
+    <link>https://apply.workable.com/j/B0AD7727F0</link>
+    <guid isPermaLink="true">https://apply.workable.com/j/B0AD7727F0</guid>
+    <pubDate>Mon, 27 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[YouTrip · Petaling Jaya, Selangor, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Data Analyst — Bybit]]></title>
+    <link>https://job-boards.eu.greenhouse.io/bybit/jobs/4931787101</link>
+    <guid isPermaLink="true">https://job-boards.eu.greenhouse.io/bybit/jobs/4931787101</guid>
+    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Bybit · Abu Dhabi, UAE · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer, Consumer — Coinbase]]></title>
+    <link>https://www.coinbase.com/careers/positions/8067033?gh_jid=8067033</link>
+    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8067033?gh_jid=8067033</guid>
+    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Coinbase · Remote - Singapore · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Director/Expert — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7802446003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7802446003</guid>
+    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · APAC · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Principal Product Manager, DEX Trading — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7671615003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7671615003</guid>
+    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Principal Product Manager, DEX Trading — OKX]]></title>
+    <link>https://job-boards.greenhouse.io/okx/jobs/7671614003</link>
+    <guid isPermaLink="true">https://job-boards.greenhouse.io/okx/jobs/7671614003</guid>
+    <pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[FinCrime Reporting Specialist — Wise]]></title>
     <link>https://jobs.smartrecruiters.com/wise/744000139869179</link>
@@ -342,150 +486,6 @@
     <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Especialista de Parcerias | Pessoa Física — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4662296005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4662296005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Especialista em Financiamento de Veículos  | Veículos - PJ — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4714585005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4714585005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Gerente de Negócios | Negócios Imobiliários — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4709025005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4709025005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Pessoa Arquiteta Corporativa Cartões | Enterprise Architect Cards — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4696039005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4696039005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Pessoa Estagiária | Redação, Site e Blog — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4718563005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4718563005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Manager | Open Finance — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4718020005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4718020005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[SR Product Manager | Produtos de Investimento — C6 Bank]]></title>
-    <link>https://job-boards.greenhouse.io/c6bank/jobs/4714714005</link>
-    <guid isPermaLink="true">https://job-boards.greenhouse.io/c6bank/jobs/4714714005</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analyst, Investor Relations — Chime]]></title>
-    <link>https://boards.greenhouse.io/chime/jobs/8609153002?gh_jid=8609153002</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/chime/jobs/8609153002?gh_jid=8609153002</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Counsel, Commercial (Institutional) — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/7602261?gh_jid=7602261</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/7602261?gh_jid=7602261</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Coinbase · Remote - UK · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Compliance Associate — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/7611263?gh_jid=7611263</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/7611263?gh_jid=7611263</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Coinbase · Hybrid - Luxembourg · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Enterprise Marketing Manager, Base — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8084049?gh_jid=8084049</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8084049?gh_jid=8084049</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Software Engineer, Data Engineering Platform — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8082199?gh_jid=8082199</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8082199?gh_jid=8082199</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Support Specialist III — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8083917?gh_jid=8083917</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8083917?gh_jid=8083917</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Staff Applied Data Scientist, Pricing — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8083051?gh_jid=8083051</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8083051?gh_jid=8083051</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Strategic Program Lead — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8083758?gh_jid=8083758</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8083758?gh_jid=8083758</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Supervisor, Customer Success Team — Coinbase]]></title>
-    <link>https://www.coinbase.com/careers/positions/8082829?gh_jid=8082829</link>
-    <guid isPermaLink="true">https://www.coinbase.com/careers/positions/8082829?gh_jid=8082829</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Remote - Cyprus · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Product Manager — Gemini]]></title>
-    <link>https://boards.greenhouse.io/embed/job_app?for=gemini&amp;token=7768460&amp;gh_jid=7768460</link>
-    <guid isPermaLink="true">https://boards.greenhouse.io/embed/job_app?for=gemini&amp;token=7768460&amp;gh_jid=7768460</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Gemini · New York, New York; Miami, Florida; Remote (USA) · $168–240K · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director, Relationships — Judo Bank]]></title>
-    <link>https://jobs.smartrecruiters.com/judobank/6000000001257220</link>
-    <guid isPermaLink="true">https://jobs.smartrecruiters.com/judobank/6000000001257220</guid>
-    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Judo Bank · Parramatta, AU · hybrid]]></description>
   </item>
 </channel>
 </rss>

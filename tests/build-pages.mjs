@@ -23,6 +23,30 @@ const DATA_MODIFIED = (() => {
   } catch { return TODAY; }
 })();
 
+/* Same rule for the pages that are not data-driven. Every URL with no explicit
+   lastmod used to fall back to the build date, so 33 of them re-declared
+   themselves modified on any day the site was rebuilt — including hand-written
+   pages untouched for months. Google says it discounts a lastmod it decides is
+   untrustworthy, and this is how it decides that. Taking the file's last commit
+   date instead is both true and stable, which also makes the build reproducible
+   across days rather than only within one. */
+const gitModified = (rel) => {
+  try {
+    const d = execSync(`git log -1 --format=%cs -- "${rel}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : TODAY;
+  } catch { return TODAY; }
+};
+
+/* The curated lists that live in this file rather than in data.json date from
+   the last time the file itself changed. */
+const SRC_MODIFIED = gitModified('tests/build-pages.mjs');
+
+/* A sitemap URL maps back to the file that produces it. */
+const urlModified = (loc) => {
+  const p = loc.replace(BASE, '').replace(/^\//, '');
+  return gitModified(p === '' ? 'index.html' : /\.\w+$/.test(p) ? p : `${p}index.html`);
+};
+
 const slugify = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -75,6 +99,7 @@ ${JSON.stringify(ldjson)}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -457,7 +482,7 @@ let hubsFor = () => [];
 
   const CATL = { traditional: 'traditional', hybrid: 'hybrid', 'web3-native': 'web3-native' };
   const hubTable = (list) => `<div class="hubwrap"><table class="hubtable">
-  <thead><tr><th>neobank</th><th>type</th><th>hq</th><th>custody</th><th>licence / structure</th><th>reported users</th></tr></thead>
+  <thead><tr><th scope="col">neobank</th><th scope="col">type</th><th scope="col">hq</th><th scope="col">custody</th><th scope="col">licence / structure</th><th scope="col">reported users</th></tr></thead>
   <tbody>
 ${list.map(e => `  <tr>
     <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
@@ -509,12 +534,12 @@ ${list.map(e => `  <tr>
     ] };
     const related = HUBS.filter(x => x !== h && x.family === h.family).slice(0, 8);
     const html = (head(title, answer, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/browse/" style="color:var(--accent)">browse ${esc(FAMLBL[h.family])}</a></div>
   <h1>${esc(h.h1)}</h1>
-  <p class="meta"><b>${rows.length} of ${E.length} tracked neobanks</b> · verified from public filings and product docs · updated ${TODAY}</p>
+  <p class="meta"><b>${rows.length} of ${E.length} tracked neobanks</b> · verified from public filings and product docs · updated ${DATA_MODIFIED}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
   <p>${esc(h.explain)}</p>
   <h2>${h.family === 'countries' ? `The ${rows.length} based in ${esc(h.label.replace(/^neobanks in /, ''))}` : `All ${rows.length} ${esc(h.label)}`}</h2>
@@ -552,11 +577,11 @@ ${list.map(e => `  <tr>
       for: ['By who it is built for', 'Niche products designed around one group\u2019s constraints, not general apps with different branding.'] };
     const html = (head(`Browse ${E.length} neobanks by licence, KYC, region and audience · neobankbeat`,
       answer, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">browse</div>
   <h1>Browse the <em>dataset</em></h1>
-  <p class="meta"><b>${hubSlugs.length} cuts of ${E.length} neobanks</b> · every list generated from <a href="/data.json">data.json</a> · updated ${TODAY}</p>
+  <p class="meta"><b>${hubSlugs.length} cuts of ${E.length} neobanks</b> · every list generated from <a href="/data.json">data.json</a> · updated ${DATA_MODIFIED}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
 ${byFam.map(([f, hs]) => `  <h2>${esc(FAMH[f][0])}</h2>
   <p>${esc(FAMH[f][1])}</p>
@@ -687,7 +712,7 @@ for (const e of E) {
   const pr = peers(e);
   const ogPath = fs.existsSync(path.join(ROOT, 'og', 'n', `${slug}.png`)) ? `${BASE}/og/n/${slug}.png` : undefined;
   const html = head(title, desc, url, ld, ogPath) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/n/" style="color:var(--accent)">neobank profiles</a></div>
@@ -703,7 +728,7 @@ for (const e of E) {
   ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
   <h2>Common questions about ${esc(e.name)}</h2>
   ${pFaq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
-  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name} — ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts:`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
+  <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name}: ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, licence, cards & facts`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
   ${investorsBlock(e)}
   <div class="callout"><span class="k">compare</span>Put ${esc(e.name)} side by side with any of the other ${E.length - 1} tracked neobanks in the <a href="/?q=${encodeURIComponent(e.name)}">directory</a> — custody, licence, cashback, yield, stablecoins and geography in one view.</div>
   <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">Who owns ${esc(e.name)}?</a>${altEligible.has(e.name) ? ` &nbsp;·&nbsp; <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}</p>
@@ -731,7 +756,7 @@ for (const e of E) {
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url }, ['neobanks', url]);
   const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
     `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, licence, cards, stablecoins and geography.`, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">profiles</div>
   <h1>All <em>${E.length}</em> tracked neobanks</h1>
@@ -814,7 +839,7 @@ for (const [an, bn] of PAIRS) {
     return `<tr><td>${k}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(va)}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(vb)}</td></tr>`;
   }).join('\n    ');
   const html = head(title, desc, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/vs/" style="color:var(--accent)">comparisons</a></div>
@@ -825,7 +850,7 @@ for (const [an, bn] of PAIRS) {
   <p>${esc(b.name)}: ${esc(b.note || '')}</p>
   <h2>Side by side</h2>
   <table>
-    <tr><th></th><th><a href="/n/${slugs.get(an)}/">${esc(an)}</a></th><th><a href="/n/${slugs.get(bn)}/">${esc(bn)}</a></th></tr>
+    <tr><th scope="col"></th><th scope="col"><a href="/n/${slugs.get(an)}/">${esc(an)}</a></th><th scope="col"><a href="/n/${slugs.get(bn)}/">${esc(bn)}</a></th></tr>
     ${rows}
   </table>
   <div class="callout"><span class="k">go deeper</span>Full profiles: <a href="/n/${slugs.get(an)}/">${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/">${esc(bn)}</a> — or run your own comparison of up to four in the <a href="/">directory</a>.</div>
@@ -858,7 +883,7 @@ for (const [an, bn] of PAIRS) {
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank comparisons', url }, ['comparisons', url]);
   const html = head(`Neobank comparisons: ${vsPages} head-to-heads · neobankbeat`,
     `Side-by-side neobank comparisons — custody, licence, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">comparisons</div>
   <h1>Neobank <em>head-to-heads</em></h1>
@@ -889,7 +914,10 @@ for (const [an, bn] of PAIRS) {
     ['audience', 'enum', 'general, or a niche: SMB, teens, gen z, women, migrants, freelancers…'],
     ['hq · founded', 'string · number', 'Headquarters (city, country) and year founded.'],
     ['custody', 'enum', 'Custodial · Self-custodial · MPC self-custodial · Mixed.'],
-    ['regulation_type', 'enum', 'Licensed bank · Partner-bank model · E-money institution · Payment institution · VASP/MSB · MiCA CASP · Self-custodial software · Broker-led · Other.'],
+    ['region', 'enum', `Primary market, exactly one value: ${[...new Set(E.map((e) => e.region).filter(Boolean))].join(' · ')}. Distinct from active_regions, which lists everywhere it operates.`],
+    /* listing this enum by hand is what let it fall behind the data — two values
+       were missing and two were abbreviated into something that never appears */
+    ['regulation_type', 'enum', `${[...new Set(E.map((e) => e.regulation_type).filter(Boolean))].sort().join(' · ')}.`],
     ['licence', 'string', 'Plain-text licence / sponsor-bank detail.'],
     ['card_network · card_type', 'string', 'Visa/Mastercard/domestic/— and debit/prepaid/credit/virtual/crypto-settled/wallet.'],
     ['cashback · yield', 'string', 'Headline "up to" figures — change constantly, always confirm with the issuer.'],
@@ -901,6 +929,9 @@ for (const [an, bn] of PAIRS) {
     ['reported_users', 'object', 'value_millions + metric + as_of, where disclosed.'],
     ['founders · funding · investors', 'string · array', 'Named founders, total disclosed funding, and notable disclosed backers.'],
     ['ai', 'enum', 'Verified in-production AI use: underwriting · interface · agentic.'],
+    ['volume', 'object', 'figure + metric + source, for the few that disclose payment or transaction volume rather than user counts.'],
+    ['note', 'string', 'One line of current, factual detail — scale, licence status, a recent launch.'],
+    ['story', 'string', 'One line on how the company got here. Editorial, not a data field: use it for context, not for analysis.'],
     ['website · domain · x_handle · terms_url · privacy_url', 'string', 'Verified links where confirmed; null when unverified (never fabricated).'],
   ];
   const ld = { '@context': 'https://schema.org', '@graph': [
@@ -943,11 +974,11 @@ pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px
 </style>`;
   const desc = `The open neobankbeat dataset: ${E.length} verified-active neobanks as machine-readable JSON — custody, regulation type, cards, cashback, yield, stablecoins, FX markup, services, geography and users. MIT-licensed, field dictionary and methodology included.`;
   const html = (head(`The open neobank dataset — ${E.length} neobanks as JSON · neobankbeat`, desc, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">open data</div>
   <h1>The open <em>neobank dataset</em></h1>
-  <p class="meta"><b>${E.length} verified-active neobanks</b> · MIT-licensed · machine-readable · updated ${TODAY}</p>
+  <p class="meta"><b>${E.length} verified-active neobanks</b> · MIT-licensed · machine-readable · updated ${DATA_MODIFIED}</p>
   <p>Everything on neobankbeat is generated from one file: <a href="/data.json">data.json</a>. It's free to use, including commercially — attribution appreciated. Defunct neobanks and pure BaaS/infrastructure providers are excluded; unverified fields are <code>null</code> rather than guessed.</p>
 
   <div class="ivstats">
@@ -968,7 +999,7 @@ pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px
   <h2>Field dictionary</h2>
   <p>Each entity is an object under <code>entities</code>. Top-level <code>meta</code> carries counts, field notes and methodology.</p>
   <table class="fdict">
-    <tr><th>field</th><th>type</th><th>meaning</th></tr>
+    <tr><th scope="col">field</th><th scope="col">type</th><th scope="col">meaning</th></tr>
     ${FIELDS.map(([f, t, d]) => `<tr><td>${esc(f)}</td><td>${esc(t)}</td><td>${esc(d)}</td></tr>`).join('\n    ')}
   </table>
 
@@ -1067,11 +1098,11 @@ let invSlugList = [];
   const html = (head(`Investors in neobanks — ${rows.length} VCs & strategics mapped · neobankbeat`,
     `Who funds the neobanks: ${rows.length} venture and strategic investors — Ribbit, Tiger Global, SoftBank, Tencent, Y Combinator and more — mapped to the ${nBanks} neobanks they backed, from publicly disclosed rounds.`,
     url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">follow the money</div>
   <h1>Investors <em>in neobanks</em></h1>
-  <p class="meta"><b>${rows.length} investors · ${nBanks} funded neobanks</b> · compiled from publicly disclosed funding rounds in the <a href="/">directory</a> dataset · updated ${TODAY}</p>
+  <p class="meta"><b>${rows.length} investors · ${nBanks} funded neobanks</b> · compiled from publicly disclosed funding rounds in the <a href="/">directory</a> dataset · updated ${DATA_MODIFIED}</p>
 
   <div class="ivstats">
     <div class="ivstat"><div class="n">${rows.length}</div><div class="l">investors tracked</div></div>
@@ -1132,7 +1163,7 @@ ${rows.map(rowHtml).join('\n')}
   </div>
 </a>`;
     const pageHtml = (head(title, desc, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/investors/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/investors/" style="color:var(--accent)">investors in neobanks</a></div>
@@ -1226,11 +1257,11 @@ const NEWSLETTERS = [
   const html = (head(`Neobank & fintech newsletters — ${NEWSLETTERS.length} worth your inbox · neobankbeat`,
     `The hand-picked reading list behind neobankbeat: ${NEWSLETTERS.length} fintech and neobank newsletters with authors and what each is best at — Fintech Brainfood, Fintech Takes, This Week in Fintech, Net Interest and more.`,
     url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">reading list</div>
   <h1>Neobank &amp; fintech <em>newsletters</em></h1>
-  <p class="meta"><b>${NEWSLETTERS.length} newsletters</b> · hand-picked, no affiliations · updated ${TODAY}</p>
+  <p class="meta"><b>${NEWSLETTERS.length} newsletters</b> · hand-picked, no affiliations · updated ${SRC_MODIFIED}</p>
   <p>The inbox stack we actually read to keep this site accurate. Every pick is independent — nobody paid to be here, and there are no affiliate links. Ours is first because it\u2019s ours; the rest are ordered roughly by how often they explain something before anyone else does. Missing a great one? <a href="https://github.com/andreolf/neobankbeat/issues/new">Suggest it</a>.</p>
 ${NEWSLETTERS.map(rowHtml).join('\n')}
   <div class="callout" style="margin-top:26px"><span class="k">go deeper</span>Reports, dashboards and regulatory registers live in the <a href="/#library">library</a> on the homepage. For the data itself: <a href="/data.json">data.json</a>.</div>
@@ -1279,14 +1310,14 @@ ${NEWSLETTERS.map(rowHtml).join('\n')}
   const html = (head(`Stablecoin cards (U-cards) — ${cards.length} crypto cards compared · neobankbeat`,
     `The U-card index: ${cards.length} stablecoin-spendable cards compared on custody, card network, cashback, yield and KYC — EtherFi Cash, KAST, RedotPay, Gnosis Pay, MetaMask Card, Bitget Wallet and more, from the open dataset.`,
     url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">the u-card index</div>
   <h1>Stablecoin cards, <em>compared</em></h1>
-  <p class="meta"><b>${cards.length} cards</b> · custody, network, cashback, yield and KYC in one table · updated ${TODAY}</p>
+  <p class="meta"><b>${cards.length} cards</b> · custody, network, cashback, yield and KYC in one table · updated ${DATA_MODIFIED}</p>
   <p>"U-cards" — cards that spend USDT/USDC directly — are the fastest-moving corner of digital banking, and the information about them is scattered across referral threads. This table consolidates every stablecoin-spendable card in the <a href="/">open dataset</a>. Click any name for the full profile with licence detail, founders and sources. Cashback and yield figures are headline claims that change constantly — verify with the issuer before applying. For live onchain volume and user counts per card, see <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a>.</p>
   <div class="ucwrap"><table class="uctable">
-    <thead><tr><th>card</th><th>wave</th><th>custody</th><th>network · type</th><th>cashback</th><th>yield</th><th>kyc</th></tr></thead>
+    <thead><tr><th scope="col">card</th><th scope="col">wave</th><th scope="col">custody</th><th scope="col">network · type</th><th scope="col">cashback</th><th scope="col">yield</th><th scope="col">kyc</th></tr></thead>
     <tbody>
 ${cards.map(row).join('\n')}
     </tbody>
@@ -1345,7 +1376,7 @@ let aiCount = 0;
     return `<div class="aitier">${esc(label)} · ${list.length}</div>
   <p>${esc(blurb)}</p>
   <div class="ucwrap"><table class="uctable">
-    <thead><tr><th>neobank</th><th>wave</th><th>hq</th><th>reported users</th><th>regulation</th></tr></thead>
+    <thead><tr><th scope="col">neobank</th><th scope="col">wave</th><th scope="col">hq</th><th scope="col">reported users</th><th scope="col">regulation</th></tr></thead>
     <tbody>
 ${list.map(row).join('\n')}
     </tbody>
@@ -1355,15 +1386,15 @@ ${list.map(row).join('\n')}
   const html = (head(`AI neobanks — the ${tagged.length} with AI verified in production · neobankbeat`,
     `"AI neobank" is mostly narrative — these are the ${tagged.length} of ${E.length} tracked neobanks where AI is verifiably in production: ${tagged.filter(e => e.ai === 'underwriting').length} with model-driven underwriting, ${tagged.filter(e => e.ai === 'interface').length} with AI-first interfaces, ${tagged.filter(e => e.ai === 'agentic').length} banking AI agents. Verified against filings and disclosures.`,
     url, ld, aiOg) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">narrative check</div>
   <h1>AI neobanks, <em>verified</em></h1>
-  <p class="meta"><b>${tagged.length} of ${E.length} tracked neobanks</b> · every tag verified against filings, disclosures and product docs · updated ${TODAY}</p>
+  <p class="meta"><b>${tagged.length} of ${E.length} tracked neobanks</b> · every tag verified against filings, disclosures and product docs · updated ${DATA_MODIFIED}</p>
   <p>Every fintech deck now says AI somewhere, which makes "AI neobank" the least informative label in the industry. This page lists only the entities where AI is <em>verifiably in production</em> — not pilots, previews, roadmap promises or partner-owned models. The full methodology and the claims that didn't survive verification are in <a href="/blog/ai-neobanks/">the write-up</a>; the tag ships as an <code>ai</code> field in <a href="/data.json">data.json</a> and as a <a href="/?ai=1">directory filter</a>.</p>
 ${TIERS.map(section).join('\n')}
   <div class="callout"><span class="k">go deeper</span>Read <a href="/blog/ai-neobanks/">AI neobanks: narrative vs. production</a>, filter the <a href="/?ai=1">directory</a>, or pull the <code>ai</code> field straight from <a href="/data.json">data.json</a>.</div>
-  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Tags reflect publicly verifiable production deployments as of ${TODAY}, from filings, product documentation and company disclosures. Absence of a tag means no verified production AI — not necessarily none. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a correction</a>.</p>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Tags reflect publicly verifiable production deployments as of ${DATA_MODIFIED}, from filings, product documentation and company disclosures. Absence of a tag means no verified production AI — not necessarily none. <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a correction</a>.</p>
   ${subscribeBox}
 </article>
 </main>` + foot).replace('<a href="/" class="on">', '<a href="/">');
@@ -1436,11 +1467,11 @@ const infraSlugList = [];
   const html = (head(`Infra for neobanks — ${rows.length} providers running the rails · neobankbeat`,
     `The picks-and-shovels layer: ${rows.length} sponsor banks, card-issuing processors, crypto card platforms and stablecoin rails, mapped to the tracked neobanks that run on them — Bancorp, Column, Marqeta, Baanx, Bridge, Rain and more.`,
     url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">picks &amp; shovels</div>
   <h1>Infra <em>for neobanks</em></h1>
-  <p class="meta"><b>${rows.length} providers · ${nClients} tracked neobanks running on them</b> · compiled from issuer disclosures and public reporting · updated ${TODAY}</p>
+  <p class="meta"><b>${rows.length} providers · ${nClients} tracked neobanks running on them</b> · compiled from issuer disclosures and public reporting · updated ${DATA_MODIFIED}</p>
 
   <div class="ivstats">
     <div class="ivstat"><div class="n">${rows.length}</div><div class="l">providers mapped</div></div>
@@ -1489,7 +1520,7 @@ ${body}
   </div>
 </a>`;
     const pageHtml = (head(title, desc, purl, pld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/infra/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
@@ -1575,13 +1606,35 @@ const whoOwnsSlugs = [], altSlugs = [];
       isBank = `No — it is ${aAn(rt.toLowerCase())}.`;
       safeAns = `As ${aAn(rt.toLowerCase())}, ${e.name} safeguards funds in segregated accounts rather than insuring them as deposits. That protection works differently from a bank — money is generally not covered by deposit-guarantee schemes, though it must be ring-fenced from the company's own funds.`;
     } else if (/vasp|msb|casp|crypto/i.test(rt)) {
-      lead = `${e.name} is regulated as a crypto-asset service (${rt}), not a bank. It is not a deposit-taking institution; how balances are held depends on its custody model (${e.custody}).`;
+      /* rt often already carries its own parenthetical — "MiCA CASP (EU)" — so
+         wrapping it in brackets again nests them in the search snippet */
+      lead = `${e.name} is regulated as a crypto-asset service under ${rt}, not a bank. It is not a deposit-taking institution; how balances are held depends on its custody model (${e.custody}).`;
       isBank = 'No — it is licensed as a crypto / VASP service, not a bank.';
       safeAns = `${e.name} is not a bank, so deposit-guarantee schemes do not apply. Crypto and cash balances are handled under its VASP/e-money obligations — check its terms for exactly how client assets are segregated and safeguarded.`;
     } else {
-      lead = `${e.name} operates as ${aAn((rt || 'a regulated financial service').toLowerCase())}${e.licence ? ` (${e.licence})` : ''}.`;
-      isBank = rt || '—';
-      safeAns = `How your money is protected depends on ${e.name}'s licence type — see the licence detail on its profile and confirm the scheme that applies in your country.`;
+      /* the remaining regulation_type values are labels, not noun phrases, so
+         "operates as an other / mixed" is what a naive template produces. Each
+         needs its own sentence; the licence detail follows as prose rather than
+         a trailing bracket, which read badly when it contained brackets itself. */
+      const detail = e.licence ? ` Its stated authorisation: ${e.licence}.` : '';
+      if (/^other/i.test(rt)) {
+        lead = `${e.name} does not fit a single regulatory category — it operates under a mix of authorisations.${detail}`;
+        isBank = 'Partly — its structure is mixed; see the licence detail.';
+      } else if (/^broker-led/i.test(rt)) {
+        lead = `${e.name} is a broker-led platform rather than a bank: the regulated entity behind it is an investment firm or broker-dealer, and client assets sit with that entity or its custodian rather than as bank deposits.${detail}`;
+        isBank = 'No — it is a regulated broker or investment firm, not a bank.';
+        safeAns = `${e.name} is not a bank, so deposit-guarantee schemes do not apply. Client assets held through a broker are usually covered by an investor-compensation scheme instead — a different protection with different limits. Check which entity holds your assets and which scheme covers it.`;
+      } else if (/licence pending/i.test(rt)) {
+        lead = `${e.name} has applied for its own licence but does not hold one yet, so it runs on a partner-bank model today — a licensed bank holds the deposits behind the app.${detail}`;
+        isBank = 'Not yet — its licence is pending and a partner bank holds the money.';
+      } else if (/^fintech licence/i.test(rt)) {
+        lead = `${e.name} holds a fintech licence, a lighter authorisation than a full banking licence: it may take deposits but not lend them.${detail}`;
+        isBank = 'No — it holds a fintech licence, not a full banking licence.';
+      } else {
+        lead = `${e.name} is regulated as ${aAn((rt || 'a regulated financial service').toLowerCase())}.${detail}`;
+        isBank = rt || '—';
+      }
+      safeAns = safeAns || `How your money is protected depends on ${e.name}'s licence type — see the licence detail on its profile and confirm the scheme that applies in your country.`;
     }
     const backers = (e.investors || []).slice(0, 4).map(iv => iv.name);
     const backLine = backers.length ? `${e.name}'s most notable disclosed backers include ${nameList(backers)}.` : '';
@@ -1603,14 +1656,15 @@ const whoOwnsSlugs = [], altSlugs = [];
         { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
         { '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-          { '@type': 'ListItem', position: 2, name: e.name, item: `${BASE}/n/${slug}/` },
-          { '@type': 'ListItem', position: 3, name: `who owns ${e.name}`, item: url }] }
+          { '@type': 'ListItem', position: 2, name: 'neobanks', item: `${BASE}/n/` },
+          { '@type': 'ListItem', position: 3, name: e.name, item: `${BASE}/n/${slug}/` },
+          { '@type': 'ListItem', position: 4, name: `who owns ${e.name}`, item: url }] }
       ] };
       const railsHtml = rails.length
         ? `<p>${e.name} runs on: ${rails.map(p => `<a href="/infra/${slugify(p.name)}/">${esc(p.name)}</a> <span class="dim">(${esc(p.type)})</span>`).join(' · ')}. Full stack on the <a href="/infra/">infra map</a>.</p>`
         : `<p class="dim">No sponsor bank or infrastructure provider is publicly documented for ${e.name} yet. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>`;
       const html = head(title, desc, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/n/${slug}/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/n/${slug}/" style="color:var(--accent)">${esc(e.name)} profile</a></div>
@@ -1672,8 +1726,9 @@ const whoOwnsSlugs = [], altSlugs = [];
         { '@type': 'ItemList', name: `${e.name} alternatives`, itemListElement: alts.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.name, url: `${BASE}/n/${slugs.get(a.name)}/` })) },
         { '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-          { '@type': 'ListItem', position: 2, name: e.name, item: `${BASE}/n/${slug}/` },
-          { '@type': 'ListItem', position: 3, name: `${e.name} alternatives`, item: url }] }
+          { '@type': 'ListItem', position: 2, name: 'neobanks', item: `${BASE}/n/` },
+          { '@type': 'ListItem', position: 3, name: e.name, item: `${BASE}/n/${slug}/` },
+          { '@type': 'ListItem', position: 4, name: `${e.name} alternatives`, item: url }] }
       ] };
       const rows = alts.map(a => {
         const v = vsLinkFor(e, a);
@@ -1686,7 +1741,7 @@ const whoOwnsSlugs = [], altSlugs = [];
   </tr>`;
       }).join('\n    ');
       const html = head(title, desc, url, ld) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/n/${slug}/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/n/${slug}/" style="color:var(--accent)">${esc(e.name)} profile</a></div>
@@ -1695,7 +1750,7 @@ const whoOwnsSlugs = [], altSlugs = [];
   <div class="callout"><span class="k">short answer</span>${esc(altAnswer)}</div>
   <h2>The ${alts.length} closest alternatives</h2>
   <table>
-    <tr><th>neobank</th><th>type</th><th>hq</th><th>reported users</th><th>compare</th></tr>
+    <tr><th scope="col">neobank</th><th scope="col">type</th><th scope="col">hq</th><th scope="col">reported users</th><th scope="col">compare</th></tr>
     ${rows}
   </table>
   <div class="callout"><span class="k">go deeper</span>Back to the <a href="/n/${slug}/">${esc(e.name)} profile</a>, ask <a href="/n/${slug}/who-owns/">who owns ${esc(e.name)}?</a>, or filter your own shortlist in the <a href="/">directory</a>.</div>
@@ -1737,7 +1792,7 @@ const whoOwnsSlugs = [], altSlugs = [];
   const html = (head('Page not found · neobankbeat',
     `That page doesn\u2019t exist — but ${E.length} neobank profiles, live jobs, investor maps and the blog do.`,
     `${BASE}/404`, { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Page not found' }) + `
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">404</div>
   <h1>This page <em>doesn\u2019t exist</em></h1>
@@ -1798,7 +1853,11 @@ const urls = [
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
-  ...BLOG_POSTS.map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
+  /* A post dated ahead of today is scheduled, not published: Google discards a
+     future lastmod outright and dates the result unpredictably. Hold it out of
+     the sitemap until its date arrives, then it appears with no further action. */
+  ...BLOG_POSTS.filter(([, d]) => d <= TODAY)
+    .map(([slug, d]) => ({ loc: `${BASE}/blog/${slug}/`, lastmod: d, priority: '0.8' })),
   { loc: `${BASE}/browse/`, changefreq: 'weekly', priority: '0.8' },
   ...hubSlugs.map(p => ({ loc: `${BASE}${p}`, lastmod: DATA_MODIFIED, priority: '0.7' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },
@@ -1809,7 +1868,7 @@ const urls = [
   ...vsIndex.map(v => ({ loc: `${BASE}/vs/${v.slug}/`, lastmod: DATA_MODIFIED, priority: '0.7' })),
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod || TODAY}</lastmod>\n` +
+  urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod || urlModified(u.loc)}</lastmod>\n` +
     (u.changefreq ? `    <changefreq>${u.changefreq}</changefreq>\n` : '') +
     (u.priority ? `    <priority>${u.priority}</priority>\n` : '') + `  </url>`).join('\n') + `\n</urlset>\n`;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
@@ -1821,7 +1880,7 @@ const nFaq = (fs.readFileSync(path.join(ROOT, 'faq', 'index.html'), 'utf8').matc
 const nGlossary = (fs.readFileSync(path.join(ROOT, 'glossary', 'index.html'), 'utf8').match(/<dt id=/g) || []).length;
 const sitemapMd = `# neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](${BASE}/data.json); the agent guide at [/llms.txt](${BASE}/llms.txt). Updated ${TODAY}.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](${BASE}/data.json); the agent guide at [/llms.txt](${BASE}/llms.txt). Updated ${DATA_MODIFIED}.
 
 ## Main
 
@@ -1891,7 +1950,7 @@ fs.writeFileSync(path.join(ROOT, 'index.md'), `---
 title: "neobankbeat · who watches the neobanks?"
 description: "Independent, open-source directory of ${E.length} verified-active neobanks — compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography."
 canonical: https://www.neobankbeat.com/
-date: ${TODAY}
+date: ${DATA_MODIFIED}
 ---
 
 ` + llmsTxt);

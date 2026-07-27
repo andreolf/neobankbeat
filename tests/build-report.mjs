@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML, NAV_LINKS } from './footer.mjs';
+import { withCrumbs } from './meta.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -76,7 +77,7 @@ const all2020s = E.filter(e => e.founded >= 2020).length;
 const CSS = `
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0A0A10;--panel:#12121A;--panel2:#171722;--line:#23232F;--text:#EDEDF2;--muted:#8A8A9A;--dim:#5A5A68;--t:#89B0FF;--h:#D075FF;--w:#BAF24A;--acc:#FF5C16}
+:root{--bg:#0A0A10;--panel:#12121A;--panel2:#171722;--line:#23232F;--text:#EDEDF2;--muted:#9E9EAE;--dim:#828292;--t:#89B0FF;--h:#D075FF;--w:#BAF24A;--acc:#FF5C16}
 body{font-family:'Space Grotesk',system-ui,sans-serif;background:#333;color:var(--text)}
 .page{width:210mm;height:297mm;background:var(--bg);position:relative;overflow:hidden;page-break-after:always;padding:20mm 18mm 16mm}
 .pfoot{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;justify-content:space-between;font-family:'Noto Sans Mono',monospace;font-size:7.5pt;color:var(--dim);border-top:.4pt solid var(--line);padding-top:3mm}
@@ -147,7 +148,7 @@ function vbars(pairs, { width = 660, height = 210, color = '#FF5C16', highlight 
     const x = i * bw;
     return `<rect x="${x + 2}" y="${height - 28 - bh}" width="${bw - 4}" height="${bh}" rx="2.5" fill="${highlight[label] || color}"/>
 <text x="${x + bw / 2}" y="${height - 34 - bh}" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="10.5" fill="#EDEDF2">${v}</text>
-<text x="${x + bw / 2}" y="${height - 12}" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#5A5A68">${esc(label)}</text>`;
+<text x="${x + bw / 2}" y="${height - 12}" text-anchor="middle" font-family="Noto Sans Mono,monospace" font-size="9" fill="#828292">${esc(label)}</text>`;
   }).join('\n');
   return `<svg viewBox="0 0 ${width} ${height}" width="100%" xmlns="http://www.w3.org/2000/svg">${items}</svg>`;
 }
@@ -250,7 +251,7 @@ page(`
 <h1>№ 01 sets the baseline</h1>
 <p>This is the first edition of a monthly series. The table below freezes the headline metrics as of ${MONTH} — future editions report the same rows with month-over-month deltas, so the series accumulates into a longitudinal record of the industry.</p>
 <table>
-<tr><th>metric</th><th>${MONTH.toLowerCase()}</th><th>definition</th></tr>
+<tr><th scope="col">metric</th><th scope="col">${MONTH.toLowerCase()}</th><th scope="col">definition</th></tr>
 <tr><td>Verified-active neobanks</td><td class="mono">${N}</td><td>entities live and onboarding</td></tr>
 <tr><td>— traditional / hybrid / web3-native</td><td class="mono">${T} / ${H} / ${W}</td><td>wave split</td></tr>
 <tr><td>Stablecoin support</td><td class="mono">${stables} (${(stables / N * 100).toFixed(1)}%)</td><td>any verified support</td></tr>
@@ -323,7 +324,7 @@ page(`
 <div class="eyebrow">chapter 1 · taxonomy</div>
 <h2>Same word, different machines</h2>
 <table>
-<tr><th></th><th>traditional</th><th>hybrid</th><th>web3-native</th></tr>
+<tr><th scope="col"></th><th scope="col">traditional</th><th scope="col">hybrid</th><th scope="col">web3-native</th></tr>
 <tr><td>Who holds funds</td><td>Bank or partner bank</td><td>The company (fiat + crypto)</td><td>The user (keys)</td></tr>
 <tr><td>Balance is</td><td>Fiat deposit</td><td>Fiat + custodial crypto</td><td>Stablecoins / crypto</td></tr>
 <tr><td>Deposit insurance</td><td>Usually (direct or pass-through)</td><td>Fiat sometimes; crypto never</td><td>None — no deposit exists</td></tr>
@@ -352,7 +353,7 @@ page(`
 <div class="eyebrow">definitions</div>
 <h1>Twelve terms, precisely</h1>
 <table>
-<tr><th>term</th><th>as used in this report</th></tr>
+<tr><th scope="col">term</th><th scope="col">as used in this report</th></tr>
 <tr><td>Neobank</td><td>Digital-first consumer/SMB money app: account or balance + payments, usually a card, no branch network</td></tr>
 <tr><td>Verified-active</td><td>We can confirm the product is live and onboarding today; defunct or paused entities are removed</td></tr>
 <tr><td>Custodial</td><td>The company (or its partner bank) legally holds customer funds</td></tr>
@@ -386,7 +387,7 @@ page(`
 <div class="eyebrow">chapter 3 · history</div>
 <h1>Seventeen years in<br>one timeline</h1>
 <table>
-<tr><th>year</th><th>what happened</th><th>why it mattered</th></tr>
+<tr><th scope="col">year</th><th scope="col">what happened</th><th scope="col">why it mattered</th></tr>
 <tr><td class="mono">2009–13</td><td>Simple, Moven, GoBank; Fidor in Germany</td><td>Proved a bank could live in an app — mostly on partner charters</td></tr>
 <tr><td class="mono">2013–15</td><td>Nubank founded; UK mints Atom, Tandem, Monzo, Starling licences</td><td>The two enduring models appear: LatAm scale and UK charter-first</td></tr>
 <tr><td class="mono">2016–17</td><td>N26 gets a full licence; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
@@ -460,7 +461,7 @@ page(`
 <div class="eyebrow">chapter 5 · regulation</div>
 <h2>"Is my money protected?" — the honest flowchart</h2>
 <table>
-<tr><th>if the app is a…</th><th>your money is…</th><th>protected by…</th><th>the catch</th></tr>
+<tr><th scope="col">if the app is a…</th><th scope="col">your money is…</th><th scope="col">protected by…</th><th scope="col">the catch</th></tr>
 <tr><td>Licensed bank</td><td>A deposit on its balance sheet</td><td>Deposit scheme, directly (FDIC / FSCS / national DGS)</td><td>Coverage limits per depositor; crypto side never covered</td></tr>
 <tr><td>Partner-bank app</td><td>A deposit at someone else's bank</td><td>Same schemes, pass-through</td><td>Contingent on accurate app↔bank ledgers — the Synapse failure mode</td></tr>
 <tr><td>E-money institution</td><td>E-money, safeguarded 1:1</td><td>Segregation, not insurance</td><td>In insolvency you're in an administration queue, not a payout schedule</td></tr>
@@ -519,7 +520,7 @@ ${hbar([
 <p>The interesting row is the bottom pair: <b>the card networks are the reason wave three exists as a consumer product.</b> A self-custodial balance is an island until a BIN sponsor connects it to 130M+ terminals — and both networks, having watched wallets accumulate users, now compete for exactly these programmes (including direct USDC settlement with crypto-native issuers). The duopoly's neutrality between waves is one of the industry's least appreciated structural facts.</p>
 <h2>Anatomy of a "free" account</h2>
 <table>
-<tr><th>revenue line</th><th>who pays</th><th>where it shows in the data</th></tr>
+<tr><th scope="col">revenue line</th><th scope="col">who pays</th><th scope="col">where it shows in the data</th></tr>
 <tr><td>Interchange</td><td>Merchants, per swipe</td><td>${N - noCard} card programmes — the default engine</td></tr>
 <tr><td>Subscriptions</td><td>Users, monthly</td><td>premium tiers gating the best of ${cashback} cashback offers</td></tr>
 <tr><td>FX & spread</td><td>Travellers, remitters, traders</td><td>crypto conversion spreads across the ${H + W} crypto-touching apps</td></tr>
@@ -548,7 +549,7 @@ page(`
 <div class="eyebrow">chapter 7 · stablecoins</div>
 <h2>The instruments, sorted by rulebook</h2>
 <table>
-<tr><th>instrument</th><th>regime</th><th>role in the neobank stack</th></tr>
+<tr><th scope="col">instrument</th><th scope="col">regime</th><th scope="col">role in the neobank stack</th></tr>
 <tr><td>USDC</td><td>GENIUS-aligned (US); MiCA EMT via EU entity</td><td>Default settlement asset for compliant card programmes; direct network settlement live</td></tr>
 <tr><td>USDT</td><td>Offshore; delisted from MiCA-regulated EU venues</td><td>Still the emerging-market street dollar — dominant in the LatAm/Africa dollar-account apps</td></tr>
 <tr><td>EURe / EURC</td><td>MiCA e-money tokens</td><td>The legally clean euro rail — EURe settles Gnosis Pay, the archetype self-custodial card</td></tr>
@@ -566,7 +567,7 @@ page(`
 <h1>The ${noKyc.length} apps that<br>never ask your name</h1>
 <p>Exactly <b>${noKyc.length} of ${N}</b> tracked neobanks operate without identity checks — ${(noKyc.length / N * 100).toFixed(1)}% of the industry. All are self-custodial. None issues a card without KYC. A further <b>${cardOnly}</b> are "card-only" KYC: permissionless wallet, identified cardholder.</p>
 <table>
-<tr><th>app</th><th>hq</th><th>est.</th><th>what it is</th></tr>
+<tr><th scope="col">app</th><th scope="col">hq</th><th scope="col">est.</th><th scope="col">what it is</th></tr>
 ${noKyc.map(e => `<tr><td>${esc(e.name)}</td><td>${esc(e.hq)}</td><td>${e.founded}</td><td>${esc((e.note || '').slice(0, 80))}</td></tr>`).join('\n')}
 </table>
 <p>The line is structural: KYC obligations attach to regulated intermediaries — entities holding, transmitting or exchanging customer funds. Pure software that never touches funds is largely outside that perimeter; everything touching fiat (cards, IBANs, ramps) is inside it, no exceptions that survive contact with a card network. The honest use cases are undocumented populations, capital-controlled economies, privacy-principled users accepting the trade-offs, and — increasingly — software agents that can hold a key but cannot pass a selfie check.</p>`);
@@ -600,7 +601,7 @@ page(`
 <div class="eyebrow">chapter 9 · scale</div>
 <h2>Five giants, five different machines</h2>
 <table>
-<tr><th>giant</th><th>reported</th><th>the machine underneath</th></tr>
+<tr><th scope="col">giant</th><th scope="col">reported</th><th scope="col">the machine underneath</th></tr>
 ${topUsers.slice(0, 5).map(e => `<tr><td><b>${esc(e.name)}</b><br><span class="mono" style="color:var(--dim);font-size:7pt">${esc(e.hq)} · est. ${e.founded}</span></td><td class="mono">${e.reported_users.value_millions}M<br><span style="color:var(--dim);font-size:7pt">${esc(e.reported_users.metric || 'users')}</span></td><td>${esc(({
   'Nubank': 'A licensed bank that made credit cards the wedge into three underbanked markets, then cross-sold everything. The proof that neobanking scales to nine figures profitably.',
   'WeBank': 'Distribution-native: born inside the Tencent ecosystem, lending-led, and by most measures the most profitable digital bank on earth.',
@@ -650,7 +651,7 @@ for (const r of REGIONS) {
 <h3>${tag}</h3>
 <p>${copy}</p>
 <table class="applist">
-<tr><th>selected players</th><th>hq</th><th>est.</th><th>custody</th><th>regulation</th></tr>
+<tr><th scope="col">selected players</th><th scope="col">hq</th><th scope="col">est.</th><th scope="col">custody</th><th scope="col">regulation</th></tr>
 ${show.map(e => `<tr><td>${esc(e.name)}</td><td>${esc(e.hq)}</td><td>${e.founded}</td><td>${esc(e.custody.split(' ')[0])}</td><td>${esc(e.regulation_type)}</td></tr>`).join('\n')}
 </table>
 <p style="color:var(--dim);font-size:8pt">selection = largest reported user bases + representative sample · full list in Appendix A and at neobankbeat.com/?map=${({'Europe':'EU','Asia':'AS','North America':'NA','Latin America':'LA','Africa':'AF','MENA':'ME','Oceania':'OC'})[r]}</p>`);
@@ -671,7 +672,7 @@ page(`
 <div class="eyebrow">chapter 11 · niches</div>
 <h2>The full niche map</h2>
 <table>
-<tr><th>audience</th><th>n</th><th>representative players</th><th>the structural edge</th></tr>
+<tr><th scope="col">audience</th><th scope="col">n</th><th scope="col">representative players</th><th scope="col">the structural edge</th></tr>
 ${niches.map(([k, v]) => {
   const ex = E.filter(e => e.audience === k).slice(0, 3).map(e => e.name).join(', ');
   const edges = {
@@ -727,7 +728,7 @@ page(`
 <h3>06 · Identity without documents</h3>
 <p>Passkeys killed the password; zero-knowledge credentials aim at the passport upload — proving "over 18, sanctioned-list-clear, EU resident" without revealing anything else. If regulators accept selective disclosure, the KYC/no-KYC binary of chapter 8 becomes a spectrum, and the card-only bucket becomes the default architecture.</p>
 <table>
-<tr><th>narrative</th><th>the signal we'll track in this dataset</th><th>status, july 2026</th></tr>
+<tr><th scope="col">narrative</th><th scope="col">the signal we'll track in this dataset</th><th scope="col">status, july 2026</th></tr>
 <tr><td>Agentic commerce</td><td>First entities with agent-specific products; x402-payable services</td><td>precursors only (${noKyc.length} no-KYC self-custodial apps)</td></tr>
 <tr><td>Stablecoin payroll</td><td>Payroll/payout features in the immigrant &amp; freelancer niches</td><td>early (${niches.find(n=>/immigrant/i.test(n[0]))?.[1] ?? 9} immigrant-focused players)</td></tr>
 <tr><td>Tokenized deposits</td><td>Licensed banks (92 tracked) shipping token-settled consumer money</td><td>pilots, no consumer rails yet</td></tr>
@@ -786,7 +787,7 @@ for (let i = 0; i < sorted.length; i += PER) {
   page(`
 <div class="eyebrow">appendix a · all ${N} tracked neobanks (${i + 1}–${Math.min(i + PER, N)})</div>
 <table class="applist">
-<tr><th>name</th><th>wave</th><th>hq</th><th>est.</th><th>custody</th><th>stables</th><th>kyc</th></tr>
+<tr><th scope="col">name</th><th scope="col">wave</th><th scope="col">hq</th><th scope="col">est.</th><th scope="col">custody</th><th scope="col">stables</th><th scope="col">kyc</th></tr>
 ${chunk.map(e => `<tr><td>${esc(e.name)}</td><td><span class="${e.category === 'traditional' ? 'ct' : e.category === 'hybrid' ? 'ch' : 'cw'}">${e.category === 'traditional' ? 'T' : e.category === 'hybrid' ? 'H' : 'W'}</span></td><td>${esc(e.hq)}</td><td>${e.founded}</td><td>${esc(e.custody.split(' ')[0])}</td><td>${e.stablecoins ? 'yes' : '—'}</td><td>${esc(e.kyc)}</td></tr>`).join('\n')}
 </table>`);
 }
@@ -798,7 +799,7 @@ page(`
 <h1>The dataset behind<br>every number</h1>
 <p>Everything in this report derives from <span class="mono">neobankbeat.com/data.json</span> — the machine-readable export of the neobankbeat directory (MIT licence). Key fields:</p>
 <table>
-<tr><th>field</th><th>meaning</th></tr>
+<tr><th scope="col">field</th><th scope="col">meaning</th></tr>
 <tr><td class="mono">category</td><td>traditional · hybrid · web3-native (the three waves)</td></tr>
 <tr><td class="mono">custody</td><td>Custodial · Self-custodial · MPC self-custodial · Mixed</td></tr>
 <tr><td class="mono">regulation_type</td><td>derived: Licensed bank, Partner-bank model, E-money institution, MiCA CASP (EU), Self-custodial software, …</td></tr>
@@ -886,12 +887,27 @@ const FREE_CHAPTERS = 6;                                     // through "A short
 const PDF_URL = `/reports/dl-vq3x8k/state-of-neobanks-${ED_SLUG}.pdf`;
 const gatePage = tocEntries[FREE_CHAPTERS][1];               // first locked page
 const chapterStarts = new Map(tocEntries.map(([t, p], i) => [p, { t, i }]));
-const webSections = pages.map((p, i) => ({ ...p, no: i + 1 }))
+/* In the PDF every chapter opens a printed page, so a per-page <h1> is right
+   there. The web edition is one continuous document, where eight <h1>s leave a
+   screen reader with eight competing document titles and no hierarchy to skim.
+   Headings shift down one level here only — the PDF markup above is untouched —
+   and WEBCSS restores the type scale, so the page looks identical. */
+const demote = (h) => h
+  .replace(/<(\/?)h3\b/g, '<$1h4')
+  .replace(/<(\/?)h2\b/g, '<$1h3')
+  .replace(/<(\/?)h1\b/g, '<$1h2');
+
+let webSections = pages.map((p, i) => ({ ...p, no: i + 1 }))
   .filter(p => p.footer && p.no !== TOC_IDX && p.no < gatePage)
   .map(p => {
     const ch = chapterStarts.get(p.no);
-    return `<section class="wsec"${ch ? ` id="ch${ch.i}"` : ''}>${p.html}</section>`;
+    return `<section class="wsec"${ch ? ` id="ch${ch.i}"` : ''}>${demote(p.html)}</section>`;
   }).join('\n');
+/* the cover title becomes the page's single h1; its own two subsections come
+   back up to h2 so the first chapter does not jump h1 → h3 */
+const coverEnd = webSections.indexOf('</section>');
+webSections = webSections.slice(0, coverEnd).replace(/<(\/?)h2\b/g, '<$1h1').replace(/<(\/?)h3\b/g, '<$1h2')
+  + webSections.slice(coverEnd);
 const lockedChapters = tocEntries.slice(FREE_CHAPTERS).map(([t]) => t);
 
 const WEBCSS = `
@@ -921,7 +937,13 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 .wcta a.pri{background:var(--acc);border-color:var(--acc);color:#0A0A10;font-weight:700}
 .wsec{max-width:960px;margin:0 auto;padding:44px 20px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
 .wsec.in{opacity:1;transform:none}
-.wsec h1{font-size:clamp(22px,4vw,30px)}
+/* headings sit one level lower here than in the PDF (see demote() above), so the
+   type scale is re-pinned to the level each heading now occupies */
+.wsec h1,.wsec h2{font-size:clamp(22px,4vw,30px);letter-spacing:-1px;line-height:1.1;margin-bottom:6mm}
+.wsec h3{font-size:15pt;letter-spacing:-.3px;margin:7mm 0 3.5mm}
+.wsec h4{font-size:11pt;margin:5mm 0 2.5mm}
+.wsec .finding h4{margin:0 0 1.5mm}
+.wsec h1 em,.wsec h2 em{font-style:normal;color:var(--acc)}
 .wsec p,.wsec li{font-size:15px}
 .wsec table{font-size:13px}
 .wsec th{font-size:10px}
@@ -981,7 +1003,7 @@ const webHtml = `<!DOCTYPE html>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` })}
+${JSON.stringify(withCrumbs({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licences, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` }, ['report', 'https://www.neobankbeat.com/report/'], [MONTH, `https://www.neobankbeat.com/report/${ED_SLUG}/`]))}
 </script>
 <style>${CSS}${WEBCSS}</style>
 </head>

@@ -9,6 +9,15 @@
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=(), payment=(), usb=()" }
+      ]
+    },
+    {
       "source": "/",
       "headers": [
         { "key": "Link", "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </llms.txt>; rel=\"service-doc\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" },

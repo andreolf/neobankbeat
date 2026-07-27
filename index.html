@@ -6,7 +6,7 @@
 <title>neobankbeat · 368 neobanks compared — traditional, hybrid &amp; web3-native</title>
 <meta name="description" content="Open-source directory of 368 verified-active neobanks. Compare custody, licences, cards, yield, stablecoins and regulation side by side.">
 <link rel="canonical" href="https://www.neobankbeat.com/">
-<link rel="preload" as="script" href="/app.js?v=b94c19feea">
+<link rel="preload" as="script" href="/app.js?v=1e083da3e6">
 <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown version for agents">
 <meta name="theme-color" content="#0A0A10">
 <meta name="color-scheme" content="dark light">
@@ -43,7 +43,7 @@
 <style>
 :root{
   --bg:#0A0A10; --panel:#12121A; --panel2:#171722; --line:#23232F;
-  --text:#EDEDF2; --muted:#8A8A9A; --dim:#5A5A68;
+  --text:#EDEDF2; --muted:#9E9EAE; --dim:#828292;
   --t:#89B0FF; --h:#D075FF; --w:#BAF24A; --accent:#FF5C16;
   --t-bg:rgba(137,176,255,.12); --h-bg:rgba(208,117,255,.12); --w-bg:rgba(186,242,74,.12);
   --disp:'Space Grotesk',system-ui,-apple-system,sans-serif;
@@ -52,7 +52,7 @@
 }
 body.bw{
   --bg:#FFFFFF; --panel:#FFFFFF; --panel2:#F2F2F2; --line:#111111;
-  --text:#111111; --muted:#555555; --dim:#8A8A8A;
+  --text:#111111; --muted:#555555; --dim:#6B6B6B;
   --t:#111111; --h:#5A5A5A; --w:#9C9C9C; --accent:#111111;
   --t-bg:rgba(17,17,17,.07); --h-bg:rgba(90,90,90,.10); --w-bg:rgba(156,156,156,.14);
   --logo-filter:grayscale(1) contrast(1.05);
@@ -423,6 +423,9 @@ body.bw .mi-item{background:#fff}
 .dd-opt{font-family:var(--mono);font-size:12px;color:var(--muted);padding:8px 11px;border-radius:7px;cursor:pointer;display:flex;gap:9px;align-items:center}
 .dd-opt:hover{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--text)}
 .dd-opt.sel{color:var(--text);background:var(--panel)}
+/* keyboard cursor, distinct from the selected value: one is where you are, the
+   other is what is currently applied, and they are usually different rows */
+.dd-opt.active{background:color-mix(in srgb,var(--accent) 22%,transparent);color:var(--text);outline:1px solid var(--accent);outline-offset:-1px}
 .dd-opt.sel::before{content:"";flex:none;width:3px;height:13px;background:var(--accent);border-radius:2px}
 .dd-menu::-webkit-scrollbar{width:8px}
 .dd-menu::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
@@ -623,16 +626,18 @@ body.on-map .minimap{display:none}
   </div>
 </header>
 
+<main id="main">
+
 <section class="hero">
   <div class="eyebrow">independent directory · traditional + hybrid + web3-native + niche</div>
   <h1>who watches the <em>neobanks</em>?</h1>
   <p class="sub">Every neobank in one place — from Chime, Nubank and Kaspi to Gnosis Pay, women-first banks and agent wallets. Compare custody, cards, yield, stablecoins, audience and geography, side by side.</p>
   <div class="statrow">
     <div class="stat"><div class="n" id="st-total">368</div><div class="l">neobanks tracked</div></div>
-    <div class="stat t"><div class="n" id="st-t">256</div><div class="l">traditional</div></div>
-    <div class="stat h"><div class="n" id="st-h">54</div><div class="l">hybrid crypto</div></div>
-    <div class="stat w"><div class="n" id="st-w">47</div><div class="l">web3-native</div></div>
-    <div class="stat"><div class="n" id="st-n">117</div><div class="l">niche audiences</div></div>
+    <div class="stat t"><div class="n" id="st-t">254</div><div class="l">traditional</div></div>
+    <div class="stat h"><div class="n" id="st-h">58</div><div class="l">hybrid crypto</div></div>
+    <div class="stat w"><div class="n" id="st-w">56</div><div class="l">web3-native</div></div>
+    <div class="stat"><div class="n" id="st-n">122</div><div class="l">niche audiences</div></div>
   </div>
   <noscript>
     <p class="sub" style="margin-top:20px">This directory renders with JavaScript. Without it, you can still get everything: the <a href="/data/">dataset page</a> with the full field dictionary, the machine-readable data at <a href="/data.json">/data.json</a>, an agent guide at <a href="/llms.txt">/llms.txt</a>, and the open-source data on <a href="https://github.com/andreolf/neobankbeat">GitHub</a>.</p>
@@ -681,8 +686,8 @@ body.on-map .minimap{display:none}
   <p style="font-family:var(--mono);font-size:11px;color:var(--dim);margin:10px 0 0">or start from a ready-made cut — <a href="/browse/" style="color:var(--accent)">browse by licence, KYC, region and audience →</a></p>
 </section>
 
-<div class="count" id="count"></div>
-<main class="grid" id="grid"></main>
+<div class="count" id="count" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="grid" id="grid"></div>
 
 <div class="tray" id="tray">
   <span class="tl">compare</span>
@@ -761,6 +766,8 @@ body.on-map .minimap{display:none}
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="fgrid">
     <nav class="fcol" aria-label="Explore">
@@ -818,6 +825,6 @@ body.on-map .minimap{display:none}
   </div>
 </footer>
 
-<script src="/app.js?v=b94c19feea"></script>
+<script src="/app.js?v=1e083da3e6"></script>
 </body>
 </html>

@@ -30,8 +30,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Who really runs the neobanks? The BaaS rails behind the apps","description":"Only 127 of 368 tracked neobanks hold their own bank licence; 77 run on a partner bank and most don't disclose which. The Banking-as-a-Service census from the open neobankbeat dataset.","datePublished":"2026-07-23","dateModified":"2026-07-23","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/who-really-runs-the-neobanks.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"blog","item":"https://www.neobankbeat.com/blog/"},{"@type":"ListItem","position":3,"name":"Who really runs the neobanks? The BaaS rails behind the apps","item":"https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/"}]}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -48,7 +54,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <div class="eyebrow">the rails</div>
   <h1>Who <em>really</em> runs the neobanks?</h1>
@@ -59,7 +65,7 @@
 
   <h2>The licence census</h2>
   <table>
-    <tr><th>How it's regulated</th><th>Count</th><th>What it actually means</th></tr>
+    <tr><th scope="col">How it's regulated</th><th scope="col">Count</th><th scope="col">What it actually means</th></tr>
     <tr><td>Licensed bank</td><td><b>127</b></td><td>Holds its own banking charter — deposits on its own balance sheet, insured in its own name</td></tr>
     <tr><td>Partner-bank model (BaaS)</td><td><b>77</b></td><td>A front end on a licensed sponsor bank; your money and insurance live at the sponsor, not the app</td></tr>
     <tr><td>Self-custodial software</td><td><b>51</b></td><td>No licence because it holds no money — you hold the keys, it's an interface (web3 wallets)</td></tr>
@@ -77,7 +83,7 @@
   <h2>Everyone's renting from the same landlords</h2>
   <p>Here's the part the app never tells you: the sponsor banks are a short list. Among the US neobanks that disclose a partner, the same names come up again and again — and these are only the ones that <em>say</em> so out loud:</p>
   <table>
-    <tr><th>Sponsor / rail</th><th>Disclosed neobanks on it*</th></tr>
+    <tr><th scope="col">Sponsor / rail</th><th scope="col">Disclosed neobanks on it*</th></tr>
     <tr><td>Coastal Community Bank</td><td>6</td></tr>
     <tr><td>Evolve Bank &amp; Trust</td><td>5</td></tr>
     <tr><td>Column</td><td>4</td></tr>

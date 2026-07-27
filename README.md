@@ -6,7 +6,7 @@
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
 [![neobanks tracked](https://img.shields.io/badge/neobanks-368-89B0FF)](https://www.neobankbeat.com)
-[![tests](https://img.shields.io/badge/tests-167%20passing-BAF24A)](tests/flowtest.js)
+[![tests](https://img.shields.io/badge/tests-281%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
@@ -128,7 +128,7 @@ browse/             index of every ready-made cut of the dataset
 regulation/ kyc/ regions/ for/   24 generated topic hubs (one licence, KYC posture,
                     region or audience each — the filters, as linkable pages)
 tests/
-├── flowtest.js     230 assertions across 31 user flows (JSDOM)
+├── flowtest.js     281 assertion sites across 39 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from app.js
 ├── build-app-js.mjs keeps app.js and index.html's ?v= hash in step (--check)
 ├── homepage-js.mjs  the one place that knows where the homepage's JS lives
@@ -138,8 +138,10 @@ tests/
 ├── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
 ├── build-agents.mjs generates openapi.json and .well-known/* from data.json
 ├── footer.mjs      the site footer, defined once
-├── meta.mjs        the <head> description length rule, defined once
+├── meta.mjs        the <head> description and breadcrumb rules, defined once
 ├── sync-footers.mjs pushes the nav + footer into hand-written HTML (--check for drift)
+├── sync-crumbs.mjs gives hand-written pages a BreadcrumbList (--check for gaps)
+├── sync-tables.mjs scopes every table header cell (--check for gaps)
 └── sync-counts.mjs  fixes dataset totals restated in prose (--check for drift)
 ```
 
@@ -152,7 +154,7 @@ the blog and the other hand-written pages have no build step, so
 each page had marked as current. Add a link there and nowhere else, then run:
 
 ```sh
-node tests/build-pages.mjs && node tests/build-changelog.mjs && node tests/sync-footers.mjs
+node tests/build-pages.mjs && node tests/build-changelog.mjs && node tests/sync-footers.mjs && node tests/sync-crumbs.mjs && node tests/sync-tables.mjs
 ```
 
 That is one command for 1,642 pages, which is why `/browse/` could be added to
@@ -216,7 +218,7 @@ or PR directly — see [CONTRIBUTING.md](CONTRIBUTING.md) for the row schema. be
 
 ```bash
 cd tests && npm install
-node flowtest.js       # 230 assertions must pass
+node flowtest.js       # every assertion must pass
 node export-data.js    # regenerate data.json, commit it with your change
 node build-pages.mjs   # regenerate /n/, /vs/ and sitemap.xml
 ```

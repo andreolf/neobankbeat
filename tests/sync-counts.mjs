@@ -33,6 +33,7 @@ const count = fn => E.filter(fn).length;
 const tally = k => E.reduce((a, e) => (a[e[k]] = (a[e[k]] || 0) + 1, a), {});
 const reg = tally('regulation_type'), cat = tally('category'), aud = tally('audience');
 const faqHtml = fs.readFileSync(p('faq/index.html'), 'utf8');
+const flowtest = fs.readFileSync(p('tests/flowtest.js'), 'utf8');
 const regions = E.reduce((a, e) => ((e.active_regions || []).forEach(r => a[r] = (a[r] || 0) + 1), a), {});
 
 const S = {
@@ -43,6 +44,7 @@ const S = {
   whoOwns: dirs('n').filter(s => fs.existsSync(p(`n/${s}/who-owns/index.html`))).length,
   alternatives: dirs('n').filter(s => fs.existsSync(p(`n/${s}/alternatives/index.html`))).length,
   investors: dirs('investors').length,
+  entitiesWithInvestors: count(e => (e.investors || []).length),
   infra: dirs('infra').length,
   /* /browse/ is the generated index of every hub, so it is the one place that
      knows how many there are. Listing the families here instead let two new ones
@@ -59,12 +61,20 @@ const S = {
   partnerBank: reg['Partner-bank model'],
   smb: aud['SMB & startups'], freelancers: aud['freelancers & creators'],
   niche: count(e => e.audience && e.audience !== 'general'),
+  underbanked: count(e => e.audience === 'underbanked'),
   stablecoins: count(e => e.stablecoins),
   ai: count(e => e.ai),
   noKyc: count(e => e.kyc === 'No'),
   verifiedLinks: count(e => e.terms_url && e.privacy_url),
   xHandles: count(e => e.x_handle),
   africa: regions.Africa, asia: regions.Asia,
+  /* The suite counts itself. Three places quoted its size and all three were
+     stale at once — a badge saying 167, prose saying 230, reality 246.
+     This counts assertion sites in the file, which is under-counts the run,
+     because some ok() calls sit in loops. So the README quotes this number as
+     the size of the suite and never as the figure the run prints. */
+  assertions: (flowtest.match(/\bok\(/g) || []).length,
+  flows: (flowtest.match(/^console\.log\('— flow \d+:/gm) || []).length,
 };
 
 /* as-of month, from the last commit that touched data.json */
@@ -79,7 +89,15 @@ const asOfMonth = dataDate
   : null;
 
 /* ═══ rules: [before, number, after] — only the middle group is rewritten ═══ */
-const n = (before, want, after) => ({ re: new RegExp(`(${before})(\\d+)(${after})`, 'g'), want });
+/* A rule whose `want` is a typo'd key writes the literal string "undefined" into
+   published prose, which is worse than the drift it was meant to fix. Refuse. */
+const n = (before, want, after) => {
+  if (!Number.isFinite(want)) {
+    console.error(`✗ rule "${before}<N>${after}" has a non-numeric replacement (${want}) — check the S.* key`);
+    process.exit(1);
+  }
+  return { re: new RegExp(`(${before})(\\d+)(${after})`, 'g'), want };
+};
 const RULES = {
   'llms.txt': [
     n('directory of ', S.entities, ' verified-active neobanks'),
@@ -97,6 +115,11 @@ const RULES = {
     n('infra/\\): the ', S.infra, ' providers'),
   ],
   'AGENTS.md': [n('directory of ', S.entities, ' verified-active neobanks')],
+  'README.md': [
+    n('badge/tests-', S.assertions, '%20passing'),
+    n('flowtest\\.js     ', S.assertions, ' assertion sites across '),
+    n(' assertion sites across ', S.flows, ' user flows'),
+  ],
   'faq/index.html': [
     n('Neobank FAQ — ', S.faq, ' honest answers'),
     n('<em>FAQ</em> — ', S.faq, ' honest answers'),
@@ -131,15 +154,50 @@ const RULES = {
   'index.html': [
     n('faq · ', S.faq, ' honest answers'),
     n('directory of ', S.entities, ' verified-active neobanks'),
+    /* app.js overwrites the hero counters on load, so these five were only ever
+       seen by a crawler that does not run JS — and drifted unnoticed to
+       256/54/47/117 while the data said 254/58/56/122. The raw HTML is what a
+       non-executing crawler indexes, so it has to be right too. */
+    n('id="st-total">', S.entities, '<'),
+    n('id="st-t">', S.traditional, '<'),
+    n('id="st-h">', S.hybrid, '<'),
+    n('id="st-w">', S.web3, '<'),
+    n('id="st-n">', S.niche, '<'),
   ],
   /* report/index.html is deliberately excluded: it describes a published dated
      edition, whose figures are pinned to report/<slug>/data-snapshot.json and
      must keep matching the PDF readers already downloaded. */
-  'glossary/index.html': [n('<b>', S.glossary, ' terms</b>')],
+  'glossary/index.html': [
+    n('<b>', S.glossary, ' terms</b>'),
+    /* the definition said 52, which is the self-custodial subset, not the
+       category — the category is what the sentence claims to count */
+    n('', S.web3, ' tracked in the <a href="/">directory</a>'),
+    n('', S.underbanked, ' tracked neobanks name the underbanked'),
+  ],
   /* the AI post's headline ratio is the one dated-post figure worth keeping live:
      the tagged count still matches the dataset, so letting its complement drift
      would make the post contradict itself rather than merely age */
   'blog/ai-neobanks/index.html': [n('entities carry it; ', S.entities - S.ai, ' don')],
+  /* These three posts carry no as-of note because their headline figure is a
+     live count of a slice, not a snapshot of the dataset total — so ageing them
+     with a note would be wrong; keeping the digits current is the honest option.
+     Each contradicted the landing page it links to. */
+  'blog/who-funds-the-neobanks/index.html': [
+    n('The ', S.investors, ' investors behind'),          // title, og, ld, crumb
+    n('<em>', S.investors, ' investors</em>'),            // h1
+    n('', S.investors, ' venture and strategic investors'),
+    n('the ', S.entitiesWithInvestors, ' neobanks they backed'),
+    n('<b>', S.entitiesWithInvestors, ' tracked neobanks</b> whose'),
+    n('all ', S.investors, ' firms with portfolios'),
+    n('All ', S.investors, ' firms now have'),
+    n('all ', S.investors, ' \u2192'),
+  ],
+  'blog/best-neobanks-freelancers-smb-2026/index.html': [
+    n('', S.smb + S.freelancers, ' tracked neobanks are built for freelanc'),
+    n('>', S.smb, ' SMB-focused'),
+    n('>', S.freelancers, ' freelancer-focused'),
+  ],
+  'blog/neobank-ecosystem-map/index.html': [n('>', S.niche, ' niche banks')],
 };
 const DATE_RULES = asOfMonth ? {
   'llms.txt': [{ re: /(last full verification: )([A-Z][a-z]+ \d{4})/g, want: asOfMonth }],

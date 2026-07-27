@@ -34,6 +34,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">skip to content</a>
 <header>
   <div class="hwrap">
     <a href="/" class="logo">neobank<span class="dot">beat</span></a>
@@ -50,7 +51,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/vs/" style="color:var(--accent)">comparisons</a></div>
@@ -61,7 +62,7 @@
   <p>Ualá: AR/MX/CO; added crypto + dollar features.</p>
   <h2>Side by side</h2>
   <table>
-    <tr><th></th><th><a href="/n/nubank/">Nubank</a></th><th><a href="/n/uala/">Ualá</a></th></tr>
+    <tr><th scope="col"></th><th scope="col"><a href="/n/nubank/">Nubank</a></th><th scope="col"><a href="/n/uala/">Ualá</a></th></tr>
     <tr><td>Category</td><td>traditional</td><td>traditional</td></tr>
     <tr><td>Audience</td><td>general</td><td>general</td></tr>
     <tr><td>HQ</td><td style="color:var(--text)">São Paulo, BR</td><td style="color:var(--text)">Buenos Aires, AR</td></tr>

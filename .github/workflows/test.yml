@@ -1,0 +1,58 @@
+name: flowtest
+
+# The suite guards footer drift, prose-count drift, broken internal links, meta
+# length, breadcrumb coverage and the generated-page content floor — but until
+# now it only ran when someone remembered to run it locally. Six cron workflows
+# regenerate pages and push straight to main, so a data change could break
+# output with nothing to catch it.
+#
+# Runs on push and PR. Also runs after the cron jobs land their commits, since
+# those are exactly the pushes no human reviewed.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: flowtest-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flowtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+
+      - name: install jsdom
+        working-directory: tests
+        run: npm ci
+
+      - name: flowtest
+        run: node tests/flowtest.js
+
+      # The suite asserts the committed output matches its source. These three
+      # check the reverse: that regenerating from source reproduces what is
+      # committed. A drifted build is invisible to a test that only reads output.
+      - name: generated output is reproducible from source
+        run: |
+          node tests/build-pages.mjs > /dev/null
+          node tests/build-changelog.mjs > /dev/null
+          node tests/sync-tables.mjs > /dev/null
+          if ! git diff --quiet; then
+            echo "::error::committed pages differ from a fresh build — run the builders and commit the result"
+            git diff --stat
+            exit 1
+          fi
+          echo "committed output matches a fresh build"

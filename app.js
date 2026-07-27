@@ -1821,34 +1821,88 @@ render();
 
 /* ═══ v7 LAYER · custom dropdowns + founder chips ═══ */
 
-/* ── custom dropdowns replacing native selects ── */
+/* ── custom dropdowns replacing native selects ──
+   The native <select> is display:none, so it is not a fallback: whatever this
+   builds is the only way to reach the filters. It was mouse-only — a real
+   <button> to open, but options were <div>s with click handlers and no tabindex,
+   so a keyboard user could open a menu and then not choose from it.
+
+   Focus stays on the button and aria-activedescendant names the active option,
+   which is the ARIA listbox pattern that avoids moving focus into the popup. */
 const DDS=[];
+let DD_SEQ=0;
 (function buildDropdowns(){
   document.querySelectorAll('.filterrow select').forEach(sel=>{
+    const uid='dd'+(++DD_SEQ);
     const dd=document.createElement('div');dd.className='dd';
-    dd.innerHTML='<button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"><span class="lbl"></span></button><div class="dd-menu" role="listbox"></div>';
+    dd.innerHTML='<button type="button" class="dd-btn" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="'+uid+'"><span class="lbl"></span></button><div class="dd-menu" role="listbox" id="'+uid+'"></div>';
     sel.parentNode.insertBefore(dd,sel.nextSibling);
     const btn=dd.querySelector('.dd-btn'),lbl=dd.querySelector('.lbl'),menu=dd.querySelector('.dd-menu');
+    /* the <select> carries the accessible name; move it to the button that
+       replaces it, or the control announces as unlabelled */
+    const named=sel.getAttribute('aria-label')||(sel.id&&(document.querySelector('label[for="'+sel.id+'"]')||{}).textContent)||'';
+    if(named)btn.setAttribute('aria-label',named.trim());
+    let active=-1;
+    function opts(){return [...menu.querySelectorAll('.dd-opt')]}
     function rebuild(){
-      menu.innerHTML=[...sel.options].map((o,i)=>'<div class="dd-opt'+(i===sel.selectedIndex?" sel":"")+'" role="option" data-i="'+i+'">'+o.textContent+'</div>').join("");
-      menu.querySelectorAll('.dd-opt').forEach(op=>op.addEventListener('click',()=>{
-        sel.selectedIndex=+op.dataset.i;
-        sel.dispatchEvent(new Event('change',{bubbles:true}));
-        close();sync();
-      }));
+      menu.innerHTML=[...sel.options].map((o,i)=>'<div class="dd-opt'+(i===sel.selectedIndex?" sel":"")+'" role="option" id="'+uid+'-o'+i+'" aria-selected="'+(i===sel.selectedIndex)+'" data-i="'+i+'">'+o.textContent+'</div>').join("");
+      opts().forEach(op=>op.addEventListener('click',()=>pick(+op.dataset.i)));
+    }
+    function pick(i){
+      sel.selectedIndex=i;
+      sel.dispatchEvent(new Event('change',{bubbles:true}));
+      close();sync();btn.focus();
     }
     function sync(){
       lbl.textContent=sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].textContent:"";
-      menu.querySelectorAll('.dd-opt').forEach((op,i)=>op.classList.toggle('sel',i===sel.selectedIndex));
+      opts().forEach((op,i)=>{
+        const on=i===sel.selectedIndex;
+        op.classList.toggle('sel',on);op.setAttribute('aria-selected',String(on));
+      });
     }
-    function close(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+    function setActive(i){
+      const list=opts();if(!list.length)return;
+      active=Math.max(0,Math.min(list.length-1,i));
+      list.forEach((op,j)=>op.classList.toggle('active',j===active));
+      btn.setAttribute('aria-activedescendant',list[active].id);
+      list[active].scrollIntoView({block:'nearest'});
+    }
+    function close(){
+      dd.classList.remove('open');btn.setAttribute('aria-expanded','false');
+      btn.removeAttribute('aria-activedescendant');
+      opts().forEach(op=>op.classList.remove('active'));active=-1;
+    }
     function open(){
       DDS.forEach(o=>o.close());
       dd.classList.add('open');btn.setAttribute('aria-expanded','true');
       const r=btn.getBoundingClientRect();
       dd.classList.toggle('right',r.left>window.innerWidth*0.55);
+      setActive(sel.selectedIndex);
     }
     btn.addEventListener('click',e=>{e.stopPropagation();dd.classList.contains('open')?close():open()});
+    btn.addEventListener('keydown',e=>{
+      const isOpen=dd.classList.contains('open');
+      switch(e.key){
+        case 'ArrowDown': e.preventDefault(); isOpen?setActive(active+1):open(); break;
+        case 'ArrowUp':   e.preventDefault(); isOpen?setActive(active-1):open(); break;
+        case 'Home':      if(isOpen){e.preventDefault();setActive(0)} break;
+        case 'End':       if(isOpen){e.preventDefault();setActive(opts().length-1)} break;
+        case 'Enter':
+        case ' ':         e.preventDefault(); isOpen&&active>=0?pick(active):open(); break;
+        case 'Escape':    if(isOpen){e.preventDefault();close()} break;
+        case 'Tab':       close(); break;
+        default:
+          /* type a letter to jump, the one habit carried over from <select> */
+          if(e.key.length===1&&/\S/.test(e.key)){
+            if(!isOpen)open();
+            const list=opts(),k=e.key.toLowerCase();
+            const from=active+1;
+            const hit=list.slice(from).findIndex(o=>o.textContent.trim().toLowerCase().startsWith(k));
+            const idx=hit>=0?from+hit:list.findIndex(o=>o.textContent.trim().toLowerCase().startsWith(k));
+            if(idx>=0)setActive(idx);
+          }
+      }
+    });
     rebuild();sync();
     DDS.push({sel,sync,close,rebuild});
   });
@@ -2439,7 +2493,10 @@ render();
   const badge=(k,g)=>(k==='pdf'?'<span class="rbadge pdf">direct pdf</span>':'<span class="rbadge">landing</span>')+(g?'<span class="rbadge gated">email-gated</span>':'');
   const repHTML=REPORTS.map(([t,pub,yr,d,u,k,g])=>'<div class="rep"><div class="rt"><a href="'+u+'" target="_blank" rel="noopener">'+esc(t)+'</a>'+badge(k,g)+'</div><div class="rm">'+esc(pub)+' · '+esc(yr)+'</div><div class="rd">'+esc(d)+'</div><div class="ru"><a href="'+u+'" target="_blank" rel="noopener">'+esc(u)+'</a></div></div>').join("");
   const resHTML=RES.map(([n,u])=>'<div class="lres"><div class="ln2">'+esc(n)+'</div><div class="lu"><a href="'+u+'" target="_blank" rel="noopener">'+esc(u)+'</a></div></div>').join("");
-  document.querySelector('footer').insertAdjacentHTML('beforebegin',
+  /* beforebegin on the footer put this outside <main>, leaving it the one content
+     section in no landmark; appending to main lands it in the same visual spot */
+  (document.getElementById('main')||document.querySelector('footer')).insertAdjacentHTML(
+    document.getElementById('main')?'beforeend':'beforebegin',
     '<section class="library" id="library"><h2>library · best neobank reports &amp; resources</h2><div class="lsub">the reports worth your weekend and the feeds worth your week · every url shown in full, verified july 2026 · gated = free but asks for an email</div>'+
     '<div class="libgrid"><div><div class="libh3">reports — neobank-dedicated first, then fintech, stablecoins, inclusion</div>'+repHTML+'</div>'+
     '<div><div class="libh3">the ongoing reading + data stack</div>'+resHTML+'</div></div></section>');
@@ -2800,7 +2857,7 @@ render();
     const cmp=new URLSearchParams(location.search).get('cmp')||'';
     const names=cmp.split(',').filter(Boolean).join(' vs ');
     nbevt('compare_share',{cmp:cmp,to:'x'});
-    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent((names?names+' — ':'')+'side by side on neobankbeat:')+'&url='+encodeURIComponent(location.href)+'&via=neobankbeat','_blank');
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent((names?names+': ':'')+'side by side on neobankbeat')+'&url='+encodeURIComponent(location.href)+'&via=neobankbeat','_blank');
   });
 })();
 
@@ -2842,7 +2899,7 @@ document.addEventListener('click',e=>{
     const acts=document.querySelector('#dwrap .pactions');
     if(acts&&!acts.querySelector('.ppage'))acts.insertAdjacentHTML('beforeend','<a class="pghost ppage" href="'+url+'">full page →</a>');
     if(acts&&!acts.querySelector('.pxshare')){
-      acts.insertAdjacentHTML('beforeend','<a class="pghost pxshare" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(name+' on neobankbeat — custody, licence, cards & facts:')+'&url='+encodeURIComponent('https://www.neobankbeat.com'+url)+'&via=neobankbeat" target="_blank" rel="noopener">share on 𝕏</a>');
+      acts.insertAdjacentHTML('beforeend','<a class="pghost pxshare" href="https://twitter.com/intent/tweet?text='+encodeURIComponent(name+' on neobankbeat: custody, licence, cards & facts')+'&url='+encodeURIComponent('https://www.neobankbeat.com'+url)+'&via=neobankbeat" target="_blank" rel="noopener">share on 𝕏</a>');
       acts.querySelector('.pxshare').addEventListener('click',()=>nbevt('profile_share',{name:name}));
     }
   };
@@ -2885,4 +2942,73 @@ window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}c
        const e=d.entities.find(x=>x.name.toLowerCase()===q)||d.entities.find(x=>x.name.toLowerCase().includes(q));
        return txt(e?{found:true,entity:e}:{found:false,hint:'no entity matched "'+name+'" — try search_neobanks'})}}
   ]});
+})();
+
+/* ═══ modal focus containment ═══
+   Both overlays already carried role="dialog" aria-modal="true", but neither
+   contained focus: Tab walked straight out into the page behind, which for a
+   screen-reader or keyboard user means reading content the dialog is covering
+   with no way to tell they had left. The compare overlay also never gave focus
+   back to whatever opened it.
+
+   Both are shown by adding .show, from several call sites, so this observes the
+   class instead of wrapping each one — every present and future open/close path
+   is covered without touching them. */
+(function modalFocus(){
+  const SEL='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const dialogs=['overlay','detail'];
+  const opener=new WeakMap();
+  const isOpen=el=>el&&el.classList.contains('show');
+  /* offsetParent is the usual visibility test and the wrong one here: it is null
+     for a position:fixed element, which both overlays are. checkVisibility is
+     the direct question, and where it is unavailable every control inside an
+     open dialog is visible anyway, so assuming so is safe. */
+  const focusables=el=>[...el.querySelectorAll(SEL)].filter(n=>
+    !n.hasAttribute('hidden')&&(typeof n.checkVisibility==='function'?n.checkVisibility():true));
+  const openDialog=()=>dialogs.map(id=>document.getElementById(id)).find(isOpen);
+  const inAnyDialog=n=>dialogs.some(id=>{const el=document.getElementById(id);return el&&el.contains(n)});
+
+  /* The observer fires a microtask after .show lands, and the open handlers move
+     focus into the dialog synchronously — so reading activeElement from inside
+     the observer captures a control in the dialog, not the thing that opened it.
+     Tracking the last focus outside any dialog sidesteps the ordering entirely. */
+  let lastOutside=null;
+  document.addEventListener('focusin',e=>{ if(!inAnyDialog(e.target))lastOutside=e.target },true);
+
+  dialogs.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    /* a hidden dialog should not read as a modal that is merely empty */
+    if(!isOpen(el))el.setAttribute('aria-hidden','true');
+    new MutationObserver(()=>{
+      if(isOpen(el)){
+        el.removeAttribute('aria-hidden');
+        if(!opener.has(el))opener.set(el,lastOutside);
+        if(!el.contains(document.activeElement)){
+          const f=focusables(el);
+          if(f.length)f[0].focus();
+        }
+      }else{
+        el.setAttribute('aria-hidden','true');
+        const back=opener.get(el);
+        opener.delete(el);
+        /* only pull focus back if it is still stranded inside the closed dialog */
+        if(back&&(el.contains(document.activeElement)||document.activeElement===document.body)){
+          try{back.focus()}catch(_){}
+        }
+      }
+    }).observe(el,{attributes:true,attributeFilter:['class']});
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Tab')return;
+    const el=openDialog();
+    if(!el)return;
+    const f=focusables(el);
+    if(!f.length){e.preventDefault();return}
+    const first=f[0],last=f[f.length-1];
+    if(!el.contains(document.activeElement)){e.preventDefault();first.focus();return}
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  },true);
 })();
