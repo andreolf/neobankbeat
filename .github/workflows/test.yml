@@ -27,7 +27,13 @@ jobs:
   flowtest:
     runs-on: ubuntu-latest
     steps:
+      # Full history, not the default depth-1: the builders date pages from git
+      # (DATA_MODIFIED, gitModified) and fall back to today when the log is empty,
+      # so a shallow clone silently restamps every dateModified and lastmod on the
+      # site and the reproducibility check below fails on 566 files.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
