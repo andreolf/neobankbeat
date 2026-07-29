@@ -75,7 +75,10 @@ const CATCHIP = { 'traditional': ['t', 'traditional'], 'hybrid': ['h', 'hybrid']
 const catChip = e => { const [cls, label] = CATCHIP[e.category]; return `<span class="chip ${cls}">${label}</span>`; };
 const users = e => e.reported_users ? `${esc(e.reported_users.value_millions)}M ${esc(e.reported_users.metric)}${e.reported_users.as_of ? ' (' + esc(e.reported_users.as_of) + ')' : ''}` : null;
 
-const head = (title, desc, canonical, ldjson, ogImage) => `<!DOCTYPE html>
+const head = (title, desc, canonical, ldjson, ogImage, imageAlt) => {
+  const img = ogImage || BASE + '/og.png';
+  const alt = esc(imageAlt || clampDesc(desc));
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -89,12 +92,17 @@ const head = (title, desc, canonical, ldjson, ogImage) => `<!DOCTYPE html>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${ogImage || BASE + '/og.png'}">
+<meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="${alt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@neobankbeat">
-<meta name="twitter:image" content="${ogImage || BASE + '/og.png'}">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(clampDesc(desc))}">
+<meta name="twitter:image" content="${img}">
+<meta name="twitter:image:alt" content="${alt}">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -122,6 +130,7 @@ ${navHtml('/')}
   </div>
 </header>
 `;
+};
 
 /* BreadcrumbList for the collection landings, which previously shipped a bare
    CollectionPage while their own detail pages had a full 3-level trail */
@@ -723,7 +732,7 @@ for (const e of E) {
   };
   const pr = peers(e);
   const ogPath = ogIf('n', `${slug}.png`);
-  const html = head(title, desc, url, ld, ogPath) + `
+  const html = head(title, desc, url, ld, ogPath, `${e.name} — neobankbeat profile card`) + `
 <main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
@@ -1523,7 +1532,7 @@ ${body}
   <a class="backbtn" href="/infra/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
   <h1>${esc(name)}</h1>
-  <p class="meta"><b>${esc(v.type)}</b>${v.hq !== '—' ? ` · ${esc(v.hq)}` : ''} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
+  <p class="meta"><b>${esc(v.type)}</b>${v.hq !== '—' ? ` · ${esc(v.hq)}` : ''}${v.status ? ` · <span style="color:var(--accent)">${esc(v.status)}</span>` : ''} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
   <p>${esc(v.about)}</p>
   ${clients.length ? `<h2>Tracked neobanks on its rails</h2>
 ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented client among the tracked neobanks yet — client names are added only when a relationship is disclosed. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>`}
@@ -1634,10 +1643,12 @@ const whoOwnsSlugs = [], altSlugs = [];
       }
       safeAns = safeAns || `How your money is protected depends on ${e.name}'s license type — see the license detail on its profile and confirm the scheme that applies in your country.`;
     }
+    const acqMatch = e.funding && e.funding.match(/Acquired by [^;]+/i);
+    const corpLine = acqMatch ? `${e.name} was ${acqMatch[0].replace(/^Acquired/i, 'acquired')}; the wallet continues to operate.` : '';
     const backers = (e.investors || []).slice(0, 4).map(iv => iv.name);
     const backLine = backers.length ? `${e.name}'s most notable disclosed backers include ${nameList(backers)}.` : '';
     const foundLine = e.founders ? `${e.name} was founded by ${e.founders}${e.founded ? ` (${e.founded})` : ''}, headquartered in ${e.hq}.` : '';
-    const ownAnswer = [lead, backLine].filter(Boolean).join(' ');
+    const ownAnswer = [lead, corpLine, backLine].filter(Boolean).join(' ');
 
     /* ── who-owns page ── */
     {

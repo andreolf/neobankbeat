@@ -306,7 +306,7 @@
                               "object",
                               "null"
                             ],
-                            "description": "Self-reported scale, present on 22 of 368 entities. The metric is not comparable across companies — always cite metric and as_of alongside the number.",
+                            "description": "Self-reported scale, present on 23 of 368 entities. The metric is not comparable across companies — always cite metric and as_of alongside the number.",
                             "properties": {
                               "value_millions": {
                                 "type": "number"

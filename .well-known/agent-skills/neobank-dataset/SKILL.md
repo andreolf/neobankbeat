@@ -31,7 +31,7 @@ are excluded by design. All figures compiled from public filings and registers.
   constantly; never present them as guaranteed current rates.
 - `fx_markup`: foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer.
 - `null` means "not publicly verifiable" — the project never fabricates data.
-  Only 22 of 368 entities disclose user
+  Only 23 of 368 entities disclose user
   numbers, so never present a ranking by size as complete.
 - `reported_users` mixes metrics (customers, MAU, wallets, TPV) and periods;
   cite the `metric` and `as_of` alongside the number.

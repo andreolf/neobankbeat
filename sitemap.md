@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-27.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-29.
 
 ## Main
 
@@ -437,7 +437,7 @@
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
 
-## Comparisons (140)
+## Comparisons (141)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -508,6 +508,7 @@
 - [PicPay vs Banco Inter](https://www.neobankbeat.com/vs/picpay-vs-banco-inter/)
 - [Banco Inter vs PagBank](https://www.neobankbeat.com/vs/banco-inter-vs-pagbank/)
 - [PalmPay vs TymeBank](https://www.neobankbeat.com/vs/palmpay-vs-tymebank/)
+- [Phantom vs Zengo](https://www.neobankbeat.com/vs/phantom-vs-zengo/)
 - [Greenlight vs Copper](https://www.neobankbeat.com/vs/greenlight-vs-copper/)
 - [Greenlight vs Till Financial](https://www.neobankbeat.com/vs/greenlight-vs-till-financial/)
 - [Copper vs Till Financial](https://www.neobankbeat.com/vs/copper-vs-till-financial/)

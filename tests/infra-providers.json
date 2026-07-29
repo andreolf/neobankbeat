@@ -837,7 +837,8 @@
   "type": "crypto card infrastructure",
   "domain": "kulipa.xyz",
   "hq": "Paris, FR",
-  "about": "Paris-based stablecoin card issuer that connects self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powers the Ready (ex-Argent) and Solflare cards; 120,000+ cards issued since 2025.",
+  "status": "wind-down (Jul 2026)",
+  "about": "Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powered the Ready (ex-Argent) and Solflare cards (120,000+ issued since 2025). Winding down Jul 2026 after solvency issues; both card programs suspended. Self-custodial spend-at-POS meant wallet balances were unaffected.",
   "clients": [
    "Ready",
    "Solflare"

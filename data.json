@@ -10157,8 +10157,8 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Solana-native wallet with card.",
-   "license": "Self-custodial software; card via issuer partners",
+   "note": "Solana wallet; card paused Jul 2026 — issuer Kulipa wound down; funds stay in wallet.",
+   "license": "Self-custodial software; card via Kulipa (issuer wound down Jul 2026; replacement expected Aug 2026)",
    "terms_url": "https://solflare.com/terms",
    "privacy_url": "https://solflare.com/privacy",
    "x_handle": "solflare_wallet",
@@ -10347,10 +10347,11 @@
     "Asia",
     "Oceania"
    ],
-   "note": "MPC wallet, no seed phrase.",
+   "note": "MPC wallet, no seed phrase; acquired by eToro (Apr 2026).",
+   "story": "Self-custodial MPC wallet (no seed phrase); acquired by eToro Apr 2026, product continues independently.",
    "license": "MPC self-custody; no seed phrase",
    "founders": "Ouriel Ohayon + 3",
-   "funding": "~$24M raised",
+   "funding": "Acquired by eToro (Apr 2026, ~$70M reported); ~$24M raised",
    "terms_url": "https://zengo.com/terms-of-use/",
    "privacy_url": "https://zengo.com/privacy-policy/",
    "x_handle": "zengo",
@@ -10370,7 +10371,12 @@
      "name": "Samsung Next",
      "website": "https://samsungnext.com"
     }
-   ]
+   ],
+   "reported_users": {
+    "value_millions": 2,
+    "metric": "users",
+    "as_of": "2026"
+   }
   },
   {
    "name": "Payy",
@@ -10634,8 +10640,9 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Formerly Argent; smart-account onchain bank.",
+   "note": "Formerly Argent; card suspended Jul 2026 — issuer Kulipa wound down.",
    "story": "Argent pioneered smart-account wallets and social recovery; rebranded to Ready to become an onchain bank.",
+   "license": "Self-custodial software; card via Kulipa (non-EEA cut Jun 2026; issuer wound down Jul 2026)",
    "founders": "Itamar Lesuisse, Gerald Goldstein",
    "funding": "~$50M raised (as Argent)",
    "terms_url": "https://www.ready.co/terms",
