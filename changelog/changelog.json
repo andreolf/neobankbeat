@@ -1,7 +1,20 @@
 {
- "generated": "2026-07-27",
+ "generated": "2026-07-29",
  "total": 368,
  "entries": [
+  {
+   "date": "2026-07-29",
+   "summary": "Record Kulipa wind-down and refresh card-rail context for Ready and Solflare..",
+   "subject": "Record Kulipa wind-down and refresh card-rail context for Ready and Solflare.",
+   "total": 368,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Solflare",
+    "Zengo",
+    "Ready"
+   ]
+  },
   {
    "date": "2026-07-27",
    "summary": "Fix XPlace logo, standardize license spelling, and tidy footer..",
