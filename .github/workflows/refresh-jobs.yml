@@ -2,9 +2,10 @@ name: refresh jobs board
 
 on:
   schedule:
-    # Monday, Wednesday, Friday ~06:07 UTC — odd minute on purpose: top-of-hour
-    # slots are congested on GitHub and runs get delayed or dropped
-    - cron: '7 6 * * 1,3,5'
+    # Daily ~06:07 UTC — Mon/Wed/Fri alone left 3-day gaps when GitHub drops
+    # scheduled runs; daily is cheap (~20s, commit only on change) and keeps
+    # "refreshed" aligned with the newest ATS postings.
+    - cron: '7 6 * * *'
   workflow_dispatch: {}
 
 permissions:
