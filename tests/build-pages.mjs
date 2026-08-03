@@ -1534,6 +1534,13 @@ ${body}
   <h1>${esc(name)}</h1>
   <p class="meta"><b>${esc(v.type)}</b>${v.hq !== '—' ? ` · ${esc(v.hq)}` : ''}${v.status ? ` · <span style="color:var(--accent)">${esc(v.status)}</span>` : ''} · <a href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a></p>
   <p>${esc(v.about)}</p>
+  ${v.stats?.length ? `<div class="ivstats">${v.stats.map(s => `<div class="ivstat"><div class="n">${esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join('')}</div>` : ''}
+  ${v.timeline?.length ? `<h2>Timeline</h2>
+  <table>
+    <tr><th scope="col">When</th><th scope="col">Event</th></tr>
+    ${v.timeline.map(t => `<tr><td>${esc(t.when)}</td><td>${esc(t.event)}</td></tr>`).join('\n    ')}
+  </table>
+  <p style="font-size:12.5px;color:var(--dim)">Volume figures from <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a> (Ready + Solflare programs); other events from public reporting.</p>` : ''}
   ${clients.length ? `<h2>Tracked neobanks on its rails</h2>
 ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented client among the tracked neobanks yet — client names are added only when a relationship is disclosed. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>`}
   ${siblings.length ? `<h2>Other ${esc(TYPE_PLURAL[v.type] || v.type)}</h2>

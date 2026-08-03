@@ -838,7 +838,47 @@
   "domain": "kulipa.xyz",
   "hq": "Paris, FR",
   "status": "wind-down (Jul 2026)",
-  "about": "Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powered the Ready (ex-Argent) and Solflare cards (120,000+ issued since 2025). Winding down Jul 2026 after solvency issues; both card programs suspended. Self-custodial spend-at-POS meant wallet balances were unaffected.",
+  "about": "Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Issued 120,000+ cards across ~20 B2B clients (Ready and Solflare are the two we track). Wound down Jul 2026 after solvency issues; wallet balances were unaffected because spend-at-POS pulled from users' own keys.",
+  "stats": [
+   {
+    "value": "$68.4M",
+    "label": "lifetime card volume"
+   },
+   {
+    "value": "614k",
+    "label": "transactions"
+   },
+   {
+    "value": "$9.0M",
+    "label": "peak month (Jan 2026)"
+   },
+   {
+    "value": "21 mo",
+    "label": "first card to last"
+   }
+  ],
+  "timeline": [
+   {
+    "when": "Dec 2025",
+    "event": "Bank of Lithuania fines Monavate €270,000 and bans it from serving Kulipa; $6.2M round quietly closes the same month"
+   },
+   {
+    "when": "Jan 2026",
+    "event": "Peak month — $9.0M in card volume per Paymentscan (Ready + Solflare programs)"
+   },
+   {
+    "when": "Apr 2026",
+    "event": "Publicly announces $6.2M round, claims 70% month-over-month growth and US expansion — onchain volume already declining"
+   },
+   {
+    "when": "Jun 2026",
+    "event": "Retrenches to a Europe-only issuer; Ready cuts every user outside the EEA"
+   },
+   {
+    "when": "Jul 2026",
+    "event": "Cards stop working; Solflare confirms Kulipa is winding down (Jul 28). Partial month ends at $1.84M volume"
+   }
+  ],
   "clients": [
    "Ready",
    "Solflare"

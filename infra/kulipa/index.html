@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="neobankbeat">
 <meta property="og:title" content="Kulipa — crypto card infrastructure for neobanks · neobankbeat">
-<meta property="og:description" content="Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powered the Ready (ex-Argent) and Solflare cards (120,000+ issued since 2025). Winding down Jul 2026 after solvency issues; both card programs suspended. Self-custodial spend-at-POS meant wallet balances were unaffected. Tracked neobanks on its rails: Ready, Solflare.">
+<meta property="og:description" content="Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Issued 120,000+ cards across ~20 B2B clients (Ready and Solflare are the two we track). Wound down Jul 2026 after solvency issues; wallet balances were unaffected because spend-at-POS pulled from users' own keys. Tracked neobanks on its rails: Ready, Solflare.">
 <meta property="og:url" content="https://www.neobankbeat.com/infra/kulipa/">
 <meta property="og:image" content="https://www.neobankbeat.com/og/infra/kulipa.png">
 <meta property="og:image:width" content="1200">
@@ -35,7 +35,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Kulipa","url":"https://kulipa.xyz","description":"Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powered the Ready (ex-Argent) and Solflare cards (120,000+ issued since 2025). Winding down Jul 2026 after solvency issues; both card programs suspended. Self-custodial spend-at-POS meant wallet balances were unaffected."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"infra","item":"https://www.neobankbeat.com/infra/"},{"@type":"ListItem","position":3,"name":"Kulipa","item":"https://www.neobankbeat.com/infra/kulipa/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Kulipa","url":"https://kulipa.xyz","description":"Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Issued 120,000+ cards across ~20 B2B clients (Ready and Solflare are the two we track). Wound down Jul 2026 after solvency issues; wallet balances were unaffected because spend-at-POS pulled from users' own keys."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"infra","item":"https://www.neobankbeat.com/infra/"},{"@type":"ListItem","position":3,"name":"Kulipa","item":"https://www.neobankbeat.com/infra/kulipa/"}]}]}
 </script>
 <style>
 .ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
@@ -86,7 +86,18 @@
   <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
   <h1>Kulipa</h1>
   <p class="meta"><b>crypto card infrastructure</b> · Paris, FR · <span style="color:var(--accent)">wind-down (Jul 2026)</span> · <a href="https://kulipa.xyz" target="_blank" rel="noopener nofollow">kulipa.xyz ↗</a></p>
-  <p>Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Powered the Ready (ex-Argent) and Solflare cards (120,000+ issued since 2025). Winding down Jul 2026 after solvency issues; both card programs suspended. Self-custodial spend-at-POS meant wallet balances were unaffected.</p>
+  <p>Paris-based stablecoin card issuer that connected self-custody wallets to Visa/Mastercard via smart-contract session keys — never touching user funds. Issued 120,000+ cards across ~20 B2B clients (Ready and Solflare are the two we track). Wound down Jul 2026 after solvency issues; wallet balances were unaffected because spend-at-POS pulled from users' own keys.</p>
+  <div class="ivstats"><div class="ivstat"><div class="n">$68.4M</div><div class="l">lifetime card volume</div></div><div class="ivstat"><div class="n">614k</div><div class="l">transactions</div></div><div class="ivstat"><div class="n">$9.0M</div><div class="l">peak month (Jan 2026)</div></div><div class="ivstat"><div class="n">21 mo</div><div class="l">first card to last</div></div></div>
+  <h2>Timeline</h2>
+  <table>
+    <tr><th scope="col">When</th><th scope="col">Event</th></tr>
+    <tr><td>Dec 2025</td><td>Bank of Lithuania fines Monavate €270,000 and bans it from serving Kulipa; $6.2M round quietly closes the same month</td></tr>
+    <tr><td>Jan 2026</td><td>Peak month — $9.0M in card volume per Paymentscan (Ready + Solflare programs)</td></tr>
+    <tr><td>Apr 2026</td><td>Publicly announces $6.2M round, claims 70% month-over-month growth and US expansion — onchain volume already declining</td></tr>
+    <tr><td>Jun 2026</td><td>Retrenches to a Europe-only issuer; Ready cuts every user outside the EEA</td></tr>
+    <tr><td>Jul 2026</td><td>Cards stop working; Solflare confirms Kulipa is winding down (Jul 28). Partial month ends at $1.84M volume</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--dim)">Volume figures from <a href="https://paymentscan.xyz" target="_blank" rel="noopener">Paymentscan ↗</a> (Ready + Solflare programs); other events from public reporting.</p>
   <h2>Tracked neobanks on its rails</h2>
 <a class="ivrow" style="display:block;text-decoration:none" href="/n/ready/">
   <div class="ivhead">
