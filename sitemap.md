@@ -6,6 +6,7 @@
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
 - [Browse](https://www.neobankbeat.com/browse/) — 45 ready-made cuts of the dataset by license, KYC, region and audience
+- [Find your fit](https://www.neobankbeat.com/fit/) — six-question self-assessment ranked against the open dataset, with country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)

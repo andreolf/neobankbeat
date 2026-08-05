@@ -18,6 +18,7 @@ const anchor = ([href, label, external]) =>
 export const FOOTER_LINKS = [
   ["/", "directory"],
   ["/browse/", "browse"],
+  ["/fit/", "find your fit"],
   ["/vs/", "compare"],
   ["/blog/", "blog"],
   ["/faq/", "faq"],
@@ -60,6 +61,7 @@ export const FOOTER_RE = /<footer><div class="fwrap">[\s\S]*?<\/div><\/footer>/;
 export const NAV_LINKS = [
   ["/", "directory"],
   ["/browse/", "browse"],
+  ["/fit/", "find your fit"],
   ["/investors/", "investors"],
   ["/infra/", "infra"],
   ["/blog/", "blog"],

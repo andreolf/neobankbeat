@@ -337,6 +337,23 @@ def main():
         save(section_card(slug.replace("-", " "), title, sub, col), f"og/{slug}.png")
     print("section cards:", len(sections))
 
+    # ── /fit/ hub + country landers ──
+    fit_dir = ROOT / "fit"
+    if fit_dir.is_dir():
+        save(section_card("find your fit", "Which neobank fits you?", f"{n_all} verified profiles · six questions", ACCENT), "og/fit/hub.png")
+        n_fit = 1
+        for child in sorted(fit_dir.iterdir()):
+            if not child.is_dir() or not (child / "index.html").is_file():
+                continue
+            html = (child / "index.html").read_text()
+            h1m = re.search(r"<h1>(.*?)</h1>", html, re.S)
+            if not h1m:
+                continue
+            h1 = re.sub(r"<[^>]+>", "", h1m.group(1)).replace("&amp;", "&")
+            save(section_card("find your fit", h1, "ranked from verified open data · no affiliates", ACCENT), f"og/fit/{child.name}.png")
+            n_fit += 1
+        print("fit cards:", n_fit)
+
     # ── investors: /investors/<slug>/ ──
     inv = {}
     for e in ents:
