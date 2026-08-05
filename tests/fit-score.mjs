@@ -75,14 +75,50 @@ export function matchesCountry(e, country) {
   return countryMatchTier(e, country) > 0;
 }
 
+/** Map sliders and legacy fields into normalized answers. */
+export function parseAnswers(fd) {
+  const n = v => Math.max(0, Math.min(100, Number(v) || 0));
+  const custodyLevel = n(fd.get('custodyLevel') ?? 50);
+  const travelLevel = n(fd.get('travelLevel') ?? 25);
+  const cardLevel = n(fd.get('cardLevel') ?? 50);
+  const cryptoLevel = n(fd.get('cryptoLevel') ?? 10);
+  const profile = fd.get('profile') || 'personal';
+  return {
+    country: fd.get('country') || 'united-states',
+    profile,
+    use: profile === 'business' ? 'business' : 'personal',
+    needs: fd.getAll('need').slice(0, 4),
+    custodyLevel,
+    custody: custodyLevel < 25 ? 'custodial' : custodyLevel > 75 ? 'self' : 'any',
+    style: fd.get('style') || 'any',
+    travelLevel,
+    travel: travelLevel < 34 ? 'low' : travelLevel < 67 ? 'medium' : 'high',
+    cardLevel,
+    card: cardLevel < 34 ? 'no' : cardLevel > 66 ? 'yes' : 'any',
+    cryptoLevel,
+    crypto: cryptoLevel < 34 ? 'no' : cryptoLevel < 67 ? 'some' : 'core',
+    license: fd.get('license') || 'any',
+    kyc: fd.get('kyc') || 'any',
+  };
+}
+
 export function defaultAnswers(countrySlug = '') {
   return {
-    country: countrySlug,
+    country: countrySlug || 'united-states',
+    profile: 'personal',
     use: 'personal',
     needs: [],
+    custodyLevel: 50,
     custody: 'any',
+    style: 'any',
+    travelLevel: 25,
+    travel: 'low',
+    cardLevel: 50,
     card: 'any',
+    cryptoLevel: 10,
     crypto: 'no',
+    license: 'any',
+    kyc: 'any',
   };
 }
 
@@ -105,6 +141,27 @@ function needScore(e, need) {
   return s;
 }
 
+function profileScore(e, answers) {
+  const p = answers.profile || 'personal';
+  if (p === 'business') {
+    if (e.audience === 'SMB & startups') return 28;
+    if (e.audience === 'general') return 8;
+    return -4;
+  }
+  if (p === 'freelancer') {
+    if (e.audience === 'freelancers & creators') return 28;
+    if (e.audience === 'general') return 6;
+    return 0;
+  }
+  if (p === 'underbanked') {
+    if (e.audience === 'underbanked') return 28;
+    return 0;
+  }
+  if (e.audience === 'general') return 12;
+  if ((answers.needs || []).some(id => NEEDS_OPTIONS.find(o => o.id === id)?.audience === e.audience)) return 22;
+  return 0;
+}
+
 export function fitScore(e, answers, country) {
   const tier = country ? countryMatchTier(e, country) : 2;
   if (country && tier === 0) return 0;
@@ -115,43 +172,63 @@ export function fitScore(e, answers, country) {
   let s = 10;
   if (tier === 2) s += 50;
   else if (tier === 1) s += 22;
+  if (country && e.countries?.length > 1) s += 8 * jaccard(country.match, e.countries);
 
-  if (country && e.countries && e.countries.length > 1) s += 8 * jaccard(country.match, e.countries);
-
-  if (answers.use === 'business') {
-    if (e.audience === 'SMB & startups') s += 25;
-    else if (e.audience === 'general') s += 6;
-    else s -= 4;
-  } else if (e.audience === 'general') s += 10;
-  else if ((answers.needs || []).some(n => {
-    const opt = NEEDS_OPTIONS.find(o => o.id === n);
-    return opt?.audience === e.audience;
-  })) s += 25;
+  s += profileScore(e, answers);
 
   let needPts = 0;
   for (const id of answers.needs || []) {
     const opt = NEEDS_OPTIONS.find(o => o.id === id);
     if (opt) needPts += needScore(e, opt);
   }
-  s += Math.min(needPts, 45);
+  s += Math.min(needPts, 52);
 
-  if (answers.custody === 'custodial' && /custodial/i.test(e.custody) && !/self/i.test(e.custody)) s += 20;
-  else if (answers.custody === 'self' && /self-custod|mpc/i.test(e.custody)) s += 20;
-  else if (answers.custody === 'custodial' && /self-custod/i.test(e.custody)) s -= 8;
-  else if (answers.custody === 'self' && /custodial/i.test(e.custody) && !/mixed/i.test(e.custody)) s -= 8;
-
-  if (answers.crypto === 'no') {
-    if (e.category === 'traditional') s += 15;
-    else if (e.category === 'web3-native') s -= 10;
-  } else if (answers.crypto === 'some') {
-    if (e.category === 'hybrid') s += 15;
-    if (e.stablecoins) s += 10;
-  } else if (answers.crypto === 'core') {
-    if (e.category === 'web3-native') s += 25;
-    else if (e.category === 'hybrid') s += 15;
+  if (answers.custody === 'custodial' && /custodial/i.test(e.custody) && !/self/i.test(e.custody)) s += 22;
+  else if (answers.custody === 'self' && /self-custod|mpc/i.test(e.custody)) s += 22;
+  else if (answers.custody === 'custodial' && /self-custod/i.test(e.custody)) s -= 10;
+  else if (answers.custody === 'self' && /custodial/i.test(e.custody) && !/mixed/i.test(e.custody)) s -= 10;
+  else if (answers.custodyLevel != null) {
+    const bias = (answers.custodyLevel - 50) / 50;
+    if (bias < -0.3 && /custodial/i.test(e.custody) && !/self/i.test(e.custody)) s += 8;
+    if (bias > 0.3 && /self-custod|mpc/i.test(e.custody)) s += 8;
   }
 
-  if (answers.card === 'yes' && hasCard(e)) s += 8;
+  if (answers.style && answers.style !== 'any') {
+    if (e.category === answers.style) s += 22;
+    else s -= 6;
+  }
+
+  if (answers.travel === 'high') {
+    if (e.audience === 'travel & digital nomads') s += 18;
+    if ((e.services || []).includes('multi-currency')) s += 14;
+    if (e.fx_markup) s += 10;
+  } else if (answers.travel === 'medium') {
+    if (e.audience === 'travel & digital nomads') s += 10;
+    if ((e.services || []).includes('multi-currency')) s += 8;
+  }
+
+  if (answers.crypto === 'no') {
+    if (e.category === 'traditional') s += 12;
+    else if (e.category === 'web3-native') s -= 12;
+  } else if (answers.crypto === 'some') {
+    if (e.category === 'hybrid') s += 16;
+    if (e.stablecoins) s += 10;
+  } else if (answers.crypto === 'core') {
+    if (e.category === 'web3-native') s += 28;
+    else if (e.category === 'hybrid') s += 16;
+  }
+
+  if (answers.card === 'yes' && hasCard(e)) s += 10;
+  else if (answers.card === 'no' && !hasCard(e)) s += 6;
+
+  if (answers.license === 'licensed' && e.regulation_type === 'Licensed bank') s += 16;
+  else if (answers.license === 'licensed' && e.regulation_type !== 'Licensed bank') s -= 4;
+  else if (answers.license === 'emoney' && /e-money|payment institution/i.test(e.regulation_type || '')) s += 10;
+
+  if (answers.kyc === 'minimal') {
+    if (e.kyc === 'No' || e.kyc === 'Card only') s += 14;
+    else if (e.kyc === 'Yes') s -= 4;
+  } else if (answers.kyc === 'full' && e.kyc === 'Yes') s += 8;
 
   s += (e.reported_users?.value_millions || 0) * 0.001;
   return s;
@@ -172,7 +249,7 @@ export function fitReasons(e, answers, country) {
   if (country && tier === 2) out.push(`Listed for ${country.bare} in our verified availability field`);
   else if (country && tier === 1) out.push(`Serves ${country.region} — confirm ${country.bare} availability with the issuer`);
   if (e.audience && e.audience !== 'general') out.push(`Built for ${e.audience}`);
-  else if (answers.use === 'business') out.push('General-purpose — also used by small businesses');
+  else if (answers.profile === 'business') out.push('General-purpose — also used by small businesses');
   else out.push('General-purpose retail app');
 
   if (/self-custod/i.test(e.custody)) out.push('You hold the keys — self-custodial');
