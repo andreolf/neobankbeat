@@ -113,7 +113,10 @@ var DEPT=${JSON.stringify(deptLabels)};
 var PDF_JS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
 var PDF_WK='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 var MAMMOTH_JS='https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
-var TESSERACT_JS='https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js';
+var TESSERACT_JS='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+var TESS_WORKER='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js';
+var TESS_CORE='https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.1/tesseract-core.wasm.js';
+var TESS_LANG='https://tessdata.projectnaptha.com/4.0.0';
 
 function loadScript(url){
   return new Promise(function(resolve,reject){
@@ -143,6 +146,30 @@ var tesseractReady=loadScript(TESSERACT_JS).then(function(){
 
 function isImageFile(n,type){return /^image\\//.test(type||'')||/\\.(png|jpe?g|gif|webp|bmp)$/i.test(n||'')}
 
+function withTimeout(p,ms,msg){
+  return new Promise(function(resolve,reject){
+    var t=setTimeout(function(){reject(new Error(msg))},ms);
+    p.then(function(v){clearTimeout(t);resolve(v)},function(e){clearTimeout(t);reject(e)});
+  });
+}
+
+function prepImageFile(file){
+  return new Promise(function(resolve){
+    if(!isImageFile((file.name||'').toLowerCase(),file.type||'')){resolve(file);return}
+    var url=URL.createObjectURL(file),img=new Image();
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var max=2200,w=img.width,h=img.height;
+      if(w>max||h>max){var s=Math.min(max/w,max/h);w=Math.round(w*s);h=Math.round(h*s)}
+      var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      c.toBlob(function(b){resolve(b?new File([b],file.name||'cv.png',{type:'image/png'}):file)},'image/png',0.92);
+    };
+    img.onerror=function(){URL.revokeObjectURL(url);resolve(file)};
+    img.src=url;
+  });
+}
+
 function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' ').split(/\\s+/).filter(function(w){
   if(!w||STOP.has(w))return false;
   if(SHORT_OK.has(w))return true;
@@ -153,11 +180,11 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 
 function isReadableCv(text,ocr){
   var t=String(text||'');
-  if(t.length<120)return false;
+  if(t.length<(ocr?80:120))return false;
   var letters=(t.match(/[a-zA-Z]/g)||[]).length;
-  if(letters/t.length<(ocr?0.42:0.55))return false;
+  if(letters/t.length<(ocr?0.35:0.55))return false;
   var words=t.match(/[a-zA-Z]{4,}/g)||[];
-  if(words.length<(ocr?8:12))return false;
+  if(words.length<(ocr?6:12))return false;
   if(/[\\x00-\\x08\\x0E-\\x1F]/.test(t))return false;
   if((t.match(/[\\uFFFD]/g)||[]).length>2)return false;
   return true;
@@ -215,20 +242,36 @@ function extractDocx(file,onProg){
 }
 
 function extractImage(file,onProg){
-  onProg(12,'Loading OCR (first time may take a few seconds)…');
-  return tesseractReady.then(function(){
-    return window.Tesseract.recognize(file,'eng',{
-      logger:function(m){
-        if(m.status==='recognizing text'&&typeof m.progress==='number')
-          onProg(18+Math.round(m.progress*32),'Reading text from image…');
-        else if(m.status==='loading language traineddata')
-          onProg(15,'Downloading OCR language pack…');
-        else if(/loading|initializing/i.test(m.status||''))
-          onProg(13,'Starting OCR…');
-      }
-    }).then(function(r){
-      onProg(52,'Text extracted from image');
-      return (r.data&&r.data.text)||'';
+  onProg(8,'Preparing image…');
+  return prepImageFile(file).then(function(img){
+    onProg(10,'Loading OCR (first time may take a few seconds)…');
+    return tesseractReady.then(function(){
+      var T=window.Tesseract;
+      if(!T)throw new Error('OCR reader failed to load');
+      var opts={
+        workerPath:TESS_WORKER,corePath:TESS_CORE,langPath:TESS_LANG,
+        logger:function(m){
+          var p=typeof m.progress==='number'?m.progress:0;
+          if(p>1)p/=100;
+          if(m.status==='recognizing text')onProg(14+Math.round(p*34),'Reading text from image…');
+          else if(m.status==='loading language traineddata')onProg(12,'Downloading OCR language pack…');
+          else if(/loading|initializing/i.test(m.status||''))onProg(11,'Starting OCR…');
+        }
+      };
+      return withTimeout(
+        T.createWorker('eng',1,opts).then(function(worker){
+          return worker.recognize(img).then(function(r){
+            return worker.terminate().then(function(){return r});
+          }).catch(function(e){
+            return worker.terminate().catch(function(){}).then(function(){throw e});
+          });
+        }),
+        120000,
+        'OCR timed out — try a smaller screenshot or paste your CV below.'
+      ).then(function(r){
+        onProg(50,'Text extracted from image');
+        return (r.data&&r.data.text)||'';
+      });
     });
   });
 }
@@ -345,8 +388,9 @@ var progEl=document.getElementById('jmprog'),progBar=document.getElementById('jm
 
 function setStatus(msg,err){statusEl.textContent=msg||'';statusEl.className='jmstatus'+(err?' jmerr':'')}
 function setProg(pct,label,done){
+  pct=Math.min(100,Math.max(0,+pct||0));
   progEl.hidden=false;progEl.classList.toggle('done',!!done);
-  progBar.style.width=Math.min(100,Math.max(0,pct))+'%';
+  progBar.style.width=pct+'%';
   progPct.textContent=Math.round(pct)+'%';
   if(label)progLabel.textContent=label;
 }
@@ -372,16 +416,16 @@ function clearAll(){
   try{sessionStorage.removeItem('nbb_jm')}catch(_){}
 }
 
-function runMatch(fromFile){
+function runMatch(fromFile,ocr){
   var text=(textEl.value||'').trim()||cvText;
-  if(text.length<120){setStatus('Need a bit more text — upload a full CV or paste more detail.',true);textEl.focus();return Promise.resolve()}
-  if(!isReadableCv(text)){
-    var msg=fromFile?'This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.':'That does not look like readable CV text — use a PDF with real text or paste below.';
+  if(text.length<(ocr?80:120)){setStatus('Need a bit more text — upload a full CV or paste more detail.',true);textEl.focus();return Promise.resolve()}
+  if(!isReadableCv(text,ocr)){
+    var msg=ocr?'Could not read enough text from this image — try a clearer photo or paste below.':fromFile?'This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.':'That does not look like readable CV text — use a PDF with real text or paste below.';
     setStatus(msg,true);hideProg();textEl.focus();return Promise.resolve();
   }
   setBusy(true);
-  if(!fromFile){setProg(60,'Preparing match…');setStatus('')}
-  var p=jobsCache?Promise.resolve(jobsCache):loadJobs().then(function(j){setProg(68,'Loaded job board…');jobsCache=j;return j});
+  if(!fromFile){setProg(55,'Preparing match…');setStatus('')}
+  var p=jobsCache?Promise.resolve(jobsCache):loadJobs().then(function(j){setProg(62,'Loaded job board…');jobsCache=j;return j});
   return p.then(function(jobs){
     var hits=score(text,jobs,setProg);
     setProg(100,hits.length?'Done — '+hits.length+' matches!':'Done — no strong matches',true);
@@ -406,13 +450,23 @@ function handleFile(f){
   setBusy(true);hideProg();document.getElementById('jmres').hidden=true;
   setStatus('');setProg(2,'Starting…');
   readFile(f,setProg).then(function(t){
-    if(!t||!String(t).trim())throw new Error(isImg?'This image appears empty — try a clearer screenshot or paste the text below.':'This file appears empty — if it is a scan, paste the text below.');
-    if(!isReadableCv(t,isImg))throw new Error(isImg?'Could not read enough text from this image — try a clearer photo or paste below.':'This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.');
+    t=String(t||'').trim();
+    if(!t)throw new Error(isImg?'This image appears empty — try a clearer screenshot or paste the text below.':'This file appears empty — if it is a scan, paste the text below.');
     cvText=t;textEl.value=t.slice(0,12000)+(t.length>12000?'\\n…':'');
-    setFileUI(f.name);setProg(58,'CV ready — matching…');
-    return runMatch(true);
+    setFileUI(f.name);
+    if(isImg&&!isReadableCv(t,true)&&t.length>=60){
+      setProg(50,'Partial OCR — review text below');
+      setStatus('OCR got partial text — add anything missing below, then click find matching roles.');
+      clearBtn.hidden=false;textEl.focus();setBusy(false);return;
+    }
+    if(!isReadableCv(t,isImg))throw new Error(isImg?'Could not read enough text from this image — try a clearer photo or paste below.':'This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.');
+    setProg(52,'CV ready — matching…');
+    return runMatch(true,isImg);
   }).catch(function(e){
-    setStatus(e.message||'Could not read file',true);hideProg();setBusy(false);
+    var msg=e&&e.message||'Could not read file';
+    if(isImg&&/fetch|network|worker|Load|timeout|failed|abort/i.test(msg))
+      msg='OCR could not run — check your connection, try a smaller PNG, or paste the CV below.';
+    setStatus(msg,true);hideProg();setBusy(false);
   });
 }
 
