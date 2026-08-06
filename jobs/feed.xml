@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 06 Aug 2026 08:34:08 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 08:47:08 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Intern, QA Engineering — Bitpanda]]></title>
@@ -56,6 +56,14 @@
     <description><![CDATA[Crypto.com · United States · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[Inventory Support Officer (Lagos) — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4196076101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4196076101/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[KYC Specialist – Italian Market — N26]]></title>
     <link>https://www.neobankbeat.com/jobs/j/n26-8104950/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8104950/</guid>
@@ -86,6 +94,22 @@
     <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Backend Engineer / バックエンドエンジニア (Core Banking System) — PayPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/paypay-5587090004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-5587090004/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AI Creative Lead — PhonePe]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/phonepe-7650503003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/phonepe-7650503003/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[PhonePe · Bangalore · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Partnerships Senior Manager — Wise]]></title>
@@ -462,30 +486,6 @@
     <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[C6 Bank · Brasília, Federal District, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Operador de Atendimento | Atendimento VIP | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4721556005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4721556005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Pessoa Arquiteta Corporativa Ciclo de Desenvolvimento e Qualidade | Enterprise Architect — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4721783005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4721783005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Pessoa Estagiária de Dados — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4717144005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4717144005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
 </channel>
 </rss>

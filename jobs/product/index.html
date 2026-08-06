@@ -169,13 +169,13 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
       <div class="jmaplabel" id="jmaplabel">click a region to filter</div>
     </div>
     <div class="jsec">department</div>
-    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1200</span></a>
+    <div class="sidelist"><a class="srow" href="/jobs/engineering/">Engineering<span class="c">1199</span></a>
 <a class="srow" href="/jobs/data/">Data & AI<span class="c">210</span></a>
 <a class="srow on" href="/jobs/">Product<span class="c">214</span></a>
 <a class="srow" href="/jobs/design/">Design<span class="c">113</span></a>
 <a class="srow" href="/jobs/compliance/">Compliance & Risk<span class="c">322</span></a>
 <a class="srow" href="/jobs/onboarding/">Onboarding & KYC<span class="c">33</span></a>
-<a class="srow" href="/jobs/support/">Customer Support<span class="c">96</span></a>
+<a class="srow" href="/jobs/support/">Customer Support<span class="c">97</span></a>
 <a class="srow" href="/jobs/sales/">Sales & Partnerships<span class="c">417</span></a>
 <a class="srow" href="/jobs/marketing/">Marketing & Growth<span class="c">212</span></a>
 <a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">109</span></a>
@@ -192,10 +192,10 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     </div>
     <div class="jsec">region</div>
     <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">845</span></button>
-<button class="srow" data-region="europe">Europe<span class="c">764</span></button>
+<button class="srow" data-region="europe">Europe<span class="c">763</span></button>
 <button class="srow" data-region="north-america">North America<span class="c">793</span></button>
 <button class="srow" data-region="latin-america">Latin America<span class="c">261</span></button>
-<button class="srow" data-region="africa">Africa<span class="c">64</span></button>
+<button class="srow" data-region="africa">Africa<span class="c">65</span></button>
 <button class="srow" data-region="mena">MENA<span class="c">81</span></button>
 <button class="srow" data-region="asia">Asia<span class="c">527</span></button>
 <button class="srow" data-region="oceania">Oceania<span class="c">34</span></button>
@@ -1098,7 +1098,7 @@ const PRESET='product';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"europe":764,"asia":527,"remote":845,"north-america":793,"latin-america":261,"other":361,"mena":81,"oceania":34,"africa":64};
+const regCount={"europe":763,"asia":527,"remote":845,"north-america":793,"africa":65,"other":361,"latin-america":261,"mena":81,"oceania":34};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
