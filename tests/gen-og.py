@@ -262,6 +262,24 @@ def jobs_card(dept_label, n_roles, n_companies):
     d.text((64, 380), "official Greenhouse, Lever & Ashby APIs", font=m, fill=DIM)
     return im
 
+def match_card(n_roles, n_companies):
+    im, d = base_card()
+    chip(d, 64, 158, "cv match · private", ACCENT)
+    title = "Match your CV to neobank jobs"
+    name_f = fit(d, title, W - 128, 62)
+    d.text((60, 226), title, font=name_f, fill=TEXT)
+    m = mono(24)
+    d.text((64, 330), f"Scored against {n_roles:,} live roles · {n_companies} companies", font=m, fill=TEXT)
+    d.text((64, 380), "PDF · Word · PNG — runs in your browser, nothing stored", font=m, fill=DIM)
+    return im
+
+def fit_hub_card(n_all):
+    return section_card("find your fit", "Which neobank fits you?",
+                        f"8-step check · {n_all} verified profiles · no affiliates", ACCENT)
+
+def fit_country_card(h1):
+    return section_card("find your fit", h1, "8-step fit check · ranked from open data · no affiliates", ACCENT)
+
 def investor_card(name, n_banks, site, top_banks):
     dom = inv_dom(site)
     line2 = f"{n_banks} neobank{'s' if n_banks != 1 else ''} backed"
@@ -340,7 +358,7 @@ def main():
     # ── /fit/ hub + country landers ──
     fit_dir = ROOT / "fit"
     if fit_dir.is_dir():
-        save(section_card("find your fit", "Which neobank fits you?", f"{n_all} verified profiles · six questions", ACCENT), "og/fit/hub.png")
+        save(fit_hub_card(n_all), "og/fit/hub.png")
         n_fit = 1
         for child in sorted(fit_dir.iterdir()):
             if not child.is_dir() or not (child / "index.html").is_file():
@@ -350,7 +368,7 @@ def main():
             if not h1m:
                 continue
             h1 = re.sub(r"<[^>]+>", "", h1m.group(1)).replace("&amp;", "&")
-            save(section_card("find your fit", h1, "ranked from verified open data · no affiliates", ACCENT), f"og/fit/{child.name}.png")
+            save(fit_country_card(h1), f"og/fit/{child.name}.png")
             n_fit += 1
         print("fit cards:", n_fit)
 
@@ -391,6 +409,7 @@ def main():
         jobs = json.loads(jobs_path.read_text()).get("jobs") or []
         n_companies = len({j["company"] for j in jobs})
         save(jobs_card("Job board", len(jobs), n_companies), "og/jobs.png")
+        save(match_card(len(jobs), n_companies), "og/jobs/match.png")
         depts = {}
         for j in jobs:
             depts.setdefault(j.get("dept") or "other", []).append(j)
@@ -405,7 +424,7 @@ def main():
             label = dept_labels.get(dept_id, dept_id.title())
             cos = len({j["company"] for j in rows})
             save(jobs_card(label, len(rows), cos), f"og/jobs/{dept_id}.png")
-        print("jobs cards:", 1 + len(depts))
+        print("jobs cards:", 2 + len(depts))
 
     # ── topic hubs: /regulation/<slug>/ etc. — read titles from built pages ──
     fam_lbl = {"regulation": "by regulation", "kyc": "by KYC", "regions": "by region",

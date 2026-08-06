@@ -1095,7 +1095,7 @@ function assertInlineScriptsParse(html, label) {
       { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'neobankbeat CV job matcher', url: `${BASE}/jobs/match/`, applicationCategory: 'BusinessApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: 'Client-side CV matching against the neobankbeat jobs board. No upload, no storage.' },
       { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['match your CV', `${BASE}/jobs/match/`]) },
     ],
-    ogIf('jobs.png'),
+    ogIf('jobs', 'match.png'),
   ).replace(`<style>${CSS}</style>`, `<style>${CSS}${jobMatchCss()}</style>`) + `
 <main class="wrap" id="main">
   <a class="jback" href="/jobs/">← all jobs</a>
