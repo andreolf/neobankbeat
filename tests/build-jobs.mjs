@@ -1070,7 +1070,7 @@ ${foot}`;
   <article class="jhero" style="max-width:760px">
     <div class="eyebrow">the job board · cv match</div>
     <h1>find roles that <em>fit your CV</em></h1>
-    <p class="meta">Drop a résumé or paste text — we score it against <b>${all.length.toLocaleString('en-US')}</b> live neobank openings. Everything runs in your browser; we never see your file.</p>
+    <p class="meta">Upload or paste your résumé — scored against <b>${all.length.toLocaleString('en-US')}</b> live neobank roles. One panel, zero server.</p>
   </article>
 ${jobMatchHtml(all.length, nCompanies)}
 </main>
