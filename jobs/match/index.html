@@ -128,7 +128,8 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 }
 
 .jmatch{margin:20px 0 32px;max-width:760px}
-.jmpanel{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 22px 20px}
+.jmpanel{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 22px 20px;transition:border-color .15s,box-shadow .15s}
+.jmpanel.drag{border-color:var(--acc);box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 55%,transparent)}
 .jmprivacy{display:flex;gap:12px;align-items:flex-start;background:rgba(186,242,74,.07);border:1px solid color-mix(in srgb,#BAF24A 32%,transparent);border-radius:10px;padding:12px 14px;margin:0 0 20px;font-size:12.5px;line-height:1.5;color:var(--muted)}
 .jmprivacy b{color:var(--text);font-weight:600}
 .jmprivacy .k{flex:0 0 auto;font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#BAF24A;background:rgba(186,242,74,.12);border-radius:99px;padding:4px 9px;margin-top:1px}
@@ -219,14 +220,14 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   </article>
 
   <div class="jmatch" id="jmatch">
-    <div class="jmpanel">
+    <div class="jmpanel" id="jmpanel">
       <div class="jmprivacy"><span class="k">private</span><span><b>Nothing leaves your browser.</b> No upload, no storage, no cookies — matching runs locally. Close the tab and your CV is gone.</span></div>
 
       <div class="jmupload" id="jmdrop" tabindex="0" role="group" aria-label="Upload CV file">
         <input type="file" id="jmfile" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt">
         <div class="ico" id="jmico">↑</div>
         <div class="t" id="jmuptitle">Drop your CV here</div>
-        <div class="sub" id="jmupsub">PDF or Word (.docx) with selectable text</div>
+        <div class="sub" id="jmupsub">Drop anywhere in this box · PDF or Word with selectable text</div>
         <button type="button" class="jmbrowse" id="jmbrowse">choose PDF or Word</button>
         <p class="jmformats"><b>PNG, JPG &amp; screenshots are not supported</b> — we need real text, not a photo. Save/export as PDF, or paste the CV below.</p>
         <div class="fname" id="jmfname" hidden></div>
@@ -427,7 +428,7 @@ function render(hits){
 
 var cvText='',jobsCache=null,busy=false;
 var statusEl=document.getElementById('jmstatus'),runBtn=document.getElementById('jmrun'),clearBtn=document.getElementById('jmclear');
-var fileInput=document.getElementById('jmfile'),textEl=document.getElementById('jmtext'),dropEl=document.getElementById('jmdrop');
+var fileInput=document.getElementById('jmfile'),textEl=document.getElementById('jmtext'),dropEl=document.getElementById('jmdrop'),panelEl=document.getElementById('jmpanel');
 var fnameEl=document.getElementById('jmfname'),upTitle=document.getElementById('jmuptitle'),upSub=document.getElementById('jmupsub'),icoEl=document.getElementById('jmico');
 var progEl=document.getElementById('jmprog'),progBar=document.getElementById('jmprogb'),progLabel=document.getElementById('jmproglabel'),progPct=document.getElementById('jmprogpct');
 
@@ -449,7 +450,7 @@ function setFileUI(name){
     clearBtn.hidden=false;
   }else{
     dropEl.classList.remove('hasfile');fnameEl.hidden=true;fnameEl.textContent='';
-    upTitle.textContent='Drop your CV here';upSub.textContent='PDF or Word (.docx) with selectable text';icoEl.textContent='↑';
+    upTitle.textContent='Drop your CV here';upSub.textContent='Drop anywhere in this box · PDF or Word with selectable text';icoEl.textContent='↑';
   }
 }
 
@@ -479,6 +480,14 @@ function runMatch(fromFile){
   }).finally(function(){setBusy(false)});
 }
 
+function fileDrag(e){
+  if(!e.dataTransfer||!e.dataTransfer.types)return false;
+  var t=e.dataTransfer.types;
+  for(var i=0;i<t.length;i++)if(t[i]==='Files'||t[i]==='application/x-moz-file')return true;
+  return false;
+}
+function dragOff(){dropEl.classList.remove('drag');panelEl.classList.remove('drag')}
+
 function handleFile(f){
   if(busy)return;
   setBusy(true);hideProg();document.getElementById('jmres').hidden=true;
@@ -504,20 +513,40 @@ document.getElementById('jmbrowse').addEventListener('click',function(e){
 
 dropEl.addEventListener('keydown',function(e){if(!busy&&(e.key==='Enter'||e.key===' ')){e.preventDefault();fileInput.click()}});
 
-dropEl.addEventListener('dragenter',function(e){e.preventDefault();e.stopPropagation();if(!busy)dropEl.classList.add('drag')});
-dropEl.addEventListener('dragover',function(e){e.preventDefault();e.stopPropagation();e.dataTransfer.dropEffect='copy';if(!busy)dropEl.classList.add('drag')});
-dropEl.addEventListener('dragleave',function(e){e.preventDefault();if(!dropEl.contains(e.relatedTarget))dropEl.classList.remove('drag')});
-dropEl.addEventListener('drop',function(e){
-  e.preventDefault();e.stopPropagation();dropEl.classList.remove('drag');
-  var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f&&!busy)handleFile(f);
-});
+function onPanelDrag(e){
+  if(!fileDrag(e)||busy)return;
+  e.preventDefault();e.stopPropagation();
+  if(e.dataTransfer)e.dataTransfer.dropEffect='copy';
+  dropEl.classList.add('drag');panelEl.classList.add('drag');
+}
+function onPanelDrop(e){
+  if(!fileDrag(e))return;
+  e.preventDefault();e.stopPropagation();
+  dragOff();
+  var f=e.dataTransfer.files&&e.dataTransfer.files[0];
+  if(f&&!busy)handleFile(f);
+}
 
-document.addEventListener('dragover',function(e){
-  if(e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,'Files')>=0)e.preventDefault();
+panelEl.addEventListener('dragenter',onPanelDrag);
+panelEl.addEventListener('dragover',onPanelDrag);
+panelEl.addEventListener('dragleave',function(e){
+  if(!panelEl.contains(e.relatedTarget))dragOff();
 });
-document.addEventListener('drop',function(e){
-  if(!dropEl.contains(e.target)&&e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,'Files')>=0)e.preventDefault();
-});
+panelEl.addEventListener('drop',onPanelDrop);
+
+/* Block the browser opening dropped PDFs anywhere on the page (capture phase). */
+function blockFileNav(e){
+  if(!fileDrag(e))return;
+  e.preventDefault();
+  if(e.type==='dragover'&&e.dataTransfer)e.dataTransfer.dropEffect='copy';
+}
+window.addEventListener('dragenter',blockFileNav,true);
+window.addEventListener('dragover',blockFileNav,true);
+window.addEventListener('drop',function(e){
+  if(!fileDrag(e))return;
+  e.preventDefault();
+  if(!panelEl.contains(e.target))dragOff();
+},true);
 
 textEl.addEventListener('input',function(){if(!busy)clearBtn.hidden=!hasInput()&&!fnameEl.textContent});
 runBtn.addEventListener('click',function(){if(!busy)runMatch(false)});
