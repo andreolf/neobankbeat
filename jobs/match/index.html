@@ -136,7 +136,9 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jmupload:hover{border-color:var(--acc);background:rgba(255,92,22,.07)}
 .jmupload.drag{border-color:var(--acc);background:rgba(255,92,22,.1);transform:scale(1.005)}
 .jmupload.hasfile{border-style:solid;border-color:color-mix(in srgb,#BAF24A 45%,var(--line));background:rgba(186,242,74,.06)}
-.jmupload input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0,0,0,0)}
+.jmupload input[type=file]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.jmbrowse{margin-top:14px;font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--text);background:rgba(255,92,22,.14);border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);border-radius:99px;padding:8px 18px;cursor:pointer}
+.jmbrowse:hover{background:rgba(255,92,22,.22);border-color:var(--acc)}
 .jmupload .ico{font-size:26px;line-height:1;margin-bottom:10px;opacity:.9}
 .jmupload .t{font-weight:600;font-size:15px;color:var(--text)}
 .jmupload .sub{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);margin-top:8px;line-height:1.45}
@@ -210,13 +212,14 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <div class="jmpanel">
       <div class="jmprivacy"><span class="k">private</span><span><b>Nothing leaves your browser.</b> No upload, no storage, no cookies — matching runs locally. Close the tab and your CV is gone.</span></div>
 
-      <label class="jmupload" id="jmdrop">
-        <input type="file" id="jmfile" accept=".pdf,.docx,.doc,.txt,text/plain,application/pdf">
+      <div class="jmupload" id="jmdrop" tabindex="0" role="group" aria-label="Upload CV file">
+        <input type="file" id="jmfile" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt">
         <div class="ico" id="jmico">↑</div>
         <div class="t" id="jmuptitle">Drop your CV here</div>
         <div class="sub" id="jmupsub">PDF · Word · plain text — not photos or screenshots</div>
+        <button type="button" class="jmbrowse" id="jmbrowse">choose file</button>
         <div class="fname" id="jmfname" hidden></div>
-      </label>
+      </div>
 
       <div class="jmdiv">or paste</div>
 
@@ -391,8 +394,7 @@ function runMatch(){
    .finally(function(){runBtn.disabled=false});
 }
 
-fileInput.addEventListener('change',function(){
-  var f=fileInput.files&&fileInput.files[0];if(!f)return;
+function handleFile(f){
   setStatus('Reading '+f.name+'…');runBtn.disabled=true;
   readFile(f).then(function(t){
     if(!isReadableCv(t))throw new Error('Could not read text from this file — try a PDF/Word export or paste below (not a photo).');
@@ -400,13 +402,31 @@ fileInput.addEventListener('change',function(){
     setFileUI(f.name);clearBtn.hidden=false;
     setStatus('Loaded · matching…');runMatch();
   }).catch(function(e){setStatus(e.message||'Could not read file',true);runBtn.disabled=false});
+}
+
+fileInput.addEventListener('change',function(){
+  var f=fileInput.files&&fileInput.files[0];if(f)handleFile(f);
 });
 
-['dragenter','dragover'].forEach(function(ev){dropEl.addEventListener(ev,function(e){e.preventDefault();dropEl.classList.add('drag')})});
-['dragleave','drop'].forEach(function(ev){dropEl.addEventListener(ev,function(e){e.preventDefault();dropEl.classList.remove('drag')})});
+document.getElementById('jmbrowse').addEventListener('click',function(e){
+  e.preventDefault();e.stopPropagation();fileInput.click();
+});
+
+dropEl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ') {e.preventDefault();fileInput.click();}});
+
+dropEl.addEventListener('dragenter',function(e){e.preventDefault();e.stopPropagation();dropEl.classList.add('drag')});
+dropEl.addEventListener('dragover',function(e){e.preventDefault();e.stopPropagation();e.dataTransfer.dropEffect='copy';dropEl.classList.add('drag')});
+dropEl.addEventListener('dragleave',function(e){e.preventDefault();if(!dropEl.contains(e.relatedTarget))dropEl.classList.remove('drag')});
 dropEl.addEventListener('drop',function(e){
-  var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(!f)return;
-  var dt=new DataTransfer();dt.items.add(f);fileInput.files=dt.files;fileInput.dispatchEvent(new Event('change'));
+  e.preventDefault();e.stopPropagation();dropEl.classList.remove('drag');
+  var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)handleFile(f);
+});
+
+document.addEventListener('dragover',function(e){
+  if(e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,'Files')>=0)e.preventDefault();
+});
+document.addEventListener('drop',function(e){
+  if(!dropEl.contains(e.target)&&e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,'Files')>=0)e.preventDefault();
 });
 
 textEl.addEventListener('input',function(){clearBtn.hidden=!hasInput()&&!fnameEl.textContent});
