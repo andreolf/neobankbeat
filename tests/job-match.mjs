@@ -16,6 +16,8 @@ export const jobMatchCss = () => `
 .jmupload .ico{font-size:26px;line-height:1;margin-bottom:10px;opacity:.9}
 .jmupload .t{font-weight:600;font-size:15px;color:var(--text)}
 .jmupload .sub{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);margin-top:8px;line-height:1.45}
+.jmformats{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);margin:10px 0 0;line-height:1.5;text-align:center}
+.jmformats b{color:var(--muted);font-weight:600}
 .jmupload .fname{font-family:'Noto Sans Mono',monospace;font-size:12px;color:#BAF24A;margin-top:10px;word-break:break-all}
 .jmdiv{display:flex;align-items:center;gap:12px;margin:16px 0;font-family:'Noto Sans Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
 .jmdiv::before,.jmdiv::after{content:'';flex:1;height:1px;background:var(--line)}
@@ -57,8 +59,9 @@ export const jobMatchHtml = (jobCount, nCompanies) => `
         <input type="file" id="jmfile" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt">
         <div class="ico" id="jmico">↑</div>
         <div class="t" id="jmuptitle">Drop your CV here</div>
-        <div class="sub" id="jmupsub">PDF · Word · plain text — not photos or screenshots</div>
-        <button type="button" class="jmbrowse" id="jmbrowse">choose file</button>
+        <div class="sub" id="jmupsub">PDF or Word (.docx) with selectable text</div>
+        <button type="button" class="jmbrowse" id="jmbrowse">choose PDF or Word</button>
+        <p class="jmformats"><b>PNG, JPG &amp; screenshots are not supported</b> — we need real text, not a photo. Save/export as PDF, or paste the CV below.</p>
         <div class="fname" id="jmfname" hidden></div>
       </div>
 
@@ -66,7 +69,7 @@ export const jobMatchHtml = (jobCount, nCompanies) => `
 
       <div class="jmpaste">
         <label for="jmtext">CV text</label>
-        <textarea id="jmtext" placeholder="Paste your CV, LinkedIn export, or résumé…"></textarea>
+        <textarea id="jmtext" placeholder="Paste your CV text here — works great if you only have a screenshot: retype or copy from the image…"></textarea>
       </div>
 
       <div class="jmactions">
@@ -148,7 +151,7 @@ function extractDocx(file){
 function readFile(file){
   var n=(file.name||'').toLowerCase(),type=file.type||'';
   if(/^image\\//.test(type)||/\\.(png|jpe?g|gif|webp|bmp|heic|svg)$/i.test(n))
-    throw new Error('Photos and screenshots cannot be read — export a PDF or Word file, or paste the text below.');
+    throw new Error('PNG/JPG screenshots cannot be read — export a PDF, open the .docx, or paste the text below.');
   if(n.endsWith('.txt')||type==='text/plain')return file.text();
   if(n.endsWith('.pdf')||type==='application/pdf')return extractPdf(file);
   if(n.endsWith('.docx')||type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document')return extractDocx(file);
@@ -215,7 +218,7 @@ function setFileUI(name){
     clearBtn.hidden=false;
   }else{
     dropEl.classList.remove('hasfile');fnameEl.hidden=true;fnameEl.textContent='';
-    upTitle.textContent='Drop your CV here';upSub.textContent='PDF · Word · plain text — not photos or screenshots';icoEl.textContent='↑';
+    upTitle.textContent='Drop your CV here';upSub.textContent='PDF or Word (.docx) with selectable text';icoEl.textContent='↑';
   }
 }
 
