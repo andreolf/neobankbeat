@@ -89,6 +89,11 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jmeta span{display:inline-block;margin-right:12px}
 .jdesc{font-size:14px;line-height:1.65;color:var(--text);margin:20px 0;max-width:760px}
 .jdesc p{margin:0 0 14px}
+.jdesc h3{font-size:14.5px;font-weight:700;color:var(--text);margin:22px 0 10px;font-family:'Noto Sans Mono',monospace;letter-spacing:.03em}
+.jdesc h3:first-child{margin-top:0}
+.jdesc ul{margin:0 0 16px;padding-left:1.2em}
+.jdesc li{margin:0 0 8px}
+.jdesc li::marker{color:var(--acc)}
 .jnodesc{color:var(--muted);font-size:13.5px}
 .japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
 .japply:hover{filter:brightness(1.05)}
@@ -127,7 +132,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"JobPosting","title":"Engineering Lead - Business Operations Tooling","description":"Engineering Lead - Business Operations Tooling at Wise — Tallinn, EE. Apply on the official Wise careers page.","datePosted":"2026-07-20","validThrough":"2026-09-18","hiringOrganization":{"@type":"Organization","name":"Wise","sameAs":"https://www.neobankbeat.com/n/wise/"},"jobLocation":{"@type":"Place","address":"Tallinn, EE"},"employmentType":"FULL_TIME","directApply":false,"url":"https://www.neobankbeat.com/jobs/j/wise-744000138568730/","identifier":{"@type":"PropertyValue","name":"Wise","value":"https://jobs.smartrecruiters.com/wise/744000138568730"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"engineering lead - business operations tooling","item":"https://www.neobankbeat.com/jobs/j/wise-744000138568730/"}]}]
+[{"@context":"https://schema.org","@type":"JobPosting","title":"Engineering Lead - Business Operations Tooling","description":"The Business Operations Tooling team is a product-focused team dedicated to building and improving the essential tools required by the Operational teams. Their primary goal is to enable each Operational person to efficiently maximise the amount of high-volume business customers they can serve by centralizing data, simplifying workflows, and automating time-consuming tasks. The initial phase focuses on leveraging Salesforce to quickly deliver value before developing bespoke internal tools.\n\nThe Engineering Lead is responsible for the overall technical architecture, development standards, and successful implementation of the roadmap's technical deliverables (e.g., proactive alerting, automated data population, assignment tooling). They would also be responsible for hiring and managing the engineers required for the team and working with cross-functional people, including product, design and analytics.\n\nKey\n\nResponsibilities:\n• Technical: Defining the technical approach for building tools, and consider short term wins vs long term initiatives. The role is hands-on.\n• Product Roadmap: Actively participating in product definition and roadmap of the team.\n• Team Leadership: Leading and mentoring the team of engineers (Individual Contributors), ensuring code quality, and driving project completion.\n• Cross-Team Coordination: Working with cross-functional teams (including design, product, analytics) to build and integrate the tools.\n\nRequired\n\nExperience:\n• Experience in leading and mentoring software engineers, as you enjoy helping others grow and succeed.\n• Strong communication style, experience leading one or multiple teams, working across multiple functions.\n• Experience in backend engineering and system architecture, with a proven track record of delivering scalable solutions, ideally in a fast-paced environment or for internal tooling.\n• Experience with designing complex systems.\n• Experience with database handling.\n• Experience with API design.\n• Experience witha asynchronous messaging.\n• Good conflict resolution and problem solving skills.\n\nNice to Have:\n• Experience with JVM languages (Java, Kotlin).\n• Financial background is not a must, but a good plus\n\nInterested? Find out more:\n• DEI at Wise\n• Wise Tech Stack (2025)\n• Scaling our Infrastructure; how we make it work\n• Wise Engineering Medium\n\nWhat do we offer:\n• Starting salary: €6,666 - €8,333 gross/monthly + Wise's Restricted Stock Units (RSUs)\n• Wise Benefits\n\n#LI-AT1 #LI-Hybrid","datePosted":"2026-07-20","validThrough":"2026-09-18","hiringOrganization":{"@type":"Organization","name":"Wise","sameAs":"https://www.neobankbeat.com/n/wise/"},"jobLocation":{"@type":"Place","address":"Tallinn, EE"},"employmentType":"FULL_TIME","directApply":false,"url":"https://www.neobankbeat.com/jobs/j/wise-744000138568730/","identifier":{"@type":"PropertyValue","name":"Wise","value":"https://jobs.smartrecruiters.com/wise/744000138568730"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"engineering lead - business operations tooling","item":"https://www.neobankbeat.com/jobs/j/wise-744000138568730/"}]}]
 </script>
 </head>
 <body>
@@ -155,7 +160,46 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <div class="eyebrow"><a href="/jobs/engineering/" style="color:inherit;text-decoration:none">engineering</a> · Wise</div>
     <h1 class="jhead">Engineering Lead - Business Operations Tooling</h1>
     <p class="jmeta"><span>Tallinn, EE</span><span>Engineering</span><span>Hybrid</span><span>posted 17d ago</span></p>
-    <div class="jdesc"><p class="jnodesc">This listing is synced from the company careers API. The full job description is on their application page — use the button below.</p></div>
+    <div class="jdesc"><p>The Business Operations Tooling team is a product-focused team dedicated to building and improving the essential tools required by the Operational teams. Their primary goal is to enable each Operational person to efficiently maximise the amount of high-volume business customers they can serve by centralizing data, simplifying workflows, and automating time-consuming tasks. The initial phase focuses on leveraging Salesforce to quickly deliver value before developing bespoke internal tools.</p>
+<p>The Engineering Lead is responsible for the overall technical architecture, development standards, and successful implementation of the roadmap's technical deliverables (e.g., proactive alerting, automated data population, assignment tooling). They would also be responsible for hiring and managing the engineers required for the team and working with cross-functional people, including product, design and analytics. Key</p>
+<h3>Responsibilities</h3>
+<ul>
+<li>Technical: Defining the technical approach for building tools, and consider short term wins vs long term initiatives. The role is hands-on.</li>
+<li>Product Roadmap: Actively participating in product definition and roadmap of the team.</li>
+<li>Team Leadership: Leading and mentoring the team of engineers (Individual Contributors), ensuring code quality, and driving project completion.</li>
+<li>Cross-Team Coordination: Working with cross-functional teams (including design, product, analytics) to build and integrate the tools.</li>
+</ul>
+<p>Required</p>
+<h3>Experience</h3>
+<ul>
+<li>Experience in leading and mentoring software engineers, as you enjoy helping others grow and succeed.</li>
+<li>Strong communication style, experience leading one or multiple teams, working across multiple functions.</li>
+<li>Experience in backend engineering and system architecture, with a proven track record of delivering scalable solutions, ideally in a fast-paced environment or for internal tooling.</li>
+<li>Experience with designing complex systems.</li>
+<li>Experience with database handling.</li>
+<li>Experience with API design.</li>
+<li>Experience witha asynchronous messaging.</li>
+<li>Good conflict resolution and problem solving skills.</li>
+</ul>
+<h3>Nice to Have</h3>
+<ul>
+<li>Experience with JVM languages (Java, Kotlin).</li>
+<li>Financial background is not a must, but a good plus</li>
+</ul>
+<p>Interested? Find out more:</p>
+<ul>
+<li>DEI at Wise</li>
+<li>Wise Tech Stack (2025)</li>
+<li>Scaling our Infrastructure; how we make it work</li>
+<li>Wise Engineering Medium</li>
+</ul>
+<h3>What do we offer</h3>
+<ul>
+<li>Starting salary: €6,666 - €8,333 gross/monthly + Wise's Restricted Stock Units (RSUs)</li>
+<li>Wise Benefits</li>
+</ul>
+<p>#LI-AT1 #LI-Hybrid</p>
+</div>
     <a class="japply" href="https://jobs.smartrecruiters.com/wise/744000138568730" target="_blank" rel="noopener noreferrer" data-company="Wise" data-title="Engineering Lead - Business Operations Tooling" data-dept="Engineering">Apply on Wise →</a>
     <p class="jfoot">Listing synced from Wise's official careers API · refreshed 2026-08-06 · <a href="/n/wise/">Wise profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>

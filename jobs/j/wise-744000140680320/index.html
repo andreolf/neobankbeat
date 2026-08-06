@@ -89,6 +89,11 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jmeta span{display:inline-block;margin-right:12px}
 .jdesc{font-size:14px;line-height:1.65;color:var(--text);margin:20px 0;max-width:760px}
 .jdesc p{margin:0 0 14px}
+.jdesc h3{font-size:14.5px;font-weight:700;color:var(--text);margin:22px 0 10px;font-family:'Noto Sans Mono',monospace;letter-spacing:.03em}
+.jdesc h3:first-child{margin-top:0}
+.jdesc ul{margin:0 0 16px;padding-left:1.2em}
+.jdesc li{margin:0 0 8px}
+.jdesc li::marker{color:var(--acc)}
 .jnodesc{color:var(--muted);font-size:13.5px}
 .japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
 .japply:hover{filter:brightness(1.05)}
@@ -127,7 +132,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"JobPosting","title":"Senior Software Engineer II - Data Onboarding & Reporting","description":"Senior Software Engineer II - Data Onboarding & Reporting at Wise — London, GB. Apply on the official Wise careers page.","datePosted":"2026-07-30","validThrough":"2026-09-28","hiringOrganization":{"@type":"Organization","name":"Wise","sameAs":"https://www.neobankbeat.com/n/wise/"},"jobLocation":{"@type":"Place","address":"London, GB"},"employmentType":"FULL_TIME","directApply":false,"url":"https://www.neobankbeat.com/jobs/j/wise-744000140680320/","identifier":{"@type":"PropertyValue","name":"Wise","value":"https://jobs.smartrecruiters.com/wise/744000140680320"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"senior software engineer ii - data onboarding & reporting","item":"https://www.neobankbeat.com/jobs/j/wise-744000140680320/"}]}]
+[{"@context":"https://schema.org","@type":"JobPosting","title":"Senior Software Engineer II - Data Onboarding & Reporting","description":"About\n\nthe Role:\n\nWise is on a mission to create money without borders—making it instant, transparent, and eventually free. To support this rapid global growth, our Finance Squad ensures that our financial processes run in an efficient, scalable, and controlled manner.\n\nWe are looking for a talented Senior Software Engineer II to join our Data Onboarding Team in London. In this role, you will be the driving force behind building, scaling, and optimizing the critical data pipelines on top of our Lakehouse (Trino + Iceberg) infrastructure following a strict Medallion Architecture (Bronze, Silver, Gold layers). You will build robust data pipelines that serve as the foundational bedrock for reporting and assurance across the entire Finance squad.\n\nThe Finance Squad is responsible for steward-shipping the financial truth of Wise. The Data Onboarding team operates alongside Core Accounting, Finance Implementation, and Data & Assurance. Our team's mandate is to abstract product complexity and build reusable, domain-agnostic stream-enrichment pipelines. We handle high-throughput financial event data (processing hundreds of millions of events daily) to bridge the gap between immutable product events and audit-ready data structures.\n\nWhat will you be working on?\n\nTechnical Leadership & Pipeline Engineering\n• Lakehouse Architecture: Design, build, and optimize robust end-to-end data pipelines on top of our Trino + Iceberg Lakehouse stack.\n• Medallion Implementation: Own the extraction, cleaning, and modeling layers to progressively refine raw event logs (Bronze) into verified subledgers (Silver) and structured Gold metrics.\n• Stream Processing: Work closely with high-throughput messaging queues (Kafka) and real-time computation models to maintain our data freshness SLAs.\n• Data Quality & Assurance: Embed rigorous, automated reconciliation checks within the data pipelines (e.g., balance and double-entry validations) to catch data discrepancies before they reach financial reporting layers.\n\nStrategic Impact & Collaboration\n• Product & Stakeholder Alignment: Partner directly with finance controllers, analysts, product and engineering to turn complex corporate finance needs into production-ready data schemas.\n• Platform Alignment: Address data scaling constraints, structural technical debt, and compute optimizations to directly align infrastructure costs with Wise's financial targets.\n\nMentorship & Engineering Excellence\n• Upskilling: Assist and coach mid-level/junior engineers within the team, performing thorough code and technical design reviews.\n\nMust Haves (Hard Skills)\n• Data Lakehouse Mastery: Proven experience building data infrastructure using Trino / Presto and open table formats like Apache Iceberg or Delta Lake.\n• Advanced Data Modeling: Deep expertise in Medallion Architecture patterns, Star Schemas, and processing semi-structured financial data logs (JSON/Avro).\n• Robust ETL/ELT Orchestration: Expert proficiency in data transformation engines (such as dbt) and scheduling tools (such as Airflow).\n• Stream/Message Queues: Solid understanding of event-driven architectures and streaming processing via Apache Kafka.\n• Strong Programming Foundations: Proficiency in Python, SQL, or an Object-Oriented language (Java/Scala).\n\nNice to Haves\n• Experience operating data assets within a regulated SOX/PCAOB compliance environment.\n• Familiarity with cloud data warehouses (e.g., Snowflake) and cloud compute orchestration.\n• Prior domain exposure to financial flows, double-entry ledger systems, or accounting integrations.\n\nSoft Skills\n• A strong sense of long-term technical ownership.\n• Excellent communication skills with the ability to bridge technical engineering realities with financial analyst requirements.\n\nWhat We Offer / Selling Points\n• The rare opportunity to help engineer the core \"Engine of Trust\" for a fast-growing global fintech moving billions in cross-border volume.\n• A chance to work beyond isolated data pipelines, building reusable libraries and system-wide framework layers rather than bespoke, one-off fixes.\n• Direct interaction and collaboration with top-tier product minds, data platform engineers, and global financial stakeholders.\n\n \n\n​​​​​​​​​​​​​​​​​​​​​Interested? Find out more:\n• How we work – a practical guide\n• DEI @ Wise\n• Wise Tech Stack (2025 update)\n\n​​​​​​​What do we offer:\n• Starting salary: £111k - £145k + RSUs\n• Wise Benefits\n• #LI-AB3 #LI-Hybrid\n• Paved Paths: Create structured framework documentation and automated tooling to reduce onboarding friction for new data sources.\n• • See what it's like to work at Wise London!\n• Our Engineering career map\n• Wise Engineering - https://medium.com/wise-engineering","datePosted":"2026-07-30","validThrough":"2026-09-28","hiringOrganization":{"@type":"Organization","name":"Wise","sameAs":"https://www.neobankbeat.com/n/wise/"},"jobLocation":{"@type":"Place","address":"London, GB"},"baseSalary":{"@type":"MonetaryAmount","value":"£111–145K"},"employmentType":"FULL_TIME","directApply":false,"url":"https://www.neobankbeat.com/jobs/j/wise-744000140680320/","identifier":{"@type":"PropertyValue","name":"Wise","value":"https://jobs.smartrecruiters.com/wise/744000140680320"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"senior software engineer ii - data onboarding & reporting","item":"https://www.neobankbeat.com/jobs/j/wise-744000140680320/"}]}]
 </script>
 </head>
 <body>
@@ -154,8 +159,69 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <article style="max-width:760px">
     <div class="eyebrow"><a href="/jobs/engineering/" style="color:inherit;text-decoration:none">engineering</a> · Wise</div>
     <h1 class="jhead">Senior Software Engineer II - Data Onboarding &amp; Reporting</h1>
-    <p class="jmeta"><span>London, GB</span><span>Engineering</span><span>Hybrid</span><span>posted 7d ago</span></p>
-    <div class="jdesc"><p class="jnodesc">This listing is synced from the company careers API. The full job description is on their application page — use the button below.</p></div>
+    <p class="jmeta"><span>London, GB</span><span>Engineering</span><span>Hybrid</span><span>£111–145K</span><span>posted 7d ago</span></p>
+    <div class="jdesc"><p>About</p>
+<h3>the Role</h3>
+<p>Wise is on a mission to create money without borders—making it instant, transparent, and eventually free. To support this rapid global growth, our Finance Squad ensures that our financial processes run in an efficient, scalable, and controlled manner. We are looking for a talented Senior Software Engineer II to join our Data Onboarding Team in London. In this role, you will be the driving force behind building, scaling, and optimizing the critical data pipelines on top of our Lakehouse (Trino + Iceberg) infrastructure following a strict Medallion Architecture (Bronze, Silver, Gold layers). You will build robust data pipelines that serve as the foundational bedrock for reporting and assurance across the entire Finance squad.</p>
+<p>The Finance Squad is responsible for steward-shipping the financial truth of Wise. The Data Onboarding team operates alongside Core Accounting, Finance Implementation, and Data &amp; Assurance. Our team's mandate is to abstract product complexity and build reusable, domain-agnostic stream-enrichment pipelines. We handle high-throughput financial event data (processing hundreds of millions of events daily) to bridge the gap between immutable product events and audit-ready data structures.</p>
+<p>What will you be working on? Technical Leadership &amp; Pipeline Engineering</p>
+<ul>
+<li>Lakehouse Architecture: Design, build, and optimize robust end-to-end data pipelines on top of our Trino + Iceberg Lakehouse stack.</li>
+<li>Medallion Implementation: Own the extraction, cleaning, and modeling layers to progressively refine raw event logs (Bronze) into verified subledgers (Silver) and structured Gold metrics.</li>
+<li>Stream Processing: Work closely with high-throughput messaging queues (Kafka) and real-time computation models to maintain our data freshness SLAs.</li>
+<li>Data Quality &amp; Assurance: Embed rigorous, automated reconciliation checks within the data pipelines (e.g., balance and double-entry validations) to catch data discrepancies before they reach financial reporting layers.</li>
+</ul>
+<p>Strategic Impact &amp; Collaboration</p>
+<ul>
+<li>Product &amp; Stakeholder Alignment: Partner directly with finance controllers, analysts, product and engineering to turn complex corporate finance needs into production-ready data schemas.</li>
+<li>Platform Alignment: Address data scaling constraints, structural technical debt, and compute optimizations to directly align infrastructure costs with Wise's financial targets.</li>
+</ul>
+<p>Mentorship &amp; Engineering Excellence</p>
+<ul>
+<li>Upskilling: Assist and coach mid-level/junior engineers within the team, performing thorough code and technical design reviews.</li>
+</ul>
+<p>Must Haves (Hard Skills)</p>
+<ul>
+<li>Data Lakehouse Mastery: Proven experience building data infrastructure using Trino / Presto and open table formats like Apache Iceberg or Delta Lake.</li>
+<li>Advanced Data Modeling: Deep expertise in Medallion Architecture patterns, Star Schemas, and processing semi-structured financial data logs (JSON/Avro).</li>
+<li>Robust ETL/ELT Orchestration: Expert proficiency in data transformation engines (such as dbt) and scheduling tools (such as Airflow).</li>
+<li>Stream/Message Queues: Solid understanding of event-driven architectures and streaming processing via Apache Kafka.</li>
+<li>Strong Programming Foundations: Proficiency in Python, SQL, or an Object-Oriented language (Java/Scala).</li>
+</ul>
+<p>Nice to Haves</p>
+<ul>
+<li>Experience operating data assets within a regulated SOX/PCAOB compliance environment.</li>
+<li>Familiarity with cloud data warehouses (e.g., Snowflake) and cloud compute orchestration.</li>
+<li>Prior domain exposure to financial flows, double-entry ledger systems, or accounting integrations.</li>
+</ul>
+<p>Soft Skills</p>
+<ul>
+<li>A strong sense of long-term technical ownership.</li>
+<li>Excellent communication skills with the ability to bridge technical engineering realities with financial analyst requirements.</li>
+</ul>
+<p>What We Offer / Selling Points</p>
+<ul>
+<li>The rare opportunity to help engineer the core &quot;Engine of Trust&quot; for a fast-growing global fintech moving billions in cross-border volume.</li>
+<li>A chance to work beyond isolated data pipelines, building reusable libraries and system-wide framework layers rather than bespoke, one-off fixes.</li>
+<li>Direct interaction and collaboration with top-tier product minds, data platform engineers, and global financial stakeholders.</li>
+</ul>
+<p>​​​​​​​​​​​​​​​​​​​​​Interested? Find out more:</p>
+<ul>
+<li>How we work – a practical guide</li>
+<li>DEI @ Wise</li>
+<li>Wise Tech Stack (2025 update)</li>
+</ul>
+<p>​​​​​​​What do we offer:</p>
+<ul>
+<li>Starting salary: £111k - £145k + RSUs</li>
+<li>Wise Benefits</li>
+<li>#LI-AB3 #LI-Hybrid</li>
+<li>Paved Paths: Create structured framework documentation and automated tooling to reduce onboarding friction for new data sources.</li>
+<li>• See what it's like to work at Wise London!</li>
+<li>Our Engineering career map</li>
+<li>Wise Engineering - https://medium.com/wise-engineering</li>
+</ul>
+</div>
     <a class="japply" href="https://jobs.smartrecruiters.com/wise/744000140680320" target="_blank" rel="noopener noreferrer" data-company="Wise" data-title="Senior Software Engineer II - Data Onboarding &amp; Reporting" data-dept="Engineering">Apply on Wise →</a>
     <p class="jfoot">Listing synced from Wise's official careers API · refreshed 2026-08-06 · <a href="/n/wise/">Wise profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>

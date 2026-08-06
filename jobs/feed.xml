@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 06 Aug 2026 07:30:55 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 07:50:34 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Senior Manager Product Operations, FCM Ops — Coinbase]]></title>
@@ -13,6 +13,14 @@
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8110496/</guid>
     <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
+    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Strategic Program Lead — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8051894/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8051894/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
   <item>
@@ -32,12 +40,36 @@
     <description><![CDATA[Crypto.com · United States · hybrid]]></description>
   </item>
   <item>
+    <title><![CDATA[KYC Specialist – Italian Market — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8104950/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8104950/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Onboarding &amp; KYC</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[People Operations Partner (1 Year Fixed Term) — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8104894/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8104894/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[N26 · Berlin · hybrid · visa sponsorship]]></description>
+  </item>
+  <item>
     <title><![CDATA[Compliance Analyst — OKX]]></title>
     <link>https://www.neobankbeat.com/jobs/j/okx-7830763003/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7830763003/</guid>
     <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Internal Audit Senior Manager, Japan — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000141858624/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000141858624/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Tokyo, JP · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Product Operations Specialist (Savings & Investments) — Wise]]></title>
@@ -54,14 +86,6 @@
     <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Internal Audit Senior Manager, Japan — Wise]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/wise-744000141849699/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000141849699/</guid>
-    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Wise · Tokyo, JP · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[FinCrime Operations Analyst - Sanctions — Wise]]></title>
@@ -165,7 +189,7 @@
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4905681101/</guid>
     <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
     <category>Design</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · hybrid]]></description>
+    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Design System Designer — Bitpanda]]></title>
@@ -173,7 +197,7 @@
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4905680101/</guid>
     <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
     <category>Design</category>
-    <description><![CDATA[Bitpanda · Barcelona, Spain · hybrid]]></description>
+    <description><![CDATA[Bitpanda · Barcelona, Spain · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Product Manager Web3 — Bitpanda]]></title>
@@ -462,30 +486,6 @@
     <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Chime · Chicago, IL, USA · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Derivative Sales Analyst — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8097446/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8097446/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Coinbase · Remote - UK · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Forward Deployed Engineer, Compliance [Office of the CTO] — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8099099/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8099099/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Global Intelligence Analyst — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8067617/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8067617/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
 </channel>
 </rss>

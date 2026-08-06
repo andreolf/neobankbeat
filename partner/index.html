@@ -37,8 +37,9 @@
 .segrow{display:flex;flex-wrap:wrap;gap:8px}
 .segrow button{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer}
 .segrow button.on{color:var(--accent);border-color:var(--accent)}
-.pform input[type=text],.pform textarea{width:100%;box-sizing:border-box;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono,'Noto Sans Mono',monospace);font-size:13.5px;padding:11px 13px;outline:none}
-.pform input[type=text]:focus,.pform textarea:focus{border-color:var(--accent)}
+.pform input[type=text],.pform input[type=email],.pform textarea{width:100%;box-sizing:border-box;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:var(--mono,'Noto Sans Mono',monospace);font-size:13.5px;padding:11px 13px;outline:none}
+.pform input[type=text]:focus,.pform input[type=email]:focus,.pform textarea:focus{border-color:var(--accent)}
+.pform input:-webkit-autofill,.pform input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px var(--bg) inset;-webkit-text-fill-color:var(--text);caret-color:var(--text)}
 .pform textarea{min-height:110px;resize:vertical}
 .pform .send{margin-top:20px;display:inline-block;background:var(--accent);color:#0A0A10;font-weight:700;font-size:14.5px;border:none;border-radius:10px;padding:12px 22px;cursor:pointer}
 .pform .send:disabled{opacity:.6;cursor:wait}

@@ -39,16 +39,81 @@ function jobSlug(company, url) {
   return `${co}-${slugify(String(tail)).slice(0, 64)}`.replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 90);
 }
 
-function normDesc(raw) {
-  return String(raw || '').replace(/\s+/g, ' ').trim().slice(0, 14000);
+function decodeHtml(s) {
+  return String(s || '')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&#x27;/g, "'")
+    .replace(/&nbsp;/g, ' ').replace(/&#?\w+;/g, ' ');
 }
+
+function htmlToText(html) {
+  let h = decodeHtml(html);
+  h = h.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, '');
+  h = h.replace(/<br\s*\/?>/gi, '\n');
+  h = h.replace(/<\/(p|div|h[1-6]|li|tr|section|article|blockquote)>/gi, '\n\n');
+  h = h.replace(/<li[^>]*>/gi, '\n• ');
+  h = h.replace(/<h[1-6][^>]*>/gi, '\n\n');
+  h = h.replace(/<[^>]+>/g, '');
+  return h.replace(/\n{3,}/g, '\n\n').replace(/[^\S\n]+/g, ' ').trim();
+}
+
+const INLINE_SECTIONS = [
+  'Team/ Role Paragraph', "What you'll do", 'What you will do', "What we're looking for",
+  'Requirements', 'Qualifications', 'Nice to have', 'Who you are', 'About the role',
+  'About the team', 'Responsibilities', 'Benefits', 'Our offer', 'Your profile',
+  'Skills', 'Experience', 'The role', 'Job description', 'In this role', 'About you',
+  'A bit about the role', 'A bit about you', 'How you will make an impact',
+];
+
+function splitInlineSections(text) {
+  let t = text;
+  for (const label of INLINE_SECTIONS) {
+    const re = new RegExp(`\\s+(${label.replace(/[/'\\]/g, '\\$&')}):\\s*`, 'gi');
+    t = t.replace(re, `\n\n$1:\n\n`);
+  }
+  return t.replace(/\s+•\s+/g, '\n• ').replace(/\s+(\d+)\.\s+(?=[A-Z])/g, '\n$1. ');
+}
+
+function normDesc(raw) {
+  const t = splitInlineSections(htmlToText(raw));
+  return t.replace(/\n{3,}/g, '\n\n').trim().slice(0, 14000);
+}
+
+const SECTION_HDR = /^(?:#{1,3}\s*)?(?:Team\/\s*Role Paragraph|What you(?:'|’)ll do|What you will do|What we(?:'|’)re looking for|Requirements|Qualifications|Nice to have|Who you are|About (?:the role|the team|you)|Responsibilities|Benefits|Our offer|Your profile|Skills|Experience|The role|Job description|In this role|A bit about (?:the role|you)|How you will make an impact)(?:\s*\/\s*[^:]*)?\s*:?\s*$/i;
+const BULLET_RE = /^[•\-\*–—]\s+/;
+const NUM_RE = /^\d+[.)]\s+/;
 
 function descBody(text) {
   const t = String(text || '').trim();
   if (t.length < 80) return '<p class="jnodesc">This listing is synced from the company careers API. The full job description is on their application page — use the button below.</p>';
-  const paras = t.split(/\n{2,}/).map(p => p.trim()).filter(p => p.length > 30);
-  const use = paras.length > 1 ? paras.slice(0, 24) : [t];
-  return use.map(p => `<p>${esc(p)}</p>`).join('\n');
+
+  const lines = t.split(/\n/).map(l => l.trim()).filter(Boolean);
+  let html = '', inList = false, para = [];
+  const flushPara = () => {
+    if (!para.length) return;
+    html += `<p>${esc(para.join(' '))}</p>\n`;
+    para = [];
+  };
+  const closeList = () => { if (inList) { html += '</ul>\n'; inList = false; } };
+
+  for (const line of lines) {
+    if (SECTION_HDR.test(line) || (/^[A-Z][A-Za-z0-9/&'’\-\s]{2,55}:\s*$/.test(line) && line.length < 70)) {
+      flushPara(); closeList();
+      html += `<h3>${esc(line.replace(/:\s*$/, ''))}</h3>\n`;
+      continue;
+    }
+    if (BULLET_RE.test(line) || NUM_RE.test(line)) {
+      flushPara();
+      if (!inList) { html += '<ul>\n'; inList = true; }
+      html += `<li>${esc(line.replace(BULLET_RE, '').replace(NUM_RE, ''))}</li>\n`;
+      continue;
+    }
+    closeList();
+    para.push(line);
+    if (para.join(' ').length > 480) flushPara();
+  }
+  flushPara(); closeList();
+  return html || `<p>${esc(t.slice(0, 5000))}</p>`;
 }
 
 const ogIf = (...parts) => {
@@ -172,8 +237,6 @@ function region(loc, isRemote) {
 
 /* ── salary: structured ATS fields are almost always disabled, but US/UK
    pay-transparency rules push ranges into the description text ── */
-const stripHtml = h => String(h || '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-  .replace(/&#?\w+;/g, ' ').replace(/<[^>]+>/g, ' ');
 function fmtSalary(txt) {
   if (!txt) return null;
   const m = /([$£€]|USD|CAD|EUR|GBP|CHF|C\$)\s?(\d{2,3}(?:[,.]\d{3})+|\d{2,3}(?:\.\d)?\s?[kK])\s*(?:[-–—]|to)\s*(?:[$£€]|USD|CAD|EUR|GBP|C\$)?\s?(\d{2,3}(?:[,.]\d{3})+|\d{2,3}(?:\.\d)?\s?[kK])/.exec(txt);
@@ -254,6 +317,14 @@ async function bunqRows() {
   }).filter(Boolean);
 }
 
+function leverDesc(x) {
+  let t = [x.descriptionPlain, x.additionalPlain, x.openingPlain].filter(Boolean).join('\n\n');
+  if (t.trim().length < 80 && x.lists?.length) {
+    t = x.lists.map(l => `${l.text}\n${htmlToText(l.content)}`).join('\n\n');
+  }
+  return t;
+}
+
 /* ── fetch + normalize ── */
 async function fetchSource([display, entityName, ats, slug]) {
   const ent = E.find(e => e.name === entityName);
@@ -304,12 +375,12 @@ async function fetchSource([display, entityName, ats, slug]) {
     let rows = [];
     if (ats === 'gh') rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.absolute_url, l: x.location?.name || '', d: null, p: (x.updated_at || '').slice(0, 10),
-      s: stripHtml(x.content), w: null,
+      s: x.content || '', w: null,
     }));
     else if (ats === 'lever') rows = (Array.isArray(j) ? j : []).map(x => ({
       t: x.text, u: x.hostedUrl, l: x.categories?.location || '', d: x.categories?.team || x.categories?.department || null,
       p: x.createdAt ? new Date(x.createdAt).toISOString().slice(0, 10) : '',
-      s: (x.descriptionPlain || '') + ' ' + (x.additionalPlain || ''), w: x.workplaceType,
+      s: leverDesc(x), w: x.workplaceType,
     }));
     else if (ats === 'workable') rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.url || x.shortlink, l: [x.city, x.state, x.country].filter(Boolean).join(', '),
@@ -321,6 +392,7 @@ async function fetchSource([display, entityName, ats, slug]) {
       l: [x.location?.city, (x.location?.country || '').toUpperCase()].filter(Boolean).join(', '),
       d: x.function?.label || x.department?.label || null, p: (x.releasedDate || '').slice(0, 10),
       r: !!x.location?.remote, s: '', w: x.location?.remote ? 'remote' : x.location?.hybrid ? 'hybrid' : null,
+      pid: String(x.id),
     }));
     else rows = (j.jobs || []).map(x => ({
       t: x.title, u: x.jobUrl || x.applyUrl, l: [x.location, ...(x.secondaryLocations || []).map(s => s.location)].filter(Boolean).join(' · '),
@@ -340,6 +412,58 @@ async function fetchSource([display, entityName, ats, slug]) {
   }
 }
 
+const companyAts = new Map(SOURCES.map(s => [s[0], { ats: s[2], slug: s[3] }]));
+
+async function enrichJobDescription(j) {
+  if ((j.description || '').length >= 80) return;
+  const src = companyAts.get(j.company);
+  if (!src) return;
+  const { ats, slug } = src;
+  const hdrs = { accept: 'application/json', 'user-agent': 'neobankbeat-jobs/1.0' };
+  try {
+    if (ats === 'smartr') {
+      const id = j.url.match(/\/(\d+)\/?$/)?.[1];
+      if (!id) return;
+      const r = await fetch(`https://api.smartrecruiters.com/v1/companies/${slug}/postings/${id}`, { signal: AbortSignal.timeout(20000), headers: hdrs });
+      if (!r.ok) return;
+      const p = await r.json();
+      const sections = p.jobAd?.sections || {};
+      const html = sections.jobDescription?.text
+        || Object.entries(sections).filter(([k]) => k !== 'companyDescription').map(([, s]) => s?.text).filter(Boolean).join('\n\n');
+      if (html) j.description = normDesc(html);
+    } else if (ats === 'workable') {
+      const sc = j.url.match(/\/j\/([A-F0-9]+)/i)?.[1];
+      if (!sc) return;
+      const r = await fetch(`https://apply.workable.com/api/v2/accounts/${slug}/jobs/${sc}`, { signal: AbortSignal.timeout(20000), headers: hdrs });
+      if (!r.ok) return;
+      const p = await r.json();
+      const html = [p.description, p.requirements, p.benefits].filter(Boolean).join('\n\n');
+      if (html) j.description = normDesc(html);
+    } else if (ats === 'deel') {
+      const r = await fetch(j.url, { signal: AbortSignal.timeout(30000), headers: { 'user-agent': BROWSER_UA } });
+      if (!r.ok) return;
+      const page = await r.text();
+      const flight = [...page.matchAll(/self\.__next_f\.push\(\[1,"((?:[^"\\]|\\.)*)"\]\)/g)].map(m => JSON.parse('"' + m[1] + '"')).join('');
+      const m = flight.replace(/\\"/g, '"').match(/"description":"((?:\\.|[^"])*)"/);
+      if (m) {
+        const raw = JSON.parse('"' + m[1] + '"');
+        if (raw.length >= 80) j.description = normDesc(raw);
+      }
+    } else if (ats === 'bunq') {
+      const r = await fetch(j.url, { signal: AbortSignal.timeout(30000), headers: { 'user-agent': BROWSER_UA } });
+      if (!r.ok) return;
+      const page = await r.text();
+      const paras = [...page.matchAll(/<p[^>]*class="framer-text[^"]*"[^>]*>([\s\S]*?)<\/p>/g)]
+        .map(x => htmlToText(x[1])).filter(p => p.length > 40);
+      if (paras.length) j.description = normDesc(paras.join('\n\n'));
+    }
+    if ((j.description || '').length >= 80) {
+      j.salary = j.salary || fmtSalary(j.description);
+      j.visa = j.visa ?? visaOf(j.description);
+    }
+  } catch { /* enrichment is best-effort */ }
+}
+
 console.log('fetching live postings from', SOURCES.length, 'ATS boards…');
 /* pool of 8 — firing all ~70 boards at once causes random socket failures */
 async function pooled(items, fn, size = 8) {
@@ -350,6 +474,11 @@ async function pooled(items, fn, size = 8) {
   return out;
 }
 const all = (await pooled(SOURCES, fetchSource)).flat();
+const needDesc = all.filter(j => (j.description || '').length < 80);
+if (needDesc.length) {
+  console.log(`enriching ${needDesc.length} job descriptions from detail APIs…`);
+  await pooled(needDesc, enrichJobDescription, 10);
+}
 // safety: if the APIs are having a bad day, refuse to overwrite a good board
 if (all.length < 2000) {
   console.error(`only ${all.length} jobs fetched (expected 4000+) — aborting to avoid publishing a broken board`);
@@ -490,6 +619,11 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jmeta span{display:inline-block;margin-right:12px}
 .jdesc{font-size:14px;line-height:1.65;color:var(--text);margin:20px 0;max-width:760px}
 .jdesc p{margin:0 0 14px}
+.jdesc h3{font-size:14.5px;font-weight:700;color:var(--text);margin:22px 0 10px;font-family:'Noto Sans Mono',monospace;letter-spacing:.03em}
+.jdesc h3:first-child{margin-top:0}
+.jdesc ul{margin:0 0 16px;padding-left:1.2em}
+.jdesc li{margin:0 0 8px}
+.jdesc li::marker{color:var(--acc)}
 .jnodesc{color:var(--muted);font-size:13.5px}
 .japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
 .japply:hover{filter:brightness(1.05)}
