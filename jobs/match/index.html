@@ -224,12 +224,12 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
       <div class="jmprivacy"><span class="k">private</span><span><b>Nothing leaves your browser.</b> No upload, no storage, no cookies — matching runs locally. Close the tab and your CV is gone.</span></div>
 
       <div class="jmupload" id="jmdrop" tabindex="0" role="group" aria-label="Upload CV file">
-        <input type="file" id="jmfile" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt">
+        <input type="file" id="jmfile" accept="application/pdf,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,text/plain,.txt,image/png,.png,image/jpeg,.jpg,.jpeg,image/webp,.webp,image/gif,.gif,image/bmp,.bmp">
         <div class="ico" id="jmico">↑</div>
         <div class="t" id="jmuptitle">Drop your CV here</div>
-        <div class="sub" id="jmupsub">Drop anywhere in this box · PDF or Word with selectable text</div>
-        <button type="button" class="jmbrowse" id="jmbrowse">choose PDF or Word</button>
-        <p class="jmformats"><b>PNG, JPG &amp; screenshots are not supported</b> — we need real text, not a photo. Save/export as PDF, or paste the CV below.</p>
+        <div class="sub" id="jmupsub">Drop anywhere in this box · PDF, Word, PNG/JPG, or TXT</div>
+        <button type="button" class="jmbrowse" id="jmbrowse">choose file</button>
+        <p class="jmformats"><b>PNG &amp; JPG screenshots OK</b> — read with on-device OCR (slower the first time). PDF with selectable text is fastest.</p>
         <div class="fname" id="jmfname" hidden></div>
       </div>
 
@@ -237,7 +237,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 
       <div class="jmpaste">
         <label for="jmtext">CV text</label>
-        <textarea id="jmtext" placeholder="Paste your CV text here — works great if you only have a screenshot: retype or copy from the image…"></textarea>
+        <textarea id="jmtext" placeholder="Or paste your CV text here…"></textarea>
       </div>
 
       <div class="jmactions">
@@ -259,7 +259,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 
   <article class="jmhow">
   <h2>how matching works</h2>
-  <p>Keyword overlap + TF‑IDF against 3,724 live roles — title matches weighted higher. No AI, no accounts. A starting point, not career advice.</p>
+  <p>Keyword overlap + TF‑IDF against 3,724 live roles — title matches weighted higher. PDF, Word, or PNG/JPG (OCR runs locally). No accounts. A starting point, not career advice.</p>
   <p style="font-size:12.5px;color:var(--dim)"><a href="/jobs/">Browse all roles</a> · 66 companies · <a href="/jobs/data.json">jobs/data.json</a></p>
   </article>
 </main>
@@ -272,6 +272,7 @@ var DEPT={"engineering":"Engineering","data":"Data & AI","product":"Product","de
 var PDF_JS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
 var PDF_WK='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 var MAMMOTH_JS='https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js';
+var TESSERACT_JS='https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js';
 
 function loadScript(url){
   return new Promise(function(resolve,reject){
@@ -294,6 +295,12 @@ var pdfReady=loadScript(PDF_JS).then(function(){
   return window.pdfjsLib;
 });
 var mammothReady=loadScript(MAMMOTH_JS);
+var tesseractReady=loadScript(TESSERACT_JS).then(function(){
+  if(!window.Tesseract)throw new Error('OCR reader failed to load');
+  return window.Tesseract;
+});
+
+function isImageFile(n,type){return /^image\//.test(type||'')||/\.(png|jpe?g|gif|webp|bmp)$/i.test(n||'')}
 
 function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' ').split(/\s+/).filter(function(w){
   if(!w||STOP.has(w))return false;
@@ -303,13 +310,13 @@ function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' '
 function uniq(a){var o={},r=[];a.forEach(function(x){if(!o[x]){o[x]=1;r.push(x)}});return r}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
-function isReadableCv(text){
+function isReadableCv(text,ocr){
   var t=String(text||'');
   if(t.length<120)return false;
   var letters=(t.match(/[a-zA-Z]/g)||[]).length;
-  if(letters/t.length<0.55)return false;
+  if(letters/t.length<(ocr?0.42:0.55))return false;
   var words=t.match(/[a-zA-Z]{4,}/g)||[];
-  if(words.length<12)return false;
+  if(words.length<(ocr?8:12))return false;
   if(/[\x00-\x08\x0E-\x1F]/.test(t))return false;
   if((t.match(/[\uFFFD]/g)||[]).length>2)return false;
   return true;
@@ -366,16 +373,34 @@ function extractDocx(file,onProg){
   });
 }
 
+function extractImage(file,onProg){
+  onProg(12,'Loading OCR (first time may take a few seconds)…');
+  return tesseractReady.then(function(){
+    return window.Tesseract.recognize(file,'eng',{
+      logger:function(m){
+        if(m.status==='recognizing text'&&typeof m.progress==='number')
+          onProg(18+Math.round(m.progress*32),'Reading text from image…');
+        else if(m.status==='loading language traineddata')
+          onProg(15,'Downloading OCR language pack…');
+        else if(/loading|initializing/i.test(m.status||''))
+          onProg(13,'Starting OCR…');
+      }
+    }).then(function(r){
+      onProg(52,'Text extracted from image');
+      return (r.data&&r.data.text)||'';
+    });
+  });
+}
+
 function readFile(file,onProg){
   return Promise.resolve().then(function(){
     var n=(file.name||'').toLowerCase(),type=file.type||'';
     onProg(8,'Loading '+file.name+'…');
-    if(/^image\//.test(type)||/\.(png|jpe?g|gif|webp|bmp|heic|svg)$/i.test(n))
-      throw new Error('PNG/JPG screenshots cannot be read — export a PDF, open the .docx, or paste the text below.');
     if(n.endsWith('.txt')||type==='text/plain')return file.text().then(function(t){onProg(45,'Text loaded');return t});
     if(n.endsWith('.pdf')||type==='application/pdf')return extractPdf(file,onProg);
     if(n.endsWith('.docx')||type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document')return extractDocx(file,onProg);
-    throw new Error('Use PDF, DOCX, or TXT — or paste your CV text below.');
+    if(isImageFile(n,type))return extractImage(file,onProg);
+    throw new Error('Use PDF, DOCX, PNG/JPG, or TXT — or paste your CV text below.');
   });
 }
 
@@ -450,7 +475,7 @@ function setFileUI(name){
     clearBtn.hidden=false;
   }else{
     dropEl.classList.remove('hasfile');fnameEl.hidden=true;fnameEl.textContent='';
-    upTitle.textContent='Drop your CV here';upSub.textContent='Drop anywhere in this box · PDF or Word with selectable text';icoEl.textContent='↑';
+    upTitle.textContent='Drop your CV here';upSub.textContent='Drop anywhere in this box · PDF, Word, PNG/JPG, or TXT';icoEl.textContent='↑';
   }
 }
 
@@ -490,11 +515,12 @@ function dragOff(){dropEl.classList.remove('drag');panelEl.classList.remove('dra
 
 function handleFile(f){
   if(busy)return;
+  var isImg=isImageFile((f.name||'').toLowerCase(),f.type||'');
   setBusy(true);hideProg();document.getElementById('jmres').hidden=true;
   setStatus('');setProg(2,'Starting…');
   readFile(f,setProg).then(function(t){
-    if(!t||!String(t).trim())throw new Error('This PDF appears empty — if it is a scan, paste the text below.');
-    if(!isReadableCv(t))throw new Error('This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.');
+    if(!t||!String(t).trim())throw new Error(isImg?'This image appears empty — try a clearer screenshot or paste the text below.':'This file appears empty — if it is a scan, paste the text below.');
+    if(!isReadableCv(t,isImg))throw new Error(isImg?'Could not read enough text from this image — try a clearer photo or paste below.':'This PDF has no selectable text (maybe a scan/photo export). Paste the CV text below instead.');
     cvText=t;textEl.value=t.slice(0,12000)+(t.length>12000?'\n…':'');
     setFileUI(f.name);setProg(58,'CV ready — matching…');
     return runMatch(true);
@@ -554,6 +580,7 @@ clearBtn.addEventListener('click',clearAll);
 textEl.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='Enter'&&!busy){e.preventDefault();runMatch(false)}});
 
 pdfReady.catch(function(){});
+tesseractReady.catch(function(){});
 })();
 </script>
 
