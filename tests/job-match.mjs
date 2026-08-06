@@ -35,8 +35,9 @@ export const jobMatchCss = () => `
 .jmcard .t{font-weight:700;font-size:14.5px;color:var(--text);line-height:1.35}
 .jmcard .co{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--acc);margin-top:4px}
 .jmcard .meta{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
-.jmcard .why{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
-.jmcard .why b{color:var(--text);font-weight:600}
+.jmcard .why{ font-size:12px;color:var(--muted);margin-top:10px;line-height:1.55}
+.jmcard .why .wl{display:block;margin-top:4px}
+.jmcard .why .wl b{color:var(--text);font-weight:600;font-family:'Noto Sans Mono',monospace;font-size:11px}
 .jmcard .pct{font-family:'Noto Sans Mono',monospace;font-size:11px;color:#BAF24A;white-space:nowrap;flex-shrink:0}
 .jmempty{font-size:13.5px;color:var(--muted);line-height:1.6}
 .jmhow{margin-top:32px;max-width:760px}
@@ -54,7 +55,7 @@ export const jobMatchHtml = (jobCount, nCompanies) => `
         <input type="file" id="jmfile" accept=".pdf,.docx,.doc,.txt,text/plain,application/pdf">
         <div class="ico" id="jmico">↑</div>
         <div class="t" id="jmuptitle">Drop your CV here</div>
-        <div class="sub" id="jmupsub">or click to browse · PDF · Word · plain text</div>
+        <div class="sub" id="jmupsub">PDF · Word · plain text — not photos or screenshots</div>
         <div class="fname" id="jmfname" hidden></div>
       </label>
 
@@ -88,12 +89,41 @@ export const jobMatchScript = (deptLabels) => `<script src="https://cdnjs.cloudf
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" defer></script>
 <script>
 (function(){
-var STOP=new Set('a an the and or but in on at to for of is are was be been being have has had do does did will would could should may might must can with from as by about into through during before after above below between under over out up down not no nor so if then than too very just also only same other more most such each per via'.split(' '));
+var STOP=new Set('a an the and or but in on at to for of is are was be been being have has had do does did will would could should may might must can with from as by about into through during before after above below between under over out up down not no nor so if then than too very just also only same other more most such each per via you your our their this that these those were being been being role team work job jobs est progama cadastro'.split(' '));
+var SHORT_OK=new Set('aml kyc kyb pci sre ios api sql aws gcp php ux hr fp a b c r d'.split(' '));
+var ACRONYM={aml:'AML (anti-money laundering)',kyc:'KYC (Know Your Customer)',kyb:'KYB (Know Your Business)',pci:'PCI',sre:'SRE',api:'API',sql:'SQL',aws:'AWS',gcp:'GCP',ios:'iOS',pos:'POS'};
 var DEPT=${JSON.stringify(deptLabels)};
 
-function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' ').split(/\\s+/).filter(function(w){return w.length>2&&w.length<40&&!STOP.has(w)})}
+function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' ').split(/\\s+/).filter(function(w){
+  if(!w||STOP.has(w))return false;
+  if(SHORT_OK.has(w))return true;
+  return w.length>=4&&w.length<40&&/[aeiouy]/i.test(w);
+})}
 function uniq(a){var o={},r=[];a.forEach(function(x){if(!o[x]){o[x]=1;r.push(x)}});return r}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function isReadableCv(text){
+  var t=String(text||'');
+  if(t.length<120)return false;
+  var letters=(t.match(/[a-zA-Z]/g)||[]).length;
+  if(letters/t.length<0.55)return false;
+  var words=t.match(/[a-zA-Z]{4,}/g)||[];
+  if(words.length<12)return false;
+  if(/[\x00-\x08\x0E-\x1F]/.test(t))return false;
+  if((t.match(/[\uFFFD]/g)||[]).length>2)return false;
+  return true;
+}
+
+function labelTok(t){return ACRONYM[t]||t.replace(/\\b\\w/g,function(c){return c.toUpperCase()})}
+
+function explain(job,titleHits,bodyHits){
+  var lines=[];
+  if(titleHits.length)lines.push('<span class="wl"><b>Role:</b> your CV overlaps with '+esc(titleHits.slice(0,4).map(labelTok).join(', '))+' in this job title</span>');
+  if(bodyHits.length)lines.push('<span class="wl"><b>Experience:</b> shared terms include '+esc(bodyHits.slice(0,5).map(labelTok).join(', '))+'</span>');
+  var dept=DEPT[job.dept]||'';
+  if(dept&&bodyHits.length>=2)lines.push('<span class="wl"><b>Track:</b> fits the '+esc(dept)+' bucket on our board</span>');
+  return lines.length?lines.join(''):'<span class="wl">Some keyword overlap with this posting — read the full role to confirm</span>';
+}
 
 function loadJobs(){return fetch('/jobs/data.json').then(function(r){return r.json()}).then(function(d){return d.jobs||[]})}
 
@@ -113,11 +143,14 @@ function extractDocx(file){
   return file.arrayBuffer().then(function(buf){return mammoth.extractRawText({arrayBuffer:buf}).then(function(r){return r.value||''})})}
 
 function readFile(file){
-  var n=(file.name||'').toLowerCase();
-  if(n.endsWith('.txt')||file.type==='text/plain')return file.text();
-  if(n.endsWith('.pdf')||file.type==='application/pdf')return extractPdf(file);
-  if(n.endsWith('.docx')||file.type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document')return extractDocx(file);
-  return file.text().catch(function(){throw new Error('Use PDF, DOCX, or TXT')})}
+  var n=(file.name||'').toLowerCase(),type=file.type||'';
+  if(/^image\\//.test(type)||/\\.(png|jpe?g|gif|webp|bmp|heic|svg)$/i.test(n))
+    throw new Error('Photos and screenshots cannot be read — export a PDF or Word file, or paste the text below.');
+  if(n.endsWith('.txt')||type==='text/plain')return file.text();
+  if(n.endsWith('.pdf')||type==='application/pdf')return extractPdf(file);
+  if(n.endsWith('.docx')||type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document')return extractDocx(file);
+  throw new Error('Use PDF, DOCX, or TXT — or paste your CV text below.');
+}
 
 function score(cvText,jobs){
   var cvTok=tok(cvText),cvSet=uniq(cvTok),cvF={};
@@ -127,17 +160,17 @@ function score(cvText,jobs){
   jobs.forEach(function(j){uniq(tok(j.title+' '+(j.description||'').slice(0,5000))).forEach(function(t){df[t]=(df[t]||0)+1})});
   var max=0,out=jobs.map(function(j){
     var titleTok=tok(j.title),bodyTok=tok((j.description||'').slice(0,5000));
-    var allTok=titleTok.concat(bodyTok),score=0,matched=[];
+    var allTok=titleTok.concat(bodyTok),score=0,titleHits=[],bodyHits=[];
     cvSet.forEach(function(t){
       var inTitle=titleTok.indexOf(t)>=0,inBody=bodyTok.indexOf(t)>=0;
       if(!inTitle&&!inBody)return;
       var tf=allTok.filter(function(x){return x===t}).length;
       var idf=Math.log((N+1)/((df[t]||0)+1))+1;
       score+=(cvF[t]||1)*tf*idf*(inTitle?3:1);
-      matched.push(t);
+      if(inTitle)titleHits.push(t);else bodyHits.push(t);
     });
     if(score>max)max=score;
-    return {job:j,score:score,matched:uniq(matched).slice(0,10)};
+    return {job:j,score:score,titleHits:titleHits,bodyHits:bodyHits};
   }).filter(function(x){return x.score>0}).sort(function(a,b){return b.score-a.score}).slice(0,20);
   out.forEach(function(x){x.pct=max?Math.round(x.score/max*100):0});
   return out;
@@ -147,19 +180,19 @@ function render(hits){
   var res=document.getElementById('jmres'),list=document.getElementById('jmlist'),head=document.getElementById('jmresh');
   if(!hits.length){
     res.hidden=false;head.textContent='no strong matches';
-    list.innerHTML='<p class="jmempty">Add more skills, job titles, or tools (e.g. AML, Kotlin, payments). Or <a href="/jobs/">browse all roles</a>.</p>';
+    list.innerHTML='<p class="jmempty">Add more skills, job titles, or tools (e.g. customer service, Python, payments). Or <a href="/jobs/">browse all roles</a>.</p>';
     res.scrollIntoView({behavior:'smooth',block:'nearest'});
     return;
   }
   res.hidden=false;
   head.textContent='top '+hits.length+' matches';
   list.innerHTML=hits.map(function(h){
-    var j=h.job,dept=DEPT[j.dept]||'Other',why=h.matched.slice(0,6).join(', ');
+    var j=h.job,dept=DEPT[j.dept]||'Other';
     return '<a class="jmcard" href="'+esc(j.path||('/jobs/j/'+j.id+'/'))+'">'+
       '<div class="row"><span class="t">'+esc(j.title)+'</span><span class="pct">'+h.pct+'% fit</span></div>'+
       '<div class="co">'+esc(j.company)+'</div>'+
       '<div class="meta">'+esc(j.location)+' · '+esc(dept)+(j.salary?' · '+esc(j.salary):'')+'</div>'+
-      (why?'<div class="why"><b>Matched:</b> '+esc(why)+'</div>':'')+'</a>'}).join('');
+      '<div class="why">'+explain(j,h.titleHits,h.bodyHits)+'</div></a>'}).join('');
   res.scrollIntoView({behavior:'smooth',block:'start'});
   try{nbevt('job_cv_match',{hits:hits.length,top:hits[0]&&hits[0].job.company})}catch(_){}
 }
@@ -179,7 +212,7 @@ function setFileUI(name){
     clearBtn.hidden=false;
   }else{
     dropEl.classList.remove('hasfile');fnameEl.hidden=true;fnameEl.textContent='';
-    upTitle.textContent='Drop your CV here';upSub.textContent='or click to browse · PDF · Word · plain text';icoEl.textContent='↑';
+    upTitle.textContent='Drop your CV here';upSub.textContent='PDF · Word · plain text — not photos or screenshots';icoEl.textContent='↑';
   }
 }
 
@@ -191,6 +224,7 @@ function clearAll(){
 function runMatch(){
   var text=(textEl.value||'').trim()||cvText;
   if(text.length<120){setStatus('Need a bit more text — upload a full CV or paste more detail.',true);textEl.focus();return}
+  if(!isReadableCv(text)){setStatus('That does not look like readable CV text — use a PDF/Word export or paste the text (screenshots and photos will not work).',true);textEl.focus();return}
   runBtn.disabled=true;setStatus('Scanning roles locally…');
   var p=jobsCache?Promise.resolve(jobsCache):loadJobs().then(function(j){jobsCache=j;return j});
   p.then(function(jobs){render(score(text,jobs));setStatus('Matched against '+jobs.length.toLocaleString()+' roles — nothing left your browser.')})
@@ -202,6 +236,7 @@ fileInput.addEventListener('change',function(){
   var f=fileInput.files&&fileInput.files[0];if(!f)return;
   setStatus('Reading '+f.name+'…');runBtn.disabled=true;
   readFile(f).then(function(t){
+    if(!isReadableCv(t))throw new Error('Could not read text from this file — try a PDF/Word export or paste below (not a photo).');
     cvText=t;textEl.value=t.slice(0,12000)+(t.length>12000?'\\n…':'');
     setFileUI(f.name);clearBtn.hidden=false;
     setStatus('Loaded · matching…');runMatch();
