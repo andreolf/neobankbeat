@@ -1721,6 +1721,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/match/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/engineering/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -1799,6 +1805,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/j/bitpanda-4940716101/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/bybit-4947347101/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/j/coinbase-8110496/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -1829,6 +1847,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8104979/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/j/n26-8104894/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -1836,6 +1860,24 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/okx-7830763003/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/wise-744000141868334/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/wise-744000141868268/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/wise-744000141861999/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2345,6 +2387,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4943306101/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4912002101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -2364,12 +2412,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4943297101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4943306101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2405,7 +2447,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4629878101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4945861101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2417,25 +2459,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4945861101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4780660101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4945785101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4629845101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4780660101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2537,13 +2567,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8076631/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8077056/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8077056/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8076631/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2621,13 +2651,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7962618/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7962721/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7962721/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7962618/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2681,13 +2711,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8088746/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8074094/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8074094/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8088746/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2729,13 +2759,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7981885/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7995198/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7995198/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7981885/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2753,13 +2783,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8090711/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8098982/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-8098982/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-8090711/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2801,13 +2831,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7668142/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7704226/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7704226/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7668142/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2825,19 +2855,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7140058/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/jobs/j/n26-7140089/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7646172/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7140058/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2849,7 +2873,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7774526/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7646172/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -2861,13 +2885,19 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/n26-7797431/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7774526/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/n26-7796233/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/n26-7797431/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -3857,12 +3887,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/bitpanda-4940716101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/jobs/j/bitpanda-4943609101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -4079,13 +4103,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941322101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4791652101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4791652101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941322101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -4823,7 +4847,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/bybit-4942182101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/bybit-4942186101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -4835,7 +4859,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/bybit-4942186101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/bybit-4942182101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -6689,13 +6713,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941696101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936042101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936042101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936062101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -6707,7 +6731,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936062101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941696101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -7223,6 +7247,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941105101/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941103101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -7236,12 +7266,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4737173101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4941105101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -9281,13 +9305,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936515101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4912941101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4912941101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4936515101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -11651,13 +11675,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4932688101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4378148101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4378148101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4932688101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13325,6 +13349,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/jobs/j/bybit-4904549101/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/jobs/j/bybit-4855359101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -13332,12 +13362,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/bybit-4922072101/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/jobs/j/bybit-4904549101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -13577,13 +13601,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4906474101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4587490101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4587490101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4906474101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14549,7 +14573,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4104401101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4823391101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -14561,7 +14585,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4823391101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4104401101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -17381,13 +17405,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4808999101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4737166101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4737166101/</loc>
+    <loc>https://www.neobankbeat.com/jobs/j/moniepoint-4808999101/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -17550,12 +17574,6 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/wise-744000132465141/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.neobankbeat.com/jobs/j/wise-744000132465850/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -19853,12 +19871,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.neobankbeat.com/jobs/j/youtrip-c4d0a9d02e/</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.neobankbeat.com/jobs/j/klarna-17d78917-97f9-4596-9b3b-dac066a875e4/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -20682,6 +20694,12 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/j/allica-bank-7080969f-9af8-4373-a17d-17cef598e7e6/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/jobs/j/allica-bank-848d9837-ce34-4a83-a613-9952e27f25fb/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

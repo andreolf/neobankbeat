@@ -5,8 +5,24 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 66 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 06 Aug 2026 07:50:34 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 08:34:08 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Intern, QA Engineering — Bitpanda]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bitpanda-4940716101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4940716101/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bitpanda · Barcelona, Spain · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Blockchain Development Engineer (Java) — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-4947347101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4947347101/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bybit · Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Senior Manager Product Operations, FCM Ops — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-8110496/</link>
@@ -48,6 +64,14 @@
     <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
   </item>
   <item>
+    <title><![CDATA[Lead Backend Engineer - Conversational Banking — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8104979/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8104979/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[N26 · Berlin, Barcelona · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
     <title><![CDATA[People Operations Partner (1 Year Fixed Term) — N26]]></title>
     <link>https://www.neobankbeat.com/jobs/j/n26-8104894/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8104894/</guid>
@@ -62,6 +86,30 @@
     <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Partnerships Senior Manager — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000141868334/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000141868334/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Spend Operations Quality Control Specialist — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000141868268/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000141868268/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · Tallinn, EE · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Treasury Markets Manager - FX — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000141861999/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000141861999/</guid>
+    <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Internal Audit Senior Manager, Japan — Wise]]></title>
@@ -438,54 +486,6 @@
     <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Pessoa Estagiária | Economia — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4718081005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4718081005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Manager | Seguros — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4720025005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4720025005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Program Management | Jornada do Cliente — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4720938005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4720938005/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Designer — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8525323002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8525323002/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Chime · New York, NY, USA; San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Manager, Lending — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8539669002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8539669002/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Software Engineer, Risk: Identity, Suspensions, & Closures — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8604563002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8604563002/</guid>
-    <pubDate>Wed, 05 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Chime · Chicago, IL, USA · hybrid]]></description>
   </item>
 </channel>
 </rss>

@@ -11,6 +11,7 @@ import path from 'node:path';
 import { FOOTER_HTML, navHtml } from './footer.mjs';
 import { clampDesc, crumbs } from './meta.mjs';
 import { readHomepageJs } from './homepage-js.mjs';
+import { jobMatchCss, jobMatchHtml, jobMatchScript } from './job-match.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const E = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8')).entities;
@@ -946,7 +947,7 @@ const indexHtml = head(
   <div class="jlayout">
     ${sidebar(null)}
     <div class="jmain">
-      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY} · <a href="/partner/" style="color:var(--acc);text-decoration:none">hiring? feature your roles</a> · <a href="/jobs/feed.xml" style="color:var(--acc);text-decoration:none">rss</a></span></div>
+      <div class="jbar"><span><b id="jcount">${all.length.toLocaleString('en-US')}</b> roles</span><span>newest first · refreshed ${TODAY} · <a href="/jobs/match/" style="color:var(--acc);text-decoration:none">match your CV</a> · <a href="/partner/" style="color:var(--acc);text-decoration:none">hiring? feature your roles</a> · <a href="/jobs/feed.xml" style="color:var(--acc);text-decoration:none">rss</a></span></div>
       <div class="joblist" id="jlist">
 ${all.slice(0, 80).map(jobCard).join('\n')}
       </div>
@@ -1049,4 +1050,33 @@ ${foot}`;
   fs.writeFileSync(path.join(dir, 'index.html'), html);
 }
 
-console.log(`jobs board built · ${all.length} roles · ${nCompanies} companies · ${Object.keys(byDept).length} departments · ${all.length} detail pages · refreshed ${TODAY}`);
+/* ── CV match page (client-side only — nothing uploaded or stored) ── */
+{
+  const deptLabels = Object.fromEntries([...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]);
+  const matchDir = path.join(ROOT, 'jobs', 'match');
+  fs.mkdirSync(matchDir, { recursive: true });
+  const matchHtml = head(
+    'Match your CV to neobank jobs — private, in-browser · neobankbeat',
+    `Upload or paste your CV and get matched against ${all.length.toLocaleString('en-US')} live neobank roles — processed entirely in your browser, nothing uploaded or stored.`,
+    `${BASE}/jobs/match/`,
+    [
+      { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'neobankbeat CV job matcher', url: `${BASE}/jobs/match/`, applicationCategory: 'BusinessApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: 'Client-side CV matching against the neobankbeat jobs board. No upload, no storage.' },
+      { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['match your CV', `${BASE}/jobs/match/`]) },
+    ],
+    ogIf('jobs.png'),
+  ).replace(`<style>${CSS}</style>`, `<style>${CSS}${jobMatchCss()}</style>`) + `
+<main class="wrap" id="main">
+  <a class="jback" href="/jobs/">← all jobs</a>
+  <article class="jhero" style="max-width:760px">
+    <div class="eyebrow">the job board · cv match</div>
+    <h1>find roles that <em>fit your CV</em></h1>
+    <p class="meta">Drop a résumé or paste text — we score it against <b>${all.length.toLocaleString('en-US')}</b> live neobank openings. Everything runs in your browser; we never see your file.</p>
+  </article>
+${jobMatchHtml(all.length, nCompanies)}
+</main>
+${jobMatchScript(deptLabels)}
+${foot}`;
+  fs.writeFileSync(path.join(matchDir, 'index.html'), matchHtml);
+}
+
+console.log(`jobs board built · ${all.length} roles · ${nCompanies} companies · ${Object.keys(byDept).length} departments · ${all.length} detail pages · cv match · refreshed ${TODAY}`);

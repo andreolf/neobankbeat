@@ -1991,6 +1991,7 @@ const urls = [
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
+  { loc: `${BASE}/jobs/match/`, changefreq: 'weekly', priority: '0.75' },
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),
   ...(function () {
@@ -2044,6 +2045,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Stablecoin cards (U-cards)](${BASE}/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [AI neobanks](${BASE}/ai/) — the ${aiCount} neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
+- [CV job match](${BASE}/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
 - [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)
 

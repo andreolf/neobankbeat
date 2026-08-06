@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match your CV to neobank jobs — private, in-browser · neobankbeat</title>
+<meta name="description" content="Upload or paste your CV and get matched against 3,730 live neobank roles — processed entirely in your browser, nothing uploaded or stored.">
+<link rel="canonical" href="https://www.neobankbeat.com/jobs/match/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Match your CV to neobank jobs — private, in-browser · neobankbeat">
+<meta property="og:description" content="Upload or paste your CV and get matched against 3,730 live neobank roles — processed entirely in your browser, nothing uploaded or stored.">
+<meta property="og:url" content="https://www.neobankbeat.com/jobs/match/">
+<meta property="og:image" content="https://www.neobankbeat.com/og/jobs.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og/jobs.png">
+<link rel="alternate" type="application/rss+xml" title="neobank jobs · newest roles" href="/jobs/feed.xml">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<style>
+:root{--acc:var(--accent,#FF5C16)}
+.jhero{margin-top:8px}
+.jstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.jstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.jstat .n{font-family:'Noto Sans Mono',monospace;font-size:20px;font-weight:700}
+.jstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+main.wrap{max-width:1150px}
+footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 760px blog column */
+.jhero,main.wrap>article{max-width:760px}
+.jlayout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
+.jmain{min-width:0}
+/* sidebar is taller than the viewport → let it scroll on its own instead of
+   trapping the lower filters until the job list runs out */
+.jside{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 32px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-right:6px;margin-right:-6px}
+.jside::-webkit-scrollbar{width:5px}
+.jside::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.jside::-webkit-scrollbar-track{background:transparent}
+#jsearch{width:100%;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;padding:10px 12px;box-sizing:border-box;transition:border-color .15s}
+#jsearch::placeholder{color:var(--dim)}
+#jsearch:hover{border-color:rgba(255,255,255,.6)}
+#jsearch:focus{outline:none;border-color:var(--acc)}
+.jsec{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.jsec::before{content:"—— ";color:var(--acc)}
+.jmap{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px 9px}
+.jmapgrid{display:grid;gap:0;line-height:0}
+.jmapgrid span{width:3.4px;height:3.4px;border-radius:50%;display:inline-block}
+.jmapgrid span.sea{background:transparent}
+.jmapgrid span[data-region]{cursor:pointer}
+.jmap.hasfilter span[data-region]{opacity:.18}
+.jmap.hasfilter span.actv{opacity:1;filter:brightness(1.3)}
+.jmap[data-hov] span[data-region]{opacity:.25}
+.jmap[data-hov] span.hov{opacity:1;filter:brightness(1.3)}
+.jmaplabel{font-family:'Noto Sans Mono',monospace;font-size:9.5px;color:var(--dim);margin-top:8px;min-height:12px}
+.sidelist{display:flex;flex-direction:column}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);background:none;border:none;border-radius:7px;padding:6px 9px;cursor:pointer;text-decoration:none;text-align:left;width:100%;box-sizing:border-box}
+.srow:hover{background:var(--panel);color:var(--text)}
+.srow.on{background:var(--acc);color:#0A0A10;font-weight:700}
+.srow .c{color:var(--dim);font-size:10.5px}
+.srow.on .c{color:#0A0A10;opacity:.7}
+.jclear{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);background:none;border:none;cursor:pointer;text-align:left;padding:2px 9px;display:none}
+.jbar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.jbar b{color:var(--text);font-size:14px}
+.joblist{display:flex;flex-direction:column;gap:6px}
+.job{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 14px;text-decoration:none;transition:border-color .12s;min-width:0}
+.job:hover{border-color:var(--acc)}
+.jlogo{flex:0 0 auto;width:22px;height:22px;border-radius:6px;object-fit:contain;background:var(--panel2,#141420)}
+.jlogo-fb{display:inline-flex;align-items:center;justify-content:center;font-family:'Noto Sans Mono',monospace;font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line)}
+.job .visa{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:#BAF24A;border:1px solid color-mix(in srgb,#BAF24A 35%,transparent);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.job .t{font-weight:700;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 0;min-width:150px}
+.job .co{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--acc);white-space:nowrap;flex:0 0 auto}
+.job .loc{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;max-width:200px}
+.job .sal{font-family:'Noto Sans Mono',monospace;font-size:10.5px;font-weight:700;color:var(--w,#BAF24A);border:1px solid color-mix(in srgb,var(--w,#BAF24A) 35%,transparent);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.jdate{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);white-space:nowrap}
+.job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
+.jback{font-family:'Noto Sans Mono',monospace;font-size:12.5px;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.jback:hover{color:var(--acc)}
+.jhead{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.1rem)}
+.jmeta{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);margin:0 0 6px;line-height:1.7}
+.jmeta span{display:inline-block;margin-right:12px}
+.jdesc{font-size:14px;line-height:1.65;color:var(--text);margin:20px 0;max-width:760px}
+.jdesc p{margin:0 0 14px}
+.jdesc h3{font-size:14.5px;font-weight:700;color:var(--text);margin:22px 0 10px;font-family:'Noto Sans Mono',monospace;letter-spacing:.03em}
+.jdesc h3:first-child{margin-top:0}
+.jdesc ul{margin:0 0 16px;padding-left:1.2em}
+.jdesc li{margin:0 0 8px}
+.jdesc li::marker{color:var(--acc)}
+.jnodesc{color:var(--muted);font-size:13.5px}
+.japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
+.japply:hover{filter:brightness(1.05)}
+.jfoot{font-size:12px;color:var(--dim);margin-top:22px;max-width:760px;line-height:1.6}
+.jmore{text-align:center;margin:16px 0}
+.jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
+.jmore button:hover{border-color:var(--acc)}
+.cogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:16px 0}
+.cocard{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;min-width:0}
+.cocard:hover{border-color:var(--acc)}
+.cocard .jlogo{width:26px;height:26px;border-radius:7px}
+.cocard .n{font-weight:700;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cocard .c{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
+.cocard>div{min-width:0}
+@media(max-width:860px){
+  .jlayout{grid-template-columns:minmax(0,1fr);gap:16px}
+  /* sidebar collapses into compact filter rows: search, map, then one
+     horizontally-swipeable chip row per section — no more endless scroll */
+  .jside{position:static;gap:10px;max-height:none;overflow:visible;padding-right:0;margin-right:0}
+  .jmap{width:100%;max-width:none;box-sizing:border-box;text-align:center}
+  .jmapgrid{width:max-content;margin:0 auto}
+  .jmaplabel{text-align:center}
+  .sidelist{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sidelist::-webkit-scrollbar{display:none}
+  .srow{flex:0 0 auto;width:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--panel);gap:6px}
+  .srow .c{font-size:10px}
+  .jsec{margin-bottom:-4px}
+  .job{flex-wrap:wrap;row-gap:3px}
+  .job .t{flex:1 1 100%;white-space:normal}
+  .job .loc{max-width:150px}
+  .job .apply{display:none}
+}
+
+.jmatch{margin:22px 0 28px;max-width:760px}
+.jmprivacy{display:flex;gap:10px;align-items:flex-start;background:rgba(186,242,74,.08);border:1px solid color-mix(in srgb,#BAF24A 35%,transparent);border-radius:12px;padding:14px 16px;margin:0 0 20px;font-size:13px;line-height:1.55;color:var(--muted)}
+.jmprivacy b{color:var(--text)}
+.jmprivacy .k{font-family:'Noto Sans Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#BAF24A;white-space:nowrap;margin-top:2px}
+.jmupload{border:1px dashed color-mix(in srgb,var(--acc) 45%,var(--line));border-radius:14px;padding:28px 20px;text-align:center;background:rgba(255,92,22,.04);cursor:pointer;transition:border-color .15s,background .15s}
+.jmupload:hover,.jmupload.drag{border-color:var(--acc);background:rgba(255,92,22,.08)}
+.jmupload input{position:absolute;opacity:0;width:0;height:0}
+.jmupload .ico{font-size:28px;margin-bottom:8px;opacity:.85}
+.jmupload .t{font-weight:600;font-size:15px;color:var(--text)}
+.jmupload .sub{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:6px}
+.jmpaste{margin-top:16px}
+.jmpaste label{display:block;font-family:'Noto Sans Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 8px}
+.jmpaste textarea{width:100%;box-sizing:border-box;min-height:120px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:12.5px;line-height:1.55;padding:12px 14px;resize:vertical}
+.jmpaste textarea:focus{outline:none;border-color:var(--acc)}
+.jmrun{margin-top:16px;display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border:0;border-radius:10px;padding:12px 22px;cursor:pointer}
+.jmrun:disabled{opacity:.55;cursor:wait}
+.jmstatus{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:12px 0 0;min-height:18px}
+.jmerr{color:#ff8f5c}
+.jmres{margin-top:28px}
+.jmresh{font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 12px}
+.jmcard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px;margin:0 0 8px;text-decoration:none;transition:border-color .12s}
+.jmcard:hover{border-color:var(--acc)}
+.jmcard .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.jmcard .t{font-weight:700;font-size:14.5px;color:var(--text)}
+.jmcard .co{font-family:'Noto Sans Mono',monospace;font-size:11.5px;color:var(--acc)}
+.jmcard .meta{font-family:'Noto Sans Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
+.jmcard .why{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+.jmcard .why b{color:var(--text);font-weight:600}
+.jmcard .pct{font-family:'Noto Sans Mono',monospace;font-size:11px;color:#BAF24A;white-space:nowrap}
+.jmempty{font-size:13.5px;color:var(--muted);line-height:1.6}
+</style>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"neobankbeat CV job matcher","url":"https://www.neobankbeat.com/jobs/match/","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Client-side CV matching against the neobankbeat jobs board. No upload, no storage."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"match your CV","item":"https://www.neobankbeat.com/jobs/match/"}]}]
+</script>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/browse/">browse</a>
+      <a href="/fit/">find your fit</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/" class="on">jobs</a>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <a class="jback" href="/jobs/">← all jobs</a>
+  <article class="jhero" style="max-width:760px">
+    <div class="eyebrow">the job board · cv match</div>
+    <h1>find roles that <em>fit your CV</em></h1>
+    <p class="meta">Drop a résumé or paste text — we score it against <b>3,730</b> live neobank openings. Everything runs in your browser; we never see your file.</p>
+  </article>
+
+  <div class="jmprivacy"><span class="k">private</span><span><b>Your CV never leaves this browser.</b> We do not upload, store, or log it — no server, no database, no cookies. Matching runs locally against <a href="/jobs/data.json">jobs/data.json</a>. Close the tab and it is gone.</span></div>
+
+  <div class="jmatch" id="jmatch">
+    <label class="jmupload" id="jmdrop">
+      <input type="file" id="jmfile" accept=".pdf,.docx,.doc,.txt,text/plain,application/pdf">
+      <div class="ico">↑</div>
+      <div class="t">Drop your CV here</div>
+      <div class="sub">PDF · Word (.docx) · plain text · or paste below</div>
+    </label>
+
+    <div class="jmpaste">
+      <label for="jmpaste">Or paste CV text</label>
+      <textarea id="jmpaste" placeholder="Paste your CV, LinkedIn export, or résumé text…"></textarea>
+    </div>
+
+    <button type="button" class="jmrun" id="jmrun">find matching roles →</button>
+    <p class="jmstatus" id="jmstatus" aria-live="polite"></p>
+
+    <div class="jmres" id="jmres" hidden>
+      <p class="jmresh" id="jmresh"></p>
+      <div id="jmlist"></div>
+    </div>
+  </div>
+
+  <article style="max-width:760px;margin-top:28px">
+  <h2>how matching works</h2>
+  <p>No AI, no accounts. Your CV text is tokenised and scored against 3,730 live neobank roles using keyword overlap and TF‑IDF weighting — title matches count more than body text. It is a starting point, not career advice: always read the full posting and apply on the company's site.</p>
+  <p style="font-size:12.5px;color:var(--dim)">Prefer browsing? <a href="/jobs/">See all roles</a> · 66 companies hiring · refreshed daily from official career APIs.</p>
+  </article>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" defer></script>
+<script>
+(function(){
+var STOP=new Set('a an the and or but in on at to for of is are was be been being have has had do does did will would could should may might must can with from as by about into through during before after above below between under over out up down not no nor so if then than too very just also only same other more most such each per via'.split(' '));
+var DEPT={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal","other":"Other"};
+
+function tok(s){return String(s||'').toLowerCase().replace(/[^a-z0-9+#./-]/g,' ').split(/\s+/).filter(function(w){return w.length>2&&w.length<40&&!STOP.has(w)})}
+function uniq(a){var o={},r=[];a.forEach(function(x){if(!o[x]){o[x]=1;r.push(x)}});return r}
+
+function loadJobs(){return fetch('/jobs/data.json').then(function(r){return r.json()}).then(function(d){return d.jobs||[]})}
+
+function extractPdf(file){
+  return file.arrayBuffer().then(function(buf){
+    var pdfjs=window['pdfjsLib']||window.pdfjsLib;
+    if(!pdfjs)throw new Error('PDF reader still loading — try again in a second');
+    pdfjs.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    return pdfjs.getDocument({data:buf}).promise.then(function(pdf){
+      var pages=[],i=1;
+      function next(){if(i>pdf.numPages)return pages.join('\n\n');return pdf.getPage(i++).then(function(page){
+        return page.getTextContent().then(function(c){pages.push(c.items.map(function(it){return it.str}).join(' '));return next()})})}
+      return next()})})}
+
+function extractDocx(file){
+  if(!window.mammoth)throw new Error('Word reader still loading — try again in a second');
+  return file.arrayBuffer().then(function(buf){return mammoth.extractRawText({arrayBuffer:buf}).then(function(r){return r.value||''})})}
+
+function readFile(file){
+  var n=(file.name||'').toLowerCase();
+  if(n.endsWith('.txt')||file.type==='text/plain')return file.text();
+  if(n.endsWith('.pdf')||file.type==='application/pdf')return extractPdf(file);
+  if(n.endsWith('.docx')||file.type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document')return extractDocx(file);
+  return file.text().catch(function(){throw new Error('Unsupported file — use PDF, DOCX, or TXT')})}
+
+function score(cvText,jobs){
+  var cvTok=tok(cvText),cvSet=uniq(cvTok),cvF={};
+  cvTok.forEach(function(t){cvF[t]=(cvF[t]||0)+1});
+  if(cvSet.length<8)return [];
+
+  var df={},N=jobs.length;
+  jobs.forEach(function(j){
+    uniq(tok(j.title+' '+(j.description||'').slice(0,5000))).forEach(function(t){df[t]=(df[t]||0)+1});
+  });
+
+  var max=0,out=jobs.map(function(j){
+    var titleTok=tok(j.title),bodyTok=tok((j.description||'').slice(0,5000));
+    var allTok=titleTok.concat(bodyTok),score=0,matched=[];
+    cvSet.forEach(function(t){
+      var inTitle=titleTok.indexOf(t)>=0,inBody=bodyTok.indexOf(t)>=0;
+      if(!inTitle&&!inBody)return;
+      var tf=allTok.filter(function(x){return x===t}).length;
+      var idf=Math.log((N+1)/((df[t]||0)+1))+1;
+      var w=(cvF[t]||1)*tf*idf*(inTitle?3:1);
+      score+=w;
+      matched.push(t);
+    });
+    if(score>max)max=score;
+    return {job:j,score:score,matched:uniq(matched).slice(0,10)};
+  }).filter(function(x){return x.score>0}).sort(function(a,b){return b.score-a.score}).slice(0,20);
+
+  out.forEach(function(x){x.pct=max?Math.round(x.score/max*100):0});
+  return out;
+}
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function render(hits){
+  var res=document.getElementById('jmres'),list=document.getElementById('jmlist'),head=document.getElementById('jmresh');
+  if(!hits.length){
+    res.hidden=false;head.textContent='no strong matches';
+    list.innerHTML='<p class="jmempty">Try pasting more detail — skills, job titles, tools, and domains (e.g. AML, Kotlin, payments). Or <a href="/jobs/">browse all roles</a>.</p>';
+    return;
+  }
+  res.hidden=false;
+  head.textContent='top '+hits.length+' matches';
+  list.innerHTML=hits.map(function(h){
+    var j=h.job,dept=DEPT[j.dept]||'Other';
+    var why=h.matched.slice(0,6).join(', ');
+    return '<a class="jmcard" href="'+esc(j.path||('/jobs/j/'+j.id+'/'))+'">'+
+      '<div class="row"><span class="t">'+esc(j.title)+'</span><span class="pct">'+h.pct+'% fit</span></div>'+
+      '<div class="co">'+esc(j.company)+'</div>'+
+      '<div class="meta">'+esc(j.location)+' · '+esc(dept)+(j.salary?' · '+esc(j.salary):'')+'</div>'+
+      (why?'<div class="why"><b>Matched:</b> '+esc(why)+'</div>':'')+
+      '</a>'}).join('');
+  try{nbevt('job_cv_match',{hits:hits.length,top:hits[0]&&hits[0].job.company})}catch(_){}
+}
+
+var cvText='',statusEl=document.getElementById('jmstatus'),runBtn=document.getElementById('jmrun');
+var fileInput=document.getElementById('jmfile'),pasteEl=document.getElementById('jmpaste'),dropEl=document.getElementById('jmdrop');
+
+function setStatus(msg,err){statusEl.textContent=msg||'';statusEl.className='jmstatus'+(err?' jmerr':'')}
+
+fileInput.addEventListener('change',function(){
+  var f=fileInput.files&&fileInput.files[0];if(!f)return;
+  setStatus('Reading '+f.name+'…');
+  readFile(f).then(function(t){cvText=t;pasteEl.value=t.slice(0,8000)+(t.length>8000?'\n…':'');setStatus('Loaded '+f.name+' ('+t.length.toLocaleString()+' chars) — click find matching roles')}).catch(function(e){setStatus(e.message||'Could not read file',true)});
+});
+
+['dragenter','dragover'].forEach(function(ev){dropEl.addEventListener(ev,function(e){e.preventDefault();dropEl.classList.add('drag')})});
+['dragleave','drop'].forEach(function(ev){dropEl.addEventListener(ev,function(e){e.preventDefault();dropEl.classList.remove('drag')})});
+dropEl.addEventListener('drop',function(e){
+  var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(!f)return;
+  fileInput.files=e.dataTransfer.files;fileInput.dispatchEvent(new Event('change'));
+});
+
+var jobsCache=null;
+runBtn.addEventListener('click',function(){
+  var text=(pasteEl.value||'').trim()||cvText;
+  if(text.length<120){setStatus('Paste or upload a CV first — need a bit more text to match.',true);return}
+  runBtn.disabled=true;setStatus('Matching against live roles…');
+  var p=jobsCache?Promise.resolve(jobsCache):loadJobs().then(function(j){jobsCache=j;return j});
+  p.then(function(jobs){render(score(text,jobs));setStatus('Done — '+jobs.length.toLocaleString()+' roles scanned locally.')}).catch(function(){setStatus('Could not load job data — try again.',true)}).finally(function(){runBtn.disabled=false});
+});
+})();
+</script>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/fit/">find your fit</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
+/* job_apply: list clicks + detail-page apply button */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.job,a.japply');if(!a)return;
+var co=(a.querySelector('.co')||{}).textContent||a.dataset.company||'';
+var ti=((a.querySelector('.t')||{}).textContent||a.dataset.title||'').slice(0,120);
+var dept=(a.querySelector('.jtag')||{}).textContent||a.dataset.dept||'';
+nbevt('job_apply',{company:co,title:ti,dept:dept,external:!!a.classList.contains('japply')})});</script>
+</body>
+</html>
