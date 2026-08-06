@@ -23,6 +23,33 @@ const MACRO2REGION = { NA: 'north-america', EU: 'europe', LATAM: 'latin-america'
 const MMCOL = { NA: '#89B0FF', EU: '#D075FF', LATAM: '#FF5C16', AF: '#BAF24A', MENA: '#FFA680', ASIA: '#CCE7FF', OC: '#E5FFC3' };
 const slugify = s => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const BASE = 'https://www.neobankbeat.com';
+
+function jobSlug(company, url) {
+  const co = slugify(company);
+  let tail = 'role';
+  try {
+    const u = new URL(url);
+    tail = u.pathname.match(/\/jobs\/(\d+)/)?.[1]
+      || u.pathname.match(/\/([a-f0-9-]{36})(?:\/|$)/i)?.[1]
+      || u.pathname.match(/\/postings\/([^/]+)/)?.[1]
+      || u.pathname.split('/').filter(Boolean).pop()
+      || u.hostname.replace(/^www\./, '');
+  } catch { /* malformed url — fall back */ }
+  return `${co}-${slugify(String(tail)).slice(0, 64)}`.replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 90);
+}
+
+function normDesc(raw) {
+  return String(raw || '').replace(/\s+/g, ' ').trim().slice(0, 14000);
+}
+
+function descBody(text) {
+  const t = String(text || '').trim();
+  if (t.length < 80) return '<p class="jnodesc">This listing is synced from the company careers API. The full job description is on their application page — use the button below.</p>';
+  const paras = t.split(/\n{2,}/).map(p => p.trim()).filter(p => p.length > 30);
+  const use = paras.length > 1 ? paras.slice(0, 24) : [t];
+  return use.map(p => `<p>${esc(p)}</p>`).join('\n');
+}
 
 const ogIf = (...parts) => {
   const rel = path.join('og', ...parts);
@@ -244,7 +271,7 @@ async function fetchSource([display, entityName, ats, slug]) {
         title: x.t.trim(), url: x.u, company: display, profile,
         location: (x.l || '').trim() || 'Not specified',
         dept: classify(x.t, x.d), region: region(`${x.l} ${x.t}`, false), posted: x.p || null,
-        salary: null, wp: workplaceOf(null, x.l, ''), visa: undefined,
+        salary: null, wp: workplaceOf(null, x.l, ''), visa: undefined, description: normDesc(x.s),
       }));
     } catch (err) { console.error(`  !! ${display}: ${err.message}`); return []; }
   }
@@ -305,6 +332,7 @@ async function fetchSource([display, entityName, ats, slug]) {
       location: (x.l || '').trim() || 'Not specified',
       dept: classify(x.t, x.d), region: region(`${x.l} ${x.t}`, x.r), posted: x.p || null,
       salary: fmtSalary(x.s), wp: workplaceOf(x.w, x.l, x.s), visa: visaOf(x.s),
+      description: normDesc(x.s),
     }));
   } catch (err) {
     console.error(`  !! ${display}: ${err.message}`);
@@ -328,7 +356,28 @@ if (all.length < 2000) {
   process.exit(1);
 }
 all.sort((a, b) => (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company));
+const takenJobIds = new Set();
+for (const j of all) {
+  let base = jobSlug(j.company, j.url), id = base, n = 2;
+  while (takenJobIds.has(id)) { id = `${base}-${n++}`; }
+  takenJobIds.add(id);
+  j.id = id;
+  j.path = `/jobs/j/${id}/`;
+}
 const TODAY = new Date().toISOString().slice(0, 10);
+
+const jobTitleKey = j => `${j.title} at ${j.company}`;
+const jobTitleCounts = {};
+for (const j of all) jobTitleCounts[jobTitleKey(j)] = (jobTitleCounts[jobTitleKey(j)] || 0) + 1;
+const dupJobTitles = new Set(Object.entries(jobTitleCounts).filter(([, n]) => n > 1).map(([k]) => k));
+function jobPageTitle(j) {
+  const base = jobTitleKey(j);
+  if (dupJobTitles.has(base)) {
+    const where = j.location && j.location !== 'Not specified' ? `${j.location} · ` : '';
+    return `${base} — ${where}${j.id} — neobank jobs`;
+  }
+  return `${base} — neobank jobs`;
+}
 
 const byDept = {};
 for (const j of all) byDept[j.dept] = (byDept[j.dept] || 0) + 1;
@@ -356,8 +405,8 @@ fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generate
   const rfc822 = d => new Date(d + 'T09:00:00Z').toUTCString().replace('GMT', '+0000');
   const items = all.filter(j => j.posted && !Number.isNaN(Date.parse(j.posted))).slice(0, 60).map(j => `  <item>
     <title>${cdata(`${j.title} — ${j.company}`)}</title>
-    <link>${esc(j.url)}</link>
-    <guid isPermaLink="true">${esc(j.url)}</guid>
+    <link>${esc(BASE + j.path)}</link>
+    <guid isPermaLink="true">${esc(BASE + j.path)}</guid>
     <pubDate>${rfc822(j.posted)}</pubDate>
     <category>${esc(DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other')}</category>
     <description>${cdata([j.company, j.location, j.salary, j.wp, j.visa ? 'visa sponsorship' : null].filter(Boolean).join(' · '))}</description>
@@ -434,6 +483,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
 .jdate{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);white-space:nowrap}
 .job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
+.jback{font-family:'Noto Sans Mono',monospace;font-size:12.5px;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.jback:hover{color:var(--acc)}
+.jhead{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.1rem)}
+.jmeta{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--muted);margin:0 0 6px;line-height:1.7}
+.jmeta span{display:inline-block;margin-right:12px}
+.jdesc{font-size:14px;line-height:1.65;color:var(--text);margin:20px 0;max-width:760px}
+.jdesc p{margin:0 0 14px}
+.jnodesc{color:var(--muted);font-size:13.5px}
+.japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
+.japply:hover{filter:brightness(1.05)}
+.jfoot{font-size:12px;color:var(--dim);margin-top:22px;max-width:760px;line-height:1.6}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
 .jmore button:hover{border-color:var(--acc)}
@@ -515,9 +575,12 @@ ${navHtml('/jobs/')}
 `;
 
 const bwScript = `<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
-/* job_apply: the board's conversion event */
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.job');if(!a)return;
-nbevt('job_apply',{company:(a.querySelector('.co')||{}).textContent||'',title:((a.querySelector('.t')||{}).textContent||'').slice(0,120),dept:(a.querySelector('.jtag')||{}).textContent||''})});</script>`;
+/* job_apply: list clicks + detail-page apply button */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.job,a.japply');if(!a)return;
+var co=(a.querySelector('.co')||{}).textContent||a.dataset.company||'';
+var ti=((a.querySelector('.t')||{}).textContent||a.dataset.title||'').slice(0,120);
+var dept=(a.querySelector('.jtag')||{}).textContent||a.dataset.dept||'';
+nbevt('job_apply',{company:co,title:ti,dept:dept,external:!!a.classList.contains('japply')})});</script>`;
 
 const foot = `
 ${FOOTER_HTML}
@@ -533,7 +596,7 @@ const ago = p => {
   if (days < 31) return `${days}d ago`;
   return new Date(p).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 };
-const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="noopener">
+const jobCard = j => `<a class="job" href="${esc(j.path)}">
   ${logoImg(j.company)}
   <span class="t">${esc(j.title)}</span>
   <span class="co">${esc(j.company)}</span>
@@ -542,7 +605,7 @@ const jobCard = j => `<a class="job" href="${esc(j.url)}" target="_blank" rel="n
   ${j.visa ? '<span class="visa">visa ✓</span>' : ''}
   <span class="jtag">${DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other'}</span>
   ${j.posted && !Number.isNaN(Date.parse(j.posted)) ? `<span class="jdate">${ago(j.posted)}</span>` : ''}
-  <span class="apply">apply →</span>
+  <span class="apply">check more →</span>
 </a>`;
 
 /* ── sidebar: search + dot-matrix world map + department/region lists ── */
@@ -608,9 +671,9 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 function ago(p){const t=Date.parse(p);if(isNaN(t))return'';const d=Math.max(0,Math.floor((Date.now()-t)/86400000));
 if(d===0)return'today';if(d===1)return'1d ago';if(d<31)return d+'d ago';
 return new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'})}
-function card(j){const a=document.createElement('a');a.className='job';a.href=j.url;a.target='_blank';a.rel='noopener';
+function card(j){const a=document.createElement('a');a.className='job';a.href='/jobs/j/'+j.id+'/';
 const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64" onerror="this.style.visibility=\\'hidden\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
-a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">apply →</span>';
+a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">check more →</span>';
 a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
 const hits=JOBS.filter(match);
@@ -651,21 +714,29 @@ syncMap();render(true)});
 
 /* ── JobPosting structured data: freshest dated roles, for Google Jobs.
    Only roles with a posted date qualify (datePosted is required). ── */
-const jobPosting = j => ({
-  '@type': 'JobPosting',
-  title: j.title,
-  description: `<p>${esc(j.title)} at ${esc(j.company)}${j.location ? ' — ' + esc(j.location) : ''}. Apply directly on the official ${esc(j.company)} careers page.</p>`,
-  datePosted: j.posted,
-  validThrough: new Date(Date.parse(j.posted) + 60 * 86400000).toISOString().slice(0, 10),
-  hiringOrganization: { '@type': 'Organization', name: j.company, sameAs: `https://www.neobankbeat.com${j.profile}` },
-  ...(j.wp === 'remote'
-    ? { jobLocationType: 'TELECOMMUTE', applicantLocationRequirements: { '@type': 'Country', name: j.location || 'Worldwide' } }
-    : { jobLocation: { '@type': 'Place', address: j.location || '—' } }),
-  ...(j.salary ? { baseSalary: { '@type': 'MonetaryAmount', value: j.salary } } : {}),
-  employmentType: 'FULL_TIME',
-  directApply: false,
-  url: j.url,
-});
+const jobPosting = j => {
+  const descText = (j.description && j.description.length >= 80)
+    ? j.description.slice(0, 8000)
+    : `${j.title} at ${j.company}${j.location ? ` — ${j.location}` : ''}. Apply on the official ${j.company} careers page.`;
+  return {
+    '@type': 'JobPosting',
+    title: j.title,
+    description: descText,
+    datePosted: j.posted,
+    validThrough: j.posted && !Number.isNaN(Date.parse(j.posted))
+      ? new Date(Date.parse(j.posted) + 60 * 86400000).toISOString().slice(0, 10)
+      : undefined,
+    hiringOrganization: { '@type': 'Organization', name: j.company, sameAs: `https://www.neobankbeat.com${j.profile}` },
+    ...(j.wp === 'remote'
+      ? { jobLocationType: 'TELECOMMUTE', applicantLocationRequirements: { '@type': 'Country', name: j.location || 'Worldwide' } }
+      : { jobLocation: { '@type': 'Place', address: j.location || '—' } }),
+    ...(j.salary ? { baseSalary: { '@type': 'MonetaryAmount', value: j.salary } } : {}),
+    employmentType: 'FULL_TIME',
+    directApply: false,
+    url: `${BASE}${j.path}`,
+    identifier: { '@type': 'PropertyValue', name: j.company, value: j.url },
+  };
+};
 const jobsLd = list => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -674,6 +745,47 @@ const jobsLd = list => ({
     .slice(0, 50)
     .map((j, i) => ({ '@type': 'ListItem', position: i + 1, item: jobPosting(j) })),
 });
+
+function jobDetailHtml(j) {
+  const deptLabel = DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other';
+  const wpLabels = { remote: 'Remote only', hybrid: 'Hybrid', onsite: 'On-site' };
+  const canon = `${BASE}${j.path}`;
+  const shortTitle = j.title.length > 72 ? `${j.title.slice(0, 69)}…` : j.title;
+  const descMeta = `${j.title} at ${j.company} — ${j.location}. ${deptLabel}. Pulled from the official careers API. Apply on ${j.company}'s site.`;
+  const metaLine = [
+    j.location && `<span>${esc(j.location)}</span>`,
+    `<span>${esc(deptLabel)}</span>`,
+    j.wp && `<span>${esc(wpLabels[j.wp] || j.wp)}</span>`,
+    j.salary && `<span>${esc(j.salary)}</span>`,
+    j.visa && '<span>visa sponsorship</span>',
+    j.posted && !Number.isNaN(Date.parse(j.posted)) && `<span>posted ${ago(j.posted)}</span>`,
+  ].filter(Boolean).join('');
+  const profileLink = j.profile
+    ? `<a href="${esc(j.profile)}">${esc(j.company)} profile</a>`
+    : esc(j.company);
+  return head(
+    jobPageTitle(j),
+    descMeta,
+    canon,
+    [
+      { '@context': 'https://schema.org', ...jobPosting(j) },
+      { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], [shortTitle.toLowerCase(), canon]) },
+    ],
+    ogIf('jobs.png'),
+  ) + `
+<main class="wrap" id="main">
+  <a class="jback" href="/jobs/">← all jobs</a>
+  <article style="max-width:760px">
+    <div class="eyebrow"><a href="/jobs/${esc(j.dept)}/" style="color:inherit;text-decoration:none">${deptLabel.toLowerCase()}</a> · ${esc(j.company)}</div>
+    <h1 class="jhead">${esc(j.title)}</h1>
+    <p class="jmeta">${metaLine}</p>
+    <div class="jdesc">${descBody(j.description)}</div>
+    <a class="japply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" data-company="${esc(j.company)}" data-title="${esc(j.title)}" data-dept="${esc(deptLabel)}">Apply on ${esc(j.company)} →</a>
+    <p class="jfoot">Listing synced from ${esc(j.company)}'s official careers API · refreshed ${TODAY} · ${profileLink} · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
+  </article>
+</main>
+${foot}`;
+}
 
 /* ── index page ── */
 const topCompanies = Object.entries(byCompany).sort((a, b) => b[1] - a[1]);
@@ -688,7 +800,7 @@ const indexHtml = head(
   <div class="eyebrow">the job board</div>
   <article class="jhero">
   <h1>neobank <em>jobs</em></h1>
-  <p class="meta">Every role below is pulled <b>directly from the official career APIs</b> of neobanks in the directory — no stale scrapes, no middlemen. Apply links go straight to the company. Refreshed <b>${TODAY}</b>.</p>
+  <p class="meta">Every role below is pulled <b>directly from the official career APIs</b> of neobanks in the directory — no stale scrapes, no middlemen. Each role has its own page with the description; apply on the company's site. Refreshed <b>${TODAY}</b>.</p>
   </article>
 
   <div class="jstats">
@@ -726,13 +838,29 @@ ${DEPTS.filter(([id]) => byDept[id]).map(([id, label]) =>
   </div>
 
   <h2>how this board works</h2>
-  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and links you straight to the official application page — the same aggregator model as web3.career, but for digital banking. No accounts, no reposts, no fees. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in. Hiring and want your roles seen first? <a href="/partner/">Feature them</a>.</p>
+  <p>neobankbeat tracks ${E.length} verified-active neobanks. For every one that exposes a public careers API (Greenhouse, Lever or Ashby), this board pulls the live postings, classifies them by department and region, and gives each role its own page — then links you to the official application. A company missing? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=jobs-source&amp;template=add-jobs-source.yml">submit it here</a> — drop the careers-page link and we'll wire it in. Hiring and want your roles seen first? <a href="/partner/">Feature them</a>.</p>
   <p style="font-size:12.5px;color:var(--dim)">Listings belong to the respective companies and change constantly; this board refreshes on regeneration (last: ${TODAY}). Subscribe to the newest roles via <a href="/jobs/feed.xml">RSS</a> or pull the raw list from <a href="/jobs/data.json">jobs/data.json</a>. neobankbeat is independent and earns nothing from applications.</p>
   </article>
 </main>
 ${filterScript(null)}
 ${foot}`;
 fs.writeFileSync(path.join(ROOT, 'jobs', 'index.html'), indexHtml);
+
+/* ── per-job detail pages (SEO: one URL per role) ── */
+{
+  const jRoot = path.join(ROOT, 'jobs', 'j');
+  fs.rmSync(jRoot, { recursive: true, force: true });
+  for (const j of all) {
+    const dir = path.join(jRoot, j.id);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), jobDetailHtml(j));
+  }
+  fs.writeFileSync(path.join(ROOT, 'jobs', 'sitemap-urls.json'), JSON.stringify({
+    generated: TODAY,
+    count: all.length,
+    urls: all.map(j => ({ loc: `${BASE}${j.path}` })),
+  }));
+}
 
 /* ── department pages ── */
 const DEPT_COPY = {
@@ -780,11 +908,11 @@ ${rows.slice(0, 80).map(jobCard).join('\n')}
     </div>
   </div>
 
-  <article><p style="margin-top:24px"><a href="/jobs/">← all neobank jobs</a> · listings pulled from official Greenhouse/Lever/Ashby APIs · apply links go straight to the company.</p></article>
+  <article><p style="margin-top:24px"><a href="/jobs/">← all neobank jobs</a> · listings pulled from official Greenhouse/Lever/Ashby APIs · each role has a detail page, apply on the company site.</p></article>
 </main>
 ${filterScript(id)}
 ${foot}`;
   fs.writeFileSync(path.join(dir, 'index.html'), html);
 }
 
-console.log(`jobs board built · ${all.length} roles · ${nCompanies} companies · ${Object.keys(byDept).length} departments · refreshed ${TODAY}`);
+console.log(`jobs board built · ${all.length} roles · ${nCompanies} companies · ${Object.keys(byDept).length} departments · ${all.length} detail pages · refreshed ${TODAY}`);

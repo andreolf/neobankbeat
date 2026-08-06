@@ -1993,6 +1993,12 @@ const urls = [
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),
+  ...(function () {
+    const p = path.join(ROOT, 'jobs', 'sitemap-urls.json');
+    if (!fs.existsSync(p)) return [];
+    const { generated, urls: ju } = JSON.parse(fs.readFileSync(p, 'utf8'));
+    return (ju || []).map(u => ({ loc: u.loc, lastmod: generated, changefreq: 'daily', priority: '0.5' }));
+  }()),
   { loc: `${BASE}/blog/`, changefreq: 'weekly', priority: '0.9' },
   /* A post dated ahead of today is scheduled, not published: Google discards a
      future lastmod outright and dates the result unpredictably. Hold it out of
