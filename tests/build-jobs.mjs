@@ -44,7 +44,9 @@ function decodeHtml(s) {
   return String(s || '')
     .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&#x27;/g, "'")
-    .replace(/&nbsp;/g, ' ').replace(/&#?\w+;/g, ' ');
+    .replace(/&nbsp;/g, ' ').replace(/&#?\w+;/g, ' ')
+    /* some ATS feeds ship mojibake dashes as C0 controls, which are invalid in HTML */
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '-');
 }
 
 function htmlToText(html) {
@@ -1050,6 +1052,23 @@ ${foot}`;
   fs.writeFileSync(path.join(dir, 'index.html'), html);
 }
 
+/* Inline scripts are assembled inside template literals, so a stray escape
+   (\x00 instead of \\x00) emits raw control bytes. Node still parses those, but
+   the HTML tokenizer rewrites NUL to U+FFFD, so the browser sees different
+   source and can die on the whole script. Check what the browser would get. */
+function assertInlineScriptsParse(html, label) {
+  for (const [, attrs, code] of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+    if (/\bsrc=|type="application\/ld\+json"/.test(attrs) || !code.trim()) continue;
+    const ctrl = code.match(/[\x00-\x08\x0B\x0C\x0E-\x1F]/);
+    if (ctrl) throw new Error(`${label}: inline script contains a raw control character (U+${ctrl[0].codePointAt(0).toString(16).padStart(4, '0')}) — double the backslash in the template literal`);
+    try {
+      new Function(code.replace(/\0/g, '\uFFFD'));
+    } catch (e) {
+      throw new Error(`${label}: inline script does not parse — ${e.message}`);
+    }
+  }
+}
+
 /* ── CV match page (client-side only — nothing uploaded or stored) ── */
 {
   const deptLabels = Object.fromEntries([...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]);
@@ -1076,6 +1095,7 @@ ${jobMatchHtml(all.length, nCompanies)}
 </main>
 ${jobMatchScript(deptLabels)}
 ${foot}`;
+  assertInlineScriptsParse(matchHtml, 'jobs/match/index.html');
   fs.writeFileSync(path.join(matchDir, 'index.html'), matchHtml);
 }
 

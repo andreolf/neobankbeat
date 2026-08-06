@@ -310,8 +310,8 @@ function isReadableCv(text){
   if(letters/t.length<0.55)return false;
   var words=t.match(/[a-zA-Z]{4,}/g)||[];
   if(words.length<12)return false;
-  if(/[ --]/.test(t))return false;
-  if((t.match(/[�]/g)||[]).length>2)return false;
+  if(/[\x00-\x08\x0E-\x1F]/.test(t))return false;
+  if((t.match(/[\uFFFD]/g)||[]).length>2)return false;
   return true;
 }
 
