@@ -215,6 +215,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://jobs.ashbyhq.com/gohenry/442e1457-d5c2-412c-b2aa-eb931b466b0f" target="_blank" rel="noopener noreferrer" data-company="GoHenry" data-title="Lead Product Manager, Core Experience" data-dept="Product">Apply on GoHenry →</a>
     <p class="jfoot">Listing synced from GoHenry's official careers API · refreshed 2026-08-06 · <a href="/n/gohenry/">GoHenry profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

@@ -225,6 +225,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://boards.greenhouse.io/inter/jobs/4718037005?gh_jid=4718037005" target="_blank" rel="noopener noreferrer" data-company="Banco Inter" data-title="US BRANCH COMPLIANCE ANALYST II" data-dept="Compliance &amp; Risk">Apply on Banco Inter →</a>
     <p class="jfoot">Listing synced from Banco Inter's official careers API · refreshed 2026-08-06 · <a href="/n/banco-inter/">Banco Inter profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

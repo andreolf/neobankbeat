@@ -271,24 +271,69 @@ function score(cvText,jobs,onProg){
   return out;
 }
 
-function render(hits){
+function jobHref(j){
+  var path=j.path||('/jobs/j/'+j.id+'/');
+  return path+(path.indexOf('?')>=0?'&':'?')+'from=match';
+}
+
+function saveMatchState(hits){
+  try{
+    if(!hits||!hits.length){sessionStorage.removeItem('nbb_jm');return}
+    sessionStorage.setItem('nbb_jm',JSON.stringify({
+      hits:hits.map(function(h){return{id:h.job.id,pct:h.pct,titleHits:h.titleHits,bodyHits:h.bodyHits}}),
+      cv:cvText,paste:textEl.value,file:fnameEl.textContent||'',t:Date.now()
+    }));
+  }catch(_){}
+}
+
+function restoreMatchState(){
+  try{
+    var raw=sessionStorage.getItem('nbb_jm');
+    if(!raw)return;
+    var s=JSON.parse(raw);
+    if(Date.now()-(s.t||0)>864e5){sessionStorage.removeItem('nbb_jm');return}
+    cvText=s.cv||'';
+    if(s.paste)textEl.value=s.paste;
+    if(s.file)setFileUI(s.file);
+    if(!s.hits||!s.hits.length)return;
+    var p=jobsCache?Promise.resolve(jobsCache):loadJobs().then(function(j){jobsCache=j;return j});
+    p.then(function(jobs){
+      var byId={};jobs.forEach(function(j){byId[j.id]=j});
+      var hits=s.hits.map(function(h){
+        var job=byId[h.id];if(!job)return null;
+        return {job:job,pct:h.pct,titleHits:h.titleHits||[],bodyHits:h.bodyHits||[],score:0};
+      }).filter(Boolean);
+      if(!hits.length)return;
+      render(hits,false);
+      setStatus('Your last match ('+hits.length+' roles) — still only in this browser.');
+      if(location.hash==='#jmres')setTimeout(function(){
+        var el=document.getElementById('jmres');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+      },80);
+    }).catch(function(){});
+  }catch(_){}
+}
+
+function render(hits,scroll){
+  if(scroll===undefined)scroll=true;
   var res=document.getElementById('jmres'),list=document.getElementById('jmlist'),head=document.getElementById('jmresh');
   if(!hits.length){
+    saveMatchState([]);
     res.hidden=false;head.textContent='no strong matches';
     list.innerHTML='<p class="jmempty">Add more skills, job titles, or tools (e.g. customer service, Python, payments). Or <a href="/jobs/">browse all roles</a>.</p>';
-    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+    if(scroll)res.scrollIntoView({behavior:'smooth',block:'nearest'});
     return;
   }
   res.hidden=false;
   head.textContent='top '+hits.length+' matches';
   list.innerHTML=hits.map(function(h){
     var j=h.job,dept=DEPT[j.dept]||'Other';
-    return '<a class="jmcard" href="'+esc(j.path||('/jobs/j/'+j.id+'/'))+'">'+
+    return '<a class="jmcard" href="'+esc(jobHref(j))+'">'+
       '<div class="row"><span class="t">'+esc(j.title)+'</span><span class="pct">'+h.pct+'% fit</span></div>'+
       '<div class="co">'+esc(j.company)+'</div>'+
       '<div class="meta">'+esc(j.location)+' · '+esc(dept)+(j.salary?' · '+esc(j.salary):'')+'</div>'+
       '<div class="why">'+explain(j,h.titleHits,h.bodyHits)+'</div></a>'}).join('');
-  res.scrollIntoView({behavior:'smooth',block:'start'});
+  saveMatchState(hits);
+  if(scroll)res.scrollIntoView({behavior:'smooth',block:'start'});
   try{nbevt('job_cv_match',{hits:hits.length,top:hits[0]&&hits[0].job.company})}catch(_){}
 }
 
@@ -324,6 +369,7 @@ function clearAll(){
   if(busy)return;
   cvText='';textEl.value='';fileInput.value='';setFileUI('');
   document.getElementById('jmres').hidden=true;setStatus('');hideProg();clearBtn.hidden=true;
+  try{sessionStorage.removeItem('nbb_jm')}catch(_){}
 }
 
 function runMatch(fromFile){
@@ -422,5 +468,6 @@ textEl.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==
 
 pdfReady.catch(function(){});
 tesseractReady.catch(function(){});
+restoreMatchState();
 })();
 </script>`;

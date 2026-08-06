@@ -208,6 +208,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://boards.greenhouse.io/embed/job_app?for=gemini&amp;token=7762866&amp;gh_jid=7762866" target="_blank" rel="noopener noreferrer" data-company="Gemini" data-title="Senior Software Engineering Manager, Credit Card" data-dept="Engineering">Apply on Gemini →</a>
     <p class="jfoot">Listing synced from Gemini's official careers API · refreshed 2026-08-06 · <a href="/n/gemini-credit-card/">Gemini profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

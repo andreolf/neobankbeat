@@ -223,6 +223,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://jobs.ashbyhq.com/trust-wallet/74105af8-da2c-4a4c-a8a6-8ea8a04381fc" target="_blank" rel="noopener noreferrer" data-company="Trust Wallet" data-title="Business Development Manager / Director" data-dept="Sales &amp; Partnerships">Apply on Trust Wallet →</a>
     <p class="jfoot">Listing synced from Trust Wallet's official careers API · refreshed 2026-08-06 · <a href="/n/trust-wallet/">Trust Wallet profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

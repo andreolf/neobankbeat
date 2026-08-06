@@ -180,6 +180,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://jobs.lever.co/qonto/73b520ea-cca1-4b29-a9af-ddce38780c90" target="_blank" rel="noopener noreferrer" data-company="Qonto" data-title="Partnerships Growth Ops Project Manager" data-dept="Sales &amp; Partnerships">Apply on Qonto →</a>
     <p class="jfoot">Listing synced from Qonto's official careers API · refreshed 2026-08-06 · <a href="/n/qonto/">Qonto profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

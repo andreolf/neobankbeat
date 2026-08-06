@@ -883,6 +883,18 @@ const jobsLd = list => ({
     .map((j, i) => ({ '@type': 'ListItem', position: i + 1, item: jobPosting(j) })),
 });
 
+const jobDetailBackScript = `<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\\/jobs\\/match\\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>`;
+
 function jobDetailHtml(j) {
   const deptLabel = DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other';
   const wpLabels = { remote: 'Remote only', hybrid: 'Hybrid', onsite: 'On-site' };
@@ -921,6 +933,7 @@ function jobDetailHtml(j) {
     <p class="jfoot">Listing synced from ${esc(j.company)}'s official careers API · refreshed ${TODAY} · ${profileLink} · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
 </main>
+${jobDetailBackScript}
 ${foot}`;
 }
 

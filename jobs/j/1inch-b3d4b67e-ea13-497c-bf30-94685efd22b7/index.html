@@ -166,6 +166,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://jobs.lever.co/1inch/b3d4b67e-ea13-497c-bf30-94685efd22b7" target="_blank" rel="noopener noreferrer" data-company="1inch" data-title="Tech Lead, Backend" data-dept="Engineering">Apply on 1inch →</a>
     <p class="jfoot">Listing synced from 1inch's official careers API · refreshed 2026-08-06 · <a href="/n/1inch-card/">1inch profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">

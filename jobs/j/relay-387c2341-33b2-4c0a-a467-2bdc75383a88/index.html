@@ -205,6 +205,17 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <a class="japply" href="https://jobs.ashbyhq.com/relayfi/387c2341-33b2-4c0a-a467-2bdc75383a88" target="_blank" rel="noopener noreferrer" data-company="Relay" data-title="Senior Data Scientist I" data-dept="Engineering">Apply on Relay →</a>
     <p class="jfoot">Listing synced from Relay's official careers API · refreshed 2026-08-06 · <a href="/n/relay/">Relay profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
+<script>
+(function(){
+  if(location.pathname.indexOf('/jobs/j/')!==0)return;
+  var from=/[?&]from=match(?:&|$)/.test(location.search)
+    ||!!sessionStorage.getItem('nbb_jm')
+    ||/\/jobs\/match\//.test(document.referrer||'');
+  if(!from)return;
+  var a=document.querySelector('a.jback');
+  if(a){a.href='/jobs/match/#jmres';a.textContent='← your CV matches';}
+})();
+</script>
 </main>
 
 <footer><div class="fwrap">
