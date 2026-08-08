@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-07-29.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-08-08.
 
 ## Main
 
@@ -15,6 +15,7 @@
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [AI neobanks](https://www.neobankbeat.com/ai/) — the 67 neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
+- [CV job match](https://www.neobankbeat.com/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
 - [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-07/)
 
