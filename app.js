@@ -392,7 +392,23 @@ const D=[
 ["TrueMoney","T","Asia","Bangkok, TH",2003,"C","Visa/MC","Prepaid","—","—",0,"Y","ub","truemoney.com","CP Group's wallet across 7 SEA markets; Thailand's biggest."],
 ["MoMo","T","Asia","Ho Chi Minh City, VN",2013,"C","—","Wallet","—","—",0,"Y","g","momo.vn","Vietnam's leading e-wallet; 30M+ users, investments + savings."],
 ["ZaloPay","T","Asia","Ho Chi Minh City, VN",2016,"C","Visa","Wallet + card","—","—",0,"Y","g","zalopay.vn","VNG's wallet riding Zalo, Vietnam's biggest chat app."],
-["Touch 'n Go eWallet","T","Asia","Kuala Lumpur, MY",2017,"C","Visa","Prepaid","—","GO+ ~3%",0,"Y","g","touchngo.com.my","Malaysia's toll-born wallet turned everyday money app; Ant-backed."]
+["Touch 'n Go eWallet","T","Asia","Kuala Lumpur, MY",2017,"C","Visa","Prepaid","—","GO+ ~3%",0,"Y","g","touchngo.com.my","Malaysia's toll-born wallet turned everyday money app; Ant-backed."],
+/* ══ intake 2026-08 (new-neobank issues) ══ */
+["Dolafy","H","LatAm","Brazil, BR",2025,"C","Visa","Prepaid","—","—",1,"Y","s","dolafy.com","Multi-currency (USD/EUR/BRL/AED/GBP) accounts for global businesses with custodial stablecoins and a Visa prepaid business card."],
+["Brookwell","H","Global","New York, US",2025,"C","—","—","—","1% APY checking; up to ~5.5% stablecoin savings",1,"Y","g","brookwell.com","Stablecoin neobank with FDIC-protected checking (via Erebor Bank, N.A.) and custodial high-yield stablecoin savings plus global-spend cards."],
+["Takenos","H","LatAm","Buenos Aires, AR",2022,"C","Visa/MC","Prepaid","—","Up to 3%",1,"Y","f","takenos.com","Digital-dollar wallet for LatAm freelancers to receive cross-border pay in stablecoins or local currency, with cards, QR payments and yield-bearing USD accounts."],
+["Slush","W","Global","Palo Alto, US",2021,"S","—","—","—","SUI staking rewards",1,"N","g","slush.app","Official self-custodial Sui wallet by Mysten Labs (formerly Sui Wallet, merged with Stashed) with zkLogin, staking, in-app swaps and shareable claim links."],
+["Solid","W","Global","Gibraltar, GI",2025,"M","Visa","Virtual","3% (USDC)","Up to 8% APY (USDC via Veda)",1,"CO","g","solid.xyz","Self-custodial onchain neobank (Safe smart accounts + MPC) with automated USDC yield, its own SoUSD stablecoin, and a Visa card (Rain) with 3% cashback and Apple/Google Pay."],
+["Sony Bank","T","Asia","Tokyo, JP",2001,"C","Visa","Debit","0.5% (Japan)","—",0,"Y","g","moneykit.net","Branchless direct bank owned by Sony Financial; the Sony Bank WALLET Visa debit spends 11 currencies, with an English app for foreign residents."],
+["AMP Bank GO","T","ANZ","Sydney, AU",2025,"C","Mastercard","Debit","—","—",0,"Y","s","amp.com.au","AMP Bank's mobile-first digital bank on Engine by Starling — Australia's first numberless small-business Mastercard debit cards, Spaces sub-accounts and fee-free FX."],
+["Always.bank","T","US","Birmingham, US",2025,"C","—","—","—","—",0,"Y","s","always.bank","US digital bank for small businesses — an FDIC-insured brand of 22nd State Banking Company with checking, savings, CDs, SBA/USDA loans and invoice factoring."],
+["Haventree Bank","T","Canada","Toronto, CA",2018,"C","—","—","—","2.5% Everyday Growth Account",0,"Y","g","haventreebank.com","Schedule I Canadian bank (ex Equity Financial Trust) that launched a direct-to-consumer digital bank in 2026 with a 2.5% growth account and CDIC-insured GICs."],
+["Esh Bank","T","MENA","Tel Aviv, IL",2022,"C","—","—","—","—",0,"Y","g","esh.com","Israeli fully-digital bank whose patented Equal Sharing model returns 50% of interest income on customer balances, with no account fees."],
+["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."]
+];
+/* pre-launch / emerging — kept in the machine dataset (data.json `emerging`) but excluded from the verified-active grid, counts and generated pages */
+const EMERGING=[
+["Reah","H","Global","Menlo Park, US",2025,"S","Visa","Corporate","—","Up to 12% APY",1,"Y","s","reah.com","Self-custodial onchain business-banking OS combining regulated fiat accounts via partners with a multi-sig stablecoin and BTC treasury, Visa corporate cards and up to 12% APY."]
 ];
 
 /* ── state ── */
@@ -593,6 +609,19 @@ render();
 /* ═══ ENRICHMENT LAYER · profiles, licenses, founders, funding, world map ═══
    X[name] = { f: founders, l: license, m: money raised, s: story, a: active macro regions override } */
 const X={
+/* ══ intake 2026-08 ══ */
+"Dolafy":{f:"Eduardo Borges",l:"Partner bank: Lead Bank (issuer); Bridge, a Stripe company (program manager)",s:"Bootstrapped by Eduardo Borges and two co-founders under AETERNUM CAPITAL LTDA, with no outside investors.",a:["LATAM","NA","EU","MENA"]},
+"Brookwell":{f:"Ravi Riley",l:"Partner bank: Erebor Bank, N.A. (Member FDIC)",s:"Founded by Stable Money Company to bridge on-chain stablecoin yield with everyday banking."},
+"Takenos":{l:"Fintech; stablecoin wallet on partner rails",m:"$5M seed (Variant, Lattice), 2025",s:"Founded 2022 in Buenos Aires; processed $500M+ across 500k+ users on its own Solana-based stablecoin.",a:["LATAM","NA","EU"]},
+"Slush":{f:"Mysten Labs",l:"Self-custodial Sui wallet software",s:"Built by the Mysten Labs engineers behind Sui; rebranded from Sui Wallet to become the ecosystem's flagship consumer wallet."},
+"Solid":{l:"Self-custodial Safe smart-accounts + MPC",s:"Positions itself as an onchain neobank for real life — earn DeFi yield, save gaslessly across chains, and spend worldwide while keeping assets self-custodial."},
+"Sony Bank":{l:"Japanese banking license (Sony Financial Group)",s:"Launched in 2001 as Sony's internet-only bank; a multi-currency mainstay for Japan's savers that later pushed into Web3 products."},
+"AMP Bank GO":{l:"Australian ADI (AMP Bank Limited)",s:"AMP Bank rebuilt from a mortgages-and-savings lender into a transactional digital bank for Australia's solopreneurs, on Starling's Engine."},
+"Always.bank":{l:"FDIC-insured national bank charter (22nd State Banking Company)",s:"Century-old Alabama community bank 22nd State launched Always.bank as a nationwide advisory-first digital SMB bank."},
+"Haventree Bank":{l:"Schedule I Canadian bank (CDIC member)",s:"A broker-channel alternative mortgage lender that built its own platform to go direct-to-consumer as a complementary savings home."},
+"Esh Bank":{f:"Nir Zuk, Yuval Aloni",l:"Bank of Israel banking license (2022)",s:"Licensed by the Bank of Israel in 2022 (identifier No. 3), rolling out to the public with a patented model that returns half of interest income to customers."},
+"Blink":{l:"Bank-owned neobank on Capital Bank of Jordan's banking license",s:"Launched in 2022 on Codebase Technologies' Digibanc platform with a swipe-based, social-media-style UI for Jordan's underbanked youth."},
+"Reah":{l:"Self-custodial treasury; fiat accounts via partner banks (pre-launch)",s:"Founded 2025 in Menlo Park (CEO Charles Wayn) as an agentic onchain banking OS for global businesses; currently pre-launch / waitlist."},
 /* US */
 "Chime":{f:"Chris Britt, Ryan King",l:"Partner banks (The Bancorp, Stride)",m:"~$2.3B raised",s:"Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe."},
 "Varo":{f:"Colin Walsh",l:"National bank charter (2020)",m:"~$1B raised",s:"Spent three years and ~$100M to become the first US consumer fintech granted its own national bank charter."},
@@ -2077,6 +2106,19 @@ render();
    V[name] = { t: terms URL, p: privacy URL, x: X handle, in: {founderName: linkedinURL}, fx: {founderName: xHandle}, cc: [countries] }
    Only report-verified entries included; everything else keeps honest fallbacks. */
 const V={
+/* ══ intake 2026-08 ══ */
+"Dolafy":{t:"https://dolafy.com/legal/",x:"dolafycom"},
+"Brookwell":{t:"https://www.brookwell.com/terms",x:"brookwellapp"},
+"Takenos":{t:"https://help.takenos.com/en/articles/11403392-terminos-y-condiciones",x:"takenosapp",cc:["Argentina","Bolivia","Chile","Colombia","Ecuador","Paraguay","Peru","United States"]},
+"Slush":{p:"https://slush.app/privacy-policy",x:"SlushWallet"},
+"Solid":{t:"https://support.solid.xyz/en/articles/13184959-legal-privacy-policy-terms-conditions",x:"SolidYield"},
+"Sony Bank":{cc:["Japan"]},
+"AMP Bank GO":{cc:["Australia"]},
+"Always.bank":{cc:["United States"]},
+"Haventree Bank":{cc:["Canada"]},
+"Esh Bank":{cc:["Israel"]},
+"Blink":{cc:["Jordan"]},
+"Reah":{x:"ReahPlatform"},
 /* US */
 "Chime":{t:"https://www.chime.com/policies/",p:"https://www.chime.com/policies/privacy-policy/",x:"Chime",in:{"Chris Britt":"https://www.linkedin.com/in/chris-britt-a726036/"},cc:["United States"]},
 "Varo":{t:"https://www.varomoney.com/privacy-legal/",p:"https://www.varomoney.com/privacy/",x:"varomoney",in:{"Colin Walsh":"https://www.linkedin.com/in/colinwalsh1/"},cc:["United States"]},

@@ -26,13 +26,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/faq/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/glossary/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24300,7 +24300,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24652,6 +24652,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/countries/canada/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/countries/united-kingdom/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
@@ -24733,7 +24738,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26578,6 +26583,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/dolafy/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/brookwell/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/takenos/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/slush/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/solid/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/sony-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/amp-bank-go/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/always-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/haventree-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/esh-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/blink/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/chime/who-owns/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
@@ -28418,6 +28478,61 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/dolafy/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/brookwell/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/takenos/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/slush/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/solid/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/sony-bank/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/amp-bank-go/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/always-bank/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/haventree-bank/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/esh-bank/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/blink/who-owns/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/chime/alternatives/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
@@ -30253,8 +30368,63 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/dolafy/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/brookwell/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/takenos/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/slush/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/solid/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/sony-bank/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/amp-bank-go/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/always-bank/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/haventree-bank/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/esh-bank/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/blink/alternatives/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -30694,7 +30864,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/northone-vs-always-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/rho-vs-grasshopper/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/rho-vs-always-bank/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/grasshopper-vs-always-bank/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
@@ -30859,6 +31044,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/judo-bank-vs-amp-bank-go/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/tymebank-vs-wave/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
@@ -30924,7 +31114,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/meru-vs-takenos/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/airtm-vs-deel/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/airtm-vs-takenos/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/deel-vs-takenos/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
@@ -30939,12 +31144,27 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/meow-vs-dolafy/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/slash-vs-flex/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/slash-vs-dolafy/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/flex-vs-dolafy/</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
   </url>

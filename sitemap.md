@@ -4,8 +4,8 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 368 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 45 ready-made cuts of the dataset by license, KYC, region and audience
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 379 neobanks
+- [Browse](https://www.neobankbeat.com/browse/) — 46 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
@@ -68,7 +68,7 @@
 - [neobank dataset hugging face kaggle](https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/) (2026-07-26)
 - [browse neobanks by license kyc country](https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/) (2026-07-28)
 
-## Neobank profiles (368)
+## Neobank profiles (379)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -438,8 +438,19 @@
 - [MoMo](https://www.neobankbeat.com/n/momo/)
 - [ZaloPay](https://www.neobankbeat.com/n/zalopay/)
 - [Touch 'n Go eWallet](https://www.neobankbeat.com/n/touch-n-go-ewallet/)
+- [Dolafy](https://www.neobankbeat.com/n/dolafy/)
+- [Brookwell](https://www.neobankbeat.com/n/brookwell/)
+- [Takenos](https://www.neobankbeat.com/n/takenos/)
+- [Slush](https://www.neobankbeat.com/n/slush/)
+- [Solid](https://www.neobankbeat.com/n/solid/)
+- [Sony Bank](https://www.neobankbeat.com/n/sony-bank/)
+- [AMP Bank GO](https://www.neobankbeat.com/n/amp-bank-go/)
+- [Always.bank](https://www.neobankbeat.com/n/always-bank/)
+- [Haventree Bank](https://www.neobankbeat.com/n/haventree-bank/)
+- [Esh Bank](https://www.neobankbeat.com/n/esh-bank/)
+- [Blink](https://www.neobankbeat.com/n/blink/)
 
-## Comparisons (141)
+## Comparisons (151)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -528,7 +539,10 @@
 - [Relay vs Rho](https://www.neobankbeat.com/vs/relay-vs-rho/)
 - [NorthOne vs Rho](https://www.neobankbeat.com/vs/northone-vs-rho/)
 - [NorthOne vs Grasshopper](https://www.neobankbeat.com/vs/northone-vs-grasshopper/)
+- [NorthOne vs Always.bank](https://www.neobankbeat.com/vs/northone-vs-always-bank/)
 - [Rho vs Grasshopper](https://www.neobankbeat.com/vs/rho-vs-grasshopper/)
+- [Rho vs Always.bank](https://www.neobankbeat.com/vs/rho-vs-always-bank/)
+- [Grasshopper vs Always.bank](https://www.neobankbeat.com/vs/grasshopper-vs-always-bank/)
 - [Found vs Karat](https://www.neobankbeat.com/vs/found-vs-karat/)
 - [Lili vs Karat](https://www.neobankbeat.com/vs/lili-vs-karat/)
 - [True Link vs Charlie](https://www.neobankbeat.com/vs/true-link-vs-charlie/)
@@ -561,6 +575,7 @@
 - [Open vs Aspire](https://www.neobankbeat.com/vs/open-vs-aspire/)
 - [RazorpayX vs Aspire](https://www.neobankbeat.com/vs/razorpayx-vs-aspire/)
 - [ANEXT Bank vs Aspire](https://www.neobankbeat.com/vs/anext-bank-vs-aspire/)
+- [Judo Bank vs AMP Bank GO](https://www.neobankbeat.com/vs/judo-bank-vs-amp-bank-go/)
 - [TymeBank vs Wave](https://www.neobankbeat.com/vs/tymebank-vs-wave/)
 - [OPay vs Wave](https://www.neobankbeat.com/vs/opay-vs-wave/)
 - [PalmPay vs Djamo](https://www.neobankbeat.com/vs/palmpay-vs-djamo/)
@@ -574,16 +589,22 @@
 - [Kolo vs COCA](https://www.neobankbeat.com/vs/kolo-vs-coca/)
 - [Meru vs Airtm](https://www.neobankbeat.com/vs/meru-vs-airtm/)
 - [Meru vs Deel](https://www.neobankbeat.com/vs/meru-vs-deel/)
+- [Meru vs Takenos](https://www.neobankbeat.com/vs/meru-vs-takenos/)
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
+- [Airtm vs Takenos](https://www.neobankbeat.com/vs/airtm-vs-takenos/)
+- [Deel vs Takenos](https://www.neobankbeat.com/vs/deel-vs-takenos/)
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
 - [Meow vs Flex](https://www.neobankbeat.com/vs/meow-vs-flex/)
+- [Meow vs Dolafy](https://www.neobankbeat.com/vs/meow-vs-dolafy/)
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
 - [Slash vs Flex](https://www.neobankbeat.com/vs/slash-vs-flex/)
+- [Slash vs Dolafy](https://www.neobankbeat.com/vs/slash-vs-dolafy/)
+- [Flex vs Dolafy](https://www.neobankbeat.com/vs/flex-vs-dolafy/)
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
 
-## Topic hubs (45)
+## Topic hubs (46)
 
 - [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
 - [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
@@ -614,6 +635,7 @@
 - [/cards/mastercard/](https://www.neobankbeat.com/cards/mastercard/)
 - [/cards/domestic-networks/](https://www.neobankbeat.com/cards/domestic-networks/)
 - [/countries/united-states/](https://www.neobankbeat.com/countries/united-states/)
+- [/countries/canada/](https://www.neobankbeat.com/countries/canada/)
 - [/countries/united-kingdom/](https://www.neobankbeat.com/countries/united-kingdom/)
 - [/countries/germany/](https://www.neobankbeat.com/countries/germany/)
 - [/countries/france/](https://www.neobankbeat.com/countries/france/)
@@ -633,4 +655,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (368) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (367) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (379) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (378) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
