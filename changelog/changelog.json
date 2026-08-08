@@ -4,8 +4,8 @@
  "entries": [
   {
    "date": "2026-08-08",
-   "summary": "Additive null-defaulted keys + slug extraction.",
-   "subject": "Schema V2 Phase 1: additive null-defaulted keys + slug extraction",
+   "summary": "Additive null-defaulted keys + slug extraction (#17).",
+   "subject": "Schema V2 Phase 1: additive null-defaulted keys + slug extraction (#17)",
    "total": 368,
    "added": [],
    "removed": [],
