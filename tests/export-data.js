@@ -24,7 +24,7 @@ const dom = new JSDOM(html, {
 const w = dom.window;
 
 const out = w.eval(`(function(){
-  const entities = D.map(r => {
+  const mapRow = r => {
     const [name, c, region, hq, founded, cu, network, cardType, cashback, yld, stables, kyc, ni, domain, note] = r;
     const e = X[name] || {};
     const v = V[name] || {};
@@ -63,7 +63,9 @@ const out = w.eval(`(function(){
     if (USERMAP[name]) o.reported_users = { value_millions: USERMAP[name].v, metric: USERMAP[name].metric, as_of: USERMAP[name].yr };
     if (VOLMAP[name]) o.volume = { figure: VOLMAP[name].fig, metric: VOLMAP[name].metric, source: VOLMAP[name].src };
     return o;
-  });
+  };
+  const entities = D.map(mapRow);
+  const emerging = (typeof EMERGING !== 'undefined' ? EMERGING : []).map(r => { const o = mapRow(r); o.status = 'emerging'; return o; });
   return {
     meta: {
       name: "neobankbeat",
@@ -86,7 +88,8 @@ const out = w.eval(`(function(){
         verification: "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed"
       }
     },
-    entities
+    entities,
+    emerging
   };
 })()`);
 
@@ -160,8 +163,9 @@ function deriveV2(o) {
 
 (async () => {
   const { buildSlugMap } = await import('./slug.mjs');
-  const smap = buildSlugMap(out.entities.map(e => e.name));
-  for (const o of out.entities) {
+  const all = [...out.entities, ...(out.emerging || [])];
+  const smap = buildSlugMap(all.map(e => e.name));
+  for (const o of all) {
     const derived = deriveV2(o);
     o.slug = smap.get(o.name); // slug first among the new tail keys
     Object.assign(o, derived);

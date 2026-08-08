@@ -30,6 +30,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Who really runs the neobanks? The BaaS rails behind the apps","description":"Only 127 of 368 tracked neobanks hold their own bank license; 77 run on a partner bank and most don't disclose which. The Banking-as-a-Service census from the open neobankbeat dataset.","datePublished":"2026-07-23","dateModified":"2026-07-23","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og/blog/who-really-runs-the-neobanks.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
 </script>
+<style>.asof{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--dim);border-left:2px solid var(--line);padding:2px 0 2px 12px;margin:18px 0}.asof b{color:var(--muted);font-weight:600}.asof a{color:var(--accent)}</style>
 
 <!-- crumbs -->
 <script type="application/ld+json">
@@ -60,6 +61,9 @@
   <div class="eyebrow">the rails</div>
   <h1>Who <em>really</em> runs the neobanks?</h1>
   <p class="meta"><b>July 23, 2026</b> · 7 min read · <a href="/blog/">← all posts</a> · <a href="/data.json">the dataset</a></p>
+  <!-- asof:start -->
+  <p class="asof">Figures in this post describe a snapshot of <b>368</b> tracked neobanks. The dataset now tracks <b>379</b>, so counts here will not match the live site — the analysis stands, but for current numbers use the <a href="/browse/">browsable cuts</a>, the <a href="/">live directory</a> or <a href="/data.json">data.json</a>.</p>
+  <!-- asof:end -->
 
   <p>Open any neobank app and it looks like a bank: an account number, a card, a balance, a little green tick that says your money is insured. Look one layer down and the picture splits in two. Some of these companies <em>are</em> banks — they hold a license, they take deposits onto their own balance sheet, they answer to a regulator directly. Most are something else: a beautifully designed front end sitting on top of a bank you've never heard of, connected by a layer the industry calls <b>Banking-as-a-Service</b>.</p>
   <p>That distinction is invisible in the marketing and decisive in a crisis. So we counted it. Every one of the <b>368 tracked neobanks</b> in the <a href="/">directory</a> carries a <code>regulation_type</code> in <a href="/data.json">data.json</a>, derived from its license disclosures. Here's what the whole field looks like when you stop reading the homepage and start reading the small print.</p>

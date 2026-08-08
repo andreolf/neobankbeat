@@ -1,7 +1,28 @@
 {
  "generated": "2026-08-08",
- "total": 368,
+ "total": 379,
  "entries": [
+  {
+   "date": "2026-08-08",
+   "summary": "Add 11 verified neobanks + Reah as emerging; sync counts to 379.",
+   "subject": "Add 11 verified neobanks + Reah as emerging; sync counts to 379",
+   "total": 379,
+   "added": [
+    "Dolafy",
+    "Brookwell",
+    "Takenos",
+    "Slush",
+    "Solid",
+    "Sony Bank",
+    "AMP Bank GO",
+    "Always.bank",
+    "Haventree Bank",
+    "Esh Bank",
+    "Blink"
+   ],
+   "removed": [],
+   "updated": []
+  },
   {
    "date": "2026-08-08",
    "summary": "Additive null-defaulted keys + slug extraction (#17).",
