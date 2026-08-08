@@ -851,6 +851,7 @@ syncMap();render(true)});
 
 /* ── JobPosting structured data: freshest dated roles, for Google Jobs.
    Only roles with a posted date qualify (datePosted is required). ── */
+const isDated = j => !!(j.posted && !Number.isNaN(Date.parse(j.posted)));
 const jobPosting = j => {
   const descText = (j.description && j.description.length >= 80)
     ? j.description.slice(0, 8000)
@@ -917,7 +918,7 @@ function jobDetailHtml(j) {
     descMeta,
     canon,
     [
-      { '@context': 'https://schema.org', ...jobPosting(j) },
+      ...(isDated(j) ? [{ '@context': 'https://schema.org', ...jobPosting(j) }] : []),
       { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], [shortTitle.toLowerCase(), canon]) },
     ],
     ogIf('jobs.png'),
