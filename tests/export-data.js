@@ -90,6 +90,83 @@ const out = w.eval(`(function(){
   };
 })()`);
 
-const dest = path.join(__dirname, '..', 'data.json');
-fs.writeFileSync(dest, JSON.stringify(out, null, 1) + '\n');
-console.log('wrote ' + dest + ' — ' + out.entities.length + ' entities');
+/* SCHEMA V2 — PHASE 1 derivation pass. Deterministically derives the new
+   machine-set keys from already-built source fields (no prose extraction).
+   Tri-state rule: derived features are `true` or left `null` — never `false`.
+   All manual-only keys (Phase 2+) stay null / [] here. Appended to the tail of
+   each record after `slug`, so the diff is pure additions per entity. */
+const NETMAP = { MC: 'Mastercard', Visa: 'Visa', Amex: 'Amex', RuPay: 'RuPay', Verve: 'Verve', Mada: 'Mada' };
+function deriveV2(o) {
+  const custody = o.custody, category = o.category, audience = o.audience;
+  const cardType = o.card_type || '';
+  const services = Array.isArray(o.services) ? o.services : [];
+
+  const self_custody = (custody === 'Self-custodial' || custody === 'MPC self-custodial') ? true : null;
+  const mpc = custody === 'MPC self-custodial' ? true : null;
+  const crypto = (category === 'hybrid' || category === 'web3-native') ? true : null;
+  const yield_bearing = o.yield != null ? true : null;
+  const iban = services.includes('iban') ? true : null;
+  const virtual_cards = services.includes('virtual-cards') ? true : null;
+  const business_accounts = (audience === 'SMB & startups' || audience === 'freelancers & creators' || /business/i.test(cardType)) ? true : null;
+  const stablecoin_native = (o.stablecoins === true && category === 'web3-native') ? true : null;
+
+  const features = {
+    apple_pay: null, google_pay: null, api: null, webhooks: null, oauth: null, sandbox: null,
+    business_accounts, virtual_cards, physical_cards: null, iban,
+    self_custody, mpc, yield_bearing, savings: null, lending: null,
+    investing: null, treasury: null, crypto, stablecoin_native,
+  };
+
+  const stablecoin_tickers = o.stablecoins === false ? [] : null;
+
+  let card_networks = null;
+  if (o.card_network != null) {
+    const nets = [];
+    for (let tok of String(o.card_network).split('/')) {
+      tok = tok.replace(/\s*\([^)]*\)/g, '').trim();
+      const mapped = NETMAP[tok];
+      if (mapped && !nets.includes(mapped)) nets.push(mapped);
+    }
+    card_networks = nets.length ? nets : null;
+  }
+
+  const form = [];
+  if (/virtual/i.test(cardType)) form.push('virtual');
+  if (/physical/i.test(cardType)) form.push('physical');
+  const card_form = form.length ? form : null;
+
+  const fund = [];
+  if (/debit/i.test(cardType)) fund.push('debit');
+  if (/credit/i.test(cardType)) fund.push('credit');
+  if (/prepaid/i.test(cardType)) fund.push('prepaid');
+  if (/charge/i.test(cardType)) fund.push('charge');
+  if (/bnpl/i.test(cardType)) fund.push('bnpl');
+  const card_funding = fund.length ? fund : null;
+
+  return {
+    features,
+    stablecoin_tickers,
+    fx_markup_pct: null,
+    cashback_pct: null,
+    yield_pct: null,
+    payment_rails: null,
+    card_networks,
+    card_form,
+    card_funding,
+    timeline: null,
+    partners: { issuer: null, partner_bank: null, treasury: null, identity: null, kyc_provider: null, card_network: null },
+  };
+}
+
+(async () => {
+  const { buildSlugMap } = await import('./slug.mjs');
+  const smap = buildSlugMap(out.entities.map(e => e.name));
+  for (const o of out.entities) {
+    const derived = deriveV2(o);
+    o.slug = smap.get(o.name); // slug first among the new tail keys
+    Object.assign(o, derived);
+  }
+  const dest = path.join(__dirname, '..', 'data.json');
+  fs.writeFileSync(dest, JSON.stringify(out, null, 1) + '\n');
+  console.log('wrote ' + dest + ' — ' + out.entities.length + ' entities');
+})();
