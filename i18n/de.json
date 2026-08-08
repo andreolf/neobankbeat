@@ -93,6 +93,9 @@
   },
   "labels": {
     "back": "← zurück",
+    "card_none": "keine Karte",
+    "nav_neobanks": "Neobanks",
+    "source": "Quelle",
     "profiles_eyebrow": "Neobank-Profile",
     "short_answer": "Kurzantwort",
     "facts": "Fakten",
@@ -107,6 +110,7 @@
     "landing_desc": "Unabhängiges, offenes Verzeichnis verifiziert-aktiver Neobanks: traditionelle Fiat-Challenger, hybride Fiat-Krypto-Apps und web3-native selbstverwahrende Geld-Apps — verglichen nach Verwahrung, Lizenz, Karten, Stablecoins und Geografie.",
     "landing_h1": "Neobanks weltweit",
     "landing_intro": "neobankbeat verfolgt, welche Neobanks existieren, aktiv sind und wie sie sich vergleichen. Diese deutschen Seiten übersetzen Überschriften, Kategorien und Metadaten; die vollständigen Daten und das interaktive Verzeichnis sind auf Englisch verfügbar.",
+    "active_neobanks": "verifiziert-aktive Neobanks",
     "landing_all_profiles": "Alle Neobank-Profile (Deutsch)",
     "landing_en_directory": "Zum interaktiven Verzeichnis (EN) →",
     "profiles_index_title": "Alle Neobank-Profile · neobankbeat",

@@ -17,6 +17,9 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 /* enabled localized locales (English is implicit base, not listed here) */
 export const LOCALES = [
   { code: 'de', htmlLang: 'de', label: 'Deutsch', dir: 'ltr' },
+  { code: 'it', htmlLang: 'it', label: 'Italiano', dir: 'ltr' },
+  { code: 'fr', htmlLang: 'fr', label: 'Français', dir: 'ltr' },
+  { code: 'es', htmlLang: 'es', label: 'Español', dir: 'ltr' },
 ];
 
 const DICT = Object.fromEntries(

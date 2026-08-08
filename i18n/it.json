@@ -1,0 +1,47 @@
+{
+  "_meta": { "code": "it", "htmlLang": "it", "label": "Italiano", "tier": "metadata", "note": "Metadata + enum labels translated; editorial prose stays English under a banner. Numbers/dates canonical; brand names never translated." },
+  "enums": {
+    "category": { "traditional": "tradizionale", "hybrid": "ibrida", "web3-native": "web3-nativa" },
+    "category_long": { "traditional": "tradizionale (fiat, in custodia)", "hybrid": "ibrida (fiat + cripto in custodia)", "web3-native": "web3-nativa (auto-custodia)" },
+    "custody": { "Custodial": "In custodia", "Self-custodial": "Auto-custodia", "MPC self-custodial": "Auto-custodia MPC", "Mixed (fiat custodial + self-custody crypto)": "Mista (fiat in custodia + cripto in auto-custodia)" },
+    "regulation_type": { "Licensed bank": "Banca autorizzata", "Partner-bank model": "Modello partner-bank", "E-money institution": "Istituto di moneta elettronica", "Payment institution": "Istituto di pagamento", "Self-custodial software": "Software di auto-custodia", "MiCA CASP (EU)": "MiCA CASP (UE)", "VASP / MSB / crypto licenses": "VASP / MSB / licenze cripto", "License pending (partner model today)": "Licenza in attesa (oggi modello partner)", "Broker-led": "Guidata da broker", "Fintech license (CH)": "Licenza fintech (CH)", "Other / mixed": "Altro / misto", "Unclassified": "Non classificato" },
+    "kyc": { "Yes": "Sì", "No": "No", "Card only": "Solo carta" },
+    "region": { "US": "USA", "US/UK": "USA/UK", "UK": "UK", "Canada": "Canada", "Europe": "Europa", "LatAm": "America Latina", "Asia": "Asia", "ANZ": "ANZ", "Africa": "Africa", "MENA": "MENA", "Global": "Globale" },
+    "macro": { "North America": "Nord America", "Europe": "Europa", "Latin America": "America Latina", "Africa": "Africa", "MENA": "MENA", "Asia": "Asia", "Oceania": "Oceania" },
+    "bool": { "yes": "Sì", "no": "No" }
+  },
+  "factLabels": { "Category": "Categoria", "AI": "IA", "HQ": "Sede", "Founded": "Fondata", "Custody": "Custodia", "Regulation type": "Tipo di regolamentazione", "License detail": "Dettaglio licenza", "Card": "Carta", "Cashback": "Cashback", "Yield": "Rendimento", "Stablecoins": "Stablecoin", "KYC": "KYC", "Active regions": "Regioni attive", "Countries": "Paesi", "Reported users": "Utenti dichiarati", "Founders": "Fondatori", "Funding": "Finanziamenti", "Services": "Servizi", "FX markup": "Maggiorazione FX", "No card": "Nessuna carta" },
+  "labels": {
+    "back": "← indietro",
+    "card_none": "nessuna carta",
+    "nav_neobanks": "Neobanche",
+    "source": "Fonte",
+    "profiles_eyebrow": "Profili neobanche",
+    "short_answer": "Risposta breve",
+    "facts": "Dati",
+    "questions": "Domande frequenti su",
+    "verified_links": "Link verificati:",
+    "open_directory": "apri nella directory →",
+    "original_en": "Profilo originale (EN) →",
+    "who_owns": "Chi c'è dietro",
+    "mt_notice_k": "Nota",
+    "mt_notice": "Pagina localizzata automaticamente — titoli, dati chiave e categorie in italiano; le descrizioni dettagliate e i dati verificati provengono dal profilo originale in inglese.",
+    "landing_title": "Neobanche — custodia, licenze, carte e dati · neobankbeat",
+    "landing_desc": "Directory indipendente e aperta di neobanche verificate e attive: challenger fiat tradizionali, app ibride fiat-cripto e app di denaro web3-native in auto-custodia — confrontate per custodia, licenza, carte, stablecoin e area geografica.",
+    "landing_h1": "Neobanche nel mondo",
+    "landing_intro": "neobankbeat traccia quali neobanche esistono, sono attive e come si confrontano. Queste pagine italiane traducono titoli, categorie e metadati; i dati completi e la directory interattiva sono disponibili in inglese.",
+    "active_neobanks": "neobanche verificate e attive",
+    "landing_all_profiles": "Tutti i profili delle neobanche (italiano)",
+    "landing_en_directory": "Vai alla directory interattiva (EN) →",
+    "profiles_index_title": "Tutti i profili delle neobanche · neobankbeat",
+    "profiles_index_h1": "Profili neobanche",
+    "not_verified": "non verificato"
+  },
+  "templates": {
+    "profile_title": "{name} — custodia, licenza, carte e dati · neobankbeat",
+    "profile_desc": "{name} (neobanca {category}, {hq}, fond. {founded}): custodia {custody}, {reg}, {card}, stablecoin {stables}. Dati verificati dal dataset aperto neobankbeat.",
+    "profile_summary": "{name} è una neobanca {category_long} con sede a {hq}, fondata nel {founded}. Regolamentata come {reg}; custodia: {custody}. Carta: {card}. Stablecoin: {stables}.",
+    "card_with": "{network} {type}",
+    "card_none": "nessuna carta"
+  }
+}

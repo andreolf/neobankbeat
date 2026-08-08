@@ -224,9 +224,8 @@ function factRows(e) {
   return out;
 }
 
-/* German fact table — labels + enum values localized; raw values pass through */
-function factRowsDe(e) {
-  const L = 'de';
+/* localized fact table — labels + enum values localized; raw values pass through */
+function factRowsL(e, L) {
   const rows = [
     [factLabel(L, 'Category'), `${enumLabel(L, 'category', e.category)}${e.audience !== 'general' ? ' · ' + e.audience : ''}`],
     [factLabel(L, 'AI'), e.ai ? AITAG[e.ai] || e.ai : null],
@@ -236,7 +235,7 @@ function factRowsDe(e) {
     [factLabel(L, 'License detail'), e.license],
     [factLabel(L, 'Card'), e.card_network && e.card_network !== '—' ? `${e.card_network} · ${e.card_type}` : factLabel(L, 'No card')],
     [factLabel(L, 'Cashback'), e.cashback], [factLabel(L, 'Yield'), e.yield],
-    [factLabel(L, 'Stablecoins'), e.stablecoins ? 'Ja' : 'Nein'], [factLabel(L, 'KYC'), enumLabel(L, 'kyc', e.kyc)],
+    [factLabel(L, 'Stablecoins'), e.stablecoins ? enumLabel(L, 'bool', 'yes') : enumLabel(L, 'bool', 'no')], [factLabel(L, 'KYC'), enumLabel(L, 'kyc', e.kyc)],
     [factLabel(L, 'Active regions'), e.active_regions.map(r => enumLabel(L, 'macro', r)).join(', ')],
     [factLabel(L, 'Countries'), e.countries ? e.countries.join(', ') : null],
     [factLabel(L, 'Reported users'), users(e)],
@@ -246,7 +245,7 @@ function factRowsDe(e) {
   let out = rows.filter(([, v]) => v).map(([k, v]) => `<tr><td>${k}</td><td>${esc(v)}</td></tr>`).join('\n    ');
   if (e.fx_markup) {
     const fx = e.fx_markup;
-    out += `\n    <tr><td>${factLabel(L, 'FX markup')}</td><td>${esc(fx.markup)}${fx.as_of ? ` <span class="dim">(${esc(fx.as_of)})</span>` : ''}${fx.source ? ` · <a href="${esc(fx.source)}" target="_blank" rel="noopener">Quelle ↗</a>` : ''}</td></tr>`;
+    out += `\n    <tr><td>${factLabel(L, 'FX markup')}</td><td>${esc(fx.markup)}${fx.as_of ? ` <span class="dim">(${esc(fx.as_of)})</span>` : ''}${fx.source ? ` · <a href="${esc(fx.source)}" target="_blank" rel="noopener">${t(L, 'source')} ↗</a>` : ''}</td></tr>`;
   }
   return out;
 }
@@ -768,7 +767,7 @@ for (const e of E) {
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
   <div class="eyebrow"><a href="/n/" style="color:var(--accent)">neobank profiles</a></div>
   <h1>${esc(e.name)}</h1>
-  <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · est. ${e.founded} · <a href="/?q=${encodeURIComponent(e.name)}">open in the directory →</a> · <a href="/de/n/${slug}/" hreflang="de">Deutsch →</a></p>
+  <p class="meta">${catChip(e)} · <b>${esc(e.hq)}</b> · est. ${e.founded} · <a href="/?q=${encodeURIComponent(e.name)}">open in the directory →</a>${LOCALES.map(lc => ` · <a href="/${lc.code}/n/${slug}/" hreflang="${lc.htmlLang}">${lc.label} →</a>`).join('')}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
   ${e.story ? `<p><em>${esc(e.story)}</em></p>` : ''}
   ${e.note ? `<p>${esc(e.note)}</p>` : ''}
@@ -795,41 +794,42 @@ for (const e of E) {
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   nPages++;
 
-  /* ─ German (metadata tier): head/enums/summary localized, prose stays EN ─ */
-  const L = 'de';
-  const deUrl = `${BASE}/de/n/${slug}/`;
-  const deCat = enumLabel(L, 'category', e.category);
-  const deCatLong = enumLabel(L, 'category_long', e.category);
-  const deCustody = enumLabel(L, 'custody', e.custody);
-  const deReg = enumLabel(L, 'regulation_type', e.regulation_type);
-  const deCard = e.card_network && e.card_network !== '—' ? `${e.card_network} ${e.card_type}` : 'keine Karte';
-  const deStables = e.stablecoins ? 'Ja' : 'Nein';
-  const deTitle = tmpl(L, 'profile_title', { name: e.name });
-  const deDesc = tmpl(L, 'profile_desc', { name: e.name, category: deCat, hq: e.hq, founded: e.founded, custody: deCustody, reg: deReg, card: deCard, stables: deStables });
-  const deSummary = tmpl(L, 'profile_summary', { name: e.name, category_long: deCatLong, hq: e.hq, founded: e.founded, reg: deReg, custody: deCustody, card: deCard, stables: deStables });
-  const deLd = {
-    '@context': 'https://schema.org', '@graph': [
-      { '@type': 'WebPage', name: deTitle, url: deUrl, description: deSummary, dateModified: DATA_MODIFIED, inLanguage: 'de', mainEntity: { '@id': `${deUrl}#org` }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
-      { '@type': 'Organization', '@id': `${deUrl}#org`, name: e.name, url: e.website || deUrl, foundingDate: String(e.founded) },
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-        { '@type': 'ListItem', position: 2, name: 'Neobanks', item: `${BASE}/de/n/` },
-        { '@type': 'ListItem', position: 3, name: e.name, item: deUrl }] },
-    ],
-  };
-  const deChip = `<span class="chip ${CATCHIP[e.category][0]}">${enumLabel(L, 'category', e.category)}</span>`;
-  const deHtml = head(deTitle, deDesc, deUrl, deLd, ogPath, `${e.name} — neobankbeat`, { lang: 'de', alts }) + `
+  /* ─ localized (metadata tier): head/enums/summary localized, prose stays EN ─ */
+  for (const loc of LOCALES) {
+    const L = loc.code;
+    const lUrl = `${BASE}/${L}/n/${slug}/`;
+    const lCat = enumLabel(L, 'category', e.category);
+    const lCatLong = enumLabel(L, 'category_long', e.category);
+    const lCustody = enumLabel(L, 'custody', e.custody);
+    const lReg = enumLabel(L, 'regulation_type', e.regulation_type);
+    const lCard = e.card_network && e.card_network !== '—' ? `${e.card_network} ${e.card_type}` : t(L, 'card_none');
+    const lStables = e.stablecoins ? enumLabel(L, 'bool', 'yes') : enumLabel(L, 'bool', 'no');
+    const lTitle = tmpl(L, 'profile_title', { name: e.name });
+    const lDesc = tmpl(L, 'profile_desc', { name: e.name, category: lCat, hq: e.hq, founded: e.founded, custody: lCustody, reg: lReg, card: lCard, stables: lStables });
+    const lSummary = tmpl(L, 'profile_summary', { name: e.name, category_long: lCatLong, hq: e.hq, founded: e.founded, reg: lReg, custody: lCustody, card: lCard, stables: lStables });
+    const lLd = {
+      '@context': 'https://schema.org', '@graph': [
+        { '@type': 'WebPage', name: lTitle, url: lUrl, description: lSummary, dateModified: DATA_MODIFIED, inLanguage: L, mainEntity: { '@id': `${lUrl}#org` }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+        { '@type': 'Organization', '@id': `${lUrl}#org`, name: e.name, url: e.website || lUrl, foundingDate: String(e.founded) },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: t(L, 'nav_neobanks'), item: `${BASE}/${L}/n/` },
+          { '@type': 'ListItem', position: 3, name: e.name, item: lUrl }] },
+      ],
+    };
+    const lChip = `<span class="chip ${CATCHIP[e.category][0]}">${enumLabel(L, 'category', e.category)}</span>`;
+    const lHtml = head(lTitle, lDesc, lUrl, lLd, ogPath, `${e.name} — neobankbeat`, { lang: L, alts }) + `
 <main class="wrap" id="main">
 <article>
-  <a class="backbtn" href="/de/">${t(L, 'back')}</a>
-  <div class="eyebrow"><a href="/de/n/" style="color:var(--accent)">${t(L, 'profiles_eyebrow')}</a></div>
+  <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
+  <div class="eyebrow"><a href="/${L}/n/" style="color:var(--accent)">${t(L, 'profiles_eyebrow')}</a></div>
   <h1>${esc(e.name)}</h1>
-  <p class="meta">${deChip} · <b>${esc(e.hq)}</b> · ${t(L, 'Founded')} ${e.founded} · <a href="/n/${slug}/" hreflang="en">${t(L, 'original_en')}</a></p>
+  <p class="meta">${lChip} · <b>${esc(e.hq)}</b> · ${t(L, 'Founded')} ${e.founded} · <a href="/n/${slug}/" hreflang="en">${t(L, 'original_en')}</a></p>
   <div class="callout"><span class="k">${t(L, 'mt_notice_k')}</span>${t(L, 'mt_notice')}</div>
-  <div class="callout"><span class="k">${t(L, 'short_answer')}</span>${esc(deSummary)}</div>
+  <div class="callout"><span class="k">${t(L, 'short_answer')}</span>${esc(lSummary)}</div>
   <h2>${t(L, 'facts')}</h2>
   <table>
-    ${factRowsDe(e)}
+    ${factRowsL(e, L)}
   </table>
   ${links(e) ? `<p><strong>${t(L, 'verified_links')}</strong> ${links(e)}</p>` : ''}
   <p class="meta" style="margin:12px 0 0"><a href="/n/${slug}/who-owns/">${t(L, 'who_owns')} ${esc(e.name)}?</a></p>
@@ -837,55 +837,56 @@ for (const e of E) {
   ${subscribeBox}
 </article>
 </main>` + foot;
-  const deDir = path.join(ROOT, 'de', 'n', slug);
-  fs.mkdirSync(deDir, { recursive: true });
-  fs.writeFileSync(path.join(deDir, 'index.html'), deHtml);
+    const lDir = path.join(ROOT, L, 'n', slug);
+    fs.mkdirSync(lDir, { recursive: true });
+    fs.writeFileSync(path.join(lDir, 'index.html'), lHtml);
+  }
 }
 
-/* ═══ German landing + profiles index (DE pilot) ═══ */
-{
-  const L = 'de';
-  const deLandUrl = `${BASE}/de/`;
-  const deLandLd = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'CollectionPage', name: t(L, 'landing_h1'), url: deLandUrl, inLanguage: 'de', isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+/* ═══ localized landing + profiles index (one per enabled locale) ═══ */
+for (const loc of LOCALES) {
+  const L = loc.code;
+  const landUrl = `${BASE}/${L}/`;
+  const landLd = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', name: t(L, 'landing_h1'), url: landUrl, inLanguage: L, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-      { '@type': 'ListItem', position: 2, name: 'Deutsch', item: deLandUrl }] },
+      { '@type': 'ListItem', position: 2, name: loc.label, item: landUrl }] },
   ] };
-  const deLandHtml = head(t(L, 'landing_title'), t(L, 'landing_desc'), deLandUrl, deLandLd, null, 'neobankbeat', { lang: 'de', alts: hreflangCluster(BASE, '/') }) + `
+  const landHtml = head(t(L, 'landing_title'), t(L, 'landing_desc'), landUrl, landLd, null, 'neobankbeat', { lang: L, alts: hreflangCluster(BASE, '/') }) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">neobankbeat</div>
   <h1>${t(L, 'landing_h1')}</h1>
   <div class="callout"><span class="k">${t(L, 'mt_notice_k')}</span>${t(L, 'landing_intro')}</div>
-  <p><a href="/de/n/">${t(L, 'landing_all_profiles')}</a> · <a href="/">${t(L, 'landing_en_directory')}</a></p>
-  <p class="meta">${E.length} verifiziert-aktive Neobanks</p>
+  <p><a href="/${L}/n/">${t(L, 'landing_all_profiles')}</a> · <a href="/">${t(L, 'landing_en_directory')}</a></p>
+  <p class="meta">${E.length} ${t(L, 'active_neobanks')}</p>
   ${disclaimer}
   ${subscribeBox}
 </article>
 </main>` + foot;
-  fs.mkdirSync(path.join(ROOT, 'de'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'de', 'index.html'), deLandHtml);
+  fs.mkdirSync(path.join(ROOT, L), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, L, 'index.html'), landHtml);
 
-  const deNUrl = `${BASE}/de/n/`;
-  const deNLd = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'CollectionPage', name: t(L, 'profiles_index_h1'), url: deNUrl, inLanguage: 'de', isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+  const nUrl = `${BASE}/${L}/n/`;
+  const nLd = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', name: t(L, 'profiles_index_h1'), url: nUrl, inLanguage: L, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
-      { '@type': 'ListItem', position: 2, name: 'Deutsch', item: deLandUrl },
-      { '@type': 'ListItem', position: 3, name: 'Neobanks', item: deNUrl }] },
+      { '@type': 'ListItem', position: 2, name: loc.label, item: landUrl },
+      { '@type': 'ListItem', position: 3, name: t(L, 'nav_neobanks'), item: nUrl }] },
   ] };
-  const deNHtml = head(t(L, 'profiles_index_title'), t(L, 'landing_desc'), deNUrl, deNLd, null, 'neobankbeat', { lang: 'de', alts: hreflangCluster(BASE, '/n/') }) + `
+  const nHtml = head(t(L, 'profiles_index_title'), t(L, 'landing_desc'), nUrl, nLd, null, 'neobankbeat', { lang: L, alts: hreflangCluster(BASE, '/n/') }) + `
 <main class="wrap" id="main">
 <article>
-  <a class="backbtn" href="/de/">${t(L, 'back')}</a>
+  <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
   <h1>${t(L, 'profiles_index_h1')}</h1>
-  <p>${E.map(x => `<a href="/de/n/${slugs.get(x.name)}/">${esc(x.name)}</a>`).join(' · ')}</p>
+  <p>${E.map(x => `<a href="/${L}/n/${slugs.get(x.name)}/">${esc(x.name)}</a>`).join(' · ')}</p>
   ${disclaimer}
 </article>
 </main>` + foot;
-  fs.mkdirSync(path.join(ROOT, 'de', 'n'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'de', 'n', 'index.html'), deNHtml);
+  fs.mkdirSync(path.join(ROOT, L, 'n'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, L, 'n', 'index.html'), nHtml);
 }
 
 /* ═══ /n/ index: A–Z of all entities ═══ */
@@ -2139,9 +2140,11 @@ const urls = [
   ...hubSlugs.map(p => ({ loc: `${BASE}${p}`, lastmod: DATA_MODIFIED, priority: '0.7' })),
   { loc: `${BASE}/n/`, changefreq: 'weekly', priority: '0.9' },
   ...E.map(e => ({ loc: `${BASE}/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.7' })),
-  { loc: `${BASE}/de/`, changefreq: 'weekly', priority: '0.6' },
-  { loc: `${BASE}/de/n/`, changefreq: 'weekly', priority: '0.6' },
-  ...E.map(e => ({ loc: `${BASE}/de/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
+  ...LOCALES.flatMap(lc => [
+    { loc: `${BASE}/${lc.code}/`, changefreq: 'weekly', priority: '0.6' },
+    { loc: `${BASE}/${lc.code}/n/`, changefreq: 'weekly', priority: '0.6' },
+    ...E.map(e => ({ loc: `${BASE}/${lc.code}/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
+  ]),
   ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   { loc: `${BASE}/vs/`, changefreq: 'weekly', priority: '0.8' },
