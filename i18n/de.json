@@ -1,0 +1,123 @@
+{
+  "_meta": {
+    "code": "de",
+    "htmlLang": "de",
+    "label": "Deutsch",
+    "tier": "metadata",
+    "note": "Metadata + enum labels translated; editorial prose (note, story, FAQ answers) stays English under an honesty banner. Numbers/dates are canonical. Brand names are never translated."
+  },
+  "enums": {
+    "category": {
+      "traditional": "traditionell",
+      "hybrid": "hybrid",
+      "web3-native": "web3-nativ"
+    },
+    "category_long": {
+      "traditional": "traditionelle (Fiat, verwahrt)",
+      "hybrid": "hybride (Fiat + verwahrte Krypto)",
+      "web3-native": "web3-native (selbstverwahrt)"
+    },
+    "custody": {
+      "Custodial": "Verwahrt",
+      "Self-custodial": "Selbstverwahrt",
+      "MPC self-custodial": "MPC-selbstverwahrt",
+      "Mixed (fiat custodial + self-custody crypto)": "Gemischt (Fiat verwahrt + Krypto selbstverwahrt)"
+    },
+    "regulation_type": {
+      "Licensed bank": "Lizenzierte Bank",
+      "Partner-bank model": "Partnerbank-Modell",
+      "E-money institution": "E-Geld-Institut",
+      "Payment institution": "Zahlungsinstitut",
+      "Self-custodial software": "Selbstverwahrende Software",
+      "MiCA CASP (EU)": "MiCA-CASP (EU)",
+      "VASP / MSB / crypto licenses": "VASP / MSB / Krypto-Lizenzen",
+      "License pending (partner model today)": "Lizenz beantragt (derzeit Partnermodell)",
+      "Broker-led": "Broker-geführt",
+      "Fintech license (CH)": "Fintech-Lizenz (CH)",
+      "Other / mixed": "Sonstige / gemischt",
+      "Unclassified": "Nicht klassifiziert"
+    },
+    "kyc": {
+      "Yes": "Ja",
+      "No": "Nein",
+      "Card only": "Nur Karte"
+    },
+    "region": {
+      "US": "USA",
+      "US/UK": "USA/UK",
+      "UK": "UK",
+      "Canada": "Kanada",
+      "Europe": "Europa",
+      "LatAm": "Lateinamerika",
+      "Asia": "Asien",
+      "ANZ": "ANZ",
+      "Africa": "Afrika",
+      "MENA": "MENA",
+      "Global": "Global"
+    },
+    "macro": {
+      "North America": "Nordamerika",
+      "Europe": "Europa",
+      "Latin America": "Lateinamerika",
+      "Africa": "Afrika",
+      "MENA": "MENA",
+      "Asia": "Asien",
+      "Oceania": "Ozeanien"
+    },
+    "bool": {
+      "yes": "Ja",
+      "no": "Nein"
+    }
+  },
+  "factLabels": {
+    "Category": "Kategorie",
+    "AI": "KI",
+    "HQ": "Hauptsitz",
+    "Founded": "Gegründet",
+    "Custody": "Verwahrung",
+    "Regulation type": "Regulierungstyp",
+    "License detail": "Lizenzdetail",
+    "Card": "Karte",
+    "Cashback": "Cashback",
+    "Yield": "Rendite",
+    "Stablecoins": "Stablecoins",
+    "KYC": "KYC",
+    "Active regions": "Aktive Regionen",
+    "Countries": "Länder",
+    "Reported users": "Gemeldete Nutzer",
+    "Founders": "Gründer",
+    "Funding": "Finanzierung",
+    "Services": "Dienste",
+    "FX markup": "FX-Aufschlag",
+    "No card": "Keine Karte"
+  },
+  "labels": {
+    "back": "← zurück",
+    "profiles_eyebrow": "Neobank-Profile",
+    "short_answer": "Kurzantwort",
+    "facts": "Fakten",
+    "questions": "Häufige Fragen zu",
+    "verified_links": "Verifizierte Links:",
+    "open_directory": "im Verzeichnis öffnen →",
+    "original_en": "Originalprofil (EN) →",
+    "who_owns": "Wer steckt hinter",
+    "mt_notice_k": "Hinweis",
+    "mt_notice": "Automatisch lokalisierte Seite — Überschriften, Kennzahlen und Kategorien auf Deutsch; die ausführlichen Beschreibungen und die verifizierten Quelldaten stammen aus dem englischen Originalprofil.",
+    "landing_title": "Neobanks — Verwahrung, Lizenzen, Karten & Fakten · neobankbeat",
+    "landing_desc": "Unabhängiges, offenes Verzeichnis verifiziert-aktiver Neobanks: traditionelle Fiat-Challenger, hybride Fiat-Krypto-Apps und web3-native selbstverwahrende Geld-Apps — verglichen nach Verwahrung, Lizenz, Karten, Stablecoins und Geografie.",
+    "landing_h1": "Neobanks weltweit",
+    "landing_intro": "neobankbeat verfolgt, welche Neobanks existieren, aktiv sind und wie sie sich vergleichen. Diese deutschen Seiten übersetzen Überschriften, Kategorien und Metadaten; die vollständigen Daten und das interaktive Verzeichnis sind auf Englisch verfügbar.",
+    "landing_all_profiles": "Alle Neobank-Profile (Deutsch)",
+    "landing_en_directory": "Zum interaktiven Verzeichnis (EN) →",
+    "profiles_index_title": "Alle Neobank-Profile · neobankbeat",
+    "profiles_index_h1": "Neobank-Profile",
+    "not_verified": "nicht verifiziert"
+  },
+  "templates": {
+    "profile_title": "{name} — Verwahrung, Lizenz, Karten & Fakten · neobankbeat",
+    "profile_desc": "{name} ({category} Neobank, {hq}, gegr. {founded}): Verwahrung {custody}, {reg}, {card}, Stablecoins {stables}. Verifizierte Fakten aus dem offenen neobankbeat-Datensatz.",
+    "profile_summary": "{name} ist eine {category_long} Neobank mit Sitz in {hq}, gegründet {founded}. Reguliert als {reg}; Verwahrung: {custody}. Karte: {card}. Stablecoins: {stables}.",
+    "card_with": "{network} {type}",
+    "card_none": "keine Karte"
+  }
+}
