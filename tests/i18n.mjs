@@ -70,3 +70,19 @@ export function hreflangCluster(base, enPath) {
 export function dictOf(lang) {
   return DICT[lang];
 }
+
+/* Comparison-page (/vs/) strings. Kept here rather than in the per-language
+ * dictionaries because they are a small, page-type-specific set; the shared
+ * enum/fact labels still come from the dictionaries. */
+const VS = {
+  de: { compared: 'im Vergleich', audience: 'Zielgruppe', side_by_side: 'Gegenüberstellung', eyebrow: 'Vergleiche', full_profiles: 'Vollständige Profile:', who_owns: 'Wer steckt dahinter?', desc: '{a} vs {b} im direkten Vergleich — Verwahrung, Regulierung, Kartennetz, Cashback, Rendite, Stablecoins und Geografie. Neutraler Vergleich aus dem offenen neobankbeat-Datensatz.' },
+  it: { compared: 'a confronto', audience: 'Pubblico', side_by_side: 'Confronto diretto', eyebrow: 'Confronti', full_profiles: 'Profili completi:', who_owns: 'Chi c’è dietro?', desc: '{a} vs {b} a confronto diretto — custodia, regolamentazione, rete di carte, cashback, rendimento, stablecoin e geografia. Confronto neutro dal dataset aperto neobankbeat.' },
+  fr: { compared: 'comparés', audience: 'Public', side_by_side: 'Côte à côte', eyebrow: 'Comparaisons', full_profiles: 'Profils complets :', who_owns: 'Qui est derrière ?', desc: '{a} vs {b} en comparaison directe — conservation, régulation, réseau de carte, cashback, rendement, stablecoins et géographie. Comparaison neutre issue du jeu de données ouvert neobankbeat.' },
+  es: { compared: 'comparados', audience: 'Público', side_by_side: 'Comparación directa', eyebrow: 'Comparaciones', full_profiles: 'Perfiles completos:', who_owns: '¿Quién está detrás?', desc: '{a} vs {b} en comparación directa — custodia, regulación, red de tarjetas, cashback, rendimiento, stablecoins y geografía. Comparación neutral del conjunto de datos abierto neobankbeat.' },
+  pt: { compared: 'comparativo', audience: 'Público', side_by_side: 'Lado a lado', eyebrow: 'Comparações', full_profiles: 'Perfis completos:', who_owns: 'Quem está por trás?', desc: '{a} vs {b} em comparação direta — custódia, regulação, rede de cartões, cashback, rendimento, stablecoins e geografia. Comparação neutra do conjunto de dados aberto neobankbeat.' },
+};
+export function vsStr(lang, key, vars) {
+  let s = (VS[lang] && VS[lang][key]) || key;
+  if (vars) s = s.replace(/\{(\w+)\}/g, (_, k) => (vars[k] ?? ''));
+  return s;
+}

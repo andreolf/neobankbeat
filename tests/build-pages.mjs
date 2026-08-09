@@ -13,7 +13,7 @@ import {
 } from './fit-score.mjs';
 import { FIT_STEP_COUNT, fitWizardCss, fitWizardHtml, fitWizardScript } from './fit-wizard.mjs';
 import { slugify, buildSlugMap } from './slug.mjs';
-import { LOCALES, enumLabel, t, factLabel, tmpl, hreflangCluster } from './i18n.mjs';
+import { LOCALES, enumLabel, t, factLabel, tmpl, hreflangCluster, vsStr } from './i18n.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
@@ -950,12 +950,38 @@ const vsVerdict = (a, b) => {
     : `${cat} with similar positioning — the real differences are FX markup, fees, license and geography, compared field by field below.`;
 };
 
+/* localized comparison rows — labels + enum values localized, raw values pass through */
+function vsRowsL(a, b, L) {
+  const F = [
+    [factLabel(L, 'Category'), e => enumLabel(L, 'category', e.category)],
+    [vsStr(L, 'audience'), e => e.audience],
+    [factLabel(L, 'HQ'), e => e.hq], [factLabel(L, 'Founded'), e => e.founded],
+    [factLabel(L, 'Custody'), e => enumLabel(L, 'custody', e.custody)],
+    [factLabel(L, 'Regulation type'), e => enumLabel(L, 'regulation_type', e.regulation_type)],
+    [factLabel(L, 'License detail'), e => e.license || '—'],
+    [factLabel(L, 'Card'), e => e.card_network && e.card_network !== '—' ? `${e.card_network} · ${e.card_type}` : factLabel(L, 'No card')],
+    [factLabel(L, 'Cashback'), e => e.cashback || '—'], [factLabel(L, 'Yield'), e => e.yield || '—'],
+    [factLabel(L, 'FX markup'), e => e.fx_markup ? `${e.fx_markup.markup}${e.fx_markup.as_of ? ` (${e.fx_markup.as_of})` : ''}` : '—'],
+    [factLabel(L, 'Services'), e => e.services ? e.services.map(s => SVLABEL[s] || s).join(', ') : '—'],
+    [factLabel(L, 'Stablecoins'), e => e.stablecoins ? enumLabel(L, 'bool', 'yes') : enumLabel(L, 'bool', 'no')],
+    [factLabel(L, 'KYC'), e => enumLabel(L, 'kyc', e.kyc)],
+    [factLabel(L, 'Active regions'), e => e.active_regions.map(r => enumLabel(L, 'macro', r)).join(', ')],
+    [factLabel(L, 'Reported users'), e => users(e) || '—'],
+  ];
+  return F.map(([k, fn]) => {
+    const va = String(fn(a)), vb = String(fn(b));
+    const diff = va !== vb;
+    return `<tr><td>${k}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(va)}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(vb)}</td></tr>`;
+  }).join('\n    ');
+}
+
 let vsPages = 0, vsIndex = [];
 for (const [an, bn] of PAIRS) {
   const a = byName.get(an), b = byName.get(bn);
   if (!a || !b) { console.warn(`vs: skipping ${an} vs ${bn} (not in dataset)`); continue; }
   const slug = `${slugs.get(an)}-vs-${slugs.get(bn)}`;
   const url = `${BASE}/vs/${slug}/`;
+  const vsAlts = hreflangCluster(BASE, `/vs/${slug}/`);
   const title = `${an} vs ${bn} compared (2026) · neobankbeat`;
   const desc = `${an} vs ${bn} side by side — custody, regulation, card network, cashback, yield, stablecoin support and geography. Neutral comparison from the open neobankbeat dataset. No affiliate links.`;
   const verdict = vsVerdict(a, b);
@@ -982,7 +1008,7 @@ for (const [an, bn] of PAIRS) {
     const diff = va !== vb;
     return `<tr><td>${k}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(va)}</td><td${diff ? ' style="color:var(--text)"' : ''}>${esc(vb)}</td></tr>`;
   }).join('\n    ');
-  const html = head(title, desc, url, ld, ogIf('vs.png')) + `
+  const html = head(title, desc, url, ld, ogIf('vs.png'), undefined, { alts: vsAlts }) + `
 <main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
@@ -1008,6 +1034,47 @@ for (const [an, bn] of PAIRS) {
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   vsIndex.push({ an, bn, slug });
   vsPages++;
+
+  /* ─ localized comparison pages (metadata tier; verdict prose stays EN) ─ */
+  for (const loc of LOCALES) {
+    const L = loc.code;
+    const lUrl = `${BASE}/${L}/vs/${slug}/`;
+    const lTitle = `${an} vs ${bn} ${vsStr(L, 'compared')} · neobankbeat`;
+    const lDesc = vsStr(L, 'desc', { a: an, b: bn });
+    const lChip = e => `<span class="chip ${CATCHIP[e.category][0]}">${enumLabel(L, 'category', e.category)}</span>`;
+    const lLd = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'Article', headline: `${an} vs ${bn}`, datePublished: '2026-07-03', dateModified: DATA_MODIFIED, image: `${BASE}/og.png`, inLanguage: L,
+        author: { '@type': 'Person', name: 'Francesco Andreoli' },
+        publisher: { '@type': 'Organization', name: 'neobankbeat', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/og.png` } },
+        mainEntityOfPage: lUrl },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+        { '@type': 'ListItem', position: 2, name: vsStr(L, 'eyebrow'), item: `${BASE}/${L}/vs/` },
+        { '@type': 'ListItem', position: 3, name: `${an} vs ${bn}`, item: lUrl }] },
+    ] };
+    const lHtml = head(lTitle, lDesc, lUrl, lLd, ogIf('vs.png'), undefined, { lang: L, alts: vsAlts }) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
+  <div class="eyebrow"><a href="/${L}/vs/" style="color:var(--accent)">${vsStr(L, 'eyebrow')}</a></div>
+  <h1>${esc(an)} <em>vs</em> ${esc(bn)}</h1>
+  <p class="meta">${lChip(a)} vs ${lChip(b)} · <a href="/vs/${slug}/" hreflang="en">${t(L, 'original_en')}</a></p>
+  <div class="callout"><span class="k">${t(L, 'mt_notice_k')}</span>${t(L, 'mt_notice')}</div>
+  <div class="callout"><span class="k">${t(L, 'short_answer')}</span>${esc(verdict)}</div>
+  <h2>${vsStr(L, 'side_by_side')}</h2>
+  <table>
+    <tr><th scope="col"></th><th scope="col"><a href="/${L}/n/${slugs.get(an)}/">${esc(an)}</a></th><th scope="col"><a href="/${L}/n/${slugs.get(bn)}/">${esc(bn)}</a></th></tr>
+    ${vsRowsL(a, b, L)}
+  </table>
+  <div class="callout"><span class="k">${vsStr(L, 'who_owns')}</span>${vsStr(L, 'full_profiles')} <a href="/${L}/n/${slugs.get(an)}/">${esc(an)}</a> · <a href="/${L}/n/${slugs.get(bn)}/">${esc(bn)}</a></div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot;
+    const lDir = path.join(ROOT, L, 'vs', slug);
+    fs.mkdirSync(lDir, { recursive: true });
+    fs.writeFileSync(path.join(lDir, 'index.html'), lHtml);
+  }
 }
 
 /* prune vs/ dirs from earlier runs whose pair is no longer generated */
@@ -1026,7 +1093,7 @@ for (const [an, bn] of PAIRS) {
   const url = `${BASE}/vs/`;
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank comparisons', url }, ['comparisons', url]);
   const html = head(`Neobank comparisons: ${vsPages} head-to-heads · neobankbeat`,
-    `Side-by-side neobank comparisons — custody, license, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld, ogIf('vs.png')) + `
+    `Side-by-side neobank comparisons — custody, license, cards, cashback, yield and stablecoins. Neutral, from the open dataset, no affiliate links.`, url, ld, ogIf('vs.png'), undefined, { alts: hreflangCluster(BASE, '/vs/') }) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">comparisons</div>
@@ -1037,6 +1104,32 @@ for (const [an, bn] of PAIRS) {
 </article>
 </main>` + foot;
   fs.writeFileSync(path.join(ROOT, 'vs', 'index.html'), html);
+
+  /* localized /<lang>/vs/ index (per enabled locale) */
+  for (const loc of LOCALES) {
+    const L = loc.code;
+    const lUrl = `${BASE}/${L}/vs/`;
+    const lLd = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'CollectionPage', name: vsStr(L, 'eyebrow'), url: lUrl, inLanguage: L, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+        { '@type': 'ListItem', position: 2, name: loc.label, item: `${BASE}/${L}/` },
+        { '@type': 'ListItem', position: 3, name: vsStr(L, 'eyebrow'), item: lUrl }] },
+    ] };
+    const lHtml = head(`${vsStr(L, 'eyebrow')} · neobankbeat`, vsStr(L, 'desc', { a: 'Revolut', b: 'N26' }), lUrl, lLd, ogIf('vs.png'), undefined, { lang: L, alts: hreflangCluster(BASE, '/vs/') }) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
+  <div class="eyebrow">${vsStr(L, 'eyebrow')}</div>
+  <h1>${vsStr(L, 'eyebrow')}</h1>
+  <div class="callout"><span class="k">${t(L, 'mt_notice_k')}</span>${t(L, 'mt_notice')}</div>
+  <p>${vsIndex.map(v => `<a href="/${L}/vs/${v.slug}/">${esc(v.an)} vs ${esc(v.bn)}</a>`).join(' · ')}</p>
+  ${subscribeBox}
+</article>
+</main>` + foot;
+    fs.mkdirSync(path.join(ROOT, L, 'vs'), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, L, 'vs', 'index.html'), lHtml);
+  }
 }
 
 /* ═══ /data/ — human landing page for the dataset: field dictionary + downloads
@@ -2144,6 +2237,8 @@ const urls = [
     { loc: `${BASE}/${lc.code}/`, changefreq: 'weekly', priority: '0.6' },
     { loc: `${BASE}/${lc.code}/n/`, changefreq: 'weekly', priority: '0.6' },
     ...E.map(e => ({ loc: `${BASE}/${lc.code}/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
+    { loc: `${BASE}/${lc.code}/vs/`, changefreq: 'weekly', priority: '0.55' },
+    ...vsIndex.map(v => ({ loc: `${BASE}/${lc.code}/vs/${v.slug}/`, lastmod: DATA_MODIFIED, priority: '0.55' })),
   ]),
   ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
