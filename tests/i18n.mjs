@@ -81,6 +81,33 @@ const VS = {
   es: { compared: 'comparados', audience: 'Público', side_by_side: 'Comparación directa', eyebrow: 'Comparaciones', full_profiles: 'Perfiles completos:', who_owns: '¿Quién está detrás?', desc: '{a} vs {b} en comparación directa — custodia, regulación, red de tarjetas, cashback, rendimiento, stablecoins y geografía. Comparación neutral del conjunto de datos abierto neobankbeat.' },
   pt: { compared: 'comparativo', audience: 'Público', side_by_side: 'Lado a lado', eyebrow: 'Comparações', full_profiles: 'Perfis completos:', who_owns: 'Quem está por trás?', desc: '{a} vs {b} em comparação direta — custódia, regulação, rede de cartões, cashback, rendimento, stablecoins e geografia. Comparação neutra do conjunto de dados aberto neobankbeat.' },
 };
+/* Country display names per locale, keyed by the English /countries/<slug>.
+ * Proper nouns — translating them is the whole SEO point of localized country
+ * pages ("Neobanken Deutschland" vs "Neobanks Germany"). */
+const COUNTRY = {
+  argentina: { de: 'Argentinien', it: 'Argentina', fr: 'Argentine', es: 'Argentina', pt: 'Argentina' },
+  australia: { de: 'Australien', it: 'Australia', fr: 'Australie', es: 'Australia', pt: 'Austrália' },
+  brazil: { de: 'Brasilien', it: 'Brasile', fr: 'Brésil', es: 'Brasil', pt: 'Brasil' },
+  canada: { de: 'Kanada', it: 'Canada', fr: 'Canada', es: 'Canadá', pt: 'Canadá' },
+  colombia: { de: 'Kolumbien', it: 'Colombia', fr: 'Colombie', es: 'Colombia', pt: 'Colômbia' },
+  france: { de: 'Frankreich', it: 'Francia', fr: 'France', es: 'Francia', pt: 'França' },
+  germany: { de: 'Deutschland', it: 'Germania', fr: 'Allemagne', es: 'Alemania', pt: 'Alemanha' },
+  india: { de: 'Indien', it: 'India', fr: 'Inde', es: 'India', pt: 'Índia' },
+  indonesia: { de: 'Indonesien', it: 'Indonesia', fr: 'Indonésie', es: 'Indonesia', pt: 'Indonésia' },
+  mexico: { de: 'Mexiko', it: 'Messico', fr: 'Mexique', es: 'México', pt: 'México' },
+  nigeria: { de: 'Nigeria', it: 'Nigeria', fr: 'Nigéria', es: 'Nigeria', pt: 'Nigéria' },
+  philippines: { de: 'Philippinen', it: 'Filippine', fr: 'Philippines', es: 'Filipinas', pt: 'Filipinas' },
+  singapore: { de: 'Singapur', it: 'Singapore', fr: 'Singapour', es: 'Singapur', pt: 'Singapura' },
+  switzerland: { de: 'Schweiz', it: 'Svizzera', fr: 'Suisse', es: 'Suiza', pt: 'Suíça' },
+  uae: { de: 'Vereinigte Arabische Emirate', it: 'Emirati Arabi Uniti', fr: 'Émirats arabes unis', es: 'Emiratos Árabes Unidos', pt: 'Emirados Árabes Unidos' },
+  'united-kingdom': { de: 'Vereinigtes Königreich', it: 'Regno Unito', fr: 'Royaume-Uni', es: 'Reino Unido', pt: 'Reino Unido' },
+  'united-states': { de: 'USA', it: 'Stati Uniti', fr: 'États-Unis', es: 'Estados Unidos', pt: 'Estados Unidos' },
+  vietnam: { de: 'Vietnam', it: 'Vietnam', fr: 'Viêt Nam', es: 'Vietnam', pt: 'Vietnã' },
+};
+export function countryName(lang, slug, fallback) {
+  return (COUNTRY[slug] && COUNTRY[slug][lang]) || fallback || slug;
+}
+
 export function vsStr(lang, key, vars) {
   let s = (VS[lang] && VS[lang][key]) || key;
   if (vars) s = s.replace(/\{(\w+)\}/g, (_, k) => (vars[k] ?? ''));
