@@ -19,7 +19,7 @@ const anchor = ([href, label, external]) =>
 
 /* language switcher — links to each locale landing so the translations are
    discoverable from every page (per-page locale links live on profiles). */
-const langbar = `<span class="langbar">🌐 <a href="/">EN</a>${LOCALES.map((l) => ` · <a href="/${l.code}/">${l.code.toUpperCase()}</a>`).join("")}</span>`;
+const langbar = `<span class="langbar">🌐 <a href="/" onclick="window.nbevt&&nbevt('lang_switch',{to:'en'})">EN</a>${LOCALES.map((l) => ` · <a href="/${l.code}/" onclick="window.nbevt&&nbevt('lang_switch',{to:'${l.code}'})">${l.code.toUpperCase()}</a>`).join("")}</span>`;
 
 export const FOOTER_LINKS = [
   ["/", "directory"],
