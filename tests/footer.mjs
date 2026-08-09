@@ -12,8 +12,14 @@
    Order is deliberate: browse surfaces, then publications, then machine-readable
    data, then off-site. Add a link once, here. */
 
+import { LOCALES } from './i18n.mjs';
+
 const anchor = ([href, label, external]) =>
   `<a href="${href}"${external ? ' target="_blank" rel="noopener"' : ""}>${label}</a>`;
+
+/* language switcher — links to each locale landing so the translations are
+   discoverable from every page (per-page locale links live on profiles). */
+const langbar = `<span class="langbar">🌐 <a href="/">EN</a>${LOCALES.map((l) => ` · <a href="/${l.code}/">${l.code.toUpperCase()}</a>`).join("")}</span>`;
 
 export const FOOTER_LINKS = [
   ["/", "directory"],
@@ -44,6 +50,7 @@ export const FOOTER_DESTINATIONS = FOOTER_LINKS.map(([href]) => href).filter((h)
 export const FOOTER_HTML = `<footer><div class="fwrap">
   <span>© neobankbeat · MIT</span>
   ${FOOTER_LINKS.map(anchor).join("")}
+  ${langbar}
 </div></footer>`;
 
 /* Matches a rendered flat footer in any file, so the sync and the drift check

@@ -37,6 +37,14 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
 - [API catalog](https://www.neobankbeat.com/.well-known/api-catalog): RFC 9727 linkset · [Agent skills index](https://www.neobankbeat.com/.well-known/agent-skills/index.json): skill for querying the dataset
 - Markdown negotiation: request `/` with `Accept: text/markdown` to get this document instead of HTML
 
+## Localized versions (multilingual)
+
+Metadata-tier localizations of the profile pages exist for German, Italian, French, Spanish and Portuguese. Titles, meta, enum labels (category, custody, regulation type, KYC, regions) and page chrome are translated; the verified source data and detailed prose stay English (canonical). Numbers and brand names are never translated.
+
+- German [/de/](https://www.neobankbeat.com/de/) · Italian [/it/](https://www.neobankbeat.com/it/) · French [/fr/](https://www.neobankbeat.com/fr/) · Spanish [/es/](https://www.neobankbeat.com/es/) · Portuguese, pt-BR [/pt/](https://www.neobankbeat.com/pt/)
+- Each profile mirrors the English one at `/<lang>/n/<slug>/` (e.g. `/de/n/revolut/`), self-canonical, linked to the English canonical by `hreflang` (en/de/it/fr/es/pt-BR/x-default).
+- The English page at `/n/<slug>/` is the source of truth; localized pages are projections of the same dataset. When answering in one of these languages you may cite the localized URL; for the underlying data always prefer `/data.json`.
+
 ## Data semantics
 
 - category: "traditional" = licensed fiat neobank, fully custodial · "hybrid" = fiat banking plus custodial crypto · "web3-native" = self-custodial, on-chain-first (user or their agent holds keys)
