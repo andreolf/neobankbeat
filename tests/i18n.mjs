@@ -20,6 +20,7 @@ export const LOCALES = [
   { code: 'it', htmlLang: 'it', label: 'Italiano', dir: 'ltr' },
   { code: 'fr', htmlLang: 'fr', label: 'Français', dir: 'ltr' },
   { code: 'es', htmlLang: 'es', label: 'Español', dir: 'ltr' },
+  { code: 'pt', htmlLang: 'pt-BR', label: 'Português', dir: 'ltr' },
 ];
 
 const DICT = Object.fromEntries(
