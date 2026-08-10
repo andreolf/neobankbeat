@@ -524,8 +524,11 @@ for (const [display, entityName] of SOURCES) {
   const dom = ent?.domain || (ent?.website || '').replace(/^https?:\/\//, '').replace(/\/.*$/, '') || null;
   if (dom) COMPANY_META[display] = dom;
 }
+/* self-hosted logo (downloaded once into /logos/jobs/), with a lazy Google
+   fallback only if the local file is missing — no per-render third-party fetch */
+const logoSlug = d => String(d).toLowerCase().replace(/[^a-z0-9]/g, '-');
 const logoImg = co => COMPANY_META[co]
-  ? `<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(COMPANY_META[co])}&amp;sz=64" onerror="this.style.visibility='hidden'">`
+  ? `<img class="jlogo" loading="lazy" alt="" src="/logos/jobs/${logoSlug(COMPANY_META[co])}.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=${esc(COMPANY_META[co])}&amp;sz=64'">`
   : `<span class="jlogo jlogo-fb">${esc(co.charAt(0))}</span>`;
 
 fs.mkdirSync(path.join(ROOT, 'jobs'), { recursive: true });
@@ -809,7 +812,7 @@ function ago(p){const t=Date.parse(p);if(isNaN(t))return'';const d=Math.max(0,Ma
 if(d===0)return'today';if(d===1)return'1d ago';if(d<31)return d+'d ago';
 return new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function card(j){const a=document.createElement('a');a.className='job';a.href='/jobs/j/'+j.id+'/';
-const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64" onerror="this.style.visibility=\\'hidden\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
+const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="/logos/jobs/'+LOGOS[j.company].toLowerCase().replace(/[^a-z0-9]/g,'-')+'.png" onerror="this.onerror=null;this.src=\\'https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
 a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">check more →</span>';
 a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
