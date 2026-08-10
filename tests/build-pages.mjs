@@ -13,7 +13,7 @@ import {
 } from './fit-score.mjs';
 import { FIT_STEP_COUNT, fitWizardCss, fitWizardHtml, fitWizardScript } from './fit-wizard.mjs';
 import { slugify, buildSlugMap } from './slug.mjs';
-import { LOCALES, enumLabel, t, factLabel, tmpl, hreflangCluster, vsStr } from './i18n.mjs';
+import { LOCALES, enumLabel, t, factLabel, tmpl, hreflangCluster, vsStr, countryName } from './i18n.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'data.json'), 'utf8'));
@@ -582,7 +582,7 @@ ${list.map(e => `  <tr>
       crumbs(['browse', `${BASE}/browse/`], [h.label, url]),
     ] };
     const related = HUBS.filter(x => x !== h && x.family === h.family).slice(0, 8);
-    const html = (head(title, answer, url, ld, ogIf(h.family, `${h.slug}.png`)) + `
+    const html = (head(title, answer, url, ld, ogIf(h.family, `${h.slug}.png`), undefined, h.family === 'countries' ? { alts: hreflangCluster(BASE, path_) } : undefined) + `
 <main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
@@ -605,6 +605,57 @@ ${list.map(e => `  <tr>
     fs.mkdirSync(path.join(ROOT, h.family, h.slug), { recursive: true });
     fs.writeFileSync(path.join(ROOT, h.family, h.slug, 'index.html'), html);
     hubSlugs.push(path_);
+  }
+
+  /* ── localized /<lang>/countries/<slug>/ (metadata tier; explain prose stays EN) ── */
+  const hubTableL = (list, L) => `<div class="hubwrap"><table class="hubtable">
+  <thead><tr><th scope="col">${esc(t(L, 'nav_neobanks'))}</th><th scope="col">${esc(factLabel(L, 'Category'))}</th><th scope="col">${esc(factLabel(L, 'HQ'))}</th><th scope="col">${esc(factLabel(L, 'Custody'))}</th><th scope="col">${esc(factLabel(L, 'Regulation type'))}</th><th scope="col">${esc(factLabel(L, 'Reported users'))}</th></tr></thead>
+  <tbody>
+${list.map(e => `  <tr>
+    <td><a href="/${L}/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
+    <td class="cat">${esc(enumLabel(L, 'category', e.category))}</td>
+    <td class="dim">${esc(e.hq || '—')}</td>
+    <td class="dim">${esc(enumLabel(L, 'custody', e.custody))}</td>
+    <td class="dim">${esc(e.license || enumLabel(L, 'regulation_type', e.regulation_type) || '—')}</td>
+    <td class="dim">${esc(users(e) || '—')}</td>
+  </tr>`).join('\n')}
+  </tbody></table></div>`;
+  for (const h of HUBS.filter(x => x.family === 'countries')) {
+    const enBare = h.label.replace(/^neobanks in /, '');
+    const rows = [...h.rows].sort((a, b) => (b.reported_users ? b.reported_users.value_millions : 0) - (a.reported_users ? a.reported_users.value_millions : 0) || a.name.localeCompare(b.name));
+    const cAlts = hreflangCluster(BASE, `/countries/${h.slug}/`);
+    for (const loc of LOCALES) {
+      const L = loc.code;
+      const cn = countryName(L, h.slug, enBare);
+      const lUrl = `${BASE}/${L}/countries/${h.slug}/`;
+      const lTitle = `${cn} — ${t(L, 'active_neobanks')} · neobankbeat`;
+      const lDesc = `${cn}: ${rows.length} ${t(L, 'active_neobanks')}. ${t(L, 'landing_desc')}`;
+      const lLd = { '@context': 'https://schema.org', '@graph': [
+        { '@type': 'CollectionPage', name: `${cn} · ${t(L, 'nav_neobanks')}`, url: lUrl, description: lDesc, dateModified: DATA_MODIFIED, inLanguage: L, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+        { '@type': 'ItemList', numberOfItems: rows.length, itemListElement: rows.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/${L}/n/${slugs.get(e.name)}/` })) },
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: loc.label, item: `${BASE}/${L}/` },
+          { '@type': 'ListItem', position: 3, name: cn, item: lUrl }] },
+      ] };
+      const lHtml = (head(lTitle, lDesc, lUrl, lLd, ogIf('countries', `${h.slug}.png`), undefined, { lang: L, alts: cAlts }) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
+  <div class="eyebrow">${esc(t(L, 'nav_neobanks'))}</div>
+  <h1>${esc(cn)} — ${esc(t(L, 'nav_neobanks'))}</h1>
+  <p class="meta"><b>${rows.length} / ${E.length}</b> · <a href="/countries/${h.slug}/" hreflang="en">${t(L, 'original_en')}</a></p>
+  <div class="callout"><span class="k">${t(L, 'mt_notice_k')}</span>${t(L, 'mt_notice')}</div>
+  <p>${esc(h.explain)}</p>
+  <h2>${esc(cn)}</h2>
+  ${hubTableL(rows, L)}
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', hubStyle + '\n</head>');
+      fs.mkdirSync(path.join(ROOT, L, 'countries', h.slug), { recursive: true });
+      fs.writeFileSync(path.join(ROOT, L, 'countries', h.slug, 'index.html'), lHtml);
+    }
   }
 
   /* ── /browse/ — the index of every hub, and the only one that needs a footer link ── */
@@ -2239,6 +2290,7 @@ const urls = [
     ...E.map(e => ({ loc: `${BASE}/${lc.code}/n/${slugs.get(e.name)}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
     { loc: `${BASE}/${lc.code}/vs/`, changefreq: 'weekly', priority: '0.55' },
     ...vsIndex.map(v => ({ loc: `${BASE}/${lc.code}/vs/${v.slug}/`, lastmod: DATA_MODIFIED, priority: '0.55' })),
+    ...hubSlugs.filter(p => p.startsWith('/countries/')).map(p => ({ loc: `${BASE}/${lc.code}${p}`, lastmod: DATA_MODIFIED, priority: '0.55' })),
   ]),
   ...whoOwnsSlugs.map(s => ({ loc: `${BASE}/n/${s}/who-owns/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   ...altSlugs.map(s => ({ loc: `${BASE}/n/${s}/alternatives/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
