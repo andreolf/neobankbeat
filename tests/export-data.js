@@ -108,17 +108,40 @@ function deriveV2(o) {
   const mpc = custody === 'MPC self-custodial' ? true : null;
   const crypto = (category === 'hybrid' || category === 'web3-native') ? true : null;
   const yield_bearing = o.yield != null ? true : null;
-  const iban = services.includes('iban') ? true : null;
   const virtual_cards = services.includes('virtual-cards') ? true : null;
-  const business_accounts = (audience === 'SMB & startups' || audience === 'freelancers & creators' || /business/i.test(cardType)) ? true : null;
   const stablecoin_native = (o.stablecoins === true && category === 'web3-native') ? true : null;
 
+  /* Pass B (heuristic): extract feature flags from the note/story/license prose.
+     Conservative — a flag is set `true` only on a clear product signal; absence
+     stays `null` (unverified), never `false`. Machine-drafted; human-reviewable. */
+  const txt = `${o.note || ''} ${o.story || ''} ${o.license || ''}`.toLowerCase();
+  const sig = re => re.test(txt) ? true : null;
+  const apple_pay = sig(/apple pay/);
+  const google_pay = sig(/google pay/);
+  const api = sig(/\bapis?\b|open banking|programmable bank|developer platform|bank(?:ing)? api/);
+  const webhooks = sig(/webhook/);
+  const oauth = sig(/\boauth\b/);
+  const sandbox = sig(/\bsandbox\b/);
+  const savings = sig(/savings account|savings vault|high[- ]?yield savings|savings pods?|savings goals?|savings pots?/);
+  const lending = sig(/\bloans?\b|lending|overdraft|\bbnpl\b|buy now.{0,6}pay later|credit line|salary advance|earned[- ]?wage|microloan/);
+  const investing = sig(/\binvesting\b|brokerage|stock trading|trade stocks|\betfs?\b|mutual funds?|robo[- ]?advis|wealth management/);
+  const treasury = sig(/\btreasury\b/);
+  const iban = (services.includes('iban') || sig(/\biban\b/)) ? true : null;
+  const physical_cards = (/physical|metal/i.test(cardType)) ? true : sig(/physical card|metal card/);
+  const business_accounts = (audience === 'SMB & startups' || audience === 'freelancers & creators' || /business/i.test(cardType) || sig(/business account|for (?:smbs?|smes?|startups|founders)/)) ? true : null;
+
   const features = {
-    apple_pay: null, google_pay: null, api: null, webhooks: null, oauth: null, sandbox: null,
-    business_accounts, virtual_cards, physical_cards: null, iban,
-    self_custody, mpc, yield_bearing, savings: null, lending: null,
-    investing: null, treasury: null, crypto, stablecoin_native,
+    apple_pay, google_pay, api, webhooks, oauth, sandbox,
+    business_accounts, virtual_cards, physical_cards, iban,
+    self_custody, mpc, yield_bearing, savings, lending,
+    investing, treasury, crypto, stablecoin_native,
   };
+
+  /* payment rails mentioned in prose (low-signal, but free when present) */
+  const rails = [];
+  for (const [re, name] of [[/\bsepa[\s-]?instant/, 'SEPA-Instant'], [/\bsepa\b/, 'SEPA'], [/\bfednow\b/, 'FedNow'], [/\bach\b/, 'ACH'], [/\bpix\b/, 'Pix'], [/\bupi\b/, 'UPI'], [/faster payments/, 'Faster Payments'], [/\bswift\b/, 'SWIFT'], [/\bwire transfer|\bwires?\b/, 'Wire']]) {
+    if (re.test(txt) && !rails.includes(name)) rails.push(name);
+  }
 
   const stablecoin_tickers = o.stablecoins === false ? [] : null;
 
@@ -149,10 +172,13 @@ function deriveV2(o) {
   return {
     features,
     stablecoin_tickers,
+    /* numeric %-companions left null: the prose rate fields are too noisy to
+       parse a reliable headline figure ("100% of CDI", "0.5% over £1k/mo",
+       "+1% weekend") — a wrong number is worse than an unverified one. */
     fx_markup_pct: null,
     cashback_pct: null,
     yield_pct: null,
-    payment_rails: null,
+    payment_rails: rails.length ? rails : null,
     card_networks,
     card_form,
     card_funding,
