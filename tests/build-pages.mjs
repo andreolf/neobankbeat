@@ -2242,8 +2242,68 @@ const BLOG_POSTS = [
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
   ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
 ];
+/* ═══ /matrix/ — feature comparison matrix (the scannable ✓ grid) ═══ */
+{
+  const url = `${BASE}/matrix/`;
+  const MXCOLS = [
+    ['Stablecoins', e => e.stablecoins === true ? 1 : e.stablecoins === false ? -1 : 0],
+    ['Yield', e => e.features && e.features.yield_bearing ? 1 : 0],
+    ['Self-custody', e => e.features && e.features.self_custody ? 1 : 0],
+    ['Business', e => e.features && e.features.business_accounts ? 1 : 0],
+    ['IBAN', e => e.features && e.features.iban ? 1 : 0],
+    ['Virtual card', e => e.features && e.features.virtual_cards ? 1 : 0],
+    ['Physical card', e => e.features && e.features.physical_cards ? 1 : 0],
+    ['Lending', e => e.features && e.features.lending ? 1 : 0],
+    ['Investing', e => e.features && e.features.investing ? 1 : 0],
+  ];
+  const mcell = v => v === 1 ? '<td class="y">✓</td>' : v === -1 ? '<td class="n">·</td>' : '<td class="u"></td>';
+  const mxRows = [...E].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+  const answer = `A ${mxRows.length}-row feature matrix: which neobanks support stablecoins, deposit yield, self-custody, business accounts, IBANs, virtual and physical cards, lending and investing. A ✓ is verified from public sources; a blank cell means unverified — not "no".`;
+  const desc = `Neobank feature matrix — ${mxRows.length} neobanks × core features (stablecoins, yield, self-custody, IBAN, cards, lending, investing) in one scannable ✓ grid, from the open neobankbeat dataset.`;
+  const title = `Neobank feature matrix (${mxRows.length} compared, 2026) · neobankbeat`;
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', name: 'Neobank feature matrix', url, description: answer, dateModified: DATA_MODIFIED, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+    { '@type': 'ItemList', numberOfItems: mxRows.length, itemListElement: mxRows.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) },
+    crumbs(['browse', `${BASE}/browse/`], ['feature matrix', url]),
+  ] };
+  const mxStyle = `<style>
+.mxwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+.mxtable{border-collapse:collapse;font-size:12px;white-space:nowrap;min-width:100%}
+.mxtable th{position:sticky;top:0;background:var(--bg);font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:1px solid var(--line);text-align:center}
+.mxtable th:first-child,.mxtable td:first-child{text-align:left;position:sticky;left:0;background:var(--bg);z-index:2}
+.mxtable th:first-child{z-index:3}
+.mxtable td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:center}
+.mxtable tbody tr:last-child td{border-bottom:0}
+.mxtable td a{color:var(--text);font-weight:600;text-decoration:none}.mxtable td a:hover{color:var(--accent)}
+.mxtable .cat{font-family:var(--mono);font-size:9.5px;color:var(--muted)}
+.mxtable td.y{color:var(--accent);font-weight:700}.mxtable td.n{color:var(--dim)}.mxtable td.u{color:var(--line)}
+</style>`;
+  const table = `<div class="mxwrap"><table class="mxtable">
+  <thead><tr><th scope="col">neobank</th><th scope="col">type</th>${MXCOLS.map(([k]) => `<th scope="col">${esc(k)}</th>`).join('')}</tr></thead>
+  <tbody>
+${mxRows.map(e => `<tr><td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td><td class="cat">${esc(e.category)}</td>${MXCOLS.map(([, fn]) => mcell(fn(e))).join('')}</tr>`).join('\n')}
+  </tbody></table></div>`;
+  const html = (head(title, desc, url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/browse/" style="color:var(--accent)">browse</a></div>
+  <h1>Neobank <em>feature matrix</em></h1>
+  <p class="meta"><b>${mxRows.length} neobanks</b> × core features · ✓ = verified, blank = unverified (not "no") · updated ${DATA_MODIFIED}</p>
+  <div class="callout"><span class="k">how to read it</span>${esc(answer)}</div>
+  ${table}
+  <div class="callout"><span class="k">go deeper</span>Every ✓ is sourced on the bank's profile. Compare any two side by side in <a href="/vs/">comparisons</a>, filter live in the <a href="/">directory</a>, or take the raw flags from <a href="/data.json">data.json</a> (the <code>features</code> object).</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', mxStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'matrix'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'matrix', 'index.html'), html);
+}
+
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
