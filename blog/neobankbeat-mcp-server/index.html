@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask your AI about neobanks: neobankbeat now speaks MCP · neobankbeat</title>
+<meta name="description" content="neobankbeat now ships an MCP server. Point Claude at it and it answers about 379 neobanks from live, cited data — not stale training memory.">
+<link rel="canonical" href="https://www.neobankbeat.com/blog/neobankbeat-mcp-server/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Ask your AI about neobanks: neobankbeat now speaks MCP">
+<meta property="og:description" content="A dependency-free Model Context Protocol server — five tools over the live neobank dataset. Search, compare and look up neobanks from Claude, grounded and cited.">
+<meta property="og:url" content="https://www.neobankbeat.com/blog/neobankbeat-mcp-server/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="neobankbeat blog" href="/blog/feed.xml">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}};document.addEventListener("submit",function(e){if(e.target.classList&&e.target.classList.contains("nbform"))nbevt("subscribe",{page:location.pathname})},true)</script><script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Ask your AI about neobanks: neobankbeat now speaks MCP","description":"neobankbeat now ships a dependency-free Model Context Protocol server exposing the live dataset of 379 neobanks as five tools, so an AI assistant can search, compare and look up neobanks from current, cited data.","datePublished":"2026-08-11","dateModified":"2026-08-11","author":{"@type":"Person","name":"Francesco Andreoli","url":"https://www.francesco-andreoli.com"},"publisher":{"@type":"Organization","name":"neobankbeat","url":"https://www.neobankbeat.com"},"image":"https://www.neobankbeat.com/og.png","mainEntityOfPage":"https://www.neobankbeat.com/blog/neobankbeat-mcp-server/","isPartOf":{"@type":"Blog","@id":"https://www.neobankbeat.com/blog/#blog"}}
+</script>
+<style>pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;line-height:1.6;color:var(--text)}pre.code .c{color:var(--dim)}.tt{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:.92em;color:var(--accent)}</style>
+
+<!-- crumbs -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"blog","item":"https://www.neobankbeat.com/blog/"},{"@type":"ListItem","position":3,"name":"Ask your AI about neobanks: neobankbeat now speaks MCP","item":"https://www.neobankbeat.com/blog/neobankbeat-mcp-server/"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/browse/">browse</a>
+      <a href="/fit/">find your fit</a>
+      <a href="/investors/">investors</a>
+      <a href="/infra/">infra</a>
+      <a href="/blog/" class="on">blog</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+    <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/blog/">the blog</a> · august 11, 2026</div>
+  <h1>Ask your AI about neobanks: neobankbeat now speaks <em>MCP</em></h1>
+  <p class="meta">A dependency-free Model Context Protocol server. Point Claude at it and it answers from the live dataset — search, compare, look up — grounded and cited, not guessed.</p>
+
+  <p>Ask any AI assistant "which neobank has an open API?" or "compare Mercury and Brex" and you get a confident answer assembled from training data that's months stale, with a made-up detail or two and no way to check it. That's the wrong tool for a fast-moving, factual question. So today neobankbeat ships an <strong>MCP server</strong>: connect it to Claude (or any MCP client) and the model answers from the <a href="/data.json">current, verified dataset</a> of 379 neobanks, with every fact traceable to a profile page.</p>
+
+  <h2>What MCP is, briefly</h2>
+  <p><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a> is the open standard for wiring AI assistants to live tools and data. Instead of relying on what the model memorised, you give it typed tools it can call. Our server exposes the whole dataset as five of them:</p>
+  <ul>
+    <li><span class="tt">search_neobanks</span> — plain-language search: <em>"European neobanks with stablecoins"</em>, <em>"self-custody banks in Brazil"</em>, <em>"crypto banks for freelancers"</em>. It parses facets (region, feature, custody, country, category) plus keywords.</li>
+    <li><span class="tt">get_neobank</span> — the full verified record for one neobank: custody, license, cards, cashback, yield, stablecoins, KYC, regulation, geography, the feature flags and the sources.</li>
+    <li><span class="tt">compare_neobanks</span> — two to four neobanks, field by field.</li>
+    <li><span class="tt">list_by_country</span> — everything headquartered in or available in a country.</li>
+    <li><span class="tt">dataset_stats</span> — totals and category breakdown, with the as-of note.</li>
+  </ul>
+
+  <h2>Wire it up</h2>
+  <p>It needs <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js 18+</a> and one file from the repo, <a href="https://github.com/andreolf/neobankbeat/blob/main/mcp/server.mjs">mcp/server.mjs</a> — no <span class="tt">npm install</span>, no keys, no build step. Add this to Claude Desktop's <span class="tt">claude_desktop_config.json</span> and restart:</p>
+  <pre class="code">{
+  "mcpServers": {
+    "neobankbeat": {
+      "command": "node",
+      "args": ["/absolute/path/to/neobankbeat/mcp/server.mjs"]
+    }
+  }
+}</pre>
+  <p>The <strong>neobankbeat</strong> tools then show up in Claude. Any MCP client that speaks the stdio transport works the same way. There's a copy-paste test command and the full walkthrough on the <a href="/mcp/">MCP page</a> and in the <a href="https://github.com/andreolf/neobankbeat/blob/main/mcp/README.md">README</a>.</p>
+
+  <h2>Why it's actually useful</h2>
+  <p>Three reasons it beats letting the model wing it:</p>
+  <p><strong>It's current.</strong> The server reads the live <span class="tt">data.json</span> on each call (cached an hour), so it reflects today's dataset — new neobanks, corrected licenses, refreshed figures — not a training snapshot.</p>
+  <p><strong>It's honest.</strong> The dataset's rule is <span class="tt">null = unverified, never "no"</span>. The tools carry that through: if we haven't confirmed a neobank supports Apple Pay, the model sees "unverified" rather than being nudged into inventing a yes or a no. A directory that admits what it doesn't know is more useful to an agent than one that pretends to know everything.</p>
+  <p><strong>It's traceable.</strong> Every result carries the <a href="/n/">profile URL</a> behind it, so the model can cite <span class="tt">neobankbeat.com/n/&lt;slug&gt;/</span> instead of asking you to trust it. This is also, frankly, how we want to be quoted: the answer engines that increasingly field "which neobank should I use?" should be pulling from a sourced dataset, not vibes.</p>
+
+  <p>Prefer plain HTTP? Nothing changed there — the same data is at <a href="/data.json">data.json</a>, described by <a href="/openapi.json">openapi.json</a>, with field semantics in <a href="/llms.txt">llms.txt</a>. The MCP server is just the agent-native front door to it, and the <a href="https://github.com/andreolf/neobankbeat/tree/main/mcp">source</a> is about 180 lines with zero dependencies — read it, fork it, run it.</p>
+
+  <h2>Cite it</h2>
+  <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> https://www.neobankbeat.com/ (MIT).</p>
+  <p>Free to use, including commercially. If you build something on the MCP server, <a href="https://x.com/neobankbeat" target="_blank" rel="noopener">tell me</a> — I'd like to see it.</p>
+
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Counts reflect the open dataset as of August 2026. Figures are compiled from public filings, registers and product documentation; rates carry their own as-of dates. Nothing here is financial advice. Sources on each profile page.</p>
+
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+
+<footer><div class="fwrap">
+  <span>© neobankbeat · MIT</span>
+  <a href="/">directory</a><a href="/browse/">browse</a><a href="/fit/">find your fit</a><a href="/vs/">compare</a><a href="/blog/">blog</a><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a><a href="/changelog/">changelog</a><a href="/report/">report</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="/mcp/">mcp server</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a>
+  <span class="langbar">🌐 <a href="/" onclick="window.nbevt&&nbevt('lang_switch',{to:'en'})">EN</a> · <a href="/de/" onclick="window.nbevt&&nbevt('lang_switch',{to:'de'})">DE</a> · <a href="/it/" onclick="window.nbevt&&nbevt('lang_switch',{to:'it'})">IT</a> · <a href="/fr/" onclick="window.nbevt&&nbevt('lang_switch',{to:'fr'})">FR</a> · <a href="/es/" onclick="window.nbevt&&nbevt('lang_switch',{to:'es'})">ES</a> · <a href="/pt/" onclick="window.nbevt&&nbevt('lang_switch',{to:'pt'})">PT</a></span>
+</div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();</script>
+</body>
+</html>

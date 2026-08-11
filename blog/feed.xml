@@ -7,6 +7,13 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Ask your AI about neobanks: neobankbeat now speaks MCP</title>
+    <link>https://www.neobankbeat.com/blog/neobankbeat-mcp-server/</link>
+    <guid>https://www.neobankbeat.com/blog/neobankbeat-mcp-server/</guid>
+    <pubDate>Tue, 11 Aug 2026 10:00:00 GMT</pubDate>
+    <description>neobankbeat now ships a dependency-free Model Context Protocol server: five tools over the live dataset (search_neobanks, get_neobank, compare_neobanks, list_by_country, dataset_stats). Point Claude or any MCP client at it and it answers questions about the 379 neobanks from current, cited data instead of stale training memory — reading the live data.json, carrying the null=unverified rule through, and returning the profile URL behind every fact. ~180 lines, no dependencies, MIT.</description>
+  </item>
+  <item>
     <title>45 ways to cut 368 neobanks — and the two counts we won&#39;t merge</title>
     <link>https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/</link>
     <guid>https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/</guid>

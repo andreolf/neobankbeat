@@ -2241,7 +2241,66 @@ const BLOG_POSTS = [
   ['who-really-runs-the-neobanks', '2026-07-23'],
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
   ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
+  ['neobankbeat-mcp-server', '2026-08-11'],
 ];
+/* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
+{
+  const url = `${BASE}/mcp/`;
+  const answer = `An MCP (Model Context Protocol) server that lets an AI assistant query the neobankbeat dataset directly — search, compare and look up any of the ${E.length} verified neobanks, live and cited, instead of guessing from training data.`;
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': ['SoftwareApplication', 'WebPage'], name: 'neobankbeat MCP server', url, description: answer, applicationCategory: 'DeveloperApplication', operatingSystem: 'Node.js 18+', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+    crumbs(['for machines', `${BASE}/llms.txt`], ['MCP server', url]),
+  ] };
+  const mcpStyle = `<style>
+.mcptools{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.mcptools td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.mcptools td:first-child{font-family:var(--mono);font-size:12px;color:var(--accent);white-space:nowrap;font-weight:600}
+pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;line-height:1.6;color:var(--text)}
+pre.code .c{color:var(--dim)}
+</style>`;
+  const cfg = `{
+  "mcpServers": {
+    "neobankbeat": {
+      "command": "node",
+      "args": ["/absolute/path/to/neobankbeat/mcp/server.mjs"]
+    }
+  }
+}`;
+  const tools = [
+    ['search_neobanks', 'Plain-language search — <em>"European neobanks with stablecoins"</em>, <em>"self-custody banks in Brazil"</em>. Parses facets + keywords.'],
+    ['get_neobank', 'The full verified record for one neobank — custody, license, cards, yield, stablecoins, KYC, regulation, geography, features, sources.'],
+    ['compare_neobanks', 'Two to four neobanks compared field by field.'],
+    ['list_by_country', 'Neobanks headquartered in / available in a country.'],
+    ['dataset_stats', 'Totals and category breakdown, with the as-of note.'],
+  ];
+  const html = (head('neobankbeat MCP server — query neobanks from your AI assistant · neobankbeat',
+    answer, url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/llms.txt" style="color:var(--accent)">for machines &amp; agents</a></div>
+  <h1>The neobankbeat <em>MCP server</em></h1>
+  <p class="meta">Ask your AI about neobanks and have it answer from live, cited data — not vibes. Dependency-free, open-source, MIT.</p>
+  <div class="callout"><span class="k">what it is</span>${esc(answer)}</div>
+  <p><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a> is the open standard for connecting AI assistants to tools and data. This server exposes the whole neobankbeat dataset as five tools, so Claude (or any MCP client) can query it directly — every answer traceable to a profile page.</p>
+  <h2>The tools</h2>
+  <table class="mcptools"><tbody>
+    ${tools.map(([n, d]) => `<tr><td>${n}</td><td>${d}</td></tr>`).join('\n    ')}
+  </tbody></table>
+  <h2>Install (Claude Desktop)</h2>
+  <p>You need <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js 18+</a> and the server file from the repo (<a href="https://github.com/andreolf/neobankbeat/blob/main/mcp/server.mjs">mcp/server.mjs</a>). Add this to <span style="font-family:var(--mono)">claude_desktop_config.json</span> (macOS: <span style="font-family:var(--mono)">~/Library/Application&nbsp;Support/Claude/</span>), then restart Claude Desktop:</p>
+  <pre class="code">${esc(cfg)}</pre>
+  <p>The <b>neobankbeat</b> tools then appear. Any MCP client that speaks the stdio transport works the same way — point it at <span style="font-family:var(--mono)">node mcp/server.mjs</span>. Full setup notes in the <a href="https://github.com/andreolf/neobankbeat/blob/main/mcp/README.md">README</a>.</p>
+  <h2>Why it's useful</h2>
+  <p>AI assistants answer questions about neobanks constantly — <em>"which neobank has an API?"</em>, <em>"compare Mercury and Brex"</em>, <em>"self-custody options in Europe"</em> — and get them wrong or stale from training data. Pointed at this server, the model answers from the <a href="/data.json">current, verified dataset</a>, cites the <a href="/n/">profile page</a> behind each fact, and respects the <code>null = unverified</code> rule rather than inventing a "no". It reads the live <a href="/data.json">data.json</a>, so it is never out of date.</p>
+  <div class="callout"><span class="k">also</span>Prefer plain HTTP? The same data is at <a href="/data.json">data.json</a>, described by <a href="/openapi.json">openapi.json</a>, with field semantics in <a href="/llms.txt">llms.txt</a>. The <a href="https://github.com/andreolf/neobankbeat/tree/main/mcp">source</a> is ~180 lines, no dependencies.</p>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', mcpStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'mcp'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'mcp', 'index.html'), html);
+}
+
 /* ═══ /matrix/ — feature comparison matrix (the scannable ✓ grid) ═══ */
 {
   const url = `${BASE}/matrix/`;
@@ -2393,6 +2452,7 @@ const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
   { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },

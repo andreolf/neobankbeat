@@ -35,6 +35,7 @@ Reuse is encouraged, including commercially — the dataset is MIT-licensed. Whe
   - [Kaggle: neobankbeat/neobanks](https://www.kaggle.com/datasets/neobankbeat/neobanks) — same files, with a worked example notebook
   - `entities.jsonl` is one neobank per line; `entities.csv` is flattened to plain columns, with the nested `fx_markup`, `reported_users` and `volume` objects split into their own `_as_of` and `_source` fields
 - [API catalog](https://www.neobankbeat.com/.well-known/api-catalog): RFC 9727 linkset · [Agent skills index](https://www.neobankbeat.com/.well-known/agent-skills/index.json): skill for querying the dataset
+- [MCP server](https://github.com/andreolf/neobankbeat/tree/main/mcp): a Model Context Protocol server (`mcp/server.mjs`, dependency-free) exposing the dataset as agent tools — `search_neobanks`, `get_neobank`, `compare_neobanks`, `list_by_country`, `dataset_stats`. Reads the live data.json; setup in mcp/README.md
 - Markdown negotiation: request `/` with `Accept: text/markdown` to get this document instead of HTML
 
 ## Localized versions (multilingual)
