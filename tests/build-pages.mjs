@@ -2301,9 +2301,98 @@ ${mxRows.map(e => `<tr><td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>
   fs.writeFileSync(path.join(ROOT, 'matrix', 'index.html'), html);
 }
 
+/* ═══ /search/ — static natural-language search over a precomputed index ═══
+   No backend, no embeddings: the query is parsed into facet tags (region,
+   feature, custody, country, category) + free keywords, matched client-side
+   against a compact index inlined below. Handles "European neobanks with
+   stablecoins", "self-custody banks in Brazil", "crypto banks for freelancers". */
+{
+  const url = `${BASE}/search/`;
+  const tagOf = e => {
+    const f = e.features || {};
+    const tags = [e.category, (e.region || '').toLowerCase()];
+    if (e.stablecoins) tags.push('stablecoins');
+    if (f.crypto || e.category === 'hybrid' || e.category === 'web3-native') tags.push('crypto');
+    if (f.self_custody || /self-custod/i.test(e.custody || '')) tags.push('self-custody');
+    if (f.yield_bearing || e.yield) tags.push('yield');
+    if (f.business_accounts) tags.push('business');
+    if (f.iban) tags.push('iban');
+    if (f.lending) tags.push('lending');
+    if (f.investing) tags.push('investing');
+    if (f.virtual_cards) tags.push('virtual-card');
+    if (f.physical_cards) tags.push('physical-card');
+    if (e.kyc === 'No') tags.push('no-kyc');
+    if (e.audience && e.audience !== 'general') tags.push(e.audience.toLowerCase());
+    (e.active_regions || []).forEach(r => tags.push(r.toLowerCase()));
+    (e.countries || []).forEach(c => typeof c === 'string' && tags.push(c.toLowerCase()));
+    return [...new Set(tags.filter(Boolean))];
+  };
+  const IDX = E.map(e => ({ n: e.name, s: slugs.get(e.name), c: e.category, h: e.hq || '', t: tagOf(e), d: (e.note || e.story || '').slice(0, 140) }));
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', name: 'Search neobanks', url }, ['search', url]);
+  const sStyle = `<style>
+#sq{width:100%;box-sizing:border-box;font-family:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text)}
+#sq:focus{outline:none;border-color:var(--accent)}
+.schips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.schip{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 11px;background:var(--panel);cursor:pointer}
+.schip:hover{color:var(--accent);border-color:var(--accent)}
+.sres{margin:18px 0;display:grid;gap:10px}
+.scard{display:block;border:1px solid var(--line);border-radius:11px;padding:13px 15px;text-decoration:none;color:var(--text)}
+.scard:hover{border-color:var(--accent)}
+.scard b{font-size:15px}.scard .sm{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:8px}
+.scard p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.scount{font-family:var(--mono);font-size:12px;color:var(--dim);margin:6px 0}
+</style>`;
+  const html = (head('Search neobanks by feature, custody, region & country · neobankbeat',
+    `Search ${E.length} verified neobanks in plain language — by stablecoin support, self-custody, yield, business accounts, IBAN, region or country. Static, private, instant.`,
+    url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/" style="color:var(--accent)">directory</a></div>
+  <h1>Search <em>neobanks</em></h1>
+  <p class="meta">Plain-language search over ${E.length} verified neobanks — runs entirely in your browser, nothing leaves the page.</p>
+  <input id="sq" type="search" autocomplete="off" placeholder="e.g. European neobanks with stablecoins · self-custody banks in Brazil · crypto banks for freelancers" aria-label="Search neobanks">
+  <div class="schips" id="schips"></div>
+  <p class="scount" id="scount" aria-live="polite"></p>
+  <div class="sres" id="sres"></div>
+  <noscript><p>Search needs JavaScript. Browse the <a href="/">directory</a>, the <a href="/matrix/">feature matrix</a> or <a href="/browse/">every cut</a> instead.</p></noscript>
+  ${disclaimer}
+</article>
+</main>
+<script>
+const IDX=${JSON.stringify(IDX)};
+const SYN={europe:['europe','european','eu'],'north america':['north america','usa','us','american','canada','canadian'],'latin america':['latin america','latam','latino'],asia:['asia','asian'],africa:['africa','african'],mena:['mena','middle east','gulf'],oceania:['oceania','australia','australian'],stablecoins:['stablecoin','stablecoins','usdc','usdt','eurc','usd coin'],crypto:['crypto','cryptocurrency','bitcoin','web3','onchain','on-chain'],'self-custody':['self-custody','self-custodial','selfcustody','non-custodial','noncustodial','own keys','unhosted'],yield:['yield','interest','apy','savings','earn'],business:['business','smb','sme','startup','startups','freelancer','freelancers','company'],iban:['iban'],lending:['lending','loan','loans','credit','overdraft','bnpl'],investing:['investing','invest','stocks','brokerage','etf','wealth'],'virtual-card':['virtual card','virtual-card'],'physical-card':['physical card','metal card'],'no-kyc':['no kyc','no-kyc','nokyc','anonymous','without id'],traditional:['traditional'],hybrid:['hybrid'],'web3-native':['web3-native','web3 native']};
+const COUNTRY=[...new Set(IDX.flatMap(x=>x.t))];
+function parse(q){q=q.toLowerCase();const tags=[];let rest=' '+q+' ';
+  for(const tag in SYN){for(const p of SYN[tag]){if(rest.indexOf(' '+p+' ')>=0||rest.indexOf(' '+p)>=0&&new RegExp('\\\\b'+p.replace(/[-/\\\\^$*+?.()|[\\]{}]/g,'\\\\$&')+'\\\\b').test(rest)){if(tags.indexOf(tag)<0)tags.push(tag);rest=rest.split(p).join(' ');}}}
+  // country/region tokens present verbatim in the index tags
+  for(const c of COUNTRY){if(c.length>3&&rest.indexOf(' '+c)>=0){if(tags.indexOf(c)<0)tags.push(c);rest=rest.split(c).join(' ');}}
+  const kw=rest.split(/[^a-z0-9]+/).filter(w=>w.length>2&&['neobank','neobanks','bank','banks','with','for','the','and','app','apps','that','which','best','support','supporting','in','of','a'].indexOf(w)<0);
+  return {tags,kw};}
+function run(q){const {tags,kw}=parse(q);let res=IDX;
+  for(const t of tags)res=res.filter(x=>x.t.indexOf(t)>=0);
+  if(kw.length){res=res.map(x=>{const hay=(x.n+' '+x.d+' '+x.t.join(' ')).toLowerCase();let sc=0;for(const w of kw)if(hay.indexOf(w)>=0)sc++;return {x,sc};}).filter(r=>r.sc>0||tags.length).sort((a,b)=>b.sc-a.sc||a.x.n.localeCompare(b.x.n)).map(r=>r.x);}
+  else res=[...res].sort((a,b)=>a.n.localeCompare(b.n));
+  return res;}
+const qEl=document.getElementById('sq'),resEl=document.getElementById('sres'),cEl=document.getElementById('scount');
+function render(q){const r=q.trim()?run(q):[];
+  if(!q.trim()){cEl.textContent='';resEl.innerHTML='';return;}
+  cEl.textContent=r.length+' match'+(r.length===1?'':'es');
+  resEl.innerHTML=r.slice(0,60).map(x=>'<a class="scard" href="/n/'+x.s+'/"><b>'+x.n+'</b><span class="sm">'+x.c+' · '+x.h+'</span><p>'+(x.d||'')+'</p></a>').join('');
+  try{nbevt('search',{q:q.slice(0,60),n:r.length})}catch(e){}}
+qEl.addEventListener('input',()=>render(qEl.value));
+const EX=['European neobanks with stablecoins','self-custody banks','crypto banks for freelancers','neobanks in Brazil','no-KYC crypto wallets','business banking with IBAN'];
+document.getElementById('schips').innerHTML=EX.map(e=>'<span class="schip">'+e+'</span>').join('');
+document.querySelectorAll('.schip').forEach(c=>c.addEventListener('click',()=>{qEl.value=c.textContent;render(qEl.value);qEl.focus();}));
+const u=new URLSearchParams(location.search).get('q');if(u){qEl.value=u;render(u);}
+</script>` + foot).replace('</head>', sStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'search'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'search', 'index.html'), html);
+}
+
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
   { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
