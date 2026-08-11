@@ -2242,8 +2242,157 @@ const BLOG_POSTS = [
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
   ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
 ];
+/* ═══ /matrix/ — feature comparison matrix (the scannable ✓ grid) ═══ */
+{
+  const url = `${BASE}/matrix/`;
+  const MXCOLS = [
+    ['Stablecoins', e => e.stablecoins === true ? 1 : e.stablecoins === false ? -1 : 0],
+    ['Yield', e => e.features && e.features.yield_bearing ? 1 : 0],
+    ['Self-custody', e => e.features && e.features.self_custody ? 1 : 0],
+    ['Business', e => e.features && e.features.business_accounts ? 1 : 0],
+    ['IBAN', e => e.features && e.features.iban ? 1 : 0],
+    ['Virtual card', e => e.features && e.features.virtual_cards ? 1 : 0],
+    ['Physical card', e => e.features && e.features.physical_cards ? 1 : 0],
+    ['Lending', e => e.features && e.features.lending ? 1 : 0],
+    ['Investing', e => e.features && e.features.investing ? 1 : 0],
+  ];
+  const mcell = v => v === 1 ? '<td class="y">✓</td>' : v === -1 ? '<td class="n">·</td>' : '<td class="u"></td>';
+  const mxRows = [...E].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+  const answer = `A ${mxRows.length}-row feature matrix: which neobanks support stablecoins, deposit yield, self-custody, business accounts, IBANs, virtual and physical cards, lending and investing. A ✓ is verified from public sources; a blank cell means unverified — not "no".`;
+  const desc = `Neobank feature matrix — ${mxRows.length} neobanks × core features (stablecoins, yield, self-custody, IBAN, cards, lending, investing) in one scannable ✓ grid, from the open neobankbeat dataset.`;
+  const title = `Neobank feature matrix (${mxRows.length} compared, 2026) · neobankbeat`;
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', name: 'Neobank feature matrix', url, description: answer, dateModified: DATA_MODIFIED, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+    { '@type': 'ItemList', numberOfItems: mxRows.length, itemListElement: mxRows.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) },
+    crumbs(['browse', `${BASE}/browse/`], ['feature matrix', url]),
+  ] };
+  const mxStyle = `<style>
+.mxwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+.mxtable{border-collapse:collapse;font-size:12px;white-space:nowrap;min-width:100%}
+.mxtable th{position:sticky;top:0;background:var(--bg);font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:9px 10px;border-bottom:1px solid var(--line);text-align:center}
+.mxtable th:first-child,.mxtable td:first-child{text-align:left;position:sticky;left:0;background:var(--bg);z-index:2}
+.mxtable th:first-child{z-index:3}
+.mxtable td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:center}
+.mxtable tbody tr:last-child td{border-bottom:0}
+.mxtable td a{color:var(--text);font-weight:600;text-decoration:none}.mxtable td a:hover{color:var(--accent)}
+.mxtable .cat{font-family:var(--mono);font-size:9.5px;color:var(--muted)}
+.mxtable td.y{color:var(--accent);font-weight:700}.mxtable td.n{color:var(--dim)}.mxtable td.u{color:var(--line)}
+</style>`;
+  const table = `<div class="mxwrap"><table class="mxtable">
+  <thead><tr><th scope="col">neobank</th><th scope="col">type</th>${MXCOLS.map(([k]) => `<th scope="col">${esc(k)}</th>`).join('')}</tr></thead>
+  <tbody>
+${mxRows.map(e => `<tr><td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td><td class="cat">${esc(e.category)}</td>${MXCOLS.map(([, fn]) => mcell(fn(e))).join('')}</tr>`).join('\n')}
+  </tbody></table></div>`;
+  const html = (head(title, desc, url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/browse/" style="color:var(--accent)">browse</a></div>
+  <h1>Neobank <em>feature matrix</em></h1>
+  <p class="meta"><b>${mxRows.length} neobanks</b> × core features · ✓ = verified, blank = unverified (not "no") · updated ${DATA_MODIFIED}</p>
+  <div class="callout"><span class="k">how to read it</span>${esc(answer)}</div>
+  ${table}
+  <div class="callout"><span class="k">go deeper</span>Every ✓ is sourced on the bank's profile. Compare any two side by side in <a href="/vs/">comparisons</a>, filter live in the <a href="/">directory</a>, or take the raw flags from <a href="/data.json">data.json</a> (the <code>features</code> object).</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', mxStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'matrix'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'matrix', 'index.html'), html);
+}
+
+/* ═══ /search/ — static natural-language search over a precomputed index ═══
+   No backend, no embeddings: the query is parsed into facet tags (region,
+   feature, custody, country, category) + free keywords, matched client-side
+   against a compact index inlined below. Handles "European neobanks with
+   stablecoins", "self-custody banks in Brazil", "crypto banks for freelancers". */
+{
+  const url = `${BASE}/search/`;
+  const tagOf = e => {
+    const f = e.features || {};
+    const tags = [e.category, (e.region || '').toLowerCase()];
+    if (e.stablecoins) tags.push('stablecoins');
+    if (f.crypto || e.category === 'hybrid' || e.category === 'web3-native') tags.push('crypto');
+    if (f.self_custody || /self-custod/i.test(e.custody || '')) tags.push('self-custody');
+    if (f.yield_bearing || e.yield) tags.push('yield');
+    if (f.business_accounts) tags.push('business');
+    if (f.iban) tags.push('iban');
+    if (f.lending) tags.push('lending');
+    if (f.investing) tags.push('investing');
+    if (f.virtual_cards) tags.push('virtual-card');
+    if (f.physical_cards) tags.push('physical-card');
+    if (e.kyc === 'No') tags.push('no-kyc');
+    if (e.audience && e.audience !== 'general') tags.push(e.audience.toLowerCase());
+    (e.active_regions || []).forEach(r => tags.push(r.toLowerCase()));
+    (e.countries || []).forEach(c => typeof c === 'string' && tags.push(c.toLowerCase()));
+    return [...new Set(tags.filter(Boolean))];
+  };
+  const IDX = E.map(e => ({ n: e.name, s: slugs.get(e.name), c: e.category, h: e.hq || '', t: tagOf(e), d: (e.note || e.story || '').slice(0, 140) }));
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', name: 'Search neobanks', url }, ['search', url]);
+  const sStyle = `<style>
+#sq{width:100%;box-sizing:border-box;font-family:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text)}
+#sq:focus{outline:none;border-color:var(--accent)}
+.schips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.schip{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:5px 11px;background:var(--panel);cursor:pointer}
+.schip:hover{color:var(--accent);border-color:var(--accent)}
+.sres{margin:18px 0;display:grid;gap:10px}
+.scard{display:block;border:1px solid var(--line);border-radius:11px;padding:13px 15px;text-decoration:none;color:var(--text)}
+.scard:hover{border-color:var(--accent)}
+.scard b{font-size:15px}.scard .sm{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:8px}
+.scard p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.scount{font-family:var(--mono);font-size:12px;color:var(--dim);margin:6px 0}
+</style>`;
+  const html = (head('Search neobanks by feature, custody, region & country · neobankbeat',
+    `Search ${E.length} verified neobanks in plain language — by stablecoin support, self-custody, yield, business accounts, IBAN, region or country. Static, private, instant.`,
+    url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/" style="color:var(--accent)">directory</a></div>
+  <h1>Search <em>neobanks</em></h1>
+  <p class="meta">Plain-language search over ${E.length} verified neobanks — runs entirely in your browser, nothing leaves the page.</p>
+  <input id="sq" type="search" autocomplete="off" placeholder="e.g. European neobanks with stablecoins · self-custody banks in Brazil · crypto banks for freelancers" aria-label="Search neobanks">
+  <div class="schips" id="schips"></div>
+  <p class="scount" id="scount" aria-live="polite"></p>
+  <div class="sres" id="sres"></div>
+  <noscript><p>Search needs JavaScript. Browse the <a href="/">directory</a>, the <a href="/matrix/">feature matrix</a> or <a href="/browse/">every cut</a> instead.</p></noscript>
+  ${disclaimer}
+</article>
+</main>
+<script>
+const IDX=${JSON.stringify(IDX)};
+const SYN={europe:['europe','european','eu'],'north america':['north america','usa','us','american','canada','canadian'],'latin america':['latin america','latam','latino'],asia:['asia','asian'],africa:['africa','african'],mena:['mena','middle east','gulf'],oceania:['oceania','australia','australian'],stablecoins:['stablecoin','stablecoins','usdc','usdt','eurc','usd coin'],crypto:['crypto','cryptocurrency','bitcoin','web3','onchain','on-chain'],'self-custody':['self-custody','self-custodial','selfcustody','non-custodial','noncustodial','own keys','unhosted'],yield:['yield','interest','apy','savings','earn'],business:['business','smb','sme','startup','startups','freelancer','freelancers','company'],iban:['iban'],lending:['lending','loan','loans','credit','overdraft','bnpl'],investing:['investing','invest','stocks','brokerage','etf','wealth'],'virtual-card':['virtual card','virtual-card'],'physical-card':['physical card','metal card'],'no-kyc':['no kyc','no-kyc','nokyc','anonymous','without id'],traditional:['traditional'],hybrid:['hybrid'],'web3-native':['web3-native','web3 native']};
+const COUNTRY=[...new Set(IDX.flatMap(x=>x.t))];
+function parse(q){q=q.toLowerCase();const tags=[];let rest=' '+q+' ';
+  for(const tag in SYN){for(const p of SYN[tag]){if(rest.indexOf(' '+p+' ')>=0||rest.indexOf(' '+p)>=0&&new RegExp('\\\\b'+p.replace(/[-/\\\\^$*+?.()|[\\]{}]/g,'\\\\$&')+'\\\\b').test(rest)){if(tags.indexOf(tag)<0)tags.push(tag);rest=rest.split(p).join(' ');}}}
+  // country/region tokens present verbatim in the index tags
+  for(const c of COUNTRY){if(c.length>3&&rest.indexOf(' '+c)>=0){if(tags.indexOf(c)<0)tags.push(c);rest=rest.split(c).join(' ');}}
+  const kw=rest.split(/[^a-z0-9]+/).filter(w=>w.length>2&&['neobank','neobanks','bank','banks','with','for','the','and','app','apps','that','which','best','support','supporting','in','of','a'].indexOf(w)<0);
+  return {tags,kw};}
+function run(q){const {tags,kw}=parse(q);let res=IDX;
+  for(const t of tags)res=res.filter(x=>x.t.indexOf(t)>=0);
+  if(kw.length){res=res.map(x=>{const hay=(x.n+' '+x.d+' '+x.t.join(' ')).toLowerCase();let sc=0;for(const w of kw)if(hay.indexOf(w)>=0)sc++;return {x,sc};}).filter(r=>r.sc>0||tags.length).sort((a,b)=>b.sc-a.sc||a.x.n.localeCompare(b.x.n)).map(r=>r.x);}
+  else res=[...res].sort((a,b)=>a.n.localeCompare(b.n));
+  return res;}
+const qEl=document.getElementById('sq'),resEl=document.getElementById('sres'),cEl=document.getElementById('scount');
+function render(q){const r=q.trim()?run(q):[];
+  if(!q.trim()){cEl.textContent='';resEl.innerHTML='';return;}
+  cEl.textContent=r.length+' match'+(r.length===1?'':'es');
+  resEl.innerHTML=r.slice(0,60).map(x=>'<a class="scard" href="/n/'+x.s+'/"><b>'+x.n+'</b><span class="sm">'+x.c+' · '+x.h+'</span><p>'+(x.d||'')+'</p></a>').join('');
+  try{nbevt('search',{q:q.slice(0,60),n:r.length})}catch(e){}}
+qEl.addEventListener('input',()=>render(qEl.value));
+const EX=['European neobanks with stablecoins','self-custody banks','crypto banks for freelancers','neobanks in Brazil','no-KYC crypto wallets','business banking with IBAN'];
+document.getElementById('schips').innerHTML=EX.map(e=>'<span class="schip">'+e+'</span>').join('');
+document.querySelectorAll('.schip').forEach(c=>c.addEventListener('click',()=>{qEl.value=c.textContent;render(qEl.value);qEl.focus();}));
+const u=new URLSearchParams(location.search).get('q');if(u){qEl.value=u;render(u);}
+</script>` + foot).replace('</head>', sStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'search'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'search', 'index.html'), html);
+}
+
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/llms.txt`, changefreq: 'monthly', priority: '0.6' },
