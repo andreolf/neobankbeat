@@ -40,6 +40,7 @@ export const FOOTER_LINKS = [
   ["/data/", "dataset"],
   ["/data.json", "data.json"],
   ["/llms.txt", "llms.txt"],
+  ["/mcp/", "mcp server"],
   ["https://github.com/andreolf/neobankbeat", "github", true],
   ["https://x.com/neobankbeat", "𝕏 @neobankbeat", true],
 ];

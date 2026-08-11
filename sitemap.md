@@ -67,6 +67,7 @@
 - [who really runs the neobanks](https://www.neobankbeat.com/blog/who-really-runs-the-neobanks/) (2026-07-23)
 - [neobank dataset hugging face kaggle](https://www.neobankbeat.com/blog/neobank-dataset-hugging-face-kaggle/) (2026-07-26)
 - [browse neobanks by license kyc country](https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/) (2026-07-28)
+- [neobankbeat mcp server](https://www.neobankbeat.com/blog/neobankbeat-mcp-server/) (2026-08-11)
 
 ## Neobank profiles (379)
 
