@@ -99,6 +99,32 @@ const out = w.eval(`(function(){
    All manual-only keys (Phase 2+) stay null / [] here. Appended to the tail of
    each record after `slug`, so the diff is pure additions per entity. */
 const NETMAP = { MC: 'Mastercard', Visa: 'Visa', Amex: 'Amex', RuPay: 'RuPay', Verve: 'Verve', Mada: 'Mada' };
+/* funding_stage — heuristic investor-lens dimension. Explicit signals
+   (Public/Acquired/Bootstrapped/Subsidiary/Series X/seed) are reliable; the
+   $-amount fallback is a directional estimate. null = undisclosed. */
+function fundingStage(o) {
+  const fnd = String(o.funding || '');
+  const all = `${fnd} ${o.note || ''} ${o.story || ''}`;
+  if (/\bacquired\b/i.test(all)) return 'Acquired';
+  if (/\bpublic\b|\bIPO\b|\blisted\b|nasdaq|nyse|\([A-Z]{2,5}\)/.test(fnd)) return 'Public';
+  if (/bootstrapp|no outside investors|no investors/i.test(all)) return 'Bootstrapped';
+  if (/majority|subsidiary|owned by|joint venture|\bJV\b|state-owned|central bank/i.test(fnd)) return 'Subsidiary / strategic';
+  if (/pre-seed/i.test(fnd)) return 'Pre-seed';
+  const sm = fnd.match(/series\s+([a-e])/i);
+  if (sm) { const L = sm[1].toUpperCase(); return (L === 'C' || L === 'D' || L === 'E') ? 'Series C+' : 'Series ' + L; }
+  if (/\bseed\b/i.test(fnd)) return 'Seed';
+  const am = fnd.match(/\$\s?([\d.]+)\s*([bm])\b/i);
+  if (am) {
+    let v = parseFloat(am[1]); if (/b/i.test(am[2])) v *= 1000; // → $M
+    if (v >= 300) return 'Series C+';
+    if (v >= 80) return 'Series B';
+    if (v >= 25) return 'Series A';
+    if (v >= 3) return 'Seed';
+    return 'Pre-seed';
+  }
+  return null;
+}
+
 function deriveV2(o) {
   const custody = o.custody, category = o.category, audience = o.audience;
   const cardType = o.card_type || '';
@@ -184,6 +210,7 @@ function deriveV2(o) {
     card_funding,
     timeline: null,
     partners: { issuer: null, partner_bank: null, treasury: null, identity: null, kyc_provider: null, card_network: null },
+    funding_stage: fundingStage(o),
   };
 }
 

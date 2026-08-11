@@ -121,7 +121,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Varo",
@@ -215,7 +216,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Current",
@@ -311,7 +313,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "SoFi",
@@ -407,7 +410,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Ally Bank",
@@ -482,7 +486,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Dave",
@@ -573,7 +578,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "MoneyLion",
@@ -648,7 +654,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "One",
@@ -733,7 +740,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Subsidiary / strategic"
   },
   {
    "name": "Marcus",
@@ -800,7 +808,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Step",
@@ -894,7 +903,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Greenlight",
@@ -990,7 +1000,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Copper",
@@ -1063,7 +1074,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Till Financial",
@@ -1129,7 +1141,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GoHenry",
@@ -1206,7 +1219,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Albert",
@@ -1292,7 +1306,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Mercury",
@@ -1398,7 +1413,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Brex",
@@ -1500,7 +1516,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Ramp",
@@ -1595,7 +1612,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Novo",
@@ -1683,7 +1701,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Bluevine",
@@ -1774,7 +1793,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Relay",
@@ -1863,7 +1883,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "NorthOne",
@@ -1939,7 +1960,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Rho",
@@ -2021,7 +2043,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Grasshopper",
@@ -2087,7 +2110,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Found",
@@ -2174,7 +2198,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Lili",
@@ -2260,7 +2285,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Karat",
@@ -2337,7 +2363,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Branch",
@@ -2411,7 +2438,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Panacea Financial",
@@ -2480,7 +2508,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Purple",
@@ -2554,7 +2583,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "True Link",
@@ -2622,7 +2652,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Charlie",
@@ -2691,7 +2722,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Greenwood",
@@ -2779,7 +2811,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "MoCaFi",
@@ -2854,7 +2887,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Majority",
@@ -2939,7 +2973,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Zolve",
@@ -3034,7 +3069,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Comun",
@@ -3123,7 +3159,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Ellevest",
@@ -3193,7 +3230,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "First Women's Bank",
@@ -3259,7 +3297,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "KOHO",
@@ -3346,7 +3385,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Neo Financial",
@@ -3431,7 +3471,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Wealthsimple",
@@ -3528,7 +3569,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "EQ Bank",
@@ -3600,7 +3642,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Mogo",
@@ -3668,7 +3711,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Monzo",
@@ -3782,7 +3826,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Starling Bank",
@@ -3881,7 +3926,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Atom Bank",
@@ -3959,7 +4005,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Zopa Bank",
@@ -4045,7 +4092,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Chase UK",
@@ -4117,7 +4165,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kroo",
@@ -4189,7 +4238,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tide",
@@ -4292,7 +4342,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "ANNA Money",
@@ -4366,7 +4417,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "OakNorth",
@@ -4447,7 +4499,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Allica Bank",
@@ -4525,7 +4578,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Curve",
@@ -4603,7 +4657,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Zempler Bank",
@@ -4669,7 +4724,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Monese",
@@ -4763,7 +4819,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Pockit",
@@ -4831,7 +4888,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Suits Me",
@@ -4897,7 +4955,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tandem Bank",
@@ -4971,7 +5030,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Algbra",
@@ -5044,7 +5104,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kestrl",
@@ -5108,7 +5169,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Wahed",
@@ -5182,7 +5244,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "N26",
@@ -5300,7 +5363,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "bunq",
@@ -5402,7 +5466,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Bootstrapped"
   },
   {
    "name": "Vivid Money",
@@ -5508,7 +5573,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Tomorrow",
@@ -5576,7 +5642,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "C24 Bank",
@@ -5642,7 +5709,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kontist",
@@ -5710,7 +5778,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fyrst",
@@ -5776,7 +5845,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Qonto",
@@ -5887,7 +5957,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Shine",
@@ -5955,7 +6026,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Indy",
@@ -6025,7 +6097,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Sumeria (Lydia)",
@@ -6113,7 +6186,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nickel",
@@ -6190,7 +6264,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "BoursoBank",
@@ -6261,7 +6336,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Hello bank!",
@@ -6327,7 +6403,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fortuneo",
@@ -6394,7 +6471,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Lunar",
@@ -6488,7 +6566,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Northmill",
@@ -6554,7 +6633,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Rocker",
@@ -6620,7 +6700,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "indó",
@@ -6687,7 +6768,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Hype",
@@ -6753,7 +6835,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tinaba",
@@ -6819,7 +6902,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Flowe",
@@ -6885,7 +6969,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "buddybank",
@@ -6951,7 +7036,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "isybank",
@@ -7017,7 +7103,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Openbank",
@@ -7084,7 +7171,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "imagin",
@@ -7150,7 +7238,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "MyInvestor",
@@ -7216,7 +7305,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ZEN.com",
@@ -7282,7 +7372,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Paysera",
@@ -7348,7 +7439,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Trade Republic",
@@ -7452,7 +7544,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Finom",
@@ -7520,7 +7613,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Wise",
@@ -7654,7 +7748,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Klarna",
@@ -7757,7 +7852,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Salt Bank",
@@ -7823,7 +7919,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Snappi",
@@ -7889,7 +7986,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Papara",
@@ -7964,7 +8062,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Enpara",
@@ -8030,7 +8129,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Monobank",
@@ -8106,7 +8206,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Bootstrapped"
   },
   {
    "name": "T-Bank",
@@ -8177,7 +8278,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Kaspi",
@@ -8258,7 +8360,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Uzum",
@@ -8324,7 +8427,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "TBC UZ",
@@ -8392,7 +8496,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nubank",
@@ -8511,7 +8616,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Ualá",
@@ -8611,7 +8717,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Plata",
@@ -8713,7 +8820,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "albo",
@@ -8795,7 +8903,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Klar",
@@ -8887,7 +8996,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Stori",
@@ -8981,7 +9091,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Fondeadora",
@@ -9047,7 +9158,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Hey Banco",
@@ -9113,7 +9225,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Cuenca",
@@ -9179,7 +9292,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "RappiPay",
@@ -9246,7 +9360,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Neon",
@@ -9334,7 +9449,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "C6 Bank",
@@ -9420,7 +9536,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Banco Inter",
@@ -9505,7 +9622,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "PicPay",
@@ -9584,7 +9702,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "PagBank",
@@ -9661,7 +9780,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Cora",
@@ -9751,7 +9871,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "NG.cash",
@@ -9817,7 +9938,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Naranja X",
@@ -9885,7 +10007,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Brubank",
@@ -9958,7 +10081,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Prex",
@@ -10024,7 +10148,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ueno bank",
@@ -10091,7 +10216,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nequi",
@@ -10163,7 +10289,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Daviplata",
@@ -10225,7 +10352,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Movii",
@@ -10291,7 +10419,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Lulo Bank",
@@ -10357,7 +10486,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tenpo",
@@ -10431,7 +10561,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Global66",
@@ -10509,7 +10640,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Zinli",
@@ -10575,7 +10707,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Qik",
@@ -10641,7 +10774,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "KakaoBank",
@@ -10717,7 +10851,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Toss Bank",
@@ -10807,7 +10942,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "K bank",
@@ -10870,7 +11006,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "WeBank",
@@ -10946,7 +11083,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "MYbank",
@@ -11016,7 +11154,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Jupiter",
@@ -11108,7 +11247,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Niyo",
@@ -11194,7 +11334,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "slice",
@@ -11276,7 +11417,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Freo",
@@ -11341,7 +11483,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Open",
@@ -11425,7 +11568,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "RazorpayX",
@@ -11511,7 +11655,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "FamPay",
@@ -11603,7 +11748,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Mahila Money",
@@ -11671,7 +11817,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Airtel Payments Bank",
@@ -11737,7 +11884,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Jio Payments Bank",
@@ -11803,7 +11951,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "SadaPay",
@@ -11883,7 +12032,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "NayaPay",
@@ -11957,7 +12107,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Oraan",
@@ -12021,7 +12172,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "bKash",
@@ -12116,7 +12268,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nagad",
@@ -12178,7 +12331,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GXS Bank",
@@ -12246,7 +12400,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "MariBank",
@@ -12309,7 +12464,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Trust Bank",
@@ -12376,7 +12532,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ANEXT Bank",
@@ -12439,7 +12596,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tonik",
@@ -12532,7 +12690,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Maya",
@@ -12630,7 +12789,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "GoTyme Bank",
@@ -12696,7 +12856,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "UnionDigital",
@@ -12758,7 +12919,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "UNO Digital Bank",
@@ -12825,7 +12987,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Bank Jago",
@@ -12891,7 +13054,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "SeaBank",
@@ -12954,7 +13118,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Blu by BCA",
@@ -13020,7 +13185,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Allo Bank",
@@ -13086,7 +13252,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Superbank",
@@ -13167,7 +13334,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Jenius",
@@ -13233,7 +13401,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "LINE BK",
@@ -13299,7 +13468,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Timo",
@@ -13365,7 +13535,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Cake",
@@ -13434,7 +13605,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "TNEX",
@@ -13496,7 +13668,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GXBank",
@@ -13562,7 +13735,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "AEON Bank",
@@ -13628,7 +13802,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Boost Bank",
@@ -13690,7 +13865,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Ryt Bank",
@@ -13755,7 +13931,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "PayPay Bank",
@@ -13821,7 +13998,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Minna Bank",
@@ -13889,7 +14067,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Rakuten Bank",
@@ -13957,7 +14136,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "LINE Bank TW",
@@ -14023,7 +14203,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "NEXT Bank",
@@ -14085,7 +14266,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ZA Bank",
@@ -14159,7 +14341,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Mox Bank",
@@ -14226,7 +14409,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "WeLab Bank",
@@ -14304,7 +14488,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Up",
@@ -14378,7 +14563,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Judo Bank",
@@ -14441,7 +14627,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Hnry",
@@ -14530,7 +14717,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "TymeBank",
@@ -14632,7 +14820,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Bank Zero",
@@ -14700,7 +14889,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Discovery Bank",
@@ -14768,7 +14958,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kuda",
@@ -14858,7 +15049,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "OPay",
@@ -14959,7 +15151,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "PalmPay",
@@ -15052,7 +15245,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Moniepoint",
@@ -15153,7 +15347,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "FairMoney",
@@ -15231,7 +15426,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Carbon",
@@ -15305,7 +15501,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ALAT by Wema",
@@ -15371,7 +15568,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Sparkle",
@@ -15438,7 +15636,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Umba",
@@ -15502,7 +15701,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Djamo",
@@ -15592,7 +15792,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Wave",
@@ -15689,7 +15890,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Eversend",
@@ -15756,7 +15958,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fingo",
@@ -15820,7 +16023,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Branch Intl",
@@ -15885,7 +16089,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Khazna",
@@ -15949,7 +16154,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "MNT-Halan",
@@ -16014,7 +16220,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Flouci",
@@ -16101,7 +16308,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Pre-seed"
   },
   {
    "name": "Grey",
@@ -16176,7 +16384,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "PaySika",
@@ -16260,7 +16469,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Pre-seed"
   },
   {
    "name": "Cleva",
@@ -16328,7 +16538,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Telda",
@@ -16403,7 +16614,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Wio Bank",
@@ -16490,7 +16702,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Zand",
@@ -16556,7 +16769,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "YAP",
@@ -16623,7 +16837,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Liv.",
@@ -16689,7 +16904,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Pyypl",
@@ -16757,7 +16973,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "NOW Money",
@@ -16825,7 +17042,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Sarwa",
@@ -16888,7 +17106,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ila Bank",
@@ -16954,7 +17173,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tweeq",
@@ -17021,7 +17241,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "STC Bank",
@@ -17088,7 +17309,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "D360 Bank",
@@ -17155,7 +17377,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Weyay",
@@ -17221,7 +17444,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "One Zero",
@@ -17297,7 +17521,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Pride Bank",
@@ -17365,7 +17590,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Revolut",
@@ -17508,7 +17734,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Cash App",
@@ -17606,7 +17833,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Venmo",
@@ -17682,7 +17910,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Robinhood",
@@ -17780,7 +18009,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Crypto.com",
@@ -17875,7 +18105,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Coinbase Card",
@@ -17976,7 +18207,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Binance Card",
@@ -18049,7 +18281,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Bybit Card",
@@ -18131,7 +18364,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "OKX Card",
@@ -18209,7 +18443,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Bitget Card",
@@ -18281,7 +18516,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "KuCard",
@@ -18353,7 +18589,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "CEX.IO Card",
@@ -18425,7 +18662,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "SpectroCoin",
@@ -18491,7 +18729,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Bitpanda",
@@ -18593,7 +18832,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "eToro Money",
@@ -18673,7 +18913,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Tap Global",
@@ -18739,7 +18980,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "CoinJar",
@@ -18806,7 +19048,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Plutus",
@@ -18882,7 +19125,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fold",
@@ -18963,7 +19207,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Gemini Credit Card",
@@ -19037,7 +19282,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "BitPay Card",
@@ -19104,7 +19350,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Strike",
@@ -19206,7 +19453,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Xapo Bank",
@@ -19302,7 +19550,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Wirex",
@@ -19401,7 +19650,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Uphold",
@@ -19486,7 +19736,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nexo",
@@ -19578,7 +19829,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Krak",
@@ -19676,7 +19928,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "KAST",
@@ -19768,7 +20021,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "RedotPay",
@@ -19861,7 +20115,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Kolo",
@@ -19934,7 +20189,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Lava",
@@ -20019,7 +20275,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "COCA",
@@ -20111,7 +20368,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Trustee Plus",
@@ -20177,7 +20435,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Brighty",
@@ -20261,7 +20520,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "UR",
@@ -20334,7 +20594,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "XPlace",
@@ -20407,7 +20668,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Mercado Pago",
@@ -20501,7 +20763,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Lemon",
@@ -20577,7 +20840,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Belo",
@@ -20645,7 +20909,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Ripio",
@@ -20727,7 +20992,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Buenbit",
@@ -20795,7 +21061,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Bitso",
@@ -20895,7 +21162,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "DolarApp",
@@ -20983,7 +21251,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Littio",
@@ -21049,7 +21318,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Meru",
@@ -21116,7 +21386,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Airtm",
@@ -21206,7 +21477,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Félix",
@@ -21272,7 +21544,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Chipper Cash",
@@ -21369,7 +21642,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Yellow Card",
@@ -21459,7 +21733,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Bitnob",
@@ -21526,7 +21801,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Eco (Beam)",
@@ -21589,7 +21865,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Deel",
@@ -21699,7 +21976,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Meow",
@@ -21763,7 +22041,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Dakota",
@@ -21827,7 +22106,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Slash",
@@ -21917,7 +22197,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Flex",
@@ -22015,7 +22296,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "MetaMask",
@@ -22122,7 +22404,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "Phantom",
@@ -22221,7 +22504,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Solflare",
@@ -22297,7 +22581,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Rainbow",
@@ -22378,7 +22663,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Xverse",
@@ -22453,7 +22739,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Trust Wallet",
@@ -22533,7 +22820,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Exodus",
@@ -22608,7 +22896,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Public"
   },
   {
    "name": "Zengo",
@@ -22704,7 +22993,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Payy",
@@ -22790,7 +23080,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Gnosis Pay",
@@ -22872,7 +23163,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Holyheld",
@@ -22939,7 +23231,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "EtherFi Cash",
@@ -23036,7 +23329,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Avici",
@@ -23108,7 +23402,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Bleap",
@@ -23182,7 +23477,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tuyo",
@@ -23243,7 +23539,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Ready",
@@ -23326,7 +23623,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Plasma One",
@@ -23422,7 +23720,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Tria",
@@ -23489,7 +23788,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Karta",
@@ -23570,7 +23870,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Hyperbeat",
@@ -23666,7 +23967,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Cypher",
@@ -23739,7 +24041,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Solayer Emerald",
@@ -23812,7 +24115,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Exa",
@@ -23885,7 +24189,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "1inch Card",
@@ -23958,7 +24263,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "SafePal",
@@ -24029,7 +24335,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Tangem",
@@ -24121,7 +24428,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Bitget Wallet",
@@ -24202,7 +24510,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "BFinance",
@@ -24285,7 +24594,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "xPortal",
@@ -24355,7 +24665,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Avalanche Card",
@@ -24428,7 +24739,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "MiniPay",
@@ -24512,7 +24824,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "El Dorado",
@@ -24575,7 +24888,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Oobit",
@@ -24656,7 +24970,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Peanut",
@@ -24724,7 +25039,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Sling Money",
@@ -24819,7 +25135,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Fizen",
@@ -24888,7 +25205,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Startale",
@@ -24981,7 +25299,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Deblock",
@@ -25068,7 +25387,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Stables",
@@ -25143,7 +25463,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fiat24",
@@ -25217,7 +25538,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Mine",
@@ -25291,7 +25613,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Infini",
@@ -25363,7 +25686,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Moon",
@@ -25434,7 +25758,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Moto",
@@ -25517,7 +25842,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Pre-seed"
   },
   {
    "name": "WeFi",
@@ -25592,7 +25918,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "UglyCash",
@@ -25659,7 +25986,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Decaf",
@@ -25726,7 +26054,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "SurfCash",
@@ -25801,7 +26130,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Onboard",
@@ -25878,7 +26208,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Alpian",
@@ -25962,7 +26293,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Yuh",
@@ -26034,7 +26366,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "neon",
@@ -26105,7 +26438,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Zak",
@@ -26171,7 +26505,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Pixpay",
@@ -26239,7 +26574,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Acquired"
   },
   {
    "name": "Bling",
@@ -26305,7 +26641,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kit",
@@ -26372,7 +26709,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Douugh",
@@ -26439,7 +26777,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Parpera",
@@ -26506,7 +26845,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Aspire",
@@ -26605,7 +26945,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series C+"
   },
   {
    "name": "YouTrip",
@@ -26689,7 +27030,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series B"
   },
   {
    "name": "Mashreq Neo",
@@ -26755,7 +27097,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nomad",
@@ -26847,7 +27190,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Series A"
   },
   {
    "name": "Daimo",
@@ -26924,7 +27268,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Vision Bank",
@@ -26997,7 +27342,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Beyon Money",
@@ -27067,7 +27413,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Fasset",
@@ -27142,7 +27489,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Kontigo",
@@ -27237,7 +27585,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Veera",
@@ -27332,7 +27681,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Pre-seed"
   },
   {
    "name": "Rizon",
@@ -27404,7 +27754,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "AllScale",
@@ -27474,7 +27825,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Nyla",
@@ -27541,7 +27893,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Munify",
@@ -27607,7 +27960,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Moneco",
@@ -27680,7 +28034,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Superform",
@@ -27747,7 +28102,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Baraka",
@@ -27809,7 +28165,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GCash",
@@ -27899,7 +28256,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "PhonePe",
@@ -27992,7 +28350,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Paytm",
@@ -28076,7 +28435,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GrabPay",
@@ -28142,7 +28502,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "GoPay",
@@ -28204,7 +28565,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "OVO",
@@ -28272,7 +28634,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "DANA",
@@ -28344,7 +28707,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "TrueMoney",
@@ -28422,7 +28786,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "MoMo",
@@ -28499,7 +28864,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "ZaloPay",
@@ -28563,7 +28929,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Touch 'n Go eWallet",
@@ -28629,7 +28996,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Dolafy",
@@ -28702,7 +29070,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Bootstrapped"
   },
   {
    "name": "Brookwell",
@@ -28774,7 +29143,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Takenos",
@@ -28857,7 +29227,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": "Seed"
   },
   {
    "name": "Slush",
@@ -28929,7 +29300,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Solid",
@@ -29004,7 +29376,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Sony Bank",
@@ -29074,7 +29447,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "AMP Bank GO",
@@ -29142,7 +29516,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Always.bank",
@@ -29208,7 +29583,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Haventree Bank",
@@ -29274,7 +29650,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Esh Bank",
@@ -29341,7 +29718,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   },
   {
    "name": "Blink",
@@ -29407,7 +29785,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   }
  ],
  "emerging": [
@@ -29482,7 +29861,8 @@
     "identity": null,
     "kyc_provider": null,
     "card_network": null
-   }
+   },
+   "funding_stage": null
   }
  ]
 }

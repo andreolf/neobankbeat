@@ -1230,6 +1230,7 @@ for (const [an, bn] of PAIRS) {
     ['fx_markup_pct · cashback_pct · yield_pct', 'number', 'Numeric companions to the fx_markup / cashback / yield prose — headline percent; null when no number is stated.'],
     ['timeline', 'array', 'Dated events {date, type, description, source, tags}: founded, funding, launch, license, expansion, milestone… null = none recorded.'],
     ['partners', 'object', 'Infrastructure map: issuer, partner_bank, treasury, identity, kyc_provider, card_network — who actually holds and moves the money. null = unverified.'],
+    ['funding_stage', 'enum', 'Investor-lens stage: Pre-seed / Seed / Series A / B / C+ / Public / Acquired / Bootstrapped / Subsidiary. Heuristic — explicit signals (public ticker, "acquired", named round) are reliable; the $-amount fallback is directional. null = undisclosed.'],
   ];
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'Dataset', '@id': `${BASE}/data/#dataset`, name: 'neobankbeat: open directory of neobanks worldwide',
@@ -2242,6 +2243,82 @@ const BLOG_POSTS = [
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
   ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
 ];
+/* ═══ /database/ — sortable, filterable table view of the whole dataset ═══ */
+{
+  const url = `${BASE}/database/`;
+  const DB = E.map(e => ({ n: e.name, s: slugs.get(e.name), dom: e.domain || '', c: e.category, cu: e.custody || '', r: e.region || '', cc: (e.countries || []).filter(x => typeof x === 'string'), st: e.funding_stage || '', f: e.founded || 0 }));
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobank database', url, description: `Sortable, filterable table of all ${E.length} verified neobanks — by category, custody, region, country, funding stage and founding year.` }, ['database', url]);
+  const dbStyle = `<style>
+.dbbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;margin:16px 0}
+.dbg{display:flex;flex-direction:column;gap:3px}
+.dbg label{font-family:var(--mono);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim)}
+.dbg select,#dbq{font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text)}
+#dbq{min-width:220px}.dbg select:focus,#dbq:focus{outline:none;border-color:var(--accent)}
+.dbwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:6px}
+.dbtable{border-collapse:collapse;font-size:12.5px;width:100%;min-width:640px}
+.dbtable th{position:sticky;top:0;background:var(--bg);font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap}
+.dbtable th:hover{color:var(--accent)}.dbtable th .ar{opacity:.5}
+.dbtable td{padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+.dbtable tbody tr:last-child td{border-bottom:0}
+.dbtable td a{color:var(--text);font-weight:600;text-decoration:none}.dbtable td a:hover{color:var(--accent)}
+.dbtable .dom{display:block;font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.dbtable .cat,.dbtable .dim{color:var(--muted);font-size:11.5px}
+.dbcount{font-family:var(--mono);font-size:12px;color:var(--dim);margin:4px 0}
+</style>`;
+  const opt = (arr) => arr.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join('');
+  const cats = [...new Set(DB.map(x => x.c))].sort();
+  const regs = [...new Set(DB.map(x => x.r).filter(Boolean))].sort();
+  const ctry = [...new Set(DB.flatMap(x => x.cc))].sort();
+  const stgs = ['Pre-seed', 'Seed', 'Series A', 'Series B', 'Series C+', 'Public', 'Acquired', 'Bootstrapped', 'Subsidiary / strategic'];
+  const html = (head(`Neobank database — ${E.length} neobanks, sortable & filterable · neobankbeat`,
+    `The full neobankbeat dataset as one sortable, filterable table: ${E.length} verified neobanks by category, custody, region, country, funding stage and founding year. Open data, no login.`,
+    url, ld, null) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/" style="color:var(--accent)">directory</a></div>
+  <h1>Neobank <em>database</em></h1>
+  <p class="meta"><b>${E.length} neobanks</b>, every field · sort any column, filter by market, geography or funding stage · <a href="/data.json">raw JSON</a> · <a href="/matrix/">feature matrix</a></p>
+  <div class="dbbar">
+    <div class="dbg" style="flex:1;min-width:220px"><label for="dbq">search</label><input id="dbq" type="search" autocomplete="off" placeholder="name or domain…" aria-label="Search the database"></div>
+    <div class="dbg"><label for="fcat">market · category</label><select id="fcat"><option value="">All</option>${opt(cats)}</select></div>
+    <div class="dbg"><label for="freg">geography · region</label><select id="freg"><option value="">All</option>${opt(regs)}</select></div>
+    <div class="dbg"><label for="fctry">country</label><select id="fctry"><option value="">All</option>${opt(ctry)}</select></div>
+    <div class="dbg"><label for="fstg">context · funding stage</label><select id="fstg"><option value="">All</option>${opt(stgs)}</select></div>
+    <div class="dbg"><label for="ffnd">founded</label><select id="ffnd"><option value="">Any year</option><option value="2024">2024+</option><option value="2020">2020+</option><option value="2015">2015+</option><option value="2010">2010+</option></select></div>
+  </div>
+  <p class="dbcount" id="dbcount" aria-live="polite"></p>
+  <div class="dbwrap"><table class="dbtable">
+    <thead><tr>
+      <th scope="col" data-k="n">Company <span class="ar"></span></th>
+      <th scope="col" data-k="c">Category <span class="ar"></span></th>
+      <th scope="col" data-k="cu">Custody <span class="ar"></span></th>
+      <th scope="col" data-k="r">Region <span class="ar"></span></th>
+      <th scope="col" data-k="st">Funding stage <span class="ar"></span></th>
+      <th scope="col" data-k="f">Founded <span class="ar"></span></th>
+    </tr></thead>
+    <tbody id="dbbody"></tbody>
+  </table></div>
+  <noscript><p>The interactive table needs JavaScript. The same data is in <a href="/data.json">data.json</a>, or browse the <a href="/">directory</a> and <a href="/matrix/">feature matrix</a>.</p></noscript>
+  ${disclaimer}
+</article>
+</main>
+<script>
+const DB=${JSON.stringify(DB)};
+let sortK='n',sortD=1;
+const $=id=>document.getElementById(id);
+function view(){const q=$('dbq').value.trim().toLowerCase(),fc=$('fcat').value,fr=$('freg').value,ft=$('fctry').value,fs=$('fstg').value,ff=+$('ffnd').value||0;
+  let r=DB.filter(x=>(!fc||x.c===fc)&&(!fr||x.r===fr)&&(!ft||x.cc.indexOf(ft)>=0)&&(!fs||x.st===fs)&&(!ff||x.f>=ff)&&(!q||(x.n+' '+x.dom).toLowerCase().indexOf(q)>=0));
+  r.sort((a,b)=>{let av=a[sortK],bv=b[sortK];if(sortK==='f'){av=av||0;bv=bv||0;return (av-bv)*sortD;}return String(av).localeCompare(String(bv))*sortD;});
+  $('dbcount').textContent=r.length+' of '+DB.length+' neobanks';
+  $('dbbody').innerHTML=r.map(x=>'<tr><td><a href="/n/'+x.s+'/">'+x.n+'</a><span class="dom">'+x.dom+'</span></td><td class="cat">'+x.c+'</td><td class="dim">'+x.cu+'</td><td class="dim">'+x.r+'</td><td class="dim">'+(x.st||'—')+'</td><td class="dim">'+(x.f||'—')+'</td></tr>').join('');}
+['dbq','fcat','freg','fctry','fstg','ffnd'].forEach(id=>$(id).addEventListener('input',view));
+document.querySelectorAll('.dbtable th').forEach(th=>th.addEventListener('click',()=>{const k=th.dataset.k;if(sortK===k)sortD=-sortD;else{sortK=k;sortD=1;}document.querySelectorAll('.dbtable th .ar').forEach(a=>a.textContent='');th.querySelector('.ar').textContent=sortD>0?'▲':'▼';view();}));
+view();
+</script>` + foot).replace('</head>', dbStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'database'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'database', 'index.html'), html);
+}
+
 /* ═══ /matrix/ — feature comparison matrix (the scannable ✓ grid) ═══ */
 {
   const url = `${BASE}/matrix/`;
@@ -2391,6 +2468,7 @@ const u=new URLSearchParams(location.search).get('q');if(u){qEl.value=u;render(u
 
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${BASE}/database/`, changefreq: 'weekly', priority: '0.9' },
   { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
