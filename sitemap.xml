@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.neobankbeat.com/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/database/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/matrix/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/search/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/map/</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/mcp/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/data/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -50,55 +56,55 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/faq/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/glossary/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/investors/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/newsletters/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/stablecoin-cards/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/ai/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/partner/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/changelog/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/infra/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1729,7 +1735,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/report/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1740,91 +1746,91 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/match/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/engineering/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/data/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/product/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/design/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/compliance/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/onboarding/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/support/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/sales/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/marketing/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/finance/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/operations/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/people/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/jobs/other/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -24192,7 +24198,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24308,13 +24314,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/browse/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fit/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -24635,7 +24641,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26536,13 +26542,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -28443,7 +28449,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -29294,13 +29300,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -31201,7 +31207,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -32052,13 +32058,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -33959,7 +33965,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -34810,13 +34816,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -36717,7 +36723,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -37568,13 +37574,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/n/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -39475,7 +39481,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -44111,7 +44117,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

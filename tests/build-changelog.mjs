@@ -49,6 +49,28 @@ const humanize = s => {
 };
 const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humanize(subj);
 
+/* Curated product & platform releases — shipped surfaces, fields and
+   capabilities that don't surface as a data.json diff (a new page, an API, a
+   whole language). The dataset section below is generated; this list is
+   maintained by hand. Newest first; dates are the ship (merge) date. */
+const RELEASES = [
+  { date: '2026-08-11', tag: 'new', title: 'MCP server for AI assistants',
+    body: 'Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all ' /* count filled at render */ ,
+    links: [['/mcp/', 'how to use it'], ['/blog/neobankbeat-mcp-server/', 'launch post']], countSuffix: ' neobanks.' },
+  { date: '2026-08-11', tag: 'new', title: 'Funding stage + sortable database',
+    body: 'Every neobank now carries a normalized funding stage — Pre-seed through Series C+, Public and Acquired — so you can filter the directory by maturity. A new /database/ view puts the whole dataset in one sortable, scannable table.',
+    links: [['/database/', 'open the database'], ['/data/', 'field reference']] },
+  { date: '2026-08-11', tag: 'new', title: 'Feature matrix + semantic search',
+    body: '19 verified feature flags per neobank (yield, stablecoins, self-custody, IBAN, virtual cards and more) collected into one comparison grid, plus an in-browser semantic search that runs entirely client-side — no backend, works offline.',
+    links: [['/matrix/', 'feature matrix'], ['/search/', 'smart search']] },
+  { date: '2026-08-09', tag: 'i18n', title: 'Five languages',
+    body: 'Profiles, head-to-head comparisons and country pages localized into German, Italian, French, Spanish and Portuguese — with reciprocal hreflang, localized metadata and a language switcher in the footer, so non-English searchers can find the right neobank in their own language.',
+    links: [['/de/', 'Deutsch'], ['/es/', 'Español'], ['/pt/', 'Português']] },
+  { date: '2026-08-08', tag: 'data', title: '11 neobanks added + "emerging" status',
+    body: 'Eleven community-submitted neobanks added after hands-on verification, and a new "emerging" status introduced for pre-launch names — the directory can now track what is coming without pretending it is already live.',
+    links: [['/browse/', 'browse the directory']] },
+];
+
 /* commits touching data.json, oldest → newest */
 const commits = git(`log --format='%H|%ad|%s' --date=short -- data.json`)
   .trim().split('\n').map(l => {
@@ -116,6 +138,18 @@ ${parts.join('\n')}
   </div>`;
 }).join('\n');
 
+const relRows = RELEASES.map(r => {
+  const body = r.countSuffix ? `${r.body}${now.length}${r.countSuffix}` : r.body;
+  const links = r.links?.length
+    ? `<div class="rlinks">${r.links.map(([h, l]) => `<a href="${h}">${esc(l)} →</a>`).join('')}</div>` : '';
+  return `  <div class="centry rel">
+    <div class="chead"><span class="cdate">${fmtDate(r.date)}</span><span class="reltag">${esc(r.tag)}</span></div>
+    <div class="ctitle">${esc(r.title)}</div>
+    <div class="cplain">${esc(body)}</div>
+    ${links}
+  </div>`;
+}).join('\n');
+
 const nAdd = entries.reduce((a, e) => a + e.added.length, 0);
 const nDel = entries.reduce((a, e) => a + e.removed.length, 0);
 const lastDate = entries[0]?.date || '';
@@ -124,6 +158,7 @@ const lastDate = entries[0]?.date || '';
 fs.mkdirSync(path.join(ROOT, 'changelog'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'changelog', 'changelog.json'), JSON.stringify({
   generated: lastDate, total: now.length,
+  releases: RELEASES.map(r => ({ date: r.date, tag: r.tag, title: r.title, body: r.countSuffix ? `${r.body}${now.length}${r.countSuffix}` : r.body, links: (r.links || []).map(([href]) => href) })),
   entries: entries.map(e => ({ date: e.date, summary: e.baseline ? null : plainOf(e.subject), subject: e.subject, total: e.total, added: e.added, removed: e.removed, updated: e.updated })),
 }, null, 1));
 
@@ -170,6 +205,12 @@ const html = `<!DOCTYPE html>
 .gone{color:var(--dim);text-decoration:line-through}
 .moremuted{color:var(--dim)}
 .base{color:var(--muted)}
+.relh{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--dim);margin:38px 0 6px;border-top:1px solid var(--line);padding-top:24px}
+.relsub{font-size:13px;line-height:1.6;color:var(--dim);margin:0 0 12px}
+.rel .ctitle{font-weight:700;font-size:15.5px;margin:8px 0 2px}
+.reltag{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:10px;text-transform:uppercase;letter-spacing:1px;padding:1px 7px;border-radius:5px;border:1px solid var(--line);color:var(--accent)}
+.rlinks{margin-top:9px;font-size:12.5px}
+.rlinks a{color:var(--text);margin-right:16px;white-space:nowrap}
 </style>
 <script type="application/ld+json">
 ${JSON.stringify(withCrumbs({"@context":"https://schema.org","@type":"WebPage",name:"neobankbeat dataset changelog",url:`${BASE}/changelog/`,description:`Every addition, removal and update to the open dataset of ${now.length} tracked neobanks, generated from version history.`,isPartOf:{"@type":"WebSite",name:"neobankbeat",url:BASE}},["changelog",`${BASE}/changelog/`]))}
@@ -191,9 +232,15 @@ ${navHtml(null)}
 <article>
   <div class="eyebrow">the changelog</div>
   <h1>every change to <em>the dataset</em></h1>
-  <p class="meta">Generated straight from version history — nothing curated, nothing hidden. <b>${now.length} entities tracked</b> · ${nAdd} added and ${nDel} removed since launch · last change ${fmtDate(lastDate)}. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
-  <p>A directory is only as good as its maintenance, so the maintenance is public. Additions link to their profiles; removals stay on the record — neobanks die quietly, and <a href="/blog/why-neobanks-die/">the deaths are data too</a>. Every entry below corresponds to a real change in <a href="/data.json">data.json</a>.</p>
+  <p class="meta">What we shipped, plus every dataset change straight from version history — nothing hidden. <b>${now.length} entities tracked</b> · ${nAdd} added and ${nDel} removed since launch · last change ${fmtDate(lastDate)}. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
+  <p>A directory is only as good as its maintenance, so the maintenance is public. Below: what we shipped for you, then every change to the data itself.</p>
 
+  <h2 class="relh">product &amp; platform</h2>
+  <p class="relsub">New surfaces, fields and capabilities — things you can now do that you couldn't a week ago.</p>
+${relRows}
+
+  <h2 class="relh">dataset changes</h2>
+  <p class="relsub">Generated straight from version history — additions link to their profiles, removals stay on the record. Neobanks die quietly, and <a href="/blog/why-neobanks-die/">the deaths are data too</a>. Every entry maps to a real change in <a href="/data.json">data.json</a>.</p>
 ${rows}
 
   <div class="callout" style="margin-top:26px"><span class="k">watch it change</span>Follow <a href="https://x.com/neobankbeat" target="_blank" rel="noopener">@neobankbeat</a>, subscribe on <a href="https://neobankbeat.substack.com" target="_blank" rel="noopener">Substack</a>, or diff <a href="/data.json">data.json</a> yourself — the <a href="https://github.com/andreolf/neobankbeat">whole repo is public</a>.</div>

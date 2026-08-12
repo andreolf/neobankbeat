@@ -217,7 +217,7 @@ table.cmp tr.hdr td{background:var(--panel2);font-family:var(--disp);font-weight
 .subform input:focus{outline:none;border-color:var(--accent)}
 .subform button{background:var(--accent);border:0;border-radius:8px;color:#0A0A10;font-family:var(--mono);font-size:13px;font-weight:700;padding:11px 18px;cursor:pointer;white-space:nowrap}
 footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.6;border-top:1px solid var(--line)}
-.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:26px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:22px 20px;margin-bottom:26px}
 .fcol h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
 .fcol h4::before{content:"—— ";color:var(--accent)}
 .fcol a{display:block;color:var(--dim);text-decoration:none;font-size:11.5px;padding:3px 0}
@@ -226,8 +226,7 @@ footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:va
 .fbar{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:10px}
 .fmeta a{color:var(--dim)}
 .fmeta a:hover{color:var(--accent)}
-@media(max-width:880px){.fgrid{grid-template-columns:repeat(2,1fr);gap:20px}}
-@media(max-width:480px){.fgrid{grid-template-columns:1fr}}
+@media(max-width:480px){.fgrid{grid-template-columns:repeat(2,1fr);gap:18px 16px}}
 @media(max-width:640px){
   .hwrap{padding:10px 16px;gap:10px;flex-wrap:wrap}
   .hnav{margin-left:0;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;gap:14px;padding-bottom:3px}
@@ -781,24 +780,31 @@ body.on-map .minimap{display:none}
     <nav class="fcol" aria-label="Explore">
       <h4>explore</h4>
       <a href="#directory">directory</a>
-      <a href="/browse/">browse by license, kyc, region</a>
+      <a href="/browse/">browse by license, kyc</a>
       <a href="/fit/">find your fit</a>
       <a href="/vs/">compare neobanks</a>
-      <a href="/database/">database (sortable table)</a>
+      <a href="/database/">database (table)</a>
       <a href="/matrix/">feature matrix</a>
       <a href="/search/">smart search</a>
-      <a href="#mapsec">world map</a>
+    </nav>
+    <nav class="fcol" aria-label="Sections">
+      <h4>sections</h4>
+      <a href="/map/">world map · by country</a>
+      <a href="#mapsec">filter by region</a>
       <a href="#datasec">data &amp; charts</a>
       <a href="#newssec">news</a>
       <a href="#methodology">methodology</a>
-      <a href="#library">library: reports &amp; resources</a>
-      <a href="/faq/">faq · 23 honest answers</a>
+      <a href="#library">library &amp; reports</a>
+      <a href="/changelog/">changelog</a>
+    </nav>
+    <nav class="fcol" aria-label="Reference">
+      <h4>reference</h4>
+      <a href="/faq/">faq · 23 answers</a>
       <a href="/glossary/">glossary of terms</a>
       <a href="/investors/">investors in neobanks</a>
       <a href="/infra/">infra for neobanks</a>
-      <a href="/stablecoin-cards/">stablecoin cards (u-cards)</a>
+      <a href="/stablecoin-cards/">stablecoin cards</a>
       <a href="/ai/">ai neobanks</a>
-      <a href="/changelog/">changelog · every change</a>
       <a href="/partner/">partner · work with us</a>
     </nav>
     <nav class="fcol" aria-label="Languages">
