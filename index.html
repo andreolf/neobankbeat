@@ -86,7 +86,7 @@ body.bw .logo .dot{text-decoration:underline;text-underline-offset:4px}
 .bwbtn{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text)}
 .bwbtn:hover{border-color:var(--accent)}
 .langmenu{position:relative;flex:none}
-.langmenu>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);white-space:nowrap}
+.langmenu>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;width:max-content;font-family:var(--mono);font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);white-space:nowrap}
 .langmenu>summary::-webkit-details-marker{display:none}
 .langmenu>summary::marker{content:""}
 .langmenu>summary:hover,.langmenu[open]>summary{border-color:var(--accent)}
@@ -238,8 +238,8 @@ footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:va
 @media(max-width:480px){.fgrid{grid-template-columns:repeat(2,1fr);gap:18px 16px}}
 @media(max-width:640px){
   .hwrap{padding:10px 16px;gap:10px;flex-wrap:wrap}
-  .hnav{margin-left:0;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;gap:14px;padding-bottom:3px}
-  .hnav::-webkit-scrollbar{display:none}
+  .hnav{margin-left:0;width:100%;flex-wrap:wrap;overflow:visible;gap:8px 14px;padding-bottom:3px}
+  .langpop{max-height:50vh;left:0;right:auto}
   .hero{padding-top:34px}
   .hero,.spectrum,.controls,.count,.grid,.about,footer{padding-left:16px;padding-right:16px}
   .statrow{gap:24px}
