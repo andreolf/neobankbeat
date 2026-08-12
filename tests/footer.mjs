@@ -80,9 +80,25 @@ export const NAV_LINKS = [
 
 export const NAV_DESTINATIONS = NAV_LINKS.map(([href]) => href);
 
+/* Language chooser for the header, top-right. A native <details> disclosure so
+   it is crawlable (real <a> links) and needs no JS. English is "/"; each locale
+   its landing page, mirroring the footer langbar. Deliberately language-agnostic
+   (a plain globe, no current-locale marker) so every page — English and
+   localized alike — emits byte-identical markup and sync-footers stays a no-op. */
+const LANGS = [["/", "en", "English"], ...LOCALES.map((l) => [`/${l.code}/`, l.code, l.label])];
+export const langMenu = (indent = "      ") =>
+  `${indent}<details class="langmenu">
+${indent}  <summary aria-label="Choose language">🌐<span class="lcar">▾</span></summary>
+${indent}  <div class="langpop">
+${LANGS.map(([href, code, name]) =>
+    `${indent}    <a href="${href}" onclick="window.nbevt&&nbevt('lang_switch',{to:'${code}'})">${name}</a>`).join("\n")}
+${indent}  </div>
+${indent}</details>`;
+
 export const navHtml = (active = null, indent = "      ") =>
   NAV_LINKS.map(([href, label]) =>
-    `${indent}<a href="${href}"${href === active ? ' class="on"' : ""}>${label}</a>`).join("\n");
+    `${indent}<a href="${href}"${href === active ? ' class="on"' : ""}>${label}</a>`).join("\n") +
+  "\n" + langMenu(indent);
 
 /* The nav's links only; the surrounding <nav> and any extra controls (the black
    &amp; white toggle) are left to each template, since the report edition ships
