@@ -49,7 +49,7 @@ def mono(size, bold=False):
 def tw(d, txt, font):
     return d.textbbox((0, 0), txt, font=font)[2]
 
-def base_card():
+def base_card(tag_text="who watches the neobanks?"):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
     # three-wave gradient top bar (blue -> purple -> green), like the homepage spectrum
@@ -65,8 +65,9 @@ def base_card():
     lf = sg(44)
     d.text((64, 48), "neobank", font=lf, fill=TEXT)
     d.text((64 + tw(d, "neobank", lf), 48), "beat", font=lf, fill=ACCENT)
-    tag = mono(17)
-    d.text((W - 64 - tw(d, "who watches the neobanks?", tag), 62), "who watches the neobanks?", font=tag, fill=DIM)
+    if tag_text:
+        tag = mono(17)
+        d.text((W - 64 - tw(d, tag_text, tag), 62), tag_text, font=tag, fill=DIM)
     # footer
     d.line([(64, H - 78), (W - 64, H - 78)], fill=LINE, width=2)
     ff = mono(19)
@@ -231,6 +232,29 @@ def org_card(name, chip_label, chip_color, line2, line3="", domain=None):
         d.text((64, y2 + 44), line3[:92], font=m, fill=DIM)
     return im
 
+def home_card(n_all, trad, hyb, web3):
+    """The default share card (og.png). Generated from live counts so it never
+    goes stale — the hand-made version used to hard-code an old total."""
+    im, d = base_card(tag_text="")  # headline repeats the tagline, so drop the tag
+    chip(d, 64, 150, "independent directory", ACCENT)
+    f = sg(76)
+    d.text((60, 214), "who watches", font=f, fill=TEXT)
+    x, y = 60, 214 + f.size + 4
+    for word, col in [("the ", TEXT), ("neobanks", ACCENT), ("?", TEXT)]:
+        d.text((x, y), word, font=f, fill=col); x += tw(d, word, f)
+    sy = y + f.size + 44
+    stats = [(str(n_all), "tracked", TEXT),
+             (str(trad), "traditional", CAT["traditional"][0]),
+             (str(hyb), "hybrid", CAT["hybrid"][0]),
+             (str(web3), "web3-native", CAT["web3-native"][0])]
+    nf, lf = sg(40), mono(18)
+    x = 64
+    for num, lbl, col in stats:
+        d.text((x, sy), num, font=nf, fill=col)
+        d.text((x, sy + 48), lbl, font=lf, fill=DIM)
+        x += max(tw(d, num, nf), tw(d, lbl, lf)) + 48
+    return im
+
 def section_card(chip_label, title, subtitle, chip_color=ACCENT):
     im, d = base_card()
     chip(d, 64, 158, chip_label, chip_color)
@@ -340,16 +364,22 @@ def main():
     counts = data.get("meta", {}).get("counts", {})
     trad, hyb, web3 = counts.get("traditional", 0), counts.get("hybrid", 0), counts.get("web3_native", 0)
 
+    # ── the default share card (og.png), from live counts ──
+    save(home_card(n_all, trad, hyb, web3), "og.png")
+    print("home card: 1")
+
     # ── section landing cards (major pages that aren't entity-specific) ──
     sections = [
         ("data", "Open neobank dataset", f"{n_all} neobanks as JSON · MIT license", ACCENT),
         ("vs", "Neobank comparisons", "custody · cards · yield · regulation side by side", VS),
         ("browse", "Browse the dataset", "by license, KYC, region, card and audience", BLUE),
+        ("map", "Neobanks by country", f"{n_all} neobanks shaded by where they're based", BLUE),
         ("changelog", "Dataset changelog", "every addition, removal and update — public", ACCENT),
         ("newsletters", "Neobank newsletters", "the reading list worth your inbox", PURPLE),
         ("cards", "Stablecoin cards", "crypto cards you can spend anywhere", "#BAF24A"),
         ("investors", "Investors in neobanks", "who funds the challengers — mapped to portfolios", INVESTOR),
         ("infra", "Infra for neobanks", "sponsor banks, BaaS rails and card processors", INFRA),
+        ("mcp", "MCP server for AI", f"point Claude at {n_all} neobanks — live, cited data", ACCENT),
     ]
     for slug, title, sub, col in sections:
         save(section_card(slug.replace("-", " "), title, sub, col), f"og/{slug}.png")

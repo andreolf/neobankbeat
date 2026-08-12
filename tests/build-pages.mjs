@@ -693,6 +693,67 @@ ${byFam.map(([f, hs]) => `  <h2>${esc(FAMH[f][0])}</h2>
     fs.mkdirSync(path.join(ROOT, 'browse'), { recursive: true });
     fs.writeFileSync(path.join(ROOT, 'browse', 'index.html'), html);
   }
+  /* ── /map/ — neobanks by country, a shaded heat grid (the "simpler" world map) ──
+     No new geo asset: it reuses the country hubs, so every tile links to the same
+     /countries/<slug>/ page and the counts can never drift from them. ── */
+  {
+    const url = `${BASE}/map/`;
+    /* count every country with a mapped HQ code — the long tail (1–2 neobanks)
+       has no hub page, so those tiles link to the directory filtered by name. */
+    const hubSlugSet = new Set(HUBS.filter(h => h.family === 'countries').map(h => h.slug));
+    const cCount = {};
+    for (const e of E) { const code = hqCode(e); if (CC[code]) cCount[code] = (cCount[code] || 0) + 1; }
+    const cHubs = Object.entries(cCount).map(([code, n]) => {
+      const bare = CC[code].replace(/^the /, '');
+      const slug = slugify(bare);
+      return { bare, slug, n, href: hubSlugSet.has(slug) ? `/countries/${slug}/` : `/?q=${encodeURIComponent(bare)}` };
+    }).sort((a, b) => b.n - a.n || a.bare.localeCompare(b.bare));
+    const maxN = cHubs[0]?.n || 1;
+    const placed = cHubs.reduce((a, c) => a + c.n, 0);
+    const answer = `Where the world's neobanks are based: ${placed} of the ${E.length} tracked are headquartered across ${cHubs.length} countries, each tile shaded by how many call it home. Headquarters is a complete field here — this counts base of operations, not where a product is available.`;
+    const desc = `Neobanks by country — a heat grid of ${cHubs.length} countries shaded by how many of the ${E.length} tracked neobanks are headquartered there. Click any country for the full list.`;
+    const title = `Neobanks by country — the world map of ${E.length} neobanks · neobankbeat`;
+    const ld = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'CollectionPage', name: 'Neobanks by country', url, description: answer, dateModified: DATA_MODIFIED, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+      { '@type': 'ItemList', numberOfItems: cHubs.length, itemListElement: cHubs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.bare, url: `${BASE}${c.href}` })) },
+      crumbs(['browse', `${BASE}/browse/`], ['map', url]),
+    ] };
+    const shade = n => (0.12 + 0.88 * Math.sqrt(n / maxN)).toFixed(3);
+    const mapStyle = `<style>
+.mapgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin:20px 0}
+.ctile{position:relative;display:block;border:1px solid var(--line);border-radius:10px;padding:12px 13px;text-decoration:none;overflow:hidden;background:var(--panel);transition:transform .12s ease,border-color .12s ease}
+.ctile:hover{transform:translateY(-2px);border-color:var(--accent)}
+.ctile .fill{position:absolute;inset:0;background:#FF5C16;z-index:0}
+.ctile .cname,.ctile .cnum{position:relative;z-index:1;display:block;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.ctile .cname{font-weight:700;font-size:13.5px;color:#fff}
+.ctile .cnum{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.9);margin-top:3px}
+.maplegend{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--dim);font-family:var(--mono);margin:4px 0 0}
+.maplegend .bar{width:120px;height:10px;border-radius:5px;background:linear-gradient(90deg,rgba(255,92,22,.14),#FF5C16)}
+body.bw .ctile .fill{background:#666}body.bw .maplegend .bar{background:linear-gradient(90deg,#eee,#666)}
+</style>`;
+    const grid = `<div class="mapgrid">
+${cHubs.map(c => `  <a class="ctile" href="${c.href}"><span class="fill" style="opacity:${shade(c.n)}"></span><span class="cname">${esc(c.bare)}</span><span class="cnum">${c.n} neobank${c.n === 1 ? '' : 's'}</span></a>`).join('\n')}
+</div>`;
+    const html = (head(title, desc, url, ld, ogIf('map.png')) + `
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/browse/" style="color:var(--accent)">browse</a></div>
+  <h1>Neobanks <em>by country</em></h1>
+  <p class="meta"><b>${cHubs.length} countries</b> · ${placed} of ${E.length} neobanks placed by headquarters · shaded by count · updated ${DATA_MODIFIED}</p>
+  <div class="callout"><span class="k">how to read it</span>${esc(answer)}</div>
+  <div class="maplegend">fewer <span class="bar"></span> more · click any country for the full list</div>
+  ${grid}
+  <div class="callout"><span class="k">go deeper</span>Each tile opens that country — a full page with licences and custody for the busiest, a filtered directory for the long tail. Prefer where products are <em>available</em> over where firms are based? Browse <a href="/browse/">by region</a>. Or take the raw <code>hq</code> field from <a href="/data.json">data.json</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', mapStyle + '\n</head>');
+    fs.mkdirSync(path.join(ROOT, 'map'), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, 'map', 'index.html'), html);
+    console.log(`map: ${cHubs.length} countries, ${placed} neobanks placed`);
+  }
+
   console.log(`topic hubs: ${hubSlugs.length} pages across ${new Set(HUBS.map(h => h.family)).size} families + /browse/`);
 }
 
@@ -2275,7 +2336,7 @@ pre.code .c{color:var(--dim)}
     ['dataset_stats', 'Totals and category breakdown, with the as-of note.'],
   ];
   const html = (head('neobankbeat MCP server — query neobanks from your AI assistant · neobankbeat',
-    answer, url, ld, null) + `
+    answer, url, ld, ogIf('mcp.png')) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow"><a href="/llms.txt" style="color:var(--accent)">for machines &amp; agents</a></div>
@@ -2530,6 +2591,7 @@ const urls = [
   { loc: `${BASE}/database/`, changefreq: 'weekly', priority: '0.9' },
   { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/map/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },

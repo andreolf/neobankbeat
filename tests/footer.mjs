@@ -24,6 +24,7 @@ const langbar = `<span class="langbar">🌐 <a href="/" onclick="window.nbevt&&n
 export const FOOTER_LINKS = [
   ["/", "directory"],
   ["/browse/", "browse"],
+  ["/map/", "world map"],
   ["/fit/", "find your fit"],
   ["/vs/", "compare"],
   ["/blog/", "blog"],
