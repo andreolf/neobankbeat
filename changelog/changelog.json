@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-11",
+ "generated": "2026-08-13",
  "total": 379,
  "releases": [
   {
@@ -54,6 +54,17 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-08-13",
+   "summary": "Fix unofficial krak.com domain + enrich (issue #25, rebuilt on main).",
+   "subject": "Krak: fix unofficial krak.com domain + enrich (issue #25, rebuilt on main)",
+   "total": 379,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Krak"
+   ]
+  },
   {
    "date": "2026-08-11",
    "summary": "Add funding_stage dimension + /database/ sortable table view.",
