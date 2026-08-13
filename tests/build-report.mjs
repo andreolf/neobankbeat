@@ -291,27 +291,45 @@ page(`
 <p style="font-size:9px;color:#9a9aa5;margin:5px 0 0;line-height:1.45">¹ Regulation-type coverage was expanded and backfilled since № 01, so these two rows are not month-over-month comparable — the shift reflects more complete classification, not net industry movement. Category, stablecoin, self-custody and KYC deltas track real additions and removals.</p>
 <div class="callout"><span class="k">what moved</span><p><b>${added.length} added · ${removed.length} removed</b> since № 01. The full births-and-deaths list — with the cause behind every removal — is on the next page.</p></div>`);
 
-/* ═══ THE MONTH IN REVIEW — highlights + live-platform CTAs ═══ */
-const DEATH_CAUSE = {
-  'Juno': 'US · its BaaS middleware (Synapse) collapsed — customer funds frozen',
-  'Kard': 'FR · its e-money provider terminated the contract → liquidation',
-  'Fi Money': 'IN · its partner bank walked away — ~3.5M customers redirected overnight',
-  'Z1': 'BR · absorbed by NG.CASH — brand retired',
-  'Pomelo': 'US · acquired by Zepz — product paused indefinitely',
-  'Will Bank': 'BR · shut down',
+/* ═══ THE GRAVEYARD — who died this month, and why ═══
+   Per-entity detail is edition-specific and sourced (see the references page and
+   each profile); a removed name without an entry falls back to the generic line. */
+const DEATH_DETAIL = {
+  'Juno':      { mode: 'rail', meta: 'US · crypto-friendly checking + savings', why: `Collateral damage in the 2024 Synapse/Evolve collapse: when Evolve Bank lost access to Synapse's ledger, customer funds froze across 50+ fintechs (~$95M went missing industry-wide). Juno wound down its Treasury account and pivoted to on-chain.` },
+  'Kard':      { mode: 'rail', meta: 'FR · family & teen banking', why: `Its e-money provider terminated the contract, leaving no rail to operate on — the company went into liquidation.` },
+  'Fi Money':  { mode: 'rail', meta: 'IN · savings app · 3.5M users · ~$169M raised', why: `Partner Federal Bank ended the relationship (11 Mar 2026) amid the RBI's tightening of bank–fintech tie-ups and thin unit economics; 3.5M customers were redirected to the bank's own app as Fi pivoted to AI.` },
+  'Pomelo':    { mode: 'acq', meta: 'US · remittance + credit card, Philippines corridor', why: `Acquired by Zepz (WorldRemit / Sendwave) in Jan 2026; the product was paused during integration and the team folded in — an exit, not a failure.` },
+  'Z1':        { mode: 'acq', meta: 'BR · teen neobank', why: `Absorbed by crypto neobank NG.CASH; the Z1 brand was retired.` },
+  'Will Bank': { mode: 'reg', meta: 'BR · digital bank', why: `Liquidated by Brazil's Central Bank (Jan 2026) — nominally for breaching Mastercard obligations, but tied to the collapse of the Banco Master conglomerate (a severe liquidity crisis and an ~R$11.5B fraud probe) that felled several linked institutions.` },
 };
+const DEATH_MODES = [
+  ['rail', '#FF6B6B', 'A partner or rail collapsed beneath them', 'the defining risk of the rent-a-charter model: you die when your sponsor does'],
+  ['acq', '#FFC24A', 'Acquired &amp; switched off', 'not a failure so much as consolidation — the users move, the brand does not'],
+  ['reg', '#89B0FF', 'Liquidated by the regulator', 'the rarest and most abrupt: the licence is pulled and the doors shut'],
+];
+const deathBlock = DEATH_MODES.map(([m, col, label, gloss]) => {
+  const ds = removed.filter(n => DEATH_DETAIL[n]?.mode === m);
+  if (!ds.length) return '';
+  return `<h2 style="color:${col};margin:16px 0 3px">${label}</h2>
+<p style="font-size:8.4pt;color:var(--dim);margin:0 0 8px">${gloss}</p>` +
+    ds.map(n => `<p style="margin:0 0 9px"><b>${esc(n)}</b> <span class="mono" style="font-size:8.2pt;color:var(--dim)">${DEATH_DETAIL[n].meta}</span><br>${DEATH_DETAIL[n].why}</p>`).join('\n');
+}).join('\n');
+const otherDeaths = removed.filter(n => !DEATH_DETAIL[n]);
 page(`
-<div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · the month in review</div>
-<h1>Who died, who arrived</h1>
-<p>A directory is only as honest as its removals. Since № 01, <b>${removed.length} neobanks left</b> the active list — rarely with a bang, usually with an app that simply stopped updating — and <b>${added.length} arrived</b>.</p>
-<h2 style="color:#FF6B6B;margin-bottom:6px">Delisted since № 01 · ${removed.length}</h2>
-<ul style="margin:0 0 6px;padding-left:18px;line-height:1.5">
-${removed.map(n => `<li><b>${esc(n)}</b> — ${DEATH_CAUSE[n] || 'delisted after a shutdown, acquisition or partner-bank exit'}</li>`).join('\n')}
-</ul>
-<p style="font-size:8.6pt;color:var(--dim)">Every removal is on the public record at <a href="https://www.neobankbeat.com/changelog/">neobankbeat.com/changelog</a> — the pattern is the subject of <a href="https://www.neobankbeat.com/blog/why-neobanks-die/">"why neobanks die"</a> and the deposit-risk essay <a href="https://www.neobankbeat.com/blog/who-holds-your-money/">"who actually holds your money?"</a></p>
-<h2 style="color:#BAF24A;margin-bottom:6px">New this month · ${added.length}</h2>
-<p class="mono" style="font-size:9pt;line-height:1.7;color:var(--muted)">${added.map(esc).join('  ·  ')}</p>
-<div class="callout"><span class="k">this PDF is a snapshot — the platform isn't</span><p style="line-height:1.9;margin:0">Explore all ${N}, live and updated continuously:<br>
+<div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · the graveyard</div>
+<h1>Why ${removed.length} neobanks died</h1>
+<p>A directory is only as honest as its removals. Neobanks rarely fail with a bang — usually an app just stops updating and support goes quiet. The ${removed.length} that left the active list since № 01 died three ways: a partner or rail collapsing beneath them, an acquirer switching them off, or a regulator pulling the licence. Who, and why:</p>
+${deathBlock}
+${otherDeaths.length ? `<p style="margin:0 0 9px"><b>Also delisted:</b> ${otherDeaths.map(esc).join(', ')} — see the changelog for each.</p>` : ''}
+<p style="font-size:8.4pt;color:var(--dim);margin-top:10px">Sources are on each entity's profile; the running death log is the public <a href="https://www.neobankbeat.com/changelog/">changelog</a>, and the deeper pattern is dissected in <a href="https://www.neobankbeat.com/blog/why-neobanks-die/">"why neobanks die"</a> and the deposit-risk essay <a href="https://www.neobankbeat.com/blog/who-holds-your-money/">"who actually holds your money?"</a></p>`);
+
+/* ═══ NEW ARRIVALS + LIVE-PLATFORM CTAs ═══ */
+page(`
+<div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · new arrivals</div>
+<h1>${added.length} arrived this month</h1>
+<p>Verified additions since № 01 — community-submitted or found in our discovery sweep, then checked before listing. The pattern mirrors the whole dataset's drift: heavier on hybrid and web3-native, stablecoin-first, and increasingly niche.</p>
+<p class="mono" style="font-size:9.5pt;line-height:1.85;color:var(--muted)">${added.map(esc).join('  ·  ')}</p>
+<div class="callout"><span class="k">this PDF is a snapshot — the platform isn't</span><p style="line-height:1.95;margin:0">Every figure here is live and updated continuously. Explore all ${N}:<br>
 ▸ <a href="https://www.neobankbeat.com/">the directory</a> · <a href="https://www.neobankbeat.com/map/">world map by country</a> · <a href="https://www.neobankbeat.com/database/">sortable database</a> · <a href="https://www.neobankbeat.com/matrix/">feature matrix</a><br>
 ▸ <a href="https://www.neobankbeat.com/changelog/">the changelog</a> — every add &amp; death as it happens · <a href="https://www.neobankbeat.com/blog/">the blog</a> — a deep dive per chapter<br>
 ▸ machine-readable: <a href="https://www.neobankbeat.com/data.json">data.json</a> · <a href="https://www.neobankbeat.com/mcp/">MCP server</a> — point your AI assistant at it</p></div>`);
