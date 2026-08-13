@@ -6,7 +6,7 @@
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
 [![neobanks tracked](https://img.shields.io/badge/neobanks-379-89B0FF)](https://www.neobankbeat.com)
-[![tests](https://img.shields.io/badge/tests-281%20passing-BAF24A)](tests/flowtest.js)
+[![tests](https://img.shields.io/badge/tests-299%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
@@ -80,12 +80,14 @@ more numbers from the current dataset:
 
 ## what's inside
 
-- **[directory](https://www.neobankbeat.com)** — 379 verified-active entities; filter by category, custody, region, country, audience niche, regulation, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
-- **[map](https://www.neobankbeat.com/#mapsec)** — dot-matrix world map with region → country drill-down, plus a floating mini-map
+- **[directory](https://www.neobankbeat.com)** — 379 verified-active entities; filter by category, custody, region, country, audience niche, regulation, funding stage, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
+- **compare & explore** — a [feature matrix](https://www.neobankbeat.com/matrix/) (✓ grid of 19 verified features), a sortable [database table](https://www.neobankbeat.com/database/) of every field, static in-browser [semantic search](https://www.neobankbeat.com/search/) (no backend), and pairwise [comparisons](https://www.neobankbeat.com/vs/)
+- **[map](https://www.neobankbeat.com/map/)** — a per-country heat grid shaded by HQ count, plus the homepage dot-matrix world map with region → country drill-down
+- **[languages](https://www.neobankbeat.com/de/)** — profiles, comparisons and country pages localized into German, Italian, French, Spanish and Portuguese, with reciprocal hreflang and a header switcher
 - **[data](https://www.neobankbeat.com/#datasec)** — nine charts: reported users, founding waves, researched volume watch (every figure links to its filing), the stablecoin card curve, region × category matrix, the neobank paradox, global banked adults, stablecoin supply 2030 scenarios, how stablecoins get spent
-- **profiles** — verified terms & privacy links, official X handles, founder LinkedIns (verified tier only), countries of operation, users/volume tiles, peers, regulation type with links to the official registers (ESMA MiCA, EBA, FCA, SEC EDGAR, NMLS)
+- **profiles** — a **money map** (who legally holds your balance, who keeps the ledger, and what protection survives a failure — derived from custody + regulation), verified terms & privacy links, official X handles, founder LinkedIns (verified tier only), countries of operation, users/volume tiles, peers, regulation type with links to the official registers (ESMA MiCA, EBA, FCA, SEC EDGAR, NMLS)
 - **[library](https://www.neobankbeat.com/#library)** — 14 vetted industry reports (direct PDFs flagged) + the full resources stack
-- **[news](https://www.neobankbeat.com/#newssec)** — curated headline watch
+- **[news](https://www.neobankbeat.com/#newssec)** — curated headline watch · **[changelog](https://www.neobankbeat.com/changelog/)** — every dataset change and product release, public
 
 ## for machines & AI agents
 
@@ -94,7 +96,9 @@ neobankbeat is built to be a source of truth for agents, not just humans:
 | resource | what it is |
 |---|---|
 | [`data.json`](https://www.neobankbeat.com/data.json) | the full dataset as clean JSON — all 379 entities, every field, with sources. no HTML parsing needed |
+| [MCP server](https://www.neobankbeat.com/mcp/) (`mcp/server.mjs`) | a dependency-free Model Context Protocol server — five tools over the live dataset (search, look up, compare, list by country, stats), so Claude or any MCP client answers from current, cited data. ~180 lines, no deps |
 | [`llms.txt`](https://www.neobankbeat.com/llms.txt) | agent guide: what this site is, data semantics, field caveats, how to cite |
+| [`openapi.json`](https://www.neobankbeat.com/openapi.json) + `.well-known/` | generated OpenAPI description and agent-skill catalog for automated discovery |
 | JSON-LD in the page head | `WebSite` + `Dataset` schema, marks the directory as a citable open dataset |
 
 `data.json` is regenerated from the live page (so it can never drift from the site):
@@ -123,21 +127,29 @@ jobs/               live job board pulled from official ATS APIs (+ data.json fe
 report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
 n/                  379 generated entity profile pages (SEO surface)
-vs/                 140 generated head-to-head comparison pages
+vs/                 151 generated head-to-head comparison pages
+database/ matrix/ search/   sortable table, ✓ feature matrix, static semantic search
+map/                per-country HQ heat grid
+mcp/                Model Context Protocol server (server.mjs + README)
+de/ it/ fr/ es/ pt/ localized profiles, comparisons and country pages (metadata tier)
 browse/             index of every ready-made cut of the dataset
-regulation/ kyc/ regions/ for/   24 generated topic hubs (one license, KYC posture,
-                    region or audience each — the filters, as linkable pages)
+regulation/ kyc/ regions/ for/ cards/ countries/   46 generated topic hubs (one license,
+                    KYC posture, card, region, country or audience each — filters as pages)
 tests/
-├── flowtest.js     281 assertion sites across 39 user flows (JSDOM)
+├── flowtest.js     299 assertion sites across 39 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from app.js
 ├── build-app-js.mjs keeps app.js and index.html's ?v= hash in step (--check)
 ├── homepage-js.mjs  the one place that knows where the homepage's JS lives
+├── i18n.mjs        locale dictionaries + helpers for the 5 localized surfaces
 ├── sync-blog-asof.mjs stamps dated posts whose counts no longer match live data
-├── build-pages.mjs regenerates /n/, /vs/ and sitemap.xml from data.json
+├── build-pages.mjs regenerates /n/, /vs/, the topic hubs, /database/, /matrix/,
+│                   /search/, /map/, /mcp/ and sitemap.xml from data.json
+├── build-changelog.mjs builds /changelog/ from git history + curated releases
 ├── build-jobs.mjs  refreshes /jobs/ from Greenhouse/Lever/Ashby APIs
 ├── build-report.mjs generates the monthly 50+ page State of Neobanks PDF
 ├── build-agents.mjs generates openapi.json and .well-known/* from data.json
-├── footer.mjs      the site footer, defined once
+├── gen-og.py       generates the 1200×630 OG share cards (Pillow)
+├── footer.mjs      the site nav + footer (incl. the language switcher), defined once
 ├── meta.mjs        the <head> description and breadcrumb rules, defined once
 ├── sync-footers.mjs pushes the nav + footer into hand-written HTML (--check for drift)
 ├── sync-crumbs.mjs gives hand-written pages a BreadcrumbList (--check for gaps)
@@ -157,8 +169,8 @@ each page had marked as current. Add a link there and nowhere else, then run:
 node tests/build-pages.mjs && node tests/build-changelog.mjs && node tests/sync-footers.mjs && node tests/sync-crumbs.mjs && node tests/sync-tables.mjs
 ```
 
-That is one command for 1,642 pages, which is why `/browse/` could be added to
-the nav at all.
+That is one command for 8,000+ pages (profiles, comparisons, hubs and their five
+localized mirrors), which is why `/browse/` could be added to the nav at all.
 
 The homepage keeps its own grouped footer on purpose — columns, on-page anchors
 and a disclaimer that would be noise on an inner page — and its nav swaps three
