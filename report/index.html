@@ -52,6 +52,11 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
 .rstat .n{font-family:'Noto Sans Mono',monospace;font-size:22px;font-weight:700}
 .rstat .l{font-family:'Noto Sans Mono',monospace;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:4px}
 .gate{background:linear-gradient(180deg,var(--panel),var(--panel2,#14141F));border:1px solid var(--line);border-radius:14px;padding:28px;margin:36px 0}
+/* the Substack embed is a cross-origin iframe, so its white card can't be
+   restyled directly — invert+hue-rotate flips it dark while keeping the
+   brand orange roughly right. In black & white (light) mode, leave it white. */
+#ssembed{filter:invert(.92) hue-rotate(180deg)}
+body.bw #ssembed{filter:none}
 .gate .k{font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc)}
 .gate h2{margin:10px 0 8px;border:0;padding:0}
 .chlist{columns:2;column-gap:28px;margin:18px 0 6px}
@@ -146,9 +151,9 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
       <span class="k">get the report — free</span>
       <h2>Subscribe below — one step, no redirect</h2>
       <p style="color:var(--muted);margin:0 0 12px">Pop your email in the box and hit subscribe, right here — no second tab. Your download starts the moment you do. No paid tier, no spam; the free newsletter is the only gate.</p>
-      <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block" frameborder="0" scrolling="no"></iframe>
-      <p class="nbnote" style="margin-top:10px">free · via Substack · instant, one step</p>
-      <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
+      <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto" frameborder="0" scrolling="no"></iframe>
+      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts</p>
+      <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0;text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
     </div>
     <div class="doneui" style="display:none">
       <span class="k">✓ thanks</span>
@@ -161,19 +166,20 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
     var KEY='nbbReport2026-08',gate=document.getElementById('gate');
     var lockedui=gate.querySelector('.lockedui'),doneui=gate.querySelector('.doneui');
     function dl(){var a=document.createElement('a');a.href='/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf';a.download='';document.body.appendChild(a);a.click();a.remove();}
-    function unlock(auto){if(doneui.style.display==='block')return;lockedui.style.display='none';doneui.style.display='block';
+    function unlock(auto,keepForm){if(doneui.style.display==='block')return;if(!keepForm)lockedui.style.display='none';doneui.style.display='block';
       try{localStorage.setItem(KEY,'1')}catch(_){}
       if(auto!==false)setTimeout(dl,500);}
     try{if(localStorage.getItem(KEY)){lockedui.style.display='none';doneui.style.display='block';}}catch(_){}
-    /* focus entering the Substack embed = the visitor is subscribing on-page; give
-       them a few seconds to finish, then start the download. Reliable subscribe
-       (Substack's own form carries the session), no redirect, no second step. */
-    var armed=false;
-    window.addEventListener('blur',function(){setTimeout(function(){
-      if(!armed&&document.activeElement&&document.activeElement.id==='ssembed'){armed=true;
-        try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
-        setTimeout(function(){unlock(true)},5000);}
-    },0);});
+    /* A cross-origin iframe still fires load on navigation, and Substack's embed
+       navigates when the form actually submits — so the 2nd load event IS the
+       subscribe click. (Focus/typing never triggers anything.) The embed stays
+       visible so Substack's own confirmation message isn't yanked away. */
+    var fr=document.getElementById('ssembed'),loads=0;
+    if(fr)fr.addEventListener('load',function(){
+      loads++;if(loads<2)return;
+      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
+      unlock(true,true);
+    });
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
   })();
   </script>
