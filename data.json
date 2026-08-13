@@ -19842,13 +19842,13 @@
    "custody": "Custodial",
    "regulation_type": "MiCA CASP (EU)",
    "card_network": "MC",
-   "card_type": "Debit",
-   "cashback": "Spend rewards",
-   "yield": "Yield incl. stables",
+   "card_type": "Debit (metal tiers)",
+   "cashback": "Up to 2% (cash or BTC)",
+   "yield": "Up to 8% APY (Vaults)",
    "stablecoins": true,
    "kyc": "Yes",
-   "domain": "krak.com",
-   "website": "https://krak.com",
+   "domain": "kraken.com",
+   "website": "https://kraken.com",
    "active_regions": [
     "North America",
     "Europe",
@@ -19858,19 +19858,16 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Kraken's consumer money app.",
+   "note": "Kraken's global money app; Kraktag P2P, IBAN salary, UK/EEA Mastercard.",
    "story": "Kraken's move from exchange to money app: spend, yield and P2P Kraktags on one balance.",
    "license": "US state licenses; MiCA (EU)",
    "founders": "Kraken",
-   "terms_url": "https://krak.com/legal",
+   "terms_url": "https://www.kraken.com/legal",
    "privacy_url": "https://www.kraken.com/legal/privacy",
-   "x_handle": "krak",
+   "x_handle": "krakenfx",
    "countries": [
-    "United States",
     "European Union",
-    "United Kingdom",
-    "Canada",
-    "Australia"
+    "United Kingdom"
    ],
    "investors": [
     {
@@ -19896,8 +19893,8 @@
     "sandbox": null,
     "business_accounts": null,
     "virtual_cards": null,
-    "physical_cards": null,
-    "iban": null,
+    "physical_cards": true,
+    "iban": true,
     "self_custody": null,
     "mpc": null,
     "yield_bearing": true,
