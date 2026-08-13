@@ -2679,6 +2679,7 @@ const urls = [
   ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
+  { loc: `${BASE}/report/2026-08/`, lastmod: '2026-08-13', priority: '0.9' },
   { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
   { loc: `${BASE}/jobs/match/`, changefreq: 'weekly', priority: '0.75' },
@@ -2745,7 +2746,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [CV job match](${BASE}/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
-- [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-07/)
+- [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-08/)
 
 ## Data & agent endpoints
 
