@@ -57,6 +57,12 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
    brand orange roughly right. In black & white (light) mode, leave it white. */
 #ssembed{filter:invert(.92) hue-rotate(180deg)}
 body.bw #ssembed{filter:none}
+/* Substack's embed doesn't reflow below ~420px (it center-crops, hiding the
+   button), so on small screens swap in our own form → their responsive
+   subscribe page, prefilled. Download still starts on submit. */
+.mgate{display:none;max-width:480px;margin:0 auto}
+.monly{display:none}
+@media(max-width:600px){#ssembed{display:none!important}.mgate{display:flex}.monly{display:inline}}
 .gate .k{font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc)}
 .gate h2{margin:10px 0 8px;border:0;padding:0}
 .chlist{columns:2;column-gap:28px;margin:18px 0 6px}
@@ -152,7 +158,11 @@ body.bw #ssembed{filter:none}
       <h2>Subscribe below — one step, no redirect</h2>
       <p style="color:var(--muted);margin:0 0 12px">Pop your email in the box and hit subscribe, right here — no second tab. Your download starts the moment you do. No paid tier, no spam; the free newsletter is the only gate.</p>
       <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto" frameborder="0" scrolling="no"></iframe>
-      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts</p>
+      <form class="nbform mgate" id="mform">
+        <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit">subscribe &amp; download →</button>
+      </form>
+      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts<span class="monly"> · confirm on the Substack tab that opens</span></p>
       <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0;text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
     </div>
     <div class="doneui" style="display:none">
@@ -181,6 +191,14 @@ body.bw #ssembed{filter:none}
       unlock(true,true);
     });
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
+    /* small screens: our form → Substack's responsive subscribe page, prefilled */
+    var mf=document.getElementById('mform');
+    if(mf)mf.addEventListener('submit',function(e){e.preventDefault();
+      var em=(document.getElementById('memail')||{}).value||'';
+      try{window.open('https://neobankbeat.substack.com/subscribe?email='+encodeURIComponent(em),'_blank','noopener')}catch(_){}
+      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'mobile'})}catch(_){}
+      unlock(true);
+    });
   })();
   </script>
 
