@@ -69,6 +69,8 @@ E.forEach(e => cust[e.custody] = (cust[e.custody] || 0) + 1);
 const regTypes = Object.entries(E.reduce((m, e) => (m[e.regulation_type] = (m[e.regulation_type] || 0) + 1, m), {})).sort((a, b) => b[1] - a[1]);
 const licBanks = cntBy(E, e => e.regulation_type === 'Licensed bank');
 const partnerBanks = cntBy(E, e => e.regulation_type === 'Partner-bank model');
+const f2025 = cntBy(E, e => e.founded === 2025);
+const peakYr = [...yearArr].filter(([y]) => y >= 2010).sort((a, b) => b[1] - a[1])[0]; /* [year, count] of the founding peak */
 
 const stables = E.filter(e => e.stablecoins).length;
 const stByCat = { T: byCat.traditional.filter(e => e.stablecoins).length, H: byCat.hybrid.filter(e => e.stablecoins).length, W: byCat['web3-native'].filter(e => e.stablecoins).length };
@@ -250,16 +252,16 @@ page(`
 <div class="eyebrow">executive summary</div>
 <h1>Ten numbers that define<br>the industry right now</h1>
 <div class="statrow">
-  <div class="stat"><div class="n ca">4</div><div class="l">survivors founded 2025 (vs 45 in 2019)</div></div>
+  <div class="stat"><div class="n ca">${f2025}</div><div class="l">survivors founded 2025 (vs ${peakYr[1]} in ${peakYr[0]})</div></div>
   <div class="stat"><div class="n ca">30%</div><div class="l">of the 2020s cohort is self-custodial</div></div>
   <div class="stat"><div class="n ca">2.7%</div><div class="l">of traditional neobanks support stablecoins</div></div>
 </div>
 <div class="statrow">
-  <div class="stat"><div class="n">26%</div><div class="l">are actually licensed banks</div></div>
+  <div class="stat"><div class="n">${Math.round(licBanks / N * 100)}%</div><div class="l">are actually licensed banks</div></div>
   <div class="stat"><div class="n">33%</div><div class="l">serve a named niche audience</div></div>
   <div class="stat"><div class="n">${noKyc.length}</div><div class="l">usable with no KYC at all</div></div>
 </div>
-<p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>45 in 2019</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
+<p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>${peakYr[1]} in ${peakYr[0]}</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
 <p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
 <div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>`);
 
