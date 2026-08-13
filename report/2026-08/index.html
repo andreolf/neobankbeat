@@ -437,32 +437,33 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
       <li>Appendix B — dataset &amp; schema</li>
       <li>References</li>
     </ul>
-    <form class="nbform" id="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener">
-      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+    <form class="nbform" id="nbform">
+      <input type="email" name="email" id="nbemail" required placeholder="you@example.com" aria-label="Email address">
       <button type="submit">subscribe &amp; download →</button>
     </form>
-    <p class="nbnote">free · via substack · confirm in the tab that opens — your download starts here automatically</p>
-    <p class="alt">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a></p>
+    <p class="nbnote">free · via Substack · one step, no redirect · you may get a one-tap confirmation email</p>
+    <p class="alt">already subscribed? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
-    <span class="k">unlocked</span>
-    <div class="big">🎉 Your download is starting…</div>
-    <p>If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. The September edition will arrive by email. Thanks for subscribing.</p>
+    <span class="k">✓ you're on the list</span>
+    <div class="big">Your download is starting…</div>
+    <p>If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. First time? Confirm from the email Substack sends, or <a href="https://neobankbeat.substack.com/subscribe" target="_blank" rel="noopener" style="color:var(--acc)">subscribe here</a> — the September edition ships there.</p>
   </div>
 </div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
-/* gate: no server, so unlock is detected client-side — when the visitor
-   interacts with the substack embed (blur → focus lands in the iframe),
-   we give them time to finish subscribing, then start the PDF download. */
+/* gate: no server. On submit the email posts straight to Substack (fire-and-
+   forget, no redirect), then the PDF downloads inline. The direct link and a
+   Substack fallback stay visible in case the confirmation step is needed. */
 (function(){
   const KEY='nbbReport2026-08',gate=document.getElementById('gate');
   const dl=()=>{const a=document.createElement('a');a.href='/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf';a.download='';document.body.appendChild(a);a.click();a.remove();};
+  const subscribe=email=>{if(!email)return;try{fetch('https://neobankbeat.substack.com/api/v1/free',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({email:email,first_url:'https://neobankbeat.substack.com/',first_referrer:document.referrer||'',current_url:location.href,current_referrer:document.referrer||'',referral_code:'',source:'cover_page',should_verify:false})}).catch(()=>{});}catch(_){}try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}};
   const unlock=auto=>{if(gate.classList.contains('done'))return;gate.classList.add('done');
     try{localStorage.setItem(KEY,'1')}catch(_){}
-    if(auto!==false)setTimeout(dl,600);};
+    if(auto!==false)setTimeout(dl,500);};
   try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
-  document.getElementById('nbform').addEventListener('submit',()=>{setTimeout(()=>unlock(true),800);});
+  document.getElementById('nbform').addEventListener('submit',e=>{e.preventDefault();const em=(document.getElementById('nbemail')||{}).value||'';subscribe(em);unlock(true);});
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
