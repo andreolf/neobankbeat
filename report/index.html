@@ -162,7 +162,8 @@ body.bw #ssembed{filter:none}
         <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
         <button type="submit">subscribe &amp; download →</button>
       </form>
-      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts<span class="monly"> · confirm on the Substack tab that opens</span></p>
+      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe, then grab your PDF below<span class="monly"> · confirm on the Substack tab that opens</span></p>
+      <button id="dlready" style="display:none;margin:12px auto 0;font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;background:var(--acc);color:#0A0A10;border:none;border-radius:10px;padding:13px 24px;cursor:pointer">✓ subscribed — download the report ↓</button>
       <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0;text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
     </div>
     <div class="doneui" style="display:none">
@@ -180,15 +181,24 @@ body.bw #ssembed{filter:none}
       try{localStorage.setItem(KEY,'1')}catch(_){}
       if(auto!==false)setTimeout(dl,500);}
     try{if(localStorage.getItem(KEY)){lockedui.style.display='none';doneui.style.display='block';}}catch(_){}
-    /* A cross-origin iframe still fires load on navigation, and Substack's embed
-       navigates when the form actually submits — so the 2nd load event IS the
-       subscribe click. (Focus/typing never triggers anything.) The embed stays
-       visible so Substack's own confirmation message isn't yanked away. */
+    /* Substack's embed submits via XHR (no iframe navigation), so the parent
+       can't observe the click directly. Instead: the moment focus enters the
+       embed (they're subscribing), reveal an explicit download button below —
+       nothing ever auto-fires while they type. If the iframe does navigate
+       (some flows do), the 2nd load event auto-unlocks as a bonus. */
     var fr=document.getElementById('ssembed'),loads=0;
     if(fr)fr.addEventListener('load',function(){
       loads++;if(loads<2)return;
       try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
       unlock(true,true);
+    });
+    var ready=document.getElementById('dlready');
+    window.addEventListener('blur',function(){setTimeout(function(){
+      if(ready&&document.activeElement===fr)ready.style.display='block';
+    },0);});
+    if(ready)ready.addEventListener('click',function(){
+      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'button'})}catch(_){}
+      unlock(true);
     });
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
     /* small screens: our form → Substack's responsive subscribe page, prefilled */
