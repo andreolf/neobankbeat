@@ -8,7 +8,7 @@
       "type": "skill",
       "description": "Query the open neobankbeat dataset — 379 verified-active neobanks compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography — plus a live job board. Use when you need facts about digital banks, crypto cards, self-custodial money apps, their investors, or fintech jobs.",
       "url": "https://www.neobankbeat.com/.well-known/agent-skills/neobank-dataset/SKILL.md",
-      "sha256": "24ddcdb285b929dbd14f83287263401278952bbe9f0a83b4035b3d6a6b4b2931"
+      "sha256": "12a18f94c07aac7504598398fe426558007ddb993910b8eb59bee446257c4a4a"
     }
   ]
 }

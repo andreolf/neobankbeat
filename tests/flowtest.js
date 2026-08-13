@@ -560,9 +560,12 @@ console.log('— flow 27: every footer comes from one source (no hand-edited dri
       if(!m)continue;
       n++;
       const rel=path.relative(root2,f);
+      // the language chooser is a control, not a primary-nav destination, so
+      // drop its links before reading the nav's canonical order
+      const navMarkup=m[0].replace(/<details class="langmenu">[\s\S]*?<\/details>/,'');
       // drop the logo link (the report edition carries one) and on-page anchors
       // (the homepage swaps three of its links for them, correctly)
-      const hrefs=[...m[0].matchAll(/<a(?![^>]*class="logo")[^>]*href="([^"]+)"/g)].map(x=>x[1])
+      const hrefs=[...navMarkup.matchAll(/<a(?![^>]*class="logo")[^>]*href="([^"]+)"/g)].map(x=>x[1])
         .filter(x=>x.startsWith('/'));
       const canonHere=CANON.filter(c=>hrefs.includes(c));
       if(hrefs.join(' ')!==canonHere.join(' '))outOfOrder.push(rel);
