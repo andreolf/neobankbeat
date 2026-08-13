@@ -1044,6 +1044,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 .nbnote{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);margin:0 0 4px}
 @media(max-width:480px){.nbform{flex-direction:column}}
 .wgate.done .lockedui{display:none}
+.wgate.done.keepform .lockedui{display:block}
 .wgate .doneui{display:none}
 .wgate.done .doneui{display:block}
 .doneui .big{font-size:21px;font-weight:700;margin:8px 0}
@@ -1111,9 +1112,9 @@ ${webSections}
     <ul class="wlocked">
 ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     </ul>
-    <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block" frameborder="0" scrolling="no"></iframe>
-    <p class="nbnote" style="margin-top:10px">free · via Substack · instant, one step, no redirect</p>
-    <p class="alt">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
+    <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
+    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts</p>
+    <p class="alt" style="text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
     <span class="k">✓ thanks</span>
@@ -1124,21 +1125,24 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
 /* gate: no server. The visitor subscribes in Substack's own embed (reliable —
-   it carries the session), inline, no redirect. When focus enters the embed
-   they're subscribing, so we give them a few seconds and then start the PDF. */
+   it carries the session), inline, no redirect. A cross-origin iframe still
+   fires load on navigation, and the embed navigates when the form actually
+   submits — so the 2nd load event IS the subscribe click; typing never
+   triggers anything. The embed stays visible so Substack's own confirmation
+   message isn't yanked away. */
 (function(){
   const KEY='nbbReport${ED_SLUG}',gate=document.getElementById('gate');
   const dl=()=>{const a=document.createElement('a');a.href='${PDF_URL}';a.download='';document.body.appendChild(a);a.click();a.remove();};
-  const unlock=auto=>{if(gate.classList.contains('done'))return;gate.classList.add('done');
+  const unlock=(auto,keepForm)=>{if(gate.classList.contains('done'))return;gate.classList.add('done');if(keepForm)gate.classList.add('keepform');
     try{localStorage.setItem(KEY,'1')}catch(_){}
     if(auto!==false)setTimeout(dl,500);};
   try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
-  let armed=false;
-  window.addEventListener('blur',()=>{setTimeout(()=>{
-    if(!armed&&document.activeElement&&document.activeElement.id==='ssembed'){armed=true;
-      try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}'})}catch(_){}
-      setTimeout(()=>unlock(true),5000);}
-  },0);});
+  const fr=document.getElementById('ssembed');let loads=0;
+  if(fr)fr.addEventListener('load',()=>{
+    loads++;if(loads<2)return;
+    try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}'})}catch(_){}
+    unlock(true,true);
+  });
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
