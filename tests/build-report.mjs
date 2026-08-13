@@ -238,7 +238,7 @@ page(`
 <li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT license). The report itself is generated from that file.</li>
 <li><b>Independence:</b> no affiliate links, no sponsored placements, no issuer relationships. Errors are fixed in the open on GitHub.</li>
 </ul>
-<div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — ${MONTH} (№ 01), data as of July 2026." Link: neobankbeat.com/report</p></div>
+<div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — ${MONTH} (${EDITION}), ${ASOF}." Link: <a href="https://www.neobankbeat.com/report/">neobankbeat.com/report</a></p></div>
 <p style="color:var(--dim);font-size:8.6pt">Figures are compiled from public sources for comparison and research, and are not financial advice. Cashback and yield figures are "up to" headline rates that change constantly — always confirm with the issuer. © ${MONTH.split(' ')[1]} neobankbeat · Francesco Andreoli · MIT.</p>`);
 
 /* ═══ TOC (placeholder — filled after all pages exist) ═══ */
@@ -289,7 +289,32 @@ page(`
 <tr><td>Largest reported user base</td><td class="mono">${topUsers[0].name} · ${topUsers[0].reported_users.value_millions}M</td><td class="mono">—</td><td class="mono">—</td><td>self-reported</td></tr>
 </table>
 <p style="font-size:9px;color:#9a9aa5;margin:5px 0 0;line-height:1.45">¹ Regulation-type coverage was expanded and backfilled since № 01, so these two rows are not month-over-month comparable — the shift reflects more complete classification, not net industry movement. Category, stablecoin, self-custody and KYC deltas track real additions and removals.</p>
-<div class="callout"><span class="k">what moved</span><p><b>Added (${added.length}):</b> ${added.length ? shownNames(added) : 'none'}.</p><p style="margin-top:6px"><b>Removed (${removed.length}):</b> ${removed.length ? shownNames(removed) : 'none'} — delisted after shutdowns, acquisitions or partner-bank exits. Deaths are tracked, not hidden: the running log is the public <a href="https://www.neobankbeat.com/changelog/">changelog</a>.</p></div>`);
+<div class="callout"><span class="k">what moved</span><p><b>${added.length} added · ${removed.length} removed</b> since № 01. The full births-and-deaths list — with the cause behind every removal — is on the next page.</p></div>`);
+
+/* ═══ THE MONTH IN REVIEW — highlights + live-platform CTAs ═══ */
+const DEATH_CAUSE = {
+  'Juno': 'US · its BaaS middleware (Synapse) collapsed — customer funds frozen',
+  'Kard': 'FR · its e-money provider terminated the contract → liquidation',
+  'Fi Money': 'IN · its partner bank walked away — ~3.5M customers redirected overnight',
+  'Z1': 'BR · absorbed by NG.CASH — brand retired',
+  'Pomelo': 'US · acquired by Zepz — product paused indefinitely',
+  'Will Bank': 'BR · shut down',
+};
+page(`
+<div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · the month in review</div>
+<h1>Who died, who arrived</h1>
+<p>A directory is only as honest as its removals. Since № 01, <b>${removed.length} neobanks left</b> the active list — rarely with a bang, usually with an app that simply stopped updating — and <b>${added.length} arrived</b>.</p>
+<h2 style="color:#FF6B6B;margin-bottom:6px">Delisted since № 01 · ${removed.length}</h2>
+<ul style="margin:0 0 6px;padding-left:18px;line-height:1.5">
+${removed.map(n => `<li><b>${esc(n)}</b> — ${DEATH_CAUSE[n] || 'delisted after a shutdown, acquisition or partner-bank exit'}</li>`).join('\n')}
+</ul>
+<p style="font-size:8.6pt;color:var(--dim)">Every removal is on the public record at <a href="https://www.neobankbeat.com/changelog/">neobankbeat.com/changelog</a> — the pattern is the subject of <a href="https://www.neobankbeat.com/blog/why-neobanks-die/">"why neobanks die"</a> and the deposit-risk essay <a href="https://www.neobankbeat.com/blog/who-holds-your-money/">"who actually holds your money?"</a></p>
+<h2 style="color:#BAF24A;margin-bottom:6px">New this month · ${added.length}</h2>
+<p class="mono" style="font-size:9pt;line-height:1.7;color:var(--muted)">${added.map(esc).join('  ·  ')}</p>
+<div class="callout"><span class="k">this PDF is a snapshot — the platform isn't</span><p style="line-height:1.9;margin:0">Explore all ${N}, live and updated continuously:<br>
+▸ <a href="https://www.neobankbeat.com/">the directory</a> · <a href="https://www.neobankbeat.com/map/">world map by country</a> · <a href="https://www.neobankbeat.com/database/">sortable database</a> · <a href="https://www.neobankbeat.com/matrix/">feature matrix</a><br>
+▸ <a href="https://www.neobankbeat.com/changelog/">the changelog</a> — every add &amp; death as it happens · <a href="https://www.neobankbeat.com/blog/">the blog</a> — a deep dive per chapter<br>
+▸ machine-readable: <a href="https://www.neobankbeat.com/data.json">data.json</a> · <a href="https://www.neobankbeat.com/mcp/">MCP server</a> — point your AI assistant at it</p></div>`);
 
 /* ═══ TEN FINDINGS (2pp) ═══ */
 chapter('The ten findings');
@@ -424,7 +449,7 @@ page(`
 <tr><td class="mono">2025</td><td>GENIUS Act; FDIC recordkeeping rule; wallet-card wave (MetaMask, Phantom)</td><td>Stablecoins become supervised instruments; wallets become neobanks</td></tr>
 <tr><td class="mono">2026</td><td>MiCA grandfathering closes; traditional-wave stablecoin pilots begin</td><td>The migration this report exists to measure</td></tr>
 </table>
-<p style="color:var(--dim)">Deeper cuts on each era: the blog series at neobankbeat.com/blog, starting with "the three waves of neobanks".</p>`);
+<p style="color:var(--dim)">Deeper cuts on each era: the blog series at <a href="https://www.neobankbeat.com/blog/">neobankbeat.com/blog</a>, starting with "the three waves of neobanks".</p>`);
 page(`
 <div class="eyebrow">chapter 3 · history</div>
 <h2>The graveyard as evidence</h2>
@@ -646,7 +671,7 @@ page(`
 ${hbar(REGIONS.map(r => [r, regCount[r]]), { labelW: 170 })}
 <div class="src">presence ≠ headquarters — Wise alone is active in six regions · neobankbeat dataset</div></div>
 <p>Europe's ${regCount['Europe']} is a density record, not a size one: dozens of players per market, aggressive passporting, and the world's most active license regimes. Asia's ${regCount['Asia']} mixes licensed digital banks (Korea, Singapore, Hong Kong, the Philippines) with wallet giants that became banks in all but name. The following pages profile each region: its model, its champions, and the number that tells its story.</p>
-<p style="color:var(--dim)">Regional pages list a representative selection; the full per-country view lives in the interactive map at neobankbeat.com.</p>`);
+<p style="color:var(--dim)">Regional pages list a representative selection; the full per-country view lives in the interactive <a href="https://www.neobankbeat.com/map/">world map</a> at neobankbeat.com.</p>`);
 
 const REGION_COPY = {
   'Europe': ['License-dense, margin-thin', 'The deepest bench of licensed digital banks (Monzo, Starling, bunq, N26) plus the EMI capital of the world. MiCA has made it the clearest jurisdiction for crypto neobanks; profitability, not regulation, is the binding constraint. Watch: euro-stablecoin card programmes scaling under the EMT regime.'],
@@ -866,7 +891,7 @@ page(`
   <div style="text-align:center">
     <div class="mono" style="font-size:26pt;font-weight:700">neobank<span class="ca">beat</span></div>
     <p style="margin-top:6mm;color:var(--muted)">who watches the neobanks?</p>
-    <p style="color:var(--dim);font-size:9pt;margin-top:10mm">directory · neobankbeat.com<br>newsletter · neobankbeat.substack.com<br>open data · github.com/andreolf/neobankbeat</p>
+    <p style="color:var(--dim);font-size:9pt;margin-top:10mm">directory · <a href="https://www.neobankbeat.com/">neobankbeat.com</a><br>live dashboards · <a href="https://www.neobankbeat.com/map/">map</a> · <a href="https://www.neobankbeat.com/database/">database</a> · <a href="https://www.neobankbeat.com/matrix/">matrix</a> · <a href="https://www.neobankbeat.com/changelog/">changelog</a><br>newsletter · neobankbeat.substack.com<br>open data · github.com/andreolf/neobankbeat</p>
   </div>
   <div class="mono" style="font-size:8pt;color:var(--dim);text-align:center">the state of neobanks · ${MONTH} · ${EDITION} · © neobankbeat, MIT — cite freely with attribution</div>
 </div>${catbar}`, { footer: false });
@@ -1027,7 +1052,7 @@ const webHtml = `<!DOCTYPE html>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-${JSON.stringify(withCrumbs({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-07-05', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licenses, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` }, ['report', 'https://www.neobankbeat.com/report/'], [MONTH, `https://www.neobankbeat.com/report/${ED_SLUG}/`]))}
+${JSON.stringify(withCrumbs({ '@context': 'https://schema.org', '@type': 'Report', name: `The State of Neobanks — ${MONTH}`, url: `https://www.neobankbeat.com/report/${ED_SLUG}/`, datePublished: '2026-08-13', publisher: { '@type': 'Organization', name: 'neobankbeat', url: 'https://www.neobankbeat.com' }, isAccessibleForFree: 'False', hasPart: { '@type': 'WebPageElement', isAccessibleForFree: 'True', cssSelector: '.wsec' }, description: `Monthly report on ${N} verified-active neobanks: custody, licenses, cards, stablecoins, geography and niches. First ${FREE_CHAPTERS} chapters free online; full PDF free for newsletter subscribers.` }, ['report', 'https://www.neobankbeat.com/report/'], [MONTH, `https://www.neobankbeat.com/report/${ED_SLUG}/`]))}
 </script>
 <style>${CSS}${WEBCSS}</style>
 </head>
