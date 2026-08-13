@@ -257,7 +257,7 @@ page(`
 <div class="statrow">
   <div class="stat"><div class="n">26%</div><div class="l">are actually licensed banks</div></div>
   <div class="stat"><div class="n">33%</div><div class="l">serve a named niche audience</div></div>
-  <div class="stat"><div class="n">${noKyc.length}</div><div class="l">work with no KYC at all</div></div>
+  <div class="stat"><div class="n">${noKyc.length}</div><div class="l">usable with no KYC at all</div></div>
 </div>
 <p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>45 in 2019</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
 <p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
@@ -344,7 +344,7 @@ const FINDINGS = [
   ['Cards are universal; the economics aren\u2019t', `${N - noCard} of ${N} issue a card (${visa} Visa, ${mc} Mastercard programmes). ${cashback} advertise cashback, ${yieldN} offer yield — nearly all behind "up to" tiers. Interchange-only economics are visibly straining.`],
   ['Europe has the density, the South has the giants', `Active presence: Europe ${regCount['Europe']}, Asia ${regCount['Asia']}, North America ${regCount['North America']}, LatAm ${regCount['Latin America']}, Africa ${regCount['Africa']}. But the largest customer bases are all emerging-market.`],
   ['One in three picks an audience first', `${nicheTotal} of ${N} serve a named niche — SMB (29), underbanked (21), freelancers (14), gen z (9), immigrants (9), kids (8), faith-based (7) and a dozen more. "Right bank for someone" beats "better bank for everyone".`],
-  ['No-KYC stays a rounding error — by design', `${noKyc.length} of ${N} work without identity checks; all are self-custodial wallets; none issues a card without KYC. The line is structural, not cultural.`],
+  ['No-KYC stays a rounding error — by design', `${noKyc.length} of ${N} are usable with no identity check at all; all are self-custodial wallets; none issues a card without KYC. The line is structural, not cultural.`],
   ['Legal-link hygiene is poor', `Official terms documents verifiable for only ${termsN} of ${N} — after an audit that repaired 60 dead legal links and removed 53 that resolve nowhere. For an industry holding money, basic document hygiene remains weak.`],
   ['The categories are dissolving', `Traditional players add stablecoin rails; web3-native apps acquire e-money licenses and IBANs. Our own three-way classification gets harder to maintain each quarter — which is itself the finding.`],
 ];
