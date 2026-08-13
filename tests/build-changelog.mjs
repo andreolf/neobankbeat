@@ -54,6 +54,15 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-08-13', tag: 'new', title: 'The State of Neobanks № 02 — August',
+    body: 'The second monthly report ships — and the first with month-over-month deltas: what changed since July, a "why they died" graveyard page tracing every delisting to its cause (Synapse fallout, partner-bank exits, a regulator liquidation), and the month\'s new arrivals. 60 pages, free, every figure reproducible from the open dataset.',
+    links: [['/report/', 'read the report']] },
+  { date: '2026-08-13', tag: 'new', title: 'The money map on every profile',
+    body: 'Each neobank profile now carries a "money map": who legally holds your balance, who keeps the authoritative ledger, what protection applies if it fails, and how you get your money back — a protection tier derived only from the verified custody and regulation fields.',
+    links: [['/blog/who-holds-your-money/', 'the thinking behind it']] },
+  { date: '2026-08-12', tag: 'new', title: 'World map + header language switcher',
+    body: 'A per-country world map shades every country by how many neobanks are headquartered there, each tile linking to that country\'s list. The language chooser also moved into the header, top-right, so the five localized editions are one tap from any page.',
+    links: [['/map/', 'the world map']] },
   { date: '2026-08-11', tag: 'new', title: 'MCP server for AI assistants',
     body: 'Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all ' /* count filled at render */ ,
     links: [['/mcp/', 'how to use it'], ['/blog/neobankbeat-mcp-server/', 'launch post']], countSuffix: ' neobanks.' },
