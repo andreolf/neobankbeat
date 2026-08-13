@@ -1117,7 +1117,7 @@ ${webSections}
     <ul class="wlocked">
 ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     </ul>
-    <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
+    <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
     <form class="nbform mgate" id="mform">
       <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
       <button type="submit">subscribe &amp; download →</button>
