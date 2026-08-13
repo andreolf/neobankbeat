@@ -789,6 +789,73 @@ const regSentence = (e) => {
   return ` It is regulated as ${article(rt)}${lcFirst(rt)}${lic}.`;
 };
 
+/* ── the money map: who stands behind your balance, and what survives a failure
+   Derived only from verified fields (custody + regulation_type). Every value is a
+   *class* of protection, not a guarantee — limits and eligibility vary by scheme
+   and jurisdiction, which the note says. An unrecognised structure returns null
+   and renders nothing, per the null = unverified rule. The tier colour drives only
+   a decorative stripe and dot; all text uses theme vars so it stays legible in
+   both the dark and black-and-white themes. ── */
+function moneyMap(e) {
+  const rt = e.regulation_type || '';
+  const lic = e.license ? ` — ${e.license}` : '';
+  if (/self-custod/i.test(e.custody || '')) return {
+    color: '#89B0FF', tier: 'Self-custody — no deposit scheme',
+    holder: `You do. Funds sit on-chain in a wallet the company cannot freeze${/mpc|mixed/i.test(e.custody) ? ` (${e.custody})` : ''}.`,
+    ledger: 'The blockchain — no company keeps the authoritative record.',
+    recovery: 'Nothing on the company side to fail; but lose your keys and the money is gone for good.' };
+  if (/^Licensed bank/i.test(rt)) return {
+    color: '#BAF24A', tier: 'Deposit insurance',
+    holder: `The company itself — it holds a full banking licence${lic}.`,
+    ledger: 'The bank’s own core ledger.',
+    recovery: 'A covered-deposit payout through the local scheme, up to its limit.' };
+  if (/^Partner-bank/i.test(rt) || /^License pending/i.test(rt)) return {
+    color: '#FF9F1C', tier: 'Pass-through insurance, via a sponsor bank',
+    holder: `A sponsor bank behind the brand — not the app you signed up with${lic}.`,
+    ledger: 'Split between a program manager and the sponsor bank — the modular setup that broke in Synapse.',
+    recovery: 'Any claim runs through the sponsor bank, and only works if the two ledgers reconcile.' };
+  if (/^E-money/i.test(rt)) return {
+    color: '#FF9F1C', tier: 'Safeguarded, not insured',
+    holder: `An e-money institution holds your balance in a safeguarding account${lic}.`,
+    ledger: 'The e-money institution’s own ledger.',
+    recovery: 'Safeguarded funds are returned in administration — ring-fenced, but access can be frozen and slow.' };
+  if (/^Payment institution/i.test(rt)) return {
+    color: '#FF9F1C', tier: 'Safeguarded, not insured',
+    holder: `A licensed payment institution holds your balance in a safeguarding account${lic}.`,
+    ledger: 'The payment institution’s own ledger.',
+    recovery: 'Safeguarded funds are returned in administration — ring-fenced, but access can be frozen and slow.' };
+  if (/CASP|VASP|MSB|crypto/i.test(rt)) return {
+    color: '#D075FF', tier: 'Crypto custody — usually uninsured',
+    holder: `A licensed crypto-asset custodian holds the assets on your behalf${lic}.`,
+    ledger: 'The custodian’s books, reconciled against on-chain balances.',
+    recovery: 'Recovery hinges on the custodian’s solvency and how cleanly client assets are segregated.' };
+  if (/^Broker/i.test(rt)) return {
+    color: '#BAF24A', tier: 'Investor protection, not deposit insurance',
+    holder: `A registered broker-dealer holds your cash and securities as client assets${lic}.`,
+    ledger: 'The broker’s books, under client-asset rules.',
+    recovery: 'Client assets are returned or transferred, protected up to the investor-protection scheme’s limit.' };
+  if (/^Fintech licen/i.test(rt)) return {
+    color: '#FF9F1C', tier: 'Held under a fintech licence',
+    holder: `A fintech-licensed institution holds your balance — a narrower permission than a full bank licence${lic}.`,
+    ledger: 'The institution’s own ledger.',
+    recovery: 'Depends on the licence terms; typically not full deposit insurance.' };
+  return null; /* Other / mixed / unverified → no panel */
+}
+function moneyMapHtml(e) {
+  const m = moneyMap(e);
+  if (!m) return '';
+  const row = (k, v) => `      <div class="mmap-row"><dt>${k}</dt><dd>${esc(v)}</dd></div>`;
+  return `  <div class="mmap" style="--tc:${m.color}">
+    <div class="mmap-top"><span class="mmap-k">the money map</span><span class="mmap-tier"><i></i>${esc(m.tier)}</span></div>
+    <dl class="mmap-rows">
+${row('Who holds it', m.holder)}
+${row('The ledger', m.ledger)}
+${row('If it fails', m.recovery)}
+    </dl>
+    <p class="mmap-note">Derived from ${esc(e.name)}’s regulation type and custody — a <em>class</em> of protection, not a guarantee. Limits and eligibility vary by scheme, balance and jurisdiction; confirm before you rely on it. <a href="/faq/">What happens if a neobank shuts down →</a></p>
+  </div>`;
+}
+
 function profileFacts(e) {
   const hq = known(e.hq);
   const what = `${e.name} is a ${CAT_PHRASE[e.category]} neobank` +
@@ -883,6 +950,7 @@ for (const e of E) {
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
   ${e.story ? `<p><em>${esc(e.story)}</em></p>` : ''}
   ${e.note ? `<p>${esc(e.note)}</p>` : ''}
+${moneyMapHtml(e)}
   <h2>The facts</h2>
   <table>
     ${factRows(e)}

@@ -68,6 +68,21 @@ article td:first-child{color:var(--text)}
 .statcard .l{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
 .statcard.t .n{color:var(--t)}.statcard.h .n{color:var(--h)}.statcard.w .n{color:var(--w)}.statcard.a .n{color:var(--accent)}
 
+/* money map (profile) — tier colour drives only the stripe + dot; text stays theme-legible */
+.mmap{border:1px solid var(--line);border-left:3px solid var(--tc,var(--accent));border-radius:12px;background:var(--panel);padding:16px 20px;margin:26px 0}
+.mmap-top{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:10px}
+.mmap-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)}
+.mmap-tier{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--text)}
+.mmap-tier i{width:9px;height:9px;border-radius:50%;background:var(--tc,var(--accent));flex:none}
+.mmap-rows{margin:0}
+.mmap-row{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:10px 0;border-top:1px solid var(--line)}
+.mmap-row dt{font-family:var(--mono);font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);margin:0}
+.mmap-row dd{margin:0;font-size:14.5px;color:#C9C9D4;line-height:1.55}
+.mmap-note{font-size:12px;color:var(--dim);margin:13px 0 0;line-height:1.55}
+body.bw .mmap-row dd{color:#333}
+body.bw .mmap{--tc:#111 !important}
+@media(max-width:560px){.mmap-row{grid-template-columns:1fr;gap:2px}}
+
 /* callout box */
 .callout{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:16px 20px;margin:26px 0;font-size:15px;color:#C9C9D4}
 .callout .k{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
