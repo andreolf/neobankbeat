@@ -1104,33 +1104,34 @@ ${webSections}
     <ul class="wlocked">
 ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     </ul>
-    <form class="nbform" id="nbform">
-      <input type="email" name="email" id="nbemail" required placeholder="you@example.com" aria-label="Email address">
-      <button type="submit">subscribe &amp; download →</button>
-    </form>
-    <p class="nbnote">free · via Substack · one step, no redirect · you may get a one-tap confirmation email</p>
-    <p class="alt">already subscribed? <a href="#" id="haveit">just download →</a></p>
+    <iframe src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block" frameborder="0" scrolling="no"></iframe>
+    <p class="nbnote" style="margin-top:10px">free · via Substack · instant, one step, no redirect</p>
+    <p class="alt">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
-    <span class="k">✓ you're on the list</span>
+    <span class="k">✓ thanks</span>
     <div class="big">Your download is starting…</div>
-    <p>If it didn't, <a href="${PDF_URL}" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. First time? Confirm from the email Substack sends, or <a href="https://neobankbeat.substack.com/subscribe" target="_blank" rel="noopener" style="color:var(--acc)">subscribe here</a> — the September edition ships there.</p>
+    <p>If it didn't, <a href="${PDF_URL}" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. Not subscribed yet? Use the box above — the September edition ships there.</p>
   </div>
 </div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
-/* gate: no server. On submit the email posts straight to Substack (fire-and-
-   forget, no redirect), then the PDF downloads inline. The direct link and a
-   Substack fallback stay visible in case the confirmation step is needed. */
+/* gate: no server. The visitor subscribes in Substack's own embed (reliable —
+   it carries the session), inline, no redirect. When focus enters the embed
+   they're subscribing, so we give them a few seconds and then start the PDF. */
 (function(){
   const KEY='nbbReport${ED_SLUG}',gate=document.getElementById('gate');
   const dl=()=>{const a=document.createElement('a');a.href='${PDF_URL}';a.download='';document.body.appendChild(a);a.click();a.remove();};
-  const subscribe=email=>{if(!email)return;try{fetch('https://neobankbeat.substack.com/api/v1/free',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({email:email,first_url:'https://neobankbeat.substack.com/',first_referrer:document.referrer||'',current_url:location.href,current_referrer:document.referrer||'',referral_code:'',source:'cover_page',should_verify:false})}).catch(()=>{});}catch(_){}try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}'})}catch(_){}};
   const unlock=auto=>{if(gate.classList.contains('done'))return;gate.classList.add('done');
     try{localStorage.setItem(KEY,'1')}catch(_){}
     if(auto!==false)setTimeout(dl,500);};
   try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
-  document.getElementById('nbform').addEventListener('submit',e=>{e.preventDefault();const em=(document.getElementById('nbemail')||{}).value||'';subscribe(em);unlock(true);});
+  let armed=false;
+  window.addEventListener('blur',()=>{setTimeout(()=>{
+    if(!armed&&document.activeElement&&document.activeElement.id==='ssembed'){armed=true;
+      try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}'})}catch(_){}
+      setTimeout(()=>unlock(true),5000);}
+  },0);});
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });

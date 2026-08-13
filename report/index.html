@@ -144,19 +144,16 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
   <div class="gate" id="gate">
     <div class="lockedui">
       <span class="k">get the report — free</span>
-      <h2>One step, right here — no redirect</h2>
-      <p style="color:var(--muted);margin:0 0 6px">Enter your email and the PDF downloads instantly, on this page. You're added to the free monthly newsletter at the same time — no paid tier, no spam. That's the only gate.</p>
-      <form class="nbform" id="nbform">
-        <input type="email" name="email" id="nbemail" required placeholder="you@example.com" aria-label="Email address">
-        <button type="submit">subscribe &amp; download →</button>
-      </form>
-      <p class="nbnote">free · via Substack · you may get a one-tap confirmation email</p>
-      <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed? <a href="#" id="haveit">just download →</a> · prefer to browse first? <a href="/report/2026-08/">preview the opening chapters online</a>.</p>
+      <h2>Subscribe below — one step, no redirect</h2>
+      <p style="color:var(--muted);margin:0 0 12px">Pop your email in the box and hit subscribe, right here — no second tab. Your download starts the moment you do. No paid tier, no spam; the free newsletter is the only gate.</p>
+      <iframe src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block" frameborder="0" scrolling="no"></iframe>
+      <p class="nbnote" style="margin-top:10px">free · via Substack · instant, one step</p>
+      <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
     </div>
     <div class="doneui" style="display:none">
-      <span class="k">✓ you're on the list</span>
+      <span class="k">✓ thanks</span>
       <h2>Your download is starting…</h2>
-      <p style="color:var(--muted)">If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow">download the PDF directly</a>. First time? Confirm your subscription from the email Substack sends, or <a href="https://neobankbeat.substack.com/subscribe" target="_blank" rel="noopener">subscribe here</a> — the September edition ships there.</p>
+      <p style="color:var(--muted)">If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow">download the PDF directly</a>. Not subscribed yet? Use the box above — the September edition ships there.</p>
     </div>
   </div>
   <script>
@@ -164,16 +161,19 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
     var KEY='nbbReport2026-08',gate=document.getElementById('gate');
     var lockedui=gate.querySelector('.lockedui'),doneui=gate.querySelector('.doneui');
     function dl(){var a=document.createElement('a');a.href='/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf';a.download='';document.body.appendChild(a);a.click();a.remove();}
-    function subscribe(email){ // fire-and-forget subscribe to Substack, no redirect
-      if(!email)return;
-      try{fetch('https://neobankbeat.substack.com/api/v1/free',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({email:email,first_url:'https://neobankbeat.substack.com/',first_referrer:document.referrer||'',current_url:location.href,current_referrer:document.referrer||'',referral_code:'',source:'cover_page',should_verify:false})}).catch(function(){});}catch(_){}
-      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
-    }
     function unlock(auto){if(doneui.style.display==='block')return;lockedui.style.display='none';doneui.style.display='block';
       try{localStorage.setItem(KEY,'1')}catch(_){}
       if(auto!==false)setTimeout(dl,500);}
     try{if(localStorage.getItem(KEY)){lockedui.style.display='none';doneui.style.display='block';}}catch(_){}
-    document.getElementById('nbform').addEventListener('submit',function(e){e.preventDefault();var em=(document.getElementById('nbemail')||{}).value||'';subscribe(em);unlock(true);});
+    /* focus entering the Substack embed = the visitor is subscribing on-page; give
+       them a few seconds to finish, then start the download. Reliable subscribe
+       (Substack's own form carries the session), no redirect, no second step. */
+    var armed=false;
+    window.addEventListener('blur',function(){setTimeout(function(){
+      if(!armed&&document.activeElement&&document.activeElement.id==='ssembed'){armed=true;
+        try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
+        setTimeout(function(){unlock(true)},5000);}
+    },0);});
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
   })();
   </script>
