@@ -57,12 +57,9 @@ main.wrap>article,.gate{max-width:780px;margin-left:auto;margin-right:auto}
    brand orange roughly right. In black & white (light) mode, leave it white. */
 #ssembed{filter:invert(.92) hue-rotate(180deg)}
 body.bw #ssembed{filter:none}
-/* Substack's embed doesn't reflow below ~420px (it center-crops, hiding the
-   button), so on small screens swap in our own form → their responsive
-   subscribe page, prefilled. Download still starts on submit. */
-.mgate{display:none;max-width:480px;margin:0 auto}
-.monly{display:none}
-@media(max-width:600px){#ssembed{display:none!important}.mgate{display:flex}.monly{display:inline}}
+/* Substack's embed doesn't reflow below ~420px, so on narrow screens it is
+   rendered at 480px and scaled down to fit (see the fit() script) — fully
+   visible and tappable, same sandbox, no popups, stays on the page. */
 .gate .k{font-family:'Noto Sans Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc)}
 .gate h2{margin:10px 0 8px;border:0;padding:0}
 .chlist{columns:2;column-gap:28px;margin:18px 0 6px}
@@ -157,12 +154,10 @@ body.bw #ssembed{filter:none}
       <span class="k">get the report — free</span>
       <h2>Subscribe below — one step, no redirect</h2>
       <p style="color:var(--muted);margin:0 0 12px">Pop your email in the box and hit subscribe, right here — no second tab. Your download starts the moment you do. No paid tier, no spam; the free newsletter is the only gate.</p>
-      <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto" frameborder="0" scrolling="no"></iframe>
-      <form class="nbform mgate" id="mform">
-        <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
-        <button type="submit">subscribe &amp; download →</button>
-      </form>
-      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe — your download starts as you finish<span class="monly"> · confirm on the Substack tab that opens</span></p>
+      <div id="sswrap" style="max-width:480px;margin:0 auto;overflow:hidden">
+        <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe — your download starts as you finish</p>
       <button id="dlready" style="display:none;margin:12px auto 0;font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;background:var(--acc);color:#0A0A10;border:none;border-radius:10px;padding:13px 24px;cursor:pointer">✓ subscribed — download the report ↓</button>
       <p style="font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--dim);margin:8px 0 0;text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a> · <a href="/report/2026-08/">preview the chapters online</a></p>
     </div>
@@ -219,14 +214,17 @@ body.bw #ssembed{filter:none}
       unlock(true);
     });
     document.getElementById('haveit').addEventListener('click',function(e){e.preventDefault();unlock(true);});
-    /* small screens: our form → Substack's responsive subscribe page, prefilled */
-    var mf=document.getElementById('mform');
-    if(mf)mf.addEventListener('submit',function(e){e.preventDefault();
-      var em=(document.getElementById('memail')||{}).value||'';
-      try{window.open('https://neobankbeat.substack.com/subscribe?email='+encodeURIComponent(em),'_blank','noopener')}catch(_){}
-      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'mobile'})}catch(_){}
-      unlock(true);
-    });
+    /* narrow screens: the embed can't reflow below ~420px, so render it at
+       480px and scale it to fit the wrapper — everything visible + tappable */
+    var wrap=document.getElementById('sswrap');
+    function fit(){
+      if(!wrap||!fr)return;
+      var w=wrap.clientWidth;if(!w)return;      if(w>=480){fr.style.width='100%';fr.style.transform='';wrap.style.height='';return}
+      var s=w/480;
+      fr.style.width='480px';fr.style.transformOrigin='0 0';fr.style.transform='scale('+s+')';
+      wrap.style.height=Math.ceil(150*s)+'px';
+    }
+    fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   })();
   </script>
 
