@@ -448,7 +448,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
       <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
       <button type="submit">subscribe &amp; download →</button>
     </form>
-    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe, then grab your PDF below<span class="monly"> · confirm on the Substack tab that opens</span></p>
+    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe — your download starts as you finish<span class="monly"> · confirm on the Substack tab that opens</span></p>
     <button id="dlready" style="display:none;margin:12px auto 0;font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;background:var(--acc);color:#0A0A10;border:none;border-radius:10px;padding:13px 24px;cursor:pointer">✓ subscribed — download the report ↓</button>
     <p class="alt" style="text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
@@ -482,9 +482,26 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
   /* the embed submits via XHR (no navigation), so reveal an explicit download
      button once focus enters it — nothing auto-fires while typing */
   const ready=document.getElementById('dlready');
+  /* once subscribing has started inside the embed, the first interaction back
+     with the page (click / scroll / mouse away) means they're done in the box
+     — start the download. Capture is guaranteed by the real embed, so a rare
+     early fire is harmless. Typing keeps focus + pointer inside the iframe,
+     so nothing fires mid-type. */
+  let armedAt=0;
   window.addEventListener('blur',()=>{setTimeout(()=>{
-    if(ready&&document.activeElement===fr)ready.style.display='block';
+    if(document.activeElement===fr&&!armedAt){armedAt=Date.now();
+      if(ready)ready.style.display='block';}
   },0);});
+  const finish=minDwell=>()=>{
+    if(!armedAt||Date.now()-armedAt<minDwell)return;
+    try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'auto'})}catch(_){}
+    unlock(true,true);
+  };
+  window.addEventListener('focus',finish(6000));
+  window.addEventListener('mousedown',finish(6000));
+  window.addEventListener('wheel',finish(6000),{passive:true});
+  window.addEventListener('touchstart',finish(6000),{passive:true});
+  window.addEventListener('mousemove',finish(10000));
   if(ready)ready.addEventListener('click',()=>{
     try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'button'})}catch(_){}
     unlock(true);
