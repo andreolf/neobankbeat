@@ -18,15 +18,31 @@ import { withCrumbs } from './meta.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 /* ── edition constants ─────────────────────────────────────────── */
-const MONTH = 'July 2026';
-const EDITION = '№ 01';
-const ASOF = 'data as of 5 July 2026';
-const ED_SLUG = '2026-07';
+const MONTH = 'August 2026';
+const EDITION = '№ 02';
+const ASOF = 'data as of 13 August 2026';
+const ED_SLUG = '2026-08';
 
 const SNAPSHOT = path.join(ROOT, 'report', ED_SLUG, 'data-snapshot.json');
 const DATA_SRC = fs.existsSync(SNAPSHOT) ? SNAPSHOT : path.join(ROOT, 'data.json');
 const E = JSON.parse(fs.readFileSync(DATA_SRC, 'utf8')).entities;
 console.log(`edition ${ED_SLUG}: ${E.length} entities from ${path.relative(ROOT, DATA_SRC)}`);
+
+/* ── previous edition, for month-over-month deltas ─────────────────
+   A prior snapshot committed under report/<slug>/ lets this edition report
+   real deltas. № 01 had no predecessor and P stays null (rows fall back to —). */
+const EDITION_PREV = '№ 01', PREV_MONTH = 'July';
+const PREV_SRC = path.join(ROOT, 'report', '2026-07', 'data-snapshot.json');
+const P = (fs.existsSync(PREV_SRC) && !DATA_SRC.endsWith('2026-07/data-snapshot.json'))
+  ? JSON.parse(fs.readFileSync(PREV_SRC, 'utf8')).entities : null;
+const cntBy = (arr, fn) => arr.filter(fn).length;
+const delta = (now, prev) => prev == null ? '—' : now - prev > 0 ? `+${now - prev}` : now - prev < 0 ? `${now - prev}` : '±0';
+const prevN = P ? P.length : null;
+const prevCat = c => P ? cntBy(P, e => e.category === c) : null;
+const nowNames = new Set(E.map(e => e.name)), prevNames = P ? new Set(P.map(e => e.name)) : new Set();
+const added = P ? E.filter(e => !prevNames.has(e.name)).map(e => e.name).sort() : [];
+const removed = P ? P.filter(e => !nowNames.has(e.name)).map(e => e.name).sort() : [];
+if (P) console.log(`month-over-month vs 2026-07: ${prevN} → ${E.length} (+${added.length} / -${removed.length})`);
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -51,6 +67,8 @@ const regByCat = Object.fromEntries(REGIONS.map(r => [r, {
 const cust = {};
 E.forEach(e => cust[e.custody] = (cust[e.custody] || 0) + 1);
 const regTypes = Object.entries(E.reduce((m, e) => (m[e.regulation_type] = (m[e.regulation_type] || 0) + 1, m), {})).sort((a, b) => b[1] - a[1]);
+const licBanks = cntBy(E, e => e.regulation_type === 'Licensed bank');
+const partnerBanks = cntBy(E, e => e.regulation_type === 'Partner-bank model');
 
 const stables = E.filter(e => e.stablecoins).length;
 const stByCat = { T: byCat.traditional.filter(e => e.stablecoins).length, H: byCat.hybrid.filter(e => e.stablecoins).length, W: byCat['web3-native'].filter(e => e.stablecoins).length };
@@ -242,38 +260,44 @@ page(`
   <div class="stat"><div class="n">${noKyc.length}</div><div class="l">work with no KYC at all</div></div>
 </div>
 <p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>45 in 2019</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
-<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(92 / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining three quarters rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
+<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
 <div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>`);
 
-/* ═══ BASELINE METRICS (monthly deltas) ═══ */
+/* ═══ MONTH-OVER-MONTH METRICS (executive summary) ═══ */
+const selfNow = (cust['Self-custodial'] || 0) + (cust['MPC self-custodial'] || 0);
+const licPrev = P ? cntBy(P, e => e.regulation_type === 'Licensed bank') : null;
+const partnerPrev = P ? cntBy(P, e => e.regulation_type === 'Partner-bank model') : null;
+const selfPrev = P ? cntBy(P, e => e.custody === 'Self-custodial' || e.custody === 'MPC self-custodial') : null;
+const stPrev = P ? cntBy(P, e => e.stablecoins) : null;
+const noKycPrev = P ? cntBy(P, e => e.kyc === 'No') : null;
+const tri = (t, h, w) => `${t} / ${h} / ${w}`;
+const shownNames = ns => ns.length > 14 ? `${ns.slice(0, 14).join(', ')} <span style="color:#9a9aa5">+${ns.length - 14} more</span>` : ns.join(', ');
 page(`
-<div class="eyebrow">executive summary · the baseline</div>
-<h1>№ 01 sets the baseline</h1>
-<p>This is the first edition of a monthly series. The table below freezes the headline metrics as of ${MONTH} — future editions report the same rows with month-over-month deltas, so the series accumulates into a longitudinal record of the industry.</p>
+<div class="eyebrow">executive summary · what changed since ${EDITION_PREV}</div>
+<h1>${MONTH.split(' ')[0]} in deltas</h1>
+<p>The series now has a baseline, so this edition reports the headline metrics <b>against ${PREV_MONTH}</b>. Net, the dataset moved from <b>${prevN ?? '—'}</b> to <b>${N}</b> verified-active neobanks — <b>${added.length} added</b> and <b>${removed.length} removed</b> as apps launched, relicensed and quietly died. The mix kept tilting the same way: hybrid and web3-native both grew faster than traditional, and stablecoin support widened again.</p>
 <table>
-<tr><th scope="col">metric</th><th scope="col">${MONTH.toLowerCase()}</th><th scope="col">definition</th></tr>
-<tr><td>Verified-active neobanks</td><td class="mono">${N}</td><td>entities live and onboarding</td></tr>
-<tr><td>— traditional / hybrid / web3-native</td><td class="mono">${T} / ${H} / ${W}</td><td>wave split</td></tr>
-<tr><td>Stablecoin support</td><td class="mono">${stables} (${(stables / N * 100).toFixed(1)}%)</td><td>any verified support</td></tr>
-<tr><td>— within traditional wave</td><td class="mono">${stByCat.T} (${(stByCat.T / T * 100).toFixed(1)}%)</td><td>the migration metric</td></tr>
-<tr><td>Licensed banks</td><td class="mono">92 (${(92 / N * 100).toFixed(0)}%)</td><td>charter holders</td></tr>
-<tr><td>Self-custodial (incl. MPC)</td><td class="mono">${(cust['Self-custodial'] || 0) + (cust['MPC self-custodial'] || 0)}</td><td>no custodian exists</td></tr>
-<tr><td>No-KYC apps</td><td class="mono">${noKyc.length}</td><td>zero identity checks</td></tr>
-<tr><td>Niche-first neobanks</td><td class="mono">${nicheTotal} (${(nicheTotal / N * 100).toFixed(0)}%)</td><td>named audience</td></tr>
-<tr><td>Card issuers</td><td class="mono">${N - noCard}</td><td>any card programme</td></tr>
-<tr><td>Advertise cashback / yield</td><td class="mono">${cashback} / ${yieldN}</td><td>headline claims</td></tr>
-<tr><td>Verified terms links</td><td class="mono">${termsN}</td><td>legal-document hygiene</td></tr>
-<tr><td>Largest reported user base</td><td class="mono">${topUsers[0].name} · ${topUsers[0].reported_users.value_millions}M</td><td>self-reported</td></tr>
+<tr><th scope="col">metric</th><th scope="col">${MONTH.split(' ')[0].toLowerCase()}</th><th scope="col">${PREV_MONTH.toLowerCase()}</th><th scope="col">Δ</th><th scope="col">definition</th></tr>
+<tr><td>Verified-active neobanks</td><td class="mono">${N}</td><td class="mono">${prevN ?? '—'}</td><td class="mono">${delta(N, prevN)}</td><td>live and onboarding</td></tr>
+<tr><td>— traditional / hybrid / web3-native</td><td class="mono">${tri(T, H, W)}</td><td class="mono">${P ? tri(prevCat('traditional'), prevCat('hybrid'), prevCat('web3-native')) : '—'}</td><td class="mono">${P ? tri(delta(T, prevCat('traditional')), delta(H, prevCat('hybrid')), delta(W, prevCat('web3-native'))) : '—'}</td><td>wave split</td></tr>
+<tr><td>Stablecoin support</td><td class="mono">${stables} (${(stables / N * 100).toFixed(0)}%)</td><td class="mono">${stPrev ?? '—'}</td><td class="mono">${delta(stables, stPrev)}</td><td>any verified support</td></tr>
+<tr><td>Licensed banks<sup>¹</sup></td><td class="mono">${licBanks} (${(licBanks / N * 100).toFixed(0)}%)</td><td class="mono">—</td><td class="mono">n/a</td><td>charter holders</td></tr>
+<tr><td>Partner-bank (BaaS) model<sup>¹</sup></td><td class="mono">${partnerBanks}</td><td class="mono">—</td><td class="mono">n/a</td><td>rent a charter</td></tr>
+<tr><td>Self-custodial (incl. MPC)</td><td class="mono">${selfNow}</td><td class="mono">${selfPrev ?? '—'}</td><td class="mono">${delta(selfNow, selfPrev)}</td><td>no custodian exists</td></tr>
+<tr><td>No-KYC apps</td><td class="mono">${noKyc.length}</td><td class="mono">${noKycPrev ?? '—'}</td><td class="mono">${delta(noKyc.length, noKycPrev)}</td><td>zero identity checks</td></tr>
+<tr><td>Niche-first neobanks</td><td class="mono">${nicheTotal} (${(nicheTotal / N * 100).toFixed(0)}%)</td><td class="mono">—</td><td class="mono">—</td><td>named audience</td></tr>
+<tr><td>Largest reported user base</td><td class="mono">${topUsers[0].name} · ${topUsers[0].reported_users.value_millions}M</td><td class="mono">—</td><td class="mono">—</td><td>self-reported</td></tr>
 </table>
-<div class="callout"><span class="k">for the record</span><p>The dataset snapshot behind this edition is preserved in the neobankbeat git history (github.com/andreolf/neobankbeat) — every future delta is independently checkable.</p></div>`);
+<p style="font-size:9px;color:#9a9aa5;margin:5px 0 0;line-height:1.45">¹ Regulation-type coverage was expanded and backfilled since № 01, so these two rows are not month-over-month comparable — the shift reflects more complete classification, not net industry movement. Category, stablecoin, self-custody and KYC deltas track real additions and removals.</p>
+<div class="callout"><span class="k">what moved</span><p><b>Added (${added.length}):</b> ${added.length ? shownNames(added) : 'none'}.</p><p style="margin-top:6px"><b>Removed (${removed.length}):</b> ${removed.length ? shownNames(removed) : 'none'} — delisted after shutdowns, acquisitions or partner-bank exits. Deaths are tracked, not hidden: the running log is the public <a href="https://www.neobankbeat.com/changelog/">changelog</a>.</p></div>`);
 
 /* ═══ TEN FINDINGS (2pp) ═══ */
 chapter('The ten findings');
 const FINDINGS = [
   ['The founding boom is over', `Foundings among survivors: 45 (2019) → 22 (2023) → 16 (2024) → 4 (2025, partial). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
   ['A third of the new generation is self-custodial', `${w2020s} of ${all2020s} survivors founded in the 2020s (30%) are web3-native, vs 4% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.`],
-  ['Stablecoins: 100% / 91% / 2.7%', `All ${W} web3-native and ${stByCat.H} of ${H} hybrids support stablecoins — but only ${stByCat.T} of ${T} traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.`],
-  ['Only 26% are licensed banks', `92 of ${N} hold a charter. The rest: ${regTypes.find(r=>r[0]==='Partner-bank model')?.[1] ?? 20} partner-bank models, ${regTypes.find(r=>r[0]==='E-money institution')?.[1] ?? 8} e-money institutions, 39 self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.`],
+  [`Stablecoins: ${Math.round(stByCat.W / W * 100)}% / ${Math.round(stByCat.H / H * 100)}% / ${(stByCat.T / T * 100).toFixed(1)}%`, `All ${W} web3-native and ${stByCat.H} of ${H} hybrids support stablecoins — but only ${stByCat.T} of ${T} traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.`],
+  [`Only ${Math.round(licBanks / N * 100)}% are licensed banks`, `${licBanks} of ${N} hold a charter. The rest: ${regTypes.find(r=>r[0]==='Partner-bank model')?.[1] ?? 20} partner-bank models, ${regTypes.find(r=>r[0]==='E-money institution')?.[1] ?? 8} e-money institutions, ${regTypes.find(r=>r[0]==='Self-custodial software')?.[1] ?? 39} self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.`],
   ['Cards are universal; the economics aren\u2019t', `${N - noCard} of ${N} issue a card (${visa} Visa, ${mc} Mastercard programmes). ${cashback} advertise cashback, ${yieldN} offer yield — nearly all behind "up to" tiers. Interchange-only economics are visibly straining.`],
   ['Europe has the density, the South has the giants', `Active presence: Europe ${regCount['Europe']}, Asia ${regCount['Asia']}, North America ${regCount['North America']}, LatAm ${regCount['Latin America']}, Africa ${regCount['Africa']}. But the largest customer bases are all emerging-market.`],
   ['One in three picks an audience first', `${nicheTotal} of ${N} serve a named niche — SMB (29), underbanked (21), freelancers (14), gen z (9), immigrants (9), kids (8), faith-based (7) and a dozen more. "Right bank for someone" beats "better bank for everyone".`],
@@ -330,7 +354,7 @@ page(`
 <tr><td>Deposit insurance</td><td>Usually (direct or pass-through)</td><td>Fiat sometimes; crypto never</td><td>None — no deposit exists</td></tr>
 <tr><td>Main failure mode</td><td>Bank failure / ledger gaps</td><td>Custodian failure</td><td>Key loss, issuer or contract risk</td></tr>
 <tr><td>KYC</td><td>Always</td><td>Always</td><td>Card-only or none</td></tr>
-<tr><td>Stablecoin support</td><td>${stByCat.T} of ${T} (2.7%)</td><td>${stByCat.H} of ${H} (91%)</td><td>${W} of ${W} (100%)</td></tr>
+<tr><td>Stablecoin support</td><td>${stByCat.T} of ${T} (${(stByCat.T / T * 100).toFixed(1)}%)</td><td>${stByCat.H} of ${H} (${Math.round(stByCat.H / H * 100)}%)</td><td>${W} of ${W} (100%)</td></tr>
 <tr><td>Archetypes</td><td>Nubank, Chime, Monzo</td><td>Revolut, Cash App, Crypto.com</td><td>MetaMask, Gnosis Pay, Payy</td></tr>
 </table>
 <h2>Era mix: where each wave was born</h2>
@@ -444,7 +468,7 @@ page(`
 <div class="chartbox"><div class="ct2">regulatory posture across ${N} neobanks</div>
 ${hbar(regTypes.slice(0, 9).map(([k, v]) => [k.length > 26 ? k.slice(0, 25) + '…' : k, v]), { labelW: 210 })}
 <div class="src">derived classification from registers, filings and terms documents · neobankbeat dataset</div></div>
-<p>The single most consequential split in the dataset. <b>92 licensed banks</b> hold deposits directly with direct deposit-scheme protection. <b>${regTypes.find(r => r[0] === 'Partner-bank model')?.[1]} partner-bank models</b> are technology companies fronting someone else's charter — protected on a pass-through basis <i>if the ledgers mapping customers to funds are intact</i>, which is precisely what failed in the 2024 Synapse collapse. <b>E-money and payment institutions</b> safeguard funds but carry no deposit insurance at all. <b>Self-custodial software</b> sits largely outside intermediary regulation — there's nothing held to regulate.</p>
+<p>The single most consequential split in the dataset. <b>${licBanks} licensed banks</b> hold deposits directly with direct deposit-scheme protection. <b>${regTypes.find(r => r[0] === 'Partner-bank model')?.[1]} partner-bank models</b> are technology companies fronting someone else's charter — protected on a pass-through basis <i>if the ledgers mapping customers to funds are intact</i>, which is precisely what failed in the 2024 Synapse collapse. <b>E-money and payment institutions</b> safeguard funds but carry no deposit insurance at all. <b>Self-custodial software</b> sits largely outside intermediary regulation — there's nothing held to regulate.</p>
 <p>The large "unclassified" block is honest, not lazy: many apps' public materials do not state their arrangement precisely enough to classify without guessing, and we don't guess. That this block exists at all is itself a finding about industry disclosure.</p>`);
 page(`
 <div class="eyebrow">chapter 5 · regulation</div>
@@ -541,7 +565,7 @@ ${hbar([
   [`traditional (${T})`, stByCat.T, '#89B0FF'],
 ], { labelW: 190, valFmt: v => v })}
 <div class="src">any stablecoin support: balances, rails, cards or transfers · neobankbeat dataset</div></div>
-<p>Adoption is total in wave three (100%), near-total in wave two (91%) — and <b>2.7% in the wave that has the users</b>. That asymmetry is the most important strategic fact in this report. Stablecoin capability is table stakes where it's easy and existential where it's hard: a traditional neobank adding stablecoin rails must answer custody, licensing, accounting and banking-partner questions that a wallet never faces.</p>
+<p>Adoption is total in wave three (100%), near-total in wave two (${Math.round(stByCat.H / H * 100)}%) — and <b>2.7% in the wave that has the users</b>. That asymmetry is the most important strategic fact in this report. Stablecoin capability is table stakes where it's easy and existential where it's hard: a traditional neobank adding stablecoin rails must answer custody, licensing, accounting and banking-partner questions that a wallet never faces.</p>
 <p>Why we read 2.7% as a floor: GENIUS and MiCA turned the instruments into supervised, fully-reserved assets; the card networks now settle directly in USDC with crypto-native issuers; and the commercial prize — instant, global, programmable dollars attached to existing user bases of tens of millions — is the largest unclaimed feature in consumer fintech. Each traditional player that flips the switch moves more users onto stablecoin rails in a week than the web3-native wave has acquired in total. <i>(Reading, not fact — flagged accordingly.)</i></p>
 <div class="callout"><span class="k">watch next month</span><p>We track announcements vs verified launches separately — the gap between "plans stablecoin support" press releases and live rails is where this migration's real pace shows.</p></div>`);
 
@@ -753,7 +777,7 @@ page(`
 <p>Software agents that hold keys and spend within contract-enforced limits are the strangest new constituency in the dataset — and the first genuinely new "customer type" since teenagers got debit cards. We expect the first mainstream agent-payments controversy within twelve months. <i>(Speculative, flagged.)</i></p>
 <h3>05 · The niche graveyard's next entries</h3>
 <p>Niche banking works until the niche's unit economics don't. Watch subscription-dependent kids' banks and thin-margin travel cards as funding stays tight.</p>
-<div class="callout"><span class="k">next edition</span><p>The State of Neobanks — August 2026 ships early next month: same method, fresh data, deltas tracked against this edition. Subscribe at neobankbeat.substack.com.</p></div>`);
+<div class="callout"><span class="k">next edition</span><p>The State of Neobanks — September 2026 ships early next month: same method, fresh data, deltas tracked against this edition. Subscribe at neobankbeat.substack.com.</p></div>`);
 
 /* ═══ CH: METHOD IN FULL ═══ */
 chapter('Method, in full');
@@ -1047,7 +1071,7 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
   <div class="doneui">
     <span class="k">unlocked</span>
     <div class="big">🎉 Your download is starting…</div>
-    <p>If it didn't, <a href="${PDF_URL}" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. The August edition will arrive by email. Thanks for subscribing.</p>
+    <p>If it didn't, <a href="${PDF_URL}" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. The September edition will arrive by email. Thanks for subscribing.</p>
   </div>
 </div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
