@@ -1047,6 +1047,11 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 .wgate.done.keepform .lockedui{display:block}
 .wgate .doneui{display:none}
 .wgate.done .doneui{display:block}
+/* Substack's embed doesn't reflow below ~420px, so small screens get our own
+   form → their responsive subscribe page, prefilled. */
+.mgate{display:none;max-width:480px;margin:0 auto}
+.monly{display:none}
+@media(max-width:600px){#ssembed{display:none!important}.mgate{display:flex}.monly{display:inline}}
 .doneui .big{font-size:21px;font-weight:700;margin:8px 0}
 @media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}.wlocked{columns:1}}
 `;
@@ -1113,7 +1118,11 @@ ${webSections}
 ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     </ul>
     <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
-    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts</p>
+    <form class="nbform mgate" id="mform">
+      <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">subscribe &amp; download →</button>
+    </form>
+    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts<span class="monly"> · confirm on the Substack tab that opens</span></p>
     <p class="alt" style="text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
@@ -1144,6 +1153,14 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     unlock(true,true);
   });
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
+  /* small screens: our form → Substack's responsive subscribe page, prefilled */
+  const mf=document.getElementById('mform');
+  if(mf)mf.addEventListener('submit',e=>{e.preventDefault();
+    const em=(document.getElementById('memail')||{}).value||'';
+    try{window.open('https://neobankbeat.substack.com/subscribe?email='+encodeURIComponent(em),'_blank','noopener')}catch(_){}
+    try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}',via:'mobile'})}catch(_){}
+    unlock(true);
+  });
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.wsec').forEach(s => io.observe(s));
