@@ -7,6 +7,13 @@
   <language>en</language>
   <atom:link href="https://www.neobankbeat.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Who actually holds your money? The four questions your banking app won&#39;t answer</title>
+    <link>https://www.neobankbeat.com/blog/who-holds-your-money/</link>
+    <guid>https://www.neobankbeat.com/blog/who-holds-your-money/</guid>
+    <pubDate>Wed, 12 Aug 2026 10:00:00 GMT</pubDate>
+    <description>Two banking apps can show the same balance and sit on completely different failure paths. Only 132 of 379 tracked neobanks hold a full banking license; 192 hold your money without a charter (partner-bank, e-money, payment or VASP), and 55 are self-custodial — you hold it. A field guide to the money chain: who legally holds the funds, who keeps the authoritative ledger, what protection applies if an intermediary fails, and how you recover during resolution. Grounded in the data, with the five July delistings each mapped to a different broken link.</description>
+  </item>
+  <item>
     <title>Ask your AI about neobanks: neobankbeat now speaks MCP</title>
     <link>https://www.neobankbeat.com/blog/neobankbeat-mcp-server/</link>
     <guid>https://www.neobankbeat.com/blog/neobankbeat-mcp-server/</guid>

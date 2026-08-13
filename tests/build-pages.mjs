@@ -2304,6 +2304,7 @@ const BLOG_POSTS = [
   ['neobank-dataset-hugging-face-kaggle', '2026-07-26'],
   ['browse-neobanks-by-license-kyc-country', '2026-07-28'],
   ['neobankbeat-mcp-server', '2026-08-11'],
+  ['who-holds-your-money', '2026-08-12'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
