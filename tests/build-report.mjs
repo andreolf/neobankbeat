@@ -92,6 +92,9 @@ const topUsers = E.filter(e => e.reported_users?.value_millions)
 
 const w2020s = E.filter(e => e.category === 'web3-native' && e.founded >= 2020).length;
 const all2020s = E.filter(e => e.founded >= 2020).length;
+const cohortPct = (d, fn) => { const c = E.filter(e => e.founded >= d && e.founded < d + 10); return c.length ? Math.round(c.filter(fn).length / c.length * 100) : 0; };
+const sc2020pct = cohortPct(2020, e => /self-custod/i.test(e.custody || '')), sc2010pct = cohortPct(2010, e => /self-custod/i.test(e.custody || ''));
+const w2020pct = Math.round(w2020s / all2020s * 100), w2010pct = cohortPct(2010, e => e.category === 'web3-native');
 
 /* ── palette / css ─────────────────────────────────────────────── */
 const CSS = `
@@ -253,7 +256,7 @@ page(`
 <h1>Ten numbers that define<br>the industry right now</h1>
 <div class="statrow">
   <div class="stat"><div class="n ca">${f2025}</div><div class="l">survivors founded 2025 (vs ${peakYr[1]} in ${peakYr[0]})</div></div>
-  <div class="stat"><div class="n ca">30%</div><div class="l">of the 2020s cohort is self-custodial</div></div>
+  <div class="stat"><div class="n ca">${sc2020pct}%</div><div class="l">of the 2020s cohort is self-custodial</div></div>
   <div class="stat"><div class="n ca">2.7%</div><div class="l">of traditional neobanks support stablecoins</div></div>
 </div>
 <div class="statrow">
@@ -261,8 +264,8 @@ page(`
   <div class="stat"><div class="n">33%</div><div class="l">serve a named niche audience</div></div>
   <div class="stat"><div class="n">${noKyc.length}</div><div class="l">usable with no KYC at all</div></div>
 </div>
-<p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>${peakYr[1]} in ${peakYr[0]}</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (30% of the 2020s cohort vs 4% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
-<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (Nubank's 131M customers lead the entire industry), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
+<p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>${peakYr[1]} in ${peakYr[0]}</b> and has collapsed to single digits. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (${sc2020pct}% of the 2020s cohort vs ${sc2010pct}% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
+<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (${esc(topUsers[0].name)}'s ${topUsers[0].reported_users.value_millions}M and Nubank's 131M dwarf every Western player), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
 <div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>`);
 
 /* ═══ MONTH-OVER-MONTH METRICS (executive summary) ═══ */
@@ -340,7 +343,7 @@ page(`
 chapter('The ten findings');
 const FINDINGS = [
   ['The founding boom is over', `Foundings among survivors: 45 (2019) → 22 (2023) → 16 (2024) → 4 (2025, partial). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
-  ['A third of the new generation is self-custodial', `${w2020s} of ${all2020s} survivors founded in the 2020s (30%) are web3-native, vs 4% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.`],
+  ['A third of the new generation is self-custodial', `${w2020s} of ${all2020s} survivors founded in the 2020s (${w2020pct}%) are web3-native, vs ${w2010pct}% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.`],
   [`Stablecoins: ${Math.round(stByCat.W / W * 100)}% / ${Math.round(stByCat.H / H * 100)}% / ${(stByCat.T / T * 100).toFixed(1)}%`, `All ${W} web3-native and ${stByCat.H} of ${H} hybrids support stablecoins — but only ${stByCat.T} of ${T} traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.`],
   [`Only ${Math.round(licBanks / N * 100)}% are licensed banks`, `${licBanks} of ${N} hold a charter. The rest: ${regTypes.find(r=>r[0]==='Partner-bank model')?.[1] ?? 20} partner-bank models, ${regTypes.find(r=>r[0]==='E-money institution')?.[1] ?? 8} e-money institutions, ${regTypes.find(r=>r[0]==='Self-custodial software')?.[1] ?? 39} self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.`],
   ['Cards are universal; the economics aren\u2019t', `${N - noCard} of ${N} issue a card (${visa} Visa, ${mc} Mastercard programmes). ${cashback} advertise cashback, ${yieldN} offer yield — nearly all behind "up to" tiers. Interchange-only economics are visibly straining.`],
@@ -663,7 +666,7 @@ ${hbar(topUsers.slice(0, 14).map(e => [e.name, e.reported_users.value_millions,
   e.category === 'traditional' ? '#89B0FF' : e.category === 'hybrid' ? '#D075FF' : '#BAF24A']),
   { labelW: 170, valFmt: v => v + 'M' })}
 <div class="src">mixed metrics: customers, MAU, wallets, accounts — each figure cites its source in the directory · colours = wave</div></div>
-<p>The league table is an emerging-market story with a North American accent. <b>Nubank (131M)</b> leads the industry outright; WeBank, bKash, OPay, GCash, PalmPay, Maya and TymeBank fill the top tier from Asia, Africa and Latin America. The largest Western players — Cash App, Revolut, Chime — are giants by revenue but mid-table by user count.</p>
+<p>The league table is an emerging-market story with a North American accent. <b>${esc(topUsers[0].name)} (${topUsers[0].reported_users.value_millions}M)</b> leads the industry outright; Nubank (131M), bKash, OPay, GCash, PalmPay, Maya and TymeBank fill the top tier from Asia, Africa and Latin America. The largest Western players — Cash App, Revolut, Chime — are giants by revenue but mid-table by user count.</p>
 <p>Caveat that matters: metrics are self-reported and heterogeneous (customers ≠ MAU ≠ registered wallets), so treat this as magnitude, not ranking. Each figure links to its filing or disclosure in the directory — the standard we'd like the industry itself to adopt.</p>`);
 
 page(`
@@ -680,7 +683,7 @@ ${topUsers.slice(0, 5).map(e => `<tr><td><b>${esc(e.name)}</b><br><span class="m
 })[e.name] || (e.note || '').slice(0, 160))}</td></tr>`).join('\n')}
 </table>
 <p>Notice what's absent: not one of the five is a 2010s Western app-first challenger, and not one grew primarily on cashback. All five compounded on <b>distribution the incumbents didn't have</b> — credit access, super-app ecosystems, agent networks, telco channels. Scale in this industry has never been won on interface polish; it is won on being the first workable financial rail for a population that lacked one.</p>
-<div class="callout"><span class="k">the western counter-model</span><p>Revolut (65M) is the exception that tests the rule — scaled across 35+ countries on product breadth and FX, now converting that base onto its own banking licenses. Whether breadth can compound like distribution is the most interesting open experiment in wave two.</p></div>`);
+<div class="callout"><span class="k">the western counter-model</span><p>Revolut (${E.find(e => e.name === 'Revolut')?.reported_users?.value_millions}M) is the exception that tests the rule — scaled across 35+ countries on product breadth and FX, now converting that base onto its own banking licenses. Whether breadth can compound like distribution is the most interesting open experiment in wave two.</p></div>`);
 
 /* ═══ CH: GEOGRAPHY — overview + 7 region pages ═══ */
 chapter('Geography: seven regional markets');
