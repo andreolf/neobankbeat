@@ -1225,6 +1225,9 @@ const L2M={N:"NA",E:"EU",L:"LATAM",A:"AF",M:"MENA",S:"ASIA",O:"OC"};
     mapFilter=(mapFilter===code)?"":code;
     document.querySelectorAll('#mapsec .mreg').forEach(g=>g.classList.toggle('act',g.dataset.mr===mapFilter));
     document.querySelectorAll('#mapsec .mchip').forEach(b=>b.classList.toggle('on',b.dataset.mr===mapFilter));
+    /* clicking a region should show its list — on the full-map view the grid is
+       hidden, so drop back to the directory (like the country drill-down does) */
+    if(mapFilter&&window.showView&&(document.body.dataset.view||'directory')!=='directory')showView('directory');
     render();
     if(mapFilter)document.getElementById('count').scrollIntoView({behavior:'smooth',block:'center'});
   };
