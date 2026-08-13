@@ -437,32 +437,34 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
       <li>Appendix B — dataset &amp; schema</li>
       <li>References</li>
     </ul>
-    <form class="nbform" id="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener">
-      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
-      <button type="submit">subscribe &amp; download →</button>
-    </form>
-    <p class="nbnote">free · via substack · confirm in the tab that opens — your download starts here automatically</p>
-    <p class="alt">already subscribed? <a href="#" id="haveit">unlock &amp; download →</a></p>
+    <iframe loading="lazy" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block" frameborder="0" scrolling="no"></iframe>
+    <p class="nbnote" style="margin-top:10px">free · via Substack · instant, one step, no redirect</p>
+    <p class="alt">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
-    <span class="k">unlocked</span>
-    <div class="big">🎉 Your download is starting…</div>
-    <p>If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. The September edition will arrive by email. Thanks for subscribing.</p>
+    <span class="k">✓ thanks</span>
+    <div class="big">Your download is starting…</div>
+    <p>If it didn't, <a href="/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf" download rel="nofollow" style="color:var(--acc)">download the PDF directly</a>. Not subscribed yet? Use the box above — the September edition ships there.</p>
   </div>
 </div>
 <div class="wfoot">© neobankbeat · MIT — cite freely with attribution · <a href="/" style="color:var(--acc)">directory</a> · <a href="/blog/" style="color:var(--acc)">blog</a> · <a href="/faq/" style="color:var(--acc)">faq</a> · <a href="/glossary/" style="color:var(--acc)">glossary</a> · <a href="/investors/" style="color:var(--acc)">investors</a> · <a href="https://neobankbeat.substack.com" style="color:var(--acc)">newsletter</a></div>
 <script>
-/* gate: no server, so unlock is detected client-side — when the visitor
-   interacts with the substack embed (blur → focus lands in the iframe),
-   we give them time to finish subscribing, then start the PDF download. */
+/* gate: no server. The visitor subscribes in Substack's own embed (reliable —
+   it carries the session), inline, no redirect. When focus enters the embed
+   they're subscribing, so we give them a few seconds and then start the PDF. */
 (function(){
   const KEY='nbbReport2026-08',gate=document.getElementById('gate');
   const dl=()=>{const a=document.createElement('a');a.href='/reports/dl-vq3x8k/state-of-neobanks-2026-08.pdf';a.download='';document.body.appendChild(a);a.click();a.remove();};
   const unlock=auto=>{if(gate.classList.contains('done'))return;gate.classList.add('done');
     try{localStorage.setItem(KEY,'1')}catch(_){}
-    if(auto!==false)setTimeout(dl,600);};
+    if(auto!==false)setTimeout(dl,500);};
   try{if(localStorage.getItem(KEY))gate.classList.add('done');}catch(_){}
-  document.getElementById('nbform').addEventListener('submit',()=>{setTimeout(()=>unlock(true),800);});
+  let armed=false;
+  window.addEventListener('blur',()=>{setTimeout(()=>{
+    if(!armed&&document.activeElement&&document.activeElement.id==='ssembed'){armed=true;
+      try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08'})}catch(_){}
+      setTimeout(()=>unlock(true),5000);}
+  },0);});
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
