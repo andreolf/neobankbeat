@@ -802,7 +802,7 @@ page(`
 <h3>06 · Identity without documents</h3>
 <p>Passkeys killed the password; zero-knowledge credentials aim at the passport upload — proving "over 18, sanctioned-list-clear, EU resident" without revealing anything else. If regulators accept selective disclosure, the KYC/no-KYC binary of chapter 8 becomes a spectrum, and the card-only bucket becomes the default architecture.</p>
 <table>
-<tr><th scope="col">narrative</th><th scope="col">the signal we'll track in this dataset</th><th scope="col">status, july 2026</th></tr>
+<tr><th scope="col">narrative</th><th scope="col">the signal we'll track in this dataset</th><th scope="col">status, ${MONTH.toLowerCase()}</th></tr>
 <tr><td>Agentic commerce</td><td>First entities with agent-specific products; x402-payable services</td><td>precursors only (${noKyc.length} no-KYC self-custodial apps)</td></tr>
 <tr><td>Stablecoin payroll</td><td>Payroll/payout features in the immigrant &amp; freelancer niches</td><td>early (${niches.find(n=>/immigrant/i.test(n[0]))?.[1] ?? 9} immigrant-focused players)</td></tr>
 <tr><td>Tokenized deposits</td><td>Licensed banks (${licBanks} tracked) shipping token-settled consumer money</td><td>pilots, no consumer rails yet</td></tr>
