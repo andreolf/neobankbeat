@@ -1122,7 +1122,8 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
       <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
       <button type="submit">subscribe &amp; download →</button>
     </form>
-    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe and the download starts<span class="monly"> · confirm on the Substack tab that opens</span></p>
+    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe, then grab your PDF below<span class="monly"> · confirm on the Substack tab that opens</span></p>
+    <button id="dlready" style="display:none;margin:12px auto 0;font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;background:var(--acc);color:#0A0A10;border:none;border-radius:10px;padding:13px 24px;cursor:pointer">✓ subscribed — download the report ↓</button>
     <p class="alt" style="text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
   <div class="doneui">
@@ -1151,6 +1152,16 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
     loads++;if(loads<2)return;
     try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}'})}catch(_){}
     unlock(true,true);
+  });
+  /* the embed submits via XHR (no navigation), so reveal an explicit download
+     button once focus enters it — nothing auto-fires while typing */
+  const ready=document.getElementById('dlready');
+  window.addEventListener('blur',()=>{setTimeout(()=>{
+    if(ready&&document.activeElement===fr)ready.style.display='block';
+  },0);});
+  if(ready)ready.addEventListener('click',()=>{
+    try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}',via:'button'})}catch(_){}
+    unlock(true);
   });
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
   /* small screens: our form → Substack's responsive subscribe page, prefilled */
