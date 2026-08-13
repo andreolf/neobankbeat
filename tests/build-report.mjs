@@ -85,6 +85,7 @@ const termsN = E.filter(e => e.terms_url).length;
 const xN = E.filter(e => e.x_handle).length;
 
 const niches = Object.entries(E.reduce((m, e) => { if (e.audience !== 'general') m[e.audience] = (m[e.audience] || 0) + 1; return m; }, {})).sort((a, b) => b[1] - a[1]);
+const nOf = k => niches.find(([n]) => n === k)?.[1] ?? 0; /* count for one named niche */
 const nicheTotal = niches.reduce((s, [, n]) => s + n, 0);
 
 const topUsers = E.filter(e => e.reported_users?.value_millions)
@@ -342,13 +343,13 @@ page(`
 /* ═══ TEN FINDINGS (2pp) ═══ */
 chapter('The ten findings');
 const FINDINGS = [
-  ['The founding boom is over', `Foundings among survivors: 45 (2019) → 22 (2023) → 16 (2024) → 4 (2025, partial). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
+  ['The founding boom is over', `Foundings among survivors: ${years[2019]} (2019) → ${years[2023]} (2023) → ${years[2024]} (2024) → ${years[2025]} (2025). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
   ['A third of the new generation is self-custodial', `${w2020s} of ${all2020s} survivors founded in the 2020s (${w2020pct}%) are web3-native, vs ${w2010pct}% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.`],
   [`Stablecoins: ${Math.round(stByCat.W / W * 100)}% / ${Math.round(stByCat.H / H * 100)}% / ${(stByCat.T / T * 100).toFixed(1)}%`, `All ${W} web3-native and ${stByCat.H} of ${H} hybrids support stablecoins — but only ${stByCat.T} of ${T} traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.`],
   [`Only ${Math.round(licBanks / N * 100)}% are licensed banks`, `${licBanks} of ${N} hold a charter. The rest: ${regTypes.find(r=>r[0]==='Partner-bank model')?.[1] ?? 20} partner-bank models, ${regTypes.find(r=>r[0]==='E-money institution')?.[1] ?? 8} e-money institutions, ${regTypes.find(r=>r[0]==='Self-custodial software')?.[1] ?? 39} self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.`],
   ['Cards are universal; the economics aren\u2019t', `${N - noCard} of ${N} issue a card (${visa} Visa, ${mc} Mastercard programmes). ${cashback} advertise cashback, ${yieldN} offer yield — nearly all behind "up to" tiers. Interchange-only economics are visibly straining.`],
   ['Europe has the density, the South has the giants', `Active presence: Europe ${regCount['Europe']}, Asia ${regCount['Asia']}, North America ${regCount['North America']}, LatAm ${regCount['Latin America']}, Africa ${regCount['Africa']}. But the largest customer bases are all emerging-market.`],
-  ['One in three picks an audience first', `${nicheTotal} of ${N} serve a named niche — SMB (29), underbanked (21), freelancers (14), gen z (9), immigrants (9), kids (8), faith-based (7) and a dozen more. "Right bank for someone" beats "better bank for everyone".`],
+  ['One in three picks an audience first', `${nicheTotal} of ${N} serve a named niche — SMB (${nOf('SMB & startups')}), underbanked (${nOf('underbanked')}), freelancers (${nOf('freelancers & creators')}), gen z (${nOf('gen z & students')}), immigrants (${nOf('immigrants & migrants')}), kids (${nOf('gen alpha · kids & family')}), faith-based (${nOf('faith-based')}) and a dozen more. "Right bank for someone" beats "better bank for everyone".`],
   ['No-KYC stays a rounding error — by design', `${noKyc.length} of ${N} are usable with no identity check at all; all are self-custodial wallets; none issues a card without KYC. The line is structural, not cultural.`],
   ['Legal-link hygiene is poor', `Official terms documents verifiable for only ${termsN} of ${N} — after an audit that repaired 60 dead legal links and removed 53 that resolve nowhere. For an industry holding money, basic document hygiene remains weak.`],
   ['The categories are dissolving', `Traditional players add stablecoin rails; web3-native apps acquire e-money licenses and IBANs. Our own three-way classification gets harder to maintain each quarter — which is itself the finding.`],
@@ -407,15 +408,16 @@ page(`
 </table>
 <h2>Era mix: where each wave was born</h2>
 <div class="chartbox"><div class="ct2">category share of surviving foundings, by decade</div>
-${hbar([
-  ['pre-2010 (17)', 13, '#89B0FF'],
-  ['2010s · trad (215)', 171, '#89B0FF'],
-  ['2010s · hybrid', 35, '#D075FF'],
-  ['2010s · web3', 9, '#BAF24A'],
-  ['2020s · trad (125)', 72, '#89B0FF'],
-  ['2020s · hybrid', 15, '#D075FF'],
-  ['2020s · web3', 38, '#BAF24A'],
-], { labelW: 190 })}
+${(() => { const era = (lo, hi, c) => E.filter(e => e.founded >= lo && e.founded <= hi && (!c || e.category === c)).length;
+  return hbar([
+  [`pre-2010 (${era(0, 2009)})`, era(0, 2009), '#89B0FF'],
+  [`2010s · trad (${era(2010, 2019)})`, era(2010, 2019, 'traditional'), '#89B0FF'],
+  ['2010s · hybrid', era(2010, 2019, 'hybrid'), '#D075FF'],
+  ['2010s · web3', era(2010, 2019, 'web3-native'), '#BAF24A'],
+  [`2020s · trad (${era(2020, 2029)})`, era(2020, 2029, 'traditional'), '#89B0FF'],
+  ['2020s · hybrid', era(2020, 2029, 'hybrid'), '#D075FF'],
+  ['2020s · web3', era(2020, 2029, 'web3-native'), '#BAF24A'],
+], { labelW: 190 }); })()}
 <div class="src">survivors only — defunct entities excluded by design · source: neobankbeat dataset, ${MONTH}</div></div>
 <p>The 2010s produced a traditional-wave industry with a hybrid fringe. The 2020s cohort is a different animal: <b>web3-native is its second-largest wave</b>, larger than hybrid, and growing while overall formation shrinks.</p>`);
 
@@ -449,7 +451,7 @@ page(`
 <div class="chartbox"><div class="ct2">surviving neobanks by founding year ("<2010" pooled)</div>
 ${vbars(yearArr.map(([y, n]) => [y === 2009 ? '<10' : String(y).slice(2), n]), { highlight: { '19': '#FF5C16' } })}
 <div class="src">n=${N} · survivorship-filtered: this is when today's industry was born, not gross founding activity · neobankbeat dataset</div></div>
-<p>Read this chart carefully: it under-counts early years (more time to die) and the last two (not yet surfaced). Even so, the shape is unmistakable — a build through the mid-2010s, the <b>2018–19 peak (85 survivors in two years)</b>, a COVID dip, the 2021 bull-market echo (35), then contraction to <b>4 verified from 2025</b>.</p>
+<p>Read this chart carefully: it under-counts early years (more time to die) and the last two (not yet surfaced). Even so, the shape is unmistakable — a build through the mid-2010s, the <b>2018–19 peak (${years[2018] + years[2019]} survivors in two years)</b>, a COVID dip, the 2021 bull-market echo (${years[2021]}), then contraction to <b>${years[2025]} verified from 2025</b>.</p>
 <p>Three eras explain it. <b>2013–2016:</b> smartphone banking becomes viable; the archetypes launch. <b>2017–2021:</b> venture abundance funds a challenger for every country and demographic; BaaS makes launching one a procurement decision. <b>2022→:</b> rates rise, fintech funding halves and halves again, and the marginal pitch shifts from "bank, but nicer" to products with a structural edge — underwriting a niche, or removing the custodian entirely.</p>
 <div class="callout"><span class="k">what to watch</span><p>The 2025–26 cohort surfacing over coming months skews heavily web3-native and stablecoin-first in our intake pipeline — next editions will quantify it.</p></div>`);
 
@@ -465,7 +467,7 @@ page(`
 <tr><td class="mono">2016–17</td><td>N26 gets a full license; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
 <tr><td class="mono">2018–19</td><td>Peak formation: 85 of today's survivors founded in 24 months</td><td>BaaS turns launching a neobank into a procurement decision</td></tr>
 <tr><td class="mono">2020</td><td>COVID; Kakaobank/jiban giants scale; Australia's Xinja collapses</td><td>First proof that licenses without economics don't survive</td></tr>
-<tr><td class="mono">2021</td><td>Bull-market echo cohort (35 survivors); Nubank IPO at ~$41B</td><td>The category gets a public-market benchmark</td></tr>
+<tr><td class="mono">2021</td><td>Bull-market echo cohort (${years[2021]} survivors); Nubank IPO at ~$41B</td><td>The category gets a public-market benchmark</td></tr>
 <tr><td class="mono">2022</td><td>Rates rise; funding halves; FTX fails</td><td>Custody stops being a philosophical question</td></tr>
 <tr><td class="mono">2023</td><td>Gnosis Pay ships the first self-custodial Visa card at scale</td><td>Wave three gets its archetype: smart account + card rails</td></tr>
 <tr><td class="mono">2024</td><td>Synapse collapse strands partner-bank customers; MiCA phases in</td><td>The pass-through model's weakest joint fails in public</td></tr>
@@ -640,7 +642,7 @@ page(`
 <p>Exactly <b>${noKyc.length} of ${N}</b> tracked neobanks operate without identity checks — ${(noKyc.length / N * 100).toFixed(1)}% of the industry. All are self-custodial. None issues a card without KYC. A further <b>${cardOnly}</b> are "card-only" KYC: permissionless wallet, identified cardholder.</p>
 <table>
 <tr><th scope="col">app</th><th scope="col">hq</th><th scope="col">est.</th><th scope="col">what it is</th></tr>
-${noKyc.map(e => `<tr><td>${esc(e.name)}</td><td>${esc(e.hq)}</td><td>${e.founded}</td><td>${esc((e.note || '').slice(0, 80))}</td></tr>`).join('\n')}
+${noKyc.map(e => `<tr><td>${esc(e.name)}</td><td>${esc(e.hq)}</td><td>${e.founded}</td><td>${esc((e.note || '').length > 80 ? (e.note || '').slice(0, 79).replace(/\s+\S*$/, '') + '…' : (e.note || ''))}</td></tr>`).join('\n')}
 </table>
 <p>The line is structural: KYC obligations attach to regulated intermediaries — entities holding, transmitting or exchanging customer funds. Pure software that never touches funds is largely outside that perimeter; everything touching fiat (cards, IBANs, ramps) is inside it, no exceptions that survive contact with a card network. The honest use cases are undocumented populations, capital-controlled economies, privacy-principled users accepting the trade-offs, and — increasingly — software agents that can hold a key but cannot pass a selfie check.</p>`);
 
@@ -738,7 +740,7 @@ page(`
 ${hbar(niches.slice(0, 10).map(([k, v]) => [k.length > 24 ? k.slice(0, 23) + '…' : k, v]), { labelW: 210 })}
 <div class="src">audience as positioned by the provider · neobankbeat dataset</div></div>
 <p>The niche wave is the industry's quiet consensus that "better bank for everyone" is over as a venture pitch. Three structural reasons: <b>acquisition cost</b> (communities beat ad auctions), <b>genuinely different product surface</b> (Sharia compliance, freelancer tax filing, parental controls are products, not skins), and <b>underwriting edge</b> (serving the niche <i>is</i> the moat — Zolve underwrites new US arrivals on home-country credit history that generic banks can't read).</p>
-<p>The three niches we'd watch hardest: <b>faith-based</b> (7 tracked, from UK startups to Gulf licensed banks — a structurally underserved market measured in hundreds of millions), <b>immigrant banking</b> (9 tracked — a remittance business wearing a checking account, converging fast with stablecoin rails), and <b>kids & family</b> (8 tracked — a two-decade customer-acquisition play whose retention thesis remains unproven).</p>`);
+<p>The three niches we'd watch hardest: <b>faith-based</b> (${nOf('faith-based')} tracked, from UK startups to Gulf licensed banks — a structurally underserved market measured in hundreds of millions), <b>immigrant banking</b> (${nOf('immigrants & migrants')} tracked — a remittance business wearing a checking account, converging fast with stablecoin rails), and <b>kids & family</b> (${nOf('gen alpha · kids & family')} tracked — a two-decade customer-acquisition play whose retention thesis remains unproven).</p>`);
 
 page(`
 <div class="eyebrow">chapter 11 · niches</div>
@@ -803,7 +805,7 @@ page(`
 <tr><th scope="col">narrative</th><th scope="col">the signal we'll track in this dataset</th><th scope="col">status, july 2026</th></tr>
 <tr><td>Agentic commerce</td><td>First entities with agent-specific products; x402-payable services</td><td>precursors only (${noKyc.length} no-KYC self-custodial apps)</td></tr>
 <tr><td>Stablecoin payroll</td><td>Payroll/payout features in the immigrant &amp; freelancer niches</td><td>early (${niches.find(n=>/immigrant/i.test(n[0]))?.[1] ?? 9} immigrant-focused players)</td></tr>
-<tr><td>Tokenized deposits</td><td>Licensed banks (92 tracked) shipping token-settled consumer money</td><td>pilots, no consumer rails yet</td></tr>
+<tr><td>Tokenized deposits</td><td>Licensed banks (${licBanks} tracked) shipping token-settled consumer money</td><td>pilots, no consumer rails yet</td></tr>
 <tr><td>Neobank as protocol</td><td>Multiple front-ends sharing one card/account rail</td><td>live (Gnosis Pay partners)</td></tr>
 <tr><td>AI-native banking</td><td>Agent/automation features as primary interface</td><td>chat assistants only</td></tr>
 <tr><td>Identity without documents</td><td>First zk-credential onboarding accepted by a card programme</td><td>not yet observed</td></tr>
@@ -814,7 +816,7 @@ page(`
 chapter('Outlook & watchlist');
 page(`
 <div class="eyebrow">chapter 14 · outlook</div>
-<h1>What we're watching<br>into August</h1>
+<h1>What we're watching<br>into September</h1>
 <h3>01 · The traditional-wave stablecoin flip</h3>
 <p>The 2.7% number is the one to re-check monthly. Watch announcements-to-launch conversion, and which partner banks let US neobanks touch supervised stablecoins first.</p>
 <h3>02 · MiCA grandfathering endgame</h3>
