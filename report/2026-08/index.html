@@ -142,9 +142,8 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 .wgate.done .doneui{display:block}
 /* Substack's embed doesn't reflow below ~420px, so small screens get our own
    form → their responsive subscribe page, prefilled. */
-.mgate{display:none;max-width:480px;margin:0 auto}
-.monly{display:none}
-@media(max-width:600px){#ssembed{display:none!important}.mgate{display:flex}.monly{display:inline}}
+/* the embed can't reflow below ~420px — narrow screens render it at 480px
+   scaled down to fit (see fit() below): visible, tappable, stays on-page */
 .doneui .big{font-size:21px;font-weight:700;margin:8px 0}
 @media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}.wlocked{columns:1}}
 </style>
@@ -443,12 +442,10 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
       <li>Appendix B — dataset &amp; schema</li>
       <li>References</li>
     </ul>
-    <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
-    <form class="nbform mgate" id="mform">
-      <input type="email" name="email" id="memail" required placeholder="you@example.com" aria-label="Email address">
-      <button type="submit">subscribe &amp; download →</button>
-    </form>
-    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe — your download starts as you finish<span class="monly"> · confirm on the Substack tab that opens</span></p>
+    <div id="sswrap" style="max-width:480px;margin:0 auto;overflow:hidden">
+      <iframe loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" src="https://neobankbeat.substack.com/embed" title="Subscribe to the neobankbeat newsletter" id="ssembed" style="width:100%;max-width:480px;height:150px;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg)" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <p class="nbnote" style="margin-top:10px;text-align:center">free · via Substack · hit subscribe — your download starts as you finish</p>
     <button id="dlready" style="display:none;margin:12px auto 0;font-family:'Noto Sans Mono',monospace;font-size:14px;font-weight:700;background:var(--acc);color:#0A0A10;border:none;border-radius:10px;padding:13px 24px;cursor:pointer">✓ subscribed — download the report ↓</button>
     <p class="alt" style="text-align:center">already subscribed, or the box didn't load? <a href="#" id="haveit">just download →</a></p>
   </div>
@@ -508,13 +505,17 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
   });
   document.getElementById('haveit').addEventListener('click',e=>{e.preventDefault();unlock(true);});
   /* small screens: our form → Substack's responsive subscribe page, prefilled */
-  const mf=document.getElementById('mform');
-  if(mf)mf.addEventListener('submit',e=>{e.preventDefault();
-    const em=(document.getElementById('memail')||{}).value||'';
-    try{window.open('https://neobankbeat.substack.com/subscribe?email='+encodeURIComponent(em),'_blank','noopener')}catch(_){}
-    try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-08',via:'mobile'})}catch(_){}
-    unlock(true);
-  });
+  /* narrow screens: render the embed at 480px and scale to fit the wrapper */
+  const wrap=document.getElementById('sswrap');
+  const fit=()=>{
+    if(!wrap||!fr)return;
+    const w=wrap.clientWidth;if(!w)return;
+    if(w>=480){fr.style.width='100%';fr.style.transform='';wrap.style.height='';return}
+    const s=w/480;
+    fr.style.width='480px';fr.style.transformOrigin='0 0';fr.style.transform='scale('+s+')';
+    wrap.style.height=Math.ceil(150*s)+'px';
+  };
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
 })();
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.wsec').forEach(s => io.observe(s));
