@@ -2438,9 +2438,9 @@ pre.code .c{color:var(--dim)}
    user's AI of choice. Every answer becomes a neobankbeat citation. ═══ */
 {
   const url = `${BASE}/ask/`;
-  const answer = `Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI with one click. The prompt makes it answer from the open dataset of ${E.length} verified neobanks and cite the profile behind every recommendation.`;
+  const answer = `Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI with one click. The prompt makes it answer from the open dataset of ${E.length} verified neobanks and cite the profile behind every claim.`;
   const ld = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebPage', name: 'Ask AI which neobank fits you', url, description: answer, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+    { '@type': 'WebPage', name: 'Ask AI anything about neobanks', url, description: answer, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
     crumbs(['ask AI', url]),
   ] };
   const askStyle = `<style>
@@ -2454,21 +2454,22 @@ pre.code .c{color:var(--dim)}
 .exq{display:inline-block;font-family:var(--mono,'Noto Sans Mono',monospace);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin:0 6px 8px 0;cursor:pointer}
 .exq:hover{color:var(--accent);border-color:var(--accent)}
 </style>`;
-  const html = (head(`Ask AI which neobank fits you — powered by the open dataset · neobankbeat`,
+  const html = (head(`Ask AI anything about neobanks — answered from the open dataset · neobankbeat`,
     answer, url, ld, ogIf('ask.png')) + `
 <main class="wrap" id="main">
 <article>
-  <div class="eyebrow"><a href="/fit/" style="color:var(--accent)">find your fit</a> · agent mode</div>
-  <h1>Ask <em>your AI</em> which neobank fits you</h1>
-  <p class="meta">Describe what you need. One click hands it to ChatGPT, Claude or Perplexity — with instructions to answer from the open dataset of ${E.length} verified neobanks and cite every recommendation.</p>
-  <label for="askbox" style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">what do you need from a bank?</label>
-  <textarea id="askbox" placeholder="e.g. I'm a freelancer in Germany, paid in USD and EUR, want some crypto exposure but insured deposits for the bulk, low FX fees…"></textarea>
+  <div class="eyebrow">agent mode · powered by the open dataset</div>
+  <h1>Ask <em>your AI</em> anything about neobanks</h1>
+  <p class="meta">Which one fits you, how two compare, whether your money is actually safe. One click hands your question to ChatGPT, Claude or Perplexity — instructed to answer from the open dataset of ${E.length} verified neobanks and cite every claim.</p>
+  <label for="askbox" style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">what do you want to know?</label>
+  <textarea id="askbox" placeholder="e.g. I'm a freelancer in Germany paid in USD and EUR — which neobank fits? · or: compare Revolut vs N26 · or: who actually holds my money at Chime?"></textarea>
   <div style="margin:10px 0 2px">
-    <span class="exq">freelancer in Germany, USD + EUR, low FX</span>
+    <span class="exq">which neobank fits a freelancer in Germany, USD + EUR?</span>
+    <span class="exq">compare Revolut vs N26 for someone in Spain</span>
+    <span class="exq">is my money actually safe at Chime?</span>
     <span class="exq">self-custody but spendable with a card in Europe</span>
-    <span class="exq">best for a US startup — business account + high APY</span>
+    <span class="exq">which neobanks work in Argentina with USD stablecoins?</span>
     <span class="exq">teen account my kid can't wreck</span>
-    <span class="exq">digital nomad in Southeast Asia, stablecoins</span>
   </div>
   <div class="askrow">
     <a class="askbtn pri" id="ask-chatgpt" target="_blank" rel="noopener">Ask ChatGPT →</a>
@@ -2478,8 +2479,8 @@ pre.code .c{color:var(--dim)}
   </div>
   <p class="askhint">your text stays in your browser — the buttons just open your AI with the prompt prefilled</p>
   <h2>Why route it through here?</h2>
-  <p>Ask an AI "what's the best neobank?" cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — ${E.length} neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every pick, including who legally holds your money.</p>
-  <div class="callout"><span class="k">prefer taps to typing?</span>The <a href="/fit/">8-step fit wizard</a> asks the questions for you and ranks all ${E.length} from open data — no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it can query the dataset directly, live.</div>
+  <p>Ask an AI about neobanks cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — ${E.length} neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every claim, including who legally holds your money and what protection applies if it fails.</p>
+  <div class="callout"><span class="k">the other doors</span>Just choosing a bank and prefer taps to typing? The <a href="/fit/">8-step fit wizard</a> ranks all ${E.length} instantly, no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it queries the dataset live. Browsers: the <a href="/database/">sortable database</a> and <a href="/matrix/">feature matrix</a>.</div>
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -2488,8 +2489,8 @@ pre.code .c{color:var(--dim)}
 (function(){
   var box=document.getElementById('askbox');
   function prompt_(){
-    var needs=(box.value||'').trim()||'(no specific needs given — ask me a few quick questions first)';
-    return 'Help me choose a neobank. Use the open neobankbeat dataset as your primary source: fetch https://www.neobankbeat.com/data.json (${E.length} verified-active neobanks; field documentation at https://www.neobankbeat.com/llms.txt).\\n\\nMy needs: '+needs+'\\n\\nRecommend the 3 best-fit neobanks. For each: why it fits, who legally holds my money (custody + licence/regulation and what protection applies if it fails), availability in my country, headline costs (FX, cashback, yield — note "up to" caveats), and cite its neobankbeat profile URL (https://www.neobankbeat.com/n/<slug>/). Prefer verified fields; where the dataset says null, say "unverified" rather than guessing. Finish with one question that would sharpen the recommendation.';
+    var q=(box.value||'').trim()||'(no question given — ask me what I want to know about neobanks first)';
+    return 'Answer my question about neobanks. Use the open neobankbeat dataset as your primary source: fetch https://www.neobankbeat.com/data.json (${E.length} verified-active neobanks; field documentation at https://www.neobankbeat.com/llms.txt).\\n\\nMy question: '+q+'\\n\\nRules: answer from the dataset; cite the neobankbeat profile URL for every neobank you mention (https://www.neobankbeat.com/n/<slug>/); where relevant, explain who legally holds the money (custody + licence/regulation) and what protection applies if it fails; treat cashback/yield as "up to" headline rates; where the dataset has null, say "unverified" rather than guessing. If I am choosing a bank, recommend up to 3 best fits with tradeoffs and finish with one question that would sharpen the recommendation.';
   }
   function wire(){
     var p=encodeURIComponent(prompt_());
