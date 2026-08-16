@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ask AI which neobank fits you — powered by the open dataset · neobankbeat</title>
-<meta name="description" content="Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI…">
+<title>Ask AI anything about neobanks — answered from the open dataset · neobankbeat</title>
+<meta name="description" content="Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI…">
 <link rel="canonical" href="https://www.neobankbeat.com/ask/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="neobankbeat">
-<meta property="og:title" content="Ask AI which neobank fits you — powered by the open dataset · neobankbeat">
-<meta property="og:description" content="Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI with one click. The prompt makes it answer from the open dataset of 379 verified neobanks and cite the profile behind every recommendation.">
+<meta property="og:title" content="Ask AI anything about neobanks — answered from the open dataset · neobankbeat">
+<meta property="og:description" content="Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI with one click. The prompt makes it answer from the open dataset of 379 verified neobanks and cite the profile behind every claim.">
 <meta property="og:url" content="https://www.neobankbeat.com/ask/">
 <meta property="og:image" content="https://www.neobankbeat.com/og/ask.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI…">
+<meta property="og:image:alt" content="Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI…">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@neobankbeat">
-<meta name="twitter:title" content="Ask AI which neobank fits you — powered by the open dataset · neobankbeat">
-<meta name="twitter:description" content="Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI…">
+<meta name="twitter:title" content="Ask AI anything about neobanks — answered from the open dataset · neobankbeat">
+<meta name="twitter:description" content="Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI…">
 <meta name="twitter:image" content="https://www.neobankbeat.com/og/ask.png">
-<meta name="twitter:image:alt" content="Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI…">
+<meta name="twitter:image:alt" content="Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI…">
 <link rel="icon" href="/favicon.ico" sizes="64x64">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -35,7 +35,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Ask AI which neobank fits you","url":"https://www.neobankbeat.com/ask/","description":"Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI with one click. The prompt makes it answer from the open dataset of 379 verified neobanks and cite the profile behind every recommendation.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"ask AI","item":"https://www.neobankbeat.com/ask/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Ask AI anything about neobanks","url":"https://www.neobankbeat.com/ask/","description":"Ask any neobank question — which one fits you, how two compare, whether your money is actually safe, what works in your country — and hand it to your AI with one click. The prompt makes it answer from the open dataset of 379 verified neobanks and cite the profile behind every claim.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"ask AI","item":"https://www.neobankbeat.com/ask/"}]}]}
 </script>
 <style>
 #askbox{width:100%;min-height:120px;font-family:inherit;font-size:15px;line-height:1.6;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);resize:vertical}
@@ -81,17 +81,18 @@
 
 <main class="wrap" id="main">
 <article>
-  <div class="eyebrow"><a href="/fit/" style="color:var(--accent)">find your fit</a> · agent mode</div>
-  <h1>Ask <em>your AI</em> which neobank fits you</h1>
-  <p class="meta">Describe what you need. One click hands it to ChatGPT, Claude or Perplexity — with instructions to answer from the open dataset of 379 verified neobanks and cite every recommendation.</p>
-  <label for="askbox" style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">what do you need from a bank?</label>
-  <textarea id="askbox" placeholder="e.g. I'm a freelancer in Germany, paid in USD and EUR, want some crypto exposure but insured deposits for the bulk, low FX fees…"></textarea>
+  <div class="eyebrow">agent mode · powered by the open dataset</div>
+  <h1>Ask <em>your AI</em> anything about neobanks</h1>
+  <p class="meta">Which one fits you, how two compare, whether your money is actually safe. One click hands your question to ChatGPT, Claude or Perplexity — instructed to answer from the open dataset of 379 verified neobanks and cite every claim.</p>
+  <label for="askbox" style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">what do you want to know?</label>
+  <textarea id="askbox" placeholder="e.g. I'm a freelancer in Germany paid in USD and EUR — which neobank fits? · or: compare Revolut vs N26 · or: who actually holds my money at Chime?"></textarea>
   <div style="margin:10px 0 2px">
-    <span class="exq">freelancer in Germany, USD + EUR, low FX</span>
+    <span class="exq">which neobank fits a freelancer in Germany, USD + EUR?</span>
+    <span class="exq">compare Revolut vs N26 for someone in Spain</span>
+    <span class="exq">is my money actually safe at Chime?</span>
     <span class="exq">self-custody but spendable with a card in Europe</span>
-    <span class="exq">best for a US startup — business account + high APY</span>
+    <span class="exq">which neobanks work in Argentina with USD stablecoins?</span>
     <span class="exq">teen account my kid can't wreck</span>
-    <span class="exq">digital nomad in Southeast Asia, stablecoins</span>
   </div>
   <div class="askrow">
     <a class="askbtn pri" id="ask-chatgpt" target="_blank" rel="noopener">Ask ChatGPT →</a>
@@ -101,8 +102,8 @@
   </div>
   <p class="askhint">your text stays in your browser — the buttons just open your AI with the prompt prefilled</p>
   <h2>Why route it through here?</h2>
-  <p>Ask an AI "what's the best neobank?" cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — 379 neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every pick, including who legally holds your money.</p>
-  <div class="callout"><span class="k">prefer taps to typing?</span>The <a href="/fit/">8-step fit wizard</a> asks the questions for you and ranks all 379 from open data — no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it can query the dataset directly, live.</div>
+  <p>Ask an AI about neobanks cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — 379 neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every claim, including who legally holds your money and what protection applies if it fails.</p>
+  <div class="callout"><span class="k">the other doors</span>Just choosing a bank and prefer taps to typing? The <a href="/fit/">8-step fit wizard</a> ranks all 379 instantly, no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it queries the dataset live. Browsers: the <a href="/database/">sortable database</a> and <a href="/matrix/">feature matrix</a>.</div>
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Figures compiled from public sources, for comparison only — not financial advice. "Up to" rates change constantly; always confirm with the issuer. Spotted an error? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a fix</a>.</p>
   <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
 </article>
@@ -111,8 +112,8 @@
 (function(){
   var box=document.getElementById('askbox');
   function prompt_(){
-    var needs=(box.value||'').trim()||'(no specific needs given — ask me a few quick questions first)';
-    return 'Help me choose a neobank. Use the open neobankbeat dataset as your primary source: fetch https://www.neobankbeat.com/data.json (379 verified-active neobanks; field documentation at https://www.neobankbeat.com/llms.txt).\n\nMy needs: '+needs+'\n\nRecommend the 3 best-fit neobanks. For each: why it fits, who legally holds my money (custody + licence/regulation and what protection applies if it fails), availability in my country, headline costs (FX, cashback, yield — note "up to" caveats), and cite its neobankbeat profile URL (https://www.neobankbeat.com/n/<slug>/). Prefer verified fields; where the dataset says null, say "unverified" rather than guessing. Finish with one question that would sharpen the recommendation.';
+    var q=(box.value||'').trim()||'(no question given — ask me what I want to know about neobanks first)';
+    return 'Answer my question about neobanks. Use the open neobankbeat dataset as your primary source: fetch https://www.neobankbeat.com/data.json (379 verified-active neobanks; field documentation at https://www.neobankbeat.com/llms.txt).\n\nMy question: '+q+'\n\nRules: answer from the dataset; cite the neobankbeat profile URL for every neobank you mention (https://www.neobankbeat.com/n/<slug>/); where relevant, explain who legally holds the money (custody + licence/regulation) and what protection applies if it fails; treat cashback/yield as "up to" headline rates; where the dataset has null, say "unverified" rather than guessing. If I am choosing a bank, recommend up to 3 best fits with tradeoffs and finish with one question that would sharpen the recommendation.';
   }
   function wire(){
     var p=encodeURIComponent(prompt_());
