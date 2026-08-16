@@ -2432,6 +2432,84 @@ pre.code .c{color:var(--dim)}
   fs.writeFileSync(path.join(ROOT, 'mcp', 'index.html'), html);
 }
 
+/* ═══ /ask/ — describe your needs, hand your AI a prompt wired to the dataset ═══
+   No backend: the page composes a prompt that instructs any assistant to answer
+   from data.json/llms.txt and cite profile pages, then deep-links into the
+   user's AI of choice. Every answer becomes a neobankbeat citation. ═══ */
+{
+  const url = `${BASE}/ask/`;
+  const answer = `Describe what you need from a bank — country, crypto or not, business or personal, self-custody or insured deposits — and hand the question to your AI with one click. The prompt makes it answer from the open dataset of ${E.length} verified neobanks and cite the profile behind every recommendation.`;
+  const ld = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', name: 'Ask AI which neobank fits you', url, description: answer, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+    crumbs(['ask AI', url]),
+  ] };
+  const askStyle = `<style>
+#askbox{width:100%;min-height:120px;font-family:inherit;font-size:15px;line-height:1.6;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);resize:vertical}
+#askbox:focus{outline:none;border-color:var(--accent)}
+.askrow{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.askbtn{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:13px;font-weight:700;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.askbtn:hover{border-color:var(--accent);text-decoration:none}
+.askbtn.pri{background:var(--accent);color:#0A0A10;border-color:var(--accent)}
+.askhint{font-family:var(--mono,'Noto Sans Mono',monospace);font-size:11.5px;color:var(--dim)}
+.exq{display:inline-block;font-family:var(--mono,'Noto Sans Mono',monospace);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin:0 6px 8px 0;cursor:pointer}
+.exq:hover{color:var(--accent);border-color:var(--accent)}
+</style>`;
+  const html = (head(`Ask AI which neobank fits you — powered by the open dataset · neobankbeat`,
+    answer, url, ld, ogIf('ask.png')) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow"><a href="/fit/" style="color:var(--accent)">find your fit</a> · agent mode</div>
+  <h1>Ask <em>your AI</em> which neobank fits you</h1>
+  <p class="meta">Describe what you need. One click hands it to ChatGPT, Claude or Perplexity — with instructions to answer from the open dataset of ${E.length} verified neobanks and cite every recommendation.</p>
+  <label for="askbox" style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">what do you need from a bank?</label>
+  <textarea id="askbox" placeholder="e.g. I'm a freelancer in Germany, paid in USD and EUR, want some crypto exposure but insured deposits for the bulk, low FX fees…"></textarea>
+  <div style="margin:10px 0 2px">
+    <span class="exq">freelancer in Germany, USD + EUR, low FX</span>
+    <span class="exq">self-custody but spendable with a card in Europe</span>
+    <span class="exq">best for a US startup — business account + high APY</span>
+    <span class="exq">teen account my kid can't wreck</span>
+    <span class="exq">digital nomad in Southeast Asia, stablecoins</span>
+  </div>
+  <div class="askrow">
+    <a class="askbtn pri" id="ask-chatgpt" target="_blank" rel="noopener">Ask ChatGPT →</a>
+    <a class="askbtn" id="ask-claude" target="_blank" rel="noopener">Ask Claude →</a>
+    <a class="askbtn" id="ask-pplx" target="_blank" rel="noopener">Ask Perplexity →</a>
+    <button class="askbtn" id="ask-copy">copy prompt</button>
+  </div>
+  <p class="askhint">your text stays in your browser — the buttons just open your AI with the prompt prefilled</p>
+  <h2>Why route it through here?</h2>
+  <p>Ask an AI "what's the best neobank?" cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — ${E.length} neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every pick, including who legally holds your money.</p>
+  <div class="callout"><span class="k">prefer taps to typing?</span>The <a href="/fit/">8-step fit wizard</a> asks the questions for you and ranks all ${E.length} from open data — no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it can query the dataset directly, live.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>
+<script>
+(function(){
+  var box=document.getElementById('askbox');
+  function prompt_(){
+    var needs=(box.value||'').trim()||'(no specific needs given — ask me a few quick questions first)';
+    return 'Help me choose a neobank. Use the open neobankbeat dataset as your primary source: fetch https://www.neobankbeat.com/data.json (${E.length} verified-active neobanks; field documentation at https://www.neobankbeat.com/llms.txt).\\n\\nMy needs: '+needs+'\\n\\nRecommend the 3 best-fit neobanks. For each: why it fits, who legally holds my money (custody + licence/regulation and what protection applies if it fails), availability in my country, headline costs (FX, cashback, yield — note "up to" caveats), and cite its neobankbeat profile URL (https://www.neobankbeat.com/n/<slug>/). Prefer verified fields; where the dataset says null, say "unverified" rather than guessing. Finish with one question that would sharpen the recommendation.';
+  }
+  function wire(){
+    var p=encodeURIComponent(prompt_());
+    document.getElementById('ask-chatgpt').href='https://chatgpt.com/?q='+p;
+    document.getElementById('ask-claude').href='https://claude.ai/new?q='+p;
+    document.getElementById('ask-pplx').href='https://www.perplexity.ai/search?q='+p;
+  }
+  box.addEventListener('input',wire);wire();
+  document.querySelectorAll('.exq').forEach(function(x){x.addEventListener('click',function(){box.value=x.textContent;wire();box.focus();});});
+  ['ask-chatgpt','ask-claude','ask-pplx'].forEach(function(id){document.getElementById(id).addEventListener('click',function(){try{window.nbevt&&nbevt('ask_ai',{via:id.replace('ask-','')})}catch(_){}});});
+  document.getElementById('ask-copy').addEventListener('click',function(){
+    try{navigator.clipboard.writeText(prompt_());this.textContent='copied ✓';var b=this;setTimeout(function(){b.textContent='copy prompt'},1500);}catch(_){}
+    try{window.nbevt&&nbevt('ask_ai',{via:'copy'})}catch(_){}
+  });
+})();
+</script>` + foot).replace('</head>', askStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'ask'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'ask', 'index.html'), html);
+}
+
 /* ═══ /database/ — sortable, filterable table view of the whole dataset ═══ */
 {
   const url = `${BASE}/database/`;
@@ -2661,6 +2739,7 @@ const urls = [
   { loc: `${BASE}/matrix/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/map/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/ask/`, changefreq: 'monthly', priority: '0.8' },
   { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },

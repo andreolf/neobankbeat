@@ -26,6 +26,7 @@ export const FOOTER_LINKS = [
   ["/browse/", "browse"],
   ["/map/", "world map"],
   ["/fit/", "find your fit"],
+  ["/ask/", "ask AI"],
   ["/vs/", "compare"],
   ["/blog/", "blog"],
   ["/faq/", "faq"],
