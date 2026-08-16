@@ -159,6 +159,11 @@ ${bwScript}
 
 const subscribeBox = `<div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>`;
 
+/* B2B strip for high-intent surfaces only (/data/, /investors/, /infra/,
+   /mcp/, /ask/, /database/, /matrix/) — consumers browsing profiles never
+   see it. Click-tracked so outreach interest is measurable. */
+const b2bBar = `<div class="callout" style="border-left-color:var(--accent)"><span class="k">using this at work?</span>Teams at fintechs, VCs and banks use this data for market maps, diligence and monitoring. For sponsorships, data licensing or a monthly team briefing — <a href="/partner/" onclick="window.nbevt&&nbevt('b2b_cta',{page:location.pathname})">work with us →</a></div>`;
+
 const disclaimer = `<p style="font-size:12.5px;color:var(--dim);margin-top:28px">Figures compiled from public sources, for comparison only — not financial advice. "Up to" rates change constantly; always confirm with the issuer. Spotted an error? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest a fix</a>.</p>`;
 
 /* ── peers: same category, overlapping region, prefer known users ── */
@@ -1459,6 +1464,7 @@ print(ds.filter(lambda e: e["regulation_type"] == "Licensed bank").num_rows, "ho
   <p class="meta">neobankbeat (2026). <em>Open directory of neobanks worldwide.</em> ${BASE}/ (MIT).</p>
 
   <div class="callout"><span class="k">go deeper</span>Browse the <a href="/">interactive directory</a>, all <a href="/n/">${E.length} profiles</a>, or the <a href="/vs/">comparisons</a>. Machine agents: <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.md">sitemap.md</a>.</div>
+  ${b2bBar}
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -1544,6 +1550,7 @@ let invSlugList = [];
 ${rows.map(rowHtml).join('\n')}
 
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Investor lists are notable backers from disclosed rounds, not complete cap tables. Sources are linked on each neobank's profile. Not investment advice.</p>
+  ${b2bBar}
   ${subscribeBox}
 </article>
 </main>
@@ -1898,6 +1905,7 @@ const infraSlugList = [];
 
 ${body}
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client lists show tracked neobanks with a publicly documented relationship — not complete customer books. Providers switch constantly; corrections welcome.</p>
+  ${b2bBar}
   ${subscribeBox}
 </article>
 </main>
@@ -2424,6 +2432,7 @@ pre.code .c{color:var(--dim)}
   <h2>Why it's useful</h2>
   <p>AI assistants answer questions about neobanks constantly — <em>"which neobank has an API?"</em>, <em>"compare Mercury and Brex"</em>, <em>"self-custody options in Europe"</em> — and get them wrong or stale from training data. Pointed at this server, the model answers from the <a href="/data.json">current, verified dataset</a>, cites the <a href="/n/">profile page</a> behind each fact, and respects the <code>null = unverified</code> rule rather than inventing a "no". It reads the live <a href="/data.json">data.json</a>, so it is never out of date.</p>
   <div class="callout"><span class="k">also</span>Prefer plain HTTP? The same data is at <a href="/data.json">data.json</a>, described by <a href="/openapi.json">openapi.json</a>, with field semantics in <a href="/llms.txt">llms.txt</a>. The <a href="https://github.com/andreolf/neobankbeat/tree/main/mcp">source</a> is ~180 lines, no dependencies.</p>
+  ${b2bBar}
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -2481,6 +2490,7 @@ pre.code .c{color:var(--dim)}
   <h2>Why route it through here?</h2>
   <p>Ask an AI about neobanks cold and it answers from months-stale training data, invents details, and cites nothing. This prompt pins it to the <a href="/data.json">live, verified dataset</a> — ${E.length} neobanks with custody, licences, cards, stablecoins and geography checked against registers and filings — and demands the <a href="/n/">profile page</a> behind every claim, including who legally holds your money and what protection applies if it fails.</p>
   <div class="callout"><span class="k">the other doors</span>Just choosing a bank and prefer taps to typing? The <a href="/fit/">8-step fit wizard</a> ranks all ${E.length} instantly, no AI account needed. Power users: point your assistant at the <a href="/mcp/">MCP server</a> and it queries the dataset live. Browsers: the <a href="/database/">sortable database</a> and <a href="/matrix/">feature matrix</a>.</div>
+  ${b2bBar}
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -2567,6 +2577,7 @@ pre.code .c{color:var(--dim)}
     <tbody id="dbbody"></tbody>
   </table></div>
   <noscript><p>The interactive table needs JavaScript. The same data is in <a href="/data.json">data.json</a>, or browse the <a href="/">directory</a> and <a href="/matrix/">feature matrix</a>.</p></noscript>
+  ${b2bBar}
   ${disclaimer}
 </article>
 </main>
@@ -2638,6 +2649,7 @@ ${mxRows.map(e => `<tr><td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>
   <div class="callout"><span class="k">how to read it</span>${esc(answer)}</div>
   ${table}
   <div class="callout"><span class="k">go deeper</span>Every ✓ is sourced on the bank's profile. Compare any two side by side in <a href="/vs/">comparisons</a>, filter live in the <a href="/">directory</a>, or take the raw flags from <a href="/data.json">data.json</a> (the <code>features</code> object).</div>
+  ${b2bBar}
   ${disclaimer}
   ${subscribeBox}
 </article>
