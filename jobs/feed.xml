@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 65 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 15 Aug 2026 06:48:19 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 16 Aug 2026 06:50:01 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[VIP Relationship Manager — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-4952675101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4952675101/</guid>
+    <pubDate>Sat, 15 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Bybit · Amsterdam, Netherlands · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[AMLCO & Senior Compliance Associate — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-7942306/</link>
@@ -120,6 +128,22 @@
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Senior CRM Specialist — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8034981/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8034981/</guid>
+    <pubDate>Sat, 15 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[N26 · Berlin · hybrid · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Business Development Desk Manager — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8128629/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8128629/</guid>
+    <pubDate>Sat, 15 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Robinhood · Denver, CO; Westlake, TX · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[CUSTOMER ADVISOR ANALYST I — Banco Inter]]></title>
     <link>https://www.neobankbeat.com/jobs/j/banco-inter-4720700005/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4720700005/</guid>
@@ -153,19 +177,19 @@
   </item>
   <item>
     <title><![CDATA[Director, Revenue Operations — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8716927002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8716927002/</guid>
-    <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $258–322K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director, Revenue Operations — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8716945002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8716945002/</guid>
     <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
     <category>Sales &amp; Partnerships</category>
     <description><![CDATA[Brex · New York, New York, United States · $258–322K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Director, Revenue Operations — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8716927002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8716927002/</guid>
+    <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Brex · San Francisco, California, United States · $258–322K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Staff Software Engineer, Product Data Platform — Brex]]></title>
@@ -462,30 +486,6 @@
     <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[Monzo · Remote (UK) · £40–51K · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Specialist, Performance & Analytics — Monzo]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/monzo-8102830/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8102830/</guid>
-    <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Monzo · London · £56–76K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Backend Engineer - Lending — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8129812/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8129812/</guid>
-    <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Junior Data Analyst - Customer Identity — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8127483/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8127483/</guid>
-    <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
   </item>
 </channel>
 </rss>
