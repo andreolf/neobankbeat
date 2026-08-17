@@ -2522,6 +2522,60 @@ pre.code .c{color:var(--dim)}
   fs.writeFileSync(path.join(ROOT, 'ask', 'index.html'), html);
 }
 
+/* ═══ /graveyard/ — delisted neobanks, archived with their cause of death.
+   Why a neobank dies is worth more than why one succeeds: almost every death
+   here broke at a link in the money chain, not at the brand. Data lives in
+   data.json `graveyard` (never silently deleted from the dataset). ═══ */
+{
+  const G = data.graveyard || [];
+  const url = `${BASE}/graveyard/`;
+  const KIND = {
+    rail: ['partner / rail exit', 'The bank or e-money provider underneath pulled out — the brand survived exactly as long as its rail did.'],
+    acquired: ['acquired', 'Bought and folded in. An exit for the team; the end of the product.'],
+    regulator: ['shut by regulator', 'The supervisor stepped in and wound it down.'],
+  };
+  const kinds = Object.keys(KIND).filter(k => G.some(g => g.cause.kind === k));
+  const answer = `${G.length} neobanks have been delisted from the directory since tracking began — archived here with the cause of death, never silently deleted. ${G.filter(g => g.cause.kind === 'rail').length} died when their partner bank or e-money rail pulled out, ${G.filter(g => g.cause.kind === 'acquired').length} were acquired and folded in, ${G.filter(g => g.cause.kind === 'regulator').length} was shut down by a regulator.`;
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'The neobank graveyard', url, description: answer }, ['graveyard', url]);
+  const gyStyle = `<style>
+.tomb{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:18px 20px;margin:14px 0}
+.tomb h3{margin:0 0 2px;font-size:18px}
+.tomb h3 .yrs{font-family:var(--mono);font-size:12.5px;color:var(--dim);font-weight:400;margin-left:10px}
+.tomb .tmeta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin:0 0 10px}
+.tomb p{margin:8px 0 0;font-size:14px}
+.kbadge{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--accent)}
+</style>`;
+  const html = (head(`The neobank graveyard: ${G.length} delisted, every cause of death traced · neobankbeat`,
+    `Dead neobanks are archived, not deleted. ${G.length} delistings so far, each traced to its cause — partner-bank exits, acquisitions, a regulator liquidation. Why they die is the alpha.`,
+    url, ld, ogIf('graveyard.png')) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow">the graveyard</div>
+  <h1>The neobank graveyard: <em>why they died</em></h1>
+  <p class="meta">When a neobank shuts down, most directories silently delete it. We archive it — full last-known profile, delisting date, and the cause of death, traced. Why a project fails is worth more than why one succeeds.</p>
+  <p>${answer} The pattern across them is the thesis of this site: <b>a neobank almost never dies at the brand — it dies at a link in the <a href="/blog/who-holds-your-money/">money chain</a></b>. The partner bank exits, the e-money rail terminates the contract, the ledger provider collapses. The full anatomy is in <a href="/blog/why-neobanks-die/">why neobanks die</a>; the monthly toll runs in the <a href="/report/">report</a>.</p>
+${kinds.map(k => `
+  <h2>${KIND[k][0]} <span class="dim">(${G.filter(g => g.cause.kind === k).length})</span></h2>
+  <p class="meta">${KIND[k][1]}</p>
+${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
+    <h3>${esc(g.name)} †<span class="yrs">${g.founded}–${g.delisted.slice(0, 4)}</span></h3>
+    <p class="tmeta">${esc(g.hq || g.region || '')} · ${esc(g.category)}${g.custody ? ` · ${esc(g.custody)}` : ''} · delisted ${g.delisted}</p>
+    <p>${esc(g.description || '')}</p>
+    <p><span class="kbadge">${KIND[g.cause.kind][0]}</span></p>
+    <p>${esc(g.cause.summary)}</p>
+  </div>`).join('\n')}`).join('\n')}
+  <h2>The graveyard is part of the dataset</h2>
+  <p>Every entry here lives in <a href="/data.json">data.json</a> under the <code>graveyard</code> key — the full last-known profile with <code>status: "delisted"</code>, the delisting date and a structured cause, machine-readable like everything else. Delistings are also logged in the <a href="/changelog/">changelog</a>, and each month's deaths get a post-mortem in the <a href="/report/">monthly report</a>. If we got a cause wrong, or a listed neobank has quietly died, <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">file a data fix</a>.</p>
+  <div class="callout"><span class="k">still alive</span>The other side of the ledger: <a href="/">${E.length} verified-active neobanks</a>, the <a href="/browse/">45 cuts</a>, and <a href="/fit/">which one actually fits you</a>.</div>
+  ${b2bBar}
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('</head>', gyStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'graveyard'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'graveyard', 'index.html'), html);
+}
+
 /* ═══ /database/ — sortable, filterable table view of the whole dataset ═══ */
 {
   const url = `${BASE}/database/`;
@@ -2754,6 +2808,7 @@ const urls = [
   { loc: `${BASE}/search/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/map/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ask/`, changefreq: 'monthly', priority: '0.8' },
+  { loc: `${BASE}/graveyard/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },

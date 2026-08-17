@@ -35,6 +35,7 @@ export const FOOTER_LINKS = [
   ["/infra/", "infra"],
   ["/ai/", "ai"],
   ["/newsletters/", "newsletters"],
+  ["/graveyard/", "graveyard"],
   ["/changelog/", "changelog"],
   ["/report/", "report"],
   ["/jobs/", "jobs"],

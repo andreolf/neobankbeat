@@ -66,6 +66,7 @@ const out = w.eval(`(function(){
   };
   const entities = D.map(mapRow);
   const emerging = (typeof EMERGING !== 'undefined' ? EMERGING : []).map(r => { const o = mapRow(r); o.status = 'emerging'; return o; });
+  const graveyard = (typeof GRAVEYARD !== 'undefined' ? GRAVEYARD : []).map(r => { const o = mapRow(r); o.status = 'delisted'; o.delisted = r[15]; o.cause = { kind: r[16], summary: r[17] }; return o; });
   return {
     meta: {
       name: "neobankbeat",
@@ -85,11 +86,13 @@ const out = w.eval(`(function(){
         rates: "cashback/yield are 'up to' figures that change constantly and vary by region — always confirm with the issuer",
         services: "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence",
         fx_markup: "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer",
-        verification: "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed"
+        verification: "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed",
+        graveyard: "delisted entities are archived in the graveyard array with status 'delisted', the delisting date and a cause of death (kind: rail = partner/rail exit, acquired, regulator) — never silently deleted; excluded from all counts"
       }
     },
     entities,
-    emerging
+    emerging,
+    graveyard
   };
 })()`);
 
