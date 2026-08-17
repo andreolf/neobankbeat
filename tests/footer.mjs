@@ -82,7 +82,7 @@ export const FOOTER_DESTINATIONS = FOOTER_LINKS.map(([href]) => href).filter((h)
 export const FOOTER_HTML = `<footer><div class="fwrap fgrid">
 ${FOOTER_GROUPS.map(([title, links]) => `  <div class="fgrp"><span class="fh">${title}</span>${links.map(anchor).join("")}</div>`).join("\n")}
   <div class="fmeta"><span>© neobankbeat · MIT</span>${langbar}</div>
-<script>document.addEventListener('click',function(e){document.querySelectorAll('.navgrp[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})})</script></div></footer>`;
+<script>document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.ndclose');if(c){c.closest('details').removeAttribute('open');return}document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target)||e.target===d)d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){d.removeAttribute('open')})})</script></div></footer>`;
 
 /* Matches a rendered footer in any file — flat (legacy) or grouped — so the
    sync and the drift check agree on what counts as one. Non-greedy: a page
@@ -152,23 +152,36 @@ ${LANGS.map(([href, code, name]) =>
 ${indent}  </div>
 ${indent}</details>`;
 
-export const navHtml = (active = null, indent = "      ") =>
-  NAV_GROUPS.map((entry) => {
-    if (typeof entry === "string")
-      return `${indent}<a href="${entry}"${entry === active ? ' class="on"' : ""}>${NAV_LABEL.get(entry)}</a>`;
-    /* the group summary carries no active class — several templates mark the
-       active link by string-replacing the plain <a> after the fact, and the
-       shell sync must agree with them byte-for-byte. The "you are here"
-       highlight on the summary is done in CSS via :has(a.on) instead. */
-    return `${indent}<details class="navgrp" name="nbnav">
-${indent}  <summary>${entry.label}<span class="ncar">▾</span></summary>
-${indent}  <div class="navpop">
-${entry.items.map((href) =>
-      `${indent}    <a href="${href}"${href === active ? ' class="on"' : ""}>${NAV_LABEL.get(href)}</a>`).join("\n")}
-${indent}  </div>
-${indent}</details>`;
-  }).join("\n") +
-  "\n" + langMenu(indent);
+/* The grouped destinations render inside ONE slide-in drawer (a <details>
+   styled as a right-side panel over a scrim — the luxury-hotel menu pattern),
+   with direct links kept for the three flagships. Links stay plain <a>s in
+   NAV_LINKS order, so crawlers and the flowtest canon scan see the same nav.
+
+   No active class ever lands on the summary or headers — templates mark the
+   active link by string-replacing its plain <a>, and the shell sync must
+   agree byte-for-byte. The menu button's "you are here" highlight is CSS:
+   .navdrawer:has(a.on)>summary. The close control is a <span role="button">,
+   NOT a <button> — NAV_RE ends the nav body at the first <button>. */
+export const navHtml = (active = null, indent = "      ") => {
+  const link = (href, pad = "") =>
+    `${indent}${pad}<a href="${href}"${href === active ? ' class="on"' : ""}>${NAV_LABEL.get(href)}</a>`;
+  const groups = NAV_GROUPS.filter((e) => typeof e !== "string");
+  return [
+    link("/"),
+    `${indent}<details class="navdrawer">`,
+    `${indent}  <summary aria-label="Open menu">☰<span class="ndlbl">menu</span></summary>`,
+    `${indent}  <div class="navpanel">`,
+    `${indent}    <span class="ndclose" role="button" tabindex="0" aria-label="Close menu">✕ close</span>`,
+    ...groups.flatMap((g) => [
+      `${indent}    <span class="ndhead">${g.label}</span>`,
+      ...g.items.map((href) => link(href, "    ")),
+    ]),
+    `${indent}  </div>`,
+    `${indent}</details>`,
+    link("/report/"),
+    link("/jobs/"),
+  ].join("\n") + "\n" + langMenu(indent);
+};
 
 /* The nav's links only; the surrounding <nav> and any extra controls (the black
    &amp; white toggle) are left to each template, since the report edition ships

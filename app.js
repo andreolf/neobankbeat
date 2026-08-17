@@ -3070,5 +3070,6 @@ window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}c
   },true);
 })();
 
-/* ── nav dropdowns: click anywhere outside an open menu closes it ── */
-document.addEventListener('click',function(e){document.querySelectorAll('.navgrp[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
+/* ── nav drawer + language menu: close button, scrim/outside click, Esc ── */
+document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.ndclose');if(c){c.closest('details').removeAttribute('open');return}document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target)||e.target===d)d.removeAttribute('open')})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){d.removeAttribute('open')})});
