@@ -336,7 +336,7 @@ def main():
     print("profile cards:", len(ents))
 
     # slugs with hand-made OG images (e.g. cropped from the ecosystem poster)
-    OG_CUSTOM = {"neobank-ecosystem-map"}
+    OG_CUSTOM = {"neobank-ecosystem-map", "neobank-spirit-animals"}
     n_blog = 0
     for p in sorted((ROOT / "blog").iterdir()):
         idx = p / "index.html"

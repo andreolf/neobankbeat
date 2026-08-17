@@ -24011,7 +24011,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24128,6 +24128,11 @@
   <url>
     <loc>https://www.neobankbeat.com/blog/who-holds-your-money/</loc>
     <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/blog/neobank-spirit-animals/</loc>
+    <lastmod>2026-08-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
