@@ -130,14 +130,34 @@ body.bw .mmap{--tc:#111 !important}
 @media(max-width:480px){.nbform{flex-direction:column}}
 .subbtn{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;background:var(--accent);color:#0A0A10;padding:10px 20px;border-radius:999px;margin:4px 0 10px}
 .subbtn:hover{text-decoration:none;filter:brightness(1.1)}
+.navgrp{position:relative;flex:none}
+.navgrp>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
+.navgrp>summary::-webkit-details-marker{display:none}
+.navgrp>summary::marker{content:""}
+.navgrp>summary:hover{color:var(--text)}
+.navgrp:has(.navpop a.on)>summary{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:2px}
+.navgrp .ncar{margin-left:4px;font-size:9px;color:var(--dim)}
+.navgrp[open] .ncar{color:var(--accent)}
+.navpop{position:absolute;top:calc(100% + 8px);right:0;z-index:60;min-width:170px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.navpop a{display:block;padding:7px 10px;border-radius:7px;font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
+.navpop a:hover{background:var(--bg);color:var(--text);text-decoration:none}
+.navpop a.on{color:var(--accent)}
 footer{border-top:1px solid var(--line);margin-top:40px}
 .fwrap{max-width:760px;margin:0 auto;padding:28px 24px;font-family:var(--mono);font-size:12px;color:var(--dim);display:flex;flex-wrap:wrap;gap:14px}
 .fwrap a{color:var(--muted)}
+.fwrap.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 24px}
+.fgrp{display:flex;flex-direction:column;gap:7px}
+.fh{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:2px}
+.fmeta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:16px;margin-top:4px}
 
 @media(max-width:600px){
   .hwrap{padding:12px 16px;flex-wrap:wrap;row-gap:8px}
   .hnav{flex-wrap:wrap;overflow:visible;flex:1 1 100%;margin-left:0;gap:6px 14px;font-size:12px}
   .langpop{max-height:50vh;left:0;right:auto}
+  .navgrp[open]{flex:1 1 100%}
+  .navpop{position:static;box-shadow:none;border:none;background:transparent;padding:4px 0 2px 12px;min-width:0;width:100%;display:flex;flex-wrap:wrap;gap:2px 6px}
+  .navpop a{padding:4px 6px}
+  .fwrap.fgrid{grid-template-columns:repeat(2,1fr)}
   .wrap{padding:36px 18px 60px}
   article table{font-size:13px;display:block;overflow-x:auto}
 }

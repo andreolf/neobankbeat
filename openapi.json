@@ -439,7 +439,7 @@
       "get": {
         "operationId": "getJobs",
         "summary": "Live neobank job board",
-        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3688 roles across 65 companies. Refreshed Monday/Wednesday/Friday.",
+        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3689 roles across 65 companies. Refreshed Monday/Wednesday/Friday.",
         "responses": {
           "200": {
             "description": "The job list.",

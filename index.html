@@ -94,6 +94,16 @@ body.bw .logo .dot{text-decoration:underline;text-underline-offset:4px}
 .langpop{position:absolute;top:calc(100% + 6px);right:0;z-index:60;min-width:152px;max-height:260px;overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .langpop a{display:block;padding:7px 10px;border-radius:7px;font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
 .langpop a:hover{background:var(--bg);color:var(--text)}
+.navgrp{position:relative;flex:none}
+.navgrp>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
+.navgrp>summary::-webkit-details-marker{display:none}
+.navgrp>summary::marker{content:""}
+.navgrp>summary:hover{color:var(--text)}
+.navgrp .ncar{margin-left:4px;font-size:9px;color:var(--dim)}
+.navgrp[open] .ncar{color:var(--accent)}
+.navpop{position:absolute;top:calc(100% + 8px);right:0;z-index:60;min-width:170px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.navpop a{display:block;padding:7px 10px;border-radius:7px;font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
+.navpop a:hover{background:var(--bg);color:var(--text);text-decoration:none}
 
 .hero{max-width:1320px;margin:0 auto;padding:58px 24px 32px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
@@ -240,6 +250,9 @@ footer{max-width:1320px;margin:30px auto 0;padding:34px 24px 26px;font-family:va
   .hwrap{padding:10px 16px;gap:10px;flex-wrap:wrap}
   .hnav{margin-left:0;width:100%;flex-wrap:wrap;overflow:visible;gap:8px 14px;padding-bottom:3px}
   .langpop{max-height:50vh;left:0;right:auto}
+  .navgrp[open]{flex:1 1 100%}
+  .navpop{position:static;box-shadow:none;border:none;background:transparent;padding:4px 0 2px 12px;min-width:0;width:100%;display:flex;flex-wrap:wrap;gap:2px 6px}
+  .navpop a{padding:4px 6px}
   .hero{padding-top:34px}
   .hero,.spectrum,.controls,.count,.grid,.about,footer{padding-left:16px;padding-right:16px}
   .statrow{gap:24px}
@@ -628,13 +641,41 @@ body.on-map .minimap{display:none}
     <div class="logo">neobank<span class="dot">beat</span></div>
     <nav class="hnav" aria-label="Primary">
       <a href="#directory" id="navdir">directory</a>
-      <a href="/browse/">browse</a>
-      <a href="/fit/">find your fit</a>
+      <details class="navgrp">
+        <summary>find a bank<span class="ncar">▾</span></summary>
+        <div class="navpop">
+          <a href="/browse/">browse</a>
+          <a href="/fit/">find your fit</a>
+          <a href="/ask/">ask AI</a>
+          <a href="/vs/">compare</a>
+          <a href="/map/">world map</a>
+          <a href="/database/">database</a>
+          <a href="/matrix/">matrix</a>
+        </div>
+      </details>
+      <details class="navgrp">
+        <summary>research<span class="ncar">▾</span></summary>
+        <div class="navpop">
+          <a href="/blog/">blog</a>
+          <a href="/investors/">investors</a>
+          <a href="/infra/">infra</a>
+          <a href="/ai/">ai</a>
+          <a href="/graveyard/">graveyard</a>
+          <a href="/changelog/">changelog</a>
+          <a href="/newsletters/">newsletters</a>
+        </div>
+      </details>
+      <details class="navgrp">
+        <summary>data<span class="ncar">▾</span></summary>
+        <div class="navpop">
+          <a href="/data/">dataset</a>
+          <a href="/data.json">data.json</a>
+          <a href="/llms.txt">llms.txt</a>
+          <a href="/mcp/">mcp server</a>
+        </div>
+      </details>
       <a href="#newssec">news</a>
-      <a href="#datasec">data</a>
-      <a href="/investors/">investors</a>
-      <a href="/infra/">infra</a>
-      <a href="/blog/">blog</a>
+      <a href="#datasec">charts</a>
       <a href="/report/">report</a>
       <a href="/jobs/">jobs</a>
       <details class="langmenu">
