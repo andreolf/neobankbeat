@@ -101,6 +101,8 @@ export const FOOTER_RE = /<footer><div class="fwrap[^"]*">[\s\S]*?<\/div><\/foot
    here" survives a nav change it wasn't edited for. */
 export const NAV_LINKS = [
   ["/", "directory"],
+  ["/report/", "report"],
+  ["/jobs/", "jobs"],
   ["/browse/", "browse"],
   ["/fit/", "find your fit"],
   ["/ask/", "ask AI"],
@@ -119,8 +121,6 @@ export const NAV_LINKS = [
   ["/data.json", "data.json"],
   ["/llms.txt", "llms.txt"],
   ["/mcp/", "mcp server"],
-  ["/report/", "report"],
-  ["/jobs/", "jobs"],
 ];
 
 export const NAV_DESTINATIONS = NAV_LINKS.map(([href]) => href);
@@ -166,8 +166,14 @@ export const navHtml = (active = null, indent = "      ") => {
   const link = (href, pad = "") =>
     `${indent}${pad}<a href="${href}"${href === active ? ' class="on"' : ""}>${NAV_LABEL.get(href)}</a>`;
   const groups = NAV_GROUPS.filter((e) => typeof e !== "string");
+  /* direct links first as a clean text run, then the controls cluster at the
+     right end: menu pill (which is also where the drawer slides in from),
+     language pill, and each template's b&w toggle after us. NAV_LINKS keeps
+     the same order so the canon scan agrees. */
   return [
     link("/"),
+    link("/report/"),
+    link("/jobs/"),
     `${indent}<details class="navdrawer">`,
     `${indent}  <summary aria-label="Open menu">☰<span class="ndlbl">menu</span></summary>`,
     `${indent}  <div class="navpanel">`,
@@ -178,8 +184,6 @@ export const navHtml = (active = null, indent = "      ") => {
     ]),
     `${indent}  </div>`,
     `${indent}</details>`,
-    link("/report/"),
-    link("/jobs/"),
   ].join("\n") + "\n" + langMenu(indent);
 };
 
