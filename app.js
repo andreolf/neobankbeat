@@ -411,6 +411,21 @@ const EMERGING=[
 ["Reah","H","Global","Menlo Park, US",2025,"S","Visa","Corporate","—","Up to 12% APY",1,"Y","s","reah.com","Self-custodial onchain business-banking OS combining regulated fiat accounts via partners with a multi-sig stablecoin and BTC treasury, Visa corporate cards and up to 12% APY."]
 ];
 
+/* the graveyard — delisted entities are archived here with their cause of
+   death, never silently deleted. Same 15 fields as D, then three more:
+   [15] delisted (ISO date), [16] cause kind (rail = partner/rail exit,
+   acquired, regulator), [17] cause summary. Kept out of the grid, counts
+   and generated profiles; exported as data.json `graveyard` and rendered
+   at /graveyard/. */
+const GRAVEYARD=[
+["Juno","H","US","San Francisco, US",2019,"C","MC","Debit","Up to 5% JCOIN","Yield on USDC/USD",1,"Y","g","juno.finance","Checking + USDC salary splits.","2026-07-18","rail","Collateral damage of the 2024 Synapse/Evolve collapse: when Evolve Bank lost access to Synapse's ledger, customer funds froze across 50+ fintechs (~$95M went missing industry-wide). Juno wound down its Treasury account and pivoted to on-chain."],
+["Fi Money","T","Asia","Bengaluru, IN",2019,"C","Visa","Debit","Rewards","—",0,"Y","g","fi.money","Salaried-professional neobank.","2026-07-18","rail","Partner Federal Bank ended the relationship (11 Mar 2026) amid the RBI's tightening of bank–fintech tie-ups and thin unit economics; 3.5M customers were redirected to the bank's own app as Fi pivoted to AI."],
+["Kard","T","Europe","Paris, FR",2018,"C","MC","Debit","—","—",0,"Y","k","kard.eu","French teen banking app.","2026-07-18","rail","Its e-money provider terminated the contract, leaving no rail to operate on — the company went into liquidation."],
+["Pomelo","T","US","San Francisco, US",2021,"C","MC","Credit + remittance","—","—",0,"Y","i","pomelo.com","Send money home via credit; US↔PH corridor.","2026-07-18","acquired","Acquired by Zepz (WorldRemit / Sendwave) in Jan 2026; the product was paused during integration and the team folded in — an exit, not a failure."],
+["Z1","T","LatAm","São Paulo, BR",2020,"C","Visa","Debit","—","—",0,"Y","k","z1.app","Brazil's Gen-Z money app.","2026-07-18","acquired","Absorbed by crypto neobank NG.CASH; the Z1 brand was retired."],
+["Will Bank","T","LatAm","São Paulo, BR",2017,"C","MC","Debit + credit","—","Yield",0,"Y","g","willbank.com.br","Card-first Brazilian neobank.","2026-07-16","regulator","Liquidated by Brazil's Central Bank (Jan 2026) — nominally for breaching Mastercard obligations, but tied to the collapse of the Banco Master conglomerate (a severe liquidity crisis and an ~R$11.5B fraud probe) that felled several linked institutions."]
+];
+
 /* ── state ── */
 let cat="ALL", q="", region="", custody="", net="", niche="", wantYield=false, wantStable=false, wantNoKyc=false, wantAI=false, sortBy="az";
 let cmp=new Set();
