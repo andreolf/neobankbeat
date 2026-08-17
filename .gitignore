@@ -5,3 +5,4 @@ x-tweets/
 
 # staged copies for HF/Kaggle mirrors (generated)
 dataset/.staging/
+.claude/

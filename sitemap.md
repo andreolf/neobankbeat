@@ -69,6 +69,7 @@
 - [browse neobanks by license kyc country](https://www.neobankbeat.com/blog/browse-neobanks-by-license-kyc-country/) (2026-07-28)
 - [neobankbeat mcp server](https://www.neobankbeat.com/blog/neobankbeat-mcp-server/) (2026-08-11)
 - [who holds your money](https://www.neobankbeat.com/blog/who-holds-your-money/) (2026-08-12)
+- [neobank spirit animals](https://www.neobankbeat.com/blog/neobank-spirit-animals/) (2026-08-17)
 
 ## Neobank profiles (379)
 
