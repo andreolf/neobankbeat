@@ -2891,6 +2891,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Newsletters](${BASE}/newsletters/) — the ${NEWSLETTERS.length} neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](${BASE}/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [AI neobanks](${BASE}/ai/) — the ${aiCount} neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
+- [Graveyard](${BASE}/graveyard/) — every delisted neobank archived with its cause of death
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [CV job match](${BASE}/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset

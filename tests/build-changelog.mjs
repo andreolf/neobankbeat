@@ -241,7 +241,7 @@ ${navHtml(null)}
 <article>
   <div class="eyebrow">the changelog</div>
   <h1>every change to <em>the dataset</em></h1>
-  <p class="meta">What we shipped, plus every dataset change straight from version history — nothing hidden. <b>${now.length} entities tracked</b> · ${nAdd} added and ${nDel} removed since launch · last change ${fmtDate(lastDate)}. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
+  <p class="meta">What we shipped, plus every dataset change straight from version history — nothing hidden. <b>${now.length} entities tracked</b> · ${nAdd} added and ${nDel} removed since launch · last change ${fmtDate(lastDate)}. Removed ≠ deleted: every delisting is archived with its cause of death in <a href="/graveyard/">the graveyard</a>. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
   <p>A directory is only as good as its maintenance, so the maintenance is public. Below: what we shipped for you, then every change to the data itself.</p>
 
   <h2 class="relh">product &amp; platform</h2>
