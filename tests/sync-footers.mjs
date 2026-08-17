@@ -16,7 +16,7 @@
    added to every page in one command instead of forty-seven edits.           */
 import fs from 'node:fs';
 import path from 'node:path';
-import { FOOTER_HTML, FOOTER_RE, FOOTER_DESTINATIONS, NAV_RE, NAV_LINK_RE, NAV_DESTINATIONS, navHtml } from './footer.mjs';
+import { BLOG_CSS_HREF, BLOG_CSS_LINK_RE, FOOTER_HTML, FOOTER_RE, FOOTER_DESTINATIONS, NAV_RE, NAV_LINK_RE, NAV_DESTINATIONS, navHtml } from './footer.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const check = process.argv.includes('--check');
@@ -62,6 +62,19 @@ for (const f of navFiles) {
   if (!check) fs.writeFileSync(f, src.replace(NAV_RE, `${open}${want}${gap}${tail}`));
 }
 
+/* The stylesheet reference, same treatment: every page must carry the current
+   content-hash version, or a 24h-cached blog.css serves stale styles against
+   fresh markup. Builders stamp it at build time; this catches the hand-written
+   pages (and any page built before the hash moved). */
+const cssChanged = [];
+for (const f of walk(ROOT)) {
+  const src = fs.readFileSync(f, 'utf8');
+  const links = src.match(BLOG_CSS_LINK_RE);
+  if (!links || links.every((l) => l === `href="${BLOG_CSS_HREF}"`)) continue;
+  cssChanged.push(path.relative(ROOT, f));
+  if (!check) fs.writeFileSync(f, src.replace(BLOG_CSS_LINK_RE, `href="${BLOG_CSS_HREF}"`));
+}
+
 /* The homepage keeps its own grouped footer, so it is held to the weaker
    contract: it may present links differently, but it may not drop one. "/" is
    exempt — it links "#directory" instead, being the page itself. */
@@ -79,9 +92,10 @@ const navMissing = NAV_DESTINATIONS
 if (check) {
   for (const f of changed) console.log(`footer drift: ${f}`);
   for (const f of navChanged) console.log(`nav drift: ${f}`);
+  for (const f of cssChanged) console.log(`stale blog.css version: ${f}`);
   if (missing.length) console.log(`index.html footer is missing: ${missing.join(' ')}`);
   if (navMissing.length) console.log(`index.html nav is missing: ${navMissing.join(' ')}`);
-  const bad = changed.length + navChanged.length + missing.length + navMissing.length;
+  const bad = changed.length + navChanged.length + cssChanged.length + missing.length + navMissing.length;
   console.log(bad
     ? `✗ ${bad} shell problem(s) — run: node tests/sync-footers.mjs`
     : `✓ ${files.length} flat footers and ${navFiles.length} navs match, homepage covers all ${FOOTER_DESTINATIONS.length} destinations`);
@@ -92,4 +106,4 @@ for (const f of changed) console.log(`footer: ${f}`);
 for (const f of navChanged) console.log(`nav: ${f}`);
 if (missing.length) console.log(`\n! index.html footer is missing ${missing.join(' ')} — add by hand, its layout is bespoke`);
 if (navMissing.length) console.log(`! index.html nav is missing ${navMissing.join(' ')} — add by hand, it uses on-page anchors`);
-console.log(`${changed.length} of ${files.length} flat footers and ${navChanged.length} of ${navFiles.length} navs rewritten`);
+console.log(`${changed.length} of ${files.length} flat footers, ${navChanged.length} of ${navFiles.length} navs and ${cssChanged.length} css links rewritten`);
