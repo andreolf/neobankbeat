@@ -12,7 +12,21 @@
    Order is deliberate: browse surfaces, then publications, then machine-readable
    data, then off-site. Add a link once, here. */
 
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import { LOCALES } from './i18n.mjs';
+
+/* The shared stylesheet is served with a 24h browser cache, so an unversioned
+   reference leaves returning visitors with yesterday's CSS against today's
+   markup (the nav dropdowns shipped exactly that way — unstyled <details>
+   for a day). Same cure as app.js: a content-hash query the builders and the
+   shell sync stamp everywhere, so any CSS change busts every cache. */
+const _cssFile = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'blog', 'blog.css');
+export const BLOG_CSS_HREF = '/blog/blog.css?v=' +
+  crypto.createHash('sha256').update(fs.readFileSync(_cssFile)).digest('hex').slice(0, 10);
+export const BLOG_CSS_LINK_RE = /href="\/blog\/blog\.css[^"]*"/g;
 
 const anchor = ([href, label, external]) =>
   `<a href="${href}"${external ? ' target="_blank" rel="noopener"' : ""}>${label}</a>`;

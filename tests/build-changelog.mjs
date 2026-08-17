@@ -4,7 +4,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { FOOTER_HTML, navHtml } from './footer.mjs';
+import { BLOG_CSS_HREF, FOOTER_HTML, navHtml } from './footer.mjs';
 import { clampDesc, withCrumbs } from './meta.mjs';
 
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
@@ -195,7 +195,7 @@ const html = `<!DOCTYPE html>
 <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/blog/blog.css">
+<link rel="stylesheet" href="${BLOG_CSS_HREF}">
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va("event",{name:n,data:d||{}})}catch(_){}try{gtag("event",n,d||{})}catch(_){}}</script><script defer src="/_vercel/insights/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
