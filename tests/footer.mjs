@@ -68,7 +68,7 @@ export const FOOTER_DESTINATIONS = FOOTER_LINKS.map(([href]) => href).filter((h)
 export const FOOTER_HTML = `<footer><div class="fwrap fgrid">
 ${FOOTER_GROUPS.map(([title, links]) => `  <div class="fgrp"><span class="fh">${title}</span>${links.map(anchor).join("")}</div>`).join("\n")}
   <div class="fmeta"><span>© neobankbeat · MIT</span>${langbar}</div>
-</div></footer>`;
+<script>document.addEventListener('click',function(e){document.querySelectorAll('.navgrp[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})})</script></div></footer>`;
 
 /* Matches a rendered footer in any file — flat (legacy) or grouped — so the
    sync and the drift check agree on what counts as one. Non-greedy: a page
@@ -146,7 +146,7 @@ export const navHtml = (active = null, indent = "      ") =>
        active link by string-replacing the plain <a> after the fact, and the
        shell sync must agree with them byte-for-byte. The "you are here"
        highlight on the summary is done in CSS via :has(a.on) instead. */
-    return `${indent}<details class="navgrp">
+    return `${indent}<details class="navgrp" name="nbnav">
 ${indent}  <summary>${entry.label}<span class="ncar">▾</span></summary>
 ${indent}  <div class="navpop">
 ${entry.items.map((href) =>

@@ -3069,3 +3069,6 @@ window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}c
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
   },true);
 })();
+
+/* ── nav dropdowns: click anywhere outside an open menu closes it ── */
+document.addEventListener('click',function(e){document.querySelectorAll('.navgrp[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
