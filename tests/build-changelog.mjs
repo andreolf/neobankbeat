@@ -54,6 +54,21 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-08-17', tag: 'new', title: 'A menu that breathes + a grouped footer',
+    body: 'The header\'s eight flat links become three direct links and a ☰ menu that slides a full-height panel in over the page — every surface on the site, grouped by intent (find a bank / research / data), reachable from anywhere in one tap. The footer\'s 24-link row becomes four labeled columns. Native HTML details underneath: crawlable, no JS required, Esc/scrim/outside-click to close.',
+    links: [['/', 'try it anywhere']] },
+  { date: '2026-08-17', tag: 'new', title: 'The graveyard — dead neobanks, archived not deleted',
+    body: 'Why a neobank fails is worth more than why one succeeds, so delistings now move to a permanent archive instead of vanishing: full last-known profile, delisting date and the cause of death, traced (partner-rail exits, acquisitions, a regulator liquidation). Machine-readable too, as the graveyard array in data.json.',
+    links: [['/graveyard/', 'visit the graveyard']] },
+  { date: '2026-08-17', tag: 'new', title: 'How AI perceives the neobanks: 10 spirit animals',
+    body: 'A lighter one: we asked a locally-run image model what animal each neobank evokes — no brand briefs, no art direction. Revolut came back an octopus with a tentacle in everything, MetaMask a fox holding the keys, WeBank a dragon. All ten portraits plus a poster, free to share with attribution.',
+    links: [['/blog/neobank-spirit-animals/', 'see all ten']] },
+  { date: '2026-08-16', tag: 'new', title: 'Ask AI — agent mode for the whole dataset',
+    body: 'Type any neobank question and hand it to ChatGPT, Claude or Perplexity with one click — pre-instructed to answer from the open dataset, cite the profile page behind every claim, explain who legally holds the money, and say "unverified" instead of guessing. The zero-typing alternative stays at find-your-fit; power users get the MCP server.',
+    links: [['/ask/', 'ask anything']] },
+  { date: '2026-08-14', tag: 'fix', title: 'One-step report download',
+    body: 'The report gate now completes in one flow on the page: subscribe in the embedded form and the PDF download starts the moment you finish — no redirect to Substack, no second tab, desktop and mobile alike.',
+    links: [['/report/', 'get the report']] },
   { date: '2026-08-13', tag: 'new', title: 'The State of Neobanks № 02 — August',
     body: 'The second monthly report ships — and the first with month-over-month deltas: what changed since July, a "why they died" graveyard page tracing every delisting to its cause (Synapse fallout, partner-bank exits, a regulator liquidation), and the month\'s new arrivals. 60 pages, free, every figure reproducible from the open dataset.',
     links: [['/report/', 'read the report']] },
