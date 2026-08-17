@@ -52,6 +52,19 @@ jobs:
           node tests/build-app-js.mjs
           node tests/sync-counts.mjs
 
+      # OG cards carry live counts ("379 neobanks...") baked into PNGs, so they
+      # drift the same way prose does but nothing rebuilt them — /fit/ shipped
+      # a card saying 368 for weeks, and entities added in August never got
+      # cards at all. gen-og.py is deterministic (no timestamps), so on most
+      # days this produces zero diff.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: refresh OG cards from the dataset
+        run: |
+          pip -q install pillow fonttools brotli
+          python tests/gen-og.py > /dev/null
+
       - name: commit & push if anything changed
         run: |
           git config user.name "github-actions[bot]"
