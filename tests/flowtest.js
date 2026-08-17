@@ -1060,6 +1060,16 @@ console.log('— flow 39: site-wide structural SEO invariants');
   ok(unlisted.length===0,'every indexable page is in the sitemap'+(unlisted.length?' ('+unlisted.length+': '+unlisted.slice(0,4).join(' ')+')':''));
   ok(ghosts.length===0,'the sitemap lists no page that is missing from disk'+(ghosts.length?' ('+ghosts.slice(0,4).join(' ')+')':''));
 
+  // the feeds are hand-maintained XML; a single mismatched tag silently kills
+  // the whole feed for every RSS reader (the blog feed shipped broken for
+  // three weeks — a missing <item> nobody saw). Parse, don't trust.
+  for(const rel of ['blog/feed.xml','jobs/feed.xml','sitemap.xml']){
+    const xml=fs.readFileSync(path.join(root,rel),'utf8');
+    const parsed=new (new JSDOM('').window.DOMParser)().parseFromString(xml,'text/xml');
+    const err=parsed.querySelector('parsererror');
+    ok(!err,rel+' is well-formed XML'+(err?' ('+err.textContent.split('\n')[0].slice(0,80)+')':''));
+  }
+
   // /data/ promises a dictionary of the schema, so a field or enum value that
   // exists in data.json but not on that page is a broken promise. region, note,
   // story and volume were all on every entity and none were documented.
