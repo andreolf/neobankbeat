@@ -14,6 +14,7 @@
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [AI neobanks](https://www.neobankbeat.com/ai/) — the 67 neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
+- [Graveyard](https://www.neobankbeat.com/graveyard/) — every delisted neobank archived with its cause of death
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [CV job match](https://www.neobankbeat.com/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
