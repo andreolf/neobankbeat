@@ -2517,7 +2517,7 @@ pre.code .c{color:var(--dim)}
     try{window.nbevt&&nbevt('ask_ai',{via:'copy'})}catch(_){}
   });
 })();
-</script>` + foot).replace('</head>', askStyle + '\n</head>');
+</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/ask/">ask AI</a>', '<a href="/ask/" class="on">ask AI</a>').replace('</head>', askStyle + '\n</head>');
   fs.mkdirSync(path.join(ROOT, 'ask'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'ask', 'index.html'), html);
 }
@@ -2571,7 +2571,7 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   ${disclaimer}
   ${subscribeBox}
 </article>
-</main>` + foot).replace('</head>', gyStyle + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/graveyard/">graveyard</a>', '<a href="/graveyard/" class="on">graveyard</a>').replace('</head>', gyStyle + '\n</head>');
   fs.mkdirSync(path.join(ROOT, 'graveyard'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'graveyard', 'index.html'), html);
 }
