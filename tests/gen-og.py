@@ -320,6 +320,14 @@ def hub_card(family_label, h1, n_rows, n_total):
     return section_card(family_label, h1, f"{n_rows} of {n_total} tracked neobanks · verified active", BLUE)
 
 def main():
+    # --counts-only: regenerate just the network-free card families (sections,
+    # hubs, fit, blog, home, ai, jobs) whose text bakes in live counts. The
+    # profile / investor / infra cards embed favicons fetched at run time, so
+    # on a fresh CI runner their bytes depend on the favicon service's mood —
+    # a scheduled full run churned 818 PNGs between two back-to-back runs and
+    # silently dropped logos where a fetch failed. Those families regenerate
+    # only on demand, from a machine with a warm logo cache.
+    counts_only = "--counts-only" in sys.argv
     data = json.loads((ROOT / "data.json").read_text())
     ents = data["entities"] if isinstance(data, dict) else data
     # uniquify slugs exactly like build-pages.mjs (first come keeps the slug, then -2, -3…)
@@ -328,12 +336,13 @@ def main():
         s = base = slugify(e["name"]); i = 2
         while s in taken: s = f"{base}-{i}"; i += 1
         taken.add(s); slugs[e["name"]] = s
-    doms = sorted({e["domain"] for e in ents if e.get("domain")})
-    with concurrent.futures.ThreadPoolExecutor(24) as ex:
-        list(ex.map(fetch_logo, doms))
-    for e in ents:
-        save(entity_card(e, slugs[e['name']]), f"og/n/{slugs[e['name']]}.png")
-    print("profile cards:", len(ents))
+    if not counts_only:
+        doms = sorted({e["domain"] for e in ents if e.get("domain")})
+        with concurrent.futures.ThreadPoolExecutor(24) as ex:
+            list(ex.map(fetch_logo, doms))
+        for e in ents:
+            save(entity_card(e, slugs[e['name']]), f"og/n/{slugs[e['name']]}.png")
+        print("profile cards:", len(ents))
 
     # slugs with hand-made OG images (e.g. cropped from the ecosystem poster)
     OG_CUSTOM = {"neobank-ecosystem-map", "neobank-spirit-animals"}
@@ -403,36 +412,39 @@ def main():
             n_fit += 1
         print("fit cards:", n_fit)
 
-    # ── investors: /investors/<slug>/ ──
-    inv = {}
-    for e in ents:
-        for iv in e.get("investors") or []:
-            n = iv["name"]
-            if n not in inv:
-                inv[n] = {"site": iv.get("website", ""), "banks": []}
-            inv[n]["banks"].append(e["name"])
-    inv_doms = sorted({inv_dom(v["site"]) for v in inv.values() if inv_dom(v["site"])})
-    with concurrent.futures.ThreadPoolExecutor(24) as ex:
-        list(ex.map(fetch_logo, inv_doms))
-    bank_by_name = {e["name"]: e for e in ents}
-    for name, v in sorted(inv.items(), key=lambda x: (-len(x[1]["banks"]), x[0])):
-        slug = slugify(name) or "investor"
-        top = sorted(v["banks"], key=lambda n: -((bank_by_name.get(n, {}).get("reported_users") or {}).get("value_millions", 0) or 0))[:4]
-        save(investor_card(name, len(v["banks"]), v["site"], top), f"og/investors/{slug}.png")
-    print("investor cards:", len(inv))
-
-    # ── infra: /infra/<slug>/ ──
-    prov_path = ROOT / "tests" / "infra-providers.json"
-    if prov_path.is_file():
-        prov = json.loads(prov_path.read_text())
-        prov.pop("_comment", None)
-        prov_doms = sorted({v.get("domain", "") for v in prov.values() if v.get("domain")})
+    # investor + infra cards embed fetched logos — skipped on scheduled
+    # --counts-only runs (see the note at the top of main()).
+    if not counts_only:
+        # ── investors: /investors/<slug>/ ──
+        inv = {}
+        for e in ents:
+            for iv in e.get("investors") or []:
+                n = iv["name"]
+                if n not in inv:
+                    inv[n] = {"site": iv.get("website", ""), "banks": []}
+                inv[n]["banks"].append(e["name"])
+        inv_doms = sorted({inv_dom(v["site"]) for v in inv.values() if inv_dom(v["site"])})
         with concurrent.futures.ThreadPoolExecutor(24) as ex:
-            list(ex.map(fetch_logo, prov_doms))
-        for name, v in sorted(prov.items(), key=lambda x: x[0]):
-            slug = slugify(name) or "provider"
-            save(infra_card(name, v.get("type", "provider"), v.get("domain"), len(v.get("clients") or [])), f"og/infra/{slug}.png")
-        print("infra cards:", len(prov))
+            list(ex.map(fetch_logo, inv_doms))
+        bank_by_name = {e["name"]: e for e in ents}
+        for name, v in sorted(inv.items(), key=lambda x: (-len(x[1]["banks"]), x[0])):
+            slug = slugify(name) or "investor"
+            top = sorted(v["banks"], key=lambda n: -((bank_by_name.get(n, {}).get("reported_users") or {}).get("value_millions", 0) or 0))[:4]
+            save(investor_card(name, len(v["banks"]), v["site"], top), f"og/investors/{slug}.png")
+        print("investor cards:", len(inv))
+
+        # ── infra: /infra/<slug>/ ──
+        prov_path = ROOT / "tests" / "infra-providers.json"
+        if prov_path.is_file():
+            prov = json.loads(prov_path.read_text())
+            prov.pop("_comment", None)
+            prov_doms = sorted({v.get("domain", "") for v in prov.values() if v.get("domain")})
+            with concurrent.futures.ThreadPoolExecutor(24) as ex:
+                list(ex.map(fetch_logo, prov_doms))
+            for name, v in sorted(prov.items(), key=lambda x: x[0]):
+                slug = slugify(name) or "provider"
+                save(infra_card(name, v.get("type", "provider"), v.get("domain"), len(v.get("clients") or [])), f"og/infra/{slug}.png")
+            print("infra cards:", len(prov))
 
     # ── jobs: /jobs/ and /jobs/<dept>/ ──
     jobs_path = ROOT / "jobs" / "data.json"

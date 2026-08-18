@@ -63,7 +63,7 @@ jobs:
       - name: refresh OG cards from the dataset
         run: |
           pip -q install pillow fonttools brotli
-          python tests/gen-og.py > /dev/null
+          python tests/gen-og.py --counts-only > /dev/null
 
       - name: commit & push if anything changed
         run: |
