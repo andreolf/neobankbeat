@@ -1,5 +1,12 @@
 # neobankbeat — Product Roadmap
 
+> **Status (August 19, 2026):** written August 8 against a 368-entity dataset; preserved
+> from the `roadmap-planning` branch when it was retired. Since then, several items
+> shipped: Schema V2 Phase 1 (additive null keys + slugs), i18n (5 locales), semantic
+> search at /search/, the MCP server, /database/ + /matrix/, and the /ask/ agent
+> gateway. Still open: Schema V2 Phase 2 (populating the typed fields), the
+> similar-neobanks strip (FEATURE-similar.md), and the richer compare grid.
+
 *Synthesis of the Schema V2 and feature specs in this directory into one executable, phased plan.*
 
 Companion specs (read alongside this doc):
