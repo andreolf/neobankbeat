@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-08-18', tag: 'new', title: 'The Africa chapter: an on-ground neobank radar',
+    body: 'Most coverage of African fintech is written from London or San Francisco. The new Africa Neobank Radar is the opposite: a running, sourced log of the developments that matter across African digital banking — maintained on the ground, versioned in the open repo, reviewed like every other change. It debuts the chapter model: radar + data stewardship of the region\'s rows, earned through four sourced entries and a full audit pass. LatAm, Southeast Asia, MENA — the seats are open.',
+    links: [['/africa/', 'the radar']] },
   { date: '2026-08-17', tag: 'new', title: 'A menu that breathes + a grouped footer',
     body: 'The header\'s eight flat links become three direct links and a ☰ menu that slides a full-height panel in over the page — every surface on the site, grouped by intent (find a bank / research / data), reachable from anywhere in one tap. The footer\'s 24-link row becomes four labeled columns. Native HTML details underneath: crawlable, no JS required, Esc/scrim/outside-click to close.',
     links: [['/', 'try it anywhere']] },
