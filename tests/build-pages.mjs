@@ -2598,6 +2598,11 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
 .rentry p{margin:0 0 8px;font-size:14.5px}
 .rentry .rm{font-family:var(--mono);font-size:12px;color:var(--dim)}
 .rentry .rm a{margin-right:10px}
+.afmapcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 26px 14px;margin:24px 0}
+.afmap{display:block;width:100%;max-width:520px;margin:0 auto}
+.afmap a circle{cursor:pointer}
+.afmap a:hover g[fill]{filter:brightness(1.25)}
+body.bw .afmap g[fill]{fill:#333}
 .afspec{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:22px 0 8px}
 .afspec i{display:block;height:100%}
 .afleg{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:6px}
@@ -2620,6 +2625,68 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   const afUsers = AF.reduce((a, e) => a + ((e.reported_users || {}).value_millions || 0), 0);
   const afLic = AF.filter(e => /licensed bank/i.test(e.regulation_type || '')).length;
   const afCats = ['traditional', 'hybrid', 'web3-native'].map(c => [c, AF.filter(e => e.category === c).length]);
+  /* Dotted Africa, same ASCII-grid technique as the homepage world map.
+     Letters mark countries with tracked HQs (colored + tooltipped); x is
+     other land. Coarse on purpose — it's the house style. */
+  const AFRICA_GRID = [
+    '.......xTT.................',
+    '...xxxxxxTxx...............',
+    '..xxxxxxxxxxxxxxEE.........',
+    '.xxxxxxxxxxxxxxxEEE........',
+    'xxxxxxxxxxxxxxxxEEE........',
+    'xxxxxxxxxxxxxxxxxEE........',
+    'Sxxxxxxxxxxxxxxxxxxx.......',
+    'SSxxxxxxxxxxxxxxxxxxx......',
+    '.xxxxxxxxxxxxxxxxxxxxxxx...',
+    '..xxxCCxNNNxxxxxxxxxxxxxxx.',
+    '...xxCCNNNNNxxxxxxxxxxxxxx.',
+    '.....xxxNNNMMxxxxxxxxxxx...',
+    '.........MMMxxxxxxxKKxx....',
+    '..........MMxxxxxxKKKx.....',
+    '..........xxxxxxxxKKx......',
+    '..........xxxxxxxxxxx......',
+    '..........xxxxxxxxxxx......',
+    '..........xxxxxxxxxx.......',
+    '..........xxxxxxxxxx.......',
+    '..........xxxxxxxxx........',
+    '..........xxxxxxxxx....xx..',
+    '.........xxxxxxxxx....xxx..',
+    '.........xxxxxxxxx....xx...',
+    '.........xxxxxxxx.....x....',
+    '.........ZZxxxxxx..........',
+    '........ZZZZZxxx...........',
+    '........ZZZZZZx............',
+    '.........ZZZZZ.............',
+  ];
+  const AFC = {
+    N: ['NG', '#FF5C16'], Z: ['ZA', '#BAF24A'], E: ['EG', '#D075FF'], K: ['KE', '#89B0FF'],
+    S: ['SN', '#FFA680'], C: ['CI', '#CCE7FF'], T: ['TN', '#EAC2FF'], M: ['CM', '#F2E44A'],
+  };
+  const afMapSvg = (() => {
+    const CS = 10, rows = AFRICA_GRID.length, cols = Math.max(...AFRICA_GRID.map(r => r.length));
+    const groups = {};
+    AFRICA_GRID.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (ch === '.') return;
+      (groups[ch] = groups[ch] || []).push(`<circle cx="${x * CS + CS / 2}" cy="${y * CS + CS / 2}" r="3.4"/>`);
+    }));
+    const land = (groups.x || []).join('');
+    const cgs = Object.entries(AFC).filter(([ch]) => groups[ch]).map(([ch, [cc, col]]) => {
+      const n = byCC[cc] || 0;
+      const name = CCNAME[cc] || cc;
+      const inner = `<title>${name} · ${n} neobank${n === 1 ? '' : 's'} HQ'd</title><g fill="${col}">${groups[ch].join('')}</g>`;
+      const cp = (CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-');
+      return fs.existsSync(path.join(ROOT, 'countries', cp))
+        ? `<a href="/countries/${cp}/" aria-label="${name} — ${n} neobanks">${inner}</a>` : `<g>${inner}</g>`;
+    }).join('');
+    const lbl = (x, y, t, anchor = 'start') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="'Noto Sans Mono',monospace" font-size="12" fill="#8A8A99">${t}</text>`;
+    const labels =
+      lbl(135, 122, '') +
+      `<line x1="98" y1="103" x2="30" y2="70" stroke="#3A3A48" stroke-width="1"/>` + lbl(18, 60, `NG · ${byCC.NG || 0}`, 'start') +
+      `<line x1="120" y1="262" x2="170" y2="272" stroke="#3A3A48" stroke-width="1"/>` + lbl(176, 276, `ZA · ${byCC.ZA || 0}`) +
+      `<line x1="178" y1="38" x2="215" y2="26" stroke="#3A3A48" stroke-width="1"/>` + lbl(220, 30, `EG · ${byCC.EG || 0}`) +
+      `<line x1="200" y1="132" x2="232" y2="150" stroke="#3A3A48" stroke-width="1"/>` + lbl(236, 154, `KE · ${byCC.KE || 0}`);
+    return `<svg class="afmap" viewBox="-4 0 ${cols * CS + 60} ${rows * CS + 6}" role="img" aria-label="Dotted map of Africa — countries with tracked neobank HQs highlighted"><g fill="#2E2E3C">${land}</g>${cgs}${labels}</svg>`;
+  })();
   const html = (head(`Africa Neobank Radar — the Africa chapter · neobankbeat`,
     `On-ground updates from African digital banking, plus stewardship of the ${AF.length} African neobanks in the open dataset. Sourced, versioned, reviewed — the chapter model.`,
     url, ld, ogIf('africa.png')) + `
@@ -2636,6 +2703,8 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
     <div class="statcard h"><div class="n">${afLic}</div><div class="l">licensed banks</div></div>
     <div class="statcard w"><div class="n">${Object.keys(byCC).filter(c => c !== 'multi' && c !== 'US').length}</div><div class="l">HQ countries</div></div>
   </div>
+
+  <div class="afmapcard">${afMapSvg}</div>
 
   <div class="afspec">${afCats.map(([c, n]) => `<i style="width:${(n / AF.length * 100).toFixed(1)}%;background:${CATC[c]}"></i>`).join('')}</div>
   <div class="afleg">${afCats.map(([c, n]) => `<b><span class="sw" style="background:${CATC[c]}"></span>${c} · ${n}</b>`).join('')}</div>
