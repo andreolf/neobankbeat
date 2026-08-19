@@ -2576,6 +2576,58 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   fs.writeFileSync(path.join(ROOT, 'graveyard', 'index.html'), html);
 }
 
+/* ═══ /africa/ — the Africa chapter: on-ground radar + data stewardship.
+   Entries live in radar/africa.json and arrive by PR (the chapter model:
+   local eyes supply the knowledge, the repo supplies the rigor — a source
+   for every claim, reviewed before merge, versioned like everything else). */
+{
+  const radar = JSON.parse(fs.readFileSync(path.join(ROOT, 'radar', 'africa.json'), 'utf8'));
+  const AF = E.filter(e => e.region === 'Africa');
+  const url = `${BASE}/africa/`;
+  const bad = radar.entries.filter(r => !r.date || !r.title || !r.body || !r.source);
+  if (bad.length) throw new Error(`radar/africa.json: ${bad.length} entrie(s) missing date/title/body/source`);
+  const fmtD = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const answer = `The Africa Neobank Radar: a running, sourced log of the developments that matter across African digital banking, maintained on the ground — alongside stewardship of the ${AF.length} verified-active African neobanks in the open dataset.`;
+  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Africa Neobank Radar', url, description: answer }, ['africa', url]);
+  const afStyle = `<style>
+.radar{border-left:2px solid var(--line);padding:2px 0 2px 22px;margin:26px 0}
+.rentry{position:relative;margin:0 0 26px}
+.rentry::before{content:"";position:absolute;left:-27px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.rentry .rd{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+.rentry h3{margin:4px 0 8px;font-size:18px}
+.rentry p{margin:0 0 8px;font-size:14.5px}
+.rentry .rm{font-family:var(--mono);font-size:12px;color:var(--dim)}
+.rentry .rm a{margin-right:10px}
+</style>`;
+  const html = (head(`Africa Neobank Radar — the Africa chapter · neobankbeat`,
+    `On-ground updates from African digital banking, plus stewardship of the ${AF.length} African neobanks in the open dataset. Sourced, versioned, reviewed — the chapter model.`,
+    url, ld, ogIf('africa.png')) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow">the africa chapter</div>
+  <h1>Africa <em>Neobank Radar</em></h1>
+  <p class="meta">${radar.steward ? `Chapter steward: <b>${esc(radar.steward.name)}</b>${radar.steward.link ? ` · <a href="${radar.steward.link}" target="_blank" rel="noopener">${esc(radar.steward.link.replace(/^https?:\/\//, ''))}</a>` : ''}` : 'Chapter steward: <b>in trial</b> — the seat is earned, not given'} · <a href="/regions/africa/">${AF.length} African neobanks tracked</a> · <a href="https://github.com/andreolf/neobankbeat/blob/main/radar/africa.json">radar source file</a></p>
+  <p>Most coverage of African fintech is written from London or San Francisco. This radar is the opposite: a running log of the developments that matter across African digital banking — licenses granted and revoked, rails launched, funding that changes the map — maintained on the ground, under the same rules as everything else on this site: <b>a source for every claim</b>, null over guesses, and nobody pays to be featured.</p>
+  <div class="radar">
+${radar.entries.map(r => `  <div class="rentry">
+    <span class="rd">${fmtD(r.date)}</span>
+    <h3>${esc(r.title)}</h3>
+    <p>${esc(r.body)}</p>
+    <p class="rm">${(r.slugs || []).filter(s => E.some(e => e.slug === s)).map(s => `<a href="/n/${s}/">${esc(E.find(e => e.slug === s).name)}</a>`).join('')}<a href="${r.source}" target="_blank" rel="noopener nofollow">source ↗</a></p>
+  </div>`).join('\n')}
+  </div>
+  <h2>The chapter model</h2>
+  <p>A chapter is two jobs in one: this radar, and <b>data stewardship</b> — the chapter holder audits and maintains their region's rows in <a href="/data.json">data.json</a>, and every regional addition or correction gets their eyes before it merges. Entries and fixes arrive by pull request, get reviewed like any other change, and ship with the contributor's byline. The trial to hold a chapter: four sourced radar entries and one full audit pass of the region's data.</p>
+  <div class="callout"><span class="k">want a chapter?</span>Know a market better than the fintech press does — LatAm, Southeast Asia, MENA? <a href="https://github.com/andreolf/neobankbeat/issues/new">Open an issue</a> and make the case. Meanwhile: browse the <a href="/regions/africa/">African cut of the directory</a>, the <a href="/blog/neobanks-africa-latam-underbanked/">emerging-markets deep dive</a>, or the <a href="/">full directory</a>.</div>
+  ${b2bBar}
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', afStyle + '\n</head>');
+  fs.mkdirSync(path.join(ROOT, 'africa'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'africa', 'index.html'), html);
+}
+
 /* ═══ /database/ — sortable, filterable table view of the whole dataset ═══ */
 {
   const url = `${BASE}/database/`;
@@ -2809,6 +2861,7 @@ const urls = [
   { loc: `${BASE}/map/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ask/`, changefreq: 'monthly', priority: '0.8' },
   { loc: `${BASE}/graveyard/`, changefreq: 'monthly', priority: '0.7' },
+  { loc: `${BASE}/africa/`, changefreq: 'weekly', priority: '0.7' },
   { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },

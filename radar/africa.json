@@ -1,0 +1,13 @@
+{
+  "_comment": "The Africa Neobank Radar — on-ground updates from the Africa chapter. Add entries by PR: date (ISO), title, body (2-4 plain sentences, why it matters), source (URL, required — same bar as the dataset: no source, no entry), slugs (optional, tracked-neobank slugs this touches; they render as profile links). Newest entries first. The steward field flips from null to the chapter holder's name + link once the trial (4 entries + one data audit pass) is done.",
+  "steward": null,
+  "entries": [
+    {
+      "date": "2026-08-18",
+      "title": "The Africa chapter opens",
+      "body": "neobankbeat tracks 28 verified-active African neobanks — from TymeBank's 11M customers to OPay, Kuda, Moniepoint and the mobile-money giants — but until now every fact was verified from afar. This radar changes that: a running log of the developments that matter across African digital banking, maintained on the ground, with the same rules as everything else here — a source for every claim, null over guesses, and nobody pays to be featured. Want to contribute or take a chapter of your own? Open an issue.",
+      "source": "https://github.com/andreolf/neobankbeat/blob/main/radar/africa.json",
+      "slugs": ["tymebank", "opay", "kuda", "moniepoint"]
+    }
+  ]
+}

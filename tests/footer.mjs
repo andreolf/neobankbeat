@@ -51,6 +51,7 @@ export const FOOTER_GROUPS = [
     ["/blog/", "blog"],
     ["/report/", "report"],
     ["/graveyard/", "graveyard"],
+    ["/africa/", "africa radar"],
     ["/changelog/", "changelog"],
     ["/investors/", "investors"],
     ["/infra/", "infra"],

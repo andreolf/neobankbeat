@@ -390,6 +390,7 @@ def main():
         ("infra", "Infra for neobanks", "sponsor banks, BaaS rails and card processors", INFRA),
         ("mcp", "MCP server for AI", f"point Claude at {n_all} neobanks — live, cited data", ACCENT),
         ("graveyard", "The neobank graveyard", "every delisting archived with its cause of death", ACCENT),
+        ("africa", "Africa Neobank Radar", "on-ground updates · sourced like everything here", ACCENT),
     ]
     for slug, title, sub, col in sections:
         save(section_card(slug.replace("-", " "), title, sub, col), f"og/{slug}.png")
