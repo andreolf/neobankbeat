@@ -46,6 +46,18 @@
 .rentry p{margin:0 0 8px;font-size:14.5px}
 .rentry .rm{font-family:var(--mono);font-size:12px;color:var(--dim)}
 .rentry .rm a{margin-right:10px}
+.afspec{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:22px 0 8px}
+.afspec i{display:block;height:100%}
+.afleg{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:6px}
+.afleg b{font-weight:500}
+.afleg .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.afpills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.afpills a,.afpills span{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted);white-space:nowrap}
+.afpills a:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.afroster{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:16px 0}
+.afroster a{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-left:3px solid var(--wc,var(--line));border-radius:9px;background:var(--panel);padding:9px 12px;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.afroster a:hover{border-color:var(--accent);text-decoration:none}
+.afroster .cc{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:auto}
 </style>
 </head>
 <body>
@@ -106,6 +118,63 @@
   <h1>Africa <em>Neobank Radar</em></h1>
   <p class="meta">Chapter steward: <b>in trial</b> — the seat is earned, not given · <a href="/regions/africa/">28 African neobanks tracked</a> · <a href="https://github.com/andreolf/neobankbeat/blob/main/radar/africa.json">radar source file</a></p>
   <p>Most coverage of African fintech is written from London or San Francisco. This radar is the opposite: a running log of the developments that matter across African digital banking — licenses granted and revoked, rails launched, funding that changes the map — maintained on the ground, under the same rules as everything else on this site: <b>a source for every claim</b>, null over guesses, and nobody pays to be featured.</p>
+
+  <div class="statgrid">
+    <div class="statcard a"><div class="n">28</div><div class="l">African neobanks</div></div>
+    <div class="statcard t"><div class="n">105M+</div><div class="l">reported users</div></div>
+    <div class="statcard h"><div class="n">10</div><div class="l">licensed banks</div></div>
+    <div class="statcard w"><div class="n">8</div><div class="l">HQ countries</div></div>
+  </div>
+
+  <div class="afspec"><i style="width:85.7%;background:#89B0FF"></i><i style="width:10.7%;background:#D075FF"></i><i style="width:3.6%;background:#BAF24A"></i></div>
+  <div class="afleg"><b><span class="sw" style="background:#89B0FF"></span>traditional · 24</b><b><span class="sw" style="background:#D075FF"></span>hybrid · 3</b><b><span class="sw" style="background:#BAF24A"></span>web3-native · 1</b></div>
+
+  <div class="afpills">
+    <a href="/countries/nigeria/">🇳🇬 Nigeria · 14</a>
+    <span>🇿🇦 South Africa · 3</span>
+    <span>🇪🇬 Egypt · 2</span>
+    <span>🇨🇮 Côte d’Ivoire · 1</span>
+    <span>🇸🇳 Senegal · 1</span>
+    <span>🇰🇪 Kenya · 1</span>
+    <span>🇹🇳 Tunisia · 1</span>
+    <span>🇨🇲 Cameroon · 1</span>
+    <span>🇺🇸 US-based · 1</span>
+    <span>🌍 multi-hub · 3</span>
+  </div>
+
+  <h2>The 28 on the radar</h2>
+  <div class="afroster">
+    <a href="/n/opay/" style="--wc:#89B0FF">🇳🇬 OPay<span class="cc">60M</span></a>
+    <a href="/n/palmpay/" style="--wc:#89B0FF">🇳🇬 PalmPay<span class="cc">35M</span></a>
+    <a href="/n/tymebank/" style="--wc:#89B0FF">🇿🇦 TymeBank<span class="cc">10M</span></a>
+    <a href="/n/alat-by-wema/" style="--wc:#89B0FF">🇳🇬 ALAT by Wema</a>
+    <a href="/n/bank-zero/" style="--wc:#89B0FF">🇿🇦 Bank Zero</a>
+    <a href="/n/bitnob/" style="--wc:#D075FF">🇳🇬 Bitnob</a>
+    <a href="/n/branch-intl/" style="--wc:#89B0FF"> Branch Intl</a>
+    <a href="/n/carbon/" style="--wc:#89B0FF">🇳🇬 Carbon</a>
+    <a href="/n/chipper-cash/" style="--wc:#D075FF">🇺🇸 Chipper Cash</a>
+    <a href="/n/cleva/" style="--wc:#89B0FF">🇳🇬 Cleva</a>
+    <a href="/n/discovery-bank/" style="--wc:#89B0FF">🇿🇦 Discovery Bank</a>
+    <a href="/n/djamo/" style="--wc:#89B0FF">🇨🇮 Djamo</a>
+    <a href="/n/eversend/" style="--wc:#89B0FF"> Eversend</a>
+    <a href="/n/fairmoney/" style="--wc:#89B0FF">🇳🇬 FairMoney</a>
+    <a href="/n/fingo/" style="--wc:#89B0FF">🇰🇪 Fingo</a>
+    <a href="/n/flouci/" style="--wc:#89B0FF">🇹🇳 Flouci</a>
+    <a href="/n/grey/" style="--wc:#89B0FF">🇳🇬 Grey</a>
+    <a href="/n/khazna/" style="--wc:#89B0FF">🇪🇬 Khazna</a>
+    <a href="/n/kuda/" style="--wc:#89B0FF">🇳🇬 Kuda</a>
+    <a href="/n/mnt-halan/" style="--wc:#89B0FF">🇪🇬 MNT-Halan</a>
+    <a href="/n/moniepoint/" style="--wc:#89B0FF">🇳🇬 Moniepoint</a>
+    <a href="/n/nyla/" style="--wc:#89B0FF">🇳🇬 Nyla</a>
+    <a href="/n/onboard/" style="--wc:#BAF24A">🇳🇬 Onboard</a>
+    <a href="/n/paysika/" style="--wc:#89B0FF">🇨🇲 PaySika</a>
+    <a href="/n/sparkle/" style="--wc:#89B0FF">🇳🇬 Sparkle</a>
+    <a href="/n/umba/" style="--wc:#89B0FF"> Umba</a>
+    <a href="/n/wave/" style="--wc:#89B0FF">🇸🇳 Wave</a>
+    <a href="/n/yellow-card/" style="--wc:#D075FF">🇳🇬 Yellow Card</a>
+  </div>
+
+  <h2>The radar</h2>
   <div class="radar">
   <div class="rentry">
     <span class="rd">August 18, 2026</span>
