@@ -118,6 +118,7 @@ export const NAV_LINKS = [
   ["/graveyard/", "graveyard"],
   ["/changelog/", "changelog"],
   ["/newsletters/", "newsletters"],
+  ["/africa/", "africa"],
   ["/data/", "dataset"],
   ["/data.json", "data.json"],
   ["/llms.txt", "llms.txt"],
@@ -133,10 +134,39 @@ export const NAV_GROUPS = [
   "/",
   { label: "find a bank", items: ["/browse/", "/fit/", "/ask/", "/vs/", "/map/", "/database/", "/matrix/"] },
   { label: "research", items: ["/blog/", "/investors/", "/infra/", "/ai/", "/graveyard/", "/changelog/", "/newsletters/"] },
+  { label: "chapters", items: ["/africa/"] },
   { label: "data", items: ["/data/", "/data.json", "/llms.txt", "/mcp/"] },
   "/report/",
   "/jobs/",
 ];
+
+/* Drawer-only display names + one-line descriptions. The canonical labels in
+   NAV_LINKS stay terse (they also render in the report edition's flat nav);
+   the drawer has room to say what a surface actually is — "infra" means
+   nothing to a first-time visitor, "infrastructure · the rails and sponsor
+   banks underneath" does. No live counts in these strings, so they can't
+   drift. */
+export const NAV_META = {
+  "/browse/": ["browse", "ready-made cuts — license, country, audience"],
+  "/fit/": ["find your fit", "eight questions → your shortlist"],
+  "/ask/": ["ask AI", "your question, answered from the dataset"],
+  "/vs/": ["compare", "any two neobanks side by side"],
+  "/map/": ["world map", "every neobank by country"],
+  "/database/": ["database", "the whole dataset as a sortable table"],
+  "/matrix/": ["matrix", "features compared in one grid"],
+  "/blog/": ["blog", "deep dives grounded in the data"],
+  "/investors/": ["investors", "who funds the neobanks"],
+  "/infra/": ["infrastructure", "the rails and sponsor banks underneath"],
+  "/ai/": ["AI neobanks", "where AI is verifiably in production"],
+  "/graveyard/": ["graveyard", "dead neobanks, archived with cause"],
+  "/changelog/": ["changelog", "every dataset change, in public"],
+  "/newsletters/": ["newsletters", "the fintech reading list"],
+  "/africa/": ["Africa chapter", "on-ground radar + data stewardship"],
+  "/data/": ["dataset", "field guide, methodology, downloads"],
+  "/data.json": ["data.json", "every neobank, machine-readable"],
+  "/llms.txt": ["llms.txt", "the guide for AI agents"],
+  "/mcp/": ["mcp server", "query the data from your assistant"],
+};
 
 /* Language chooser for the header, top-right. A native <details> disclosure so
    it is crawlable (real <a> links) and needs no JS. English is "/"; each locale
@@ -166,6 +196,10 @@ ${indent}</details>`;
 export const navHtml = (active = null, indent = "      ") => {
   const link = (href, pad = "") =>
     `${indent}${pad}<a href="${href}"${href === active ? ' class="on"' : ""}>${NAV_LABEL.get(href)}</a>`;
+  const dlink = (href) => {
+    const [label, desc] = NAV_META[href] || [NAV_LABEL.get(href)];
+    return `${indent}    <a href="${href}"${href === active ? ' class="on"' : ""}>${label}${desc ? `<small>${desc}</small>` : ""}</a>`;
+  };
   const groups = NAV_GROUPS.filter((e) => typeof e !== "string");
   /* direct links first as a clean text run, then the controls cluster at the
      right end: menu pill (which is also where the drawer slides in from),
@@ -181,7 +215,7 @@ export const navHtml = (active = null, indent = "      ") => {
     `${indent}    <span class="ndclose" role="button" tabindex="0" aria-label="Close menu">✕ close</span>`,
     ...groups.flatMap((g) => [
       `${indent}    <span class="ndhead">${g.label}</span>`,
-      ...g.items.map((href) => link(href, "    ")),
+      ...g.items.map(dlink),
     ]),
     `${indent}  </div>`,
     `${indent}</details>`,
@@ -192,4 +226,4 @@ export const navHtml = (active = null, indent = "      ") => {
    &amp; white toggle) are left to each template, since the report edition ships
    its own standalone CSS and cannot reuse the site's classes. */
 export const NAV_RE = /(<nav class="hnav"[^>]*>)([\s\S]*?)(\n[ \t]*)(<button|<\/nav>)/;
-export const NAV_LINK_RE = /<a href="(\/[^"]*)"(?: class="on")?>[^<]*<\/a>/g;
+export const NAV_LINK_RE = /<a href="(\/[^"]*)"(?: class="on")?>[^<]*(?:<small>[^<]*<\/small>)?<\/a>/g;

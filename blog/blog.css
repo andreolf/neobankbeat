@@ -143,10 +143,12 @@ header:has(.navdrawer[open]){backdrop-filter:none;-webkit-backdrop-filter:none}
 @keyframes ndfade{from{opacity:0}to{opacity:1}}
 .ndclose{align-self:flex-end;cursor:pointer;font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:var(--dim);padding:6px 0;margin-bottom:10px;transition:color .15s}
 .ndclose:hover{color:var(--text)}
-.ndhead{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:22px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.ndhead{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:16px 0 4px;padding-bottom:5px;border-bottom:1px solid var(--line)}
 .ndhead:first-of-type{margin-top:4px}
-.navpanel a{display:block;font-family:var(--disp);font-size:16.5px;color:var(--text);padding:8px 0;transition:color .15s,transform .2s;white-space:nowrap}
+.navpanel a{display:block;font-family:var(--disp);font-size:15px;line-height:1.3;color:var(--text);padding:6px 0;transition:color .15s,transform .2s}
+.navpanel a small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:1px;line-height:1.5}
 .navpanel a:hover{color:var(--accent);text-decoration:none;transform:translateX(6px)}
+.navpanel::after{content:"";position:sticky;bottom:-40px;display:block;flex:none;height:34px;margin-top:-34px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 .navpanel a.on{color:var(--accent)}
 body:has(.navdrawer[open]){overflow:hidden}
 .langmenu[open]>.langpop{animation:ndfade .2s ease}
