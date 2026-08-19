@@ -404,7 +404,8 @@ const D=[
 ["Always.bank","T","US","Birmingham, US",2025,"C","—","—","—","—",0,"Y","s","always.bank","US digital bank for small businesses — an FDIC-insured brand of 22nd State Banking Company with checking, savings, CDs, SBA/USDA loans and invoice factoring."],
 ["Haventree Bank","T","Canada","Toronto, CA",2018,"C","—","—","—","2.5% Everyday Growth Account",0,"Y","g","haventreebank.com","Schedule I Canadian bank (ex Equity Financial Trust) that launched a direct-to-consumer digital bank in 2026 with a 2.5% growth account and CDIC-insured GICs."],
 ["Esh Bank","T","MENA","Tel Aviv, IL",2022,"C","—","—","—","—",0,"Y","g","esh.com","Israeli fully-digital bank whose patented Equal Sharing model returns 50% of interest income on customer balances, with no account fees."],
-["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."]
+["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."],
+["Yolat","T","Africa","Lagos, NG",2024,"C","—","—","—","—",0,"Y","i","yolat.com","Cross-border account for Africans and African businesses — earn, hold, send and pay across borders; licensed as FINTRAC MSB + Bank of Canada RPAA PSP, with a CBN IMTO for Nigeria inflows."]
 ];
 /* pre-launch / emerging — kept in the machine dataset (data.json `emerging`) but excluded from the verified-active grid, counts and generated pages */
 const EMERGING=[
@@ -630,6 +631,7 @@ const X={
 "Takenos":{l:"Fintech; stablecoin wallet on partner rails",m:"$5M seed (Variant, Lattice), 2025",s:"Founded 2022 in Buenos Aires; processed $500M+ across 500k+ users on its own Solana-based stablecoin.",a:["LATAM","NA","EU"]},
 "Slush":{f:"Mysten Labs",l:"Self-custodial Sui wallet software",s:"Built by the Mysten Labs engineers behind Sui; rebranded from Sui Wallet to become the ecosystem's flagship consumer wallet."},
 "Solid":{l:"Self-custodial Safe smart-accounts + MPC",s:"Positions itself as an onchain neobank for real life — earn DeFi yield, save gaslessly across chains, and spend worldwide while keeping assets self-custodial."},
+"Yolat":{f:"Toyosi Abolarin",l:"FINTRAC MSB + Bank of Canada RPAA PSP (CA); IMTO (CBN, NG)",s:"African-founded cross-border fintech licensed on both sides of the Atlantic — blockchain-rail transfers between Canada, the UK and African corridors, with AI-driven routing and compliance."},
 "Sony Bank":{l:"Japanese banking license (Sony Financial Group)",s:"Launched in 2001 as Sony's internet-only bank; a multi-currency mainstay for Japan's savers that later pushed into Web3 products."},
 "AMP Bank GO":{l:"Australian ADI (AMP Bank Limited)",s:"AMP Bank rebuilt from a mortgages-and-savings lender into a transactional digital bank for Australia's solopreneurs, on Starling's Engine."},
 "Always.bank":{l:"FDIC-insured national bank charter (22nd State Banking Company)",s:"Century-old Alabama community bank 22nd State launched Always.bank as a nationwide advisory-first digital SMB bank."},
@@ -2124,6 +2126,7 @@ render();
 const V={
 /* ══ intake 2026-08 ══ */
 "Dolafy":{t:"https://dolafy.com/legal/",x:"dolafycom"},
+"Yolat":{x:"callyolat",in:{"Toyosi Abolarin":"https://www.linkedin.com/in/toyosi-abolarin-798b6942"},cc:["Canada","Nigeria","Kenya","Ghana","South Africa","United Kingdom"]},
 "Brookwell":{t:"https://www.brookwell.com/terms",x:"brookwellapp"},
 "Takenos":{t:"https://help.takenos.com/en/articles/11403392-terminos-y-condiciones",x:"takenosapp",cc:["Argentina","Bolivia","Chile","Colombia","Ecuador","Paraguay","Peru","United States"]},
 "Slush":{p:"https://slush.app/privacy-policy",x:"SlushWallet"},

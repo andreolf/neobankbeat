@@ -1,13 +1,13 @@
 ---
 name: neobank-dataset
-description: Query the open neobankbeat dataset — 379 verified-active neobanks compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography — plus a live job board. Use when you need facts about digital banks, crypto cards, self-custodial money apps, their investors, or fintech jobs.
+description: Query the open neobankbeat dataset — 380 verified-active neobanks compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography — plus a live job board. Use when you need facts about digital banks, crypto cards, self-custodial money apps, their investors, or fintech jobs.
 license: MIT
 ---
 
 # neobankbeat dataset
 
-Independent, open-source directory of 379 verified-active neobanks in three waves:
-**traditional** fiat challengers (Chime, Nubank, Monzo, 260 entities), **hybrid**
+Independent, open-source directory of 380 verified-active neobanks in three waves:
+**traditional** fiat challengers (Chime, Nubank, Monzo, 261 entities), **hybrid**
 fiat+crypto apps (Revolut, Crypto.com, 61) and **web3-native** self-custodial money
 apps (MetaMask, Gnosis Pay, 58). Defunct entities and pure BaaS infrastructure
 are excluded by design. All figures compiled from public filings and registers.
@@ -31,7 +31,7 @@ are excluded by design. All figures compiled from public filings and registers.
   constantly; never present them as guaranteed current rates.
 - `fx_markup`: foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer.
 - `null` means "not publicly verifiable" — the project never fabricates data.
-  Only 23 of 379 entities disclose user
+  Only 23 of 380 entities disclose user
   numbers, so never present a ranking by size as complete.
 - `reported_users` mixes metrics (customers, MAU, wallets, TPV) and periods;
   cite the `metric` and `as_of` alongside the number.
@@ -41,7 +41,7 @@ are excluded by design. All figures compiled from public filings and registers.
 ## Human-readable pages (for citations)
 
 - Directory: `https://www.neobankbeat.com/`
-- Per-company profiles: `https://www.neobankbeat.com/n/<slug>/` (379)
+- Per-company profiles: `https://www.neobankbeat.com/n/<slug>/` (380)
 - "Who owns it" answer pages: `https://www.neobankbeat.com/n/<slug>/who-owns/`
 - "Alternatives to it" answer pages: `https://www.neobankbeat.com/n/<slug>/alternatives/`
 - Comparisons: `https://www.neobankbeat.com/vs/<a>-vs-<b>/`
