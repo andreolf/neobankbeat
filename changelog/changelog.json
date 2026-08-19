@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-13",
- "total": 379,
+ "generated": "2026-08-19",
+ "total": 380,
  "releases": [
   {
    "date": "2026-08-18",
@@ -87,7 +87,7 @@
    "date": "2026-08-11",
    "tag": "new",
    "title": "MCP server for AI assistants",
-   "body": "Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 379 neobanks.",
+   "body": "Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 380 neobanks.",
    "links": [
     "/mcp/",
     "/blog/neobankbeat-mcp-server/"
@@ -135,6 +135,17 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-08-19",
+   "summary": "Add Yolat (issue #65).",
+   "subject": "WIP: add Yolat (issue #65) — verified, held for owner approval before publishing",
+   "total": 380,
+   "added": [
+    "Yolat"
+   ],
+   "removed": [],
+   "updated": []
+  },
   {
    "date": "2026-08-13",
    "summary": "Fix unofficial krak.com domain + enrich (issue #25, rebuilt on main).",
