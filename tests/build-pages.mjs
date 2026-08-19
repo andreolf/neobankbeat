@@ -2598,7 +2598,28 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
 .rentry p{margin:0 0 8px;font-size:14.5px}
 .rentry .rm{font-family:var(--mono);font-size:12px;color:var(--dim)}
 .rentry .rm a{margin-right:10px}
+.afspec{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:22px 0 8px}
+.afspec i{display:block;height:100%}
+.afleg{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:6px}
+.afleg b{font-weight:500}
+.afleg .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.afpills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.afpills a,.afpills span{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted);white-space:nowrap}
+.afpills a:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.afroster{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:16px 0}
+.afroster a{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-left:3px solid var(--wc,var(--line));border-radius:9px;background:var(--panel);padding:9px 12px;font-size:13.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.afroster a:hover{border-color:var(--accent);text-decoration:none}
+.afroster .cc{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:auto}
 </style>`;
+  const CATC = { traditional: '#89B0FF', hybrid: '#D075FF', 'web3-native': '#BAF24A' };
+  const flag = (cc) => /^[A-Z]{2}$/.test(cc) ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) : '';
+  const CCNAME = { ZA: 'South Africa', NG: 'Nigeria', CI: 'Côte d’Ivoire', SN: 'Senegal', KE: 'Kenya', EG: 'Egypt', TN: 'Tunisia', CM: 'Cameroon', US: 'US-based' };
+  const hqCC = (e) => { const t = (e.hq || '').split(', ').pop(); return /^[A-Z]{2}$/.test(t) ? t : null; };
+  const byCC = {};
+  AF.forEach(e => { const c = hqCC(e); byCC[c || 'multi'] = (byCC[c || 'multi'] || 0) + 1; });
+  const afUsers = AF.reduce((a, e) => a + ((e.reported_users || {}).value_millions || 0), 0);
+  const afLic = AF.filter(e => /licensed bank/i.test(e.regulation_type || '')).length;
+  const afCats = ['traditional', 'hybrid', 'web3-native'].map(c => [c, AF.filter(e => e.category === c).length]);
   const html = (head(`Africa Neobank Radar — the Africa chapter · neobankbeat`,
     `On-ground updates from African digital banking, plus stewardship of the ${AF.length} African neobanks in the open dataset. Sourced, versioned, reviewed — the chapter model.`,
     url, ld, ogIf('africa.png')) + `
@@ -2608,6 +2629,32 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   <h1>Africa <em>Neobank Radar</em></h1>
   <p class="meta">${radar.steward ? `Chapter steward: <b>${esc(radar.steward.name)}</b>${radar.steward.link ? ` · <a href="${radar.steward.link}" target="_blank" rel="noopener">${esc(radar.steward.link.replace(/^https?:\/\//, ''))}</a>` : ''}` : 'Chapter steward: <b>in trial</b> — the seat is earned, not given'} · <a href="/regions/africa/">${AF.length} African neobanks tracked</a> · <a href="https://github.com/andreolf/neobankbeat/blob/main/radar/africa.json">radar source file</a></p>
   <p>Most coverage of African fintech is written from London or San Francisco. This radar is the opposite: a running log of the developments that matter across African digital banking — licenses granted and revoked, rails launched, funding that changes the map — maintained on the ground, under the same rules as everything else on this site: <b>a source for every claim</b>, null over guesses, and nobody pays to be featured.</p>
+
+  <div class="statgrid">
+    <div class="statcard a"><div class="n">${AF.length}</div><div class="l">African neobanks</div></div>
+    <div class="statcard t"><div class="n">${afUsers}M+</div><div class="l">reported users</div></div>
+    <div class="statcard h"><div class="n">${afLic}</div><div class="l">licensed banks</div></div>
+    <div class="statcard w"><div class="n">${Object.keys(byCC).filter(c => c !== 'multi' && c !== 'US').length}</div><div class="l">HQ countries</div></div>
+  </div>
+
+  <div class="afspec">${afCats.map(([c, n]) => `<i style="width:${(n / AF.length * 100).toFixed(1)}%;background:${CATC[c]}"></i>`).join('')}</div>
+  <div class="afleg">${afCats.map(([c, n]) => `<b><span class="sw" style="background:${CATC[c]}"></span>${c} · ${n}</b>`).join('')}</div>
+
+  <div class="afpills">
+${Object.entries(byCC).filter(([c]) => c !== 'multi').sort((a, b) => b[1] - a[1]).map(([cc, n]) => {
+    const label = `${flag(cc)} ${CCNAME[cc] || cc} · ${n}`;
+    const cp = path.join(ROOT, 'countries', (CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-'));
+    return fs.existsSync(cp) ? `    <a href="/countries/${(CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-')}/">${label}</a>` : `    <span>${label}</span>`;
+  }).join('\n')}${byCC.multi ? `\n    <span>🌍 multi-hub · ${byCC.multi}</span>` : ''}
+  </div>
+
+  <h2>The ${AF.length} on the radar</h2>
+  <div class="afroster">
+${AF.slice().sort((a, b) => (((b.reported_users || {}).value_millions || 0) - ((a.reported_users || {}).value_millions || 0)) || a.name.localeCompare(b.name)).map(e =>
+    `    <a href="/n/${e.slug}/" style="--wc:${CATC[e.category]}">${flag(hqCC(e) || '')} ${esc(e.name)}${(e.reported_users || {}).value_millions ? `<span class="cc">${e.reported_users.value_millions}M</span>` : ''}</a>`).join('\n')}
+  </div>
+
+  <h2>The radar</h2>
   <div class="radar">
 ${radar.entries.map(r => `  <div class="rentry">
     <span class="rd">${fmtD(r.date)}</span>
