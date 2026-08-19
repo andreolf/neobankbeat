@@ -107,10 +107,12 @@ body:has(.navdrawer[open]) .minimap{display:none}
 @keyframes ndfade{from{opacity:0}to{opacity:1}}
 .ndclose{align-self:flex-end;cursor:pointer;font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:var(--dim);padding:6px 0;margin-bottom:10px;transition:color .15s}
 .ndclose:hover{color:var(--text)}
-.ndhead{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:22px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.ndhead{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:16px 0 4px;padding-bottom:5px;border-bottom:1px solid var(--line)}
 .ndhead:first-of-type{margin-top:4px}
-.navpanel a{display:block;font-family:var(--disp);font-size:16.5px;color:var(--text);padding:8px 0;transition:color .15s,transform .2s;white-space:nowrap}
+.navpanel a{display:block;font-family:var(--disp);font-size:15px;line-height:1.3;color:var(--text);padding:6px 0;transition:color .15s,transform .2s}
+.navpanel a small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:1px;line-height:1.5}
 .navpanel a:hover{color:var(--accent);text-decoration:none;transform:translateX(6px)}
+.navpanel::after{content:"";position:sticky;bottom:-40px;display:block;flex:none;height:34px;margin-top:-34px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 body:has(.navdrawer[open]){overflow:hidden}
 .langmenu[open]>.langpop{animation:ndfade .2s ease}
 
@@ -656,26 +658,28 @@ body.on-map .minimap{display:none}
         <div class="navpanel">
           <span class="ndclose" role="button" tabindex="0" aria-label="Close menu">✕ close</span>
           <span class="ndhead">find a bank</span>
-          <a href="/browse/">browse</a>
-          <a href="/fit/">find your fit</a>
-          <a href="/ask/">ask AI</a>
-          <a href="/vs/">compare</a>
-          <a href="/map/">world map</a>
-          <a href="/database/">database</a>
-          <a href="/matrix/">matrix</a>
+          <a href="/browse/">browse<small>ready-made cuts — license, country, audience</small></a>
+          <a href="/fit/">find your fit<small>eight questions → your shortlist</small></a>
+          <a href="/ask/">ask AI<small>your question, answered from the dataset</small></a>
+          <a href="/vs/">compare<small>any two neobanks side by side</small></a>
+          <a href="/map/">world map<small>every neobank by country</small></a>
+          <a href="/database/">database<small>the whole dataset as a sortable table</small></a>
+          <a href="/matrix/">matrix<small>features compared in one grid</small></a>
           <span class="ndhead">research</span>
-          <a href="/blog/">blog</a>
-          <a href="/investors/">investors</a>
-          <a href="/infra/">infra</a>
-          <a href="/ai/">ai</a>
-          <a href="/graveyard/">graveyard</a>
-          <a href="/changelog/">changelog</a>
-          <a href="/newsletters/">newsletters</a>
+          <a href="/blog/">blog<small>deep dives grounded in the data</small></a>
+          <a href="/investors/">investors<small>who funds the neobanks</small></a>
+          <a href="/infra/">infrastructure<small>the rails and sponsor banks underneath</small></a>
+          <a href="/ai/">AI neobanks<small>where AI is verifiably in production</small></a>
+          <a href="/graveyard/">graveyard<small>dead neobanks, archived with cause</small></a>
+          <a href="/changelog/">changelog<small>every dataset change, in public</small></a>
+          <a href="/newsletters/">newsletters<small>the fintech reading list</small></a>
+          <span class="ndhead">chapters</span>
+          <a href="/africa/">Africa chapter<small>on-ground radar + data stewardship</small></a>
           <span class="ndhead">data</span>
-          <a href="/data/">dataset</a>
-          <a href="/data.json">data.json</a>
-          <a href="/llms.txt">llms.txt</a>
-          <a href="/mcp/">mcp server</a>
+          <a href="/data/">dataset<small>field guide, methodology, downloads</small></a>
+          <a href="/data.json">data.json<small>every neobank, machine-readable</small></a>
+          <a href="/llms.txt">llms.txt<small>the guide for AI agents</small></a>
+          <a href="/mcp/">mcp server<small>query the data from your assistant</small></a>
         </div>
       </details>
       <details class="langmenu">
