@@ -1554,7 +1554,7 @@ ${rows.map(rowHtml).join('\n')}
   ${subscribeBox}
 </article>
 </main>
-<script>(function(){var q=document.getElementById('ivsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors</a>', '<a href="/investors/" class="on">investors</a>');
+<script>(function(){var q=document.getElementById('ivsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors<small>who funds the neobanks</small></a>', '<a href="/investors/" class="on">investors<small>who funds the neobanks</small></a>');
   fs.mkdirSync(path.join(ROOT, 'investors'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'investors', 'index.html'), html.replace('</head>', style + '\n</head>'));
   console.log(`investors page: ${rows.length} investors, ${nBanks} neobanks`);
@@ -1616,7 +1616,7 @@ ${v.banks.map(bankCard).join('\n')}
   ${disclaimer}
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors</a>', '<a href="/investors/" class="on">investors</a>').replace('</head>', style + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/investors/">investors<small>who funds the neobanks</small></a>', '<a href="/investors/" class="on">investors<small>who funds the neobanks</small></a>').replace('</head>', style + '\n</head>');
     const dir = path.join(ROOT, 'investors', slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
@@ -1909,7 +1909,7 @@ ${body}
   ${subscribeBox}
 </article>
 </main>
-<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infra</a>', '<a href="/infra/" class="on">infra</a>');
+<script>(function(){var q=document.getElementById('ifsearch'),rows=[].slice.call(document.querySelectorAll('.ivrow')),heads=[].slice.call(document.querySelectorAll('.iftype'));q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();rows.forEach(function(r){r.style.display=!v||r.dataset.q.indexOf(v)>-1?'':'none'});heads.forEach(function(h){var any=false,n=h.nextElementSibling;while(n&&!n.classList.contains('iftype')){if(n.classList.contains('ivrow')&&n.style.display!=='none')any=true;n=n.nextElementSibling}h.style.display=any?'':'none'})})})();</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infrastructure<small>the rails and sponsor banks underneath</small></a>', '<a href="/infra/" class="on">infrastructure<small>the rails and sponsor banks underneath</small></a>');
   fs.mkdirSync(path.join(ROOT, 'infra'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'infra', 'index.html'), html.replace('</head>', style + '\n</head>'));
   console.log(`infra page: ${rows.length} providers, ${nClients} client neobanks`);
@@ -1963,7 +1963,7 @@ ${clients.map(clientCard).join('\n')}` : `<p class="meta">No publicly documented
   <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client list shows tracked neobanks with a publicly documented relationship — not a complete customer book. Sourced from issuer disclosures and public reporting; <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest a fix</a>.</p>
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infra</a>', '<a href="/infra/" class="on">infra</a>').replace('</head>', style + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/infra/">infrastructure<small>the rails and sponsor banks underneath</small></a>', '<a href="/infra/" class="on">infrastructure<small>the rails and sponsor banks underneath</small></a>').replace('</head>', style + '\n</head>');
     const dir = path.join(ROOT, 'infra', slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), pageHtml);
@@ -2274,7 +2274,7 @@ const fitSlugs = [];
 
   const fitNavOn = html => html
     .replace('<a href="/" class="on">', '<a href="/">')
-    .replace('<a href="/fit/">find your fit</a>', '<a href="/fit/" class="on">find your fit</a>');
+    .replace('<a href="/fit/">find your fit<small>eight questions → your shortlist</small></a>', '<a href="/fit/" class="on">find your fit<small>eight questions → your shortlist</small></a>');
 
   const renderFitPage = ({ path_, title, desc, h1, intro, faq, ld, presetCountry = '', defaultRows, country = null }) => {
     const url = `${BASE}${path_}`;
@@ -2517,7 +2517,7 @@ pre.code .c{color:var(--dim)}
     try{window.nbevt&&nbevt('ask_ai',{via:'copy'})}catch(_){}
   });
 })();
-</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/ask/">ask AI</a>', '<a href="/ask/" class="on">ask AI</a>').replace('</head>', askStyle + '\n</head>');
+</script>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/ask/">ask AI<small>your question, answered from the dataset</small></a>', '<a href="/ask/" class="on">ask AI<small>your question, answered from the dataset</small></a>').replace('</head>', askStyle + '\n</head>');
   fs.mkdirSync(path.join(ROOT, 'ask'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'ask', 'index.html'), html);
 }
@@ -2571,7 +2571,7 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   ${disclaimer}
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/graveyard/">graveyard</a>', '<a href="/graveyard/" class="on">graveyard</a>').replace('</head>', gyStyle + '\n</head>');
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('<a href="/graveyard/">graveyard<small>dead neobanks, archived with cause</small></a>', '<a href="/graveyard/" class="on">graveyard<small>dead neobanks, archived with cause</small></a>').replace('</head>', gyStyle + '\n</head>');
   fs.mkdirSync(path.join(ROOT, 'graveyard'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'graveyard', 'index.html'), html);
 }
