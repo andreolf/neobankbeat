@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-08-19', tag: 'new', title: 'Six more chapter seats open',
+    body: 'The chapter model goes global: Latin America, Asia, Europe, North America, MENA and Oceania each get their own radar page — regional stats, category mix, country breakdown and full roster computed from the dataset, with the steward seat open. Same trial everywhere: four sourced radar entries plus one audit pass of the region\'s rows puts your name on the page.',
+    links: [['/latam/', 'take a seat']] },
   { date: '2026-08-18', tag: 'new', title: 'The Africa chapter: an on-ground neobank radar',
     body: 'Most coverage of African fintech is written from London or San Francisco. The new Africa Neobank Radar is the opposite: a running, sourced log of the developments that matter across African digital banking — maintained on the ground, versioned in the open repo, reviewed like every other change. It debuts the chapter model: radar + data stewardship of the region\'s rows, earned through four sourced entries and a full audit pass. LatAm, Southeast Asia, MENA — the seats are open.',
     links: [['/africa/', 'the radar']] },
