@@ -336,7 +336,21 @@ def main():
         s = base = slugify(e["name"]); i = 2
         while s in taken: s = f"{base}-{i}"; i += 1
         taken.add(s); slugs[e["name"]] = s
-    if not counts_only:
+    if counts_only:
+        # a fresh cron run must never rewrite existing logo-bearing cards (the
+        # favicon service makes their bytes non-deterministic), but an entity
+        # added since the last full run has NO card at all and ships the
+        # generic og.png on its profile. Creating only the missing files is
+        # safe: one network fetch each, then the file exists and is stable.
+        missing = [e for e in ents if not (ROOT / f"og/n/{slugs[e['name']]}.png").exists()]
+        if missing:
+            doms = sorted({e["domain"] for e in missing if e.get("domain")})
+            with concurrent.futures.ThreadPoolExecutor(8) as ex:
+                list(ex.map(fetch_logo, doms))
+            for e in missing:
+                save(entity_card(e, slugs[e['name']]), f"og/n/{slugs[e['name']]}.png")
+        print("profile cards created (missing only):", len(missing))
+    else:
         doms = sorted({e["domain"] for e in ents if e.get("domain")})
         with concurrent.futures.ThreadPoolExecutor(24) as ex:
             list(ex.map(fetch_logo, doms))
