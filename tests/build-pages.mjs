@@ -2576,20 +2576,35 @@ ${G.filter(g => g.cause.kind === k).map(g => `  <div class="tomb">
   fs.writeFileSync(path.join(ROOT, 'graveyard', 'index.html'), html);
 }
 
-/* ═══ /africa/ — the Africa chapter: on-ground radar + data stewardship.
-   Entries live in radar/africa.json and arrive by PR (the chapter model:
-   local eyes supply the knowledge, the repo supplies the rigor — a source
-   for every claim, reviewed before merge, versioned like everything else). */
+/* ═══ regional chapters — /africa/, /latam/, /asia/… : on-ground radar + data
+   stewardship per region. Entries live in radar/<slug>.json and arrive by PR
+   (the chapter model: local eyes supply the knowledge, the repo supplies the
+   rigor — a source for every claim, reviewed before merge, versioned like
+   everything else). A chapter with no steward renders as an open seat. */
 {
-  const radar = JSON.parse(fs.readFileSync(path.join(ROOT, 'radar', 'africa.json'), 'utf8'));
-  const AF = E.filter(e => e.region === 'Africa');
-  const url = `${BASE}/africa/`;
-  const bad = radar.entries.filter(r => !r.date || !r.title || !r.body || !r.source);
-  if (bad.length) throw new Error(`radar/africa.json: ${bad.length} entrie(s) missing date/title/body/source`);
+  const CHAPTERS = [
+    { slug: 'africa', name: 'Africa', adj: 'African', regions: ['Africa'], hub: 'africa',
+      hook: 'Most coverage of African fintech is written from London or San Francisco. This radar is the opposite.' },
+    { slug: 'latam', name: 'Latin America', adj: 'Latin American', regions: ['LatAm'], hub: 'latin-america',
+      hook: 'Latin America built the biggest neobank in the western hemisphere, then the press moved on. This radar doesn\'t.' },
+    { slug: 'asia', name: 'Asia', adj: 'Asian', regions: ['Asia'], hub: 'asia',
+      hook: 'Most neobank users on earth live in Asia — and it gets the thinnest coverage of any region. This radar is the correction.' },
+    { slug: 'europe', name: 'Europe', adj: 'European', regions: ['Europe', 'UK'], hub: 'europe',
+      hook: 'Europe invented the modern neobank playbook and now regulates it hardest. This radar tracks both sides of that story.' },
+    { slug: 'north-america', name: 'North America', adj: 'North American', regions: ['US', 'Canada', 'US/UK'], hub: 'north-america',
+      hook: 'The loudest fintech market is also the one where almost nobody holds their own charter. This radar follows the rails, not the noise.' },
+    { slug: 'mena', name: 'MENA', adj: 'MENA', regions: ['MENA'], hub: 'mena',
+      hook: 'Gulf regulators are licensing digital banks faster than anywhere else on earth. This radar keeps the score.' },
+    { slug: 'oceania', name: 'Oceania', adj: 'Oceania', regions: ['ANZ'], hub: 'oceania',
+      hook: 'A small market that kills neobanks fast and teaches the whole industry why. This radar takes notes.' },
+  ];
+  const CATC = { traditional: '#89B0FF', hybrid: '#D075FF', 'web3-native': '#BAF24A' };
+  const flag = (cc) => /^[A-Z]{2}$/.test(cc) ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) : '';
+  const regionName = new Intl.DisplayNames('en', { type: 'region' });
+  const ccName = (cc) => { try { return regionName.of(cc); } catch { return cc; } };
+  const hqCC = (e) => { const t = (e.hq || '').split(', ').pop(); return /^[A-Z]{2}$/.test(t) ? t : null; };
   const fmtD = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-  const answer = `The Africa Neobank Radar: a running, sourced log of the developments that matter across African digital banking, maintained on the ground — alongside stewardship of the ${AF.length} verified-active African neobanks in the open dataset.`;
-  const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Africa Neobank Radar', url, description: answer }, ['africa', url]);
-  const afStyle = `<style>
+  const chStyle = `<style>
 .radar{border-left:2px solid var(--line);padding:2px 0 2px 22px;margin:26px 0}
 .rentry{position:relative;margin:0 0 26px}
 .rentry::before{content:"";position:absolute;left:-27px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
@@ -2616,18 +2631,9 @@ body.bw .afmap g[fill]{fill:#333}
 .afroster a:hover{border-color:var(--accent);text-decoration:none}
 .afroster .cc{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:auto}
 </style>`;
-  const CATC = { traditional: '#89B0FF', hybrid: '#D075FF', 'web3-native': '#BAF24A' };
-  const flag = (cc) => /^[A-Z]{2}$/.test(cc) ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) : '';
-  const CCNAME = { ZA: 'South Africa', NG: 'Nigeria', CI: 'Côte d’Ivoire', SN: 'Senegal', KE: 'Kenya', EG: 'Egypt', TN: 'Tunisia', CM: 'Cameroon', US: 'US-based' };
-  const hqCC = (e) => { const t = (e.hq || '').split(', ').pop(); return /^[A-Z]{2}$/.test(t) ? t : null; };
-  const byCC = {};
-  AF.forEach(e => { const c = hqCC(e); byCC[c || 'multi'] = (byCC[c || 'multi'] || 0) + 1; });
-  const afUsers = AF.reduce((a, e) => a + ((e.reported_users || {}).value_millions || 0), 0);
-  const afLic = AF.filter(e => /licensed bank/i.test(e.regulation_type || '')).length;
-  const afCats = ['traditional', 'hybrid', 'web3-native'].map(c => [c, AF.filter(e => e.category === c).length]);
-  /* Dotted Africa, same ASCII-grid technique as the homepage world map.
-     Letters mark countries with tracked HQs (colored + tooltipped); x is
-     other land. Coarse on purpose — it's the house style. */
+
+  /* Dotted Africa, same ASCII-grid technique as the homepage world map —
+     Africa-only for now; other chapters get maps as their stewards arrive. */
   const AFRICA_GRID = [
     '.......xTT.................',
     '...xxxxxxTxx...............',
@@ -2662,7 +2668,7 @@ body.bw .afmap g[fill]{fill:#333}
     N: ['NG', '#FF5C16'], Z: ['ZA', '#BAF24A'], E: ['EG', '#D075FF'], K: ['KE', '#89B0FF'],
     S: ['SN', '#FFA680'], C: ['CI', '#CCE7FF'], T: ['TN', '#EAC2FF'], M: ['CM', '#F2E44A'],
   };
-  const afMapSvg = (() => {
+  const africaMapSvg = (byCC) => {
     const CS = 10, rows = AFRICA_GRID.length, cols = Math.max(...AFRICA_GRID.map(r => r.length));
     const groups = {};
     AFRICA_GRID.forEach((row, y) => [...row].forEach((ch, x) => {
@@ -2672,76 +2678,96 @@ body.bw .afmap g[fill]{fill:#333}
     const land = (groups.x || []).join('');
     const cgs = Object.entries(AFC).filter(([ch]) => groups[ch]).map(([ch, [cc, col]]) => {
       const n = byCC[cc] || 0;
-      const name = CCNAME[cc] || cc;
+      const name = ccName(cc);
       const inner = `<title>${name} · ${n} neobank${n === 1 ? '' : 's'} HQ'd</title><g fill="${col}">${groups[ch].join('')}</g>`;
-      const cp = (CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-');
+      const cp = name.toLowerCase().replace(/[^a-z]+/g, '-');
       return fs.existsSync(path.join(ROOT, 'countries', cp))
         ? `<a href="/countries/${cp}/" aria-label="${name} — ${n} neobanks">${inner}</a>` : `<g>${inner}</g>`;
     }).join('');
     const lbl = (x, y, t, anchor = 'start') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="'Noto Sans Mono',monospace" font-size="12" fill="#8A8A99">${t}</text>`;
     const labels =
-      lbl(135, 122, '') +
       `<line x1="98" y1="103" x2="30" y2="70" stroke="#3A3A48" stroke-width="1"/>` + lbl(18, 60, `NG · ${byCC.NG || 0}`, 'start') +
       `<line x1="120" y1="262" x2="170" y2="272" stroke="#3A3A48" stroke-width="1"/>` + lbl(176, 276, `ZA · ${byCC.ZA || 0}`) +
       `<line x1="178" y1="38" x2="215" y2="26" stroke="#3A3A48" stroke-width="1"/>` + lbl(220, 30, `EG · ${byCC.EG || 0}`) +
       `<line x1="200" y1="132" x2="232" y2="150" stroke="#3A3A48" stroke-width="1"/>` + lbl(236, 154, `KE · ${byCC.KE || 0}`);
     return `<svg class="afmap" viewBox="-4 0 ${cols * CS + 60} ${rows * CS + 6}" role="img" aria-label="Dotted map of Africa — countries with tracked neobank HQs highlighted"><g fill="#2E2E3C">${land}</g>${cgs}${labels}</svg>`;
-  })();
-  const html = (head(`Africa Neobank Radar — the Africa chapter · neobankbeat`,
-    `On-ground updates from African digital banking, plus stewardship of the ${AF.length} African neobanks in the open dataset. Sourced, versioned, reviewed — the chapter model.`,
-    url, ld, ogIf('africa.png')) + `
-<main class="wrap" id="main">
-<article>
-  <div class="eyebrow">the africa chapter</div>
-  <h1>Africa <em>Neobank Radar</em></h1>
-  <p class="meta">${radar.steward ? `Chapter steward: <b>${esc(radar.steward.name)}</b>${radar.steward.link ? ` · <a href="${radar.steward.link}" target="_blank" rel="noopener">${esc(radar.steward.link.replace(/^https?:\/\//, ''))}</a>` : ''}` : 'Chapter steward: <b>in trial</b> — the seat is earned, not given'} · <a href="/regions/africa/">${AF.length} African neobanks tracked</a> · <a href="https://github.com/andreolf/neobankbeat/blob/main/radar/africa.json">radar source file</a></p>
-  <p>Most coverage of African fintech is written from London or San Francisco. This radar is the opposite: a running log of the developments that matter across African digital banking — licenses granted and revoked, rails launched, funding that changes the map — maintained on the ground, under the same rules as everything else on this site: <b>a source for every claim</b>, null over guesses, and nobody pays to be featured.</p>
+  };
 
-  <div class="statgrid">
-    <div class="statcard a"><div class="n">${AF.length}</div><div class="l">African neobanks</div></div>
-    <div class="statcard t"><div class="n">${afUsers}M+</div><div class="l">reported users</div></div>
-    <div class="statcard h"><div class="n">${afLic}</div><div class="l">licensed banks</div></div>
-    <div class="statcard w"><div class="n">${Object.keys(byCC).filter(c => c !== 'multi' && c !== 'US').length}</div><div class="l">HQ countries</div></div>
-  </div>
+  const chapterList = (self) => CHAPTERS.filter(c => c.slug !== self)
+    .map(c => `<a href="/${c.slug}/">${c.name}</a>`).join(' · ');
 
-  <div class="afmapcard">${afMapSvg}</div>
-
-  <div class="afspec">${afCats.map(([c, n]) => `<i style="width:${(n / AF.length * 100).toFixed(1)}%;background:${CATC[c]}"></i>`).join('')}</div>
-  <div class="afleg">${afCats.map(([c, n]) => `<b><span class="sw" style="background:${CATC[c]}"></span>${c} · ${n}</b>`).join('')}</div>
-
-  <div class="afpills">
-${Object.entries(byCC).filter(([c]) => c !== 'multi').sort((a, b) => b[1] - a[1]).map(([cc, n]) => {
-    const label = `${flag(cc)} ${CCNAME[cc] || cc} · ${n}`;
-    const cp = path.join(ROOT, 'countries', (CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-'));
-    return fs.existsSync(cp) ? `    <a href="/countries/${(CCNAME[cc] || '').toLowerCase().replace(/[^a-z]+/g, '-')}/">${label}</a>` : `    <span>${label}</span>`;
-  }).join('\n')}${byCC.multi ? `\n    <span>🌍 multi-hub · ${byCC.multi}</span>` : ''}
-  </div>
-
-  <h2>The ${AF.length} on the radar</h2>
-  <div class="afroster">
-${AF.slice().sort((a, b) => (((b.reported_users || {}).value_millions || 0) - ((a.reported_users || {}).value_millions || 0)) || a.name.localeCompare(b.name)).map(e =>
-    `    <a href="/n/${e.slug}/" style="--wc:${CATC[e.category]}">${flag(hqCC(e) || '')} ${esc(e.name)}${(e.reported_users || {}).value_millions ? `<span class="cc">${e.reported_users.value_millions}M</span>` : ''}</a>`).join('\n')}
-  </div>
-
-  <h2>The radar</h2>
-  <div class="radar">
+  for (const ch of CHAPTERS) {
+    const radar = JSON.parse(fs.readFileSync(path.join(ROOT, 'radar', `${ch.slug}.json`), 'utf8'));
+    const CE = E.filter(e => ch.regions.includes(e.region));
+    const url = `${BASE}/${ch.slug}/`;
+    const bad = (radar.entries || []).filter(r => !r.date || !r.title || !r.body || !r.source);
+    if (bad.length) throw new Error(`radar/${ch.slug}.json: ${bad.length} entrie(s) missing date/title/body/source`);
+    const byCC = {};
+    CE.forEach(e => { const c = hqCC(e); byCC[c || 'multi'] = (byCC[c || 'multi'] || 0) + 1; });
+    const users = CE.reduce((a, e) => a + ((e.reported_users || {}).value_millions || 0), 0);
+    const lic = CE.filter(e => /licensed bank/i.test(e.regulation_type || '')).length;
+    const cats = ['traditional', 'hybrid', 'web3-native'].map(c => [c, CE.filter(e => e.category === c).length]);
+    const nCountries = Object.keys(byCC).filter(c => c !== 'multi').length;
+    const answer = `The ${ch.name} Neobank Radar: a running, sourced log of the developments that matter across ${ch.adj} digital banking — alongside stewardship of the ${CE.length} verified-active ${ch.adj} neobanks in the open dataset.`;
+    const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${ch.name} Neobank Radar`, url, description: answer }, [ch.slug, url]);
+    const radarHtml = (radar.entries || []).length ? `  <div class="radar">
 ${radar.entries.map(r => `  <div class="rentry">
     <span class="rd">${fmtD(r.date)}</span>
     <h3>${esc(r.title)}</h3>
     <p>${esc(r.body)}</p>
     <p class="rm">${(r.slugs || []).filter(s => E.some(e => e.slug === s)).map(s => `<a href="/n/${s}/">${esc(E.find(e => e.slug === s).name)}</a>`).join('')}<a href="${r.source}" target="_blank" rel="noopener nofollow">source ↗</a></p>
   </div>`).join('\n')}
+  </div>` : `  <div class="callout"><span class="k">the seat is open</span>This radar starts with its steward: someone who knows ${ch.name}'s market better than the fintech press does. The trial — four sourced radar entries and one audit pass of the ${CE.length} ${ch.adj} rows in the dataset — puts your name and byline on this page. <a href="https://github.com/andreolf/neobankbeat/issues/new">Open an issue</a> and make the case.</div>`;
+    const html = (head(`${ch.name} Neobank Radar — the ${ch.name} chapter · neobankbeat`,
+      `On-ground updates from ${ch.adj} digital banking, plus stewardship of the ${CE.length} ${ch.adj} neobanks in the open dataset. Sourced, versioned, reviewed — the chapter model.`,
+      url, ld, ogIf(`${ch.slug}.png`)) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow">the ${ch.name.toLowerCase()} chapter</div>
+  <h1>${ch.name} <em>Neobank Radar</em></h1>
+  <p class="meta">${radar.steward ? `Chapter steward: <b>${esc(radar.steward.name)}</b>${radar.steward.link ? ` · <a href="${radar.steward.link}" target="_blank" rel="noopener">${esc(radar.steward.link.replace(/^https?:\/\//, ''))}</a>` : ''}` : 'Chapter steward: <b>seat open</b> — earned, not given'} · <a href="/regions/${ch.hub}/">${CE.length} ${ch.adj} neobanks tracked</a> · <a href="https://github.com/andreolf/neobankbeat/blob/main/radar/${ch.slug}.json">radar source file</a></p>
+  <p>${ch.hook} A running log of the developments that matter across ${ch.adj} digital banking — licenses granted and revoked, rails launched, funding that changes the map — under the same rules as everything else on this site: <b>a source for every claim</b>, null over guesses, and nobody pays to be featured.</p>
+
+  <div class="statgrid">
+    <div class="statcard a"><div class="n">${CE.length}</div><div class="l">${ch.adj} neobanks</div></div>
+    <div class="statcard t"><div class="n">${users ? users + 'M+' : '—'}</div><div class="l">reported users</div></div>
+    <div class="statcard h"><div class="n">${lic}</div><div class="l">licensed banks</div></div>
+    <div class="statcard w"><div class="n">${nCountries}</div><div class="l">HQ countries</div></div>
   </div>
+${ch.slug === 'africa' ? `
+  <div class="afmapcard">${africaMapSvg(byCC)}</div>
+` : ''}
+  <div class="afspec">${cats.map(([c, n]) => `<i style="width:${(n / CE.length * 100).toFixed(1)}%;background:${CATC[c]}"></i>`).join('')}</div>
+  <div class="afleg">${cats.map(([c, n]) => `<b><span class="sw" style="background:${CATC[c]}"></span>${c} · ${n}</b>`).join('')}</div>
+
+  <div class="afpills">
+${Object.entries(byCC).filter(([c]) => c !== 'multi').sort((a, b) => b[1] - a[1]).map(([cc, n]) => {
+      const nm = ccName(cc);
+      const label = `${flag(cc)} ${nm} · ${n}`;
+      const cp = nm.toLowerCase().replace(/[^a-z]+/g, '-');
+      return fs.existsSync(path.join(ROOT, 'countries', cp)) ? `    <a href="/countries/${cp}/">${label}</a>` : `    <span>${label}</span>`;
+    }).join('\n')}${byCC.multi ? `\n    <span>🌍 multi-hub · ${byCC.multi}</span>` : ''}
+  </div>
+
+  <h2>The ${CE.length} on the radar</h2>
+  <div class="afroster">
+${CE.slice().sort((a, b) => (((b.reported_users || {}).value_millions || 0) - ((a.reported_users || {}).value_millions || 0)) || a.name.localeCompare(b.name)).map(e =>
+      `    <a href="/n/${e.slug}/" style="--wc:${CATC[e.category]}">${flag(hqCC(e) || '')} ${esc(e.name)}${(e.reported_users || {}).value_millions ? `<span class="cc">${e.reported_users.value_millions}M</span>` : ''}</a>`).join('\n')}
+  </div>
+
+  <h2>The radar</h2>
+${radarHtml}
   <h2>The chapter model</h2>
   <p>A chapter is two jobs in one: this radar, and <b>data stewardship</b> — the chapter holder audits and maintains their region's rows in <a href="/data.json">data.json</a>, and every regional addition or correction gets their eyes before it merges. Entries and fixes arrive by pull request, get reviewed like any other change, and ship with the contributor's byline. The trial to hold a chapter: four sourced radar entries and one full audit pass of the region's data.</p>
-  <div class="callout"><span class="k">want a chapter?</span>Know a market better than the fintech press does — LatAm, Southeast Asia, MENA? <a href="https://github.com/andreolf/neobankbeat/issues/new">Open an issue</a> and make the case. Meanwhile: browse the <a href="/regions/africa/">African cut of the directory</a>, the <a href="/blog/neobanks-africa-latam-underbanked/">emerging-markets deep dive</a>, or the <a href="/">full directory</a>.</div>
+  <div class="callout"><span class="k">the other chapters</span>${chapterList(ch.slug)} — or browse the <a href="/regions/${ch.hub}/">${ch.adj} cut of the directory</a> and the <a href="/">full directory</a>.</div>
   ${b2bBar}
   ${disclaimer}
   ${subscribeBox}
 </article>
-</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', afStyle + '\n</head>');
-  fs.mkdirSync(path.join(ROOT, 'africa'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'africa', 'index.html'), html);
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace(`<a href="/${ch.slug}/">${ch.name} chapter<small>`, `<a href="/${ch.slug}/" class="on">${ch.name} chapter<small>`).replace('</head>', chStyle + '\n</head>');
+    fs.mkdirSync(path.join(ROOT, ch.slug), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, ch.slug, 'index.html'), html);
+  }
 }
 
 /* ═══ /database/ — sortable, filterable table view of the whole dataset ═══ */
@@ -2978,6 +3004,12 @@ const urls = [
   { loc: `${BASE}/ask/`, changefreq: 'monthly', priority: '0.8' },
   { loc: `${BASE}/graveyard/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/africa/`, changefreq: 'weekly', priority: '0.7' },
+  { loc: `${BASE}/latam/`, changefreq: 'weekly', priority: '0.6' },
+  { loc: `${BASE}/asia/`, changefreq: 'weekly', priority: '0.6' },
+  { loc: `${BASE}/europe/`, changefreq: 'weekly', priority: '0.6' },
+  { loc: `${BASE}/north-america/`, changefreq: 'weekly', priority: '0.6' },
+  { loc: `${BASE}/mena/`, changefreq: 'weekly', priority: '0.6' },
+  { loc: `${BASE}/oceania/`, changefreq: 'weekly', priority: '0.6' },
   { loc: `${BASE}/mcp/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/data/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/data.json`, changefreq: 'weekly', priority: '0.8' },

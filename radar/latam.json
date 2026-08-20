@@ -1,0 +1,5 @@
+{
+  "_comment": "Radar entries for this chapter arrive by PR: date (ISO), title, body (2-4 plain sentences, why it matters), source (URL, required — no source, no entry), slugs (optional, tracked-neobank slugs). Newest first. steward flips from null to {name, link} once the trial is done: four sourced entries + one audit pass of the region's data.",
+  "steward": null,
+  "entries": []
+}
