@@ -2632,65 +2632,217 @@ body.bw .afmap g[fill]{fill:#333}
 .afroster .cc{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:auto}
 </style>`;
 
-  /* Dotted Africa, same ASCII-grid technique as the homepage world map —
-     Africa-only for now; other chapters get maps as their stewards arrive. */
-  const AFRICA_GRID = [
-    '.......xTT.................',
-    '...xxxxxxTxx...............',
-    '..xxxxxxxxxxxxxxEE.........',
-    '.xxxxxxxxxxxxxxxEEE........',
-    'xxxxxxxxxxxxxxxxEEE........',
-    'xxxxxxxxxxxxxxxxxEE........',
-    'Sxxxxxxxxxxxxxxxxxxx.......',
-    'SSxxxxxxxxxxxxxxxxxxx......',
-    '.xxxxxxxxxxxxxxxxxxxxxxx...',
-    '..xxxCCxNNNxxxxxxxxxxxxxxx.',
-    '...xxCCNNNNNxxxxxxxxxxxxxx.',
-    '.....xxxNNNMMxxxxxxxxxxx...',
-    '.........MMMxxxxxxxKKxx....',
-    '..........MMxxxxxxKKKx.....',
-    '..........xxxxxxxxKKx......',
-    '..........xxxxxxxxxxx......',
-    '..........xxxxxxxxxxx......',
-    '..........xxxxxxxxxx.......',
-    '..........xxxxxxxxxx.......',
-    '..........xxxxxxxxx........',
-    '..........xxxxxxxxx....xx..',
-    '.........xxxxxxxxx....xxx..',
-    '.........xxxxxxxxx....xx...',
-    '.........xxxxxxxx.....x....',
-    '.........ZZxxxxxx..........',
-    '........ZZZZZxxx...........',
-    '........ZZZZZZx............',
-    '.........ZZZZZ.............',
-  ];
-  const AFC = {
-    N: ['NG', '#FF5C16'], Z: ['ZA', '#BAF24A'], E: ['EG', '#D075FF'], K: ['KE', '#89B0FF'],
-    S: ['SN', '#FFA680'], C: ['CI', '#CCE7FF'], T: ['TN', '#EAC2FF'], M: ['CM', '#F2E44A'],
+  /* Dotted continents, same ASCII-grid technique as the homepage world map.
+     Letters mark countries with tracked HQs (colored + tooltipped); x is
+     other land. Coarse on purpose — it's the house style. Label coords are
+     hand-tuned per map (grid cell ≈ 10px). */
+  const CH_MAPS = {
+    africa: {
+      grid: [
+        '.......xTT.................',
+        '...xxxxxxTxx...............',
+        '..xxxxxxxxxxxxxxEE.........',
+        '.xxxxxxxxxxxxxxxEEE........',
+        'xxxxxxxxxxxxxxxxEEE........',
+        'xxxxxxxxxxxxxxxxxEE........',
+        'Sxxxxxxxxxxxxxxxxxxx.......',
+        'SSxxxxxxxxxxxxxxxxxxx......',
+        '.xxxxxxxxxxxxxxxxxxxxxxx...',
+        '..xxxCCxNNNxxxxxxxxxxxxxxx.',
+        '...xxCCNNNNNxxxxxxxxxxxxxx.',
+        '.....xxxNNNMMxxxxxxxxxxx...',
+        '.........MMMxxxxxxxKKxx....',
+        '..........MMxxxxxxKKKx.....',
+        '..........xxxxxxxxKKx......',
+        '..........xxxxxxxxxxx......',
+        '..........xxxxxxxxxxx......',
+        '..........xxxxxxxxxx.......',
+        '..........xxxxxxxxxx.......',
+        '..........xxxxxxxxx........',
+        '..........xxxxxxxxx....xx..',
+        '.........xxxxxxxxx....xxx..',
+        '.........xxxxxxxxx....xx...',
+        '.........xxxxxxxx.....x....',
+        '.........ZZxxxxxx..........',
+        '........ZZZZZxxx...........',
+        '........ZZZZZZx............',
+        '.........ZZZZZ.............',
+      ],
+      c: { N: ['NG', '#FF5C16'], Z: ['ZA', '#BAF24A'], E: ['EG', '#D075FF'], K: ['KE', '#89B0FF'],
+           S: ['SN', '#FFA680'], C: ['CI', '#CCE7FF'], T: ['TN', '#EAC2FF'], M: ['CM', '#F2E44A'] },
+      labels: [['NG', 98, 103, 30, 70, 18, 60], ['ZA', 120, 262, 170, 272, 176, 276], ['EG', 178, 38, 215, 26, 220, 30], ['KE', 200, 132, 232, 150, 236, 154]],
+    },
+    latam: {
+      grid: [
+        'MMMM.....................',
+        'MMMMMM...................',
+        '.MMMMMMM.................',
+        '..MMMMMM.................',
+        '....MMMxx................',
+        '......xxx.......xx.......',
+        '.......xxx....xxx........',
+        '........CCCxxx...........',
+        '........CCCxxxx..........',
+        '.......xCCxxBBBBx........',
+        '.......xxxxBBBBBBB.......',
+        '......xxxxBBBBBBBBB......',
+        '......xxxBBBBBBBBBB......',
+        '.......xxBBBBBBBBBB......',
+        '.......xxBBBBBBBBB.......',
+        '........xBBBBBBBB........',
+        '........xxBBBBBB.........',
+        '........HxxBBBB..........',
+        '........HxAABBB..........',
+        '........HxAAAAB..........',
+        '.......HxAAAAAUx.........',
+        '.......HxAAAAA...........',
+        '.......HxAAAA............',
+        '.......HAAAA.............',
+        '.......HAAA..............',
+        '.......HAAA..............',
+        '......HAA................',
+        '.......HA................',
+        '........A................',
+      ],
+      c: { B: ['BR', '#FF5C16'], M: ['MX', '#BAF24A'], A: ['AR', '#89B0FF'], C: ['CO', '#D075FF'],
+           H: ['CL', '#FFA680'], U: ['UY', '#CCE7FF'] },
+      labels: [['BR', 160, 120, 205, 105, 210, 108], ['MX', 40, 18, 90, 12, 96, 16], ['AR', 115, 215, 160, 228, 166, 232], ['CO', 92, 78, 45, 92, 8, 96]],
+    },
+    asia: {
+      grid: [
+        '.......xxxxxxxxxxxxx........',
+        '....xxxxxxxxxxxxxxxxxx......',
+        '..xxxxxxxxxxxxxxxxxxxxx...JJ',
+        '.xxxxxxxxxxxxxxxxxxxxxx..JJ.',
+        '.xxxxxxxxxxxxxxxxxxxxKx..JJ.',
+        '..xxxxxxxxxxxxxxxxxxxKK.J...',
+        '..xxxxxxxxxxxxxxxxxxx.K.....',
+        '...xxIIxxxxxxxxxxxxx........',
+        '...IIIIIIxxxxxxVVx..........',
+        '...IIIIIIIxxxxVVVx..........',
+        '....IIIIIIxxxVVVx...PP......',
+        '....IIIIII.xxxVV....PPP.....',
+        '.....IIIII..xxVV.....PP.....',
+        '.....IIII...xxV......P......',
+        '......III...YYV.............',
+        '......II....YYY.............',
+        '......I.....YYS.............',
+        '............................',
+        '........DDDD..DDDDD.........',
+        '.......DDDDDDDDDDDDDD.......',
+        '........DD...DDD..DDDD......',
+      ],
+      c: { I: ['IN', '#FF5C16'], D: ['ID', '#BAF24A'], S: ['SG', '#F2E44A'], P: ['PH', '#D075FF'],
+           V: ['VN', '#89B0FF'], Y: ['MY', '#FFA680'], J: ['JP', '#CCE7FF'], K: ['KR', '#EAC2FF'] },
+      labels: [['IN', 60, 115, 22, 150, 4, 162], ['ID', 95, 196, 55, 205, 4, 209], ['SG', 150, 166, 200, 178, 204, 182], ['JP', 268, 32, 278, 16, 250, 12]],
+    },
+    europe: {
+      grid: [
+        '..........xx....xx......',
+        '.........xxxx..xxx......',
+        '..UU.....xxxx..xx.......',
+        '..UUU....xxxxxxx........',
+        '...UU......xxxx.........',
+        '..UU....xxxxLL..........',
+        '........xGGxLx..........',
+        '.....FFxGGGGxxxx........',
+        '....FFFFGGGGxxxxx.......',
+        '....FFFFFHHxxxxxxx......',
+        '....FFFFFHHxxxxxxx......',
+        '.xx..FFFxxIIxxxxxx......',
+        '.xxxx.....xII.xxxx......',
+        '.xxxxx.....xII..........',
+        '.xxxx.......II..........',
+        '..xxx........I..........',
+      ],
+      c: { U: ['GB', '#FF5C16'], F: ['FR', '#89B0FF'], G: ['DE', '#F2E44A'], H: ['CH', '#FFA680'],
+           I: ['IT', '#BAF24A'], L: ['LT', '#D075FF'] },
+      labels: [['GB', 30, 30, 12, 14, 4, 10], ['FR', 48, 95, 28, 82, 0, 78], ['DE', 118, 75, 200, 88, 204, 92], ['CH', 100, 99, 66, 152, 30, 162]],
+    },
+    'north-america': {
+      grid: [
+        'UU....CCCCCCCCCCCCCCC....',
+        'UUU..CCCCCCCCCCCCCCCCC...',
+        '.U..CCCCCCCCCCCCCCCCCC...',
+        '....CCCCCCCCCCCCCCCCC....',
+        '.....CCCCCCCCCCCCCCC.....',
+        '.....UUUUUUUUUUUUUCC.....',
+        '....UUUUUUUUUUUUUUUU.....',
+        '....UUUUUUUUUUUUUUUU.....',
+        '....UUUUUUUUUUUUUUU......',
+        '.....UUUUUUUUUUUUUU......',
+        '.....UUUUUUUUUUUUU.......',
+        '......UUUUUUUUUUUU.......',
+        '.......UUUxxUUUU.U.......',
+        '........xx....U..........',
+        '.........x...............',
+      ],
+      c: { U: ['US', '#FF5C16'], C: ['CA', '#89B0FF'] },
+      labels: [['US', 110, 85, 220, 92, 226, 96], ['CA', 130, 25, 226, 18, 232, 22]],
+    },
+    mena: {
+      grid: [
+        '..xxxxxxxxxxx....xxxx.....',
+        '.xxxxxxxxxxxxEE..xxxxx....',
+        'xxxxxxxxxxxxxEEE.Ix.......',
+        'xxxxxxxxxxxxxEEE.Ixx......',
+        '.xxxxxxxxxxxxEEE..xSSx....',
+        '..............E...SSSSKx..',
+        '..................SSSSSBx.',
+        '..................SSSSSAA.',
+        '..................SSSSAA..',
+        '...................SSxx...',
+        '....................xx....',
+      ],
+      c: { A: ['AE', '#FF5C16'], S: ['SA', '#BAF24A'], E: ['EG', '#D075FF'], I: ['IL', '#89B0FF'],
+           K: ['KW', '#FFA680'], B: ['BH', '#F2E44A'] },
+      labels: [['AE', 242, 78, 252, 100, 232, 108], ['SA', 218, 60, 248, 42, 252, 38], ['EG', 140, 32, 120, 60, 84, 66]],
+    },
+    oceania: {
+      grid: [
+        '....AAAAAA................',
+        '..AAAAAAAAAA..............',
+        '.AAAAAAAAAAAA.............',
+        'AAAAAAAAAAAAAA............',
+        'AAAAAAAAAAAAAAA...........',
+        'AAAAAAAAAAAAAA............',
+        '.AAAAAAAAAAAAA............',
+        '..AAAAAAAAAAA.............',
+        '...AAAA..AAA..............',
+        '.....A....A......ZZ.......',
+        '..................Z.......',
+        '.................ZZ.......',
+        '................ZZ........',
+      ],
+      c: { A: ['AU', '#FF5C16'], Z: ['NZ', '#BAF24A'] },
+      labels: [['AU', 75, 45, 130, 22, 136, 18], ['NZ', 182, 105, 210, 92, 216, 88]],
+    },
   };
-  const africaMapSvg = (byCC) => {
-    const CS = 10, rows = AFRICA_GRID.length, cols = Math.max(...AFRICA_GRID.map(r => r.length));
+  const chapterMapSvg = (slug, byCC, chName) => {
+    const M = CH_MAPS[slug];
+    if (!M) return '';
+    const CS = 10, rows = M.grid.length, cols = Math.max(...M.grid.map(r => r.length));
     const groups = {};
-    AFRICA_GRID.forEach((row, y) => [...row].forEach((ch, x) => {
-      if (ch === '.') return;
-      (groups[ch] = groups[ch] || []).push(`<circle cx="${x * CS + CS / 2}" cy="${y * CS + CS / 2}" r="3.4"/>`);
+    M.grid.forEach((row, y) => [...row].forEach((chr, x) => {
+      if (chr === '.') return;
+      (groups[chr] = groups[chr] || []).push(`<circle cx="${x * CS + CS / 2}" cy="${y * CS + CS / 2}" r="3.4"/>`);
     }));
     const land = (groups.x || []).join('');
-    const cgs = Object.entries(AFC).filter(([ch]) => groups[ch]).map(([ch, [cc, col]]) => {
-      const n = byCC[cc] || 0;
+    /* the dataset writes "UK"; flags and display names want ISO GB */
+    const dataCC = (cc) => cc === 'GB' ? 'UK' : cc;
+    const cgs = Object.entries(M.c).filter(([chr]) => groups[chr]).map(([chr, [cc, col]]) => {
+      const n = byCC[dataCC(cc)] || byCC[cc] || 0;
       const name = ccName(cc);
-      const inner = `<title>${name} · ${n} neobank${n === 1 ? '' : 's'} HQ'd</title><g fill="${col}">${groups[ch].join('')}</g>`;
+      const inner = `<title>${name} · ${n} neobank${n === 1 ? '' : 's'} HQ'd</title><g fill="${col}">${groups[chr].join('')}</g>`;
       const cp = name.toLowerCase().replace(/[^a-z]+/g, '-');
       return fs.existsSync(path.join(ROOT, 'countries', cp))
         ? `<a href="/countries/${cp}/" aria-label="${name} — ${n} neobanks">${inner}</a>` : `<g>${inner}</g>`;
     }).join('');
-    const lbl = (x, y, t, anchor = 'start') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="'Noto Sans Mono',monospace" font-size="12" fill="#8A8A99">${t}</text>`;
-    const labels =
-      `<line x1="98" y1="103" x2="30" y2="70" stroke="#3A3A48" stroke-width="1"/>` + lbl(18, 60, `NG · ${byCC.NG || 0}`, 'start') +
-      `<line x1="120" y1="262" x2="170" y2="272" stroke="#3A3A48" stroke-width="1"/>` + lbl(176, 276, `ZA · ${byCC.ZA || 0}`) +
-      `<line x1="178" y1="38" x2="215" y2="26" stroke="#3A3A48" stroke-width="1"/>` + lbl(220, 30, `EG · ${byCC.EG || 0}`) +
-      `<line x1="200" y1="132" x2="232" y2="150" stroke="#3A3A48" stroke-width="1"/>` + lbl(236, 154, `KE · ${byCC.KE || 0}`);
-    return `<svg class="afmap" viewBox="-4 0 ${cols * CS + 60} ${rows * CS + 6}" role="img" aria-label="Dotted map of Africa — countries with tracked neobank HQs highlighted"><g fill="#2E2E3C">${land}</g>${cgs}${labels}</svg>`;
+    const labels = (M.labels || []).map(([cc, x1, y1, x2, y2, lx, ly]) => {
+      const n = byCC[dataCC(cc)] || byCC[cc] || 0;
+      return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#3A3A48" stroke-width="1"/><text x="${lx}" y="${ly}" font-family="'Noto Sans Mono',monospace" font-size="12" fill="#8A8A99">${cc === 'GB' ? 'UK' : cc} · ${n}</text>`;
+    }).join('');
+    return `<svg class="afmap" viewBox="-4 0 ${cols * CS + 64} ${rows * CS + 6}" role="img" aria-label="Dotted map of ${chName} — countries with tracked neobank HQs highlighted"><g fill="#2E2E3C">${land}</g>${cgs}${labels}</svg>`;
   };
 
   const chapterList = (self) => CHAPTERS.filter(c => c.slug !== self)
@@ -2734,8 +2886,8 @@ ${radar.entries.map(r => `  <div class="rentry">
     <div class="statcard h"><div class="n">${lic}</div><div class="l">licensed banks</div></div>
     <div class="statcard w"><div class="n">${nCountries}</div><div class="l">HQ countries</div></div>
   </div>
-${ch.slug === 'africa' ? `
-  <div class="afmapcard">${africaMapSvg(byCC)}</div>
+${CH_MAPS[ch.slug] ? `
+  <div class="afmapcard">${chapterMapSvg(ch.slug, byCC, ch.name)}</div>
 ` : ''}
   <div class="afspec">${cats.map(([c, n]) => `<i style="width:${(n / CE.length * 100).toFixed(1)}%;background:${CATC[c]}"></i>`).join('')}</div>
   <div class="afleg">${cats.map(([c, n]) => `<b><span class="sw" style="background:${CATC[c]}"></span>${c} · ${n}</b>`).join('')}</div>
