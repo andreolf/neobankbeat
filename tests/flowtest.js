@@ -626,7 +626,8 @@ console.log('— flow 29: head metadata is complete and snippet-sized');
     else if(d.replace(/&[a-z]+;/g,'x').length>160)long.push(rel+' ('+d.length+')');
     if((h.match(/<link rel="canonical"/g)||[]).length!==1)noCanon.push(rel);
     const og=(h.match(/<meta property="og:image" content="https:\/\/www\.neobankbeat\.com([^"]*)"/)||[])[1];
-    if(og&&!fs.existsSync(path.join(root,og)))badOg.push(rel+' → '+og);
+    // og URLs carry a ?v=<hash> cache-buster for share platforms; the file on disk doesn't
+    if(og&&!fs.existsSync(path.join(root,og.replace(/\?.*$/,''))))badOg.push(rel+' → '+og);
   }
   ok(long.length===0,'no meta description over 160 chars'+(long.length?' ('+long.length+': '+long.slice(0,4).join(', ')+')':''));
   ok(noDesc.length===0,'every indexable page has a meta description'+(noDesc.length?' ('+noDesc.join(', ')+')':''));
