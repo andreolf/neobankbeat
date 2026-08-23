@@ -5,8 +5,32 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 65 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 22 Aug 2026 06:50:54 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 23 Aug 2026 06:51:14 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Training and Documentation Specialist — Branch]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/branch-7860890003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/branch-7860890003/</guid>
+    <pubDate>Sat, 22 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Branch · Remote, US · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Designer - Design System — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4955355101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4955355101/</guid>
+    <pubDate>Sat, 22 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Moniepoint · Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead / Expert, RWA Ecosystem Growth — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-7941620003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7941620003/</guid>
+    <pubDate>Sat, 22 Aug 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[ANALYTICS PARTNER III - Global Investments — Banco Inter]]></title>
     <link>https://www.neobankbeat.com/jobs/j/banco-inter-4725031005/</link>
@@ -461,30 +485,6 @@
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4725832005/</guid>
     <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Business Intelligence Sênior | Jornada do Cliente — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4724343005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4724343005/</guid>
-    <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Cobrança Pleno | Cobrança - Produtos com Garantia — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4693809005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4693809005/</guid>
-    <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Continuidade de Negócios Pleno | Processos & Controles — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4718575005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4718575005/</guid>
-    <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
     <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
 </channel>
