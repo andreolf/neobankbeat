@@ -5,12 +5,12 @@
 **who watches the neobanks?**
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
-[![neobanks tracked](https://img.shields.io/badge/neobanks-380-89B0FF)](https://www.neobankbeat.com)
+[![neobanks tracked](https://img.shields.io/badge/neobanks-381-89B0FF)](https://www.neobankbeat.com)
 [![tests](https://img.shields.io/badge/tests-282%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
-an independent, open-source directory of **380 verified-active neobanks** across three waves:<br>
+an independent, open-source directory of **381 verified-active neobanks** across three waves:<br>
 **traditional** (Chime, Nubank, Kaspi…) · **hybrid** fiat+crypto (Revolut, Cash App, RedotPay…) · **web3-native** self-custodial money apps (MetaMask, Gnosis Pay, Payy…)<br>
 plus the niche-audience generation and super-app wallets.
 
@@ -18,7 +18,7 @@ inspired by [Walletbeat](https://beta.walletbeat.eth.limo) and [L2Beat](https://
 
 [**→ neobankbeat.com**](https://www.neobankbeat.com)
 
-<a href="https://www.neobankbeat.com"><img src="docs/screenshot.png" alt="neobankbeat directory — 380 neobanks with filters, custody spectrum and world map" width="800"></a>
+<a href="https://www.neobankbeat.com"><img src="docs/screenshot.png" alt="neobankbeat directory — 381 neobanks with filters, custody spectrum and world map" width="800"></a>
 
 </div>
 
@@ -40,9 +40,9 @@ subscribing to the (free) newsletter is the only gate — the download starts in
 ## the dataset at a glance
 
 ```mermaid
-pie showData title 380 neobanks by category
+pie showData title 381 neobanks by category
     "traditional (fiat, custodial)" : 261
-    "hybrid (fiat + custodial crypto)" : 61
+    "hybrid (fiat + custodial crypto)" : 62
     "web3-native (self-custodial)" : 58
 ```
 
@@ -51,9 +51,9 @@ the three waves are visible in the founding years — challengers after 2011, th
 ```mermaid
 xychart-beta
     title "neobanks founded per year"
-    x-axis ["<'10", "'10", "'11", "'12", "'13", "'14", "'15", "'16", "'17", "'18", "'19", "'20", "'21", "'22", "'23", "'24", "'25"]
+    x-axis ["<'10", "'10", "'11", "'12", "'13", "'14", "'15", "'16", "'17", "'18", "'19", "'20", "'21", "'22", "'23", "'24", "'25", "'26"]
     y-axis "founded" 0 --> 50
-    bar [18, 1, 5, 8, 17, 13, 28, 27, 31, 42, 43, 24, 36, 30, 27, 19, 11]
+    bar [18, 1, 5, 8, 17, 13, 28, 27, 31, 42, 43, 24, 36, 30, 27, 19, 11, 1]
 ```
 
 ```mermaid
@@ -61,26 +61,26 @@ xychart-beta horizontal
     title "where they operate (multi-region players counted in every region)"
     x-axis ["Europe", "Asia", "North America", "Latin America", "Africa", "MENA", "Oceania"]
     y-axis "active neobanks" 0 --> 160
-    bar [144, 132, 126, 113, 92, 85, 72]
+    bar [145, 133, 127, 114, 93, 86, 73]
 ```
 
 more numbers from the current dataset:
 
 | | |
 |---|---|
-| niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **127** |
-| with stablecoin support | **121** |
+| niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **128** |
+| with stablecoin support | **122** |
 | licensed banks (charters, digital-bank licenses) | **132** |
-| running on a partner bank (BaaS) | **81** |
+| running on a partner bank (BaaS) | **82** |
 | with AI verifiably in production | **67** |
 | verified terms & privacy links (checked, not guessed) | **120** |
-| official X handles on file | **171** |
+| official X handles on file | **172** |
 | no-KYC self-custodial wallets | **14** |
 <!-- stats:end -->
 
 ## what's inside
 
-- **[directory](https://www.neobankbeat.com)** — 380 verified-active entities; filter by category, custody, region, country, audience niche, regulation, funding stage, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
+- **[directory](https://www.neobankbeat.com)** — 381 verified-active entities; filter by category, custody, region, country, audience niche, regulation, funding stage, stablecoin support; side-by-side compare tray. filters live in the URL, so views are shareable: [`?cat=W&map=AF`](https://www.neobankbeat.com/?cat=W&map=AF) = web3-native in Africa
 - **compare & explore** — a [feature matrix](https://www.neobankbeat.com/matrix/) (✓ grid of 19 verified features), a sortable [database table](https://www.neobankbeat.com/database/) of every field, static in-browser [semantic search](https://www.neobankbeat.com/search/) (no backend), and pairwise [comparisons](https://www.neobankbeat.com/vs/)
 - **[map](https://www.neobankbeat.com/map/)** — a per-country heat grid shaded by HQ count, plus the homepage dot-matrix world map with region → country drill-down
 - **[languages](https://www.neobankbeat.com/de/)** — profiles, comparisons and country pages localized into German, Italian, French, Spanish and Portuguese, with reciprocal hreflang and a header switcher
@@ -95,7 +95,7 @@ neobankbeat is built to be a source of truth for agents, not just humans:
 
 | resource | what it is |
 |---|---|
-| [`data.json`](https://www.neobankbeat.com/data.json) | the full dataset as clean JSON — all 380 entities, every field, with sources. no HTML parsing needed |
+| [`data.json`](https://www.neobankbeat.com/data.json) | the full dataset as clean JSON — all 381 entities, every field, with sources. no HTML parsing needed |
 | [MCP server](https://www.neobankbeat.com/mcp/) (`mcp/server.mjs`) | a dependency-free Model Context Protocol server — five tools over the live dataset (search, look up, compare, list by country, stats), so Claude or any MCP client answers from current, cited data. ~180 lines, no deps |
 | [`llms.txt`](https://www.neobankbeat.com/llms.txt) | agent guide: what this site is, data semantics, field caveats, how to cite |
 | [`openapi.json`](https://www.neobankbeat.com/openapi.json) + `.well-known/` | generated OpenAPI description and agent-skill catalog for automated discovery |
@@ -116,7 +116,7 @@ the split exists because the app used to be one 346KB file, so every crawler and
 ```
 index.html          markup, CSS, JSON-LD, and one <script src="/app.js?v=…">
 app.js              the app: data + logic (cached immutably)
-├── const D=[...]   380 entities, one row each
+├── const D=[...]   381 entities, one row each
 ├── const X={...}   enrichment: founders, licenses, funding, stories
 ├── const INV={...} notable early investors per entity (public rounds)
 └── const V={...}   verified links: terms, privacy, X handles, countries
@@ -126,7 +126,7 @@ blog/               static deep dives + RSS feed
 jobs/               live job board pulled from official ATS APIs (+ data.json feed)
 report/             gated landing page for the monthly PDF report
 reports/            generated report source + PDF (robots-disallowed)
-n/                  380 generated entity profile pages (SEO surface)
+n/                  381 generated entity profile pages (SEO surface)
 vs/                 151 generated head-to-head comparison pages
 database/ matrix/ search/   sortable table, ✓ feature matrix, static semantic search
 map/                per-country HQ heat grid
@@ -180,7 +180,7 @@ any drift, which is how 19 blog posts were caught with no link to `/data/` at al
 
 ### numbers written in prose
 
-Every count the site states in English — 380 neobanks, 23 FAQ answers, 219
+Every count the site states in English — 381 neobanks, 23 FAQ answers, 219
 investors, 140 comparisons — is owned by `tests/sync-counts.mjs`, which anchors
 each claim by the words around it and rewrites only the digits. Before it existed
 the site simultaneously published three different dataset totals, three different

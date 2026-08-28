@@ -1,10 +1,10 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-08-19.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-08-28.
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 380 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 381 neobanks
 - [Browse](https://www.neobankbeat.com/browse/) — 46 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
@@ -72,7 +72,7 @@
 - [who holds your money](https://www.neobankbeat.com/blog/who-holds-your-money/) (2026-08-12)
 - [neobank spirit animals](https://www.neobankbeat.com/blog/neobank-spirit-animals/) (2026-08-17)
 
-## Neobank profiles (380)
+## Neobank profiles (381)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -454,8 +454,9 @@
 - [Esh Bank](https://www.neobankbeat.com/n/esh-bank/)
 - [Blink](https://www.neobankbeat.com/n/blink/)
 - [Yolat](https://www.neobankbeat.com/n/yolat/)
+- [GetPlu](https://www.neobankbeat.com/n/getplu/)
 
-## Comparisons (151)
+## Comparisons (152)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -597,6 +598,7 @@
 - [Meru vs Takenos](https://www.neobankbeat.com/vs/meru-vs-takenos/)
 - [Airtm vs Deel](https://www.neobankbeat.com/vs/airtm-vs-deel/)
 - [Airtm vs Takenos](https://www.neobankbeat.com/vs/airtm-vs-takenos/)
+- [Félix vs GetPlu](https://www.neobankbeat.com/vs/felix-vs-getplu/)
 - [Deel vs Takenos](https://www.neobankbeat.com/vs/deel-vs-takenos/)
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
 - [Meow vs Flex](https://www.neobankbeat.com/vs/meow-vs-flex/)
@@ -660,4 +662,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (380) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (379) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (381) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (380) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

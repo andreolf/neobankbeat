@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "neobankbeat data API",
-    "version": "2026-08-19",
-    "summary": "Open dataset of 380 verified-active neobanks plus a live industry job board.",
+    "version": "2026-08-28",
+    "summary": "Open dataset of 381 verified-active neobanks plus a live industry job board.",
     "description": "Read-only, unauthenticated JSON endpoints behind the neobankbeat directory (https://www.neobankbeat.com). All data is MIT-licensed and compiled from public sources. No API key, no rate limits beyond CDN defaults. Field semantics are documented at https://www.neobankbeat.com/llms.txt. For an as-of date, read `generated` from /changelog/changelog.json — data.json itself carries no timestamp. Cite as: neobankbeat (2026). Open directory of neobanks worldwide. https://www.neobankbeat.com/ (MIT).",
     "license": {
       "name": "MIT",
@@ -24,7 +24,7 @@
       "get": {
         "operationId": "getNeobanks",
         "summary": "Full neobank dataset",
-        "description": "All 380 tracked entities. `meta` carries totals, category counts and field notes; `entities` carries one object per neobank. `null` means \"not publicly verifiable\" — the project never fabricates data.",
+        "description": "All 381 tracked entities. `meta` carries totals, category counts and field notes; `entities` carries one object per neobank. `null` means \"not publicly verifiable\" — the project never fabricates data.",
         "responses": {
           "200": {
             "description": "The dataset.",
@@ -60,7 +60,7 @@
                         },
                         "total": {
                           "type": "integer",
-                          "description": "Entity count (380)."
+                          "description": "Entity count (381)."
                         },
                         "counts": {
                           "type": "object",
@@ -133,7 +133,7 @@
                               "string",
                               "null"
                             ],
-                            "description": "How it is authorised. Most common: Licensed bank (132), Partner-bank model (81), Self-custodial software (53), E-money institution (48)."
+                            "description": "How it is authorised. Most common: Licensed bank (132), Partner-bank model (82), Self-custodial software (53), E-money institution (48)."
                           },
                           "license": {
                             "type": [
@@ -170,7 +170,7 @@
                           },
                           "stablecoins": {
                             "type": "boolean",
-                            "description": "True where stablecoins can be held or spent (121 of 380)."
+                            "description": "True where stablecoins can be held or spent (122 of 381)."
                           },
                           "kyc": {
                             "type": [
@@ -184,7 +184,7 @@
                               "string",
                               "null"
                             ],
-                            "description": "Verified production AI, by tier: underwriting / interface / agentic (67 of 380). Absence means unverified, not none."
+                            "description": "Verified production AI, by tier: underwriting / interface / agentic (67 of 381). Absence means unverified, not none."
                           },
                           "services": {
                             "type": [
@@ -201,7 +201,7 @@
                               "object",
                               "null"
                             ],
-                            "description": "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer Present on 21 of 380 entities.",
+                            "description": "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer Present on 21 of 381 entities.",
                             "properties": {
                               "value": {
                                 "type": [
@@ -306,7 +306,7 @@
                               "object",
                               "null"
                             ],
-                            "description": "Self-reported scale, present on 23 of 380 entities. The metric is not comparable across companies — always cite metric and as_of alongside the number.",
+                            "description": "Self-reported scale, present on 23 of 381 entities. The metric is not comparable across companies — always cite metric and as_of alongside the number.",
                             "properties": {
                               "value_millions": {
                                 "type": "number"
@@ -324,7 +324,7 @@
                               "object",
                               "null"
                             ],
-                            "description": "Payment or transaction volume where disclosed (10 of 380).",
+                            "description": "Payment or transaction volume where disclosed (10 of 381).",
                             "properties": {
                               "value": {
                                 "type": [
@@ -439,7 +439,7 @@
       "get": {
         "operationId": "getJobs",
         "summary": "Live neobank job board",
-        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3654 roles across 66 companies. Refreshed Monday/Wednesday/Friday.",
+        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3630 roles across 65 companies. Refreshed Monday/Wednesday/Friday.",
         "responses": {
           "200": {
             "description": "The job list.",

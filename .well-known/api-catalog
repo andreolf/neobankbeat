@@ -27,7 +27,7 @@
         {
           "href": "https://www.neobankbeat.com/data.json",
           "type": "application/json",
-          "title": "Full dataset — 380 verified-active neobanks (MIT)"
+          "title": "Full dataset — 381 verified-active neobanks (MIT)"
         },
         {
           "href": "https://www.neobankbeat.com/changelog/changelog.json",
@@ -37,7 +37,7 @@
         {
           "href": "https://www.neobankbeat.com/jobs/data.json",
           "type": "application/json",
-          "title": "Live neobank job board — 3654 roles across 66 companies"
+          "title": "Live neobank job board — 3630 roles across 65 companies"
         }
       ]
     }
