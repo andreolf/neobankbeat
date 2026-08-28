@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 380,
+  "total": 381,
   "counts": {
    "traditional": 261,
-   "hybrid": 61,
+   "hybrid": 62,
    "web3_native": 58,
-   "niche_audience": 127
+   "niche_audience": 128
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -29848,6 +29848,89 @@
    "payment_rails": null,
    "card_networks": null,
    "card_form": null,
+   "card_funding": null,
+   "timeline": null,
+   "partners": {
+    "issuer": null,
+    "partner_bank": null,
+    "treasury": null,
+    "identity": null,
+    "kyc_provider": null,
+    "card_network": null
+   },
+   "funding_stage": null
+  },
+  {
+   "name": "GetPlu",
+   "category": "hybrid",
+   "audience": "immigrants & migrants",
+   "region": "Global",
+   "hq": "Delaware, US",
+   "founded": 2026,
+   "custody": "Custodial",
+   "regulation_type": "Partner-bank model",
+   "card_network": "Visa",
+   "card_type": "Virtual",
+   "cashback": null,
+   "yield": null,
+   "stablecoins": true,
+   "kyc": "Yes",
+   "domain": "getplu.com",
+   "website": "https://getplu.com",
+   "active_regions": [
+    "North America",
+    "Europe",
+    "Latin America",
+    "Africa",
+    "MENA",
+    "Asia",
+    "Oceania"
+   ],
+   "note": "Zero-fee virtual Visa dollar card funded with USD, USDC or USDT — instant issue after KYC, Apple/Google Pay, market hubs across Nigeria, Ghana, Kenya and North America on partner rails.",
+   "story": "Positions one product three ways — dollar card, stablecoin card and an AI-Agent card — for the globally mobile: immigrants, freelancers and OFWs spending across 125+ countries.",
+   "license": "Card program on partner institutions (Crossmint rails); not a bank or custodian itself",
+   "terms_url": "https://getplu.com/terms-of-service",
+   "x_handle": "getpluapp",
+   "countries": [
+    "Nigeria",
+    "Ghana",
+    "Kenya",
+    "United States",
+    "Canada"
+   ],
+   "slug": "getplu",
+   "features": {
+    "apple_pay": null,
+    "google_pay": true,
+    "api": null,
+    "webhooks": null,
+    "oauth": null,
+    "sandbox": null,
+    "business_accounts": null,
+    "virtual_cards": null,
+    "physical_cards": null,
+    "iban": null,
+    "self_custody": null,
+    "mpc": null,
+    "yield_bearing": null,
+    "savings": null,
+    "lending": null,
+    "investing": null,
+    "treasury": null,
+    "crypto": true,
+    "stablecoin_native": null
+   },
+   "stablecoin_tickers": null,
+   "fx_markup_pct": null,
+   "cashback_pct": null,
+   "yield_pct": null,
+   "payment_rails": null,
+   "card_networks": [
+    "Visa"
+   ],
+   "card_form": [
+    "virtual"
+   ],
    "card_funding": null,
    "timeline": null,
    "partners": {

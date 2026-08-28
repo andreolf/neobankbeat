@@ -405,7 +405,8 @@ const D=[
 ["Haventree Bank","T","Canada","Toronto, CA",2018,"C","—","—","—","2.5% Everyday Growth Account",0,"Y","g","haventreebank.com","Schedule I Canadian bank (ex Equity Financial Trust) that launched a direct-to-consumer digital bank in 2026 with a 2.5% growth account and CDIC-insured GICs."],
 ["Esh Bank","T","MENA","Tel Aviv, IL",2022,"C","—","—","—","—",0,"Y","g","esh.com","Israeli fully-digital bank whose patented Equal Sharing model returns 50% of interest income on customer balances, with no account fees."],
 ["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."],
-["Yolat","T","Africa","Lagos, NG",2024,"C","—","—","—","—",0,"Y","i","yolat.com","Cross-border account for Africans and African businesses — earn, hold, send and pay across borders; licensed as FINTRAC MSB + Bank of Canada RPAA PSP, with a CBN IMTO for Nigeria inflows."]
+["Yolat","T","Africa","Lagos, NG",2024,"C","—","—","—","—",0,"Y","i","yolat.com","Cross-border account for Africans and African businesses — earn, hold, send and pay across borders; licensed as FINTRAC MSB + Bank of Canada RPAA PSP, with a CBN IMTO for Nigeria inflows."],
+["GetPlu","H","Global","Delaware, US",2026,"C","Visa","Virtual","—","—",1,"Y","i","getplu.com","Zero-fee virtual Visa dollar card funded with USD, USDC or USDT — instant issue after KYC, Apple/Google Pay, market hubs across Nigeria, Ghana, Kenya and North America on partner rails."]
 ];
 /* pre-launch / emerging — kept in the machine dataset (data.json `emerging`) but excluded from the verified-active grid, counts and generated pages */
 const EMERGING=[
@@ -631,6 +632,7 @@ const X={
 "Takenos":{l:"Fintech; stablecoin wallet on partner rails",m:"$5M seed (Variant, Lattice), 2025",s:"Founded 2022 in Buenos Aires; processed $500M+ across 500k+ users on its own Solana-based stablecoin.",a:["LATAM","NA","EU"]},
 "Slush":{f:"Mysten Labs",l:"Self-custodial Sui wallet software",s:"Built by the Mysten Labs engineers behind Sui; rebranded from Sui Wallet to become the ecosystem's flagship consumer wallet."},
 "Solid":{l:"Self-custodial Safe smart-accounts + MPC",s:"Positions itself as an onchain neobank for real life — earn DeFi yield, save gaslessly across chains, and spend worldwide while keeping assets self-custodial."},
+"GetPlu":{l:"Card program on partner institutions (Crossmint rails); not a bank or custodian itself",s:"Positions one product three ways — dollar card, stablecoin card and an AI-Agent card — for the globally mobile: immigrants, freelancers and OFWs spending across 125+ countries."},
 "Yolat":{f:"Toyosi Abolarin",l:"FINTRAC MSB + Bank of Canada RPAA PSP (CA); IMTO (CBN, NG)",s:"African-founded cross-border fintech licensed on both sides of the Atlantic — blockchain-rail transfers between Canada, the UK and African corridors, with AI-driven routing and compliance."},
 "Sony Bank":{l:"Japanese banking license (Sony Financial Group)",s:"Launched in 2001 as Sony's internet-only bank; a multi-currency mainstay for Japan's savers that later pushed into Web3 products."},
 "AMP Bank GO":{l:"Australian ADI (AMP Bank Limited)",s:"AMP Bank rebuilt from a mortgages-and-savings lender into a transactional digital bank for Australia's solopreneurs, on Starling's Engine."},
@@ -2126,6 +2128,7 @@ render();
 const V={
 /* ══ intake 2026-08 ══ */
 "Dolafy":{t:"https://dolafy.com/legal/",x:"dolafycom"},
+"GetPlu":{t:"https://getplu.com/terms-of-service",x:"getpluapp",cc:["Nigeria","Ghana","Kenya","United States","Canada"]},
 "Yolat":{x:"callyolat",in:{"Toyosi Abolarin":"https://www.linkedin.com/in/toyosi-abolarin-798b6942"},cc:["Canada","Nigeria","Kenya","Ghana","South Africa","United Kingdom"]},
 "Brookwell":{t:"https://www.brookwell.com/terms",x:"brookwellapp"},
 "Takenos":{t:"https://help.takenos.com/en/articles/11403392-terminos-y-condiciones",x:"takenosapp",cc:["Argentina","Bolivia","Chile","Colombia","Ecuador","Paraguay","Peru","United States"]},
