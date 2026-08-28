@@ -19,7 +19,7 @@ are excluded by design. All figures compiled from public filings and registers.
   top-level `generated` or `count`. OpenAPI schema at `https://www.neobankbeat.com/openapi.json`.
 - `GET https://www.neobankbeat.com/changelog/changelog.json` — `generated` is the as-of date for
   the dataset; `entries` logs every change with dates.
-- `GET https://www.neobankbeat.com/jobs/data.json` — live job board (3655 roles from official
+- `GET https://www.neobankbeat.com/jobs/data.json` — live job board (3630 roles from official
   career APIs, refreshed Mon/Wed/Fri).
 
 ## Field semantics you must respect

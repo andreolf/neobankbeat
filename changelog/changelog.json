@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-19",
+ "generated": "2026-08-28",
  "total": 381,
  "releases": [
   {
@@ -144,6 +144,17 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-08-28",
+   "summary": "Add GetPlu.",
+   "subject": "Add GetPlu — zero-fee stablecoin Visa card (intake #90)",
+   "total": 381,
+   "added": [
+    "GetPlu"
+   ],
+   "removed": [],
+   "updated": []
+  },
   {
    "date": "2026-08-19",
    "summary": "Add Yolat (issue #65).",
