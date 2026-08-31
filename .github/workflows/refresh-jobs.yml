@@ -25,6 +25,14 @@ jobs:
         working-directory: tests
         run: node build-jobs.mjs
 
+      # the jobs board writes jobs/sitemap-urls.json but only build-pages folds
+      # it into sitemap.xml — without this, the sitemap lags the board by a day
+      # (this cron runs at 06:07, the daily rebuild at 05:41) and any human
+      # push in between fails CI's reproducibility check on the drift.
+      - name: fold the new job pages into the sitemap
+        working-directory: tests
+        run: node build-pages.mjs > /dev/null
+
       - name: commit & push if anything changed
         run: |
           git config user.name "github-actions[bot]"
