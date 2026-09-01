@@ -17,8 +17,13 @@
       "permanent": true
     },
     {
-      "source": "/n/sling-money/:path+",
-      "destination": "/n/morse/:path+",
+      "source": "/n/sling-money/who-owns/",
+      "destination": "/n/morse/who-owns/",
+      "permanent": true
+    },
+    {
+      "source": "/n/sling-money/alternatives/",
+      "destination": "/n/morse/alternatives/",
       "permanent": true
     },
     {
