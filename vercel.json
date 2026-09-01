@@ -7,13 +7,18 @@
       "permanent": true
     },
     {
-      "source": "/n/sling-money",
-      "destination": "/n/morse",
+      "source": "/n/sling-money/",
+      "destination": "/n/morse/",
       "permanent": true
     },
     {
-      "source": "/n/sling-money/:path*",
-      "destination": "/n/morse/:path*",
+      "source": "/n/sling-money",
+      "destination": "/n/morse/",
+      "permanent": true
+    },
+    {
+      "source": "/n/sling-money/:path+",
+      "destination": "/n/morse/:path+",
       "permanent": true
     },
     {
