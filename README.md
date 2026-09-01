@@ -73,7 +73,7 @@ more numbers from the current dataset:
 | licensed banks (charters, digital-bank licenses) | **132** |
 | running on a partner bank (BaaS) | **82** |
 | with AI verifiably in production | **67** |
-| verified terms & privacy links (checked, not guessed) | **120** |
+| verified terms & privacy links (checked, not guessed) | **110** |
 | official X handles on file | **172** |
 | no-KYC self-custodial wallets | **14** |
 <!-- stats:end -->

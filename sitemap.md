@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-08-28.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-01.
 
 ## Main
 
@@ -390,7 +390,7 @@
 - [El Dorado](https://www.neobankbeat.com/n/el-dorado/)
 - [Oobit](https://www.neobankbeat.com/n/oobit/)
 - [Peanut](https://www.neobankbeat.com/n/peanut/)
-- [Sling Money](https://www.neobankbeat.com/n/sling-money/)
+- [Morse](https://www.neobankbeat.com/n/morse/)
 - [Fizen](https://www.neobankbeat.com/n/fizen/)
 - [Startale](https://www.neobankbeat.com/n/startale/)
 - [Deblock](https://www.neobankbeat.com/n/deblock/)

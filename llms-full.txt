@@ -429,7 +429,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [El Dorado](https://www.neobankbeat.com/n/el-dorado/): web3-native · Self-custodial · Self-custodial software · — · founded 2022
 - [Oobit](https://www.neobankbeat.com/n/oobit/): web3-native · Self-custodial · Self-custodial software · Singapore, SG · founded 2017
 - [Peanut](https://www.neobankbeat.com/n/peanut/): web3-native · Self-custodial · Self-custodial software · Zug, CH · founded 2022
-- [Sling Money](https://www.neobankbeat.com/n/sling-money/): web3-native · Self-custodial · Self-custodial software · London, UK · founded 2023
+- [Morse](https://www.neobankbeat.com/n/morse/): web3-native · Self-custodial · MiCA CASP (EU) · London, UK · founded 2023
 - [Fizen](https://www.neobankbeat.com/n/fizen/): web3-native · Self-custodial · Self-custodial software · Ho Chi Minh, VN · founded 2022
 - [Startale](https://www.neobankbeat.com/n/startale/): web3-native · Self-custodial · Self-custodial software · Singapore, SG · founded 2023
 - [Deblock](https://www.neobankbeat.com/n/deblock/): web3-native · Mixed (fiat custodial + self-custody crypto) · Payment institution · Paris, FR · founded 2022

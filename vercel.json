@@ -7,6 +7,12 @@
       "permanent": true
     },
     {
+      "_comment": "renamed entities keep their old profile URL working — Sling Money rebranded to Morse (Apr 2026)",
+      "source": "/n/sling-money/:path*",
+      "destination": "/n/morse/:path*",
+      "permanent": true
+    },
+    {
       "source": "/blog/browse-neobanks-by-licence-kyc-country/:path*",
       "destination": "/blog/browse-neobanks-by-license-kyc-country/:path*",
       "permanent": true

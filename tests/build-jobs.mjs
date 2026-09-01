@@ -134,7 +134,7 @@ const SOURCES = [
   ['Neo Financial', 'Neo Financial', 'ashby', 'neofinancial'],
   ['Coinbase', 'Coinbase Card', 'gh', 'coinbase'],
   ['Ramp', 'Ramp', 'ashby', 'ramp'],
-  ['Nubank', 'Nubank', 'gh', 'nubank'],
+  ['Nubank', 'Nubank', 'ashby', 'nubank'],
   ['SoFi', 'SoFi', 'gh', 'sofi'],
   ['N26', 'N26', 'gh', 'n26'],
   ['Monzo', 'Monzo', 'gh', 'monzo'],
@@ -163,7 +163,6 @@ const SOURCES = [
   ['Bybit', 'Bybit Card', 'gh', 'bybit'],
   ['PayPay', 'PayPay Bank', 'gh', 'paypay'],
   ['EQ Bank', 'EQ Bank', 'lever', 'eqbank'],
-  ['PhonePe', 'PhonePe', 'gh', 'phonepe'],
   ['YouTrip', 'YouTrip', 'workable', 'youtrip'],
   ['Rho', 'Rho', 'ashby', 'rho'],
   ['OakNorth', 'OakNorth', 'ashby', 'oaknorth'],
@@ -186,7 +185,6 @@ const SOURCES = [
   ['True Link', 'True Link', 'ashby', 'truelinkfinancial'],
   ['Airtm', 'Airtm', 'lever', 'airtm'],
   ['CoinJar', 'CoinJar', 'smartr', 'coinjar'],
-  ['Up', 'Up', 'gh', 'up'],
   ['Plasma One', 'Plasma One', 'ashby', 'plasma'],
   ['Umba', 'Umba', 'smartr', 'umba'],
   ['PalmPay', 'PalmPay', 'smartr', 'palmpay'],
@@ -487,6 +485,14 @@ if (all.length < 2000) {
   console.error(`only ${all.length} jobs fetched (expected 4000+) — aborting to avoid publishing a broken board`);
   process.exit(1);
 }
+/* A board that answers but is empty is invisible otherwise: the company just
+   silently stops appearing. Greenhouse/Lever slugs rot when a company migrates
+   ATS (PhonePe moved to SmartRecruiters, Up's board was withdrawn — both
+   retired above after 404ing every run for weeks). Listing them each run means
+   the next rot shows up in the cron log instead of after someone notices a
+   missing employer. */
+const silent = SOURCES.map(([co]) => co).filter(co => !all.some(j => j.company === co));
+if (silent.length) console.log(`no roles returned by: ${silent.join(', ')}`);
 all.sort((a, b) => (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company));
 const takenJobIds = new Set();
 for (const j of all) {

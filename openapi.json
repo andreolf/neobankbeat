@@ -133,7 +133,7 @@
                               "string",
                               "null"
                             ],
-                            "description": "How it is authorised. Most common: Licensed bank (132), Partner-bank model (82), Self-custodial software (53), E-money institution (48)."
+                            "description": "How it is authorised. Most common: Licensed bank (132), Partner-bank model (82), Self-custodial software (52), E-money institution (48)."
                           },
                           "license": {
                             "type": [
@@ -439,7 +439,7 @@
       "get": {
         "operationId": "getJobs",
         "summary": "Live neobank job board",
-        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3345 roles across 60 companies. Refreshed Monday/Wednesday/Friday.",
+        "description": "Live roles pulled directly from the official career APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters) of tracked neobanks, classified by department and region. Currently 3752 roles across 65 companies. Refreshed Monday/Wednesday/Friday.",
         "responses": {
           "200": {
             "description": "The job list.",
