@@ -222,19 +222,19 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <a class="srow" href="/jobs/finance/">Finance & Treasury<span class="c">100</span></a>
 <a class="srow" href="/jobs/operations/">Operations<span class="c">137</span></a>
 <a class="srow" href="/jobs/people/">People & Legal<span class="c">143</span></a>
-<a class="srow" href="/jobs/other/">Other<span class="c">544</span></a></div>
+<a class="srow" href="/jobs/other/">Other<span class="c">546</span></a></div>
     <div class="jsec">workplace</div>
     <div class="sidelist">
-      <button class="srow" data-wp="remote">Remote only<span class="c">692</span></button>
+      <button class="srow" data-wp="remote">Remote only<span class="c">694</span></button>
       <button class="srow" data-wp="hybrid">Hybrid<span class="c">1113</span></button>
       <button class="srow" data-wp="onsite">On-site<span class="c">1947</span></button>
       <button class="srow" data-visa="1">Visa sponsorship<span class="c">87</span></button>
-      <button class="srow" data-sal="1">Salary disclosed<span class="c">492</span></button>
+      <button class="srow" data-sal="1">Salary disclosed<span class="c">493</span></button>
     </div>
     <div class="jsec">region</div>
-    <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">990</span></button>
+    <div class="sidelist"><button class="srow" data-region="remote">Remote<span class="c">991</span></button>
 <button class="srow" data-region="europe">Europe<span class="c">719</span></button>
-<button class="srow" data-region="north-america">North America<span class="c">787</span></button>
+<button class="srow" data-region="north-america">North America<span class="c">788</span></button>
 <button class="srow" data-region="latin-america">Latin America<span class="c">278</span></button>
 <button class="srow" data-region="africa">Africa<span class="c">76</span></button>
 <button class="srow" data-region="mena">MENA<span class="c">69</span></button>
@@ -1139,7 +1139,7 @@ const PRESET='design';
 const STEP=80,list=document.getElementById('jlist'),more=document.getElementById('jmore');
 const deptName={"engineering":"Engineering","data":"Data & AI","product":"Product","design":"Design","compliance":"Compliance & Risk","onboarding":"Onboarding & KYC","support":"Customer Support","sales":"Sales & Partnerships","marketing":"Marketing & Growth","finance":"Finance & Treasury","operations":"Operations","people":"People & Legal"};deptName.other='Other';
 const regName={"remote":"Remote","europe":"Europe","north-america":"North America","latin-america":"Latin America","africa":"Africa","mena":"MENA","asia":"Asia","oceania":"Oceania","other":"Other"};
-const regCount={"other":318,"europe":719,"latin-america":278,"north-america":787,"remote":990,"mena":69,"asia":476,"africa":76,"oceania":39};
+const regCount={"latin-america":278,"other":318,"europe":719,"north-america":788,"remote":991,"mena":69,"asia":476,"africa":76,"oceania":39};
 fetch('/jobs/data.json').then(r=>r.json()).then(d=>{JOBS=d.jobs;LOGOS=d.logos||{};render(true)});
 function match(j){return (!f.dept||j.dept===f.dept)&&(!f.region||j.region===f.region)&&(!f.sal||j.salary)&&(!f.wp||j.wp===f.wp)&&(!f.visa||j.visa)&&(!f.q||(j.title+' '+j.company+' '+j.location).toLowerCase().includes(f.q))}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}

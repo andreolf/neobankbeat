@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 65 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Tue, 01 Sep 2026 19:41:50 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 20:06:06 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[[BANCO DE TALENTOS] OPORTUNIDADES DE ESTÁGIO | INTER — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4612312005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4612312005/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[DATA ANALYST I | IT SERVICES — Banco Inter]]></title>
     <link>https://www.neobankbeat.com/jobs/j/banco-inter-4726341005/</link>
@@ -80,6 +88,30 @@
     <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[[Talent Pool] CREDIT POLICIES — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4590709005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4590709005/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[[Talent Pool] WEALTH MANAGEMENT - Belo Horizonte, MG — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4558587005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4558587005/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[[Talent Pool] Wealth Management - São Paulo — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4558585005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4558585005/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Executive Assistant — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-4951483101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4951483101/</guid>
@@ -97,19 +129,27 @@
   </item>
   <item>
     <title><![CDATA[Client Development Representative — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8770401002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8770401002/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $83–93K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Client Development Representative — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8756194002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8756194002/</guid>
     <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Brex · New York, New York, United States · $83–93K · hybrid]]></description>
+    <description><![CDATA[Brex · New York, New York, United States · $83–98K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Client Development Representative — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8770401002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8770401002/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $73–87K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Client Development Representative — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8770452002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8770452002/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $83–98K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Business Development Assistant — Bybit]]></title>
@@ -224,6 +264,14 @@
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Product Security Engineer — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8165389/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8165389/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Coinbase · Remote - Canada · remote]]></description>
+  </item>
+  <item>
     <title><![CDATA[Senior Compliance Associate — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-7611263/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-7611263/</guid>
@@ -336,6 +384,14 @@
     <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
   </item>
   <item>
+    <title><![CDATA[Senior Design Manager - Core Experiences — Mercury]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/mercury-6145886004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6145886004/</guid>
+    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
+  </item>
+  <item>
     <title><![CDATA[Senior Design Manager - Growth — Mercury]]></title>
     <link>https://www.neobankbeat.com/jobs/j/mercury-6104936004/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6104936004/</guid>
@@ -430,62 +486,6 @@
     <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager - Banking Scalability Platform — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8108810/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8108810/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Site Reliability Engineer - Access Team — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-7774526/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-7774526/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[N26 · Barcelona · onsite · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Site Reliability Engineer - Access Team — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-7768035/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-7768035/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Strategic Partner Management Analyst — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8143660/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8143660/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[N26 · Berlin · hybrid · visa sponsorship]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Legal Counsel - Commercial, Marketing & IP - EMEA (Remote) — OKX]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/okx-7869332003/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7869332003/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[OKX · EMEA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[P2P Partner Operations Director — OKX]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/okx-7983175003/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7983175003/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[シニアプロダクトマネージャー — PayPay]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/paypay-6177337004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-6177337004/</guid>
-    <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
   </item>
 </channel>
 </rss>
