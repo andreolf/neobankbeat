@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-28",
+ "generated": "2026-09-01",
  "total": 381,
  "releases": [
   {
@@ -144,6 +144,42 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-09-01",
+   "summary": "Dead job boards, 23 broken legal links, a missed rebrand.",
+   "subject": "Bug hunt: dead job boards, 23 broken legal links, a missed rebrand",
+   "total": 381,
+   "added": [
+    "Morse"
+   ],
+   "removed": [
+    "Sling Money"
+   ],
+   "updated": [
+    "Purple",
+    "Sumeria (Lydia)",
+    "Nubank",
+    "Ualá",
+    "Plata",
+    "KakaoBank",
+    "Toss Bank",
+    "FamPay",
+    "SadaPay",
+    "Tonik",
+    "Telda",
+    "Bitpanda",
+    "Wirex",
+    "KAST",
+    "Ready",
+    "Plasma One",
+    "MiniPay",
+    "Oobit",
+    "Deblock",
+    "Fiat24",
+    "Fasset",
+    "Moneco"
+   ]
+  },
   {
    "date": "2026-08-28",
    "summary": "Add GetPlu.",

@@ -2527,8 +2527,8 @@
    "yield": null,
    "stablecoins": false,
    "kyc": "Yes",
-   "domain": "getpurple.io",
-   "website": "https://getpurple.io",
+   "domain": "withpurple.com",
+   "website": "https://withpurple.com",
    "active_regions": [
     "North America"
    ],
@@ -2536,8 +2536,6 @@
    "story": "Banking for people with disabilities designed not to endanger ABLE benefit eligibility.",
    "license": "Partner bank (OMB Bank, Member FDIC); Mastercard debit issued by OMB Bank",
    "founders": "John Ciocca",
-   "terms_url": "https://www.getpurple.io/terms-of-service",
-   "privacy_url": "https://www.getpurple.io/privacy-policy",
    "x_handle": "joinpurple",
    "countries": [
     "United States"
@@ -6126,7 +6124,6 @@
    "license": "E-money institution (Lydia Solutions, ACPR France, CIB 17598); credit-institution license applied for",
    "founders": "Cyril Chiche, Antoine Porte",
    "funding": "~€260M raised",
-   "terms_url": "https://www.sumeria.eu/en/legal/",
    "x_handle": "sumeria_app",
    "countries": [
     "France"
@@ -8526,7 +8523,6 @@
    "license": "Bank licenses BR/MX/CO; conditional US OCC approval (2026)",
    "founders": "David Vélez, Cristina Junqueira, Edward Wible",
    "funding": "Public (NU)",
-   "terms_url": "https://nubank.com.br/en/contract/",
    "x_handle": "nubank",
    "countries": [
     "Brazil",
@@ -8646,7 +8642,6 @@
    "license": "Bank licenses (AR via Wilobank, MX via ABC Capital)",
    "founders": "Pierpaolo Barbieri",
    "funding": "~$1B+ raised incl. $195M round (Mar 2026) at $3.2B",
-   "terms_url": "https://www.uala.com.ar/legales",
    "x_handle": "uala",
    "countries": [
     "Argentina",
@@ -8747,7 +8742,7 @@
    "license": "Full Mexican bank license (Banco Plata, Mar 2026); Colombia Compañía de Financiamiento authorized",
    "founders": "Neri Tollardo (CEO) + ex-Tinkoff team",
    "funding": "$405M Series C at $5B (Apr 2026, Bicycle Capital, QIA, BTG Pactual) — $2B+ debt & equity total",
-   "terms_url": "https://platacard.mx/es/docs/",
+   "terms_url": "https://bancoplata.mx/es/legal",
    "x_handle": "bancoplatamx",
    "countries": [
     "Mexico"
@@ -10804,7 +10799,6 @@
    "license": "Internet-only bank license (KR)",
    "founders": "Kakao consortium",
    "funding": "Public (KRX)",
-   "terms_url": "https://www.kakaobank.com/terms",
    "x_handle": "kakaobank",
    "countries": [
     "South Korea"
@@ -10881,8 +10875,6 @@
    "license": "Internet-only bank license (KR)",
    "founders": "Lee Seung-gun (Viva Republica)",
    "funding": "Viva Republica ~$1.7B raised",
-   "terms_url": "https://www.tossbank.com/terms",
-   "privacy_url": "https://www.tossbank.com/privacy",
    "x_handle": "toss_bank",
    "countries": [
     "South Korea"
@@ -11683,8 +11675,6 @@
    "license": "Partner bank (IDFC FIRST Bank) — co-branded RBI prepaid payment instruments; RuPay/Visa cards",
    "founders": "Sambhav Jain, Kush Taneja",
    "funding": "~$42M raised",
-   "terms_url": "https://fampay.in/terms",
-   "privacy_url": "https://fampay.in/privacy",
    "x_handle": "FamPayHQ",
    "countries": [
     "India"
@@ -11979,7 +11969,7 @@
    "license": "E-money institution (EMI) license from State Bank of Pakistan; owned by Papara",
    "founders": "Brandon Timinsky",
    "funding": "~$20M; acquired by Papara",
-   "terms_url": "https://sadapay.pk/terms-of-service/",
+   "terms_url": "https://sadapay.pk/terms-conditions",
    "privacy_url": "https://sadapay.pk/privacy-policy/",
    "x_handle": "sadapay",
    "countries": [
@@ -12626,7 +12616,6 @@
    "founders": "Greg Krasnov",
    "funding": "~$140M+ raised",
    "terms_url": "https://tonikbank.com/terms-conditions",
-   "privacy_url": "https://tonikbank.com/privacy-policy",
    "x_handle": "TonikBankPH",
    "countries": [
     "Philippines"
@@ -16567,8 +16556,8 @@
    "license": "CBE-regulated (Meeza)",
    "founders": "Ahmed Sabbah, Youssef Sholqamy",
    "funding": "~$60M raised",
-   "terms_url": "https://www.telda.app/terms",
-   "privacy_url": "https://www.telda.app/privacy",
+   "terms_url": "https://telda.app/legal/",
+   "privacy_url": "https://telda.app/legal/privacy/",
    "x_handle": "telda",
    "countries": [
     "Egypt"
@@ -18758,7 +18747,6 @@
    "founders": "Eric Demuth, Paul Klanschek, Christian Trummer",
    "funding": "~$500M; unicorn",
    "terms_url": "https://www.bitpanda.com/en/legal",
-   "privacy_url": "https://www.bitpanda.com/en/privacy-policy",
    "x_handle": "bitpanda",
    "countries": [
     "Austria",
@@ -19584,8 +19572,7 @@
    "ai": "agentic",
    "license": "E-money institution (FCA, FRN 902025); crypto via Wirex Digital Services VASP (OAM Italy)",
    "founders": "Pavel Matveev, Dmitry Lazarichev",
-   "terms_url": "https://wirexapp.com/terms-and-conditions",
-   "privacy_url": "https://wirexapp.com/privacy-policy",
+   "terms_url": "https://help.wirexapp.com/category/terms-and-policies-0427",
    "x_handle": "wirexapp",
    "countries": [
     "United Kingdom",
@@ -19959,7 +19946,7 @@
    "story": "Stablecoin-native neobank for the dollar-hungry global middle class; premium metal tiers, HK roots.",
    "license": "Runs on licensed partners' rails: custody via BitGo/Fireblocks, Visa cards via licensed issuers; not a bank",
    "funding": "~$70M+ at ~$600M valuation (2026)",
-   "terms_url": "https://www.kast.xyz/terms",
+   "terms_url": "https://www.kast.xyz/legal",
    "privacy_url": "https://www.kast.xyz/legal/privacy-policy",
    "x_handle": "Kast_money",
    "countries": [
@@ -23571,7 +23558,6 @@
    "license": "Self-custodial software; card via Kulipa (non-EEA cut Jun 2026; issuer wound down Jul 2026)",
    "founders": "Itamar Lesuisse, Gerald Goldstein",
    "funding": "~$50M raised (as Argent)",
-   "terms_url": "https://www.ready.co/terms",
    "privacy_url": "https://www.ready.co/legal/privacy/ready",
    "x_handle": "ready_co",
    "countries": [
@@ -23655,7 +23641,7 @@
    "license": "Own L1; card via issuer partners",
    "founders": "Paul Faecks",
    "funding": "~$74M + XPL sale; Tether-linked",
-   "terms_url": "https://www.plasma.to/terms",
+   "terms_url": "https://www.plasma.org/terms-of-service",
    "privacy_url": "https://www.plasma.to/privacy",
    "x_handle": "Plasma",
    "countries": [
@@ -24765,7 +24751,7 @@
    "note": "Opera's Celo wallet; 10M+; PIX/Mercado Pago rails.",
    "story": "Opera's 2MB stablecoin wallet for the Global South: 10M+ wallets, PIX and Mercado Pago rails, USSD-light design.",
    "founders": "Opera (built on Celo)",
-   "terms_url": "https://www.minipay.to/terms",
+   "terms_url": "https://minipay.to/terms-of-service",
    "privacy_url": "https://minipay.to/privacy-statement",
    "x_handle": "MiniPay",
    "countries": [
@@ -24919,7 +24905,7 @@
    "story": "Tap-to-pay from your own wallet; first corporate crypto card for AI agents (Agent Cards).",
    "founders": "Amram Adar, Aharon Miller",
    "funding": "~$25M (Tether-led)",
-   "terms_url": "https://oobit.com/terms-of-service",
+   "terms_url": "https://www.oobit.com/legal",
    "privacy_url": "https://www.oobit.com/legal/privacy-notice",
    "x_handle": "oobit",
    "countries": [
@@ -25041,22 +25027,22 @@
    "funding_stage": null
   },
   {
-   "name": "Sling Money",
+   "name": "Morse",
    "category": "web3-native",
    "audience": "general",
    "region": "Global",
    "hq": "London, UK",
    "founded": 2023,
    "custody": "Self-custodial",
-   "regulation_type": "Self-custodial software",
-   "card_network": null,
-   "card_type": null,
+   "regulation_type": "MiCA CASP (EU)",
+   "card_network": "Visa",
+   "card_type": "P2P + card",
    "cashback": null,
    "yield": null,
    "stablecoins": true,
    "kyc": "Yes",
-   "domain": "sling.money",
-   "website": "https://sling.money",
+   "domain": "morsemoney.com",
+   "website": "https://morsemoney.com",
    "active_regions": [
     "North America",
     "Europe",
@@ -25066,12 +25052,12 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Wise-alumni stablecoin P2P on Solana.",
-   "story": "Ex-Monzo/Facebook team making stablecoin P2P feel like iMessage, on Solana.",
+   "note": "Stablecoin P2P on Solana, rebranded from Sling Money in April 2026; multi-currency accounts and a card across 150+ countries.",
+   "story": "Ex-Monzo/Facebook team making stablecoin P2P feel like iMessage, on Solana; rebranded from Sling Money in April 2026.",
+   "license": "MiCA-licensed (Avian Labs Netherlands B.V.)",
    "founders": "Mike Hudack, Simon Amor",
    "funding": "~$30M raised",
-   "terms_url": "https://sling.money/terms",
-   "privacy_url": "https://sling.money/privacy",
+   "terms_url": "https://morsemoney.com/legal",
    "x_handle": "slingmoney",
    "countries": [
     "United States",
@@ -25095,7 +25081,7 @@
      "website": "https://slow.co"
     }
    ],
-   "slug": "sling-money",
+   "slug": "morse",
    "features": {
     "apple_pay": null,
     "google_pay": null,
@@ -25122,7 +25108,9 @@
    "cashback_pct": null,
    "yield_pct": null,
    "payment_rails": null,
-   "card_networks": null,
+   "card_networks": [
+    "Visa"
+   ],
    "card_form": null,
    "card_funding": null,
    "timeline": null,
@@ -25325,8 +25313,6 @@
    "license": "PSAN + payment institution (ACPR)",
    "founders": "Jean Meyer + ex-Ledger/Revolut team",
    "funding": "~€16M raised",
-   "terms_url": "https://deblock.com/legal/terms",
-   "privacy_url": "https://deblock.com/legal/privacy",
    "x_handle": "DeblockApp",
    "countries": [
     "France",
@@ -25487,7 +25473,6 @@
    "note": "Swiss-licensed; your account is an NFT on Arbitrum.",
    "story": "Your bank account is literally an NFT on Arbitrum; Swiss-regulated, onchain-settled.",
    "license": "Swiss fintech license (FINMA)",
-   "privacy_url": "https://fiat24.com/privacy",
    "x_handle": "Fiat24Official",
    "countries": [
     "Switzerland",
@@ -27436,8 +27421,7 @@
    ],
    "note": "Ethical digital-asset super-app; UAE/ID/MY corridors.",
    "license": "VARA VASP license (Dubai, broker-dealer); provisional Islamic digital-bank license in Malaysia",
-   "terms_url": "https://www.fasset.com/terms",
-   "privacy_url": "https://www.fasset.com/privacy",
+   "terms_url": "https://fasset.com/terms-and-conditions/",
    "x_handle": "fassetofficial",
    "countries": [
     "UAE",
@@ -27983,7 +27967,6 @@
    ],
    "note": "Neobank for African diaspora in Europe.",
    "license": "Accounts and cards via regulated EMI partners (Europe/US); Moneco Canada registered with FINTRAC",
-   "terms_url": "https://moneco.app/terms",
    "x_handle": "moneco_app",
    "countries": [
     "France",

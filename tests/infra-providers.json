@@ -1037,7 +1037,7 @@
   "hq": "—",
   "about": "The high-throughput chain that markets itself as payments infrastructure (Solana Pay) — Sling Money's stablecoin P2P, Decaf's spending rails, KAST's stablecoin cards and Solflare all run their money features on it.",
   "clients": [
-   "Sling Money",
+   "Morse",
    "Decaf",
    "KAST",
    "Solflare",
