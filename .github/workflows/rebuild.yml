@@ -46,6 +46,7 @@ jobs:
           node tests/build-pages.mjs
           node tests/build-report.mjs > /dev/null
           node tests/build-changelog.mjs > /dev/null
+          node tests/sync-blog-index.mjs
           node tests/sync-tables.mjs
           node tests/sync-footers.mjs
           node tests/sync-crumbs.mjs

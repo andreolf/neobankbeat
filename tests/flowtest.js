@@ -651,6 +651,31 @@ console.log('— flow 30: prose counts match the dataset (no hand-written totals
   ok(code===0,'no count drift in hand-written prose'+(drifted.length?' ('+drifted.length+': '+drifted.slice(0,3).join(' | ')+' — run node tests/sync-counts.mjs)':''));
   ok(/counts in sync across/.test(out),'count check ran');
 
+  {
+    let bout='',bcode=0;
+    try{ bout=execSync('node '+path.join(__dirname,'sync-blog-index.mjs')+' --check',{encoding:'utf8'}); }
+    catch(e){ bout=(e.stdout||'')+(e.stderr||''); bcode=e.status||1; }
+    ok(bcode===0,'blog index and feed list every published post'+(bcode?' — run node tests/sync-blog-index.mjs':''));
+  }
+
+  /* The blog has no generator — every post is written by hand, so it goes quiet
+     silently when nobody is looking. It ran on a ~5-day median cadence for 24
+     posts, then sat 15 days untouched before anyone noticed. This makes the gap
+     loud: warn past 14 days, fail past 21, and count posts dated ahead (they
+     self-publish, so a stocked queue is not staleness). */
+  {
+    const src=fs.readFileSync(require('path').join(__dirname,'build-pages.mjs'),'utf8');
+    const posts=[...src.match(/const BLOG_POSTS = \[([\s\S]*?)\];/)[1]
+      .matchAll(/\['([^']+)', '(\d{4}-\d{2}-\d{2})'\]/g)].map(m=>m[2]).sort();
+    const today=new Date().toISOString().slice(0,10);
+    const queued=posts.filter(d=>d>today);
+    const newest=posts[posts.length-1];
+    const days=Math.round((Date.parse(today)-Date.parse(posts.filter(d=>d<=today).pop()))/864e5);
+    const note=' (newest published '+days+'d ago'+(queued.length?', '+queued.length+' queued ahead':', nothing queued')+')';
+    ok(days<=21||queued.length>0,'the blog is not stale'+note);
+    if(days>14&&!queued.length)console.log('  NOTE: blog is '+days+' days old with an empty queue — write or schedule a post');
+  }
+
   // dated posts cite the dataset size they were written against; each must either
   // still match live data or carry a note saying it doesn't
   let aout='',acode=0;

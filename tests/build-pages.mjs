@@ -2393,6 +2393,11 @@ const BLOG_POSTS = [
   ['neobankbeat-mcp-server', '2026-08-11'],
   ['who-holds-your-money', '2026-08-12'],
   ['neobank-spirit-animals', '2026-08-17'],
+  /* dated ahead: build-pages holds these out of the sitemap and
+     sync-blog-index holds them off the index and feed until their day */
+  ['neobank-chapters', '2026-09-03'],
+  ['banking-for-immigrants', '2026-09-08'],
+  ['nobody-dies-of-churn', '2026-09-13'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
