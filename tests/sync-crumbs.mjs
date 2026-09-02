@@ -54,7 +54,10 @@ const SECTION = {
 };
 
 const titleOf = (html) => {
-  const ld = (html.match(/"(?:headline|name)":"((?:[^"\\]|\\.)*)"/) || [])[1];
+  /* tolerate whitespace after the colon: a hand-written page with
+     pretty-printed JSON-LD used to fall through to the crumb trail's own
+     "name":"neobankbeat" and label itself that. */
+  const ld = (html.match(/"(?:headline|name)":\s*"((?:[^"\\]|\\.)*)"/) || [])[1];
   if (ld) return JSON.parse(`"${ld}"`);
   const h1 = (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
   if (h1) return h1.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();

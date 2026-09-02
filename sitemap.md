@@ -71,6 +71,9 @@
 - [neobankbeat mcp server](https://www.neobankbeat.com/blog/neobankbeat-mcp-server/) (2026-08-11)
 - [who holds your money](https://www.neobankbeat.com/blog/who-holds-your-money/) (2026-08-12)
 - [neobank spirit animals](https://www.neobankbeat.com/blog/neobank-spirit-animals/) (2026-08-17)
+- [neobank chapters](https://www.neobankbeat.com/blog/neobank-chapters/) (2026-09-03)
+- [banking for immigrants](https://www.neobankbeat.com/blog/banking-for-immigrants/) (2026-09-08)
+- [nobody dies of churn](https://www.neobankbeat.com/blog/nobody-dies-of-churn/) (2026-09-13)
 
 ## Neobank profiles (381)
 
