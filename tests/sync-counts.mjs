@@ -99,6 +99,11 @@ const n = (before, want, after) => {
   return { re: new RegExp(`(${before})(\\d+)(${after})`, 'g'), want };
 };
 const RULES = {
+  /* The RSS channel description restates the dataset size to every feed reader
+     and nothing was checking it — it sat at 368 while the dataset reached 381. */
+  'blog/feed.xml': [
+    n('grounded in open data on ', S.entities, ' tracked neobanks'),
+  ],
   'llms.txt': [
     n('directory of ', S.entities, ' verified-active neobanks'),
     n('all ', S.entities, ' entities with category'),

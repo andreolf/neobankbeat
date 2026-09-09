@@ -1066,5 +1066,12 @@
    "eToro Money",
    "OKX Card"
   ]
+ },
+ "Flipeet Pay": {
+  "domain": "pay.flipeet.io",
+  "type": "stablecoin infrastructure",
+  "hq": "Port Harcourt, NG",
+  "about": "Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts. Selected for Circle's USDC Developer Grant Program.",
+  "clients": []
  }
 }

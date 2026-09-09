@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flipeet Pay — stablecoin infrastructure for neobanks · neobankbeat</title>
+<meta name="description" content="Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts.">
+<link rel="canonical" href="https://www.neobankbeat.com/infra/flipeet-pay/">
+<meta name="theme-color" content="#0A0A10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="neobankbeat">
+<meta property="og:title" content="Flipeet Pay — stablecoin infrastructure for neobanks · neobankbeat">
+<meta property="og:description" content="Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts. Selected for Circle's USDC Developer Grant Program.">
+<meta property="og:url" content="https://www.neobankbeat.com/infra/flipeet-pay/">
+<meta property="og:image" content="https://www.neobankbeat.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@neobankbeat">
+<meta name="twitter:title" content="Flipeet Pay — stablecoin infrastructure for neobanks · neobankbeat">
+<meta name="twitter:description" content="Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts.">
+<meta name="twitter:image" content="https://www.neobankbeat.com/og.png">
+<meta name="twitter:image:alt" content="Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts.">
+<link rel="icon" href="/favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/noto-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/blog/blog.css?v=b7d3f92045">
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Flipeet Pay","url":"https://pay.flipeet.io","description":"Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts. Selected for Circle's USDC Developer Grant Program."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"infra","item":"https://www.neobankbeat.com/infra/"},{"@type":"ListItem","position":3,"name":"Flipeet Pay","item":"https://www.neobankbeat.com/infra/flipeet-pay/"}]}]}
+</script>
+<style>
+.ivstats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.ivstat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.ivstat .n{font-family:var(--mono);font-size:20px;font-weight:700}
+.ivstat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-top:2px}
+#ifsearch{width:100%;box-sizing:border-box;background:var(--panel);border:1px solid rgba(255,255,255,.38);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:12.5px;padding:10px 12px;margin:4px 0 18px;transition:border-color .15s}
+#ifsearch:hover{border-color:rgba(255,255,255,.6)}
+#ifsearch:focus{outline:none;border-color:var(--accent)}
+.ivrow{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-bottom:10px;scroll-margin-top:80px;transition:border-color .15s}
+.ivrow:has(.nm:hover){border-color:var(--accent)}
+.ivhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ivhead img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;padding:2px;box-sizing:border-box}
+.ivhead .nm{font-weight:700;font-size:15.5px;color:var(--text);text-decoration:none}
+.ivhead .nm:hover{color:var(--accent)}
+.ivhead .nm::after{content:"";position:absolute;inset:0;border-radius:12px}
+.ivhead .ct{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.ivhead .st{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;text-decoration:none;position:relative;z-index:1}
+.ivhead .st:hover{color:var(--accent)}
+.ivabout{font-size:13px;color:var(--dim);line-height:1.55;margin-top:7px}
+.ivbanks{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ivbanks a{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;text-decoration:none;white-space:nowrap;position:relative;z-index:1}
+.ivbanks a:hover{border-color:var(--accent);color:var(--text)}
+.iftype{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin:30px 0 12px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<header>
+  <div class="hwrap">
+    <a href="/" class="logo">neobank<span class="dot">beat</span></a>
+    <nav class="hnav" aria-label="Primary">
+      <a href="/">directory</a>
+      <a href="/report/">report</a>
+      <a href="/jobs/">jobs</a>
+      <details class="navdrawer">
+        <summary aria-label="Open menu">☰<span class="ndlbl">menu</span></summary>
+        <div class="navpanel">
+          <span class="ndclose" role="button" tabindex="0" aria-label="Close menu">✕ close</span>
+          <span class="ndhead">find a bank</span>
+          <a href="/browse/">browse<small>ready-made cuts — license, country, audience</small></a>
+          <a href="/fit/">find your fit<small>eight questions → your shortlist</small></a>
+          <a href="/ask/">ask AI<small>your question, answered from the dataset</small></a>
+          <a href="/vs/">compare<small>any two neobanks side by side</small></a>
+          <a href="/map/">world map<small>every neobank by country</small></a>
+          <a href="/database/">database<small>the whole dataset as a sortable table</small></a>
+          <a href="/matrix/">matrix<small>features compared in one grid</small></a>
+          <span class="ndhead">research</span>
+          <a href="/blog/">blog<small>deep dives grounded in the data</small></a>
+          <a href="/investors/">investors<small>who funds the neobanks</small></a>
+          <a href="/infra/" class="on">infrastructure<small>the rails and sponsor banks underneath</small></a>
+          <a href="/ai/">AI neobanks<small>where AI is verifiably in production</small></a>
+          <a href="/graveyard/">graveyard<small>dead neobanks, archived with cause</small></a>
+          <a href="/changelog/">changelog<small>every dataset change, in public</small></a>
+          <a href="/newsletters/">newsletters<small>the fintech reading list</small></a>
+          <span class="ndhead">chapters</span>
+          <a href="/africa/">Africa chapter<small>on-ground radar + data stewardship</small></a>
+          <a href="/latam/">Latin America chapter<small>seat open — radar + stewardship</small></a>
+          <a href="/asia/">Asia chapter<small>seat open — radar + stewardship</small></a>
+          <a href="/europe/">Europe chapter<small>seat open — radar + stewardship</small></a>
+          <a href="/north-america/">North America chapter<small>seat open — radar + stewardship</small></a>
+          <a href="/mena/">MENA chapter<small>seat open — radar + stewardship</small></a>
+          <a href="/oceania/">Oceania chapter<small>seat open — radar + stewardship</small></a>
+          <span class="ndhead">data</span>
+          <a href="/data/">dataset<small>field guide, methodology, downloads</small></a>
+          <a href="/data.json">data.json<small>every neobank, machine-readable</small></a>
+          <a href="/llms.txt">llms.txt<small>the guide for AI agents</small></a>
+          <a href="/mcp/">mcp server<small>query the data from your assistant</small></a>
+        </div>
+      </details>
+      <details class="langmenu">
+        <summary aria-label="Choose language">🌐<span class="lcar">▾</span></summary>
+        <div class="langpop">
+          <a href="/" onclick="window.nbevt&&nbevt('lang_switch',{to:'en'})">English</a>
+          <a href="/de/" onclick="window.nbevt&&nbevt('lang_switch',{to:'de'})">Deutsch</a>
+          <a href="/it/" onclick="window.nbevt&&nbevt('lang_switch',{to:'it'})">Italiano</a>
+          <a href="/fr/" onclick="window.nbevt&&nbevt('lang_switch',{to:'fr'})">Français</a>
+          <a href="/es/" onclick="window.nbevt&&nbevt('lang_switch',{to:'es'})">Español</a>
+          <a href="/pt/" onclick="window.nbevt&&nbevt('lang_switch',{to:'pt'})">Português</a>
+        </div>
+      </details>
+      <button class="bwbtn" id="bwtoggle" aria-pressed="false">◐ black &amp; white</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+<article>
+  <a class="backbtn" href="/infra/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow"><a href="/infra/" style="color:var(--accent)">infra for neobanks</a></div>
+  <h1>Flipeet Pay</h1>
+  <p class="meta"><b>stablecoin infrastructure</b> · Port Harcourt, NG · <a href="https://pay.flipeet.io" target="_blank" rel="noopener nofollow">pay.flipeet.io ↗</a></p>
+  <p>Nigerian stablecoin payment rail for businesses — merchant acceptance, cross-border payouts and contractor payroll in USDC, settling to local bank accounts. Selected for Circle's USDC Developer Grant Program.</p>
+  
+  
+  <p class="meta">No publicly documented client among the tracked neobanks yet — client names are added only when a relationship is disclosed. Know one? <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">Suggest it</a>.</p>
+  <h2>Other stablecoin infrastructure</h2>
+  <div class="ivbanks" style="margin-top:10px"><a href="/infra/circle/">Circle</a><a href="/infra/bridge-stripe/">Bridge (Stripe)</a><a href="/infra/tether/">Tether</a><a href="/infra/bvnk/">BVNK</a><a href="/infra/tempo/">Tempo</a><a href="/infra/m0/">M0</a><a href="/infra/monerium/">Monerium</a><a href="/infra/perena/">Perena</a></div>
+  <div class="callout" style="margin-top:26px"><span class="k">explore</span>Browse all <a href="/infra/">107 infra providers</a>, or see who <em>funds</em> the neobanks on the <a href="/investors/">investors map</a>.</div>
+  <p style="font-size:12.5px;color:var(--dim);margin-top:28px">Client list shows tracked neobanks with a publicly documented relationship — not a complete customer book. Sourced from issuer disclosures and public reporting; <a href="https://github.com/andreolf/neobankbeat/issues/new?labels=data-fix&template=data-fix.yml">suggest a fix</a>.</p>
+  <div class="subscribe"><span class="k">stay on the beat</span><form class="nbform" action="https://neobankbeat.substack.com/subscribe" method="get" target="_blank" rel="noopener"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"><button type="submit">subscribe →</button></form><p class="nbnote" style="margin:0 0 10px">free · via substack · unsubscribe anytime</p><p>New deep dives in your inbox. Also: <a href="/blog/feed.xml">RSS</a> · <a href="https://github.com/andreolf/neobankbeat">github</a> · <a href="/data.json">raw data</a></p></div>
+</article>
+</main>
+<footer><div class="fwrap fgrid">
+  <div class="fgrp"><span class="fh">choose a bank</span><a href="/">directory</a><a href="/browse/">browse</a><a href="/fit/">find your fit</a><a href="/ask/">ask AI</a><a href="/vs/">compare</a><a href="/map/">world map</a></div>
+  <div class="fgrp"><span class="fh">research</span><a href="/blog/">blog</a><a href="/report/">report</a><a href="/graveyard/">graveyard</a><a href="/africa/">africa radar</a><a href="/changelog/">changelog</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a></div>
+  <div class="fgrp"><span class="fh">open data</span><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="/mcp/">mcp server</a></div>
+  <div class="fgrp"><span class="fh">more</span><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a></div>
+  <div class="fmeta"><span>© neobankbeat · MIT</span><span class="langbar">🌐 <a href="/" onclick="window.nbevt&&nbevt('lang_switch',{to:'en'})">EN</a> · <a href="/de/" onclick="window.nbevt&&nbevt('lang_switch',{to:'de'})">DE</a> · <a href="/it/" onclick="window.nbevt&&nbevt('lang_switch',{to:'it'})">IT</a> · <a href="/fr/" onclick="window.nbevt&&nbevt('lang_switch',{to:'fr'})">FR</a> · <a href="/es/" onclick="window.nbevt&&nbevt('lang_switch',{to:'es'})">ES</a> · <a href="/pt/" onclick="window.nbevt&&nbevt('lang_switch',{to:'pt'})">PT</a></span></div>
+<script>document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.ndclose');if(c){c.closest('details').removeAttribute('open');return}document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target)||e.target===d)d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){d.removeAttribute('open')})})</script></div></footer>
+<script>(function(){var b=document.getElementById('bwtoggle');if(!b)return;function set(on){document.body.classList.toggle('bw',on);b.setAttribute('aria-pressed',String(on));b.textContent=on?'◑ color':'◐ black & white';try{localStorage.setItem('nbbw',on?'1':'0')}catch(e){}}try{if(localStorage.getItem('nbbw')==='1')set(true)}catch(e){}b.addEventListener('click',function(){set(!document.body.classList.contains('bw'))})})();
+document.addEventListener('submit',function(e){if(e.target.classList&&e.target.classList.contains('nbform'))nbevt('subscribe',{page:location.pathname})},true);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&a.pathname==='/data.json')nbevt('data_download',{page:location.pathname})});</script>
+</body>
+</html>
