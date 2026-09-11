@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-01",
+ "generated": "2026-09-11",
  "total": 381,
  "releases": [
   {
@@ -153,6 +153,18 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-09-11",
+   "summary": "139M customers, US launch recorded + the post; GetPlu data fix.",
+   "subject": "Nubank: 139M customers, US launch recorded + the post; GetPlu data fix",
+   "total": 381,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Nubank",
+    "GetPlu"
+   ]
+  },
   {
    "date": "2026-09-01",
    "summary": "Dead job boards, 23 broken legal links, a missed rebrand.",
