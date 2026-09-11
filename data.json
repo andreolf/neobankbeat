@@ -8517,17 +8517,18 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "131M customers (FY25); custodial crypto; US OCC conditional approval.",
-   "story": "Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution with 100M+ customers.",
+   "note": "139M customers (Q2 2026) and the first quarter above $1B net income; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised.",
+   "story": "Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution and, since September 2026, a US challenger too — 139M customers across four countries.",
    "ai": "underwriting",
-   "license": "Bank licenses BR/MX/CO; conditional US OCC approval (2026)",
+   "license": "Bank licenses BR/MX/CO; US products on Lead Bank while its conditional OCC charter (Jan 2026) is organised",
    "founders": "David Vélez, Cristina Junqueira, Edward Wible",
    "funding": "Public (NU)",
    "x_handle": "nubank",
    "countries": [
     "Brazil",
     "Mexico",
-    "Colombia"
+    "Colombia",
+    "United States"
    ],
    "services": [
     "on-ramp",
@@ -8561,9 +8562,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 131,
+    "value_millions": 139,
     "metric": "customers",
-    "as_of": "2025"
+    "as_of": "Q2 2026"
    },
    "volume": {
     "figure": "$41.9B",
@@ -29853,7 +29854,7 @@
    "custody": "Custodial",
    "regulation_type": "Partner-bank model",
    "card_network": "Visa",
-   "card_type": "Virtual",
+   "card_type": "Virtual + physical",
    "cashback": null,
    "yield": null,
    "stablecoins": true,
@@ -29869,7 +29870,7 @@
     "Asia",
     "Oceania"
    ],
-   "note": "Zero-fee virtual Visa dollar card funded with USD, USDC or USDT — instant issue after KYC, Apple/Google Pay, market hubs across Nigeria, Ghana, Kenya and North America on partner rails.",
+   "note": "Zero-fee Visa dollar card funded with USD, USDC or USDT — virtual issued instantly after KYC, physical on the paid tiers; spendable in 125+ countries, on partner rails rather than its own licence.",
    "story": "Positions one product three ways — dollar card, stablecoin card and an AI-Agent card — for the globally mobile: immigrants, freelancers and OFWs spending across 125+ countries.",
    "license": "Card program on partner institutions (Crossmint rails); not a bank or custodian itself",
    "terms_url": "https://getplu.com/terms-of-service",
@@ -29879,19 +29880,20 @@
     "Ghana",
     "Kenya",
     "United States",
-    "Canada"
+    "Canada",
+    "Global"
    ],
    "slug": "getplu",
    "features": {
     "apple_pay": null,
-    "google_pay": true,
+    "google_pay": null,
     "api": null,
     "webhooks": null,
     "oauth": null,
     "sandbox": null,
     "business_accounts": null,
     "virtual_cards": null,
-    "physical_cards": null,
+    "physical_cards": true,
     "iban": null,
     "self_custody": null,
     "mpc": null,
@@ -29912,7 +29914,8 @@
     "Visa"
    ],
    "card_form": [
-    "virtual"
+    "virtual",
+    "physical"
    ],
    "card_funding": null,
    "timeline": null,

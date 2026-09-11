@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-01.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-11.
 
 ## Main
 
@@ -74,6 +74,7 @@
 - [neobank chapters](https://www.neobankbeat.com/blog/neobank-chapters/) (2026-09-03)
 - [banking for immigrants](https://www.neobankbeat.com/blog/banking-for-immigrants/) (2026-09-08)
 - [nobody dies of churn](https://www.neobankbeat.com/blog/nobody-dies-of-churn/) (2026-09-13)
+- [nubank enters the us](https://www.neobankbeat.com/blog/nubank-enters-the-us/) (2026-09-11)
 
 ## Neobank profiles (381)
 

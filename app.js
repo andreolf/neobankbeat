@@ -124,7 +124,7 @@ const D=[
 ["Uzum","T","Europe","Tashkent, UZ",2022,"C","MC (dom.)","Debit","In-app offers","—",0,"Y","g","uzum.uz","Uzbekistan's super-app + digital bank."],
 ["TBC UZ","T","Europe","Tashkent, UZ",2020,"C","MC","Debit","—","Deposits",0,"Y","g","tbcbank.uz","TBC's Uzbek digital bank; 20M+ registered."],
 /* ══ TRADITIONAL · LATAM ══ */
-["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","131M customers (FY25); custodial crypto; US OCC conditional approval."],
+["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","139M customers (Q2 2026) and the first quarter above $1B net income; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised."],
 ["Ualá","T","LatAm","Buenos Aires, AR",2017,"C","MC","Prepaid + credit","—","Remunerated account",1,"Y","g","uala.com.ar","AR/MX/CO; added crypto + dollar features."],
 ["Plata","T","LatAm","Mexico City, MX",2023,"C","MC","Credit + debit","Cashback","Interest on deposits",0,"Y","g","platacard.mx","Ex-Tinkoff team; fastest digital bank ever to $600M annualized revenue — full Mexican license as Banco Plata (Mar 2026), 3.5M+ credit-card customers."],
 ["albo","T","LatAm","Mexico City, MX",2016,"C","MC","Debit","—","—",0,"Y","g","albo.mx","One of Mexico's first challengers."],
@@ -406,7 +406,7 @@ const D=[
 ["Esh Bank","T","MENA","Tel Aviv, IL",2022,"C","—","—","—","—",0,"Y","g","esh.com","Israeli fully-digital bank whose patented Equal Sharing model returns 50% of interest income on customer balances, with no account fees."],
 ["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."],
 ["Yolat","T","Africa","Lagos, NG",2024,"C","—","—","—","—",0,"Y","i","yolat.com","Cross-border account for Africans and African businesses — earn, hold, send and pay across borders; licensed as FINTRAC MSB + Bank of Canada RPAA PSP, with a CBN IMTO for Nigeria inflows."],
-["GetPlu","H","Global","Delaware, US",2026,"C","Visa","Virtual","—","—",1,"Y","i","getplu.com","Zero-fee virtual Visa dollar card funded with USD, USDC or USDT — instant issue after KYC, Apple/Google Pay, market hubs across Nigeria, Ghana, Kenya and North America on partner rails."]
+["GetPlu","H","Global","Delaware, US",2026,"C","Visa","Virtual + physical","—","—",1,"Y","i","getplu.com","Zero-fee Visa dollar card funded with USD, USDC or USDT — virtual issued instantly after KYC, physical on the paid tiers; spendable in 125+ countries, on partner rails rather than its own licence."]
 ];
 /* pre-launch / emerging — kept in the machine dataset (data.json `emerging`) but excluded from the verified-active grid, counts and generated pages */
 const EMERGING=[
@@ -803,7 +803,7 @@ const X={
 "neon":{f:"Jörg Sandrock + team",l:"Partner: Hypothekarbank Lenzburg"},
 "Pixpay":{l:"E-money distributor — agent of Treezor (ACPR-licensed EMI, Société Générale group); acquired by GoHenry/Acorns",f:"Benoit Grassin, Nicolas Klein, Caroline Ménager",m:"Acquired by GoHenry (2022)"},
 /* LatAm */
-"Nubank":{ai:"underwriting",f:"David Vélez, Cristina Junqueira, Edward Wible",l:"Bank licenses BR/MX/CO; conditional US OCC approval (2026)",m:"Public (NU)",s:"Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution with 100M+ customers."},
+"Nubank":{ai:"underwriting",f:"David Vélez, Cristina Junqueira, Edward Wible",l:"Bank licenses BR/MX/CO; US products on Lead Bank while its conditional OCC charter (Jan 2026) is organised",m:"Public (NU)",s:"Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution and, since September 2026, a US challenger too — 139M customers across four countries."},
 "Ualá":{ai:"underwriting",f:"Pierpaolo Barbieri",l:"Bank licenses (AR via Wilobank, MX via ABC Capital)",m:"~$1B+ raised incl. $195M round (Mar 2026) at $3.2B",s:"Buenos Aires historian-turned-founder set out to bank every Argentine teenager; now ~1 in 5 Argentine adults use it, with 11M+ customers across AR/MX/CO."},
 "Plata":{ai:"underwriting",f:"Neri Tollardo (CEO) + ex-Tinkoff team",l:"Full Mexican bank license (Banco Plata, Mar 2026); Colombia Compañía de Financiamiento authorized",m:"$405M Series C at $5B (Apr 2026, Bicycle Capital, QIA, BTG Pactual) — $2B+ debt & equity total",s:"The Tinkoff playbook replayed in Mexico: proprietary core banking + AI risk engine built by 800 STEM hires, 750K first-time cardholders, $800M loan book — LatAm's most valuable private digital bank three years after founding."},
 "albo":{l:"IFPE license (CNBV, Mexico, 2022) — e-money institution under Ley Fintech",f:"Ángel Sahagún",m:"~$150M+ raised"},
@@ -2009,7 +2009,7 @@ render();
 
 /* ── data refresh from filings & research ── */
 (function refreshData(){
-  const upd={"Nubank":[131,"customers","2025"],"Mercado Pago":[78,"MAU","2025"],"Cash App":[59,"transacting actives","2025"],"Wise":[19,"customers","FY26"]};
+  const upd={"Nubank":[139,"customers","Q2 2026"],"Mercado Pago":[78,"MAU","2025"],"Cash App":[59,"transacting actives","2025"],"Wise":[19,"customers","FY26"]};
   USERS.forEach(u=>{if(upd[u[0]]){u[1]=upd[u[0]][0];u[2]=upd[u[0]][1];u[3]=upd[u[0]][2]}});
   USERS.sort((a,b)=>b[1]-a[1]);
   Object.entries(upd).forEach(([n,[v,m,y]])=>{if(USERMAP[n]){USERMAP[n].v=v;USERMAP[n].metric=m;USERMAP[n].yr=y}});
@@ -2130,7 +2130,7 @@ render();
 const V={
 /* ══ intake 2026-08 ══ */
 "Dolafy":{t:"https://dolafy.com/legal/",x:"dolafycom"},
-"GetPlu":{t:"https://getplu.com/terms-of-service",x:"getpluapp",cc:["Nigeria","Ghana","Kenya","United States","Canada"]},
+"GetPlu":{t:"https://getplu.com/terms-of-service",x:"getpluapp",cc:["Nigeria","Ghana","Kenya","United States","Canada","Global"]},
 "Yolat":{x:"callyolat",in:{"Toyosi Abolarin":"https://www.linkedin.com/in/toyosi-abolarin-798b6942"},cc:["Canada","Nigeria","Kenya","Ghana","South Africa","United Kingdom"]},
 "Brookwell":{t:"https://www.brookwell.com/terms",x:"brookwellapp"},
 "Takenos":{t:"https://help.takenos.com/en/articles/11403392-terminos-y-condiciones",x:"takenosapp",cc:["Argentina","Bolivia","Chile","Colombia","Ecuador","Paraguay","Peru","United States"]},
@@ -2215,7 +2215,7 @@ const V={
 "Yuh":{t:"https://www.yuh.com/en/legal/",x:"yuh_app",cc:["Switzerland"]},
 "neon":{x:"neon_switzerland",cc:["Switzerland"]},
 /* LatAm */
-"Nubank":{x:"nubank",in:{"David Vélez":"https://www.linkedin.com/in/david-velez-38185311/","Cristina Junqueira":"https://www.linkedin.com/in/cristina-junqueira-9a4b012/"},cc:["Brazil","Mexico","Colombia"]},
+"Nubank":{x:"nubank",in:{"David Vélez":"https://www.linkedin.com/in/david-velez-38185311/","Cristina Junqueira":"https://www.linkedin.com/in/cristina-junqueira-9a4b012/"},cc:["Brazil","Mexico","Colombia","United States"]},
 "Ualá":{x:"uala",in:{"Pierpaolo Barbieri":"https://www.linkedin.com/in/pierpaolo-barbieri-b8a3644/"},fx:{"Pierpaolo Barbieri":"pierpaolo"},cc:["Argentina","Mexico","Colombia"]},
 "Klar":{x:"klarmx",cc:["Mexico"]},
 "Stori":{t:"https://www.storicard.com/legales",p:"https://www.storicard.com/aviso-de-privacidad",x:"storicard",cc:["Mexico"]},

@@ -2398,6 +2398,7 @@ const BLOG_POSTS = [
   ['neobank-chapters', '2026-09-03'],
   ['banking-for-immigrants', '2026-09-08'],
   ['nobody-dies-of-churn', '2026-09-13'],
+  ['nubank-enters-the-us', '2026-09-11'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {

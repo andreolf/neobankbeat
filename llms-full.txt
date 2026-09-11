@@ -218,7 +218,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Kaspi](https://www.neobankbeat.com/n/kaspi/): traditional · Custodial · Licensed bank · Almaty, KZ · founded 2012
 - [Uzum](https://www.neobankbeat.com/n/uzum/): traditional · Custodial · Licensed bank · Tashkent, UZ · founded 2022
 - [TBC UZ](https://www.neobankbeat.com/n/tbc-uz/): traditional · Custodial · Licensed bank · Tashkent, UZ · founded 2020 · AI in production: underwriting
-- [Nubank](https://www.neobankbeat.com/n/nubank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2013 · 131M customers · AI in production: underwriting
+- [Nubank](https://www.neobankbeat.com/n/nubank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2013 · 139M customers · AI in production: underwriting
 - [Ualá](https://www.neobankbeat.com/n/uala/): traditional · Custodial · Licensed bank · Buenos Aires, AR · founded 2017 · AI in production: underwriting
 - [Plata](https://www.neobankbeat.com/n/plata/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2023 · AI in production: underwriting
 - [albo](https://www.neobankbeat.com/n/albo/): traditional · Custodial · Licensed bank · Mexico City, MX · founded 2016

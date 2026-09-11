@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-09-11', tag: 'data', title: 'Nubank enters the US — and the dataset catches up',
+    body: 'Nu launched US products on 10 September through a partner bank while its conditional OCC charter is organised, and reported 139M customers in Q2 2026 — its first quarter above $1B in net income. The profile now carries the new figure, the United States in its availability, and the partner-bank arrangement alongside its three banking licences. The wider point got a post: in the US only 10 of the 61 neobanks we track hold their own charter.',
+    links: [['/blog/nubank-enters-the-us/', 'read the post']] },
   { date: '2026-08-19', tag: 'new', title: 'Six more chapter seats open',
     body: 'The chapter model goes global: Latin America, Asia, Europe, North America, MENA and Oceania each get their own radar page — regional stats, category mix, country breakdown and full roster computed from the dataset, with the steward seat open — plus a dotted continent map per chapter, HQ countries lit in the wave colors. Same trial everywhere: four sourced radar entries plus one audit pass of the region\'s rows puts your name on the page.',
     links: [['/latam/', 'take a seat']] },
