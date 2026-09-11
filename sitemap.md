@@ -74,6 +74,7 @@
 - [neobank chapters](https://www.neobankbeat.com/blog/neobank-chapters/) (2026-09-03)
 - [banking for immigrants](https://www.neobankbeat.com/blog/banking-for-immigrants/) (2026-09-08)
 - [nobody dies of churn](https://www.neobankbeat.com/blog/nobody-dies-of-churn/) (2026-09-13)
+- [nubank enters the us](https://www.neobankbeat.com/blog/nubank-enters-the-us/) (2026-09-11)
 
 ## Neobank profiles (381)
 

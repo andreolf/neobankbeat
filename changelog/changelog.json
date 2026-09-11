@@ -3,6 +3,15 @@
  "total": 381,
  "releases": [
   {
+   "date": "2026-09-11",
+   "tag": "data",
+   "title": "Nubank enters the US — and the dataset catches up",
+   "body": "Nu launched US products on 10 September through a partner bank while its conditional OCC charter is organised, and reported 139M customers in Q2 2026 — its first quarter above $1B in net income. The profile now carries the new figure, the United States in its availability, and the partner-bank arrangement alongside its three banking licences. The wider point got a post: in the US only 10 of the 61 neobanks we track hold their own charter.",
+   "links": [
+    "/blog/nubank-enters-the-us/"
+   ]
+  },
+  {
    "date": "2026-08-19",
    "tag": "new",
    "title": "Six more chapter seats open",
