@@ -2,7 +2,7 @@
 title: "neobankbeat · who watches the neobanks?"
 description: "Independent, open-source directory of 381 verified-active neobanks — compared on custody, regulation, cards, cashback, yield, stablecoins, KYC and geography."
 canonical: https://www.neobankbeat.com/
-date: 2026-09-09
+date: 2026-09-01
 ---
 
 # neobankbeat
@@ -73,7 +73,7 @@ Metadata-tier localizations of the profile pages exist for German, Italian, Fren
 - [Newsletters](https://www.neobankbeat.com/newsletters/): the 10 neobank & fintech newsletters worth reading, hand-picked with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/): every stablecoin-spendable card in the dataset compared on custody, card network, cashback, yield and KYC in one table and focus
 - [AI neobanks](https://www.neobankbeat.com/ai/): the tracked neobanks where AI is verifiably in production, grouped by tier (underwriting / interface / agentic) — the machine-readable version is the ai field in data.json
-- [Infra for neobanks](https://www.neobankbeat.com/infra/): the 106 providers in the picks-and-shovels layer — BIN sponsor banks, BaaS platforms, card-issuing processors, crypto card infrastructure and stablecoin rails, each with its own page at /infra/<slug>/ mapping the tracked neobanks that run on it
+- [Infra for neobanks](https://www.neobankbeat.com/infra/): the 107 providers in the picks-and-shovels layer — BIN sponsor banks, BaaS platforms, card-issuing processors, crypto card infrastructure and stablecoin rails, each with its own page at /infra/<slug>/ mapping the tracked neobanks that run on it
 - [Graveyard](https://www.neobankbeat.com/graveyard/): every delisted neobank archived with its cause of death (partner/rail exits, acquisitions, regulator shutdowns) — the machine-readable version is the `graveyard` array in data.json. Useful for "why do neobanks fail" questions
 - [Changelog](https://www.neobankbeat.com/changelog/): every addition, removal and update to the dataset, generated from version history — machine-readable at /changelog/changelog.json
 
