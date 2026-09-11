@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-10.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-01.
 
 ## Main
 
@@ -10,7 +10,7 @@
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
 - [Investors in neobanks](https://www.neobankbeat.com/investors/) — VC → portfolio map, with a profile page per investor (219 firms)
-- [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (106 providers)
+- [Infra for neobanks](https://www.neobankbeat.com/infra/) — sponsor banks, card issuers and stablecoin rails mapped to the neobanks running on them (107 providers)
 - [Newsletters](https://www.neobankbeat.com/newsletters/) — the 10 neobank & fintech newsletters worth reading, with authors
 - [Stablecoin cards (U-cards)](https://www.neobankbeat.com/stablecoin-cards/) — every stablecoin-spendable card compared on custody, cashback, yield and KYC
 - [AI neobanks](https://www.neobankbeat.com/ai/) — the 67 neobanks with AI verifiably in production, by tier (underwriting / interface / agentic)
