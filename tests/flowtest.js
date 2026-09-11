@@ -185,7 +185,7 @@ ok(volCard.querySelectorAll('a').length>=12,'volume rows all have source links (
 ok(d.querySelector('.curve')!==null,'stablecoin curve chart rendered');
 ok(d.querySelector('table.heat')!==null,'region×category matrix rendered');
 const usersCard=[...d.querySelectorAll('#datasec .dcard2')][0];
-ok(usersCard.textContent.includes('131M'),'Nubank users refreshed to 131M');
+ok(usersCard.textContent.includes('139M'),'Nubank users refreshed to 139M');
 // heat cell click filters
 const cell=d.querySelector('.heat td[data-hm="AF|W"]');
 click(cell);
