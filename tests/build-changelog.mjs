@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-09-14', tag: 'fix', title: 'Every page told the truth about when it last changed',
+    body: 'Dates on this site track the data, not the build — a page says "updated 2026-09-11" because that is when its facts last moved, and claiming otherwise would be claiming freshness we did not earn. One of the five crons had been quietly breaking that: it rebuilt the site from a shallow clone, where the git history the builders read the dates out of is simply absent, so it fell back to stamping its own run date across 3,300 pages and committing it. The daily rebuild corrected them at 05:41 and this undid it at 06:07, every day. Both the dates and the check that should have caught it are fixed.',
+    links: [['/changelog/', 'the dataset log']] },
   { date: '2026-09-11', tag: 'data', title: 'Nubank enters the US — and the dataset catches up',
     body: 'Nu launched US products on 10 September through a partner bank while its conditional OCC charter is organised, and reported 139M customers in Q2 2026 — its first quarter above $1B in net income. The profile now carries the new figure, the United States in its availability, and the partner-bank arrangement alongside its three banking licences. The wider point got a post: in the US only 10 of the 61 neobanks we track hold their own charter.',
     links: [['/blog/nubank-enters-the-us/', 'read the post']] },

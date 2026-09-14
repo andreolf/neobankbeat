@@ -15,7 +15,17 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      # Full history, for the same reason the daily rebuild needs it: the step
+      # below runs build-pages, which dates every page from `git log -1 -- <file>`
+      # and falls back to today when the log comes back empty. On a shallow
+      # clone the log IS empty for every file, so this cron was restamping
+      # dateModified and "updated <date>" across ~3,300 pages with the date it
+      # happened to run — freshness the data never earned — and committing it.
+      # Every PR after one of those runs then failed the reproducibility check,
+      # because a full-history build honestly reverts to the data's real date.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:

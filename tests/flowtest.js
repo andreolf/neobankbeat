@@ -768,6 +768,19 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
       else if(!keys.includes('name')||!keys.includes('on')||!keys.includes('jobs'))broken.push(f+' (missing name/on/jobs)');
     }
     ok(broken.length===0,'every workflow file has only valid top-level keys ('+broken.join(', ')+')');
+
+    // build-pages dates every page from `git log -1 -- <file>` and falls back to
+    // today when the log is empty. On a shallow checkout the log is empty for
+    // EVERY file, so a cron running it that way restamps dateModified and
+    // "updated <date>" across the whole site with the date it happened to run,
+    // commits that, and leaves every later PR failing reproducibility. Any
+    // workflow that runs a git-dating builder must check out full history.
+    const shallow=fs.readdirSync(wf).filter(f=>{
+      const s=fs.readFileSync(path.join(wf,f),'utf8');
+      if(!/node\s+(?:tests\/)?build-pages\.mjs/.test(s))return false;
+      return !/uses:\s*actions\/checkout@[^\n]*\n(?:\s*#[^\n]*\n)*\s*with:\s*\n(?:\s*#[^\n]*\n)*\s*fetch-depth:\s*0/.test(s);
+    });
+    ok(shallow.length===0,'every workflow running build-pages checks out full history'+(shallow.length?' ('+shallow.join(', ')+' — add fetch-depth: 0)':''));
   }
 
   const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
