@@ -80,7 +80,9 @@ const S = {
 /* as-of month, from the last commit that touched data.json */
 const dataDate = (() => {
   try {
-    const d = execSync('git log -1 --format=%cs -- data.json', { cwd: ROOT }).toString().trim();
+    /* UTC, not the commit's own timezone — see the note in build-pages.mjs */
+    const d = execSync('git log -1 --date=format-local:%Y-%m-%d --format=%cd -- data.json',
+      { cwd: ROOT, env: { ...process.env, TZ: 'UTC' } }).toString().trim();
     return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null;
   } catch { return null; }
 })();
