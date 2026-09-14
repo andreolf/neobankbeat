@@ -1084,7 +1084,17 @@ console.log('— flow 39: site-wide structural SEO invariants');
   const leaked=[...scheduled].filter(u=>sm.has(u));
   ok(leaked.length===0,'no future-dated page is in the sitemap'+(leaked.length?' ('+leaked.join(' ')+')':''));
 
-  const unlisted=[...pages].filter(u=>!sm.has(u)&&!scheduled.has(u));
+  /* A post dated TODAY is legitimately absent until the day's rebuild runs:
+     the page is committed the moment it is written, but the sitemap only
+     picks it up when the cron regenerates. Without this grace the suite is
+     red for everyone between midnight UTC and the rebuild on any publish
+     day — a failure nobody caused and nobody can fix by hand. */
+  const dueToday=new Set([...fs.readFileSync(path.join(__dirname,'build-pages.mjs'),'utf8')
+    .match(/const BLOG_POSTS = \[([\s\S]*?)\];/)[1]
+    .matchAll(/\['([^']+)', '(\d{4}-\d{2}-\d{2})'\]/g)]
+    .filter(m=>m[2]===new Date().toISOString().slice(0,10))
+    .map(m=>'/blog/'+m[1]+'/'));
+  const unlisted=[...pages].filter(u=>!sm.has(u)&&!scheduled.has(u)&&!dueToday.has(u));
   const ghosts=[...sm].filter(u=>!pages.has(u)&&!/\.\w+$/.test(u));
   ok(unlisted.length===0,'every indexable page is in the sitemap'+(unlisted.length?' ('+unlisted.length+': '+unlisted.slice(0,4).join(' ')+')':''));
   ok(ghosts.length===0,'the sitemap lists no page that is missing from disk'+(ghosts.length?' ('+ghosts.slice(0,4).join(' ')+')':''));
