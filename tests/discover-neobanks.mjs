@@ -41,7 +41,9 @@ const get = async (url, accept = 'application/json') => {
   return accept === 'application/json' ? r.json() : r.text();
 };
 
-const STOP = new Set(['the', 'a', 'an', 'why', 'how', 'what', 'this', 'new', 'top', 'best', 'first', 'us', 'uk', 'eu', 'india', 'us based', 'uk based', 'here', 'meet', 'inside', 'digital', 'digital bank', 'neobank', 'neobanks', 'banking', 'fintech', 'crypto', 'startup', 'app', 'launch', 'exclusive', 'report', 'breaking', 'watch', 'video', 'opinion', 'analysis']);
+const STOP = new Set(['the', 'a', 'an', 'why', 'how', 'what', 'this', 'new', 'top', 'best', 'first', 'us', 'uk', 'eu', 'india', 'us based', 'uk based', 'here', 'meet', 'inside', 'digital', 'digital bank', 'neobank', 'neobanks', 'banking', 'fintech', 'crypto', 'startup', 'app', 'launch', 'exclusive', 'report', 'breaking', 'watch', 'video', 'opinion', 'analysis',
+  /* audience nouns headlines put next to the verb ("…for freelancers and SMBs launches") */
+  'smb', 'smbs', 'sme', 'smes', 'freelancers', 'gen z', 'millennials', 'expats', 'immigrants', 'students']);
 const candidates = new Map(); // norm name -> {name, sources:[]}
 const add = (name, source) => {
   const n = norm(name);
@@ -76,11 +78,27 @@ const NEWS_QUERIES = [
   'neobank raises seed OR series',
   '"challenger bank" launches',
 ];
+/* Words a headline opens with before it gets to the subject. Stripped rather
+   than blocked: "Why Monzo launches matter" should yield Monzo, not "Why Monzo",
+   which matches nothing in the tracked set and files as a fresh candidate. */
+const LEAD = '(?:Why|How|What|Meet|Inside|Exclusive|Opinion|Watch|Report|Breaking|Analysis)';
 const NAME_PATTERNS = [
-  /([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?)(?:,| has| officially| formally)? (?:launches|unveils|debuts|introduces|goes live|rolls out)/g,
-  /(?:neobank|digital bank|challenger bank) ([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?)/g,
-  /([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?),? (?:a|the) (?:new )?(?:neobank|digital bank|challenger bank)/g,
+  /* Anchored at the headline start. Unanchored, this matched any capitalised
+     word sitting in front of the verb anywhere in the line — "Norma, a Turkish
+     Neobank for freelancers and SMBs launches its platform" filed a candidate
+     called SMBs while the actual name sat unread in position one. */
+  new RegExp(`^(?:${LEAD}:? )?([A-Z][\\w.&'-]+(?: [A-Z][\\w.&'-]+)?)(?:,| has| have| officially| formally)? (?:launches|launched|unveils|debuts|introduces|goes live|rolls out)`, 'g'),
+  /(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank) ([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?)/g,
+  /* Up to three words may sit between the article and the noun: the appositive
+     is almost always qualified in practice ("a Turkish neobank", "the UK's
+     first digital bank"), and requiring "a neobank" bare missed all of them. */
+  /([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?),? (?:a|the) (?:[A-Za-z'’-]+ ){0,3}?(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank)/g,
 ];
+const cleanName = (s) => s
+  .replace(new RegExp(`^${LEAD}:? `), '')
+  .replace(/^(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank)\s+/, '')   // "Neobank Douugh" → "Douugh"
+  .replace(/['’]s$/, '')
+  .trim();
 const headlines = [];
 for (const q of NEWS_QUERIES) {
   try {
@@ -91,7 +109,7 @@ for (const q of NEWS_QUERIES) {
       headlines.push(title);
       for (const re of NAME_PATTERNS) {
         for (const hit of title.matchAll(re)) {
-          const cand = hit[1].replace(/['’]s$/, '');
+          const cand = cleanName(hit[1]);
           if (!STOP.has(norm(cand))) add(cand, `news: ${title.slice(0, 110)}`);
         }
       }

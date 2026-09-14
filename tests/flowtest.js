@@ -768,6 +768,19 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
       else if(!keys.includes('name')||!keys.includes('on')||!keys.includes('jobs'))broken.push(f+' (missing name/on/jobs)');
     }
     ok(broken.length===0,'every workflow file has only valid top-level keys ('+broken.join(', ')+')');
+
+    // build-pages dates every page from `git log -1 -- <file>` and falls back to
+    // today when the log is empty. On a shallow checkout the log is empty for
+    // EVERY file, so a cron running it that way restamps dateModified and
+    // "updated <date>" across the whole site with the date it happened to run,
+    // commits that, and leaves every later PR failing reproducibility. Any
+    // workflow that runs a git-dating builder must check out full history.
+    const shallow=fs.readdirSync(wf).filter(f=>{
+      const s=fs.readFileSync(path.join(wf,f),'utf8');
+      if(!/node\s+(?:tests\/)?build-pages\.mjs/.test(s))return false;
+      return !/uses:\s*actions\/checkout@[^\n]*\n(?:\s*#[^\n]*\n)*\s*with:\s*\n(?:\s*#[^\n]*\n)*\s*fetch-depth:\s*0/.test(s);
+    });
+    ok(shallow.length===0,'every workflow running build-pages checks out full history'+(shallow.length?' ('+shallow.join(', ')+' — add fetch-depth: 0)':''));
   }
 
   const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
@@ -1084,7 +1097,17 @@ console.log('— flow 39: site-wide structural SEO invariants');
   const leaked=[...scheduled].filter(u=>sm.has(u));
   ok(leaked.length===0,'no future-dated page is in the sitemap'+(leaked.length?' ('+leaked.join(' ')+')':''));
 
-  const unlisted=[...pages].filter(u=>!sm.has(u)&&!scheduled.has(u));
+  /* A post dated TODAY is legitimately absent until the day's rebuild runs:
+     the page is committed the moment it is written, but the sitemap only
+     picks it up when the cron regenerates. Without this grace the suite is
+     red for everyone between midnight UTC and the rebuild on any publish
+     day — a failure nobody caused and nobody can fix by hand. */
+  const dueToday=new Set([...fs.readFileSync(path.join(__dirname,'build-pages.mjs'),'utf8')
+    .match(/const BLOG_POSTS = \[([\s\S]*?)\];/)[1]
+    .matchAll(/\['([^']+)', '(\d{4}-\d{2}-\d{2})'\]/g)]
+    .filter(m=>m[2]===new Date().toISOString().slice(0,10))
+    .map(m=>'/blog/'+m[1]+'/'));
+  const unlisted=[...pages].filter(u=>!sm.has(u)&&!scheduled.has(u)&&!dueToday.has(u));
   const ghosts=[...sm].filter(u=>!pages.has(u)&&!/\.\w+$/.test(u));
   ok(unlisted.length===0,'every indexable page is in the sitemap'+(unlisted.length?' ('+unlisted.length+': '+unlisted.slice(0,4).join(' ')+')':''));
   ok(ghosts.length===0,'the sitemap lists no page that is missing from disk'+(ghosts.length?' ('+ghosts.slice(0,4).join(' ')+')':''));

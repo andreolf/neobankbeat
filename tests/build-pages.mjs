@@ -41,10 +41,17 @@ const DIRTY = (() => {
   } catch { return new Set(); }
 })();
 
+/* --date=format-local with TZ=UTC, not %cs. %cs renders the date in the timezone
+   recorded in the commit object, so a commit authored at 00:13 JST reads back as
+   the 15th while TODAY (UTC) is still the 14th — the dirty page gets stamped one
+   day, the committed page reads back the next, and the reproducibility check
+   fails on a tree nobody touched. Reading both sides in UTC keeps them equal
+   wherever the commit was made. */
 const gitModified = (rel) => {
   if (DIRTY.has(rel)) return TODAY;
   try {
-    const d = execSync(`git log -1 --format=%cs -- "${rel}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    const d = execSync(`git log -1 --date=format-local:%Y-%m-%d --format=%cd -- "${rel}"`,
+      { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, TZ: 'UTC' } }).toString().trim();
     return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : TODAY;
   } catch { return TODAY; }
 };

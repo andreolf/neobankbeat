@@ -105,9 +105,26 @@ if (missing.length) {
   nextFeed = feed.replace(/(<atom:link[^>]*\/>\n)/, (m0) => `${m0}${items}\n`);
 }
 
-const drift = [];
+let drift = [];
 if (nextIdx !== idx) drift.push('blog/index.html');
 if (nextFeed !== feed) drift.push('blog/feed.xml');
+
+/* Grace for the publish window. A post dated today is committed the moment it
+   is written but only reaches these surfaces when the day's rebuild runs, so
+   between midnight UTC and the cron the committed state legitimately lags.
+   Re-test excluding today's posts: if that matches, the only thing "missing"
+   is what the cron is about to add, and this is not drift. A post dated
+   yesterday or earlier still fails, which is the case worth catching. */
+if (drift.length && CHECK) {
+  const settled = posts.filter((p) => p.date < TODAY).map((p) => p.slug);
+  const lenientCards = settled.map((slug) => '    ' + existing.get(slug)).filter((c) => c.trim() !== 'undefined');
+  const lenientIdx = idx.replace(listRe, () => `<div class="postlist">\n${lenientCards.join('\n')}\n  </div>`);
+  const feedOk = settled.every(feedHas);
+  if (settled.length === existing.size && lenientIdx === idx && feedOk) {
+    console.log(`(${posts.length - settled.length} post(s) dated today awaiting the rebuild — not counted as drift)`);
+    drift = [];
+  }
+}
 
 if (CHECK) {
   console.log(drift.length
