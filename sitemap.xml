@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/llms.txt</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/changelog/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -25444,7 +25444,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25589,8 +25589,13 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/blog/revolut-data-request-scam/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/browse/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25717,6 +25722,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/regulation/self-custodial-neobanks/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/kyc/id-verification/</loc>
     <lastmod>2026-09-11</lastmod>
     <priority>0.7</priority>
   </url>

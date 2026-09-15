@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-09-15', tag: 'new', title: 'The 334 that hold a copy of your passport',
+    body: 'Revolut disclosed customer passports, verification selfies and transaction histories to someone who emailed from a real government agency domain — not a hack, but the legal-disclosure process every regulated firm is obliged to run, deceived by a well-formed request. That makes the useful question structural rather than about one firm, so the dataset answers it: a new cut lists every neobank that collects and retains a government ID. It completes the KYC family, where the two smaller answers already had pages and the biggest one did not.',
+    links: [['/kyc/id-verification/', 'all 334'], ['/blog/revolut-data-request-scam/', 'the post']] },
   { date: '2026-09-14', tag: 'fix', title: 'Every page told the truth about when it last changed',
     body: 'Dates on this site track the data, not the build — a page says "updated 2026-09-11" because that is when its facts last moved, and claiming otherwise would be claiming freshness we did not earn. One of the five crons had been quietly breaking that: it rebuilt the site from a shallow clone, where the git history the builders read the dates out of is simply absent, so it fell back to stamping its own run date across 3,300 pages and committing it. The daily rebuild corrected them at 05:41 and this undid it at 06:07, every day. Both the dates and the check that should have caught it are fixed.',
     links: [['/changelog/', 'the dataset log']] },

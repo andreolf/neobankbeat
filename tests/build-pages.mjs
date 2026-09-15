@@ -415,6 +415,8 @@ let hubsFor = () => [];
       'MiCA gave the EU a single rulebook for crypto services. A CASP authorisation passports across the bloc, which is why it has become the license of choice for crypto neobanks serving Europe.'],
   };
   const KYC_COPY = {
+    Yes: ['id-verification', 'full-KYC neobanks', 'Neobanks that require identity verification',
+      'Opening one of these means handing over a government ID — usually a passport or driving licence scan, very often a selfie taken against it — to a regulated company that is then obliged to keep it. Anti-money-laundering rules across the UK, EU and US require firms to retain identification records for years after an account closes, so the copy does not disappear when you do. That obligation is also why these firms answer requests from law enforcement and government agencies: a documented disclosure process is part of holding the licence. Worth knowing before you open your fifth account.'],
     No: ['no-kyc', 'no-KYC neobanks', 'Neobanks that work without identity verification',
       'These require no identity check because they never take custody of your funds — they are self-custodial software, so there is no account to open and no balance to hold on your behalf. Ordering a card, cashing out to a bank account or using a regulated on-ramp will still normally trigger verification somewhere in the chain.'],
     'Card only': ['card-only-kyc', 'card-only KYC neobanks', 'Neobanks where only the card requires ID',
@@ -2406,6 +2408,7 @@ const BLOG_POSTS = [
   ['banking-for-immigrants', '2026-09-08'],
   ['nobody-dies-of-churn', '2026-09-13'],
   ['nubank-enters-the-us', '2026-09-11'],
+  ['revolut-data-request-scam', '2026-09-15'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
