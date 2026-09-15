@@ -122,6 +122,12 @@
   <h2 class="relh">product &amp; platform</h2>
   <p class="relsub">New surfaces, fields and capabilities — things you can now do that you couldn't a week ago.</p>
   <div class="centry rel">
+    <div class="chead"><span class="cdate">September 15, 2026</span><span class="reltag">new</span></div>
+    <div class="ctitle">The 334 that hold a copy of your passport</div>
+    <div class="cplain">Revolut disclosed customer passports, verification selfies and transaction histories to someone who emailed from a real government agency domain — not a hack, but the legal-disclosure process every regulated firm is obliged to run, deceived by a well-formed request. That makes the useful question structural rather than about one firm, so the dataset answers it: a new cut lists every neobank that collects and retains a government ID. It completes the KYC family, where the two smaller answers already had pages and the biggest one did not.</div>
+    <div class="rlinks"><a href="/kyc/id-verification/">all 334 →</a><a href="/blog/revolut-data-request-scam/">the post →</a></div>
+  </div>
+  <div class="centry rel">
     <div class="chead"><span class="cdate">September 14, 2026</span><span class="reltag">fix</span></div>
     <div class="ctitle">Every page told the truth about when it last changed</div>
     <div class="cplain">Dates on this site track the data, not the build — a page says &quot;updated 2026-09-11&quot; because that is when its facts last moved, and claiming otherwise would be claiming freshness we did not earn. One of the five crons had been quietly breaking that: it rebuilt the site from a shallow clone, where the git history the builders read the dates out of is simply absent, so it fell back to stamping its own run date across 3,300 pages and committing it. The daily rebuild corrected them at 05:41 and this undid it at 06:07, every day. Both the dates and the check that should have caught it are fixed.</div>

@@ -3,6 +3,16 @@
  "total": 381,
  "releases": [
   {
+   "date": "2026-09-15",
+   "tag": "new",
+   "title": "The 334 that hold a copy of your passport",
+   "body": "Revolut disclosed customer passports, verification selfies and transaction histories to someone who emailed from a real government agency domain — not a hack, but the legal-disclosure process every regulated firm is obliged to run, deceived by a well-formed request. That makes the useful question structural rather than about one firm, so the dataset answers it: a new cut lists every neobank that collects and retains a government ID. It completes the KYC family, where the two smaller answers already had pages and the biggest one did not.",
+   "links": [
+    "/kyc/id-verification/",
+    "/blog/revolut-data-request-scam/"
+   ]
+  },
+  {
    "date": "2026-09-14",
    "tag": "fix",
    "title": "Every page told the truth about when it last changed",

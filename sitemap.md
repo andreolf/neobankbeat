@@ -5,7 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 381 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 46 ready-made cuts of the dataset by license, KYC, region and audience
+- [Browse](https://www.neobankbeat.com/browse/) — 47 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
@@ -75,6 +75,7 @@
 - [banking for immigrants](https://www.neobankbeat.com/blog/banking-for-immigrants/) (2026-09-08)
 - [nobody dies of churn](https://www.neobankbeat.com/blog/nobody-dies-of-churn/) (2026-09-13)
 - [nubank enters the us](https://www.neobankbeat.com/blog/nubank-enters-the-us/) (2026-09-11)
+- [revolut data request scam](https://www.neobankbeat.com/blog/revolut-data-request-scam/) (2026-09-15)
 
 ## Neobank profiles (381)
 
@@ -615,7 +616,7 @@
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
 
-## Topic hubs (46)
+## Topic hubs (47)
 
 - [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
 - [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
@@ -624,6 +625,7 @@
 - [/regulation/mica-casp-neobanks/](https://www.neobankbeat.com/regulation/mica-casp-neobanks/)
 - [/regulation/payment-institutions/](https://www.neobankbeat.com/regulation/payment-institutions/)
 - [/regulation/self-custodial-neobanks/](https://www.neobankbeat.com/regulation/self-custodial-neobanks/)
+- [/kyc/id-verification/](https://www.neobankbeat.com/kyc/id-verification/)
 - [/kyc/no-kyc/](https://www.neobankbeat.com/kyc/no-kyc/)
 - [/kyc/card-only-kyc/](https://www.neobankbeat.com/kyc/card-only-kyc/)
 - [/regions/north-america/](https://www.neobankbeat.com/regions/north-america/)

@@ -30,12 +30,22 @@ const END = '<!-- asof:end -->';
    up front and derive smaller subsets from it later. */
 const citedTotal = (body) => {
   const tally = new Map();
-  const near = /(?:of|all|across|track|tracked|directory|entities|entity|total|among)[^.]{0,40}?\b(3\d\d|4[0-4]\d)\b|\b(3\d\d|4[0-4]\d)\b[^.]{0,40}?(?:neobanks?|entit(?:y|ies)|tracked|directory)/gi;
+  /* The gap excludes digits so one figure cannot bridge to another. With a plain
+     [^.] gap, "334 of the 381 neobanks we track" matched as 334 reaching all the
+     way to "neobanks" — swallowing the real total, which then never got counted
+     at all. Any post whose subject is a subset of the dataset hit this. */
+  const near = /(?:of|all|across|track|tracked|directory|entities|entity|total|among)[^.\d]{0,40}?\b(3\d\d|4[0-4]\d)\b|\b(3\d\d|4[0-4]\d)\b[^.\d]{0,40}?(?:neobanks?|entit(?:y|ies)|tracked|directory)/gi;
   for (const m of body.matchAll(near)) {
     const n = +(m[1] || m[2]);
     tally.set(n, (tally.get(n) || 0) + 1);
   }
   if (!tally.size) return null;
+  /* A post that cites the live total is current by definition, whatever else it
+     counts — so the live figure wins outright rather than on frequency. Without
+     this, a post whose subject IS a subset ("334 of the 381 we track") cites the
+     subset more often than the total and gets stamped stale on its publish day.
+     Most-cited is still the right answer for every post that predates the total. */
+  if (tally.has(LIVE)) return LIVE;
   return [...tally].sort((a, b) => b[1] - a[1] || b[0] - a[0])[0][0];
 };
 
