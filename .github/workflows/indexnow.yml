@@ -1,12 +1,25 @@
 name: indexnow ping
 
-# Submits changed page URLs to IndexNow (Bing, Yandex, Seznam, Naver) on every
-# push to main, so new/updated pages get crawled within minutes instead of days.
-# The key file b0f96f66c93c03ad238377064bf95d58.txt is served from the site root.
+# Submits changed page URLs to IndexNow (Bing, Yandex, Seznam, Naver) so new or
+# updated pages get crawled within minutes instead of days. The key file
+# b0f96f66c93c03ad238377064bf95d58.txt is served from the site root.
+#
+# workflow_run, not just push. GitHub does not fire `on: push` for a push made
+# with the default GITHUB_TOKEN — that is deliberate, to stop workflows
+# retriggering themselves. Every cron here pushes with that token, so for six
+# days nothing pinged: the sitemap-diff logic below, which exists precisely so a
+# date-scheduled post is submitted the moment the rebuild lists it, could never
+# run on the one push that ever lists it. Self-published posts waited for an
+# organic crawl. workflow_run is the documented way back in, and needs no PAT.
 
 on:
   push:
     branches: [main]
+  workflow_run:
+    # Every cron that commits a page. 'discover new neobanks' is absent on
+    # purpose: it only writes tests/, which the URL filter below drops anyway.
+    workflows: ['daily rebuild', 'refresh jobs board', 'refresh top news', 'update changelog']
+    types: [completed]
 
 permissions:
   contents: read
@@ -17,8 +30,12 @@ concurrency:
 
 jobs:
   ping:
+    # A failed cron has nothing to submit; a push arrives with no workflow_run context.
+    if: github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
+      # For workflow_run the default ref is the default branch, which by now
+      # carries the cron's commit — the same HEAD^..HEAD comparison applies.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2

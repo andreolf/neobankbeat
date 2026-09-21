@@ -781,6 +781,33 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
       return !/uses:\s*actions\/checkout@[^\n]*\n(?:\s*#[^\n]*\n)*\s*with:\s*\n(?:\s*#[^\n]*\n)*\s*fetch-depth:\s*0/.test(s);
     });
     ok(shallow.length===0,'every workflow running build-pages checks out full history'+(shallow.length?' ('+shallow.join(', ')+' — add fetch-depth: 0)':''));
+
+    // GitHub does not fire `on: push` for a push made with the default
+    // GITHUB_TOKEN, so every cron that commits a page is invisible to the
+    // IndexNow ping unless indexnow.yml lists it under workflow_run. It went
+    // unnoticed for six days precisely because nothing fails when a ping
+    // silently stops happening — hence a test rather than a comment.
+    {
+      const read=f=>fs.readFileSync(path.join(wf,f),'utf8');
+      const nameOf=s=>(s.match(/^name:\s*(.+)$/m)||[])[1];
+      const idx=read('indexnow.yml');
+      const listed=new Set([...idx.matchAll(/workflows:\s*\[([^\]]+)\]/g)]
+        .flatMap(m=>m[1].split(',').map(x=>x.trim().replace(/^['"]|['"]$/g,''))));
+      const allNames=new Set(fs.readdirSync(wf).map(f=>nameOf(read(f))).filter(Boolean));
+      // a name that matches no workflow silently disables that trigger
+      const ghosts=[...listed].filter(n=>!allNames.has(n));
+      ok(ghosts.length===0,'every workflow_run trigger names a real workflow'+(ghosts.length?' ('+ghosts.join(', ')+')':''));
+
+      const unpinged=fs.readdirSync(wf).filter(f=>{
+        const s=read(f);
+        if(!/git push/.test(s))return false;
+        // only crons that commit something the site actually serves
+        const adds=(s.match(/git add ([^\n]+)/)||[])[1]||'';
+        if(/^tests\//.test(adds.trim()))return false;
+        return !listed.has(nameOf(s));
+      });
+      ok(unpinged.length===0,'every cron that commits a page triggers the IndexNow ping'+(unpinged.length?' ('+unpinged.join(', ')+' — add its name to indexnow.yml workflow_run)':''));
+    }
   }
 
   const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
