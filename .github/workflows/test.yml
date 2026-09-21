@@ -6,14 +6,33 @@ name: flowtest
 # regenerate pages and push straight to main, so a data change could break
 # output with nothing to catch it.
 #
-# Runs on push and PR. Also runs after the cron jobs land their commits, since
-# those are exactly the pushes no human reviewed.
+# Runs on push and PR. The line above this one used to claim it also ran after
+# the cron jobs landed their commits. It did not, and had not since the workflow
+# was written: GitHub does not fire `on: push` for a push made with the default
+# GITHUB_TOKEN, which is what every cron here pushes with. Twelve cron commits
+# went unverified between 15 and 21 September before anyone noticed, because a
+# check that silently stops running looks exactly like a check that passes.
+#
+# The fix is a daily scheduled run rather than a workflow_run hook per cron.
+# One run a day at 07:45 lands after the latest cron (07:13) and therefore
+# verifies the composite state every cron contributed to — which is the state
+# that actually ships. Hooking each cron instead would cost roughly twice the
+# minutes to answer a narrower question, and attribution is no harder either
+# way: a failure names the two or three commits of that morning.
+#
+# The gate below skips the expensive half on days the crons committed nothing,
+# which is most days.
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    # 07:45 UTC — after rebuild (05:41), refresh-jobs (06:07), refresh-news
+    # (06:23 Mon) and discover (07:09 Mon). update-changelog only fires on a
+    # human push to data.json, which triggers this workflow directly anyway.
+    - cron: '45 7 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -35,17 +54,40 @@ jobs:
         with:
           fetch-depth: 0
 
+      # On the daily run there is usually nothing to check: the crons commit only
+      # when their output actually changes, which on most days is never. Checking
+      # first costs seconds; running the suite against an unchanged tree costs
+      # minutes. Push and PR runs always proceed — something definitely changed.
+      - name: is there anything new to verify?
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          age=$(( $(date -u +%s) - $(git log -1 --format=%ct HEAD) ))
+          if [ "$age" -lt 90000 ]; then   # 25h, a full cron cycle plus slack
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "main last moved $((age / 3600))h ago — verifying"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "main unchanged for $((age / 3600))h — the crons produced nothing to check"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: tests/package-lock.json
 
       - name: install jsdom
+        if: steps.gate.outputs.run == 'true'
         working-directory: tests
         run: npm ci
 
       - name: flowtest
+        if: steps.gate.outputs.run == 'true'
         run: node tests/flowtest.js
 
       # The suite asserts the committed output matches its source. These check the
@@ -54,6 +96,7 @@ jobs:
       # build-jobs is deliberately absent — it pulls live career APIs, so its
       # output legitimately differs between runs and would make this flaky.
       - name: generated output is reproducible from source
+        if: steps.gate.outputs.run == 'true'
         run: |
           node tests/build-pages.mjs > /dev/null
           node tests/build-report.mjs > /dev/null

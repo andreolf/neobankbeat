@@ -2,8 +2,11 @@ name: cron health check
 
 on:
   schedule:
-    # Tuesday ~07:13 UTC — the morning after all three Monday crons have run
-    - cron: '13 7 * * 2'
+    # Tuesday ~09:13 UTC — the morning after all three Monday crons have run,
+    # and after the same day's 07:45 flowtest, which is now one of the things
+    # checked below. At the old 07:13 this ran first and would have reported
+    # that day's verification missing every single week.
+    - cron: '13 9 * * 2'
   workflow_dispatch: {}
 
 permissions:
@@ -20,15 +23,25 @@ jobs:
       - name: verify every scheduled workflow ran recently and succeeded
         run: |
           set -euo pipefail
-          # workflow file : max age of the last completed run, in days.
+          # workflow file : max age of the last completed run, in days [ : event ].
           # rebuild.yml is checked on run age, not on commits: it is a no-op on
           # almost every day by design, and its job is to be there on the one day
           # a scheduled post is due. Silently disabled, posts never self-publish.
-          checks="refresh-news.yml:8 refresh-jobs.yml:2 discover-neobanks.yml:8 rebuild.yml:2"
+          #
+          # test.yml carries the optional third field. It also runs on every push,
+          # so its newest run is always fresh no matter what the schedule does —
+          # filtering to event=schedule is the only way to see the daily
+          # cron-verification run stop. Which is the failure that started all
+          # this: a check that quietly stops running looks just like one passing.
+          checks="refresh-news.yml:8 refresh-jobs.yml:2 discover-neobanks.yml:8 rebuild.yml:2 test.yml:2:schedule"
           problems=""
           for c in $checks; do
-            wf="${c%%:*}"; max_days="${c##*:}"
-            run=$(gh api "repos/$REPO/actions/workflows/$wf/runs?status=completed&per_page=1" \
+            wf="${c%%:*}"; rest="${c#*:}"
+            case "$c" in
+              *:*:*) max_days="${rest%%:*}"; query="&event=${rest##*:}" ;;
+              *)     max_days="$rest";      query="" ;;
+            esac
+            run=$(gh api "repos/$REPO/actions/workflows/$wf/runs?status=completed&per_page=1$query" \
               --jq '.workflow_runs[0] | if . == null then "none" else .conclusion + " " + .updated_at + " " + .html_url end')
             if [ "$run" = "none" ]; then
               problems="$problems- **$wf**: no completed runs found\n"
