@@ -12,7 +12,8 @@ name: daily rebuild
 
 on:
   schedule:
-    # daily 05:41 UTC — clear of the other crons at 06:07, 06:23, 07:09 and 07:13
+    # daily 05:41 UTC — first of the chain, clear of 06:07, 06:23, 07:09,
+    # the 07:45 verification run and the 09:13 health check
     - cron: '41 5 * * *'
   workflow_dispatch: {}
 
