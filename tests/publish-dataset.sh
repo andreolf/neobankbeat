@@ -100,7 +100,32 @@ push_hf() {
   local me
   me=$(hf auth whoami -q 2>/dev/null | head -1 | tr -d '[:space:]') || true
   if [ -n "$me" ] && [ "$me" != "$user" ]; then
-    echo "→ pushing to $user/$SLUG while logged in as $me (needs write access to $user)"
+    # Check write access BEFORE uploading. Without this the push prepares every
+    # file, ships ~1.4MB, and only fails at the commit step with a 403 that talks
+    # about create_pr — which reads like a token-scope problem when it is really
+    # the wrong account. You can hold a valid write token and still not be able
+    # to write to somebody else's namespace.
+    local tok owns
+    tok=$(hf auth token 2>/dev/null | tr -d '[:space:]') || true
+    owns=$(curl -fsS -H "Authorization: Bearer $tok" https://huggingface.co/api/whoami-v2 2>/dev/null \
+      | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{const d=JSON.parse(s);
+          console.log((d.orgs||[]).map(o=>o.name).includes(process.argv[1])?"yes":"no")}catch(e){console.log("unknown")}})' "$user" 2>/dev/null) || owns=unknown
+    if [ "$owns" = no ]; then
+      cat <<MSG
+✗ logged in as '$me', which cannot write to '$user'.
+  '$me' is not a member of '$user', so this push would 403 at the commit step
+  after uploading everything.
+
+  Fix: log in as the account that owns the dataset.
+      hf auth login --force        # plain 'hf auth login' no-ops when a session exists
+      hf auth whoami               # must print: $user
+  Then re-run this command.
+
+  Alternative: add '$me' to '$user' on Hugging Face and re-run.
+MSG
+      exit 1
+    fi
+    echo "→ pushing to $user/$SLUG while logged in as $me (write access confirmed)"
   fi
   if ! curl -fsS -o /dev/null "https://huggingface.co/api/datasets/$user/$SLUG" 2>/dev/null; then
     echo "!  $user/$SLUG does not exist yet — this push would CREATE it."
