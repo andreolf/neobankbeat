@@ -3,6 +3,16 @@
  "total": 381,
  "releases": [
   {
+   "date": "2026-09-22",
+   "tag": "new",
+   "title": "The State of Neobanks № 03 — and three posts that publish themselves",
+   "body": "The September edition is out: 60 pages on 381 verified-active neobanks, with month-over-month deltas against August — 379 to 381, three added, one departed, and the one that departed was a rebrand rather than a death. Every figure is pinned to a snapshot committed alongside the edition, so the PDF you download and the numbers quoted here cannot drift apart later. Three new posts are queued behind it, dated ahead and held out of the index, the feed and the sitemap until their day arrives.",
+   "links": [
+    "/report/",
+    "/blog/"
+   ]
+  },
+  {
    "date": "2026-09-15",
    "tag": "new",
    "title": "The 334 that hold a copy of your passport",

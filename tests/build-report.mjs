@@ -18,10 +18,10 @@ import { withCrumbs } from './meta.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 /* ── edition constants ─────────────────────────────────────────── */
-const MONTH = 'August 2026';
-const EDITION = '№ 02';
-const ASOF = 'data as of 13 August 2026';
-const ED_SLUG = '2026-08';
+const MONTH = 'September 2026';
+const EDITION = '№ 03';
+const ASOF = 'data as of 22 September 2026';
+const ED_SLUG = '2026-09';
 
 const SNAPSHOT = path.join(ROOT, 'report', ED_SLUG, 'data-snapshot.json');
 const DATA_SRC = fs.existsSync(SNAPSHOT) ? SNAPSHOT : path.join(ROOT, 'data.json');
@@ -31,9 +31,9 @@ console.log(`edition ${ED_SLUG}: ${E.length} entities from ${path.relative(ROOT,
 /* ── previous edition, for month-over-month deltas ─────────────────
    A prior snapshot committed under report/<slug>/ lets this edition report
    real deltas. № 01 had no predecessor and P stays null (rows fall back to —). */
-const EDITION_PREV = '№ 01', PREV_MONTH = 'July';
-const PREV_SRC = path.join(ROOT, 'report', '2026-07', 'data-snapshot.json');
-const P = (fs.existsSync(PREV_SRC) && !DATA_SRC.endsWith('2026-07/data-snapshot.json'))
+const EDITION_PREV = '№ 02', PREV_MONTH = 'August';
+const PREV_SRC = path.join(ROOT, 'report', '2026-08', 'data-snapshot.json');
+const P = (fs.existsSync(PREV_SRC) && !DATA_SRC.endsWith('2026-08/data-snapshot.json'))
   ? JSON.parse(fs.readFileSync(PREV_SRC, 'utf8')).entities : null;
 const cntBy = (arr, fn) => arr.filter(fn).length;
 const delta = (now, prev) => prev == null ? '—' : now - prev > 0 ? `+${now - prev}` : now - prev < 0 ? `${now - prev}` : '±0';
@@ -42,7 +42,11 @@ const prevCat = c => P ? cntBy(P, e => e.category === c) : null;
 const nowNames = new Set(E.map(e => e.name)), prevNames = P ? new Set(P.map(e => e.name)) : new Set();
 const added = P ? E.filter(e => !prevNames.has(e.name)).map(e => e.name).sort() : [];
 const removed = P ? P.filter(e => !nowNames.has(e.name)).map(e => e.name).sort() : [];
-if (P) console.log(`month-over-month vs 2026-07: ${prevN} → ${E.length} (+${added.length} / -${removed.length})`);
+/* name the edition actually compared against — this said 2026-07 for two
+   editions running, because it was written as a literal and the constant above
+   moved without it. A log line that lies about its own source is worse than no
+   log line: it is the thing you check the numbers against. */
+if (P) console.log(`month-over-month vs ${path.basename(path.dirname(PREV_SRC))}: ${prevN} → ${E.length} (+${added.length} / -${removed.length})`);
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 

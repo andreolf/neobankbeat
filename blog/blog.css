@@ -69,6 +69,15 @@ article table{width:100%;border-collapse:collapse;margin:0 0 22px;font-size:14px
 article th{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
 article td{padding:9px 10px;border-bottom:1px solid var(--line);color:#C9C9D4;vertical-align:top}
 article td:first-child{color:var(--text)}
+/* Tables scroll instead of clipping. width:100% cannot shrink a cell below its
+   min-content, so on a phone a wide table pushed its last column past the right
+   edge and the page — which does not scroll horizontally — simply cut it off.
+   Nothing signalled the loss: a five-column table read as a four-column one.
+   No white-space:nowrap here on purpose, so prose cells still wrap and only
+   genuinely wide tables scroll. */
+@media(max-width:620px){
+  article table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
 
 /* stat callouts */
 .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:26px 0}

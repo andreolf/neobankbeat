@@ -60,6 +60,15 @@ const gitModified = (rel) => {
    dateModified. Build date would claim freshness we didn't earn. */
 const DATA_MODIFIED = gitModified('data.json');
 
+/* Published report editions, newest first, read off disk — report/<YYYY-MM>/.
+   Editions are immutable once out, so the directory is the register and nothing
+   here needs touching when a new one ships. */
+const EDITIONS = fs.readdirSync(path.join(ROOT, 'report'), { withFileTypes: true })
+  .filter(d => d.isDirectory() && /^\d{4}-\d{2}$/.test(d.name)
+    && fs.existsSync(path.join(ROOT, 'report', d.name, 'index.html')))
+  .map(d => d.name).sort().reverse();
+const LATEST_EDITION = EDITIONS[0];
+
 /* A sitemap URL maps back to the file that produces it. */
 const urlModified = (loc) => {
   const p = loc.replace(BASE, '').replace(/^\//, '');
@@ -2409,6 +2418,11 @@ const BLOG_POSTS = [
   ['nobody-dies-of-churn', '2026-09-13'],
   ['nubank-enters-the-us', '2026-09-11'],
   ['revolut-data-request-scam', '2026-09-15'],
+  /* queued — held out of the sitemap, index and feed until their date, then
+     published by the daily rebuild with no human action */
+  ['the-neobank-founding-cliff', '2026-09-24'],
+  ['visa-mastercard-neobank-geography', '2026-09-29'],
+  ['who-actually-pays-interest', '2026-10-06'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
@@ -3207,8 +3221,12 @@ const urls = [
   ...infraSlugList.map(s => ({ loc: `${BASE}/infra/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   ...invSlugList.map(s => ({ loc: `${BASE}/investors/${s}/`, lastmod: DATA_MODIFIED, priority: '0.6' })),
   { loc: `${BASE}/report/`, changefreq: 'monthly', priority: '0.9' },
-  { loc: `${BASE}/report/2026-08/`, lastmod: '2026-08-13', priority: '0.9' },
-  { loc: `${BASE}/report/2026-07/`, lastmod: '2026-07-05', priority: '0.9' },
+  /* Every published edition, read off disk rather than listed by hand. The hand
+     list carried July and August and was never extended for September, so the
+     new edition shipped outside the sitemap — a monthly step nobody would
+     remember, silently skipped. Editions are immutable once published, so the
+     directory is the register. */
+  ...EDITIONS.map(slug => ({ loc: `${BASE}/report/${slug}/`, lastmod: gitModified(`report/${slug}/index.html`), priority: '0.9' })),
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
   { loc: `${BASE}/jobs/match/`, changefreq: 'weekly', priority: '0.75' },
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
@@ -3275,7 +3293,7 @@ const sitemapMd = `# neobankbeat — sitemap
 - [Jobs board](${BASE}/jobs/) — live roles from official career APIs
 - [CV job match](${BASE}/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](${BASE}/blog/) — deep dives grounded in the dataset
-- [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/2026-08/)
+- [Monthly report](${BASE}/report/) — the State of Neobanks PDF · [web edition](${BASE}/report/${LATEST_EDITION}/)
 
 ## Data & agent endpoints
 
