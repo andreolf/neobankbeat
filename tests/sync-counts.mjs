@@ -171,6 +171,16 @@ const RULES = {
     n('id="st-w">', S.web3, '<'),
     n('id="st-n">', S.niche, '<'),
   ],
+  /* The data card shipped to Hugging Face and Kaggle. It sat at 368 while the
+     dataset reached 381 — the off-site mirrors are the copy models and
+     researchers actually read, and nothing checked them, so the headline count
+     went stale in the one place we never look. */
+  'dataset/README.md': [
+    /* before/after are spliced into a RegExp raw, so the markdown bold markers
+       have to be escaped — unescaped, `**` reads as a quantifier with nothing
+       to repeat and the whole run throws. */
+    n('\\*\\*', S.entities, ' active neobanks\\*\\*'),
+  ],
   /* report/index.html is deliberately excluded: it describes a published dated
      edition, whose figures are pinned to report/<slug>/data-snapshot.json and
      must keep matching the PDF readers already downloaded. */

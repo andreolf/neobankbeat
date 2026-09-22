@@ -13,6 +13,12 @@
 #   bash tests/publish-dataset.sh notebook         sync every notebook in dataset/notebooks/
 #   bash tests/publish-dataset.sh notebook <slug>  sync just one
 #
+# The owner defaults to whoever the CLI is logged in as, which is NOT always
+# who owns the published dataset. Both live under "neobankbeat":
+#   DATASET_OWNER=neobankbeat bash tests/publish-dataset.sh hf
+# Get that wrong and you create a second dataset rather than updating the one
+# people have already downloaded.
+#
 # One-time auth:
 #   Hugging Face   brew install hf && hf auth login
 #                  Easiest: pick the browser login when prompted.
@@ -77,10 +83,32 @@ push_hf() {
   # switches between human ("✓ Logged in as …") and agent ("user=…") output
   # depending on whether stdout is a TTY — and either one poisons the repo id.
   user=$(hf auth whoami -q 2>/dev/null | head -1 | tr -d '[:space:]') || true
+  # The owner is not always the logged-in account. The dataset lives under
+  # neobankbeat; the CLI here was logged in as andreolf, and deriving the owner
+  # from whoami would have silently created a SECOND dataset at andreolf/neobanks
+  # rather than updating the published one — forking away from its download
+  # count, its history and every link pointing at it. Override wins when set.
+  user="${DATASET_OWNER:-$user}"
   if ! valid_name "$user"; then
     echo "✗ couldn't read your Hugging Face username (got: '${user:-empty}')."
     echo "  Log in first:  hf auth login"
+    echo "  Or name the owner explicitly:  DATASET_OWNER=neobankbeat bash $0 hf"
     exit 1
+  fi
+  # Refuse to create a new dataset that shadows an existing one under a
+  # different owner. Publishing a duplicate is not something you notice quickly.
+  local me
+  me=$(hf auth whoami -q 2>/dev/null | head -1 | tr -d '[:space:]') || true
+  if [ -n "$me" ] && [ "$me" != "$user" ]; then
+    echo "→ pushing to $user/$SLUG while logged in as $me (needs write access to $user)"
+  fi
+  if ! curl -fsS -o /dev/null "https://huggingface.co/api/datasets/$user/$SLUG" 2>/dev/null; then
+    echo "!  $user/$SLUG does not exist yet — this push would CREATE it."
+    echo "   If you meant to update an existing dataset, check the owner:"
+    echo "     DATASET_OWNER=<owner> bash $0 hf"
+    printf '   Continue and create %s/%s? [y/N] ' "$user" "$SLUG"
+    read -r reply
+    case "$reply" in [yY]*) ;; *) echo "aborted."; exit 1 ;; esac
   fi
   prep
   echo "→ uploading to huggingface.co/datasets/$user/$SLUG …"
