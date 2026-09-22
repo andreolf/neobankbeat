@@ -18,7 +18,7 @@
 - [Jobs board](https://www.neobankbeat.com/jobs/) — live roles from official career APIs
 - [CV job match](https://www.neobankbeat.com/jobs/match/) — paste or upload a résumé; matching runs in your browser (nothing stored)
 - [Blog](https://www.neobankbeat.com/blog/) — deep dives grounded in the dataset
-- [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-08/)
+- [Monthly report](https://www.neobankbeat.com/report/) — the State of Neobanks PDF · [web edition](https://www.neobankbeat.com/report/2026-09/)
 
 ## Data & agent endpoints
 
@@ -76,6 +76,9 @@
 - [nobody dies of churn](https://www.neobankbeat.com/blog/nobody-dies-of-churn/) (2026-09-13)
 - [nubank enters the us](https://www.neobankbeat.com/blog/nubank-enters-the-us/) (2026-09-11)
 - [revolut data request scam](https://www.neobankbeat.com/blog/revolut-data-request-scam/) (2026-09-15)
+- [the neobank founding cliff](https://www.neobankbeat.com/blog/the-neobank-founding-cliff/) (2026-09-24)
+- [visa mastercard neobank geography](https://www.neobankbeat.com/blog/visa-mastercard-neobank-geography/) (2026-09-29)
+- [who actually pays interest](https://www.neobankbeat.com/blog/who-actually-pays-interest/) (2026-10-06)
 
 ## Neobank profiles (381)
 

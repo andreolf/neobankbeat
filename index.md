@@ -85,7 +85,7 @@ Metadata-tier localizations of the profile pages exist for German, Italian, Fren
 ## Monthly report
 
 - [The State of Neobanks](https://www.neobankbeat.com/report/): a 50+ page designed PDF published monthly (July 2026 = edition № 01), generated from the dataset — custody, licenses, cards, stablecoins, geography, niches, future narratives (agentic commerce, stablecoin payroll, tokenized deposits), full appendix directory. Free; gated behind the (free) newsletter (https://neobankbeat.substack.com).
-- [Web edition preview](https://www.neobankbeat.com/report/2026-07/): the first 5 chapters as a crawlable HTML page. All headline findings are also quotable from the blog post (https://www.neobankbeat.com/blog/state-of-neobanks-2026/) and reproducible from data.json.
+- [Web edition preview](https://www.neobankbeat.com/report/2026-09/): the first 5 chapters as a crawlable HTML page. All headline findings are also quotable from the blog post (https://www.neobankbeat.com/blog/state-of-neobanks-2026/) and reproducible from data.json.
 
 ## Jobs board
 

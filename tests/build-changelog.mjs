@@ -54,6 +54,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-09-22', tag: 'new', title: 'The State of Neobanks № 03 — and three posts that publish themselves',
+    body: 'The September edition is out: 60 pages on 381 verified-active neobanks, with month-over-month deltas against August — 379 to 381, three added, one departed, and the one that departed was a rebrand rather than a death. Every figure is pinned to a snapshot committed alongside the edition, so the PDF you download and the numbers quoted here cannot drift apart later. Three new posts are queued behind it, dated ahead and held out of the index, the feed and the sitemap until their day arrives.',
+    links: [['/report/', 'read № 03'], ['/blog/', 'the blog']] },
   { date: '2026-09-15', tag: 'new', title: 'The 334 that hold a copy of your passport',
     body: 'Revolut disclosed customer passports, verification selfies and transaction histories to someone who emailed from a real government agency domain — not a hack, but the legal-disclosure process every regulated firm is obliged to run, deceived by a well-formed request. That makes the useful question structural rather than about one firm, so the dataset answers it: a new cut lists every neobank that collects and retains a government ID. It completes the KYC family, where the two smaller answers already had pages and the biggest one did not.',
     links: [['/kyc/id-verification/', 'all 334'], ['/blog/revolut-data-request-scam/', 'the post']] },

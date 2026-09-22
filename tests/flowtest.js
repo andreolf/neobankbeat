@@ -808,6 +808,27 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
       });
       ok(unpinged.length===0,'every cron that commits a page triggers the IndexNow ping'+(unpinged.length?' ('+unpinged.join(', ')+' — add its name to indexnow.yml workflow_run)':''));
     }
+
+    // A new report edition ships monthly and several surfaces point at "the"
+    // edition. Those pointers were hand-maintained and went stale silently:
+    // llms.txt still advertised July's while September was live, and the
+    // sitemap listed only July and August, so the new edition shipped
+    // uncrawlable. Editions are directories, so disk is the source of truth.
+    {
+      const eds=fs.readdirSync(path.join(root,'report'),{withFileTypes:true})
+        .filter(d=>d.isDirectory()&&/^\d{4}-\d{2}$/.test(d.name)
+          &&fs.existsSync(path.join(root,'report',d.name,'index.html')))
+        .map(d=>d.name).sort();
+      const latest=eds[eds.length-1];
+      const sm=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+      const missing=eds.filter(e=>!sm.includes('/report/'+e+'/'));
+      ok(missing.length===0,'every published report edition is in the sitemap'+(missing.length?' ('+missing.join(', ')+')':''));
+
+      const llms=fs.readFileSync(path.join(root,'llms.txt'),'utf8');
+      const cited=[...llms.matchAll(/\/report\/(\d{4}-\d{2})\//g)].map(m=>m[1]);
+      const stale=cited.filter(c=>c!==latest);
+      ok(stale.length===0,'llms.txt points at the current report edition'+(stale.length?' (cites '+[...new Set(stale)].join(', ')+', latest is '+latest+')':''));
+    }
   }
 
   const vercel=JSON.parse(fs.readFileSync(path.join(root,'vercel.json'),'utf8'));
