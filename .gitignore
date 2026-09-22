@@ -6,3 +6,12 @@ x-tweets/
 # staged copies for HF/Kaggle mirrors (generated)
 dataset/.staging/
 .claude/
+
+# Google service-account keys for tests/traffic.mjs. The key grants read access
+# to GA4 and Search Console; committing one publishes it. Keep it outside the
+# repo entirely and point GOOGLE_APPLICATION_CREDENTIALS at it — these patterns
+# are a backstop for the copy that ends up here anyway.
+*service-account*.json
+*-key.json
+gcp-*.json
+credentials.json
