@@ -14,26 +14,36 @@
  *   node tests/traffic.mjs --json          machine-readable
  *   node tests/traffic.mjs --save          also write data/traffic/<date>.json
  *
- * ── one-time setup ────────────────────────────────────────────────────────
- * Both APIs authenticate with the same Google service account, which is the
- * only headless option — an OAuth user flow cannot run in CI, and this should
- * be able to run in CI later.
+ *   node tests/traffic.mjs --login         one-time browser consent
  *
- *  1. console.cloud.google.com → create (or pick) a project
+ * ── one-time setup ────────────────────────────────────────────────────────
+ * OAuth, not a service-account key. Google's Secure-by-Default org policy
+ * (iam.managed.disableServiceAccountKeyCreation) blocks key creation on
+ * Workspace organisations — and that policy is worth keeping rather than
+ * turning off for this. A refresh token reaches the same APIs, is read-only,
+ * and can be revoked from the Google account without an admin.
+ *
+ *  1. console.cloud.google.com → create (or pick) a project. No billing
+ *     account needed: both APIs below are free within quota.
  *  2. enable "Google Analytics Data API" and "Google Search Console API"
- *  3. IAM & Admin → Service Accounts → create one → Keys → Add key → JSON
- *  4. grant it read access in each product, using the service account's email:
- *       GA4   analytics.google.com → Admin → Property access management
- *             → add the email as Viewer
- *       GSC   search.google.com/search-console → Settings → Users and
- *             permissions → add the email as Restricted (read) user
- *  5. point this script at the key and the property:
- *       export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
- *       export GA4_PROPERTY_ID=123456789      # numeric, NOT G-E3KE01L5DL
+ *  3. APIs & Services → Credentials → Create credentials → OAuth client ID
+ *     → Application type: Desktop app. Copy the id and secret.
+ *  4. export GOOGLE_OAUTH_CLIENT_ID=...apps.googleusercontent.com
+ *     export GOOGLE_OAUTH_CLIENT_SECRET=...
+ *     export GA4_PROPERTY_ID=123456789      # numeric, NOT G-E3KE01L5DL
+ *  5. node tests/traffic.mjs --login        # once; opens a consent URL
+ *
+ * The refresh token lands in ~/.config/neobankbeat/google-oauth.json, mode
+ * 600, outside the repo. Every later run is headless. Consent as the Google
+ * account that can already see the GA4 property and Search Console — the
+ * script inherits exactly that access and nothing more.
  *
  * The GA4 property id is the number under Admin → Property Settings. The
  * G-XXXX on the site is the measurement id and the API will not accept it —
  * which is the single most common way this comes back empty.
+ *
+ * A service-account key still works if GOOGLE_APPLICATION_CREDENTIALS is set,
+ * for a project where the policy does not apply.
  *
  * Nothing here writes to Google. Read-only scopes, read-only calls.          */
 import fs from 'node:fs';
@@ -61,14 +71,52 @@ const TODAY = new Date();
 const END = new Date(TODAY.getTime() - 86400e3);
 const START = new Date(END.getTime() - (DAYS - 1) * 86400e3);
 
-/* ── service-account auth, dependency-free ──────────────────────────────── */
-const b64url = (b) => Buffer.from(b).toString('base64url');
+/* ── auth ────────────────────────────────────────────────────────────────
+   Two ways in, tried in that order.
 
-async function token(scope) {
-  const keyfile = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!keyfile || !fs.existsSync(keyfile)) {
-    throw new Error('GOOGLE_APPLICATION_CREDENTIALS is unset or points at nothing — see the setup block at the top of this file');
+   1. OAuth refresh token (default). Google's "Secure by Default" org policy
+      — iam.managed.disableServiceAccountKeyCreation — blocks service-account
+      key creation on Workspace organisations, and that policy is worth
+      keeping: a downloaded key is a long-lived secret that cannot be rotated
+      by the person who leaks it. A refresh token does the same job, is scoped
+      read-only, and is revocable from myaccount.google.com. One browser
+      consent, then headless forever.
+   2. Service-account key, if GOOGLE_APPLICATION_CREDENTIALS is set. Kept for
+      the case where the policy does not apply, or for CI on a project that
+      allows it.                                                             */
+const b64url = (b) => Buffer.from(b).toString('base64url');
+const TOK_FILE = process.env.NB_GOOGLE_TOKEN
+  || path.join(process.env.HOME || '.', '.config', 'neobankbeat', 'google-oauth.json');
+const SCOPES = [
+  'https://www.googleapis.com/auth/analytics.readonly',
+  'https://www.googleapis.com/auth/webmasters.readonly',
+].join(' ');
+
+const readTok = () => {
+  try { return JSON.parse(fs.readFileSync(TOK_FILE, 'utf8')); } catch { return null; }
+};
+
+async function oauthToken() {
+  const t = readTok();
+  if (!t?.refresh_token) return null;
+  const r = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token', refresh_token: t.refresh_token,
+      client_id: t.client_id, client_secret: t.client_secret,
+    }),
+  });
+  const j = await r.json();
+  if (!r.ok) {
+    throw new Error(`refresh failed: ${j.error_description || j.error}. Re-run: node tests/traffic.mjs --login`);
   }
+  return j.access_token;
+}
+
+async function serviceAccountToken(scope) {
+  const keyfile = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!keyfile || !fs.existsSync(keyfile)) return null;
   const key = JSON.parse(fs.readFileSync(keyfile, 'utf8'));
   if (!key.client_email || !key.private_key) throw new Error(`${keyfile} is not a service-account key (no client_email / private_key)`);
 
@@ -85,6 +133,89 @@ async function token(scope) {
   const j = await r.json();
   if (!r.ok) throw new Error(`token exchange failed: ${j.error_description || j.error || r.status}`);
   return j.access_token;
+}
+
+let _tok = null;
+async function token(scope) {
+  if (_tok) return _tok;                       // one token covers both APIs
+  _tok = await oauthToken() || await serviceAccountToken(scope);
+  if (!_tok) {
+    throw new Error('not authenticated — run: node tests/traffic.mjs --login  (one browser consent, then headless)');
+  }
+  return _tok;
+}
+
+/* ── one-time consent, loopback redirect ─────────────────────────────────
+   Google retired the copy-paste "oob" flow in 2022, so a desktop client has
+   to catch the code on 127.0.0.1. Port is ephemeral and the server lives for
+   exactly one request. */
+async function login() {
+  const id = process.env.GOOGLE_OAUTH_CLIENT_ID, secret = process.env.GOOGLE_OAUTH_CLIENT_SECRET;
+  if (!id || !secret) {
+    console.error(`Create the OAuth client first: APIs & Services -> Credentials
+-> Create credentials -> OAuth client ID -> Application type: Desktop app.
+A Desktop-app client is not a service-account key, so the org policy that
+blocked key creation does not apply to it.
+
+  export GOOGLE_OAUTH_CLIENT_ID=...apps.googleusercontent.com
+  export GOOGLE_OAUTH_CLIENT_SECRET=...
+  node tests/traffic.mjs --login`);
+    process.exit(1);
+  }
+
+  const http = await import('node:http');
+  const state = crypto.randomBytes(16).toString('hex');
+  let redirect;
+
+  const code = await new Promise((resolve, reject) => {
+    const srv = http.createServer((req, res) => {
+      const u = new URL(req.url, 'http://127.0.0.1');
+      if (u.pathname !== '/') return res.writeHead(404).end();
+      const err = u.searchParams.get('error');
+      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
+      res.end(`<body style="font:15px system-ui;padding:40px;background:#0A0A10;color:#EDEDF2">`
+        + `<h2>${err ? 'Denied' : 'Done'}</h2><p>${err || 'Close this tab and go back to the terminal.'}</p></body>`);
+      srv.close();
+      if (err) return reject(new Error(err));
+      if (u.searchParams.get('state') !== state) return reject(new Error('state mismatch — start again'));
+      resolve(u.searchParams.get('code'));
+    });
+    srv.on('error', reject);
+    const timer = setTimeout(() => { srv.close(); reject(new Error('timed out after 5 minutes')); }, 300e3);
+    timer.unref();
+    srv.listen(0, '127.0.0.1', () => {
+      redirect = `http://127.0.0.1:${srv.address().port}`;
+      const auth = 'https://accounts.google.com/o/oauth2/v2/auth?' + new URLSearchParams({
+        client_id: id, redirect_uri: redirect, response_type: 'code', scope: SCOPES,
+        access_type: 'offline', prompt: 'consent', state,
+      });
+      console.log(`\nOpen this in a browser signed in to the Google account that can see both\nthe GA4 property and Search Console:\n\n${auth}\n\nWaiting \u2026`);
+    });
+  });
+
+  const r = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ code, client_id: id, client_secret: secret, redirect_uri: redirect, grant_type: 'authorization_code' }),
+  });
+  const j = await r.json();
+  /* access_type=offline + prompt=consent is what makes Google return a refresh
+     token; without prompt=consent a repeat authorisation returns only an access
+     token and the saved file is useless an hour later. */
+  if (!r.ok || !j.refresh_token) {
+    throw new Error(`could not get a refresh token: ${j.error_description || j.error || 'no refresh_token in the response'}`);
+  }
+  fs.mkdirSync(path.dirname(TOK_FILE), { recursive: true });
+  fs.writeFileSync(TOK_FILE, JSON.stringify({ client_id: id, client_secret: secret, refresh_token: j.refresh_token }, null, 2) + '\n', { mode: 0o600 });
+  console.log(`\n\u2713 saved to ${TOK_FILE} (chmod 600)`);
+  console.log('  Revoke any time: myaccount.google.com \u2192 Security \u2192 Third-party access');
+  console.log('  Now run:  node tests/traffic.mjs');
+}
+if (has('--login')) {
+  /* A stack trace is the wrong thing to show someone halfway through an
+     authorisation they cannot see the inside of. */
+  try { await login(); } catch (e) { console.error(`\n✗ ${e.message}`); process.exit(1); }
+  process.exit(0);
 }
 
 const api = async (url, body, tok) => {
