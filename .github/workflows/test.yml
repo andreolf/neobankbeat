@@ -103,8 +103,18 @@ jobs:
           node tests/build-changelog.mjs > /dev/null
           node tests/sync-tables.mjs > /dev/null
           if ! git diff --quiet; then
-            echo "::error::committed pages differ from a fresh build — run the builders and commit the result"
-            git diff --stat
-            exit 1
+            # A post dated today reaches the sitemap, index and feed only when a
+            # build runs on its day, and the rebuild cron lands hours later — so
+            # any push before it regenerates output that legitimately differs
+            # from what is committed. flowtest's assertions already allow for
+            # that window; this step did not, so every publish day went red.
+            if node tests/publish-window.mjs --explains-diff; then
+              echo "::notice::the only difference is today's scheduled post going live — the daily rebuild will commit it"
+            else
+              echo "::error::committed pages differ from a fresh build — run the builders and commit the result"
+              git diff --stat
+              exit 1
+            fi
+          else
+            echo "committed output matches a fresh build"
           fi
-          echo "committed output matches a fresh build"

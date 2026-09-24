@@ -15,3 +15,6 @@ dataset/.staging/
 *-key.json
 gcp-*.json
 credentials.json
+# the OAuth refresh token normally lives in ~/.config/neobankbeat/, but
+# NB_GOOGLE_TOKEN can point anywhere — including here by accident
+google-oauth.json
