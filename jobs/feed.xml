@@ -5,8 +5,384 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 63 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 30 Sep 2026 12:19:50 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 01 Oct 2026 12:53:44 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[CREDIT ANALYST III | CORPORATE CREDIT ANALYSIS MG — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4734248005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4734248005/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[[EU] Junior Derivatives Trader — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-4994956101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4994956101/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Bybit · Vienna, Austria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Ombudsman Officer — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-4888261101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4888261101/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Bybit · Brazil - Remote · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Operations Manager — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8239099/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8239099/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Coinbase · Remote - Singapore · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[SDE 2 Infra — FamPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/fampay-9b8d4eaa-cd29-4aec-8dcc-a33fd78d5657/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/fampay-9b8d4eaa-cd29-4aec-8dcc-a33fd78d5657/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[FamPay · Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Scientist, L30 — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8242603/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8242603/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £55–75K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AFC Operations Team Lead Italy (Fixed-Term Contract) — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8156159/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8156159/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Anti Financial Crime Analyst – Italian Fluent — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8201437/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8201437/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Business Audit Manager — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8242571/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8242571/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Business Audit Manager | Italian Market — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8230023/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8230023/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Milan · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Protection and Governance Manager — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8230033/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8230033/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[KYC Specialist – French Market — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8212940/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8212940/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Onboarding &amp; KYC</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Manager Business Audit | Spanish Market — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8239606/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8239606/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Associate Audit & Operations — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8239608/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8239608/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior CRM Specialist — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8034981/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8034981/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[N26 · Berlin · hybrid · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Steuerberater (Tax Manager) — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8184719/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8184719/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Principal Product Manager - Simple Trading — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8010187003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8010187003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Remote Roles - EMEA; Sliema, Malta · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Lead Product Manager - Professional Trading Tools & Experience — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8004117003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8004117003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Sliema, Malta · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Manager / Director, Trading Products — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8010274003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8010274003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Manager / Director, Trading Products — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8010273003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8010273003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Specialist, Legal Response — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-5452539003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-5452539003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[OKX · Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Technology and Security Risk Director — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8010225003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8010225003/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[CSIRTエンジニア — PayPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/paypay-6212790004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-6212790004/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[連結経理（リーダー候補） — PayPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/paypay-6011176004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-6011176004/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Designer, International — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8240638/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8240638/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Robinhood · Menlo Park, CA; New York, NY · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Compliance & Risk Manager - India — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152930184/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152930184/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Singapore, SG · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Sales Team Manager - Wise Business — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152928409/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152928409/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Wise · São Paulo, BR · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Staff Software Engineer - Cards API team — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152917619/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152917619/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · Singapore, SG · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior General Accountant — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152911180/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152911180/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Wise · Tallinn, EE · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Internal Audit Senior Specialist - Technology — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152904734/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152904734/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer - Recommend Team (Java) — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152901235/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152901235/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Product Designer - Money Movement — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152893635/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152893635/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Data Scientist - KYC/Onboarding — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152889719/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152889719/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Wise · London, GB · £91–127K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Compliance Manager - AML — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152875559/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152875559/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[IT SOX Scoping and Governance Analyst — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152867231/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152867231/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Software Engineer - Wise Platform - API Experience — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152862917/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152862917/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Compliance Senior Manager — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152831202/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152831202/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Compliance & Risk Manager - India — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000152789679/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000152789679/</guid>
+    <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Hyderabad, IN · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[BI AND DATA QUALITY ANALYST I | CORPORATE RECORDS MG — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4736710005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4736710005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[DATA CENTER ANALYST II — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4738268005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4738268005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[LAWYER III | LITIGATION & EFFICIENCY MG — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4729590005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4729590005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[LOGISTICS ASSISTANT | 	INTER PAG  | AFIRMATIVA PARA PCD — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4674704005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4674704005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[OPERATIONAL RISK & INTERNAL CONTROLS ASSISTANT — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4677494005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4677494005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[SECURITY OPERATIONS ANALYST II — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4737804005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4737804005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[TECH PRODUCT ANALYST II | FRAUD — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4737896005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4737896005/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Cloud Operations Engineer — Branch]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/branch-8009222003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/branch-8009222003/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Branch · Remote, US · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Mid-Market Client Sales Executive — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8504609002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8504609002/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $133–166K · hybrid]]></description>
+  </item>
   <item>
     <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8814629002/</link>
@@ -14,14 +390,6 @@
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Sales &amp; Partnerships</category>
     <description><![CDATA[Brex · São Paulo, São Paulo, Brazil · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8814626002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8814626002/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $74–82K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
@@ -33,11 +401,11 @@
   </item>
   <item>
     <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8831517002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8831517002/</guid>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8814626002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8814626002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $83–93K · hybrid]]></description>
+    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $74–82K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
@@ -48,444 +416,76 @@
     <description><![CDATA[Brex · San Francisco, California, United States · $83–93K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[P2P Product Manager — Bybit]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bybit-4990732101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4990732101/</guid>
+    <title><![CDATA[Outbound Sales Development Representative — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8831517002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8831517002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bybit · Abu Dhabi, UAE · onsite]]></description>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $83–93K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Principal Flutter Engineer — Bybit]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bybit-4963308101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4963308101/</guid>
+    <title><![CDATA[Senior Software Engineer - Identity & Access Management — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8859394002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8859394002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
-    <description><![CDATA[Bybit · Kuala Lumpur, Malaysia · hybrid]]></description>
+    <description><![CDATA[Brex · San Francisco, California, United States · $192–240K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Product Manager Expert — Bybit]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bybit-4982053101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-4982053101/</guid>
+    <title><![CDATA[Senior Software Engineer - Identity & Access Management — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8859337002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8859337002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bybit · Kuala Lumpur, Malaysia · hybrid]]></description>
+    <category>Engineering</category>
+    <description><![CDATA[Brex · New York, New York, United States · $192–240K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Money Laundering Reporting Officer, ADGM — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8207236/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8207236/</guid>
+    <title><![CDATA[Senior Software Engineer - Identity & Access Management — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8859393002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8859393002/</guid>
+    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $192–240K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Technical Sourcer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8818973002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8818973002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Coinbase · Remote - UAE · remote]]></description>
+    <description><![CDATA[Brex · San Francisco, California, United States · $127–158K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Financial Crimes Analyst, Bulgaria — Crypto.com]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/crypto-com-19a72e17-85fc-44fa-b775-94372262af94/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-19a72e17-85fc-44fa-b775-94372262af94/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Crypto.com · Sofia · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Treasury Associate (Data & Automation) — Crypto.com]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/crypto-com-d0b3e43e-92e6-42b3-8b6b-19c4902c611d/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-d0b3e43e-92e6-42b3-8b6b-19c4902c611d/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Crypto.com · Hong Kong · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Media and Content Associate — Judo Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/judo-bank-6000000001451217/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/judo-bank-6000000001451217/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Judo Bank · Melbourne, AU · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Specialised Portfolio — Judo Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/judo-bank-6000000001448939/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/judo-bank-6000000001448939/</guid>
+    <title><![CDATA[Senior Technical Sourcer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8818967002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8818967002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Judo Bank · Melbourne, AU · hybrid]]></description>
+    <description><![CDATA[Brex · New York, New York, United States · $127–158K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Account Executive — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6167549004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6167549004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · New York, NY or San Francisco, CA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Account Executive - Technology — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6199479004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6199479004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Business Risk Officer — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6193419004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6193419004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6163570004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6163570004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist - Risk — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6200670004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6200670004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Executive Business Partner - Manager — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6210798004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6210798004/</guid>
+    <title><![CDATA[Senior Technical Sourcer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8818969002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8818969002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
+    <description><![CDATA[Brex · Salt Lake City, Utah, United States · $112–140K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[Executive Producer - Brand Creative — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6140395004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6140395004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Market & Liquidity Risk — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6199427004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6199427004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Product - Business Banking — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6187763004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6187763004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Product - Business Lending — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6106974004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6106974004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Product - Personal Banking — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6187759004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6187759004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Revenue Technology & Architecture — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6129918004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6129918004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Knowledge & Enablement Lead — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6174117004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6174117004/</guid>
+    <title><![CDATA[Senior Technical Sourcer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8818972002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8818972002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $127–158K · hybrid]]></description>
   </item>
   <item>
-    <title><![CDATA[KYC Investigator - Ongoing Due Diligence — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6178928004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6178928004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Onboarding &amp; KYC</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Learning & Development Specialist - Fraud / Disputes — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6193873004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6193873004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[MarTech Lead — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6194248004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6194248004/</guid>
+    <title><![CDATA[Senior Technical Sourcer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8818977002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8818977002/</guid>
     <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Open Call for Founders / Founding Teams - Product Management and Engineering — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6107075004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6107075004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Payroll Operations Specialist — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6199653004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6199653004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Marketing Lead - Growth & Revenue — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6013499004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6013499004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · $187–234K · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Relationship Manager — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6178672004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6178672004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Sales Development Representative — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6167220004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6167220004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Account Executive - Credit & Lending Products — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6141465004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6141465004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Associate - Venture Ecosystem Sales — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6149284004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6149284004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · New York, NY or San Francisco, CA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Backend Engineer - Product — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6101148004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6101148004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Cloud Security Engineer - InfoSec — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6134310004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6134310004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Compliance Risk Manager - Securities Compliance — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6193310004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6193310004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Customer Support Operations Readiness Program Manager — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6144592004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6144592004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Customer Support Systems Administrator — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6190742004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6190742004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Data Scientist - Risk ML — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6179231004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6179231004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Manager - Core Experiences — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6145886004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6145886004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Design Manager - Growth — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6104936004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6104936004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Engineering Manager - Credit Cards — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6201177004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6201177004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Engineering Manager - Custody — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6196335004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6196335004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Financial Partnerships Manager - Lending — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6101085004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6101085004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Full-Stack Engineer — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6101151004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6101151004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior HRIS Analyst — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6134541004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6134541004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior KYC Investigator - Ongoing Due Diligence — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6180093004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6180093004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Onboarding &amp; KYC</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Machine Learning Operations Engineer — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6186862004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6186862004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Manager - Data & AI Governance — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6142625004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6142625004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Procurement Business Partner — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6211401004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6211401004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Designer - Accounting Integrations — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6137654004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6137654004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Designer - Cards & Credit — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6143552004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6143552004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager - Business Lending — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6098827004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6098827004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager - Core Interfaces — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6126980004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6126980004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager - Reconciliation — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6181121004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6181121004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Manager - Users — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6148371004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6148371004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product & Regulatory Counsel - Investment Products — Mercury]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/mercury-6135821004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/mercury-6135821004/</guid>
-    <pubDate>Wed, 30 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Mercury · San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States · remote]]></description>
+    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · hybrid]]></description>
   </item>
 </channel>
 </rss>
