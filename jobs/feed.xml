@@ -5,15 +5,55 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 63 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 03 Oct 2026 11:27:19 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 04 Oct 2026 12:08:17 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[KYC Specialist – French Market — N26]]></title>
     <link>https://www.neobankbeat.com/jobs/j/n26-8212940/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8212940/</guid>
-    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <pubDate>Sun, 04 Oct 2026 09:00:00 +0000</pubDate>
     <category>Onboarding &amp; KYC</category>
     <description><![CDATA[N26 · Madrid · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Card Disputes Specialist — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000153370939/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000153370939/</guid>
+    <pubDate>Sun, 04 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Tech Lead Manager, Data — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8606606002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8606606002/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Compliance Operations Specialist — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8077864/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8077864/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Lake Mary, FL; New York, NY · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Customer Care, Program Manager — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8167971/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8167971/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Westlake, TX · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Fraud Investigator - Customer Protection — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8186282/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8186282/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Robinhood · Denver, CO; Lake Mary, FL · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[iOS Developer, International — Robinhood]]></title>
@@ -22,6 +62,38 @@
     <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Robinhood · Toronto, Canada · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Knowledge & Operational Readiness Lead — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8112333/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8112333/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Robinhood · Denver, CO; Westlake, TX · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Margin Specialist — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8171008/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8171008/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Lake Mary, FL; New York, NY · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Underwriting Associate — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-7979657/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-7979657/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Lake Mary, FL; New York, NY · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Short Term Planning Analyst — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-7728367/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-7728367/</guid>
+    <pubDate>Sat, 03 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Westlake, TX · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[BUSINESS MANAGER | CASH & CUSTOMER RELATIONS PJ SP INTERPAG — Banco Inter]]></title>
@@ -413,78 +485,6 @@
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4738730005/</guid>
     <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista Sênior de Business Intelligence | Investimentos — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4739497005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4739497005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analytics Engineer | Dados — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4714651005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4714651005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Assistente de Relacionamento Digital | Mesa VIP - Médias Empresas | Pessoa Jurídica | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4597909005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4597909005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo | Alta Renda | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4723680005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4723680005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo | Banco de Talentos para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4541641005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4541641005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo de Operações | Monitoração — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4729806005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4729806005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo de Operações | Monitoração | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4723259005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4723259005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo de Performance | Marketing | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4723102005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4723102005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Auxiliar Administrativo | Faciliteis Belo Horizonte | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4688124005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4688124005/</guid>
-    <pubDate>Fri, 02 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
     <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
 </channel>
