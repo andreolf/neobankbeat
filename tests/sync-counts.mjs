@@ -86,6 +86,13 @@ const S = {
 /* as-of month, from the last commit that touched data.json */
 const dataDate = (() => {
   try {
+    /* An uncommitted data.json is dated today, the same rule build-pages uses for
+       page dates. Without it, the commit that changes the data was built against
+       the previous commit's date ("September") and read back after committing as
+       today's ("October") — so every data change failed CI's reproducibility
+       check on a tree nobody had touched since. */
+    const dirty = execSync('git status --porcelain -- data.json', { cwd: ROOT }).toString().trim();
+    if (dirty) return new Date().toISOString().slice(0, 10);
     /* UTC, not the commit's own timezone — see the note in build-pages.mjs */
     const d = execSync('git log -1 --date=format-local:%Y-%m-%d --format=%cd -- data.json',
       { cwd: ROOT, env: { ...process.env, TZ: 'UTC' } }).toString().trim();
