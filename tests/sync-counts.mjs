@@ -265,6 +265,16 @@ const RULES = {
 const DATE_RULES = asOfMonth ? {
   'llms.txt': [{ re: /(last full verification: )([A-Z][a-z]+ \d{4})/g, want: asOfMonth }],
 } : {};
+/* llms.txt links "the" web edition of the monthly report. Hand-edited, it sat
+   two editions stale (July while September was live); a flowtest guard then
+   caught it, but a guard still leaves a monthly chore. Editions are directories
+   under report/, so the newest one is known — keep the link pointed at it. */
+const LATEST_EDITION = fs.readdirSync(p('report'), { withFileTypes: true })
+  .filter(d => d.isDirectory() && /^\d{4}-\d{2}$/.test(d.name) && fs.existsSync(p(`report/${d.name}/index.html`)))
+  .map(d => d.name).sort().pop();
+if (LATEST_EDITION) {
+  (DATE_RULES['llms.txt'] ||= []).push({ re: /(neobankbeat\.com\/report\/)(\d{4}-\d{2})(?=\/)/g, want: LATEST_EDITION });
+}
 
 /* ═══ README stats block — charts and table regenerated wholesale ═══ */
 const buildStatsBlock = () => {

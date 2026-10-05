@@ -8,8 +8,11 @@
    keeping the July label — the web edition drifted to 368 against a PDF that
    still said 357. So each edition pins its own data, committed alongside it.
 
-   Next month: bump the MONTH/EDITION/ED_SLUG constants and drop a fresh
-   data-snapshot.json in report/<slug>/ (cp data.json), then rerun.            */
+   Next month: set ED_SLUG and ASOF below, drop a fresh data-snapshot.json in
+   report/<slug>/ (cp data.json), then rerun. The month name, the edition
+   number and the edition compared against are read off disk — they used to be
+   typed in alongside, and the log naming the comparison edition sat two
+   editions stale because one of them moved without the others.            */
 import fs from 'node:fs';
 import path from 'node:path';
 import { FOOTER_HTML, NAV_LINKS } from './footer.mjs';
@@ -18,23 +21,46 @@ import { withCrumbs } from './meta.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 /* ── edition constants ─────────────────────────────────────────── */
-const MONTH = 'September 2026';
-const EDITION = '№ 03';
-const ASOF = 'data as of 22 September 2026';
-const ED_SLUG = '2026-09';
+const ED_SLUG = '2026-10';
+const ASOF = 'data as of 5 October 2026';
+
+/* Every edition that has pinned its data, oldest first. An edition is a
+   directory under report/ holding its own data-snapshot.json — the same
+   register the sitemap reads — so its number and its predecessor follow from
+   where it sits in that list rather than being typed in. */
+const EDITIONS = fs.readdirSync(path.join(ROOT, 'report'), { withFileTypes: true })
+  .filter(d => d.isDirectory() && /^\d{4}-\d{2}$/.test(d.name)
+    && fs.existsSync(path.join(ROOT, 'report', d.name, 'data-snapshot.json')))
+  .map(d => d.name).sort();
+const monthName = slug => new Date(`${slug}-01T00:00:00Z`)
+  .toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' });
+const IDX = EDITIONS.indexOf(ED_SLUG);
+if (IDX < 0) {
+  console.error(`report/${ED_SLUG}/data-snapshot.json is missing — run: mkdir -p report/${ED_SLUG} && cp data.json report/${ED_SLUG}/data-snapshot.json`);
+  process.exit(1);
+}
+const edNo = i => `№ ${String(i + 1).padStart(2, '0')}`;
+const MONTH = `${monthName(ED_SLUG)} ${ED_SLUG.slice(0, 4)}`;
+const EDITION = edNo(IDX);
+const PREV_SLUG = IDX > 0 ? EDITIONS[IDX - 1] : null;
 
 const SNAPSHOT = path.join(ROOT, 'report', ED_SLUG, 'data-snapshot.json');
-const DATA_SRC = fs.existsSync(SNAPSHOT) ? SNAPSHOT : path.join(ROOT, 'data.json');
-const E = JSON.parse(fs.readFileSync(DATA_SRC, 'utf8')).entities;
+const DATA_SRC = SNAPSHOT;
+const SNAP = JSON.parse(fs.readFileSync(DATA_SRC, 'utf8'));
+const E = SNAP.entities;
+/* The snapshot's own graveyard is the record of deaths. A name that left the
+   active list without entering it was renamed or merged, not shut down —
+   September's edition counted Sling Money's rebrand to Morse as a death. */
+const GRAVE = new Set((SNAP.graveyard || []).map(g => g.name));
 console.log(`edition ${ED_SLUG}: ${E.length} entities from ${path.relative(ROOT, DATA_SRC)}`);
 
 /* ── previous edition, for month-over-month deltas ─────────────────
    A prior snapshot committed under report/<slug>/ lets this edition report
    real deltas. № 01 had no predecessor and P stays null (rows fall back to —). */
-const EDITION_PREV = '№ 02', PREV_MONTH = 'August';
-const PREV_SRC = path.join(ROOT, 'report', '2026-08', 'data-snapshot.json');
-const P = (fs.existsSync(PREV_SRC) && !DATA_SRC.endsWith('2026-08/data-snapshot.json'))
-  ? JSON.parse(fs.readFileSync(PREV_SRC, 'utf8')).entities : null;
+const EDITION_PREV = PREV_SLUG ? edNo(IDX - 1) : null;
+const PREV_MONTH = PREV_SLUG ? monthName(PREV_SLUG) : null;
+const PREV_SRC = PREV_SLUG ? path.join(ROOT, 'report', PREV_SLUG, 'data-snapshot.json') : null;
+const P = PREV_SRC ? JSON.parse(fs.readFileSync(PREV_SRC, 'utf8')).entities : null;
 const cntBy = (arr, fn) => arr.filter(fn).length;
 const delta = (now, prev) => prev == null ? '—' : now - prev > 0 ? `+${now - prev}` : now - prev < 0 ? `${now - prev}` : '±0';
 const prevN = P ? P.length : null;
@@ -281,25 +307,46 @@ const selfPrev = P ? cntBy(P, e => e.custody === 'Self-custodial' || e.custody =
 const stPrev = P ? cntBy(P, e => e.stablecoins) : null;
 const noKycPrev = P ? cntBy(P, e => e.kyc === 'No') : null;
 const tri = (t, h, w) => `${t} / ${h} / ${w}`;
+/* Comparable whenever the previous snapshot classified every entity — true
+   since № 02. The "n/a — coverage was backfilled" footnote described № 02 vs
+   № 01 only, and kept printing for two more editions after it stopped being true. */
+const regComparable = !!P && P.every(e => e.regulation_type);
+const nichePrev = P && P.every(e => e.audience) ? cntBy(P, e => e.audience !== 'general') : null;
+const deaths = removed.filter(n => GRAVE.has(n));
+const renamed = removed.filter(n => !GRAVE.has(n));
+/* The wave sentence used to be prose — "hybrid and web3-native both grew
+   faster than traditional" — written for one month and printed in every one
+   after, true or not. Now it says what the deltas say. */
+const mixSentence = (() => {
+  if (!P) return '';
+  const waves = [['traditional', T - prevCat('traditional')], ['hybrid', H - prevCat('hybrid')], ['web3-native', W - prevCat('web3-native')]];
+  const fmt = d => (d > 0 ? `+${d}` : d < 0 ? `${d}` : '±0');
+  if (waves.every(([, d]) => d === 0)) return 'The wave split did not move.';
+  const [lead, ...rest] = [...waves].sort((a, b) => b[1] - a[1]);
+  const tail = `stablecoin support ${fmt(stables - stPrev)}.`;
+  /* only name a leader when there is one — a +1/+1 tie is not "moved most" */
+  if (lead[1] === rest[0][1]) return `By wave: ${waves.map(([k, d]) => `${k} ${fmt(d)}`).join(', ')}; ${tail}`;
+  return `By wave, ${lead[0]} moved most (${fmt(lead[1])}), ${rest.map(([k, d]) => `${k} ${fmt(d)}`).join(', ')}; ${tail}`;
+})();
 const shownNames = ns => ns.length > 14 ? `${ns.slice(0, 14).join(', ')} <span style="color:#9a9aa5">+${ns.length - 14} more</span>` : ns.join(', ');
 page(`
 <div class="eyebrow">executive summary · what changed since ${EDITION_PREV}</div>
 <h1>${MONTH.split(' ')[0]} in deltas</h1>
-<p>The series now has a baseline, so this edition reports the headline metrics <b>against ${PREV_MONTH}</b>. Net, the dataset moved from <b>${prevN ?? '—'}</b> to <b>${N}</b> verified-active neobanks — <b>${added.length} added</b> and <b>${removed.length} removed</b> as apps launched, relicensed and quietly died. The mix kept tilting the same way: hybrid and web3-native both grew faster than traditional, and stablecoin support widened again.</p>
+<p>This edition reports the headline metrics <b>against ${PREV_MONTH}</b>. Net, the dataset moved from <b>${prevN ?? '—'}</b> to <b>${N}</b> verified-active neobanks — <b>${added.length} added</b> and <b>${removed.length} removed</b>${deaths.length ? ` (${deaths.length} closed${renamed.length ? `, ${renamed.length} renamed` : ''})` : renamed.length ? ` (renamed, not closed)` : ''}. ${mixSentence}</p>
 <table>
 <tr><th scope="col">metric</th><th scope="col">${MONTH.split(' ')[0].toLowerCase()}</th><th scope="col">${PREV_MONTH.toLowerCase()}</th><th scope="col">Δ</th><th scope="col">definition</th></tr>
 <tr><td>Verified-active neobanks</td><td class="mono">${N}</td><td class="mono">${prevN ?? '—'}</td><td class="mono">${delta(N, prevN)}</td><td>live and onboarding</td></tr>
 <tr><td>— traditional / hybrid / web3-native</td><td class="mono">${tri(T, H, W)}</td><td class="mono">${P ? tri(prevCat('traditional'), prevCat('hybrid'), prevCat('web3-native')) : '—'}</td><td class="mono">${P ? tri(delta(T, prevCat('traditional')), delta(H, prevCat('hybrid')), delta(W, prevCat('web3-native'))) : '—'}</td><td>wave split</td></tr>
 <tr><td>Stablecoin support</td><td class="mono">${stables} (${(stables / N * 100).toFixed(0)}%)</td><td class="mono">${stPrev ?? '—'}</td><td class="mono">${delta(stables, stPrev)}</td><td>any verified support</td></tr>
-<tr><td>Licensed banks<sup>¹</sup></td><td class="mono">${licBanks} (${(licBanks / N * 100).toFixed(0)}%)</td><td class="mono">—</td><td class="mono">n/a</td><td>charter holders</td></tr>
-<tr><td>Partner-bank (BaaS) model<sup>¹</sup></td><td class="mono">${partnerBanks}</td><td class="mono">—</td><td class="mono">n/a</td><td>rent a charter</td></tr>
+<tr><td>Licensed banks${regComparable ? '' : '<sup>¹</sup>'}</td><td class="mono">${licBanks} (${(licBanks / N * 100).toFixed(0)}%)</td><td class="mono">${regComparable ? licPrev : '—'}</td><td class="mono">${regComparable ? delta(licBanks, licPrev) : 'n/a'}</td><td>charter holders</td></tr>
+<tr><td>Partner-bank (BaaS) model${regComparable ? '' : '<sup>¹</sup>'}</td><td class="mono">${partnerBanks}</td><td class="mono">${regComparable ? partnerPrev : '—'}</td><td class="mono">${regComparable ? delta(partnerBanks, partnerPrev) : 'n/a'}</td><td>rent a charter</td></tr>
 <tr><td>Self-custodial (incl. MPC)</td><td class="mono">${selfNow}</td><td class="mono">${selfPrev ?? '—'}</td><td class="mono">${delta(selfNow, selfPrev)}</td><td>no custodian exists</td></tr>
 <tr><td>No-KYC apps</td><td class="mono">${noKyc.length}</td><td class="mono">${noKycPrev ?? '—'}</td><td class="mono">${delta(noKyc.length, noKycPrev)}</td><td>zero identity checks</td></tr>
-<tr><td>Niche-first neobanks</td><td class="mono">${nicheTotal} (${(nicheTotal / N * 100).toFixed(0)}%)</td><td class="mono">—</td><td class="mono">—</td><td>named audience</td></tr>
+<tr><td>Niche-first neobanks</td><td class="mono">${nicheTotal} (${(nicheTotal / N * 100).toFixed(0)}%)</td><td class="mono">${nichePrev ?? '—'}</td><td class="mono">${delta(nicheTotal, nichePrev)}</td><td>named audience</td></tr>
 <tr><td>Largest reported user base</td><td class="mono">${topUsers[0].name} · ${topUsers[0].reported_users.value_millions}M</td><td class="mono">—</td><td class="mono">—</td><td>self-reported</td></tr>
 </table>
-<p style="font-size:9px;color:#9a9aa5;margin:5px 0 0;line-height:1.45">¹ Regulation-type coverage was expanded and backfilled since № 01, so these two rows are not month-over-month comparable — the shift reflects more complete classification, not net industry movement. Category, stablecoin, self-custody and KYC deltas track real additions and removals.</p>
-<div class="callout"><span class="k">what moved</span><p><b>${added.length} added · ${removed.length} removed</b> since № 01. The full births-and-deaths list — with the cause behind every removal — is on the next page.</p></div>`);
+${regComparable ? '' : `<p style="font-size:9px;color:#9a9aa5;margin:5px 0 0;line-height:1.45">¹ Regulation-type coverage was expanded and backfilled since ${EDITION_PREV}, so these two rows are not month-over-month comparable — the shift reflects more complete classification, not net industry movement. Category, stablecoin, self-custody and KYC deltas track real additions and removals.</p>`}
+<div class="callout"><span class="k">what moved</span><p><b>${added.length} added · ${removed.length} removed</b> since ${EDITION_PREV}. The full births-and-deaths list — with the cause behind every removal — is on the next page.</p></div>`);
 
 /* ═══ THE GRAVEYARD — who died this month, and why ═══
    Per-entity detail is edition-specific and sourced (see the references page and
@@ -318,26 +365,42 @@ const DEATH_MODES = [
   ['reg', '#89B0FF', 'Liquidated by the regulator', 'the rarest and most abrupt: the licence is pulled and the doors shut'],
 ];
 const deathBlock = DEATH_MODES.map(([m, col, label, gloss]) => {
-  const ds = removed.filter(n => DEATH_DETAIL[n]?.mode === m);
+  const ds = deaths.filter(n => DEATH_DETAIL[n]?.mode === m);
   if (!ds.length) return '';
   return `<h2 style="color:${col};margin:16px 0 3px">${label}</h2>
 <p style="font-size:8.4pt;color:var(--dim);margin:0 0 8px">${gloss}</p>` +
     ds.map(n => `<p style="margin:0 0 9px"><b>${esc(n)}</b> <span class="mono" style="font-size:8.2pt;color:var(--dim)">${DEATH_DETAIL[n].meta}</span><br>${DEATH_DETAIL[n].why}</p>`).join('\n');
 }).join('\n');
-const otherDeaths = removed.filter(n => !DEATH_DETAIL[n]);
+const otherDeaths = deaths.filter(n => !DEATH_DETAIL[n]);
 page(`
 <div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · the graveyard</div>
-<h1>Why ${removed.length} neobanks died</h1>
-<p>A directory is only as honest as its removals. Neobanks rarely fail with a bang — usually an app just stops updating and support goes quiet. The ${removed.length} that left the active list since № 01 died three ways: a partner or rail collapsing beneath them, an acquirer switching them off, or a regulator pulling the licence. Who, and why:</p>
+<h1>${deaths.length ? `Why ${deaths.length} neobank${deaths.length === 1 ? '' : 's'} died` : 'Nobody died this month'}</h1>
+<p>A directory is only as honest as its removals. Neobanks rarely fail with a bang — usually an app just stops updating and support goes quiet. ${deaths.length
+  ? `The ${deaths.length} that left the active list since ${EDITION_PREV}, and why:`
+  : `No neobank left the active list since ${EDITION_PREV}.`}${renamed.length
+  ? ` ${renamed.map(esc).join(', ')} ${renamed.length === 1 ? 'was' : 'were'} renamed or merged rather than shut down, so ${renamed.length === 1 ? 'it is' : 'they are'} recorded as a change of name, not a death.`
+  : ''}</p>
 ${deathBlock}
 ${otherDeaths.length ? `<p style="margin:0 0 9px"><b>Also delisted:</b> ${otherDeaths.map(esc).join(', ')} — see the changelog for each.</p>` : ''}
 <p style="font-size:8.4pt;color:var(--dim);margin-top:10px">Sources are on each entity's profile; the running death log is the public <a href="https://www.neobankbeat.com/changelog/">changelog</a>, and the deeper pattern is dissected in <a href="https://www.neobankbeat.com/blog/why-neobanks-die/">"why neobanks die"</a> and the deposit-risk essay <a href="https://www.neobankbeat.com/blog/who-holds-your-money/">"who actually holds your money?"</a></p>`);
 
 /* ═══ NEW ARRIVALS + LIVE-PLATFORM CTAs ═══ */
+/* Described from the arrivals themselves. The fixed line here claimed every
+   month's intake was "heavier on hybrid and web3-native, stablecoin-first" —
+   October's four are three traditional and one web3-native. */
+const arrivalSentence = (() => {
+  const A = E.filter(e => added.includes(e.name));
+  if (!A.length) return '';
+  const c = k => A.filter(e => e.category === k).length;
+  const parts = [['traditional', c('traditional')], ['hybrid', c('hybrid')], ['web3-native', c('web3-native')]]
+    .filter(([, n]) => n).map(([k, n]) => `${n} ${k}`);
+  const st = A.filter(e => e.stablecoins).length, ni = A.filter(e => e.audience && e.audience !== 'general').length;
+  return ` Of the ${A.length}: ${parts.join(', ')}; ${st} support${st === 1 ? 's' : ''} stablecoins; ${ni} serve${ni === 1 ? 's' : ''} a named audience.`;
+})();
 page(`
 <div class="eyebrow">${PREV_MONTH} → ${MONTH.split(' ')[0]} · new arrivals</div>
 <h1>${added.length} arrived this month</h1>
-<p>Verified additions since № 01 — community-submitted or found in our discovery sweep, then checked before listing. The pattern mirrors the whole dataset's drift: heavier on hybrid and web3-native, stablecoin-first, and increasingly niche.</p>
+<p>Verified additions since ${EDITION_PREV} — community-submitted or found in our discovery sweep, then checked before listing.${arrivalSentence}</p>
 <p class="mono" style="font-size:9.5pt;line-height:1.85;color:var(--muted)">${added.map(esc).join('  ·  ')}</p>
 <div class="callout"><span class="k">this PDF is a snapshot — the platform isn't</span><p style="line-height:1.95;margin:0">Every figure here is live and updated continuously. Explore all ${N}:<br>
 ▸ <a href="https://www.neobankbeat.com/">the directory</a> · <a href="https://www.neobankbeat.com/map/">world map by country</a> · <a href="https://www.neobankbeat.com/database/">sortable database</a> · <a href="https://www.neobankbeat.com/matrix/">feature matrix</a><br>

@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-10-05', tag: 'new', title: 'The State of Neobanks № 04 — October 2026',
+    body: 'The October edition: 60 pages on 385 verified-active neobanks, pinned to its own snapshot. Against September, four arrived and none left — three traditional and one web3-native, with the partner-bank model up two and niche-first neobanks up three. The edition\'s narrative is now computed from the month\'s own numbers: until this one, a few sentences written for August were reprinted unchanged, and in September that meant counting a rebrand as a death.',
+    links: [['/report/', 'read № 04'], ['/report/2026-10/', 'the web edition']] },
   { date: '2026-10-05', tag: 'data', title: 'Four new neobanks, and twenty we checked and left out',
     body: 'Ethena Pay (a self-custodial USDe money app with a non-US Visa card), DNERO (a US-to-Mexico account for Latinos, deposits at a Puerto Rico bank that is not FDIC-insured), Casas Bahia Pay (the Brazilian retailer\'s e-money account, formerly banQi) and Mela (a US account with licensed transfers home for the Ethiopian diaspora) join the directory. Each came out of the weekly discovery scan and was verified against its own terms or regulator record before going in. The other names that scan surfaced were checked too and left out for a stated reason: shut down (Oxygen, GloriFi), acquired (Nerve, PayDay), lenders with no account product (Lupiya, Fingular, Vexi, StashFin), infrastructure (FinHarbor, NTT Data), or not verifiable as live (Stretch, Zurp, Pebble, KoinWorks NEO).',
     links: [['/n/ethena-pay/', 'Ethena Pay'], ['/n/dnero/', 'DNERO'], ['/n/casas-bahia-pay/', 'Casas Bahia Pay'], ['/n/mela/', 'Mela']] },
