@@ -855,6 +855,21 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
       const cited=[...llms.matchAll(/\/report\/(\d{4}-\d{2})\//g)].map(m=>m[1]);
       const stale=cited.filter(c=>c!==latest);
       ok(stale.length===0,'llms.txt points at the current report edition'+(stale.length?' (cites '+[...new Set(stale)].join(', ')+', latest is '+latest+')':''));
+
+      // The report landing page is hand-edited every month, and two months
+      // running the edit went wrong in ways nothing caught: a swap of the
+      // edition slug rewrote datePublished into the future, and a chapter
+      // title kept saying "into September" for two editions after August.
+      const land=fs.readFileSync(path.join(root,'report','index.html'),'utf8');
+      const want=['cover-'+latest+'.png','state-of-neobanks-'+latest+'.pdf','/report/'+latest+'/','nbbReport'+latest];
+      const missingPtr=want.filter(x=>!land.includes(x));
+      ok(missingPtr.length===0,'report landing page features the latest edition'+(missingPtr.length?' (missing: '+missingPtr.join(', ')+')':''));
+      const edNo='№ '+String(eds.indexOf(latest)+1).padStart(2,'0');
+      ok(land.includes('<b>'+edNo+' — '),'report landing badge names '+edNo);
+      const pub=(land.match(/"datePublished":"(\d{4}-\d{2}-\d{2})"/)||[])[1];
+      ok(!!pub&&pub<=new Date().toISOString().slice(0,10),'report datePublished is not in the future ('+pub+')');
+      const archMissing=eds.filter(e=>e!==latest).filter(e=>!land.includes('href="/report/'+e+'/"'));
+      ok(archMissing.length===0,'every earlier edition is in the landing-page archive'+(archMissing.length?' (missing: '+archMissing.join(', ')+')':''));
     }
   }
 
