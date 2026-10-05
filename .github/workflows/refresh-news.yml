@@ -13,7 +13,12 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      # Full history: the step after build-news runs build-pages, which dates
+      # every page from git and falls back to today on a shallow clone — the
+      # same trap refresh-jobs fell into (flowtest enforces this now).
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -22,12 +27,23 @@ jobs:
       - name: pull & rank this week's headlines
         run: node tests/build-news.mjs
 
+      # The headlines live in app.js and index.html carries their cache hash, so
+      # a news refresh changes the homepage — and the homepage's sitemap lastmod
+      # is read from git. This cron never regenerated the sitemap, so every
+      # Monday the committed lastmod for / sat a week stale against a fresh
+      # build, and the scheduled flowtest (which now runs after the crons) went
+      # red until Tuesday's rebuild quietly healed it.
+      - name: fold the homepage change into the sitemap
+        run: node tests/build-pages.mjs > /dev/null
+
       - name: commit & push if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # the headlines live in app.js; index.html carries its ?v= cache hash
-          git add app.js index.html
+          # stage everything the builders touched, not just app.js/index.html:
+          # build-pages also rewrites sitemap.xml (and sitemap.md / index.md),
+          # and leaving those unstaged makes `git pull --rebase` refuse to run
+          git add -A
           if git diff --cached --quiet; then
             echo "no changes — news kept from last run"
           else

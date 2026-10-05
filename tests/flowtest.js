@@ -1,4 +1,11 @@
 const fs=require('fs');
+/* The verified-active total, stated once. It was a literal in fourteen
+   assertions, so every addition or delisting meant hunting them all down. It
+   stays a literal rather than being read from data.json on purpose: a number
+   derived from the data would happily agree with an accidental deletion, and
+   catching that is the one job a hardcoded total does well. Bump it when an
+   entity is deliberately added or delisted; flow 1 checks it against the data. */
+const TOTAL=385;
 const {JSDOM}=require('jsdom');
 const rawHtml=fs.readFileSync(require('path').join(__dirname,'..','index.html'),'utf8');
 
@@ -32,7 +39,16 @@ const countText=()=>d.getElementById('count').textContent;
 
 console.log('— flow 1: initial render');
 ok(d.querySelectorAll('#grid .card').length>0,'cards rendered');
-ok(countText().includes('381'),'shows 381 total ('+countText()+')');
+ok(countText().includes(String(TOTAL)),'shows '+TOTAL+' total ('+countText()+')');
+{ const n=JSON.parse(fs.readFileSync(require('path').join(__dirname,'..','data.json'),'utf8')).entities.length;
+  ok(n===TOTAL,'TOTAL matches data.json ('+n+' entities'+(n===TOTAL?'':' — bump TOTAL at the top of flowtest.js if this was deliberate')+')'); }
+/* Per-category counts the filters are checked against, read from the data
+   rather than typed in. TOTAL above is the deliberate tripwire for deletions;
+   these just have to agree with whatever the dataset currently holds, and a
+   typed-in 58 broke the moment a web3-native neobank was added. */
+const DATA_E=JSON.parse(fs.readFileSync(require('path').join(__dirname,'..','data.json'),'utf8')).entities;
+const N_WEB3=DATA_E.filter(e=>e.category==='web3-native').length;
+const N_GENZ=DATA_E.filter(e=>e.audience==='gen z & students').length;
 ok(d.getElementById('mapsec')!==null,'map section built');
 ok(d.getElementById('newssec')!==null,'news section built');
 ok(d.getElementById('datasec')!==null,'data section built');
@@ -41,10 +57,10 @@ ok(d.getElementById('f-reg')!==null,'regulation filter present');
 
 console.log('— flow 2: category filter → active bar → nav reset');
 click(d.querySelector('.pill[data-cat="W"]'));
-ok(countText().includes('showing 58'),'W filter → 58 ('+countText()+')');
+ok(countText().includes('showing '+N_WEB3+' '),'W filter → '+N_WEB3+' ('+countText()+')');
 ok(d.getElementById('activebar').textContent.includes('web3-native'),'active bar shows category chip');
 click(d.getElementById('navdir'));
-ok(countText().includes('381'),'directory nav resets filters ('+countText()+')');
+ok(countText().includes(String(TOTAL)),'directory nav resets filters ('+countText()+')');
 ok(d.getElementById('activebar').innerHTML==='','active bar cleared');
 
 console.log('— flow 3: active-filter chip removal');
@@ -55,7 +71,7 @@ ok(d.querySelectorAll('#activebar .fchip').length===2,'two filter chips shown');
 click(d.querySelectorAll('#activebar .fchip')[0]); // remove category
 ok(!d.getElementById('activebar').textContent.includes('hybrid'),'category chip removed via ✕');
 click(d.getElementById('ab-clear')||d.getElementById('navdir'));
-ok(countText().includes('381'),'clear all restores 381');
+ok(countText().includes(String(TOTAL)),'clear all restores '+TOTAL);
 
 console.log('— flow 4: map region click filters + info panel');
 const naChip=d.querySelector('#mapsec .mchip[data-mr="AF"]');
@@ -69,7 +85,7 @@ naChip.dispatchEvent(new w.MouseEvent('mouseenter',{bubbles:true}));
 ok(d.getElementById('mapinfo').textContent.includes('Africa'),'map info shows Africa on hover');
 ok(d.querySelectorAll('#mapinfo .mi-item').length>0,'map info lists top neobanks');
 click(naChip); // toggle off
-ok(countText().includes('381'),'map filter toggles off');
+ok(countText().includes(String(TOTAL)),'map filter toggles off');
 
 console.log('— flow 5: profile open/close, peers, legal links');
 click(d.querySelector('#grid .card .cname'));
@@ -113,21 +129,21 @@ ok(!d.getElementById('tray').classList.contains('show'),'tray clear empties sele
 console.log('— flow 8: regulation filter');
 const fr=d.getElementById('f-reg');
 fr.value='Licensed bank';fr.dispatchEvent(new w.Event('change',{bubbles:true}));
-ok(!countText().startsWith('showing 335')&&/^showing \d+ of 381/.test(countText()),'regulation filter applies ('+countText()+')');
+ok(!countText().startsWith('showing '+TOTAL)&&new RegExp('^showing \\d+ of '+TOTAL).test(countText()),'regulation filter applies ('+countText()+')');
 ok(d.getElementById('activebar').textContent.includes('licensed bank'),'active bar shows regulation chip');
 click(d.getElementById('navdir'));
-ok(countText().includes('381'),'nav reset clears regulation too');
+ok(countText().includes(String(TOTAL)),'nav reset clears regulation too');
 
 console.log('— flow 9: search + gen z audience');
 const qi=d.getElementById('q');
 qi.value='women';qi.dispatchEvent(new w.Event('input',{bubbles:true}));
-ok(/^showing \d{1,2} of 381/.test(countText()),'search women narrows ('+countText()+')');
+ok(new RegExp('^showing \\d{1,2} of '+TOTAL).test(countText()),'search women narrows ('+countText()+')');
 click(d.getElementById('navdir'));
 const nn=d.getElementById('f-niche');
 ok([...nn.options].some(o=>o.value==='gz'),'gen z option exists');
 ok([...nn.options].some(o=>o.textContent.includes('gen alpha')),'gen alpha label exists');
 nn.value='gz';nn.dispatchEvent(new w.Event('change',{bubbles:true}));
-ok(countText().includes('showing 8'),'gen z → 8 ('+countText()+')');
+ok(countText().includes('showing '+N_GENZ+' '),'gen z → '+N_GENZ+' ('+countText()+')');
 click(d.getElementById('navdir'));
 
 console.log('— flow 10: escape key + overlay background click');
@@ -146,11 +162,11 @@ const gzOpt=[...audDD.querySelectorAll('.dd-opt')].find(o=>o.textContent.include
 ok(gzOpt!==undefined,'gen z option in custom menu');
 click(gzOpt);
 ok(!audDD.classList.contains('open'),'menu closes after pick');
-ok(countText().includes('showing 8'),'custom dropdown filters → 8 ('+countText()+')');
+ok(countText().includes('showing '+N_GENZ+' '),'custom dropdown filters → '+N_GENZ+' ('+countText()+')');
 ok(audDD.querySelector('.lbl').textContent.includes('gen z'),'button label updates');
 click(d.getElementById('navdir'));
 ok(audDD.querySelector('.lbl').textContent.includes('audience: all'),'label resets on nav clear ('+audDD.querySelector('.lbl').textContent+')');
-ok(countText().includes('381'),'count back to 381');
+ok(countText().includes(String(TOTAL)),'count back to '+TOTAL);
 
 console.log('— flow 12: founder chips + press link');
 w.openDetail('Nubank');
@@ -227,8 +243,8 @@ ok(!dw.innerHTML.includes('tinaba.com/terms'),'no fabricated terms URL for unver
 w.closeDetail();
 
 console.log('— flow 15: gap-hunt rows + refreshed stats');
-ok(w.eval("D.length")===381,'dataset now 381');
-ok(d.getElementById('st-total').textContent==='381','hero stat refreshed to 381');
+ok(w.eval("D.length")===TOTAL,'dataset now '+TOTAL);
+ok(d.getElementById('st-total').textContent===String(TOTAL),'hero stat refreshed to '+TOTAL);
 w.openDetail('Kontigo');
 ok(d.getElementById('dwrap').textContent.includes('Venezuela'),'Kontigo gap-hunt profile works');
 w.closeDetail();
@@ -239,7 +255,7 @@ const drill=d.querySelectorAll('#mapinfo .mi-cty');
 ok(drill.length>0&&drill.length<=12,'country chips render, capped ('+drill.length+')');
 ok([...drill].some(c=>c.textContent.includes('Nigeria')),'Nigeria appears in Africa drill-down');
 click([...drill].find(c=>c.textContent.includes('Nigeria')));
-ok(/^showing \d+ of 381/.test(countText())&&!countText().startsWith('showing 381'),'country click filters directory ('+countText()+')');
+ok(new RegExp('^showing \\d+ of '+TOTAL).test(countText())&&!countText().startsWith('showing '+TOTAL+' '),'country click filters directory ('+countText()+')');
 click(d.getElementById('navdir'));
 ok(d.querySelector('#mapsec')!==null&&d.getElementById('mapsec').previousElementSibling.id!=='spectrum','map relocated off the hero');
 ok([...d.querySelectorAll('.hnav a')].some(a=>a.getAttribute('href')==='#mapsec'),'map nav link added');
@@ -316,7 +332,7 @@ click(cell2);
 ok(d.querySelector('#grid').style.display!=='none','heat click lands on directory view');
 // brand click resets everything
 click(d.querySelector('.logo'));
-ok(countText().includes('381'),'brand click resets to full directory ('+countText()+')');
+ok(countText().includes(String(TOTAL)),'brand click resets to full directory ('+countText()+')');
 ok(d.querySelector('#grid').style.display!=='none','brand click shows directory');
 // super-app wallets in
 w.openDetail('GCash');
@@ -377,7 +393,7 @@ click(afRegion);
 const cta=d.querySelector('#mapinfo .mi-cta');
 ok(cta!==null&&/browse these \d+ in the directory/.test(cta.textContent),'region click offers a directory CTA ('+(cta?cta.textContent:'none')+')');
 click(cta);
-ok(d.querySelector('#grid').style.display!=='none'&&!countText().includes('showing 381 of 381'),'CTA lands on the filtered directory ('+countText()+')');
+ok(d.querySelector('#grid').style.display!=='none'&&!countText().includes('showing '+TOTAL+' of '+TOTAL),'CTA lands on the filtered directory ('+countText()+')');
 click(d.getElementById('navdir'));
 ok([...d.querySelectorAll('footer a')].some(a=>a.href.includes('issues/new')&&a.textContent.includes('submit')),'footer has the submit-a-neobank link');
 ok([...d.querySelectorAll('footer')].some(f=>f.textContent.includes('open source')),'footer declares open source');
@@ -807,6 +823,17 @@ console.log('— flow 31: the homepage ships its code as a cacheable file, not a
         return !listed.has(nameOf(s));
       });
       ok(unpinged.length===0,'every cron that commits a page triggers the IndexNow ping'+(unpinged.length?' ('+unpinged.join(', ')+' — add its name to indexnow.yml workflow_run)':''));
+    }
+
+    // Discovery files its candidates as a weekly issue, and its name extraction
+    // regressed twice with only that issue as a test — once filing "SMBs", once
+    // filing the verb after every name ("Revolut Boosts", "Goes Live"). Pinned
+    // now against the real headlines that produced the junk.
+    {
+      let out='',code=0;
+      try{ out=require('child_process').execSync('node '+path.join(__dirname,'discovery-extract.mjs')+' --check',{encoding:'utf8'}); }
+      catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
+      ok(code===0,'discovery extracts names, not headline verbs ('+out.trim().split('\n')[0]+')');
     }
 
     // A new report edition ships monthly and several surfaces point at "the"

@@ -9,6 +9,7 @@
    run: node tests/discover-neobanks.mjs                                     */
 import fs from 'node:fs';
 import path from 'node:path';
+import { decodeTitle, namesFromHeadline } from './discovery-extract.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SEEN_FILE = path.join(import.meta.dirname, 'discovery-seen.json');
@@ -78,67 +79,19 @@ const NEWS_QUERIES = [
   'neobank raises seed OR series',
   '"challenger bank" launches',
 ];
-/* Words a headline opens with before it gets to the subject. Stripped rather
-   than blocked: "Why Monzo launches matter" should yield Monzo, not "Why Monzo",
-   which matches nothing in the tracked set and files as a fresh candidate. */
-const LEAD = '(?:Why|How|What|Meet|Inside|Exclusive|Opinion|Watch|Report|Breaking|Analysis)';
-const NAME_PATTERNS = [
-  /* Anchored at the headline start. Unanchored, this matched any capitalised
-     word sitting in front of the verb anywhere in the line — "Norma, a Turkish
-     Neobank for freelancers and SMBs launches its platform" filed a candidate
-     called SMBs while the actual name sat unread in position one. */
-  new RegExp(`^(?:${LEAD}:? )?([A-Z][\\w.&'-]+(?: [A-Z][\\w.&'-]+)?)(?:,| has| have| officially| formally)? (?:launches|launched|unveils|debuts|introduces|goes live|rolls out)`, 'g'),
-  /(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank) ([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?)/g,
-  /* Up to three words may sit between the article and the noun: the appositive
-     is almost always qualified in practice ("a Turkish neobank", "the UK's
-     first digital bank"), and requiring "a neobank" bare missed all of them. */
-  /([A-Z][\w.&'-]+(?: [A-Z][\w.&'-]+)?),? (?:a|the) (?:[A-Za-z'’-]+ ){0,3}?(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank)/g,
-];
-/* Headlines are title case, so the two capitalised words after "Neobank" are
-   very often name + verb rather than a two-word name: "Neobank Revolut Boosts
-   Valuation" gave "Revolut Boosts", "Plasma Debuts", "Lupiya Raises". Trim a
-   trailing word that is really a verb or particle. */
-const TAIL_WORDS = new Set(['raises', 'raised', 'launches', 'launched', 'launching', 'debuts', 'unveils',
-  'introduces', 'boosts', 'extends', 'secures', 'onboards', 'has', 'have', 'used', 'wants', 'shuts',
-  'enters', 'expands', 'exclusively', 'with', 'actively', 'officially', 'quietly', 'turned', 'adds',
-  'gets', 'goes', 'taps', 'picks', 'names', 'hires', 'plans', 'eyes', 'seeks', 'sets', 'opens',
-  'brings', 'rolls', 'partners', 'teams', 'to', 'after', 'amid', 'announces', 'reports', 'confirms',
-  'says', 'joins', 'buys', 'acquires', 'closes', 'hits', 'tops', 'files', 'wins', 'backs', 'bets',
-  'moves', 'pivots', 'cuts', 'drops', 'faces', 'sues', 'denies']);
-/* A first word no company is called, which is what the patterns grab when the
-   word after "Neobank" is a preposition or a gerund: "After This", "Built
-   Exclusively", "Market With", "Powering", "Promising", "How to Build". */
-const HEAD_STOP = new Set(['after', 'amid', 'build', 'built', 'start', 'starting', 'platform', 'powering',
-  'promising', 'launching', 'founded', 'with', 'to', 'market', 'upgrade', 'officially', 'has', 'how',
-  'the', 'this', 'that', 'new', 'global', 'its', 'a', 'an', 'and', 'for', 'from', 'in', 'on', 'at',
-  'by', 'why', 'what', 'when', 'where', 'more', 'most', 'top', 'best', 'first', 'next', 'now', 'just',
-  'still', 'plus', 'over', 'under', 'into', 'about', 'behind', 'inside', 'meet', 'watch', 'report',
-  'breaking', 'analysis', 'opinion', 'exclusive']);
-
-const cleanName = (s) => {
-  let n = String(s)
-    .replace(new RegExp(`^${LEAD}:? `), '')
-    .replace(/^(?:[Nn]eobank|[Dd]igital bank|[Cc]hallenger bank)\s+/, '')   // "Neobank Douugh" → "Douugh"
-    .replace(/['’]s$/, '')
-    .trim();
-  const w = n.split(/\s+/);
-  if (w.length === 2 && TAIL_WORDS.has(w[1].toLowerCase())) n = w[0];
-  if (!n || HEAD_STOP.has(n.split(/\s+/)[0].toLowerCase())) return '';
-  return n;
-};
+/* Name extraction lives in discovery-extract.mjs so it can be tested against
+   real headlines (tests/fixtures/discovery-headlines.json) — it regressed twice
+   while the only test was reading next week's issue. */
 const headlines = [];
 for (const q of NEWS_QUERIES) {
   try {
     const xml = await get(`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`, 'application/rss+xml');
     for (const m of xml.matchAll(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/g)) {
-      const title = m[1].replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      const title = decodeTitle(m[1]);
       if (title.includes('Google News')) continue;
       headlines.push(title);
-      for (const re of NAME_PATTERNS) {
-        for (const hit of title.matchAll(re)) {
-          const cand = cleanName(hit[1]);   // '' when the match was not a name at all
-          if (cand && !STOP.has(norm(cand))) add(cand, `news: ${title.slice(0, 110)}`);
-        }
+      for (const cand of namesFromHeadline(title)) {
+        if (!STOP.has(norm(cand))) add(cand, `news: ${title.slice(0, 110)}`);
       }
     }
   } catch (e) { console.error(`  !! news "${q}": ${e.message}`); }

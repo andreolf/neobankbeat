@@ -1,10 +1,10 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-09-11.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-10-05.
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 381 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 385 neobanks
 - [Browse](https://www.neobankbeat.com/browse/) — 47 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
@@ -80,7 +80,7 @@
 - [visa mastercard neobank geography](https://www.neobankbeat.com/blog/visa-mastercard-neobank-geography/) (2026-09-29)
 - [who actually pays interest](https://www.neobankbeat.com/blog/who-actually-pays-interest/) (2026-10-06)
 
-## Neobank profiles (381)
+## Neobank profiles (385)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -463,8 +463,12 @@
 - [Blink](https://www.neobankbeat.com/n/blink/)
 - [Yolat](https://www.neobankbeat.com/n/yolat/)
 - [GetPlu](https://www.neobankbeat.com/n/getplu/)
+- [Ethena Pay](https://www.neobankbeat.com/n/ethena-pay/)
+- [DNERO](https://www.neobankbeat.com/n/dnero/)
+- [Casas Bahia Pay](https://www.neobankbeat.com/n/casas-bahia-pay/)
+- [Mela](https://www.neobankbeat.com/n/mela/)
 
-## Comparisons (152)
+## Comparisons (159)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -563,7 +567,13 @@
 - [Greenwood vs MoCaFi](https://www.neobankbeat.com/vs/greenwood-vs-mocafi/)
 - [Majority vs Zolve](https://www.neobankbeat.com/vs/majority-vs-zolve/)
 - [Majority vs Comun](https://www.neobankbeat.com/vs/majority-vs-comun/)
+- [Majority vs DNERO](https://www.neobankbeat.com/vs/majority-vs-dnero/)
+- [Majority vs Mela](https://www.neobankbeat.com/vs/majority-vs-mela/)
 - [Zolve vs Comun](https://www.neobankbeat.com/vs/zolve-vs-comun/)
+- [Zolve vs DNERO](https://www.neobankbeat.com/vs/zolve-vs-dnero/)
+- [Zolve vs Mela](https://www.neobankbeat.com/vs/zolve-vs-mela/)
+- [Comun vs DNERO](https://www.neobankbeat.com/vs/comun-vs-dnero/)
+- [Comun vs Mela](https://www.neobankbeat.com/vs/comun-vs-mela/)
 - [Ellevest vs First Women's Bank](https://www.neobankbeat.com/vs/ellevest-vs-first-women-s-bank/)
 - [Tide vs OakNorth](https://www.neobankbeat.com/vs/tide-vs-oaknorth/)
 - [Tide vs Allica Bank](https://www.neobankbeat.com/vs/tide-vs-allica-bank/)
@@ -618,6 +628,7 @@
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
+- [DNERO vs Mela](https://www.neobankbeat.com/vs/dnero-vs-mela/)
 
 ## Topic hubs (47)
 
@@ -671,4 +682,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (381) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (380) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (385) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (384) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
