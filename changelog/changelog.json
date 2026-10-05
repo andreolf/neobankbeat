@@ -1,9 +1,9 @@
 {
- "generated": "2026-09-11",
+ "generated": "2026-10-05",
  "total": 385,
  "releases": [
   {
-   "date": "2026-10-06",
+   "date": "2026-10-05",
    "tag": "data",
    "title": "Four new neobanks, and twenty we checked and left out",
    "body": "Ethena Pay (a self-custodial USDe money app with a non-US Visa card), DNERO (a US-to-Mexico account for Latinos, deposits at a Puerto Rico bank that is not FDIC-insured), Casas Bahia Pay (the Brazilian retailer's e-money account, formerly banQi) and Mela (a US account with licensed transfers home for the Ethiopian diaspora) join the directory. Each came out of the weekly discovery scan and was verified against its own terms or regulator record before going in. The other names that scan surfaced were checked too and left out for a stated reason: shut down (Oxygen, GloriFi), acquired (Nerve, PayDay), lenders with no account product (Lupiya, Fingular, Vexi, StashFin), infrastructure (FinHarbor, NTT Data), or not verifiable as live (Stretch, Zurp, Pebble, KoinWorks NEO).",
@@ -194,6 +194,20 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-10-05",
+   "summary": "Four neobanks in, twenty out, and the bugs behind them.",
+   "subject": "Triage the open issues: four neobanks in, twenty out, and the bugs behind them",
+   "total": 385,
+   "added": [
+    "Ethena Pay",
+    "DNERO",
+    "Casas Bahia Pay",
+    "Mela"
+   ],
+   "removed": [],
+   "updated": []
+  },
   {
    "date": "2026-09-11",
    "summary": "139M customers, US launch recorded + the post; GetPlu data fix.",

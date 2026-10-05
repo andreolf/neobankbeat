@@ -10,7 +10,9 @@ import { clampDesc, withCrumbs } from './meta.mjs';
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
 const BASE = 'https://www.neobankbeat.com';
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const git = cmd => execSync(`git ${cmd}`, { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString();
+/* TZ=UTC so commit dates read the same wherever the commit was made — see the
+   note in build-pages.mjs. */
+const git = cmd => execSync(`git ${cmd}`, { cwd: ROOT, maxBuffer: 64 * 1024 * 1024, env: { ...process.env, TZ: 'UTC' } }).toString();
 
 const slugify = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'entity';
 
@@ -54,7 +56,7 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
-  { date: '2026-10-06', tag: 'data', title: 'Four new neobanks, and twenty we checked and left out',
+  { date: '2026-10-05', tag: 'data', title: 'Four new neobanks, and twenty we checked and left out',
     body: 'Ethena Pay (a self-custodial USDe money app with a non-US Visa card), DNERO (a US-to-Mexico account for Latinos, deposits at a Puerto Rico bank that is not FDIC-insured), Casas Bahia Pay (the Brazilian retailer\'s e-money account, formerly banQi) and Mela (a US account with licensed transfers home for the Ethiopian diaspora) join the directory. Each came out of the weekly discovery scan and was verified against its own terms or regulator record before going in. The other names that scan surfaced were checked too and left out for a stated reason: shut down (Oxygen, GloriFi), acquired (Nerve, PayDay), lenders with no account product (Lupiya, Fingular, Vexi, StashFin), infrastructure (FinHarbor, NTT Data), or not verifiable as live (Stretch, Zurp, Pebble, KoinWorks NEO).',
     links: [['/n/ethena-pay/', 'Ethena Pay'], ['/n/dnero/', 'DNERO'], ['/n/casas-bahia-pay/', 'Casas Bahia Pay'], ['/n/mela/', 'Mela']] },
   { date: '2026-09-22', tag: 'new', title: 'The State of Neobanks № 03 — and three posts that publish themselves',
@@ -117,7 +119,10 @@ const RELEASES = [
 ];
 
 /* commits touching data.json, oldest → newest */
-const commits = git(`log --format='%H|%ad|%s' --date=short -- data.json`)
+/* format-local, not short: --date=short renders in the author's own timezone,
+   so a data commit made from Japan after 09:00 local landed in the changelog
+   dated a day ahead of every other date on the site, which is all UTC. */
+const commits = git(`log --format='%H|%ad|%s' --date=format-local:%Y-%m-%d -- data.json`)
   .trim().split('\n').map(l => {
     const [hash, date, ...s] = l.replace(/^'|'$/g, '').split('|');
     return { hash, date, subject: s.join('|') };
