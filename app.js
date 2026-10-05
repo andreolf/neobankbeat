@@ -406,7 +406,11 @@ const D=[
 ["Esh Bank","T","MENA","Tel Aviv, IL",2022,"C","—","—","—","—",0,"Y","g","esh.com","Israeli fully-digital bank whose patented Equal Sharing model returns 50% of interest income on customer balances, with no account fees."],
 ["Blink","T","MENA","Amman, JO",2022,"C","—","—","—","—",0,"Y","g","theblink.com","Jordan's first digital-only neobank by Capital Bank of Jordan — app-based account opening with a Jordanian ID in about 15 minutes, an instant virtual debit card and instant credit cards."],
 ["Yolat","T","Africa","Lagos, NG",2024,"C","—","—","—","—",0,"Y","i","yolat.com","Cross-border account for Africans and African businesses — earn, hold, send and pay across borders; licensed as FINTRAC MSB + Bank of Canada RPAA PSP, with a CBN IMTO for Nigeria inflows."],
-["GetPlu","H","Global","Delaware, US",2026,"C","Visa","Virtual + physical","—","—",1,"Y","i","getplu.com","Zero-fee Visa dollar card funded with USD, USDC or USDT — virtual issued instantly after KYC, physical on the paid tiers; spendable in 125+ countries, on partner rails rather than its own licence."]
+["GetPlu","H","Global","Delaware, US",2026,"C","Visa","Virtual + physical","—","—",1,"Y","i","getplu.com","Zero-fee Visa dollar card funded with USD, USDC or USDT — virtual issued instantly after KYC, physical on the paid tiers; spendable in 125+ countries, on partner rails rather than its own licence."],
+["Ethena Pay","W","Global","Malta, MT",2026,"S","Visa","Virtual (secured)","Up to 5% in AVAX","Up to ~6% on USDe (tier caps)",1,"CO","g","pay.ethena.fi","Self-custodial USDe money app on Avalanche; non-US Visa card via Third National."],
+["DNERO","T","US","Irvine, US",2025,"C","Visa","Debit","0.5% at partner brands","—",0,"Y","i","dneroapp.com","US↔Mexico account for Latinos; flat $2 transfers; deposits at Zenus Bank (PR), not FDIC-insured."],
+["Casas Bahia Pay","T","LatAm","São Paulo, BR",2018,"C","MC","Prepaid","—","—",0,"Y","ub","banqi.com.br","Casas Bahia's retail account (ex-banQi, renamed 2026): free Pix, prepaid Mastercard, cash in and out at stores."],
+["Mela","T","US","Delaware, US",2024,"C","—","—","—","—",0,"Y","i","melafinance.com","US account plus licensed transfers home for the Ethiopian diaspora; launched 2026."],
 ];
 /* pre-launch / emerging — kept in the machine dataset (data.json `emerging`) but excluded from the verified-active grid, counts and generated pages */
 const EMERGING=[
@@ -980,6 +984,10 @@ const X={
 "Gnosis Pay":{f:"Stefan George, Martin Köppelmann",l:"E-money via Monavate (UK/EU); funds in your own Safe",m:"~$12.5M raised",s:"The first onchain bank account: a Visa card wired directly to a Safe smart account on Gnosis Chain."},
 "Holyheld":{l:"E-money partners (EU); non-custodial top-ups"},
 "EtherFi Cash":{f:"Mike Silagadze",l:"DeFi protocol + issuer partners",m:"~$32M + token",s:"Borrow against restaked ETH at the point of sale — credit without selling your stack."},
+"Ethena Pay":{f:"Guy Young",l:"Self-custodial wallet; Ethena Pay Ltd (Malta) is a software company, not a bank; secured Visa card issued by Third National (Puerto Rico) under a Rain-managed program",s:"Holds your dollars as USDe in a wallet only you control, pays the stablecoin's yield as a savings rate, and spends it on a Visa card everywhere but the US."},
+"DNERO":{l:"Partner bank: Zenus Bank International (Puerto Rico, OCFI-regulated) holds deposits and issues the Visa debit card; not FDIC-insured; program manager Connect Fintech",s:"A borderless account for the Latino economy: get paid in the US, send to Mexico for a flat $2, spend on a cashback debit card."},
+"Casas Bahia Pay":{l:"Banco Central-authorised e-money issuer (Banqi Instituição de Pagamento Ltda); prepaid Mastercard; loans via group credit fintech BNQI SCD",s:"The retailer's own account for shoppers banks overlook: no proof of income, cash deposits at the till, and the store carnê paid from the same app."},
+"Mela":{f:"Aelaf Mideksa",l:"US account via a BaaS partner bank (sponsor not publicly named); Mela Finance Inc. is a National Bank of Ethiopia licensed money transfer institution",s:"One app for the Ethiopian diaspora's money life: US payroll in, licensed transfers home, support in Amharic, Oromigna and Tigrinya."},
 "Ready":{f:"Itamar Lesuisse, Gerald Goldstein",m:"~$50M raised (as Argent)",l:"Self-custodial software; card via Kulipa (non-EEA cut Jun 2026; issuer wound down Jul 2026)",s:"Argent pioneered smart-account wallets and social recovery; rebranded to Ready to become an onchain bank."},
 "Plasma One":{f:"Paul Faecks",l:"Own L1; card via issuer partners",m:"~$74M + XPL sale; Tether-linked",s:"A stablecoin-native neobank running on its own chain — zero-fee USD₮ transfers, though XPL fell ~94% from its high."},
 "Cypher":{l:"Self-custodial; principal card programs"},
@@ -2300,6 +2308,10 @@ const V={
 "Payy":{t:"https://payy.network/terms",p:"https://payy.network/privacy",x:"payy_link",fx:{"Sid Gandhi":"sidgandhi_xyz"},cc:["Global"]},
 "Gnosis Pay":{x:"gnosispay",in:{"Martin Köppelmann":"https://www.linkedin.com/in/martin-koeppelmann/"},fx:{"Martin Köppelmann":"koeppelmann","Stefan George":"StefanDGeorge"},cc:["United Kingdom","European Union","Brazil"]},
 "EtherFi Cash":{t:"https://www.ether.fi/legal/terms-of-use",p:"https://www.ether.fi/legal/privacy-policy",x:"ether_fi",fx:{"Mike Silagadze":"MikeSilagadze"},cc:["Global"]},
+"Ethena Pay":{cc:["Global"]},
+"DNERO":{t:"https://dneroapp.com/en/terms",cc:["United States","Mexico"]},
+"Casas Bahia Pay":{t:"https://www.banqi.com.br/termos-de-uso",cc:["Brazil"]},
+"Mela":{cc:["United States","Ethiopia"]},
 "Ready":{p:"https://www.ready.co/legal/privacy/ready",x:"ready_co",in:{"Itamar Lesuisse":"https://www.linkedin.com/in/itamarl/"},fx:{"Itamar Lesuisse":"itamarl"},cc:["United Kingdom","European Union","Global"]},
 "Plasma One":{t:"https://www.plasma.org/terms-of-service",p:"https://www.plasma.to/privacy",x:"Plasma",fx:{"Paul Faecks":"paulfaecks"},cc:["Global"]},
 "Oobit":{t:"https://www.oobit.com/legal",p:"https://www.oobit.com/legal/privacy-notice",x:"oobit",cc:["Singapore","European Union","Global"]},

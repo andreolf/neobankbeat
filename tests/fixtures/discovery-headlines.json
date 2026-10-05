@@ -1,0 +1,360 @@
+{
+ "_about": "Real Google News headlines from the discovery runs of 2026-09-21, -09-28 and -10-05 — the runs that filed verbs and prepositions as companies. 'want' lists the names a reviewer would accept; an empty list means the headline names no company, so anything extracted from it is junk. flowtest requires zero junk and recall at or above recall_floor. The last nine are hand-written cases carried over from the two earlier fixes (#111, #120), kept so neither regression can come back.",
+ "recall_floor": 0.85,
+ "cases": [
+  {
+   "headline": "Airfox launches banQi challenger bank in Brazil - Payments Dive",
+   "want": [
+    "Airfox",
+    "banQi"
+   ]
+  },
+  {
+   "headline": "Australian Government Supports Launch of New Queensland Neobank Set to Revolutionise the Banking Sector - news",
+   "want": []
+  },
+  {
+   "headline": "BRAC Bank launches Google Pay for Visa credit cardholders - The Business Standard",
+   "want": []
+  },
+  {
+   "headline": "Bangladesh Bank introduces 'Non-Resident Convertible Taka Account' for expatriates - The Business Standard",
+   "want": []
+  },
+  {
+   "headline": "British Neobank Plasma Debuts Stablecoin Banking Product - PYMNTS.com",
+   "want": [
+    "Plasma"
+   ]
+  },
+  {
+   "headline": "Bybit Enters Crypto Neobank Market With MyBank Launch - Altcoin Buzz",
+   "want": [
+    "Bybit",
+    "MyBank"
+   ]
+  },
+  {
+   "headline": "Creator loyalty neobank Zurp raises $5 million, pivots from crypto - Axios",
+   "want": [
+    "Zurp"
+   ]
+  },
+  {
+   "headline": "DNERO Launches Borderless Neobank Powering the Rise of the Latino Economy - FF News",
+   "want": [
+    "DNERO"
+   ]
+  },
+  {
+   "headline": "Ethena Launches Ethena Pay, a Self-Custodial Neobank Built Exclusively on Avalanche - blockhead.co",
+   "want": [
+    "Ethena",
+    "Ethena Pay"
+   ]
+  },
+  {
+   "headline": "Ethena Launches EthenaPay, a Neobank App Built Entirely on Its Own Stablecoin - Startup Fortune",
+   "want": [
+    "Ethena",
+    "EthenaPay"
+   ]
+  },
+  {
+   "headline": "Ether.fi Launches Neobank Upgrade With Tokenized Stocks and a Dedicated Aave Lending Market - CryptoRank",
+   "want": [
+    "Ether.fi"
+   ]
+  },
+  {
+   "headline": "FinHarbor Launches Rapid-Deployment Neobank Platform for 30-Day Go-Live - Macau Business",
+   "want": [
+    "FinHarbor"
+   ]
+  },
+  {
+   "headline": "Global Neobank Fingular Launches “Buy Now, Pay Later” Business in Malaysia Under the Brand AhaPay - FF News",
+   "want": [
+    "Fingular",
+    "AhaPay"
+   ]
+  },
+  {
+   "headline": "Google Pay Co-founders’ Indian Neobank Has Raised $13.2M - PYMNTS.com",
+   "want": []
+  },
+  {
+   "headline": "How to Build a Neobank from Scratch? - businessfocusmagazine.com",
+   "want": []
+  },
+  {
+   "headline": "How to Start a Neobank in 2025: A Step-by-Step Guide for Entrepreneurs: By Retired Member - Finextra Research",
+   "want": []
+  },
+  {
+   "headline": "Indonesia’s SME-Focused Neobank KoinWorks Raises US$108 Million Series C - fintechnews.sg",
+   "want": [
+    "KoinWorks"
+   ]
+  },
+  {
+   "headline": "KAST: $80 Million Series A Raised By Stablecoin Neobank To Expand Global Financial Platform - Pulse 2.0",
+   "want": [
+    "KAST"
+   ]
+  },
+  {
+   "headline": "Key Steps to Launching a Secure and Scalable Neobank - Robotics & Automation News",
+   "want": []
+  },
+  {
+   "headline": "Mela Launches Neobank Connecting Ethiopian Diaspora to Financial Services in Ethiopia - StockMarket.et",
+   "want": [
+    "Mela"
+   ]
+  },
+  {
+   "headline": "Mexican Neobank Albo Raises US$7.4M Series A - LatamList",
+   "want": [
+    "Albo"
+   ]
+  },
+  {
+   "headline": "Myanmar Shadow Government to Start Neobank With Crypto Rails to Fund Fight Against Military Junta - CoinDesk",
+   "want": []
+  },
+  {
+   "headline": "NTT Data launches first BaaS-powered digital bank - Telecompaper",
+   "want": [
+    "NTT Data"
+   ]
+  },
+  {
+   "headline": "NatWest launches new challenger bank Bu00f3 - can it rival Monzo and Starling? - which.co.uk",
+   "want": [
+    "NatWest",
+    "Bó"
+   ]
+  },
+  {
+   "headline": "Neobank Current Onboards New Chief Risk Officer Ahead Of 2023 Credit Product Launch - Benzinga",
+   "want": [
+    "Current"
+   ]
+  },
+  {
+   "headline": "Neobank GloriFi shuts down following turbulent launch - Banking Dive",
+   "want": [
+    "GloriFi"
+   ]
+  },
+  {
+   "headline": "Neobank HMBradley to wind down retail operations in B2B pivot - Banking Dive",
+   "want": [
+    "HMBradley"
+   ]
+  },
+  {
+   "headline": "Neobank Juno raises $18M in a Series A round led by ParaFi Capital - YourStory.com",
+   "want": [
+    "Juno"
+   ]
+  },
+  {
+   "headline": "Neobank MovoCash launches real-time cryptocurrency conversion - Banking Dive",
+   "want": [
+    "MovoCash"
+   ]
+  },
+  {
+   "headline": "Neobank Oxygen Raises $20 Million; Introduces New CEO David Rafalovsky - Finovate",
+   "want": [
+    "Oxygen"
+   ]
+  },
+  {
+   "headline": "Neobank PayDay Raises $3 Million In Seed Funding For Its Future of Work Initiative - Tech Labari",
+   "want": [
+    "PayDay"
+   ]
+  },
+  {
+   "headline": "Neobank PayDay Raises $3 Million In Seed Funding For Its Future of Work Initiative - techlabari.com",
+   "want": [
+    "PayDay"
+   ]
+  },
+  {
+   "headline": "Neobank Revolut Actively Exploring Launching Its Own Stablecoin: Sources - Decrypt",
+   "want": [
+    "Revolut"
+   ]
+  },
+  {
+   "headline": "Neobank Revolut Boosts Valuation to $75 Billion Ahead of Potential Stablecoin Launch - Decrypt",
+   "want": [
+    "Revolut"
+   ]
+  },
+  {
+   "headline": "Neobank Rizon Raises $2M Pre-Seed Round As Global Demand For Dollar Banking Services Rises - Financial IT",
+   "want": [
+    "Rizon"
+   ]
+  },
+  {
+   "headline": "Neobank StashFin raises $40 mn in Series B Extension equity financing - IBS Intelligence",
+   "want": [
+    "StashFin"
+   ]
+  },
+  {
+   "headline": "Neobank Stretch wants to bank individuals with a conviction history - Banking Dive",
+   "want": [
+    "Stretch"
+   ]
+  },
+  {
+   "headline": "Neobank Vexi raises millions to offer young Mexicans lower interest rate credit cards - TechCrunch",
+   "want": [
+    "Vexi"
+   ]
+  },
+  {
+   "headline": "Nerve, World’s First Neobank Created for Musicians Launched - fintechfutures.com",
+   "want": [
+    "Nerve"
+   ]
+  },
+  {
+   "headline": "Norma, a Turkish Neobank for freelancers and SMBs launches its platform - IBS Intelligence",
+   "want": [
+    "Norma"
+   ]
+  },
+  {
+   "headline": "Peter Thiel-Backed Plasma Quietly Debuts $373M Stablecoin Neobank Promising 10% Yields And Access Across 150 C",
+   "want": [
+    "Plasma"
+   ]
+  },
+  {
+   "headline": "Pitch Deck Crypto Neobank Pebble Used to Raise $6.2 Million Seed Round - Business Insider",
+   "want": [
+    "Pebble"
+   ]
+  },
+  {
+   "headline": "Plasma Launches Plasma One A Stablecoin Neobank Amid WLFI’s Card and Retail App Quest - Tekedia",
+   "want": [
+    "Plasma",
+    "Plasma One"
+   ]
+  },
+  {
+   "headline": "Plasma One Neobank Goes Live with Tiered XPL Membership - finance.yahoo.com",
+   "want": [
+    "Plasma One",
+    "Plasma"
+   ]
+  },
+  {
+   "headline": "Plasma to Launch Stablecoin-Native Neobank After This Month’s ‘Mainnet Beta’ - Decrypt",
+   "want": [
+    "Plasma"
+   ]
+  },
+  {
+   "headline": "Plasma to Launch Stablecoin-Native Neobank After This Month’s ‘Mainnet Beta’ - Yahoo Finance",
+   "want": [
+    "Plasma"
+   ]
+  },
+  {
+   "headline": "Singapore-based Global Neobank Fingular Has Turned Its First Profit in Malaysia in Just 9 Months After Launch ",
+   "want": [
+    "Fingular"
+   ]
+  },
+  {
+   "headline": "Snappi: Greece’s First ECB-Licensed Neobank Officially Launches – 100% Digital With Zero Fees and 24/7 Human S",
+   "want": [
+    "Snappi"
+   ]
+  },
+  {
+   "headline": "Tonik, a Filipino Neobank Founded by a Ukrainian, Raises $12M - Scroll.media",
+   "want": [
+    "Tonik"
+   ]
+  },
+  {
+   "headline": "U.S.-based Neobank Novo Secures $125 Million in Series B Funding - Finovate",
+   "want": [
+    "Novo"
+   ]
+  },
+  {
+   "headline": "Zambia Neobank Lupiya Extends Series A to $11.25M - Dabafinance",
+   "want": [
+    "Lupiya"
+   ]
+  },
+  {
+   "headline": "Zambian Neobank Lupiya Raises $11.2m Series A to Expand Across Southern Africa - Launch Base Africa",
+   "want": [
+    "Lupiya"
+   ]
+  },
+  {
+   "headline": "Neobank Douugh unveils new savings feature",
+   "want": [
+    "Douugh"
+   ]
+  },
+  {
+   "headline": "Zolve, a new neobank for immigrants, raises $40M",
+   "want": [
+    "Zolve"
+   ]
+  },
+  {
+   "headline": "Bunq, a Dutch neobank, expands to the US",
+   "want": [
+    "Bunq"
+   ]
+  },
+  {
+   "headline": "Meet Tonik, the Philippines first digital bank",
+   "want": [
+    "Tonik"
+   ]
+  },
+  {
+   "headline": "Why Monzo launches matter for challenger banks",
+   "want": [
+    "Monzo"
+   ]
+  },
+  {
+   "headline": "New challenger bank DF Capital granted licence - FStech",
+   "want": [
+    "DF Capital"
+   ]
+  },
+  {
+   "headline": "Exclusive: Kuda launches neobank services in the UK",
+   "want": [
+    "Kuda"
+   ]
+  },
+  {
+   "headline": "Starling Bank has launched a new SME product",
+   "want": []
+  },
+  {
+   "headline": "Chase raises savings rate for customers",
+   "want": []
+  }
+ ]
+}

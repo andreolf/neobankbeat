@@ -59,6 +59,12 @@ const S = {
   newsletters: (fs.readFileSync(p('newsletters/index.html'), 'utf8').match(/<b>\d+ newsletters<\/b>/) || [])[0]?.match(/\d+/)[0] * 1,
   licensed: reg['Licensed bank'],
   partnerBank: reg['Partner-bank model'],
+  /* /countries/ counts companies by HQ, and availability separately; llms.txt
+     states how complete each field is. Both figures were hand-typed and had
+     drifted — "347 of 381" while the data said 345 placed and 347 parseable. */
+  hqParsed: count(e => /,\s*[A-Z]{2,3}$/.test(e.hq || '')),
+  availabilityRecorded: count(e => (e.countries || []).length),
+  usersDisclosed: count(e => e.reported_users),
   smb: aud['SMB & startups'], freelancers: aud['freelancers & creators'],
   niche: count(e => e.audience && e.audience !== 'general'),
   underbanked: count(e => e.audience === 'underbanked'),
@@ -107,6 +113,11 @@ const RULES = {
     n('grounded in open data on ', S.entities, ' tracked neobanks'),
   ],
   'llms.txt': [
+    n('complete for ', S.hqParsed, ' of '),
+    n('complete for \\d+ of ', S.entities, ' entities'),
+    n('a field recorded for only ', S.availabilityRecorded, '\\.'),
+    n('only ', S.usersDisclosed, ' of \\d+ entities disclose'),
+    n('only \\d+ of ', S.entities, ' entities disclose'),
     n('directory of ', S.entities, ' verified-active neobanks'),
     n('all ', S.entities, ' entities with category'),
     n('grid of all ', S.entities, ' entities'),
@@ -122,7 +133,28 @@ const RULES = {
     n('infra/\\): the ', S.infra, ' providers'),
   ],
   'AGENTS.md': [n('directory of ', S.entities, ' verified-active neobanks')],
+  'blog/index.html': [
+    n('open data on ', S.entities, ' tracked neobanks'),
+    n('<b>', S.entities, ' tracked neobanks</b>'),
+  ],
+  'robots.txt': [
+    n('full dataset \\(', S.entities, ' neobanks\\)'),
+  ],
   'README.md': [
+    /* The README's own entity counts were bumped by hand on every addition —
+       including the sentence below claiming every count is owned here, whose
+       four numbers were not. "140 comparisons" had sat stale against 159. */
+    n('badge/neobanks-', S.entities, '-'),
+    n('\\*\\*', S.entities, ' verified-active neobanks\\*\\*'),
+    n('\\*\\* — ', S.entities, ' verified-active entities'),
+    n('const D=\\[\\.\\.\\.\\] +', S.entities, ' entities, one row each'),
+    n('n/ +', S.profiles, ' generated entity profile pages'),
+    n('in English — ', S.entities, ' neobanks, '),
+    n(' neobanks, ', S.faq, ' FAQ answers, '),
+    n('FAQ answers, ', S.investors, '\\s+investors, '),
+    n('investors, ', S.comparisons, ' comparisons — is owned'),
+    n('directory — ', S.entities, ' neobanks with filters'),
+    n('all ', S.entities, ' entities, every field'),
     n('badge/tests-', S.assertions, '%20passing'),
     n('flowtest\\.js     ', S.assertions, ' assertion sites across '),
     n(' assertion sites across ', S.flows, ' user flows'),
@@ -185,6 +217,13 @@ const RULES = {
      edition, whose figures are pinned to report/<slug>/data-snapshot.json and
      must keep matching the PDF readers already downloaded. */
   'glossary/index.html': [
+    n('everyone\\. ', S.niche, ' of the '),
+    n('everyone\\. \\d+ of the ', S.entities, ' tracked neobanks serve a niche'),
+    n('directory of ', S.entities, ' neobanks'),
+    n('<b>', S.partnerBank, ' of \\d+ neobanks run on a partner-bank'),
+    n('<b>\\d+ of ', S.entities, ' neobanks run on a partner-bank'),
+    n('Only ', S.licensed, ' of the \\d+ tracked neobanks hold one'),
+    n('Only \\d+ of the ', S.entities, ' tracked neobanks hold one'),
     n('<b>', S.glossary, ' terms</b>'),
     /* the definition said 52, which is the self-custodial subset, not the
        category — the category is what the sentence claims to count */
