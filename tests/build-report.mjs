@@ -117,6 +117,11 @@ const xN = E.filter(e => e.x_handle).length;
 const niches = Object.entries(E.reduce((m, e) => { if (e.audience !== 'general') m[e.audience] = (m[e.audience] || 0) + 1; return m; }, {})).sort((a, b) => b[1] - a[1]);
 const nOf = k => niches.find(([n]) => n === k)?.[1] ?? 0; /* count for one named niche */
 const nicheTotal = niches.reduce((s, [, n]) => s + n, 0);
+/* Figures that used to be typed into the prose. Nubank's sat at "131M" in
+   three places for a month after the dataset moved to 139M; the niche share
+   printed 33% beside a table on the same page saying 34%. */
+const nubankM = E.find(e => e.name === 'Nubank')?.reported_users?.value_millions ?? null;
+const stTradPct = (stByCat.T / T * 100).toFixed(1);
 
 const topUsers = E.filter(e => e.reported_users?.value_millions)
   .sort((a, b) => b.reported_users.value_millions - a.reported_users.value_millions).slice(0, 20);
@@ -288,15 +293,15 @@ page(`
 <div class="statrow">
   <div class="stat"><div class="n ca">${f2025}</div><div class="l">survivors founded 2025 (vs ${peakYr[1]} in ${peakYr[0]})</div></div>
   <div class="stat"><div class="n ca">${sc2020pct}%</div><div class="l">of the 2020s cohort is self-custodial</div></div>
-  <div class="stat"><div class="n ca">2.7%</div><div class="l">of traditional neobanks support stablecoins</div></div>
+  <div class="stat"><div class="n ca">${stTradPct}%</div><div class="l">of traditional neobanks support stablecoins</div></div>
 </div>
 <div class="statrow">
   <div class="stat"><div class="n">${Math.round(licBanks / N * 100)}%</div><div class="l">are actually licensed banks</div></div>
-  <div class="stat"><div class="n">33%</div><div class="l">serve a named niche audience</div></div>
+  <div class="stat"><div class="n">${Math.round(nicheTotal / N * 100)}%</div><div class="l">serve a named niche audience</div></div>
   <div class="stat"><div class="n">${noKyc.length}</div><div class="l">usable with no KYC at all</div></div>
 </div>
 <p>The founding boom that created this industry is over: among today's survivors, new-neobank formation peaked at <b>${peakYr[1]} in ${peakYr[0]}</b> and has collapsed to ${f2025} in 2025 — a quarter of the peak. What replaced volume is structural change — the marginal new neobank is dramatically more likely to be <b>self-custodial</b> (${sc2020pct}% of the 2020s cohort vs ${sc2010pct}% of the 2010s), more likely to be <b>niche-first</b>, and near-certain to touch <b>stablecoins</b>.</p>
-<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (${esc(topUsers[0].name)}'s ${topUsers[0].reported_users.value_millions}M and Nubank's 131M dwarf every Western player), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
+<p>Meanwhile the industry's centre of gravity sits where the marketing isn't: <b>Latin America, Africa and Asia grow the giants</b> (${esc(topUsers[0].name)}'s ${topUsers[0].reported_users.value_millions}M and Nubank's ${nubankM}M dwarf every Western player), while Europe hosts the greatest density of players (${regCount['Europe']} active). And beneath everything runs the report's core tension: only <b>${(licBanks / N * 100).toFixed(0)}% of neobanks are licensed banks</b> — the remaining <b>${N - licBanks}</b> rest on partner banks, e-money safeguarding, crypto licenses, or no custodian at all. The gap between what apps imply and what their legal structure delivers remains the industry's biggest consumer risk, and its least covered story.</p>
 <div class="callout"><span class="k">the one-sentence take</span><p>Banking's interesting boundary is no longer bank vs fintech — it is custodial vs self-custodial, and every quarter moves more of the industry across it.</p></div>`);
 
 /* ═══ MONTH-OVER-MONTH METRICS (executive summary) ═══ */
@@ -735,7 +740,7 @@ ${hbar(topUsers.slice(0, 14).map(e => [e.name, e.reported_users.value_millions,
   e.category === 'traditional' ? '#89B0FF' : e.category === 'hybrid' ? '#D075FF' : '#BAF24A']),
   { labelW: 170, valFmt: v => v + 'M' })}
 <div class="src">mixed metrics: customers, MAU, wallets, accounts — each figure cites its source in the directory · colours = wave</div></div>
-<p>The league table is an emerging-market story with a North American accent. <b>${esc(topUsers[0].name)} (${topUsers[0].reported_users.value_millions}M)</b> leads the industry outright; Nubank (131M), bKash, OPay, GCash, PalmPay, Maya and TymeBank fill the top tier from Asia, Africa and Latin America. The largest Western players — Cash App, Revolut, Chime — are giants by revenue but mid-table by user count.</p>
+<p>The league table is an emerging-market story with a North American accent. <b>${esc(topUsers[0].name)} (${topUsers[0].reported_users.value_millions}M)</b> leads the industry outright; Nubank (${nubankM}M), bKash, OPay, GCash, PalmPay, Maya and TymeBank fill the top tier from Asia, Africa and Latin America. The largest Western players — Cash App, Revolut, Chime — are giants by revenue but mid-table by user count.</p>
 <p>Caveat that matters: metrics are self-reported and heterogeneous (customers ≠ MAU ≠ registered wallets), so treat this as magnitude, not ranking. Each figure links to its filing or disclosure in the directory — the standard we'd like the industry itself to adopt.</p>`);
 
 page(`
@@ -769,7 +774,7 @@ const REGION_COPY = {
   'Europe': ['License-dense, margin-thin', 'The deepest bench of licensed digital banks (Monzo, Starling, bunq, N26) plus the EMI capital of the world. MiCA has made it the clearest jurisdiction for crypto neobanks; profitability, not regulation, is the binding constraint. Watch: euro-stablecoin card programmes scaling under the EMT regime.'],
   'Asia': ['Licensed giants & superapp gravity', 'KakaoBank and Toss Bank turned messaging distribution into top-tier banks; Singapore and Hong Kong minted purpose-built digital licenses (GXS, MariBank, ZA, Mox); the Philippines and Indonesia run wallet-first (GCash, Maya, DANA). The scale ceiling here is national population, and it is high.'],
   'North America': ['Partner-bank capital of the world', 'The US model: tech company in front, sponsor bank behind — Chime, Current, Dave, Mercury, Brex. Post-Synapse, direct bank integration became the trust differentiator; post-GENIUS, the stablecoin question moved from whether to when. Canada runs a small licensed cluster (EQ, Neo, KOHO, Wealthsimple).'],
-  'Latin America': ['The Nubank effect', 'The region that proved neobanking at civilisational scale: Nubank (131M), Mercado Pago, PicPay, PagBank, plus strong national champions (Ualá, Klar, Stori, Nequi, Daviplata). Default-yield accounts are table stakes; dollar-stablecoin demand (DolarApp, El Dorado, Lemon) is the fastest-moving frontier.'],
+  'Latin America': ['The Nubank effect', `The region that proved neobanking at civilisational scale: Nubank (${nubankM}M), Mercado Pago, PicPay, PagBank, plus strong national champions (Ualá, Klar, Stori, Nequi, Daviplata). Default-yield accounts are table stakes; dollar-stablecoin demand (DolarApp, El Dorado, Lemon) is the fastest-moving frontier.`],
   'Africa': ['Payments first, banking second', 'Agent networks and mobile money built the rails; neobanking is being layered on top. Nigeria is the epicentre — OPay and PalmPay at mass scale, Moniepoint as SMB backbone, Kuda on a microfinance license. TymeBank (SA) proved kiosk+app hybrid onboarding; francophone West Africa (Djamo, Wave) is the next density play.'],
   'MENA': ['Regulator-minted digital banks', 'The Gulf hands out purpose-built licenses (D360, Vision Bank, Zand, Wio, stc bank) with sovereign capital behind them; Egypt banks the informal economy (Khazna, MNT-Halan, Telda); Türkiye runs bank-backed super-wallets (Enpara, Papara). Islamic digital banking is the structural niche with global export potential.'],
   'Oceania': ['Small market, sharp lessons', 'Australia\'s neobank experiment consolidated hard (Up thriving inside Bendigo; Judo profitable in SMB lending; Volt and Xinja gone) — proof that licenses without unit economics don\'t survive. NZ\'s Hnry exports the most interesting freelancer-banking model anywhere.'],
