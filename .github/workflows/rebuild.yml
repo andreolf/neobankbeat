@@ -39,9 +39,28 @@ jobs:
         with:
           node-version: 22
 
+      # OG cards first. They carry live counts ("379 neobanks...") baked into
+      # PNGs, and every page links its card with a ?v= content hash. Rendered
+      # after the pages, as this used to be, the new card shipped beside HTML
+      # still pointing at the old hash — and the next cron to run build-pages
+      # (refresh-jobs, an hour later) rewrote those pages with a stale sitemap
+      # date, which failed the scheduled flowtest on 6 October. gen-og.py is
+      # deterministic (no timestamps), so on most days this produces zero diff.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: refresh OG cards from the dataset
+        run: |
+          pip -q install pillow fonttools brotli
+          python tests/gen-og.py --counts-only > /dev/null
+
       # Same order as the reproducibility check in test.yml. build-jobs is absent
       # for the same reason it is absent there: it pulls live career APIs, and
       # refresh-jobs owns that on its own schedule.
+      #
+      # build-pages runs again at the end: the sync steps after it rewrite
+      # pages it has already dated (footers, breadcrumbs, counts), and a page
+      # changed after its sitemap date was written ships with the wrong one.
       - name: rebuild everything from source
         run: |
           node tests/build-pages.mjs
@@ -53,19 +72,7 @@ jobs:
           node tests/sync-crumbs.mjs
           node tests/build-app-js.mjs
           node tests/sync-counts.mjs
-
-      # OG cards carry live counts ("379 neobanks...") baked into PNGs, so they
-      # drift the same way prose does but nothing rebuilt them — /fit/ shipped
-      # a card saying 368 for weeks, and entities added in August never got
-      # cards at all. gen-og.py is deterministic (no timestamps), so on most
-      # days this produces zero diff.
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: refresh OG cards from the dataset
-        run: |
-          pip -q install pillow fonttools brotli
-          python tests/gen-og.py --counts-only > /dev/null
+          node tests/build-pages.mjs > /dev/null
 
       - name: commit & push if anything changed
         run: |
