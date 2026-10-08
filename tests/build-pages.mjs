@@ -32,14 +32,15 @@ const TODAY = new Date().toISOString().slice(0, 10);
    it dates, so reading committed history alone left it permanently one build
    behind, and every commit touching a generated page failed the reproducibility
    check. Collected in one call, since this is asked ~1,600 times per build. */
-const DIRTY = (() => {
+const readDirty = () => {
   try {
-    return new Set(execSync('git status --porcelain -z', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 })
+    return execSync('git status --porcelain -z', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 })
       .toString().split('\0').filter(Boolean)
       .map((l) => l.slice(3))          // strip the two status columns and the space
-      .filter(Boolean));
-  } catch { return new Set(); }
-})();
+      .filter(Boolean);
+  } catch { return []; }
+};
+const DIRTY = new Set(readDirty());
 
 /* --date=format-local with TZ=UTC, not %cs. %cs renders the date in the timezone
    recorded in the commit object, so a commit authored at 00:13 JST reads back as
@@ -3187,6 +3188,15 @@ const u=new URLSearchParams(location.search).get('q');if(u){qEl.value=u;render(u
   fs.mkdirSync(path.join(ROOT, 'search'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'search', 'index.html'), html);
 }
+
+/* Re-read the dirty set now that every page has been written. It was taken once
+   at startup, so a page this very run rewrote — a share card's ?v= hash moving,
+   say — still looked committed, got its old date in the sitemap, and was
+   committed with that stale date beside its new content. The next build then
+   dated it to the commit and the reproducibility check went red: 6 October,
+   when the jobs cron picked up share cards the morning rebuild had re-rendered. */
+DIRTY.clear();
+for (const f of readDirty()) DIRTY.add(f);
 
 const urls = [
   { loc: `${BASE}/`, changefreq: 'weekly', priority: '1.0' },

@@ -41,8 +41,12 @@ jobs:
               *:*:*) max_days="${rest%%:*}"; query="&event=${rest##*:}" ;;
               *)     max_days="$rest";      query="" ;;
             esac
-            run=$(gh api "repos/$REPO/actions/workflows/$wf/runs?status=completed&per_page=1$query" \
-              --jq '.workflow_runs[0] | if . == null then "none" else .conclusion + " " + .updated_at + " " + .html_url end')
+            # Take the newest by created_at ourselves rather than trusting the
+            # response order behind per_page=1: on 6 October that returned a run
+            # from 31 August as the latest and filed a false "36d old" alarm
+            # about a workflow that had succeeded the day before.
+            run=$(gh api "repos/$REPO/actions/workflows/$wf/runs?status=completed&per_page=20$query" \
+              --jq '.workflow_runs | sort_by(.created_at) | last | if . == null then "none" else .conclusion + " " + .updated_at + " " + .html_url end')
             if [ "$run" = "none" ]; then
               problems="$problems- **$wf**: no completed runs found\n"
               continue
