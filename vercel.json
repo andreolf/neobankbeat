@@ -7,12 +7,12 @@
       "permanent": true
     },
     {
-      "source": "/n/:slug(charlie|copper|ellevest)/:path*",
+      "source": "/n/:slug(charlie|copper|ellevest)(.*)",
       "destination": "/graveyard/",
       "permanent": true
     },
     {
-      "source": "/:lang(de|es|fr|it|pt)/n/:slug(charlie|copper|ellevest)/:path*",
+      "source": "/:lang(de|es|fr|it|pt)/n/:slug(charlie|copper|ellevest)(.*)",
       "destination": "/graveyard/",
       "permanent": true
     },
