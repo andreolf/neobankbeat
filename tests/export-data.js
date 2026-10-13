@@ -87,7 +87,7 @@ const out = w.eval(`(function(){
         services: "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence",
         fx_markup: "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer",
         verification: "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed",
-        graveyard: "delisted entities are archived in the graveyard array with status 'delisted', the delisting date and a cause of death (kind: rail = partner/rail exit, acquired, regulator) — never silently deleted; excluded from all counts"
+        graveyard: "delisted entities are archived in the graveyard array with status 'delisted', the delisting date and a cause of death (kind: rail = partner/rail exit, acquired, regulator, wound-down = closed by the company itself) — never silently deleted; excluded from all counts"
       }
     },
     entities,

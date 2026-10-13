@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Changelog — every change to the neobank dataset · neobankbeat</title>
-<meta name="description" content="Every change to the open neobank dataset, from version history: 385 tracked entities, 35 added and 7 removed since launch. Deaths included — that's the point.">
+<meta name="description" content="Every change to the open neobank dataset, from version history: 382 tracked entities, 35 added and 10 removed since launch.">
 <link rel="canonical" href="https://www.neobankbeat.com/changelog/">
 <meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">
@@ -49,7 +49,7 @@
 .rlinks a{color:var(--text);margin-right:16px;white-space:nowrap}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"neobankbeat dataset changelog","url":"https://www.neobankbeat.com/changelog/","description":"Every addition, removal and update to the open dataset of 385 tracked neobanks, generated from version history.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"changelog","item":"https://www.neobankbeat.com/changelog/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"neobankbeat dataset changelog","url":"https://www.neobankbeat.com/changelog/","description":"Every addition, removal and update to the open dataset of 382 tracked neobanks, generated from version history.","isPartOf":{"@type":"WebSite","name":"neobankbeat","url":"https://www.neobankbeat.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"changelog","item":"https://www.neobankbeat.com/changelog/"}]}]}
 </script>
 </head>
 <body>
@@ -116,11 +116,17 @@
 <article>
   <div class="eyebrow">the changelog</div>
   <h1>every change to <em>the dataset</em></h1>
-  <p class="meta">What we shipped, plus every dataset change straight from version history — nothing hidden. <b>385 entities tracked</b> · 35 added and 7 removed since launch · last change October 5, 2026. Removed ≠ deleted: every delisting is archived with its cause of death in <a href="/graveyard/">the graveyard</a>. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
+  <p class="meta">What we shipped, plus every dataset change straight from version history — nothing hidden. <b>382 entities tracked</b> · 35 added and 10 removed since launch · last change October 13, 2026. Removed ≠ deleted: every delisting is archived with its cause of death in <a href="/graveyard/">the graveyard</a>. Also machine-readable: <a href="/changelog/changelog.json">changelog.json</a>.</p>
   <p>A directory is only as good as its maintenance, so the maintenance is public. Below: what we shipped for you, then every change to the data itself.</p>
 
   <h2 class="relh">product &amp; platform</h2>
   <p class="relsub">New surfaces, fields and capabilities — things you can now do that you couldn't a week ago.</p>
+  <div class="centry rel">
+    <div class="chead"><span class="cdate">October 13, 2026</span><span class="reltag">data</span></div>
+    <div class="ctitle">Three neobanks to the graveyard, and the sponsor banks rechecked</div>
+    <div class="cplain">Checking every US sponsor-bank relationship for a post on who holds the money behind American neobanks turned up three that had closed while still listed as active: Copper ended its bank accounts in May 2024 when Synapse collapsed, Charlie closed its accounts for Americans over 62 on 22 January 2026, and Ellevest left consumer banking in 2025. All three are in the graveyard with their causes, under a new fourth kind, wound down, for products a company closed itself. Dave's record now shows its move from Evolve to Coastal Community Bank, Mercury's its 2024 exit from Evolve, and Greenwood, Step, Till and GoHenry were brought up to date. 385 active becomes 382.</div>
+    <div class="rlinks"><a href="/graveyard/">the graveyard →</a><a href="/infra/">the sponsor banks →</a></div>
+  </div>
   <div class="centry rel">
     <div class="chead"><span class="cdate">October 5, 2026</span><span class="reltag">new</span></div>
     <div class="ctitle">The State of Neobanks № 04 — October 2026</div>
@@ -220,7 +226,7 @@
   <div class="centry rel">
     <div class="chead"><span class="cdate">August 11, 2026</span><span class="reltag">new</span></div>
     <div class="ctitle">MCP server for AI assistants</div>
-    <div class="cplain">Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 385 neobanks.</div>
+    <div class="cplain">Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 382 neobanks.</div>
     <div class="rlinks"><a href="/mcp/">how to use it →</a><a href="/blog/neobankbeat-mcp-server/">launch post →</a></div>
   </div>
   <div class="centry rel">
@@ -250,6 +256,13 @@
 
   <h2 class="relh">dataset changes</h2>
   <p class="relsub">Generated straight from version history — additions link to their profiles, removals stay on the record. Neobanks die quietly, and <a href="/blog/why-neobanks-die/">the deaths are data too</a>. Every entry maps to a real change in <a href="/data.json">data.json</a>.</p>
+  <div class="centry">
+    <div class="chead"><span class="cdate">October 13, 2026</span><span class="ctotal">382 tracked</span></div>
+    <div class="cplain">Three delistings, stale rails fixed, three posts queued.</div>
+    <div class="csub"><span class="clbl">under the hood</span>Sponsor banks rechecked: three delistings, stale rails fixed, three posts queued</div>
+<div class="chg del"><span class="sign">−3</span> removed: <span class="gone">Copper</span>, <span class="gone">Charlie</span>, <span class="gone">Ellevest</span></div>
+<div class="chg upd"><span class="sign">~6</span> updated: <a href="/n/dave/">Dave</a>, <a href="/n/step/">Step</a>, <a href="/n/till-financial/">Till Financial</a>, <a href="/n/gohenry/">GoHenry</a>, <a href="/n/mercury/">Mercury</a>, <a href="/n/greenwood/">Greenwood</a></div>
+  </div>
   <div class="centry">
     <div class="chead"><span class="cdate">October 5, 2026</span><span class="ctotal">385 tracked</span></div>
     <div class="cplain">Four neobanks in, twenty out, and the bugs behind them.</div>
@@ -335,7 +348,7 @@
     <div class="cplain">Labelled every neobank by how it is actually regulated — its own bank license, a partner bank working behind the scenes, e-money, and so on — so you can tell which apps are really banks. A few that had quietly shut down were removed.</div>
     <div class="csub"><span class="clbl">under the hood</span>data: regulation backfill for all 173 unclassified entities + site audit fixes</div>
 <div class="chg del"><span class="sign">−5</span> removed: <span class="gone">Z1</span>, <span class="gone">Fi Money</span>, <span class="gone">Juno</span>, <span class="gone">Kard</span>, <span class="gone">Pomelo</span></div>
-<div class="chg upd"><span class="sign">~168</span> updated: <a href="/n/marcus/">Marcus</a>, <a href="/n/copper/">Copper</a>, <a href="/n/till-financial/">Till Financial</a>, <a href="/n/gohenry/">GoHenry</a>, <a href="/n/albert/">Albert</a>, <a href="/n/novo/">Novo</a>, <a href="/n/bluevine/">Bluevine</a>, <a href="/n/relay/">Relay</a> <span class="moremuted">+160 more</span></div>
+<div class="chg upd"><span class="sign">~168</span> updated: <a href="/n/marcus/">Marcus</a>, <span class="gone">Copper</span>, <a href="/n/till-financial/">Till Financial</a>, <a href="/n/gohenry/">GoHenry</a>, <a href="/n/albert/">Albert</a>, <a href="/n/novo/">Novo</a>, <a href="/n/bluevine/">Bluevine</a>, <a href="/n/relay/">Relay</a> <span class="moremuted">+160 more</span></div>
   </div>
   <div class="centry">
     <div class="chead"><span class="cdate">July 16, 2026</span><span class="ctotal">373 tracked</span></div>
@@ -458,7 +471,7 @@
     <div class="chead"><span class="cdate">July 3, 2026</span><span class="ctotal">357 tracked</span></div>
     <div class="cplain">Fixed broken links and made filtered views shareable by copying the web address.</div>
     <div class="csub"><span class="clbl">under the hood</span>link-rot repair, shareable filter URLs, search shortcut</div>
-<div class="chg upd"><span class="sign">~77</span> updated: <a href="/n/varo/">Varo</a>, <a href="/n/current/">Current</a>, <a href="/n/moneylion/">MoneyLion</a>, <a href="/n/one/">One</a>, <a href="/n/marcus/">Marcus</a>, <a href="/n/step/">Step</a>, <a href="/n/greenlight/">Greenlight</a>, <a href="/n/copper/">Copper</a> <span class="moremuted">+69 more</span></div>
+<div class="chg upd"><span class="sign">~77</span> updated: <a href="/n/varo/">Varo</a>, <a href="/n/current/">Current</a>, <a href="/n/moneylion/">MoneyLion</a>, <a href="/n/one/">One</a>, <a href="/n/marcus/">Marcus</a>, <a href="/n/step/">Step</a>, <a href="/n/greenlight/">Greenlight</a>, <span class="gone">Copper</span> <span class="moremuted">+69 more</span></div>
   </div>
   <div class="centry">
     <div class="chead"><span class="cdate">July 3, 2026</span><span class="ctotal">357 tracked</span></div>

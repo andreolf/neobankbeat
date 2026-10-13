@@ -1292,15 +1292,23 @@ for (const [an, bn] of PAIRS) {
   }
 }
 
-/* prune vs/ dirs from earlier runs whose pair is no longer generated */
+/* prune vs/ and profile dirs from earlier runs whose pair or entity is no
+   longer generated — in every locale too, or a delisted neobank leaves
+   /de/n/<slug>/ behind with links to English pages that no longer exist */
 {
-  const keep = new Set(vsIndex.map(v => v.slug));
-  for (const d of fs.readdirSync(path.join(ROOT, 'vs'), { withFileTypes: true })) {
-    if (d.isDirectory() && !keep.has(d.name)) {
-      fs.rmSync(path.join(ROOT, 'vs', d.name), { recursive: true });
-      console.log(`vs: pruned stale ${d.name}`);
+  const keepVs = new Set(vsIndex.map(v => v.slug));
+  const keepN = new Set(slugs.values());
+  for (const [sub, keep] of [['vs', keepVs], ['n', keepN]])
+    for (const pre of ['', ...LOCALES.map(lc => lc.code)]) {
+      const base = path.join(ROOT, pre, sub);
+      if (!fs.existsSync(base)) continue;
+      for (const d of fs.readdirSync(base, { withFileTypes: true })) {
+        if (d.isDirectory() && !keep.has(d.name)) {
+          fs.rmSync(path.join(base, d.name), { recursive: true });
+          console.log(`${pre ? pre + '/' : ''}${sub}: pruned stale ${d.name}`);
+        }
+      }
     }
-  }
 }
 
 /* ═══ /vs/ index ═══ */
@@ -2424,6 +2432,9 @@ const BLOG_POSTS = [
   ['the-neobank-founding-cliff', '2026-09-24'],
   ['visa-mastercard-neobank-geography', '2026-09-29'],
   ['who-actually-pays-interest', '2026-10-06'],
+  ['your-neobank-changed-banks', '2026-10-14'],
+  ['europe-most-neobanks-not-biggest', '2026-10-21'],
+  ['stablecoins-traditional-neobanks-latam', '2026-10-28'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
@@ -2575,9 +2586,20 @@ pre.code .c{color:var(--dim)}
     rail: ['partner / rail exit', 'The bank or e-money provider underneath pulled out — the brand survived exactly as long as its rail did.'],
     acquired: ['acquired', 'Bought and folded in. An exit for the team; the end of the product.'],
     regulator: ['shut by regulator', 'The supervisor stepped in and wound it down.'],
+    /* Added October 2026 for Charlie and Ellevest: no rail pulled out, no buyer,
+       no regulator — the company closed the product itself. Forcing them into
+       one of the three above would have misstated the cause. */
+    'wound-down': ['wound down', 'The company closed the product itself — no rail pulled out, no buyer took it, no regulator stepped in.'],
   };
   const kinds = Object.keys(KIND).filter(k => G.some(g => g.cause.kind === k));
-  const answer = `${G.length} neobanks have been delisted from the directory since tracking began — archived here with the cause of death, never silently deleted. ${G.filter(g => g.cause.kind === 'rail').length} died when their partner bank or e-money rail pulled out, ${G.filter(g => g.cause.kind === 'acquired').length} were acquired and folded in, ${G.filter(g => g.cause.kind === 'regulator').length} was shut down by a regulator.`;
+  /* Built from whichever kinds are present, so a new kind or a count of one
+     reads correctly ("1 was", "3 were") instead of hardcoding three clauses. */
+  const kindClause = { rail: ['died when their partner bank or e-money rail pulled out', 'died when its partner bank or e-money rail pulled out'],
+    acquired: ['were acquired and folded in', 'was acquired and folded in'],
+    regulator: ['were shut down by a regulator', 'was shut down by a regulator'],
+    'wound-down': ['were wound down by the companies themselves', 'was wound down by the company itself'] };
+  const clauses = kinds.map(k => { const n = G.filter(g => g.cause.kind === k).length; return `${n} ${kindClause[k][n === 1 ? 1 : 0]}`; });
+  const answer = `${G.length} neobanks have been delisted from the directory since tracking began — archived here with the cause of death, never silently deleted. ${clauses.slice(0, -1).join(', ')}${clauses.length > 1 ? ' and ' : ''}${clauses[clauses.length - 1]}.`;
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'The neobank graveyard', url, description: answer }, ['graveyard', url]);
   const gyStyle = `<style>
 .tomb{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:18px 20px;margin:14px 0}

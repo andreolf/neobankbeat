@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 385,
+  "total": 382,
   "counts": {
-   "traditional": 264,
+   "traditional": 261,
    "hybrid": 62,
    "web3_native": 59,
-   "niche_audience": 131
+   "niche_audience": 128
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -18,7 +18,7 @@
    "services": "money-movement capabilities (on-ramp, off-ramp, fiat-payin, fiat-payout, iban, multi-currency, virtual-cards, crypto-cards); verified per provider docs, tags omitted when unverified — absence is not proof of absence",
    "fx_markup": "foreign-exchange markup on the free/standard plan, sourced + dated; rates change often, always confirm with the issuer",
    "verification": "defunct neobanks and pure BaaS/infrastructure are excluded; unverified fields are null rather than guessed",
-   "graveyard": "delisted entities are archived in the graveyard array with status 'delisted', the delisting date and a cause of death (kind: rail = partner/rail exit, acquired, regulator) — never silently deleted; excluded from all counts"
+   "graveyard": "delisted entities are archived in the graveyard array with status 'delisted', the delisting date and a cause of death (kind: rail = partner/rail exit, acquired, regulator, wound-down = closed by the company itself) — never silently deleted; excluded from all counts"
   }
  },
  "entities": [
@@ -513,7 +513,7 @@
    "note": "ExtraCash advances; budgeting-first.",
    "story": "Pitched as the bear that fights the banks: cash advances against overdrafts, then a full spending account.",
    "ai": "underwriting",
-   "license": "Partner bank (Evolve)",
+   "license": "Partner banks (Evolve Bank & Trust, moving to Coastal Community Bank: new customers onboard via Coastal and existing accounts migrate within 24 months, announced March 2025)",
    "founders": "Jason Wilk",
    "funding": "Public (DAVE)",
    "terms_url": "https://dave.com/terms",
@@ -832,7 +832,7 @@
    "active_regions": [
     "North America"
    ],
-   "note": "Teen banking + credit building, no fees.",
+   "note": "Teen banking + credit building; acquired by MrBeast's Beast Industries (2026).",
    "story": "Teen banking that builds credit history before 18 via a secured spend card.",
    "license": "Partner bank (Evolve)",
    "founders": "CJ MacDonald",
@@ -905,7 +905,7 @@
     "kyc_provider": null,
     "card_network": null
    },
-   "funding_stage": "Series B"
+   "funding_stage": "Acquired"
   },
   {
    "name": "Greenlight",
@@ -1005,80 +1005,6 @@
    "funding_stage": "Series C+"
   },
   {
-   "name": "Copper",
-   "category": "traditional",
-   "audience": "gen alpha · kids & family",
-   "region": "US",
-   "hq": "Seattle, US",
-   "founded": 2019,
-   "custody": "Custodial",
-   "regulation_type": "Partner-bank model",
-   "card_network": "MC",
-   "card_type": "Debit",
-   "cashback": null,
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "getcopper.com",
-   "website": "https://getcopper.com",
-   "active_regions": [
-    "North America"
-   ],
-   "note": "Teen banking + financial literacy.",
-   "license": "Partner bank (Evolve Bank & Trust); relaunched family banking after 2024 Synapse collapse",
-   "founders": "Eddie Behringer, Stefan Berglund",
-   "funding": "~$40M raised",
-   "terms_url": "https://www.getcopper.com/terms",
-   "x_handle": "getcopperapp",
-   "countries": [
-    "United States"
-   ],
-   "slug": "copper",
-   "features": {
-    "apple_pay": null,
-    "google_pay": null,
-    "api": null,
-    "webhooks": null,
-    "oauth": null,
-    "sandbox": null,
-    "business_accounts": null,
-    "virtual_cards": null,
-    "physical_cards": null,
-    "iban": null,
-    "self_custody": null,
-    "mpc": null,
-    "yield_bearing": null,
-    "savings": null,
-    "lending": null,
-    "investing": null,
-    "treasury": null,
-    "crypto": null,
-    "stablecoin_native": null
-   },
-   "stablecoin_tickers": [],
-   "fx_markup_pct": null,
-   "cashback_pct": null,
-   "yield_pct": null,
-   "payment_rails": null,
-   "card_networks": [
-    "Mastercard"
-   ],
-   "card_form": null,
-   "card_funding": [
-    "debit"
-   ],
-   "timeline": null,
-   "partners": {
-    "issuer": null,
-    "partner_bank": null,
-    "treasury": null,
-    "identity": null,
-    "kyc_provider": null,
-    "card_network": null
-   },
-   "funding_stage": "Series A"
-  },
-  {
    "name": "Till Financial",
    "category": "traditional",
    "audience": "gen alpha · kids & family",
@@ -1098,7 +1024,7 @@
    "active_regions": [
     "North America"
    ],
-   "note": "Family banking for kids' smart spending.",
+   "note": "Family banking for kids' smart spending; acquired by Western & Southern (2026).",
    "license": "Partner bank (Coastal Community Bank); FDIC pass-through; Visa debit cards",
    "slug": "till-financial",
    "features": {
@@ -1143,7 +1069,7 @@
     "kyc_provider": null,
     "card_network": null
    },
-   "funding_stage": null
+   "funding_stage": "Acquired"
   },
   {
    "name": "GoHenry",
@@ -1165,7 +1091,7 @@
    "active_regions": [
     "North America"
    ],
-   "note": "Kids' money app; acquired by Acorns.",
+   "note": "Kids' money app; the US product is now Acorns Early, the UK business went to Barclays (2026).",
    "story": "UK parents crowdfunded a kids' money app that taught a generation pocket-money-by-chores.",
    "license": "Partner bank (Community Federal Savings Bank, US); UK cards via FCA-regulated e-money issuer",
    "founders": "Louise Hill, Dean Brauer",
@@ -1333,7 +1259,7 @@
    "note": "Startup banking; 200K+ companies.",
    "story": "Startup banking that absorbed half of YC after SVB collapsed; added IO cards and personal banking.",
    "ai": "interface",
-   "license": "Partner banks (Choice, Column)",
+   "license": "Partner banks (Choice, Column); previously Evolve Bank & Trust, left 2024",
    "founders": "Immad Akhund",
    "funding": "~$450M (val ~$3.5B)",
    "terms_url": "https://mercury.com/legal/terms",
@@ -2655,81 +2581,11 @@
    "funding_stage": null
   },
   {
-   "name": "Charlie",
-   "category": "traditional",
-   "audience": "seniors",
-   "region": "US",
-   "hq": "Los Angeles, US",
-   "founded": 2022,
-   "custody": "Custodial",
-   "regulation_type": "Partner-bank model",
-   "card_network": "Visa",
-   "card_type": "Debit",
-   "cashback": null,
-   "yield": "Early Social Security access",
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "charliefinancial.com",
-   "website": "https://charliefinancial.com",
-   "active_regions": [
-    "North America"
-   ],
-   "note": "Banking built for the 62+ community.",
-   "story": "Banking for the 62+ crowd: early Social Security access and fraud protection over rewards points.",
-   "license": "Partner bank (Sutton Bank); Visa debit; FDIC pass-through insurance",
-   "founders": "Kevin Nazemi",
-   "funding": "~$23M raised",
-   "slug": "charlie",
-   "features": {
-    "apple_pay": null,
-    "google_pay": null,
-    "api": null,
-    "webhooks": null,
-    "oauth": null,
-    "sandbox": null,
-    "business_accounts": null,
-    "virtual_cards": null,
-    "physical_cards": null,
-    "iban": null,
-    "self_custody": null,
-    "mpc": null,
-    "yield_bearing": true,
-    "savings": null,
-    "lending": null,
-    "investing": null,
-    "treasury": null,
-    "crypto": null,
-    "stablecoin_native": null
-   },
-   "stablecoin_tickers": [],
-   "fx_markup_pct": null,
-   "cashback_pct": null,
-   "yield_pct": null,
-   "payment_rails": null,
-   "card_networks": [
-    "Visa"
-   ],
-   "card_form": null,
-   "card_funding": [
-    "debit"
-   ],
-   "timeline": null,
-   "partners": {
-    "issuer": null,
-    "partner_bank": null,
-    "treasury": null,
-    "identity": null,
-    "kyc_provider": null,
-    "card_network": null
-   },
-   "funding_stage": "Seed"
-  },
-  {
    "name": "Greenwood",
    "category": "traditional",
    "audience": "Black community",
    "region": "US",
-   "hq": "Atlanta, US",
+   "hq": "Tulsa, US",
    "founded": 2020,
    "custody": "Custodial",
    "regulation_type": "Partner-bank model",
@@ -3160,77 +3016,6 @@
     "card_network": null
    },
    "funding_stage": "Series A"
-  },
-  {
-   "name": "Ellevest",
-   "category": "traditional",
-   "audience": "women",
-   "region": "US",
-   "hq": "New York, US",
-   "founded": 2014,
-   "custody": "Custodial",
-   "regulation_type": "Partner-bank model",
-   "card_network": null,
-   "card_type": null,
-   "cashback": null,
-   "yield": null,
-   "stablecoins": false,
-   "kyc": "Yes",
-   "domain": "ellevest.com",
-   "website": "https://ellevest.com",
-   "active_regions": [
-    "North America"
-   ],
-   "note": "Women-first investing platform with banking roots.",
-   "story": "Wall Street veteran Sallie Krawcheck's bet that investing designed around women's pay curves and lifespans closes the gender money gap.",
-   "license": "SEC-registered investment adviser; Partner bank (Coastal Community Bank) for cash accounts",
-   "founders": "Sallie Krawcheck, Charlie Kroll",
-   "funding": "~$150M raised",
-   "terms_url": "https://www.ellevest.com/terms-of-service",
-   "x_handle": "Ellevest",
-   "countries": [
-    "United States"
-   ],
-   "slug": "ellevest",
-   "features": {
-    "apple_pay": null,
-    "google_pay": null,
-    "api": null,
-    "webhooks": null,
-    "oauth": null,
-    "sandbox": null,
-    "business_accounts": null,
-    "virtual_cards": null,
-    "physical_cards": null,
-    "iban": null,
-    "self_custody": null,
-    "mpc": null,
-    "yield_bearing": null,
-    "savings": null,
-    "lending": null,
-    "investing": true,
-    "treasury": null,
-    "crypto": null,
-    "stablecoin_native": null
-   },
-   "stablecoin_tickers": [],
-   "fx_markup_pct": null,
-   "cashback_pct": null,
-   "yield_pct": null,
-   "payment_rails": null,
-   "card_networks": null,
-   "card_form": null,
-   "card_funding": null,
-   "timeline": null,
-   "partners": {
-    "issuer": null,
-    "partner_bank": null,
-    "treasury": null,
-    "identity": null,
-    "kyc_provider": null,
-    "card_network": null
-   },
-   "funding_stage": "Series B"
   },
   {
    "name": "First Women's Bank",
@@ -30301,6 +30086,111 @@
   }
  ],
  "graveyard": [
+  {
+   "name": "Copper",
+   "category": "traditional",
+   "audience": "gen alpha · kids & family",
+   "region": "US",
+   "hq": "Seattle, US",
+   "founded": 2019,
+   "custody": "Custodial",
+   "regulation_type": "Partner-bank model",
+   "card_network": "MC",
+   "card_type": "Debit",
+   "cashback": null,
+   "yield": null,
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "getcopper.com",
+   "website": "https://getcopper.com",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "Teen banking + financial literacy.",
+   "license": "Partner bank (Evolve Bank & Trust) via Synapse until May 2024",
+   "founders": "Eddie Behringer, Stefan Berglund",
+   "funding": "~$40M raised",
+   "terms_url": "https://www.getcopper.com/terms",
+   "x_handle": "getcopperapp",
+   "countries": [
+    "United States"
+   ],
+   "status": "delisted",
+   "delisted": "2026-10-13",
+   "cause": {
+    "kind": "rail",
+    "summary": "Discontinued its teen bank accounts and debit cards on 13 May 2024, a day after telling customers, when Synapse — the banking middleware between it and Evolve Bank — collapsed; some families were locked out of deposits for days. Copper continues as a rewards app, and the family banking it said it would relaunch through larger banks had not appeared by October 2026."
+   }
+  },
+  {
+   "name": "Charlie",
+   "category": "traditional",
+   "audience": "seniors",
+   "region": "US",
+   "hq": "Los Angeles, US",
+   "founded": 2022,
+   "custody": "Custodial",
+   "regulation_type": "Partner-bank model",
+   "card_network": "Visa",
+   "card_type": "Debit",
+   "cashback": null,
+   "yield": "Early Social Security access",
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "charliefinancial.com",
+   "website": "https://charliefinancial.com",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "Banking built for the 62+ community.",
+   "story": "Banking for the 62+ crowd: early Social Security access and fraud protection over rewards points.",
+   "license": "Partner bank (Sutton Bank); Visa debit; FDIC pass-through insurance",
+   "founders": "Kevin Nazemi",
+   "funding": "~$23M raised",
+   "status": "delisted",
+   "delisted": "2026-10-13",
+   "cause": {
+    "kind": "wound-down",
+    "summary": "The Charlie Financial program closed on 22 January 2026, after customers were notified on 8 December 2025: deposit accounts and debit cards at Sutton Bank were shut, and Social Security direct deposits had to be redirected elsewhere. No public reason was given."
+   }
+  },
+  {
+   "name": "Ellevest",
+   "category": "traditional",
+   "audience": "women",
+   "region": "US",
+   "hq": "New York, US",
+   "founded": 2014,
+   "custody": "Custodial",
+   "regulation_type": "Partner-bank model",
+   "card_network": null,
+   "card_type": null,
+   "cashback": null,
+   "yield": null,
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "ellevest.com",
+   "website": "https://ellevest.com",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "Women-first investing platform with banking roots.",
+   "story": "Wall Street veteran Sallie Krawcheck's bet that investing designed around women's pay curves and lifespans closes the gender money gap.",
+   "license": "SEC-registered investment adviser; Partner bank (Coastal Community Bank) for cash accounts",
+   "founders": "Sallie Krawcheck, Charlie Kroll",
+   "funding": "~$150M raised",
+   "terms_url": "https://www.ellevest.com/terms-of-service",
+   "x_handle": "Ellevest",
+   "countries": [
+    "United States"
+   ],
+   "status": "delisted",
+   "delisted": "2026-10-13",
+   "cause": {
+    "kind": "wound-down",
+    "summary": "Left consumer banking and automated investing in 2025: Betterment took over about 70,000 robo-advice accounts in April 2025, and Ellevest kept only wealth-management clients with $500,000 or more. Its Coastal Community Bank cash accounts were not part of that transfer and are no longer offered."
+   }
+  },
   {
    "name": "Juno",
    "category": "hybrid",

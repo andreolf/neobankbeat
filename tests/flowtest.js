@@ -5,7 +5,7 @@ const fs=require('fs');
    derived from the data would happily agree with an accidental deletion, and
    catching that is the one job a hardcoded total does well. Bump it when an
    entity is deliberately added or delisted; flow 1 checks it against the data. */
-const TOTAL=385;
+const TOTAL=382;
 const {JSDOM}=require('jsdom');
 const rawHtml=fs.readFileSync(require('path').join(__dirname,'..','index.html'),'utf8');
 

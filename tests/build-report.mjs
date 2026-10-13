@@ -363,11 +363,15 @@ const DEATH_DETAIL = {
   'Pomelo':    { mode: 'acq', meta: 'US · remittance + credit card, Philippines corridor', why: `Acquired by Zepz (WorldRemit / Sendwave) in Jan 2026; the product was paused during integration and the team folded in — an exit, not a failure.` },
   'Z1':        { mode: 'acq', meta: 'BR · teen neobank', why: `Absorbed by crypto neobank NG.CASH; the Z1 brand was retired.` },
   'Will Bank': { mode: 'reg', meta: 'BR · digital bank', why: `Liquidated by Brazil's Central Bank (Jan 2026) — nominally for breaching Mastercard obligations, but tied to the collapse of the Banco Master conglomerate (a severe liquidity crisis and an ~R$11.5B fraud probe) that felled several linked institutions.` },
+  'Copper':    { mode: 'rail', meta: 'US · teen banking', why: `Shut its bank accounts and debit cards on 13 May 2024, a day's notice, when Synapse — the middleware between it and Evolve Bank — collapsed. It lives on as a rewards app; the promised family-banking relaunch never came.` },
+  'Charlie':   { mode: 'wound', meta: 'US · banking for the 62+', why: `The program closed on 22 January 2026 after 45 days' notice; accounts and cards at Sutton Bank were shut and Social Security deposits had to be redirected. No public reason was given.` },
+  'Ellevest':  { mode: 'wound', meta: 'US · women-first investing + banking', why: `Left consumer banking and robo-advice in 2025 — Betterment took ~70,000 investing accounts, Ellevest kept only $500K+ wealth clients, and the cash accounts were not carried over.` },
 };
 const DEATH_MODES = [
   ['rail', '#FF6B6B', 'A partner or rail collapsed beneath them', 'the defining risk of the rent-a-charter model: you die when your sponsor does'],
   ['acq', '#FFC24A', 'Acquired &amp; switched off', 'not a failure so much as consolidation — the users move, the brand does not'],
   ['reg', '#89B0FF', 'Liquidated by the regulator', 'the rarest and most abrupt: the licence is pulled and the doors shut'],
+  ['wound', '#B8B8C4', 'Wound down by the company', 'no rail pulled out and no buyer took it: the company closed the product itself'],
 ];
 const deathBlock = DEATH_MODES.map(([m, col, label, gloss]) => {
   const ds = deaths.filter(n => DEATH_DETAIL[n]?.mode === m);
