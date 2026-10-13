@@ -1,10 +1,10 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-10-05.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-10-13.
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 385 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 382 neobanks
 - [Browse](https://www.neobankbeat.com/browse/) — 47 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
@@ -79,8 +79,11 @@
 - [the neobank founding cliff](https://www.neobankbeat.com/blog/the-neobank-founding-cliff/) (2026-09-24)
 - [visa mastercard neobank geography](https://www.neobankbeat.com/blog/visa-mastercard-neobank-geography/) (2026-09-29)
 - [who actually pays interest](https://www.neobankbeat.com/blog/who-actually-pays-interest/) (2026-10-06)
+- [your neobank changed banks](https://www.neobankbeat.com/blog/your-neobank-changed-banks/) (2026-10-14)
+- [europe most neobanks not biggest](https://www.neobankbeat.com/blog/europe-most-neobanks-not-biggest/) (2026-10-21)
+- [stablecoins traditional neobanks latam](https://www.neobankbeat.com/blog/stablecoins-traditional-neobanks-latam/) (2026-10-28)
 
-## Neobank profiles (385)
+## Neobank profiles (382)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -93,7 +96,6 @@
 - [Marcus](https://www.neobankbeat.com/n/marcus/)
 - [Step](https://www.neobankbeat.com/n/step/)
 - [Greenlight](https://www.neobankbeat.com/n/greenlight/)
-- [Copper](https://www.neobankbeat.com/n/copper/)
 - [Till Financial](https://www.neobankbeat.com/n/till-financial/)
 - [GoHenry](https://www.neobankbeat.com/n/gohenry/)
 - [Albert](https://www.neobankbeat.com/n/albert/)
@@ -113,13 +115,11 @@
 - [Panacea Financial](https://www.neobankbeat.com/n/panacea-financial/)
 - [Purple](https://www.neobankbeat.com/n/purple/)
 - [True Link](https://www.neobankbeat.com/n/true-link/)
-- [Charlie](https://www.neobankbeat.com/n/charlie/)
 - [Greenwood](https://www.neobankbeat.com/n/greenwood/)
 - [MoCaFi](https://www.neobankbeat.com/n/mocafi/)
 - [Majority](https://www.neobankbeat.com/n/majority/)
 - [Zolve](https://www.neobankbeat.com/n/zolve/)
 - [Comun](https://www.neobankbeat.com/n/comun/)
-- [Ellevest](https://www.neobankbeat.com/n/ellevest/)
 - [First Women's Bank](https://www.neobankbeat.com/n/first-women-s-bank/)
 - [KOHO](https://www.neobankbeat.com/n/koho/)
 - [Neo Financial](https://www.neobankbeat.com/n/neo-financial/)
@@ -468,7 +468,7 @@
 - [Casas Bahia Pay](https://www.neobankbeat.com/n/casas-bahia-pay/)
 - [Mela](https://www.neobankbeat.com/n/mela/)
 
-## Comparisons (159)
+## Comparisons (154)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -540,10 +540,7 @@
 - [Banco Inter vs PagBank](https://www.neobankbeat.com/vs/banco-inter-vs-pagbank/)
 - [PalmPay vs TymeBank](https://www.neobankbeat.com/vs/palmpay-vs-tymebank/)
 - [Phantom vs Zengo](https://www.neobankbeat.com/vs/phantom-vs-zengo/)
-- [Greenlight vs Copper](https://www.neobankbeat.com/vs/greenlight-vs-copper/)
 - [Greenlight vs Till Financial](https://www.neobankbeat.com/vs/greenlight-vs-till-financial/)
-- [Copper vs Till Financial](https://www.neobankbeat.com/vs/copper-vs-till-financial/)
-- [Copper vs GoHenry](https://www.neobankbeat.com/vs/copper-vs-gohenry/)
 - [Mercury vs Ramp](https://www.neobankbeat.com/vs/mercury-vs-ramp/)
 - [Mercury vs Bluevine](https://www.neobankbeat.com/vs/mercury-vs-bluevine/)
 - [Brex vs Novo](https://www.neobankbeat.com/vs/brex-vs-novo/)
@@ -563,7 +560,6 @@
 - [Grasshopper vs Always.bank](https://www.neobankbeat.com/vs/grasshopper-vs-always-bank/)
 - [Found vs Karat](https://www.neobankbeat.com/vs/found-vs-karat/)
 - [Lili vs Karat](https://www.neobankbeat.com/vs/lili-vs-karat/)
-- [True Link vs Charlie](https://www.neobankbeat.com/vs/true-link-vs-charlie/)
 - [Greenwood vs MoCaFi](https://www.neobankbeat.com/vs/greenwood-vs-mocafi/)
 - [Majority vs Zolve](https://www.neobankbeat.com/vs/majority-vs-zolve/)
 - [Majority vs Comun](https://www.neobankbeat.com/vs/majority-vs-comun/)
@@ -574,7 +570,6 @@
 - [Zolve vs Mela](https://www.neobankbeat.com/vs/zolve-vs-mela/)
 - [Comun vs DNERO](https://www.neobankbeat.com/vs/comun-vs-dnero/)
 - [Comun vs Mela](https://www.neobankbeat.com/vs/comun-vs-mela/)
-- [Ellevest vs First Women's Bank](https://www.neobankbeat.com/vs/ellevest-vs-first-women-s-bank/)
 - [Tide vs OakNorth](https://www.neobankbeat.com/vs/tide-vs-oaknorth/)
 - [Tide vs Allica Bank](https://www.neobankbeat.com/vs/tide-vs-allica-bank/)
 - [ANNA Money vs OakNorth](https://www.neobankbeat.com/vs/anna-money-vs-oaknorth/)
@@ -682,4 +677,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (385) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (384) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (382) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (381) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

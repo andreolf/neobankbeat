@@ -7,6 +7,16 @@
       "permanent": true
     },
     {
+      "source": "/n/:slug(charlie|copper|ellevest)/:path*",
+      "destination": "/graveyard/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|es|fr|it|pt)/n/:slug(charlie|copper|ellevest)/:path*",
+      "destination": "/graveyard/",
+      "permanent": true
+    },
+    {
       "source": "/n/sling-money/",
       "destination": "/n/morse/",
       "permanent": true

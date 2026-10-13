@@ -23,12 +23,11 @@
   "domain": "getevolved.com",
   "type": "BIN sponsor bank",
   "hq": "Memphis, US",
-  "about": "One of the busiest BaaS sponsor banks of the boom era; its 2024 Synapse fallout and enforcement action made it the cautionary tale of the model. Still sits under Dave and Step.",
+  "about": "One of the busiest BaaS sponsor banks of the boom era; its 2024 Synapse fallout and enforcement action made it the cautionary tale of the model. Still sits under Step and Branch; Dave is migrating to Coastal Community Bank, and Mercury, Relay and Wise have left.",
   "clients": [
-   "Dave",
    "Step",
-   "Copper",
-   "Wise"
+   "Branch",
+   "Dave"
   ]
  },
  "Choice Financial Group": {
@@ -48,7 +47,9 @@
   "about": "New Jersey's fintech-lending powerhouse — issues Current's credit builder card and, since 2026, the US MetaMask Card, putting a state-chartered bank under the world's default self-custody wallet.",
   "clients": [
    "Current",
-   "MetaMask"
+   "MetaMask",
+   "Karat",
+   "Meow"
   ]
  },
  "Coastal Community Bank": {
@@ -58,7 +59,11 @@
   "about": "Washington-state charter that powers One (Walmart's fintech) among a large CCBX partner portfolio — one of the few sponsor banks that grew through the 2023-24 BaaS crackdown.",
   "clients": [
    "One",
-   "Greenwood"
+   "Greenwood",
+   "Dave",
+   "Till Financial",
+   "Albert",
+   "Bluevine"
   ]
  },
  "Column": {
@@ -80,7 +85,11 @@
   "clients": [
    "Flex",
    "KAST",
-   "Revolut"
+   "Revolut",
+   "Found",
+   "Branch",
+   "Nubank",
+   "Dolafy"
   ]
  },
  "Thread Bank": {
@@ -340,10 +349,8 @@
   "domain": "synapsefi.com",
   "type": "BaaS middleware",
   "hq": "San Francisco, US",
-  "about": "The a16z-backed BaaS middleware whose 2024 bankruptcy froze ~$200M of end-user funds across partner banks — Juno was among the apps caught in the collapse. The reason 'who holds the ledger?' is now a due-diligence question.",
-  "clients": [
-   "Copper"
-  ]
+  "about": "The a16z-backed BaaS middleware whose 2024 bankruptcy froze ~$200M of end-user funds across partner banks. Juno and Copper, both now in the neobankbeat graveyard, were among the apps caught in the collapse. The reason 'who holds the ledger?' is now a due-diligence question.",
+  "clients": []
  },
  "Blend": {
   "domain": "blend.money",
@@ -390,7 +397,9 @@
    "Crypto.com",
    "Greenlight",
    "Zolve",
-   "Comun"
+   "Comun",
+   "GoHenry",
+   "Nomad"
   ]
  },
  "Metropolitan Commercial Bank": {
@@ -420,17 +429,16 @@
   "about": "CDFI-certified Minnesota charter that specializes in mission-driven fintech — issues MoCaFi's cards (including city disbursement programs like LA's Angeleno Card) and the True Link prepaid Visa for vulnerable adults.",
   "clients": [
    "MoCaFi",
-   "True Link"
+   "True Link",
+   "Lili"
   ]
  },
  "Piermont Bank": {
   "type": "BIN sponsor bank",
   "domain": "piermontbank.com",
   "hq": "New York, US",
-  "about": "A de novo New York charter (2019) built from scratch for embedded banking — issues Slash's business debit Mastercard alongside a curated fintech portfolio it keeps deliberately small.",
-  "clients": [
-   "Slash"
-  ]
+  "about": "A de novo New York charter (2019) built from scratch for embedded banking — keeps a deliberately small fintech portfolio. It used to sponsor Slash and Found, which have since moved to Column and Lead Bank.",
+  "clients": []
  },
  "Green Dot": {
   "type": "BIN sponsor bank",
