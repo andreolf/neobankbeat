@@ -5,8 +5,400 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 62 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 25 Oct 2026 11:06:32 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 12:39:33 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Principal DevOps Engineer — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-5015356101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-5015356101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Bybit · Kuala Lumpur, Malaysia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Sr. Instructional Designer, Learning Operations — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8842932002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8842932002/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Chime · Remote, USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[VIP Relationship Manager — Consensys (MetaMask)]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/consensys-metamask-8300399/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/consensys-metamask-8300399/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Consensys (MetaMask) · APAC - Remote · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[VIP Relationship Manager — Consensys (MetaMask)]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/consensys-metamask-8300320/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/consensys-metamask-8300320/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Consensys (MetaMask) · United States - Remote · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[CRM MarTech & Email Ops Manager — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-24022c31-0cfa-463c-9585-e7dad7706d28/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-24022c31-0cfa-463c-9585-e7dad7706d28/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Crypto.com · Hong Kong · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[CRM MarTech & Email Ops Manager — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-34663b60-9015-4c56-be57-42890411746f/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-34663b60-9015-4c56-be57-42890411746f/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Crypto.com · Singapore · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Growth MarTech Senior Specialist — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-0723da1f-78d0-4c58-89b7-65d577a7e09a/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-0723da1f-78d0-4c58-89b7-65d577a7e09a/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Crypto.com · Hong Kong · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Growth MarTech Senior Specialist — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-088185cf-8050-4c36-89d0-a7212aa640e3/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-088185cf-8050-4c36-89d0-a7212aa640e3/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Crypto.com · Singapore · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[M&A Analyst — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-27b67b39-dbce-47c7-ba75-35ec37aaf676/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-27b67b39-dbce-47c7-ba75-35ec37aaf676/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Crypto.com · Singapore · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[M&A Analyst — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-a1e06a71-49c8-4d89-b4d7-1dfd2f3d1afc/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-a1e06a71-49c8-4d89-b4d7-1dfd2f3d1afc/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Crypto.com · Taipei · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[M&A Analyst — Crypto.com]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/crypto-com-cb7e63ce-1be3-48cb-a6e7-4c3069f168c5/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-cb7e63ce-1be3-48cb-a6e7-4c3069f168c5/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Crypto.com · Hong Kong · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Information Security Risk Analyst — FamPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/fampay-0b8051c8-dfcd-475a-925e-69be869bcd86/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/fampay-0b8051c8-dfcd-475a-925e-69be869bcd86/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[FamPay · Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Field Credit Officer (Akwa Ibom) — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5015583101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5015583101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Moniepoint · Akwa Ibom, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Field Credit Officer (Delta) — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5014869101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5014869101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Moniepoint · Delta, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Field Credit Officer (Rivers) — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5015823101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5015823101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Moniepoint · Rivers, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Illustrator — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4973542101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4973542101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Moniepoint · Remote, Nigeria · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Principal, Talent Marketing — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5015546101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5015546101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Moniepoint · Remote, Spain · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Team Lead, System Administrator — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4780532101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4780532101/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Moniepoint · Lagos, Nigeria · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[People Operations Associate, 12 month fixed-term contract — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8318522/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8318522/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £34–40K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lifecycle Manager — N26]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/n26-8187978/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8187978/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[N26 · Berlin · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AI Enablement Project Director — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-7814862003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7814862003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Deputy General Counsel/Head of UK Legal — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8042785003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8042785003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[OKX · London, England, United Kingdom · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Manager / Director, Live & Monetization — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8044024003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8044024003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Manager / Director, Live & Monetization — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8044023003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8044023003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Executive Assistant - CEO Office — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-7697795003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7697795003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Legal Analyst — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8044329003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8044329003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[OKX · EMEA · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Staff Engineer, Decentralize Exchange (DEX) — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-7611329003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7611329003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR; Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior / Staff Engineer, DEX Trading System — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8034335003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8034335003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior/Staff Engineer, Growth — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-7594323003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7594323003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Visual Designer — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8044141003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8044141003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[OKX · Singapore, Singapore · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Visual Designer — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8044165003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8044165003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[DX企画推進担当 — PayPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/paypay-5601370004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-5601370004/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Frontend Engineer / フロントエンドエンジニア — PayPay]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/paypay-5839063004/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-5839063004/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[iOS Developer, International — Robinhood]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/robinhood-8246088/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8246088/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Robinhood · Toronto, Canada · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineer, Backend - 4 (Java) — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8044322003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8044322003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Delhi NCR · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineer, Backend - 4 (Java) — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8044321003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8044321003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Bengaluru · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineer, Backend - 4 (Java) — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-7798509003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-7798509003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Manager — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-7569898003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-7569898003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · Bulgaria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Head of Product, Credit Outcome — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8035213003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8035213003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Site Reliability Engineering Manager — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8044352003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8044352003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · Lithuania · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Site Reliability Engineering Manager — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8044286003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8044286003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · Bulgaria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Site Reliability Engineering Manager — Tide]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/tide-8044346003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/tide-8044346003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Tide · Serbia · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Software Engineer — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000157759139/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157759139/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Analytics Senior Manager - Risk & Controls — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000157733479/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157733479/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Wise · Singapore, SG · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[FinCrime Investigator - AML Investigations — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000157722629/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157722629/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Enablement Lead | AI & Automation — C6 Bank]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4741964005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4741964005/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior AI Engineer |  IA & Automation — C6 Bank]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4743342005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4743342005/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Tech Engineering Specialist | AI & Automation — C6 Bank]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4743378005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4743378005/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Business Manager - Liquidity Management — OKX]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/okx-8005031003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8005031003/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[CRM Manager - Member Engagement (Germany) — Tide]]></title>
     <link>https://www.neobankbeat.com/jobs/j/tide-8042667003/</link>
@@ -22,6 +414,22 @@
     <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
     <category>Marketing &amp; Growth</category>
     <description><![CDATA[Tide · India, Hyderabad · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Recruiter - Non Tech — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000157674929/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157674929/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Group Regulatory Compliance Manager - ABC, COI, GH&E — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000157670129/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157670129/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Wise · London, GB · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Director, Performance Marketing — Brex]]></title>
@@ -78,414 +486,6 @@
     <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Gombe, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Regional Security Officer (North West) — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4940527101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4940527101/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Kano, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Regional Security Officer (South East) — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4942965101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4942965101/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Enugu, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Regional Security Officer (South West) — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4942966101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4942966101/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Ekiti, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Manager, Global Partnerships (Listing & Tokenization) — OKX]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/okx-7822600003/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-7822600003/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Fraud Operations Program Manager — Robinhood]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/robinhood-8312485/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8312485/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Robinhood · Chicago, IL; Denver, CO; Lake Mary, FL; Westlake, TX · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[DEI Partner Lead — Wise]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/wise-744000157620089/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000157620089/</guid>
-    <pubDate>Sat, 24 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Wise · London, GB · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of security — Airtm]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/airtm-27dd543f-8c91-43c7-a3ed-bb7f2e51f14d/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/airtm-27dd543f-8c91-43c7-a3ed-bb7f2e51f14d/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Airtm · LATAM · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[BRANDING SPECIALIST I — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4745929005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4745929005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION ANALYST III | UNSECURED DEBT COLLECTION — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4738654005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4738654005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[COLLECTION ANALYST II | UNSECURED DEBT COLLECTION OPS MG — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4738644005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4738644005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT POLICIES ANALYST I | CS&P - BUSINESS MG — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4740786005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4740786005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CREDIT POLICIES ANALYST III | CS&P - BUSINESS SP — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4737838005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4737838005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[CUSTOMER EXPERIENCE AUTOMATION ANALYST I — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4740500005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4740500005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[INTERN | MIDDLE ASSET SUPPORT AT MG — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4738360005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4738360005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[OPERATIONS ANALYST III - Global Account & Onboarding Operations — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4713875005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4713875005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Onboarding &amp; KYC</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[REVENUE MANAGEMENT ANALYST III | DATA ANALYSIS IP SP | INTER PAG — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4737969005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4737969005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Banco Inter · São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[SOFTWARE DEVELOPER ANALYST III |  BACKOPS OPERAT MG — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4740507005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4740507005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[TECHNOLOGY MANAGER - Channels — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4720863005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4720863005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG; São Paulo, SP · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[TECH OPS ANALYST II | PE CROSS INVESTMENTS — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4743362005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4743362005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[TECH PRODUCT SPECIALIST I LIFECYCLE — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4744766005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4744766005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[TECH PRODUCT SPECIALIST I | PRODUCT ENGINEERING INVESTMENTS — Banco Inter]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4742659005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4742659005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Associate, Customer Support - Live chat — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-4969789101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4969789101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Product Manager, DeFi — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-5009824101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5009824101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Product Marketing Manager, Tokenization & Web3 — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-5009826101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5009826101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Technical Product Manager, Protocol (Vision Chain) — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-5009827101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5009827101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Accountant Partnerships Manager — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912603002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912603002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · New York, New York, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Accountant Partnerships Manager — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912605002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912605002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Accounting Partner Growth Manager — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912606002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912606002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Accounting Partner Growth Manager — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912607002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912607002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Brex · New York, New York, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Account Protection Specialist — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8795500002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8795500002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Partner Operations Program Manager, Associate — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8832353002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8832353002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Brex · São Paulo, São Paulo, Brazil · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Partnerships Manager, Accounting Channel — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912611002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912611002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · New York, New York, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Partnerships Manager, Accounting Channel — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912610002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912610002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $136–170K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Director, Mid Market Sales — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8912715002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8912715002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Brex · Salt Lake City, Utah, United States · $344–429K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[[EU] Talent Acquisition Specialist — Bybit]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bybit-5015337101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-5015337101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Bybit · Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[VIP Relationship Manager, Korea — Bybit]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bybit-5014891101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-5014891101/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Sales &amp; Partnerships</category>
-    <description><![CDATA[Bybit · South Korea - Remote · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Business Intelligence Pleno | Parcerias & Fidelidade — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4746116005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4746116005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Cultura, Diversidade e Marca Empregadora Júnior | Gente e Gestão | Vaga Afirmativa para Pessoas com Deficiência — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4747019005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4747019005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Analista de Negócios Sênior | Consignado — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4747356005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4747356005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Pleno | Hub de Investimentos | Campinas — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4747335005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4747335005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Gerente de Negócios Veículos | Montes Claros - Minas Gerais — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4727510005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4727510005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · Belo Horizonte, Minas Gerais, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Gerente de Negócios Veículos | Sorocaba - São Paulo — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4747055005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4747055005/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[C6 Bank · Sorocaba, São Paulo, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Director of Communications & Content, Chime Enterprise — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8879740002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8879740002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Chime · New York, NY, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Associate, Strategic Finance — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8801438002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8801438002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Associate, Strategic Finance (Growth) — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8895833002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8895833002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Marketing &amp; Growth</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Compensation Partner — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8879659002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8879659002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Litigation Paralegal — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8792103002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8792103002/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Complaints Analyst III — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-7182060/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-7182060/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Hybrid - Luxembourg · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Complaints Analyst III — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-7254275/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-7254275/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Remote - Australia · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Offensive Security Engineer, AI — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8318599/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8318599/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Coinbase · Remote - Canada · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Operations Manager, ADGM — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8207241/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8207241/</guid>
-    <pubDate>Fri, 23 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Coinbase · Remote - Abu Dhabi · remote]]></description>
   </item>
 </channel>
 </rss>
