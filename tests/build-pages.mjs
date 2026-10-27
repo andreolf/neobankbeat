@@ -3258,6 +3258,7 @@ const urls = [
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ai/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/partner/`, changefreq: 'monthly', priority: '0.5' },
+  { loc: `${BASE}/affiliate-disclosure/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/changelog/`, changefreq: 'weekly', priority: '0.6' },
   { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
   /* data-driven pages get the last data.json change, not the build date — stamping
@@ -3272,6 +3273,7 @@ const urls = [
      directory is the register. */
   ...EDITIONS.map(slug => ({ loc: `${BASE}/report/${slug}/`, lastmod: gitModified(`report/${slug}/index.html`), priority: '0.9' })),
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
+  { loc: `${BASE}/jobs/feature/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/jobs/match/`, changefreq: 'weekly', priority: '0.75' },
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),

@@ -305,6 +305,7 @@ page(`
 <li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT license). The report itself is generated from that file.</li>
 <li><b>Independence:</b> no affiliate links, no sponsored placements, no issuer relationships. Errors are fixed in the open on GitHub.</li>
 </ul>
+${SPONSOR ? `<div class="callout" style="border-left-color:var(--acc)"><span class="k">sponsored by</span><p style="margin-bottom:8px">${SPONSOR.logo ? `<img src="${esc(SPONSOR.logo)}" alt="${esc(SPONSOR.name)} logo" style="max-width:160px;max-height:48px;display:block;margin-bottom:10px">` : ''}<b><a href="${esc(SPONSOR.url)}" target="_blank" rel="noopener" style="color:var(--text)" onclick="nbevt&&nbevt('report_sponsor_click',{sponsor:'${esc(SPONSOR.name).replace(/'/g, '')}'})">${esc(SPONSOR.name)} ↗</a></b><br><span style="font-size:9pt;color:var(--muted)">${esc(SPONSOR.blurb)}</span></p></div>` : ''}
 <div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — ${MONTH} (${EDITION}), ${ASOF}." Link: <a href="https://www.neobankbeat.com/report/">neobankbeat.com/report</a></p></div>
 <p style="color:var(--dim);font-size:8.6pt">Figures are compiled from public sources for comparison and research, and are not financial advice. Cashback and yield figures are "up to" headline rates that change constantly — always confirm with the issuer. © ${MONTH.split(' ')[1]} neobankbeat · Francesco Andreoli · MIT.</p>`);
 
