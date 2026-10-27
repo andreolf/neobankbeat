@@ -145,6 +145,12 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 /* the embed can't reflow below ~420px — narrow screens render it at 480px
    scaled down to fit (see fit() below): visible, tappable, stays on-page */
 .doneui .big{font-size:21px;font-weight:700;margin:8px 0}
+.wsponsor{max-width:760px;margin:0 auto 44px;padding:24px 28px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:12px}
+.wsponsor-k{font-family:'Noto Sans Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+.wsponsor-name{font-size:18px;font-weight:700;margin:4px 0 10px}
+.wsponsor-name a{color:var(--text);text-decoration:none}
+.wsponsor-name a:hover{color:var(--acc)}
+.wsponsor-blurb{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
 @media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}.wlocked{columns:1}}
 </style>
 </head>
@@ -193,6 +199,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
     <a href="/data.json">raw data</a>
   </div>
 </div>
+
 <section class="wsec">
 <div class="eyebrow">about this report</div>
 <h1>Counting survivors,<br>not press releases</h1>
@@ -206,6 +213,7 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 <li><b>Reproducibility:</b> every figure in this report can be recomputed from <span class="mono">neobankbeat.com/data.json</span> (MIT license). The report itself is generated from that file.</li>
 <li><b>Independence:</b> no affiliate links, no sponsored placements, no issuer relationships. Errors are fixed in the open on GitHub.</li>
 </ul>
+
 <div class="callout"><span class="k">citation</span><p>"neobankbeat, The State of Neobanks — October 2026 (№ 04), data as of 5 October 2026." Link: <a href="https://www.neobankbeat.com/report/">neobankbeat.com/report</a></p></div>
 <p style="color:var(--dim);font-size:8.6pt">Figures are compiled from public sources for comparison and research, and are not financial advice. Cashback and yield figures are "up to" headline rates that change constantly — always confirm with the issuer. © 2026 neobankbeat · Francesco Andreoli · MIT.</p></section>
 <section class="wsec" id="ch0">
@@ -551,7 +559,7 @@ document.querySelectorAll('.stat .n').forEach(s => cu.observe(s));
   <div class="fgrp"><span class="fh">choose a bank</span><a href="/">directory</a><a href="/browse/">browse</a><a href="/fit/">find your fit</a><a href="/ask/">ask AI</a><a href="/vs/">compare</a><a href="/map/">world map</a></div>
   <div class="fgrp"><span class="fh">research</span><a href="/blog/">blog</a><a href="/report/">report</a><a href="/graveyard/">graveyard</a><a href="/africa/">africa radar</a><a href="/changelog/">changelog</a><a href="/investors/">investors</a><a href="/infra/">infra</a><a href="/ai/">ai</a><a href="/newsletters/">newsletters</a></div>
   <div class="fgrp"><span class="fh">open data</span><a href="/data/">dataset</a><a href="/data.json">data.json</a><a href="/llms.txt">llms.txt</a><a href="/mcp/">mcp server</a></div>
-  <div class="fgrp"><span class="fh">more</span><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a></div>
+  <div class="fgrp"><span class="fh">more</span><a href="/faq/">faq</a><a href="/glossary/">glossary</a><a href="/jobs/">jobs</a><a href="/partner/">partner</a><a href="/affiliate-disclosure/">affiliate disclosure</a><a href="https://github.com/andreolf/neobankbeat" target="_blank" rel="noopener">github</a><a href="https://x.com/neobankbeat" target="_blank" rel="noopener">𝕏 @neobankbeat</a></div>
   <div class="fmeta"><span>© neobankbeat · MIT</span><span class="langbar">🌐 <a href="/" onclick="window.nbevt&&nbevt('lang_switch',{to:'en'})">EN</a> · <a href="/de/" onclick="window.nbevt&&nbevt('lang_switch',{to:'de'})">DE</a> · <a href="/it/" onclick="window.nbevt&&nbevt('lang_switch',{to:'it'})">IT</a> · <a href="/fr/" onclick="window.nbevt&&nbevt('lang_switch',{to:'fr'})">FR</a> · <a href="/es/" onclick="window.nbevt&&nbevt('lang_switch',{to:'es'})">ES</a> · <a href="/pt/" onclick="window.nbevt&&nbevt('lang_switch',{to:'pt'})">PT</a></span></div>
 <script>document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.ndclose');if(c){c.closest('details').removeAttribute('open');return}document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target)||e.target===d)d.removeAttribute('open')})});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){d.removeAttribute('open')})})</script></div></footer>
 </body>

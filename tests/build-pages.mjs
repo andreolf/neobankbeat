@@ -306,6 +306,17 @@ function links(e) {
   return l.join(' · ');
 }
 
+/* ── affiliate/referral CTA when present ── */
+function affiliateCta(e) {
+  if (!e.referral_url) return '';
+  const noteText = e.referral_note || 'neobankbeat may earn a commission if you sign up through this link. All affiliate relationships are disclosed.';
+  return `
+  <div class="aff-cta">
+    <a href="${esc(e.referral_url)}" class="aff-btn" target="_blank" rel="sponsored nofollow noopener" onclick="nbevt('referral_click',{name:'${esc(e.name).replace(/'/g, '')}'})">Open ${esc(e.name)} account →</a>
+    <p class="aff-note">${esc(noteText)} <a href="/affiliate-disclosure/">Read our affiliate disclosure policy</a>.</p>
+  </div>`;
+}
+
 /* ═══ comparison pairs (computed before profiles so each profile can link its head-to-heads) ═══ */
 const PAIRS = [
   ['Chime', 'Current'], ['Chime', 'Varo'], ['Chime', 'Dave'], ['Chime', 'One'], ['Cash App', 'Venmo'],
@@ -991,6 +1002,7 @@ ${moneyMapHtml(e)}
     ${factRows(e)}
   </table>
   ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
+  ${affiliateCta(e)}
   <h2>Common questions about ${esc(e.name)}</h2>
   ${pFaq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
   <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name}: ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, license, cards & facts`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>
@@ -3246,6 +3258,7 @@ const urls = [
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ai/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/partner/`, changefreq: 'monthly', priority: '0.5' },
+  { loc: `${BASE}/affiliate-disclosure/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/changelog/`, changefreq: 'weekly', priority: '0.6' },
   { loc: `${BASE}/infra/`, changefreq: 'weekly', priority: '0.8' },
   /* data-driven pages get the last data.json change, not the build date — stamping
@@ -3260,6 +3273,7 @@ const urls = [
      directory is the register. */
   ...EDITIONS.map(slug => ({ loc: `${BASE}/report/${slug}/`, lastmod: gitModified(`report/${slug}/index.html`), priority: '0.9' })),
   { loc: `${BASE}/jobs/`, changefreq: 'daily', priority: '0.9' },
+  { loc: `${BASE}/jobs/feature/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/jobs/match/`, changefreq: 'weekly', priority: '0.75' },
   ...['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'support', 'sales', 'marketing', 'finance', 'operations', 'people', 'other']
     .map(d => ({ loc: `${BASE}/jobs/${d}/`, changefreq: 'daily', priority: '0.7' })),

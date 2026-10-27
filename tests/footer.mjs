@@ -69,6 +69,7 @@ export const FOOTER_GROUPS = [
     ["/glossary/", "glossary"],
     ["/jobs/", "jobs"],
     ["/partner/", "partner"],
+    ["/affiliate-disclosure/", "affiliate disclosure"],
     ["https://github.com/andreolf/neobankbeat", "github", true],
     ["https://x.com/neobankbeat", "𝕏 @neobankbeat", true],
   ]],
