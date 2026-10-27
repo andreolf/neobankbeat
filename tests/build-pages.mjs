@@ -306,6 +306,17 @@ function links(e) {
   return l.join(' · ');
 }
 
+/* ── affiliate/referral CTA when present ── */
+function affiliateCta(e) {
+  if (!e.referral_url) return '';
+  const noteText = e.referral_note || 'neobankbeat may earn a commission if you sign up through this link. All affiliate relationships are disclosed.';
+  return `
+  <div class="aff-cta">
+    <a href="${esc(e.referral_url)}" class="aff-btn" target="_blank" rel="sponsored nofollow noopener" onclick="nbevt('referral_click',{name:'${esc(e.name).replace(/'/g, '')}'})">Open ${esc(e.name)} account →</a>
+    <p class="aff-note">${esc(noteText)} <a href="/affiliate-disclosure/">Read our affiliate disclosure policy</a>.</p>
+  </div>`;
+}
+
 /* ═══ comparison pairs (computed before profiles so each profile can link its head-to-heads) ═══ */
 const PAIRS = [
   ['Chime', 'Current'], ['Chime', 'Varo'], ['Chime', 'Dave'], ['Chime', 'One'], ['Cash App', 'Venmo'],
@@ -991,6 +1002,7 @@ ${moneyMapHtml(e)}
     ${factRows(e)}
   </table>
   ${links(e) ? `<p><strong>Verified links:</strong> ${links(e)}</p>` : ''}
+  ${affiliateCta(e)}
   <h2>Common questions about ${esc(e.name)}</h2>
   ${pFaq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
   <p><a class="xshare" href="https://twitter.com/intent/tweet?${new URLSearchParams({ text: `${e.name}: ${e.category === 'web3-native' ? 'self-custodial' : e.category} neobank, ${e.hq}. Custody, license, cards & facts`, url, via: 'neobankbeat' })}" target="_blank" rel="noopener" onclick="nbevt('profile_share',{name:'${esc(e.name).replace(/'/g, '')}'})" style="font-family:var(--mono,'Noto Sans Mono',monospace);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;display:inline-block">share ${esc(e.name)} on 𝕏 →</a></p>

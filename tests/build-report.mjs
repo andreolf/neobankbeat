@@ -24,6 +24,18 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const ED_SLUG = '2026-10';
 const ASOF = 'data as of 5 October 2026';
 
+/* ── sponsor configuration (optional) ────────────────────────────
+   When present, renders a "Sponsored by" block in the web edition and PDF.
+   Leave null or comment out when no sponsor is active for this edition. */
+const SPONSOR = null;
+// Example when active:
+// const SPONSOR = {
+//   name: 'Acme Financial',
+//   url: 'https://acme.example',
+//   logo: '/logos/sponsor-acme.png',  // optional, 200×60px recommended
+//   blurb: 'Acme Financial provides issuing and compliance infrastructure for digital banks across Europe and LATAM.',
+// };
+
 /* Every edition that has pinned its data, oldest first. An edition is a
    directory under report/ holding its own data-snapshot.json — the same
    register the sitemap reads — so its number and its predecessor follow from
@@ -75,6 +87,20 @@ const removed = P ? P.filter(e => !nowNames.has(e.name)).map(e => e.name).sort()
 if (P) console.log(`month-over-month vs ${path.basename(path.dirname(PREV_SRC))}: ${prevN} → ${E.length} (+${added.length} / -${removed.length})`);
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/* ── sponsor block (when SPONSOR is configured) ── */
+function sponsorBlock() {
+  if (!SPONSOR) return '';
+  const logoHtml = SPONSOR.logo
+    ? `<img src="${esc(SPONSOR.logo)}" alt="${esc(SPONSOR.name)} logo" style="max-width:200px;max-height:60px;margin-bottom:12px">`
+    : '';
+  return `<div class="wsponsor">
+  <span class="wsponsor-k">sponsored by</span>
+  ${logoHtml}
+  <p class="wsponsor-name"><a href="${esc(SPONSOR.url)}" target="_blank" rel="noopener" onclick="nbevt&&nbevt('report_sponsor_click',{sponsor:'${esc(SPONSOR.name).replace(/'/g, '')}'})">${esc(SPONSOR.name)} ↗</a></p>
+  <p class="wsponsor-blurb">${esc(SPONSOR.blurb)}</p>
+</div>`;
+}
 
 /* ── stats ─────────────────────────────────────────────────────── */
 const N = E.length;
@@ -1128,6 +1154,12 @@ footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 20px}
 /* the embed can't reflow below ~420px — narrow screens render it at 480px
    scaled down to fit (see fit() below): visible, tappable, stays on-page */
 .doneui .big{font-size:21px;font-weight:700;margin:8px 0}
+.wsponsor{max-width:760px;margin:0 auto 44px;padding:24px 28px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:12px}
+.wsponsor-k{font-family:'Noto Sans Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+.wsponsor-name{font-size:18px;font-weight:700;margin:4px 0 10px}
+.wsponsor-name a{color:var(--text);text-decoration:none}
+.wsponsor-name a:hover{color:var(--acc)}
+.wsponsor-blurb{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
 @media(max-width:720px){.two{columns:1}.wsec table{display:block;overflow-x:auto}.statrow{gap:3mm}.wlocked{columns:1}}
 `;
 
@@ -1182,6 +1214,7 @@ ${NAV_LINKS.map(([href, label]) => `  <a${href === '/report/' ? ' class="on"' : 
     <a href="/data.json">raw data</a>
   </div>
 </div>
+${sponsorBlock()}
 ${webSections}
 <div class="wfade"></div>
 <div class="wgate" id="gate">

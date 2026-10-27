@@ -493,7 +493,29 @@ if (all.length < 2000) {
    missing employer. */
 const silent = SOURCES.map(([co]) => co).filter(co => !all.some(j => j.company === co));
 if (silent.length) console.log(`no roles returned by: ${silent.join(', ')}`);
-all.sort((a, b) => (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company));
+
+/* ── featured jobs: manually configured with expiry dates ── */
+const FEATURED = [
+  // { company: 'Chime', url: 'https://boards.greenhouse.io/chime/jobs/...', featured_until: '2026-12-31' },
+  // Add entries here when featured placements are sold
+];
+const featuredMap = new Map(FEATURED.map(f => [f.url, f.featured_until]));
+for (const j of all) {
+  const until = featuredMap.get(j.url);
+  if (until && until >= TODAY) {
+    j.featured = true;
+    j.featured_until = until;
+  }
+}
+const featuredCount = all.filter(j => j.featured).length;
+if (featuredCount) console.log(`${featuredCount} featured job${featuredCount === 1 ? '' : 's'} active (expiry enforced at build time)`);
+
+/* sort: featured first (by posted), then regular (by posted) */
+all.sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return (b.posted || '').localeCompare(a.posted || '') || a.company.localeCompare(b.company);
+});
 const takenJobIds = new Set();
 for (const j of all) {
   let base = jobSlug(j.company, j.url), id = base, n = 2;
@@ -624,6 +646,8 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jtag{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
 .jdate{font-family:'Noto Sans Mono',monospace;font-size:10.5px;color:var(--dim);white-space:nowrap}
 .job .apply{font-family:'Noto Sans Mono',monospace;font-size:12px;color:var(--acc);white-space:nowrap;margin-left:auto}
+.featured{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 4%,var(--panel))}
+.featured-badge{font-family:'Noto Sans Mono',monospace;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc);border-radius:99px;padding:2px 8px;white-space:nowrap;font-weight:700}
 .jback{font-family:'Noto Sans Mono',monospace;font-size:12.5px;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:14px}
 .jback:hover{color:var(--acc)}
 .jhead{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.1rem)}
@@ -742,8 +766,9 @@ const ago = p => {
   if (days < 31) return `${days}d ago`;
   return new Date(p).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 };
-const jobCard = j => `<a class="job" href="${esc(j.path)}">
+const jobCard = j => `<a class="job${j.featured ? ' featured' : ''}" href="${esc(j.path)}">
   ${logoImg(j.company)}
+  ${j.featured ? '<span class="featured-badge">Featured</span>' : ''}
   <span class="t">${esc(j.title)}</span>
   <span class="co">${esc(j.company)}</span>
   <span class="loc">${esc(j.location)}</span>
@@ -819,8 +844,10 @@ if(d===0)return'today';if(d===1)return'1d ago';if(d<31)return d+'d ago';
 return new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function card(j){const a=document.createElement('a');a.className='job';a.href='/jobs/j/'+j.id+'/';
 const lg=LOGOS[j.company]?'<img class="jlogo" loading="lazy" alt="" src="/logos/jobs/'+LOGOS[j.company].toLowerCase().replace(/[^a-z0-9]/g,'-')+'.png" onerror="this.onerror=null;this.src=\\'https://www.google.com/s2/favicons?domain='+esc(LOGOS[j.company])+'&sz=64\\'">':'<span class="jlogo jlogo-fb">'+esc(j.company.charAt(0))+'</span>';
-a.innerHTML=lg+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">check more →</span>';
-a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;return a}
+a.innerHTML=lg+(j.featured?'<span class="featured-badge">Featured</span>':'')+'<span class="t"></span><span class="co"></span><span class="loc"></span>'+(j.salary?'<span class="sal">'+esc(j.salary)+'</span>':'')+(j.visa?'<span class="visa">visa ✓</span>':'')+'<span class="jtag">'+deptName[j.dept]+'</span>'+(j.posted&&ago(j.posted)?'<span class="jdate">'+ago(j.posted)+'</span>':'')+'<span class="apply">check more →</span>';
+a.querySelector('.t').textContent=j.title;a.querySelector('.co').textContent=j.company;a.querySelector('.loc').textContent=j.location;
+if(j.featured)a.classList.add('featured');
+return a}
 function render(reset){if(!JOBS.length)return;if(reset){list.innerHTML='';shown=0}
 const hits=JOBS.filter(match);
 document.querySelectorAll('#jcount').forEach(el=>el.textContent=hits.length.toLocaleString('en-US'));
