@@ -2435,6 +2435,9 @@ const BLOG_POSTS = [
   ['your-neobank-changed-banks', '2026-10-14'],
   ['europe-most-neobanks-not-biggest', '2026-10-21'],
   ['stablecoins-traditional-neobanks-latam', '2026-10-28'],
+  ['neobank-hiring-index', '2026-11-04'],
+  ['neobank-licences-by-region', '2026-11-11'],
+  ['us-neobank-charter-wave', '2026-11-18'],
 ];
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {

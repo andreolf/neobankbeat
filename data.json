@@ -44,7 +44,7 @@
    ],
    "note": "Largest US neobank; 20M+ members; SpotMe overdraft.",
    "story": "Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe.",
-   "license": "Partner banks (The Bancorp, Stride)",
+   "license": "Partner banks (The Bancorp, Stride); agreed Sep 2026 to buy Stride Bank for $590M, to become Chime Bank, N.A. once the OCC and Fed approve (close expected H1 2027)",
    "founders": "Chris Britt, Ryan King",
    "funding": "~$2.3B raised",
    "terms_url": "https://www.chime.com/policies/",
@@ -1651,7 +1651,7 @@
    "active_regions": [
     "North America"
    ],
-   "note": "SMB checking + credit lines.",
+   "note": "SMB checking + credit lines; agreed Sep 2026 to be acquired by Valley National Bancorp (~$340M, close expected early 2027).",
    "license": "Partner bank (Coastal Community Bank) + sweep-network program banks (up to $3M FDIC); credit line via Celtic Bank",
    "founders": "Eyal Lifshitz",
    "funding": "~$770M incl. debt",
@@ -1721,7 +1721,7 @@
     "kyc_provider": null,
     "card_network": null
    },
-   "funding_stage": "Series C+"
+   "funding_stage": "Acquired"
   },
   {
    "name": "Relay",
@@ -17396,7 +17396,7 @@
    "note": "50M+ users; crypto trading; stablecoin in FCA sandbox 2026.",
    "story": "From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK license took nine years.",
    "ai": "interface",
-   "license": "UK banking license (2024); EU license (Lithuania)",
+   "license": "UK banking license (2024); EU license (Lithuania); US national bank charter conditionally approved by the OCC (Sep 2026; FDIC and Fed sign-off outstanding, launch targeted 2027)",
    "founders": "Nik Storonsky, Vlad Yatsenko",
    "funding": "~$2B raised; val ~$75B",
    "terms_url": "https://www.revolut.com/legal/terms/",

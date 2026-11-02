@@ -1,7 +1,18 @@
 {
- "generated": "2026-10-13",
+ "generated": "2026-11-02",
  "total": 382,
  "releases": [
+  {
+   "date": "2026-11-02",
+   "tag": "data",
+   "title": "The US charter wave, recorded",
+   "body": "Chime agreed to buy Stride Bank, its sponsor of seven years, for $590M, and Revolut won conditional OCC approval for a US national bank. Valley National Bancorp agreed to buy Bluevine. All three are now noted on the profiles. None has closed, so the licence types stay as they are until the regulators sign off.",
+   "links": [
+    "/n/chime/",
+    "/n/revolut/",
+    "/n/bluevine/"
+   ]
+  },
   {
    "date": "2026-10-13",
    "tag": "data",
@@ -214,6 +225,19 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-11-02",
+   "summary": "Blog queue through Nov 18, and the US charter wave on the profiles.",
+   "subject": "Blog queue through Nov 18, and the US charter wave on the profiles",
+   "total": 382,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Chime",
+    "Bluevine",
+    "Revolut"
+   ]
+  },
   {
    "date": "2026-10-13",
    "summary": "Three delistings, stale rails fixed, three posts queued.",
