@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-02', tag: 'new', title: 'The State of Neobanks № 05 — November 2026',
+    body: 'The November edition: 60 pages on 382 verified-active neobanks, pinned to its own snapshot. Against October, none arrived and three left: Copper, Charlie and Ellevest had all closed before the sponsor-bank audit caught them, and the edition says when each one shut. The outlook chapter and the "next edition" note are now computed from the month too. In October both still said September.',
+    links: [['/report/', 'read № 05'], ['/report/2026-11/', 'the web edition']] },
   { date: '2026-11-02', tag: 'data', title: 'The US charter wave, recorded',
     body: 'Chime agreed to buy Stride Bank, its sponsor of seven years, for $590M, and Revolut won conditional OCC approval for a US national bank. Valley National Bancorp agreed to buy Bluevine. All three are now noted on the profiles. None has closed, so the licence types stay as they are until the regulators sign off.',
     links: [['/n/chime/', 'Chime'], ['/n/revolut/', 'Revolut'], ['/n/bluevine/', 'Bluevine']] },

@@ -21,8 +21,8 @@ import { withCrumbs } from './meta.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 /* ── edition constants ─────────────────────────────────────────── */
-const ED_SLUG = '2026-10';
-const ASOF = 'data as of 5 October 2026';
+const ED_SLUG = '2026-11';
+const ASOF = 'data as of 2 November 2026';
 
 /* Every edition that has pinned its data, oldest first. An edition is a
    directory under report/ holding its own data-snapshot.json — the same
@@ -41,6 +41,10 @@ if (IDX < 0) {
 }
 const edNo = i => `№ ${String(i + 1).padStart(2, '0')}`;
 const MONTH = `${monthName(ED_SLUG)} ${ED_SLUG.slice(0, 4)}`;
+/* the month after this edition — the outlook chapter and the "next edition"
+   note used to type it, and both still said September in the October edition */
+const NEXT_SLUG = (() => { const [y, m] = ED_SLUG.split('-').map(Number); return m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`; })();
+const NEXT_MONTH = `${monthName(NEXT_SLUG)} ${NEXT_SLUG.slice(0, 4)}`;
 const EDITION = edNo(IDX);
 const PREV_SLUG = IDX > 0 ? EDITIONS[IDX - 1] : null;
 
@@ -419,7 +423,7 @@ page(`
 /* ═══ TEN FINDINGS (2pp) ═══ */
 chapter('The ten findings');
 const FINDINGS = [
-  ['The founding boom is over', `Foundings among survivors: ${years[2019]} (2019) → ${years[2023]} (2023) → ${years[2024]} (2024) → ${years[2025]} (2025). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
+  ['The founding boom is over', `Foundings among survivors: ${peakYr[1]} (${peakYr[0]}, the peak) → ${years[2023]} (2023) → ${years[2024]} (2024) → ${years[2025]} (2025). "Another challenger bank" stopped being fundable around 2022; what raises now is niche underwriting edges and stablecoin-native architecture.`],
   ['A third of the new generation is self-custodial', `${w2020s} of ${all2020s} survivors founded in the 2020s (${w2020pct}%) are web3-native, vs ${w2010pct}% of the 2010s cohort. The industry's marginal energy has moved to the model where no company holds the balance.`],
   [`Stablecoins: ${Math.round(stByCat.W / W * 100)}% / ${Math.round(stByCat.H / H * 100)}% / ${(stByCat.T / T * 100).toFixed(1)}%`, `All ${W} web3-native and ${stByCat.H} of ${H} hybrids support stablecoins — but only ${stByCat.T} of ${T} traditional neobanks do. That 2.7% is either a ceiling or the floor of the next migration. We think floor.`],
   [`Only ${Math.round(licBanks / N * 100)}% are licensed banks`, `${licBanks} of ${N} hold a charter. The rest: ${regTypes.find(r=>r[0]==='Partner-bank model')?.[1] ?? 20} partner-bank models, ${regTypes.find(r=>r[0]==='E-money institution')?.[1] ?? 8} e-money institutions, ${regTypes.find(r=>r[0]==='Self-custodial software')?.[1] ?? 39} self-custodial software, and a long unclassifiable tail. Deposit insurance is rarer than landing pages suggest.`],
@@ -541,7 +545,7 @@ page(`
 <tr><td class="mono">2009–13</td><td>Simple, Moven, GoBank; Fidor in Germany</td><td>Proved a bank could live in an app — mostly on partner charters</td></tr>
 <tr><td class="mono">2013–15</td><td>Nubank founded; UK mints Atom, Tandem, Monzo, Starling licenses</td><td>The two enduring models appear: LatAm scale and UK charter-first</td></tr>
 <tr><td class="mono">2016–17</td><td>N26 gets a full license; Revolut adds crypto; Crypto.com & exchange cards</td><td>Wave two begins — fiat and custodial crypto in one app</td></tr>
-<tr><td class="mono">2018–19</td><td>Peak formation: 85 of today's survivors founded in 24 months</td><td>BaaS turns launching a neobank into a procurement decision</td></tr>
+<tr><td class="mono">2018–19</td><td>Peak formation: ${E.filter(e => e.founded === 2018 || e.founded === 2019).length} of today's survivors founded in 24 months</td><td>BaaS turns launching a neobank into a procurement decision</td></tr>
 <tr><td class="mono">2020</td><td>COVID; Kakaobank/jiban giants scale; Australia's Xinja collapses</td><td>First proof that licenses without economics don't survive</td></tr>
 <tr><td class="mono">2021</td><td>Bull-market echo cohort (${years[2021]} survivors); Nubank IPO at ~$41B</td><td>The category gets a public-market benchmark</td></tr>
 <tr><td class="mono">2022</td><td>Rates rise; funding halves; FTX fails</td><td>Custody stops being a philosophical question</td></tr>
@@ -892,7 +896,7 @@ page(`
 chapter('Outlook & watchlist');
 page(`
 <div class="eyebrow">chapter 14 · outlook</div>
-<h1>What we're watching<br>into September</h1>
+<h1>What we're watching<br>into ${monthName(NEXT_SLUG)}</h1>
 <h3>01 · The traditional-wave stablecoin flip</h3>
 <p>The 2.7% number is the one to re-check monthly. Watch announcements-to-launch conversion, and which partner banks let US neobanks touch supervised stablecoins first.</p>
 <h3>02 · MiCA grandfathering endgame</h3>
@@ -903,7 +907,7 @@ page(`
 <p>Software agents that hold keys and spend within contract-enforced limits are the strangest new constituency in the dataset — and the first genuinely new "customer type" since teenagers got debit cards. We expect the first mainstream agent-payments controversy within twelve months. <i>(Speculative, flagged.)</i></p>
 <h3>05 · The niche graveyard's next entries</h3>
 <p>Niche banking works until the niche's unit economics don't. Watch subscription-dependent kids' banks and thin-margin travel cards as funding stays tight.</p>
-<div class="callout"><span class="k">next edition</span><p>The State of Neobanks — September 2026 ships early next month: same method, fresh data, deltas tracked against this edition. Subscribe at neobankbeat.substack.com.</p></div>`);
+<div class="callout"><span class="k">next edition</span><p>The State of Neobanks — ${NEXT_MONTH} ships early next month: same method, fresh data, deltas tracked against this edition. Subscribe at neobankbeat.substack.com.</p></div>`);
 
 /* ═══ CH: METHOD IN FULL ═══ */
 chapter('Method, in full');
