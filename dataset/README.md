@@ -27,7 +27,7 @@ configs:
 
 # neobankbeat — open directory of neobanks worldwide
 
-A verified, machine-readable directory of **382 active neobanks** — traditional
+A verified, machine-readable directory of **397 active neobanks** — traditional
 (licensed fiat), hybrid (fiat + custodial crypto), and web3-native
 (self-custodial) — curated from primary sources and updated in the open.
 

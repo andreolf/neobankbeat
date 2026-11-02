@@ -32,19 +32,19 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/ask/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/graveyard/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/africa/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,25 +56,25 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/asia/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/europe/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/north-america/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/mena/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/mcp/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -110,13 +110,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/faq/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/glossary/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25597,7 +25597,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26089,6 +26089,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/countries/hong-kong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/countries/australia/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
@@ -26110,7 +26115,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28025,14 +28030,89 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -29947,8 +30027,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -30478,6 +30633,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -30488,7 +30648,22 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -30514,6 +30689,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -30573,6 +30753,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -30619,6 +30804,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -30683,6 +30873,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -30698,7 +30893,17 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -30714,6 +30919,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/de/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/de/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -30793,6 +31013,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/de/countries/hong-kong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/de/countries/australia/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -30814,13 +31039,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -32735,8 +32960,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -33266,6 +33566,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -33276,7 +33581,22 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -33302,6 +33622,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -33361,6 +33686,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -33407,6 +33737,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -33471,6 +33806,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -33486,7 +33826,17 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -33502,6 +33852,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/it/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/it/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -33581,6 +33946,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/it/countries/hong-kong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/it/countries/australia/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -33602,13 +33972,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -35523,8 +35893,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -36054,6 +36499,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -36064,7 +36514,22 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -36090,6 +36555,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -36149,6 +36619,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -36195,6 +36670,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -36259,6 +36739,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -36274,7 +36759,17 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -36290,6 +36785,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/fr/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/fr/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -36369,6 +36879,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/fr/countries/hong-kong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/fr/countries/australia/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -36390,13 +36905,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -38311,8 +38826,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -38842,6 +39432,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -38852,7 +39447,22 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -38878,6 +39488,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -38937,6 +39552,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -38983,6 +39603,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -39047,6 +39672,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -39062,7 +39692,17 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -39078,6 +39718,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/es/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/es/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -39157,6 +39812,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/es/countries/hong-kong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/es/countries/australia/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -39178,13 +39838,13 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/n/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -41099,8 +41759,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/n/shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/cloud9/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/mukuru/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/simple/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/jingle-pay/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/tam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/pepper/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/facile/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/faktus/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/helios/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/buut/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/n/chase-germany/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -41630,6 +42365,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -41640,7 +42380,22 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -41666,6 +42421,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -41725,6 +42485,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -41771,6 +42536,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -41835,6 +42605,11 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
@@ -41850,7 +42625,17 @@
     <priority>0.55</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/pt/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/pt/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -41866,6 +42651,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -41941,6 +42741,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/pt/countries/vietnam/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/pt/countries/hong-kong/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.55</priority>
   </url>
@@ -43875,6 +44680,81 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/shield/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/cloud9/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/mukuru/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/simple/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/jingle-pay/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/tam/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/pepper/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/facile/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/ping-an-digital-bank/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/green-link-digital-bank/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/faktus/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/helios/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/buut/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/juni/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/chase-germany/who-owns/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/n/chime/alternatives/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.6</priority>
@@ -45780,8 +46660,83 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/n/shield/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/cloud9/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/mukuru/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/simple/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/jingle-pay/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/tam/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/pepper/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/facile/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/ping-an-digital-bank/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/green-link-digital-bank/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/faktus/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/helios/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/buut/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/juni/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/n/chase-germany/alternatives/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -46311,6 +47266,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/anna-money-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/oaknorth-vs-allica-bank/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
@@ -46321,7 +47281,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/oaknorth-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/allica-bank-vs-zempler-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/allica-bank-vs-juni/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/zempler-bank-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
@@ -46347,6 +47322,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/algbra-vs-kestrl/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/fyrst-vs-juni/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
@@ -46406,6 +47386,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/anext-bank-vs-green-link-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/judo-bank-vs-amp-bank-go/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
@@ -46452,6 +47437,11 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/grey-vs-cleva/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/now-money-vs-jingle-pay/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
@@ -46516,6 +47506,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/meow-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/dakota-vs-allscale/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
@@ -46531,7 +47526,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.neobankbeat.com/vs/slash-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.neobankbeat.com/vs/flex-vs-dolafy/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/flex-vs-shield/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
@@ -46547,6 +47552,21 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/vs/fizen-vs-surfcash/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/aspire-vs-ping-an-digital-bank/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/dolafy-vs-shield/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/vs/yolat-vs-mukuru/</loc>
     <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
