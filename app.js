@@ -33,7 +33,7 @@ const D=[
 ["Brex","T","US","San Francisco, US",2017,"C","MC","Corporate credit","Points","Yield on idle cash",0,"Y","s","brex.com","Corporate cards + banking for startups."],
 ["Ramp","T","US","New York, US",2019,"C","Visa","Corporate card","1.5%","Treasury yield",0,"Y","s","ramp.com","Spend management + business accounts."],
 ["Novo","T","US","Miami, US",2016,"C","MC","Business debit","—","—",0,"Y","s","novo.co","SMB checking for small operators."],
-["Bluevine","T","US","Redwood City, US",2013,"C","MC","Business debit","—","~2% APY checking",0,"Y","s","bluevine.com","SMB checking + credit lines."],
+["Bluevine","T","US","Redwood City, US",2013,"C","MC","Business debit","—","~2% APY checking",0,"Y","s","bluevine.com","SMB checking + credit lines; agreed Sep 2026 to be acquired by Valley National Bancorp (~$340M, close expected early 2027)."],
 ["Relay","T","US","Toronto/US",2018,"C","Visa","Business debit","—","Yield on savings",0,"Y","s","relayfi.com","Multi-account SMB banking (Profit First)."],
 ["NorthOne","T","US","New York, US",2016,"C","MC","Business debit","—","—",0,"Y","s","northone.com","SMB banking for main-street businesses."],
 ["Rho","T","US","New York, US",2018,"C","MC","Corporate card","Up to 1.75%","Treasury",0,"Y","s","rho.co","Corporate banking + spend platform."],
@@ -646,7 +646,7 @@ const X={
 "Blink":{l:"Bank-owned neobank on Capital Bank of Jordan's banking license",s:"Launched in 2022 on Codebase Technologies' Digibanc platform with a swipe-based, social-media-style UI for Jordan's underbanked youth."},
 "Reah":{l:"Self-custodial treasury; fiat accounts via partner banks (pre-launch)",s:"Founded 2025 in Menlo Park (CEO Charles Wayn) as an agentic onchain banking OS for global businesses; currently pre-launch / waitlist."},
 /* US */
-"Chime":{f:"Chris Britt, Ryan King",l:"Partner banks (The Bancorp, Stride)",m:"~$2.3B raised",s:"Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe."},
+"Chime":{f:"Chris Britt, Ryan King",l:"Partner banks (The Bancorp, Stride); agreed Sep 2026 to buy Stride Bank for $590M, to become Chime Bank, N.A. once the OCC and Fed approve (close expected H1 2027)",m:"~$2.3B raised",s:"Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe."},
 "Varo":{f:"Colin Walsh",l:"National bank charter (2020)",m:"~$1B raised",s:"Spent three years and ~$100M to become the first US consumer fintech granted its own national bank charter."},
 "Current":{f:"Stuart Sopp",l:"Partner banks (Choice, Cross River)",m:"~$400M raised",s:"Started as a teen debit card, expanded to full-spectrum banking for Americans living paycheck to paycheck."},
 "SoFi":{ai:"interface",f:"Mike Cagney, Dan Macklin, James Finnigan, Ian Brady",l:"National bank charter (2022)",m:"Public (SOFI)",s:"From Stanford alumni-funded student loans to a chartered digital bank; issued SoFiUSD stablecoin in Dec 2025."},
@@ -942,7 +942,7 @@ const X={
 "Douugh":{l:"Partner banks (Regional Australia Bank; US via Choice Bank)",m:"Public (ASX:DOU)"},
 "Parpera":{l:"AFSL authorised representative (MSC Advisory AFSL 480649); accounts issued by Wise Australia (AFSL 513764)",f:"Daniel Cannizzaro"},
 /* Hybrid majors */
-"Revolut":{ai:"interface",f:"Nik Storonsky, Vlad Yatsenko",l:"UK banking license (2024); EU license (Lithuania)",m:"~$2B raised; val ~$75B",s:"From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK license took nine years.",a:["EU","NA","OC","ASIA","LATAM"]},
+"Revolut":{ai:"interface",f:"Nik Storonsky, Vlad Yatsenko",l:"UK banking license (2024); EU license (Lithuania); US national bank charter conditionally approved by the OCC (Sep 2026; FDIC and Fed sign-off outstanding, launch targeted 2027)",m:"~$2B raised; val ~$75B",s:"From a fee-free FX card in Canary Wharf to a 50M-user global super-app; the UK license took nine years.",a:["EU","NA","OC","ASIA","LATAM"]},
 "Cash App":{f:"Block (Jack Dorsey)",l:"Via Block's bank + BitLicense",m:"Public (XYZ)",s:"Square's P2P experiment became Block's consumer bank and America's biggest retail bitcoin on-ramp."},
 "Venmo":{l:"PayPal's US state licenses (money transmitter, NMLS 910457); crypto via NYDFS trust company PayPal Digital",f:"Andrew Kortina, Iqram Magdon-Ismail",m:"PayPal (PYPL)"},
 "Crypto.com":{f:"Kris Marszalek + 3",l:"MiCA CASP, MAS MPI, US MSBs",s:"Rebranded from Monaco after buying the crypto.com domain; the arena-naming-rights era of CeFi."},
