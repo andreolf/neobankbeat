@@ -4,8 +4,8 @@
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 382 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 47 ready-made cuts of the dataset by license, KYC, region and audience
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 397 neobanks
+- [Browse](https://www.neobankbeat.com/browse/) — 48 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
@@ -86,7 +86,7 @@
 - [neobank licences by region](https://www.neobankbeat.com/blog/neobank-licences-by-region/) (2026-11-11)
 - [us neobank charter wave](https://www.neobankbeat.com/blog/us-neobank-charter-wave/) (2026-11-18)
 
-## Neobank profiles (382)
+## Neobank profiles (397)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -470,8 +470,23 @@
 - [DNERO](https://www.neobankbeat.com/n/dnero/)
 - [Casas Bahia Pay](https://www.neobankbeat.com/n/casas-bahia-pay/)
 - [Mela](https://www.neobankbeat.com/n/mela/)
+- [Shield](https://www.neobankbeat.com/n/shield/)
+- [Cloud9](https://www.neobankbeat.com/n/cloud9/)
+- [Mukuru](https://www.neobankbeat.com/n/mukuru/)
+- [Simple.](https://www.neobankbeat.com/n/simple/)
+- [Jingle Pay](https://www.neobankbeat.com/n/jingle-pay/)
+- [Tam](https://www.neobankbeat.com/n/tam/)
+- [PEPPER](https://www.neobankbeat.com/n/pepper/)
+- [FACILE](https://www.neobankbeat.com/n/facile/)
+- [Ping An Digital Bank](https://www.neobankbeat.com/n/ping-an-digital-bank/)
+- [Green Link Digital Bank](https://www.neobankbeat.com/n/green-link-digital-bank/)
+- [FAKTUS](https://www.neobankbeat.com/n/faktus/)
+- [Helios](https://www.neobankbeat.com/n/helios/)
+- [BUUT](https://www.neobankbeat.com/n/buut/)
+- [Juni](https://www.neobankbeat.com/n/juni/)
+- [Chase Germany](https://www.neobankbeat.com/n/chase-germany/)
 
-## Comparisons (154)
+## Comparisons (167)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -578,14 +593,19 @@
 - [ANNA Money vs OakNorth](https://www.neobankbeat.com/vs/anna-money-vs-oaknorth/)
 - [ANNA Money vs Allica Bank](https://www.neobankbeat.com/vs/anna-money-vs-allica-bank/)
 - [ANNA Money vs Zempler Bank](https://www.neobankbeat.com/vs/anna-money-vs-zempler-bank/)
+- [ANNA Money vs Juni](https://www.neobankbeat.com/vs/anna-money-vs-juni/)
 - [OakNorth vs Allica Bank](https://www.neobankbeat.com/vs/oaknorth-vs-allica-bank/)
 - [OakNorth vs Zempler Bank](https://www.neobankbeat.com/vs/oaknorth-vs-zempler-bank/)
+- [OakNorth vs Juni](https://www.neobankbeat.com/vs/oaknorth-vs-juni/)
 - [Allica Bank vs Zempler Bank](https://www.neobankbeat.com/vs/allica-bank-vs-zempler-bank/)
+- [Allica Bank vs Juni](https://www.neobankbeat.com/vs/allica-bank-vs-juni/)
+- [Zempler Bank vs Juni](https://www.neobankbeat.com/vs/zempler-bank-vs-juni/)
 - [Monese vs Moneco](https://www.neobankbeat.com/vs/monese-vs-moneco/)
 - [Pockit vs Suits Me](https://www.neobankbeat.com/vs/pockit-vs-suits-me/)
 - [Pockit vs Nickel](https://www.neobankbeat.com/vs/pockit-vs-nickel/)
 - [Suits Me vs Nickel](https://www.neobankbeat.com/vs/suits-me-vs-nickel/)
 - [Algbra vs Kestrl](https://www.neobankbeat.com/vs/algbra-vs-kestrl/)
+- [Fyrst vs Juni](https://www.neobankbeat.com/vs/fyrst-vs-juni/)
 - [Shine vs Indy](https://www.neobankbeat.com/vs/shine-vs-indy/)
 - [Wise vs Global66](https://www.neobankbeat.com/vs/wise-vs-global66/)
 - [Wise vs Niyo](https://www.neobankbeat.com/vs/wise-vs-niyo/)
@@ -597,6 +617,7 @@
 - [Open vs Aspire](https://www.neobankbeat.com/vs/open-vs-aspire/)
 - [RazorpayX vs Aspire](https://www.neobankbeat.com/vs/razorpayx-vs-aspire/)
 - [ANEXT Bank vs Aspire](https://www.neobankbeat.com/vs/anext-bank-vs-aspire/)
+- [ANEXT Bank vs Green Link Digital Bank](https://www.neobankbeat.com/vs/anext-bank-vs-green-link-digital-bank/)
 - [Judo Bank vs AMP Bank GO](https://www.neobankbeat.com/vs/judo-bank-vs-amp-bank-go/)
 - [TymeBank vs Wave](https://www.neobankbeat.com/vs/tymebank-vs-wave/)
 - [OPay vs Wave](https://www.neobankbeat.com/vs/opay-vs-wave/)
@@ -607,6 +628,7 @@
 - [Wave vs Khazna](https://www.neobankbeat.com/vs/wave-vs-khazna/)
 - [Khazna vs MNT-Halan](https://www.neobankbeat.com/vs/khazna-vs-mnt-halan/)
 - [Grey vs Cleva](https://www.neobankbeat.com/vs/grey-vs-cleva/)
+- [NOW Money vs Jingle Pay](https://www.neobankbeat.com/vs/now-money-vs-jingle-pay/)
 - [D360 Bank vs Vision Bank](https://www.neobankbeat.com/vs/d360-bank-vs-vision-bank/)
 - [Kolo vs COCA](https://www.neobankbeat.com/vs/kolo-vs-coca/)
 - [Meru vs Airtm](https://www.neobankbeat.com/vs/meru-vs-airtm/)
@@ -619,16 +641,22 @@
 - [Meow vs Slash](https://www.neobankbeat.com/vs/meow-vs-slash/)
 - [Meow vs Flex](https://www.neobankbeat.com/vs/meow-vs-flex/)
 - [Meow vs Dolafy](https://www.neobankbeat.com/vs/meow-vs-dolafy/)
+- [Meow vs Shield](https://www.neobankbeat.com/vs/meow-vs-shield/)
 - [Dakota vs AllScale](https://www.neobankbeat.com/vs/dakota-vs-allscale/)
 - [Slash vs Flex](https://www.neobankbeat.com/vs/slash-vs-flex/)
 - [Slash vs Dolafy](https://www.neobankbeat.com/vs/slash-vs-dolafy/)
+- [Slash vs Shield](https://www.neobankbeat.com/vs/slash-vs-shield/)
 - [Flex vs Dolafy](https://www.neobankbeat.com/vs/flex-vs-dolafy/)
+- [Flex vs Shield](https://www.neobankbeat.com/vs/flex-vs-shield/)
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
+- [Aspire vs Ping An Digital Bank](https://www.neobankbeat.com/vs/aspire-vs-ping-an-digital-bank/)
+- [Dolafy vs Shield](https://www.neobankbeat.com/vs/dolafy-vs-shield/)
+- [Yolat vs Mukuru](https://www.neobankbeat.com/vs/yolat-vs-mukuru/)
 - [DNERO vs Mela](https://www.neobankbeat.com/vs/dnero-vs-mela/)
 
-## Topic hubs (47)
+## Topic hubs (48)
 
 - [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
 - [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
@@ -673,6 +701,7 @@
 - [/countries/philippines/](https://www.neobankbeat.com/countries/philippines/)
 - [/countries/indonesia/](https://www.neobankbeat.com/countries/indonesia/)
 - [/countries/vietnam/](https://www.neobankbeat.com/countries/vietnam/)
+- [/countries/hong-kong/](https://www.neobankbeat.com/countries/hong-kong/)
 - [/countries/australia/](https://www.neobankbeat.com/countries/australia/)
 - [/countries/nigeria/](https://www.neobankbeat.com/countries/nigeria/)
 - [/countries/uae/](https://www.neobankbeat.com/countries/uae/)
@@ -680,4 +709,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (382) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (381) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (397) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (396) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.

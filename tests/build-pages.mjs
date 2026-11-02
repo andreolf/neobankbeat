@@ -482,7 +482,7 @@ let hubsFor = () => [];
     DK: 'Denmark', IS: 'Iceland', GR: 'Greece', UA: 'Ukraine', RU: 'Russia', KZ: 'Kazakhstan',
     UY: 'Uruguay', PY: 'Paraguay', PA: 'Panama', DO: 'the Dominican Republic', NZ: 'New Zealand',
     CI: "Côte d'Ivoire", SN: 'Senegal', KE: 'Kenya', TN: 'Tunisia', CM: 'Cameroon',
-    KW: 'Kuwait', AT: 'Austria', RS: 'Serbia', CZ: 'Czechia', NO: 'Norway', PR: 'Puerto Rico' };
+    KW: 'Kuwait', MA: 'Morocco', AT: 'Austria', RS: 'Serbia', CZ: 'Czechia', NO: 'Norway', PR: 'Puerto Rico' };
   /* the availability field spells some markets out differently from the hq codes */
   const CC_ALIAS = { US: 'United States', UK: 'United Kingdom', AE: 'UAE', PH: 'Philippines',
     NL: 'Netherlands', DO: 'Dominican Republic', KR: 'South Korea', ZA: 'South Africa' };

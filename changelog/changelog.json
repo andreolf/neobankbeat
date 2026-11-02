@@ -1,7 +1,19 @@
 {
  "generated": "2026-11-02",
- "total": 382,
+ "total": 397,
  "releases": [
+  {
+   "date": "2026-11-02",
+   "tag": "data",
+   "title": "Fifteen new neobanks, and twenty-one we checked and left out",
+   "body": "Four weeks of discovery leads, checked name by name. In: Shield (US business accounts for exporters, paid in USDT, settled in USD), Cloud9 (Kenyan multi-currency accounts), Mukuru (the remittance company's Bank Zero account), Simple. (Attijariwafa bank's Moroccan neobank), Jingle Pay (UAE), Tam (Kuwait Finance House's youth bank), PEPPER (Bank Leumi), FACILE (Pacific National Bank), Ping An Digital Bank (Hong Kong), Green Link Digital Bank (Singapore), FAKTUS, Helios, BUUT, Juni and Chase Germany. Out, each for a stated reason: shut down (Ubanku, Elas, STACK, Wicket, Jenius Bank in the US, GIG-A, bnc10, TBC's Space), acquired (Dzing, now Nebeus), lenders (OmniBnk), infrastructure (Pieverse, Kwara, Kaleidofin, Inypay, NYMBUS), not yet live (XORA's card, Gargoura, Moneeys), and incumbents (TASCOMBANK, Wing Bank, Signature Bank).",
+   "links": [
+    "/n/shield/",
+    "/n/mukuru/",
+    "/n/chase-germany/",
+    "/n/buut/"
+   ]
+  },
   {
    "date": "2026-11-02",
    "tag": "new",
@@ -187,7 +199,7 @@
    "date": "2026-08-11",
    "tag": "new",
    "title": "MCP server for AI assistants",
-   "body": "Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 382 neobanks.",
+   "body": "Point Claude — or any Model Context Protocol client — at neobankbeat and it answers from the live, cited dataset instead of stale training memory. Five read-only tools over all 397 neobanks.",
    "links": [
     "/mcp/",
     "/blog/neobankbeat-mcp-server/"
@@ -235,6 +247,35 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-11-02",
+   "summary": "Fifteen in, twenty-one out.",
+   "subject": "Triage four weeks of discovery leads: fifteen in, twenty-one out",
+   "total": 397,
+   "added": [
+    "Shield",
+    "Cloud9",
+    "Mukuru",
+    "Simple.",
+    "Jingle Pay",
+    "Tam",
+    "PEPPER",
+    "FACILE",
+    "Ping An Digital Bank",
+    "Green Link Digital Bank",
+    "FAKTUS",
+    "Helios",
+    "BUUT",
+    "Juni",
+    "Chase Germany"
+   ],
+   "removed": [],
+   "updated": [
+    "Bybit Card",
+    "Wirex",
+    "EtherFi Cash"
+   ]
+  },
   {
    "date": "2026-11-02",
    "summary": "Blog queue through Nov 18, and the US charter wave on the profiles.",

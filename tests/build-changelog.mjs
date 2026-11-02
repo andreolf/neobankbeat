@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-02', tag: 'data', title: 'Fifteen new neobanks, and twenty-one we checked and left out',
+    body: 'Four weeks of discovery leads, checked name by name. In: Shield (US business accounts for exporters, paid in USDT, settled in USD), Cloud9 (Kenyan multi-currency accounts), Mukuru (the remittance company\'s Bank Zero account), Simple. (Attijariwafa bank\'s Moroccan neobank), Jingle Pay (UAE), Tam (Kuwait Finance House\'s youth bank), PEPPER (Bank Leumi), FACILE (Pacific National Bank), Ping An Digital Bank (Hong Kong), Green Link Digital Bank (Singapore), FAKTUS, Helios, BUUT, Juni and Chase Germany. Out, each for a stated reason: shut down (Ubanku, Elas, STACK, Wicket, Jenius Bank in the US, GIG-A, bnc10, TBC\'s Space), acquired (Dzing, now Nebeus), lenders (OmniBnk), infrastructure (Pieverse, Kwara, Kaleidofin, Inypay, NYMBUS), not yet live (XORA\'s card, Gargoura, Moneeys), and incumbents (TASCOMBANK, Wing Bank, Signature Bank).',
+    links: [['/n/shield/', 'Shield'], ['/n/mukuru/', 'Mukuru'], ['/n/chase-germany/', 'Chase Germany'], ['/n/buut/', 'BUUT']] },
   { date: '2026-11-02', tag: 'new', title: 'The State of Neobanks № 05 — November 2026',
     body: 'The November edition: 60 pages on 382 verified-active neobanks, pinned to its own snapshot. Against October, none arrived and three left: Copper, Charlie and Ellevest had all closed before the sponsor-bank audit caught them, and the edition says when each one shut. The outlook chapter and the "next edition" note are now computed from the month too. In October both still said September.',
     links: [['/report/', 'read № 05'], ['/report/2026-11/', 'the web edition']] },
