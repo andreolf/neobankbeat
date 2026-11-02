@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-02', tag: 'data', title: 'The US charter wave, recorded',
+    body: 'Chime agreed to buy Stride Bank, its sponsor of seven years, for $590M, and Revolut won conditional OCC approval for a US national bank. Valley National Bancorp agreed to buy Bluevine. All three are now noted on the profiles. None has closed, so the licence types stay as they are until the regulators sign off.',
+    links: [['/n/chime/', 'Chime'], ['/n/revolut/', 'Revolut'], ['/n/bluevine/', 'Bluevine']] },
   { date: '2026-10-13', tag: 'data', title: 'Three neobanks to the graveyard, and the sponsor banks rechecked',
     body: 'Checking every US sponsor-bank relationship for a post on who holds the money behind American neobanks turned up three that had closed while still listed as active: Copper ended its bank accounts in May 2024 when Synapse collapsed, Charlie closed its accounts for Americans over 62 on 22 January 2026, and Ellevest left consumer banking in 2025. All three are in the graveyard with their causes, under a new fourth kind, wound down, for products a company closed itself. Dave\'s record now shows its move from Evolve to Coastal Community Bank, Mercury\'s its 2024 exit from Evolve, and Greenwood, Step, Till and GoHenry were brought up to date. 385 active becomes 382.',
     links: [['/graveyard/', 'the graveyard'], ['/infra/', 'the sponsor banks']] },

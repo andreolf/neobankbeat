@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-10-13.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-11-02.
 
 ## Main
 
@@ -82,6 +82,9 @@
 - [your neobank changed banks](https://www.neobankbeat.com/blog/your-neobank-changed-banks/) (2026-10-14)
 - [europe most neobanks not biggest](https://www.neobankbeat.com/blog/europe-most-neobanks-not-biggest/) (2026-10-21)
 - [stablecoins traditional neobanks latam](https://www.neobankbeat.com/blog/stablecoins-traditional-neobanks-latam/) (2026-10-28)
+- [neobank hiring index](https://www.neobankbeat.com/blog/neobank-hiring-index/) (2026-11-04)
+- [neobank licences by region](https://www.neobankbeat.com/blog/neobank-licences-by-region/) (2026-11-11)
+- [us neobank charter wave](https://www.neobankbeat.com/blog/us-neobank-charter-wave/) (2026-11-18)
 
 ## Neobank profiles (382)
 
