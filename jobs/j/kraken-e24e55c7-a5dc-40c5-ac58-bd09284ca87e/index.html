@@ -202,37 +202,37 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
     <h1 class="jhead">Staff Site Reliability Engineer - Dev Platform</h1>
     <p class="jmeta"><span>Brazil · Peru · Colombia · Argentina · Mexico · Chile</span><span>Engineering</span><span>Remote only</span></p>
     <div class="jdesc"><p>BUILDING THE FUTURE OF OPEN FINANCE Payward - the parent company behind Kraken, NinjaTrader, Breakout, xStocks, Payward Services and CF Benchmarks - has spent the last 15 years building one of the most modern and globally accessible financial infrastructure platforms in the industry, built to advance an open, global financial system. THE TEAM Founded in 2011, Kraken is one of the world's longest-standing crypto platforms, trusted by over 10 million individuals and institutions across the globe. It offers spot trading, margin, futures, staking, and OTC services, with products built for both individual investors and institutional clients.</p>
-<p>The Dev Platform team builds the internal platform that Kraken's engineers use to build, ship and run software. Within Dev Platform, the AI Gateway is Kraken's company-wide LLM gateway: a single, governed entry point that gives teams self-service access to leading models from providers such as Anthropic, OpenAI and Google, with visibility into usage and cost, configurable budgets and rate limits, and routing across models and providers for efficiency and resilience. THE OPPORTUNITY</p>
+<p>Kraken's engineers build a lot of software. Developer Platform AI builds the AI systems they use to do it: agents that write and review code, simple access to the best models in the tools they already use, and the infrastructure that connects AI to our internal systems. This is a small team with a lot of reach. The tools you ship will change how engineers across Kraken work every day, and you'll see that happen directly. The work spans agent platforms, code review, LLM routing and cost controls, MCP integrations with tools like Slack, Jira and GitLab, and the security and observability that make all of it safe to run.</p>
+<p>If you want to work on applied AI with real users from day one, this is that job. THE OPPORTUNITY</p>
 <ul>
-<li>Own the reliability, availability and performance of the AI Gateway as a production-critical service used across the company, including SLOs, error budgets and on-call practices</li>
-<li>Design the gateway's resilience: multi-provider routing, failover, retries, rate limiting and graceful degradation when an upstream model provider is slow or unavailable</li>
-<li>Set the technical direction for gateway architecture, capacity planning and scaling as LLM traffic grows and more workloads move onto the gateway</li>
-<li>Build observability for LLM traffic, covering latency, errors, token usage and cost, attributed by team and use case</li>
-<li>Partner with Security, Finance and AI governance stakeholders to put access controls, budgets, audit logging and data-handling requirements into the platform</li>
-<li>Lead incident response and blameless post-incident reviews, and turn what you learn into lasting reliability improvements</li>
-<li>Automate operations through infrastructure as code, safe deployments and progressive rollouts</li>
-<li>Mentor engineers and raise the operating standard across Dev Platform</li>
+<li>LLM traffic doesn't behave like normal API traffic. Requests are long-running, streaming and expensive. One prompt can cost a few cents or a few dollars. One team's burst can burn another team's budget. Providers change their rate limits, failure modes and pricing without warning. Running this well is a problem few companies have solved, and it's the job.</li>
+<li>Own the reliability of the platform engineers depend on: the AI Gateway, the agent runtime and the connections to internal tools. Set the SLOs, own the error budgets and decide what happens when they're spent.</li>
+<li>Design resilience across model providers: routing, failover, retries, rate limiting and graceful degradation when a provider is slow, throttling or down.</li>
+<li>Make LLM traffic legible. Build observability that shows latency, errors, token usage and cost by team, model and use case, so engineers can see what their workloads cost and where they're spending their time waiting.</li>
+<li>Treat capacity and cost as one problem. Routing decisions affect both latency and spend, and you'll own the tradeoff directly.</li>
+<li>Work with Security, Finance and AI governance to put access controls, budgets, audit logging and data handling into the platform, not into a spreadsheet next to it.</li>
+<li>Lead incident response and blameless post-incident reviews. Turn what breaks into fixes that stay fixed.</li>
+<li>Automate operations with infrastructure as code, safe deployments and progressive rollouts, so the platform gets more reliable as it grows rather than more fragile.</li>
+<li>Mentor engineers and raise the operating standard across the team.</li>
 </ul>
-<p>SKILLS YOU SHOULD HODL</p>
+<p>This is a Staff role. You'll set the technical direction for how the platform runs, not just keep it running. The platform is small enough that your decisions shape it directly, and used broadly enough that they affect every engineering team at Kraken. SKILLS YOU SHOULD HODL</p>
 <ul>
 <li>Extensive experience in site reliability, infrastructure or platform engineering, with a track record of owning high-traffic, business-critical services in production</li>
-<li>Deep hands-on experience with Kubernetes, a major cloud provider and infrastructure as code (for example Terraform)</li>
-<li>Strong command of SLOs, observability and incident management, and the judgment to know which reliability work matters most</li>
-<li>Proficiency in a language such as Rust or Python, and comfort reading and contributing to a production service's codebase</li>
+<li>Deep hands-on experience with Kubernetes, a major cloud provider and infrastructure as code such as Terraform</li>
+<li>Strong command of SLOs, observability and incident management, and the judgment to know which reliability work actually matters</li>
+<li>Proficiency in Rust or Python, and comfort reading and changing a production service's code</li>
 <li>Experience with API gateways, reverse proxies or traffic management: load balancing, rate limiting, failover and caching</li>
-<li>Experience with Consul and Vault for service discovery, configuration and secrets management</li>
-<li>Working knowledge of authentication and authorization mechanisms for internal platforms and APIs, such as OAuth 2.0/OIDC, JWT, mTLS and API keys, and how to apply them to a multi-tenant service</li>
-<li>Experience with model evaluations: building or operating eval pipelines to compare models, prompts and agents, and to catch quality regressions before and after rollout</li>
-<li>Familiarity with coding agents and agent harnesses (for example OpenHands, Claude Code or similar), including running them safely in sandboxed environments for engineering teams</li>
-<li>Experience with agent memory systems and the databases behind them (vector stores, search, relational and key-value stores), and operating them reliably</li>
-<li>Staff-level influence: you set direction across teams, write clear design documents and bring others with you</li>
-<li>Good judgment balancing reliability, cost and developer velocity for internal customers</li>
+<li>Experience operating multi-tenant internal platforms, including authentication, authorization and per-tenant cost controls</li>
+<li>Staff-level influence: you set direction across teams, write clear design documents and bring other engineers with you</li>
 </ul>
 <p>NICE TO HAVES</p>
 <ul>
-<li>Experience operating LLM gateways or integrating LLM provider APIs at scale (streaming, token-based rate limiting, model routing, caching)</li>
-<li>Experience hosting and serving models yourself, including vLLM, and running distributed inference or training workloads with Ray (GPU scheduling, batching, autoscaling, cost per token)</li>
-<li>Experience designing, developing and maintaining Kubernetes controllers and operators (for example with controller-runtime or kubebuilder), including CRDs, reconciliation loops and safe upgrades</li>
+<li>Experience operating LLM gateways or integrating LLM provider APIs at scale: streaming, token-based rate limiting, model routing and caching</li>
+<li>Experience serving models yourself, including vLLM or Ray: GPU scheduling, batching, autoscaling and cost per token</li>
+<li>Experience building Kubernetes controllers or operators with controller-runtime or kubebuilder</li>
+<li>Experience with Consul and Vault for service discovery, configuration and secrets</li>
+<li>Experience with model evaluation pipelines for catching quality regressions before and after rollout</li>
+<li>Familiarity with coding agents and agent harnesses, and running them safely in sandboxed environments</li>
 <li>Experience with cost attribution, budgeting or FinOps for usage-based services</li>
 <li>Background in security-sensitive or regulated environments such as financial services or crypto</li>
 <li>Contributions to open-source gateway, proxy or observability projects</li>
@@ -243,7 +243,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <p>Candidate Privacy Notice https://www.kraken.com/legal/candidate-privacy-notice</p>
 </div>
     <a class="japply" href="https://jobs.ashbyhq.com/kraken.com/e24e55c7-a5dc-40c5-ac58-bd09284ca87e" target="_blank" rel="noopener noreferrer" data-company="Kraken" data-title="Staff Site Reliability Engineer - Dev Platform" data-dept="Engineering">Apply on Kraken →</a>
-    <p class="jfoot">Listing synced from Kraken's official careers API · refreshed 2026-11-02 · <a href="/n/krak/">Kraken profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
+    <p class="jfoot">Listing synced from Kraken's official careers API · refreshed 2026-11-03 · <a href="/n/krak/">Kraken profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
 </main>
 <script>

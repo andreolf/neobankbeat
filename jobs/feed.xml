@@ -5,13 +5,21 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 62 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 02 Nov 2026 15:23:16 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 13:57:33 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[GROWTH ANALYST PLENO — Banco Inter]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/banco-inter-4746012005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/banco-inter-4746012005/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Banco Inter · Belo Horizonte, MG · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Expert, Information Security — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-5024636101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5024636101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Bitpanda · Barcelona, Spain; Berlin, Berlin, Germany; București, Bucharest, Romania; Vienna, Vienna, Austria · onsite]]></description>
   </item>
@@ -19,31 +27,15 @@
     <title><![CDATA[Lead, Information Security — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-4995059101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4995059101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Bitpanda · Barcelona, Spain; Berlin, Berlin, Germany; București, Bucharest, Romania; Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Product Manager, DeFi — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-5009824101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5009824101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Technical Product Manager, Protocol (Vision Chain) — Bitpanda]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/bitpanda-5009827101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5009827101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Bitpanda · Vienna, Vienna, Austria · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Performance Marketing Specialist — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-4987248101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4987248101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Marketing &amp; Growth</category>
     <description><![CDATA[Bitpanda · Barcelona, Spain · hybrid]]></description>
   </item>
@@ -51,7 +43,7 @@
     <title><![CDATA[Senior Specialist, Information Security — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-5003324101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-5003324101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Bitpanda · Barcelona, Spain; Berlin, Berlin, Germany; București, Bucharest, Romania; Vienna, Vienna, Austria · onsite]]></description>
   </item>
@@ -59,151 +51,47 @@
     <title><![CDATA[Specialist, Information Security — Bitpanda]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bitpanda-4989603101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bitpanda-4989603101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Bitpanda · Barcelona, Spain; Berlin, Berlin, Germany; București, Bucharest, Romania; Vienna, Vienna, Austria · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8346073/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8346073/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
+    <title><![CDATA[Asset/Wallet Operations — Bybit]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/bybit-5011951101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/bybit-5011951101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Operations</category>
+    <description><![CDATA[Bybit · Abu Dhabi, UAE; Dubai, UAE · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8346070/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8346070/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
+    <title><![CDATA[Analista de Operações Pleno | Trade Finance e Garantias — C6 Bank]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4750337005/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4750337005/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8346064/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8346064/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8334387/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8334387/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337035/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337035/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337048/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337048/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337045/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337045/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337055/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337055/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337042/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337042/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337049/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337049/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337038/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337038/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Support Specialist ll — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337032/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337032/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
+    <title><![CDATA[Senior Data Scientist, Finance & Strategy — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8869629002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8869629002/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Identity Risk & Scam Analyst — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-8260052/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8260052/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Compliance &amp; Risk</category>
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Support Specialist I — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337052/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337052/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Support Specialist I — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337058/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337058/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Support Specialist I — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337064/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337064/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Social Support Specialist I — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8337061/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8337061/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Coinbase · Manila, Philippines · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Staff Technical Program Manager, Consumer — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-8259801/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8259801/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
@@ -211,281 +99,393 @@
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
     <link>https://www.neobankbeat.com/jobs/j/moniepoint-4978846101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4978846101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Poland · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4978841101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4978841101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Remote, Portugal · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
     <link>https://www.neobankbeat.com/jobs/j/moniepoint-4978843101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4978843101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Spain · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4923034101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4923034101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4978841101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4978841101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Remote, Kenya; Remote, Pakistan; Remote, Poland; Remote, Portugal; Remote, Spain · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4975688101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4975688101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Remote, Lagos, Nigeria · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4989846101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4989846101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · Remote, South Africa · remote]]></description>
+    <description><![CDATA[Moniepoint · Remote, Portugal · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
     <link>https://www.neobankbeat.com/jobs/j/moniepoint-4792180101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4792180101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Bangalore · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Engineering Manager — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4989846101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4989846101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, South Africa · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
     <link>https://www.neobankbeat.com/jobs/j/moniepoint-4978853101/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4978853101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Kenya · remote]]></description>
   </item>
   <item>
-    <title><![CDATA[Hardware Quality Assurance Officer - South South — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5024646101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5024646101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Moniepoint · South South, Nigeria · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Head of Personal Banking Sales Network — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-5017312101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-5017312101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4975688101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4975688101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Moniepoint · Remote, Lagos, Nigeria · remote]]></description>
   </item>
   <item>
-    <title><![CDATA[Service Center Operations Manager — Moniepoint]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4776246101/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4776246101/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Operations</category>
-    <description><![CDATA[Moniepoint · Lagos, Nigeria · onsite]]></description>
+    <title><![CDATA[Engineering Manager — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4923034101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4923034101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Moniepoint · Remote, Kenya; Remote, Pakistan; Remote, Poland; Remote, Portugal; Remote, Spain · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Offline Customer Support Officer (Ore, Ondo State) — Moniepoint]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/moniepoint-4958576101/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/moniepoint-4958576101/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Customer Support</category>
+    <description><![CDATA[Moniepoint · Ondo, Nigeria · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Android Engineer — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7343996/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7343996/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Barcelona · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Backend Engineer III — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6635595/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6635595/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £85–110K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Controls Product Senior Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8245673/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8245673/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · London; Remote (UK) · £85–115K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Credit Model Validation Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8331328/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8331328/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £79–93K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Credit Model Validation Manager (Machine Learning & NPV Models) — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8023162/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8023162/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £79–93K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Credit Risk Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8264501/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8264501/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Dublin · €94–114K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Credit Risk Oversight Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8236487/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8236487/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £80–95K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Director, EU — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8258208/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8258208/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Barcelona; Cardiff, London or Remote (UK) · £151–204K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Director, Payments — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8146871/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8146871/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Science Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7194922/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7194922/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £100–130K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Science Manager,  Financial Crime — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-5758065/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-5758065/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £100–130K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Director of Product Design — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7825424/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7825424/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £140–165K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Director, EU — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8025854/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8025854/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Barcelona; Cardiff, London or Remote (UK) · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Engineering Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-5018066/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-5018066/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £112–145K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Finance Forecasting Modeller — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7904675/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7904675/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · UK · £79–107K · onsite · visa sponsorship]]></description>
   </item>
   <item>
     <title><![CDATA[Information Security Manager — Monzo]]></title>
     <link>https://www.neobankbeat.com/jobs/j/monzo-8336434/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8336434/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £77–95K · remote]]></description>
   </item>
   <item>
-    <title><![CDATA[AFC Manager - SAR Delegate Lead | MLRO France — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8333692/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8333692/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[N26 · Paris · onsite · visa sponsorship]]></description>
+    <title><![CDATA[Lead Data Scientist — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6369658/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6369658/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £95–130K · remote · visa sponsorship]]></description>
   </item>
   <item>
-    <title><![CDATA[Steuerberater (Tax Manager) — N26]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/n26-8184719/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/n26-8184719/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Finance &amp; Treasury</category>
-    <description><![CDATA[N26 · Berlin · onsite · visa sponsorship]]></description>
+    <title><![CDATA[Lead Machine Learning Scientist, FinCrime — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8050756/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8050756/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £115–150K · remote · visa sponsorship]]></description>
   </item>
   <item>
-    <title><![CDATA[Head of EEA Legal, Deputy General Counsel — OKX]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/okx-8105382003/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8105382003/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[OKX · Remote Roles - EMEA; Sliema, Malta · remote]]></description>
+    <title><![CDATA[Lead Machine Learning Scientist, Search — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8041029/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8041029/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £115–150K · remote · visa sponsorship]]></description>
   </item>
   <item>
-    <title><![CDATA[Senior/Staff Engineer - Blockchain Parsing — OKX]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/okx-8157974003/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/okx-8157974003/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[内部統制（IT統制担当）/ リーダー候補 — PayPay]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/paypay-4916119004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-4916119004/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[経理 — PayPay]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/paypay-6240388004/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/paypay-6240388004/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[PayPay · Hybrid · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Crypto Product Compliance Lead — Robinhood]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/robinhood-8226689/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8226689/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Robinhood · Menlo Park, CA; New York, NY · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Product Manager, Regulatory — Robinhood]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/robinhood-8331310/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8331310/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Robinhood · Toronto, Canada · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Risk Specialist — Robinhood]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/robinhood-8334344/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/robinhood-8334344/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Compliance &amp; Risk</category>
-    <description><![CDATA[Robinhood · Menlo Park, CA; New York, NY · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (25 Hours, Evenings) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-4c2497a3a0/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-4c2497a3a0/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (25 Hours, Evenings) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-a911c892d6/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-a911c892d6/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Southampton, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (30 Hours, Evenings) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-7d15d4999c/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-7d15d4999c/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (30 Hours, Evenings) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-cef77cc40e/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-cef77cc40e/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Southampton, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (Days, Full Time) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-8ba7e308cc/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-8ba7e308cc/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (Days, Full Time) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-5108328992/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-5108328992/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Southampton, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (Overnight Full Time) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-2d1f115847/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-2d1f115847/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Customer Service Team Member (Overnight Full Time) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-1a0c6e5147/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-1a0c6e5147/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Customer Support</category>
-    <description><![CDATA[Starling Bank · Southampton, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Red Team Operator (Cyber Resilience) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Starling Bank · London, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Red Team Operator (Cyber Resilience) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-2/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-2/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Starling Bank · Manchester, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Red Team Operator (Cyber Resilience) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-3/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-3/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Red Team Operator (Cyber Resilience) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-4/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-4/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Starling Bank · Southampton, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Red Team Operator (Cyber Resilience) — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-5/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-eb69241df2-5/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Starling Bank · Dublin, County Dublin, Ireland · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Designer - Engine by Starling — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-6e948ea5b4/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-6e948ea5b4/</guid>
-    <pubDate>Mon, 02 Nov 2026 09:00:00 +0000</pubDate>
+    <title><![CDATA[Lead Product Designer — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6758088/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6758088/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Design</category>
-    <description><![CDATA[Starling Bank · London, England, United Kingdom · onsite]]></description>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £90–120K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Product Manager, Growth — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8317753/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8317753/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Monzo · London · £120–140K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Model Validation Senior Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8288562/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8288562/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £85–105K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Operational Tax, Senior Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8200681/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8200681/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £95–111K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Director, Flex (Borrowing) — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7775842/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7775842/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Monzo · London · onsite · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Product Marketing Lead — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7966820/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7966820/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Marketing &amp; Growth</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £100–133K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Prudential Risk Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8305679/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8305679/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £64–80K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Sales Account Executive — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8281671/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8281671/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Monzo · London · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Android Engineer — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6674282/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6674282/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Barcelona · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Backend Engineer — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6635837/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6635837/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £105–135K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Credit Risk Manager, Credit Platform — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8092745/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8092745/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · London; Remote (UK) · £125–170K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Data Scientist — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6180814/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6180814/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £80–95K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Director of Global Tax — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8330467/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8330467/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Finance &amp; Treasury</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Engineering Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6394676/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6394676/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £138–175K · remote · visa sponsorship]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Financial Crime Analyst — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8164092/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8164092/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £60–81K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior FinCrime Operations Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8225870/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8225870/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Dublin · €77–96K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Fraud Investigator, Prevent — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8346170/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8346170/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · London · £31–39K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Fraud Operations Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8225843/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8225843/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Dublin · €77–96K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Fraud Risk Manager — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-8331241/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-8331241/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Compliance &amp; Risk</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £109–140K · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior iOS Engineer — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-6674220/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-6674220/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Monzo · Barcelona · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Machine Learning Manager, Borrowing — Monzo]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/monzo-7996955/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/monzo-7996955/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Monzo · Cardiff, London or Remote (UK) · £138–176K · remote · visa sponsorship]]></description>
   </item>
 </channel>
 </rss>
