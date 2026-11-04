@@ -25375,7 +25375,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/blog/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25552,6 +25552,11 @@
   <url>
     <loc>https://www.neobankbeat.com/blog/stablecoins-traditional-neobanks-latam/</loc>
     <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/blog/neobank-hiring-index/</loc>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
