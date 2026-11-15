@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-15', tag: 'new', title: 'A jobs page for every neobank that is hiring',
+    body: 'Half of the searches that reach this site are job searches, and they name the employer. Each hiring neobank now has its own page listing every open role by team, with where the roles are and a link to the company profile, so the page stays put when a single listing closes. Brazilian employers are titled the way people search for them. The pages that answer who owns a neobank now lead with who is behind it before the licence, alternatives pages name the alternatives up front, and comparisons state what actually differs. Chime is now recorded as a listed company (Nasdaq: CHYM, June 2025).',
+    links: [['/jobs/at/', 'neobanks hiring now'], ['/jobs/at/c6-bank/', 'C6 Bank jobs'], ['/n/chime/who-owns/', 'who owns Chime']] },
   { date: '2026-11-15', tag: 'fix', title: 'A site-wide audit: the stale homepage count, and what crawlers could not see',
     body: 'The homepage title, its share card text, its dataset markup and its footer still said 379 neobanks while the directory tracked 397; those places are now tied to the live count. The homepage also lists every profile as a plain link before any script runs, so a crawler that does not run JavaScript finds them. Profiles name their verified X account in their markup. Job pages stop printing a raw listing id in their titles and stop calling every role full-time. A post scheduled for a later date is no longer indexable before its day. The field dictionary now says which fields are reserved and still empty.',
     links: [['/', 'the directory'], ['/n/', 'all profiles A–Z'], ['/data/', 'the field dictionary']] },

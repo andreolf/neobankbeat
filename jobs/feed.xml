@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 61 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 15 Nov 2026 09:00:18 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 09:48:21 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Staff Software Engineer - APAC Onboarding and KYC — Wise]]></title>
@@ -89,14 +89,6 @@
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8943782002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943782002/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $154–192K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior GRC Engineer — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8943783002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943783002/</guid>
     <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
@@ -110,6 +102,14 @@
     <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Brex · Seattle, Washington, United States · $154–192K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior GRC Engineer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8943782002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943782002/</guid>
+    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Brex · San Francisco, California, United States · $154–192K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>

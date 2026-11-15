@@ -46,7 +46,7 @@
    "story": "Built to end overdraft fees for paycheck-to-paycheck America; grew on two-day-early wage access and fee-free SpotMe.",
    "license": "Partner banks (The Bancorp, Stride); agreed Sep 2026 to buy Stride Bank for $590M, to become Chime Bank, N.A. once the OCC and Fed approve (close expected H1 2027)",
    "founders": "Chris Britt, Ryan King",
-   "funding": "~$2.3B raised",
+   "funding": "Public (CHYM); IPO June 2025, ~$2.3B raised privately before",
    "terms_url": "https://www.chime.com/policies/",
    "privacy_url": "https://www.chime.com/policies/privacy-policy/",
    "x_handle": "Chime",
@@ -123,7 +123,7 @@
     "kyc_provider": null,
     "card_network": null
    },
-   "funding_stage": "Series C+"
+   "funding_stage": "Public"
   },
   {
    "name": "Varo",
