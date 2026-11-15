@@ -505,17 +505,27 @@ for (const j of all) {
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const jobTitleKey = j => `${j.title} at ${j.company}`;
-const jobTitleCounts = {};
-for (const j of all) jobTitleCounts[jobTitleKey(j)] = (jobTitleCounts[jobTitleKey(j)] || 0) + 1;
-const dupJobTitles = new Set(Object.entries(jobTitleCounts).filter(([, n]) => n > 1).map(([k]) => k));
-function jobPageTitle(j) {
-  const base = jobTitleKey(j);
-  if (dupJobTitles.has(base)) {
-    const where = j.location && j.location !== 'Not specified' ? `${j.location} · ` : '';
-    return `${base} — ${where}${j.id} — neobank jobs`;
+/* Titles have to be unique, and a company often posts one role several times.
+   The tie-break used to be the page's whole id, so 2,000 search results read
+   "… · ramp-29d188c7-0529-4bc8-a04a-57902df2a7ae — neobank jobs". The location
+   settles most ties by itself; a short requisition reference settles the rest,
+   and the full id is kept only as the last resort that guarantees uniqueness. */
+const jobRef = (j) => (j.id.match(/-(\d{4,})(?:-\d+)?$/) || j.id.match(/-([0-9a-f]{8})-[0-9a-f]{4}-/) || [null, j.id.slice(-8)])[1];
+const jobTitles = new Map();
+{
+  const tally = (key) => { const c = {}; for (const j of all) c[key(j)] = (c[key(j)] || 0) + 1; return c; };
+  const where = (j) => (j.location && j.location !== 'Not specified' ? j.location : '');
+  const k1 = jobTitleKey, k2 = (j) => `${k1(j)} — ${where(j)}`, k3 = (j) => `${k2(j)} · ref ${jobRef(j)}`;
+  const c1 = tally(k1), c2 = tally(k2), c3 = tally(k3);
+  for (const j of all) {
+    const t = c1[k1(j)] === 1 ? k1(j)
+      : where(j) && c2[k2(j)] === 1 ? k2(j)
+        : c3[k3(j)] === 1 ? (where(j) ? k3(j) : `${k1(j)} · ref ${jobRef(j)}`)
+          : `${k2(j)} · ${j.id}`;
+    jobTitles.set(j.id, `${t} — neobank jobs`);
   }
-  return `${base} — neobank jobs`;
 }
+const jobPageTitle = (j) => jobTitles.get(j.id);
 
 const byDept = {};
 for (const j of all) byDept[j.dept] = (byDept[j.dept] || 0) + 1;
@@ -876,14 +886,41 @@ const jobPosting = j => {
     hiringOrganization: { '@type': 'Organization', name: j.company, sameAs: `https://www.neobankbeat.com${j.profile}` },
     ...(j.wp === 'remote'
       ? { jobLocationType: 'TELECOMMUTE', applicantLocationRequirements: { '@type': 'Country', name: j.location || 'Worldwide' } }
-      : { jobLocation: { '@type': 'Place', address: j.location || '—' } }),
+      : { jobLocation: { '@type': 'Place', address: jobAddress(j.location) } }),
     ...(j.salary ? { baseSalary: { '@type': 'MonetaryAmount', value: j.salary } } : {}),
-    employmentType: 'FULL_TIME',
+    ...(employmentType(j) ? { employmentType: employmentType(j) } : {}),
     directApply: false,
     url: `${BASE}${j.path}`,
     identifier: { '@type': 'PropertyValue', name: j.company, value: j.url },
   };
 };
+/* The careers APIs do not say whether a role is full-time, and every posting
+   was marked FULL_TIME anyway, interns included. Claim a type only when the
+   title states one. */
+function employmentType(j) {
+  const t = j.title || '';
+  if (/\bintern(ship)?\b|\btrainee\b|\bwerkstudent/i.test(t)) return 'INTERN';
+  if (/\bpart[- ]time\b/i.test(t)) return 'PART_TIME';
+  if (/\btemporary\b|\bfixed[- ]term\b/i.test(t)) return 'TEMPORARY';
+  if (/\bcontractor\b|\(contract\)|\bfreelance/i.test(t)) return 'CONTRACTOR';
+  if (/\bfull[- ]time\b/i.test(t)) return 'FULL_TIME';
+  return undefined;
+}
+/* A structured address needs a country, and the feeds write locations a dozen
+   ways ("Toronto, ON", "CA", "São Paulo, SP"), where a two-letter tail is as
+   often a state as a country. Only a spelled-out country is trusted; anything
+   else stays the plain string it always was. */
+const JOB_COUNTRIES = { 'united states': 'US', usa: 'US', 'united kingdom': 'GB', uk: 'GB', brazil: 'BR', brasil: 'BR', singapore: 'SG', canada: 'CA', malaysia: 'MY', austria: 'AT', nigeria: 'NG', india: 'IN', philippines: 'PH', uae: 'AE', 'united arab emirates': 'AE', malta: 'MT', spain: 'ES', germany: 'DE', poland: 'PL', thailand: 'TH', 'türkiye': 'TR', turkey: 'TR', hungary: 'HU', slovenia: 'SI', kenya: 'KE', australia: 'AU', lithuania: 'LT', ireland: 'IE', estonia: 'EE', mexico: 'MX', japan: 'JP', france: 'FR', italy: 'IT', portugal: 'PT', netherlands: 'NL', switzerland: 'CH', argentina: 'AR', colombia: 'CO', 'south africa': 'ZA', egypt: 'EG', indonesia: 'ID', vietnam: 'VN', 'south korea': 'KR', sweden: 'SE', denmark: 'DK', cyprus: 'CY', luxembourg: 'LU', belgium: 'BE', 'hong kong sar': 'HK', 'hong kong': 'HK' };
+function jobAddress(loc) {
+  if (!loc) return '—';
+  if (/[;|/]|\bor\b|·/.test(loc)) return loc;
+  const parts = loc.split(',').map((x) => x.trim()).filter(Boolean);
+  const cc = JOB_COUNTRIES[(parts[parts.length - 1] || '').toLowerCase()];
+  if (!cc) return loc;
+  if (parts.length === 1) return { '@type': 'PostalAddress', addressCountry: cc };
+  return { '@type': 'PostalAddress', addressLocality: parts[0],
+    ...(parts.length === 3 ? { addressRegion: parts[1] } : {}), addressCountry: cc };
+}
 const jobsLd = list => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',

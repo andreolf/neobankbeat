@@ -15,7 +15,7 @@
  *     exit 0  the working-tree diff is entirely today's post going live
  *     exit 1  anything else — real drift, or nothing to explain
  *
- * Deliberately narrow. Additions only, in the three surfaces a publish touches,
+ * Deliberately narrow. Additions only, in the surfaces a publish touches (plus the stamp line),
  * and every content-bearing line has to name a post dated today. A real drift
  * modifies or deletes something, or touches a fourth file, and fails here.   */
 import fs from 'node:fs';
@@ -25,7 +25,10 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TODAY = new Date().toISOString().slice(0, 10);
-const SURFACES = new Set(['sitemap.xml', 'blog/index.html', 'blog/feed.xml']);
+const SURFACES = new Set(['sitemap.xml', 'sitemap.md', 'blog/index.html', 'blog/feed.xml']);
+/* build-pages stamps a scheduled post noindex and lifts the stamp on its day,
+   so the post's own file changes too: by exactly that one line. */
+const SCHEDULED_STAMP = '<meta name="robots" content="noindex" data-scheduled>';
 
 const say = (ok, msg) => { console.log(msg); process.exit(ok ? 0 : 1); };
 
@@ -40,7 +43,15 @@ const g = (c) => execSync(c, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 
 const files = g('git diff --name-only').split('\n').filter(Boolean);
 if (!files.length) say(false, 'no diff to explain');
 
-const stray = files.filter((f) => !SURFACES.has(f));
+const postFiles = new Set(due.map((slug) => `blog/${slug}/index.html`));
+for (const f of files.filter((x) => postFiles.has(x))) {
+  const lines = g(`git diff -U0 -- ${f}`).split('\n')
+    .filter((l) => /^[+-]/.test(l) && !/^(\+\+\+|---)/.test(l));
+  if (lines.length !== 1 || lines[0] !== '-' + SCHEDULED_STAMP) {
+    say(false, `not the publish window: ${f} changed by more than its scheduled-post stamp`);
+  }
+}
+const stray = files.filter((f) => !SURFACES.has(f) && !postFiles.has(f));
 if (stray.length) say(false, `not the publish window: also changed ${stray.slice(0, 4).join(', ')}`);
 
 /* Additions only. A publish adds an entry; it never rewrites or removes one. */

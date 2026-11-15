@@ -165,13 +165,13 @@ pre.code{background:var(--panel);border:1px solid var(--line);border-radius:10px
     <tr><td>website · domain · x_handle · terms_url · privacy_url</td><td>string</td><td>Verified links where confirmed; null when unverified (never fabricated).</td></tr>
     <tr><td>slug</td><td>string</td><td>Stable URL slug — the /n/&lt;slug&gt;/ profile path. Derived from name, persisted so it never drifts.</td></tr>
     <tr><td>features</td><td>object</td><td>Tri-state capability flags (true / false / null=unverified): apple_pay, google_pay, api, webhooks, oauth, sandbox, business_accounts, virtual_cards, physical_cards, iban, self_custody, mpc, yield_bearing, savings, lending, investing, treasury, crypto, stablecoin_native. null is never &quot;no&quot;.</td></tr>
-    <tr><td>stablecoin_tickers</td><td>array</td><td>Which stablecoins are supported (USDC, USDT, EURC…); [] = verified none, null = unverified. Companion to the stablecoins boolean.</td></tr>
+    <tr><td>stablecoin_tickers</td><td>array</td><td>Which stablecoins are supported (USDC, USDT, EURC…); [] = verified none, null = unverified. Companion to the stablecoins boolean. Reserved: not populated for any entity yet.</td></tr>
     <tr><td>card_networks</td><td>array</td><td>Normalized card networks (Visa, Mastercard, Amex, RuPay, Verve, Mada…); supersedes the free-text card_network.</td></tr>
     <tr><td>card_form · card_funding</td><td>array</td><td>Orthogonal card axes: form (virtual, physical) and funding (debit, credit, prepaid, charge, bnpl); split out of card_type.</td></tr>
     <tr><td>payment_rails</td><td>array</td><td>Instant/interbank rails (SEPA, SEPA-Instant, FedNow, ACH, Wire, SWIFT, Pix, UPI…); null = unverified.</td></tr>
-    <tr><td>fx_markup_pct · cashback_pct · yield_pct</td><td>number</td><td>Numeric companions to the fx_markup / cashback / yield prose — headline percent; null when no number is stated.</td></tr>
-    <tr><td>timeline</td><td>array</td><td>Dated events {date, type, description, source, tags}: founded, funding, launch, license, expansion, milestone… null = none recorded.</td></tr>
-    <tr><td>partners</td><td>object</td><td>Infrastructure map: issuer, partner_bank, treasury, identity, kyc_provider, card_network — who actually holds and moves the money. null = unverified.</td></tr>
+    <tr><td>fx_markup_pct · cashback_pct · yield_pct</td><td>number</td><td>Numeric companions to the fx_markup / cashback / yield prose — headline percent; null when no number is stated. Reserved: not populated for any entity yet.</td></tr>
+    <tr><td>timeline</td><td>array</td><td>Dated events {date, type, description, source, tags}: founded, funding, launch, license, expansion, milestone… null = none recorded. Reserved: not populated for any entity yet.</td></tr>
+    <tr><td>partners</td><td>object</td><td>Infrastructure map: issuer, partner_bank, treasury, identity, kyc_provider, card_network — who actually holds and moves the money. null = unverified. Reserved: not populated for any entity yet.</td></tr>
     <tr><td>funding_stage</td><td>enum</td><td>Investor-lens stage: Pre-seed / Seed / Series A / B / C+ / Public / Acquired / Bootstrapped / Subsidiary. Heuristic — explicit signals (public ticker, &quot;acquired&quot;, named round) are reliable; the $-amount fallback is directional. null = undisclosed.</td></tr>
   </table>
 

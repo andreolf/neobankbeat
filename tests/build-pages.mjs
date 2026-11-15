@@ -287,7 +287,7 @@ function investorsBlock(e) {
   if (!e.investors || !e.investors.length) return '';
   const chips = e.investors.map(iv => {
     const d = iv.website.replace(/^https?:\/\//, '');
-    return `<a class="invchip" href="${esc(iv.website)}" target="_blank" rel="noopener"><img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(d)}&amp;sz=32" onerror="this.remove()">${esc(iv.name)} ↗</a>`;
+    return `<a class="invchip" href="${esc(iv.website)}" target="_blank" rel="noopener"><img loading="lazy" alt="" width="16" height="16" src="https://www.google.com/s2/favicons?domain=${esc(d)}&amp;sz=32" onerror="this.remove()">${esc(iv.name)} ↗</a>`;
   }).join('\n    ');
   return `
   <h2>Early investors</h2>
@@ -944,6 +944,12 @@ function profileFaq(e) {
   return out;
 }
 
+/* The verified X handle is the one identifier on file that ties the entity
+   described here to the account a search engine or a model already knows; it
+   was shown as a link on the page and left out of the markup. */
+const orgSameAs = (e) => (e.x_handle && /^@?[A-Za-z0-9_]{1,15}$/.test(e.x_handle)
+  ? [`https://x.com/${e.x_handle.replace(/^@/, '')}`] : undefined);
+
 /* ═══ entity profile pages ═══ */
 let nPages = 0;
 for (const e of E) {
@@ -965,6 +971,7 @@ for (const e of E) {
       { '@type': 'WebPage', name: title, url, description: answer, dateModified: DATA_MODIFIED,
         mainEntity: { '@id': `${url}#org` }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
       { '@type': 'Organization', '@id': `${url}#org`, name: e.name, url: e.website || url, foundingDate: String(e.founded), description: e.note || undefined,
+        sameAs: orgSameAs(e),
         funder: e.investors ? e.investors.map(iv => ({ '@type': 'Organization', name: iv.name, url: iv.website })) : undefined },
       { '@type': 'FAQPage', mainEntity: pFaq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
       { '@type': 'BreadcrumbList', itemListElement: [
@@ -1025,7 +1032,7 @@ ${moneyMapHtml(e)}
     const lLd = {
       '@context': 'https://schema.org', '@graph': [
         { '@type': 'WebPage', name: lTitle, url: lUrl, description: lSummary, dateModified: DATA_MODIFIED, inLanguage: L, mainEntity: { '@id': `${lUrl}#org` }, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
-        { '@type': 'Organization', '@id': `${lUrl}#org`, name: e.name, url: e.website || lUrl, foundingDate: String(e.founded) },
+        { '@type': 'Organization', '@id': `${lUrl}#org`, name: e.name, url: e.website || lUrl, foundingDate: String(e.founded), sameAs: orgSameAs(e) },
         { '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'neobankbeat', item: BASE + '/' },
           { '@type': 'ListItem', position: 2, name: t(L, 'nav_neobanks'), item: `${BASE}/${L}/n/` },
@@ -1091,7 +1098,7 @@ for (const loc of LOCALES) {
       { '@type': 'ListItem', position: 2, name: loc.label, item: landUrl },
       { '@type': 'ListItem', position: 3, name: t(L, 'nav_neobanks'), item: nUrl }] },
   ] };
-  const nHtml = head(t(L, 'profiles_index_title'), t(L, 'landing_desc'), nUrl, nLd, null, 'neobankbeat', { lang: L, alts: hreflangCluster(BASE, '/n/') }) + `
+  const nHtml = head(t(L, 'profiles_index_title'), t(L, 'profiles_index_desc'), nUrl, nLd, null, 'neobankbeat', { lang: L, alts: hreflangCluster(BASE, '/n/') }) + `
 <main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
@@ -1114,7 +1121,10 @@ for (const loc of LOCALES) {
   }
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url }, ['neobanks', url]);
   const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
-    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, license, cards, stablecoins and geography.`, url, ld) + `
+    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, license, cards, stablecoins and geography.`, url, ld, undefined, undefined,
+    /* the five localized /<lang>/n/ indexes name this page as their en and
+       x-default alternate; without the cluster here the link was one-way */
+    { alts: hreflangCluster(BASE, '/n/') }) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">profiles</div>
@@ -1339,7 +1349,7 @@ for (const [an, bn] of PAIRS) {
         { '@type': 'ListItem', position: 2, name: loc.label, item: `${BASE}/${L}/` },
         { '@type': 'ListItem', position: 3, name: vsStr(L, 'eyebrow'), item: lUrl }] },
     ] };
-    const lHtml = head(`${vsStr(L, 'eyebrow')} · neobankbeat`, vsStr(L, 'desc', { a: 'Revolut', b: 'N26' }), lUrl, lLd, ogIf('vs.png'), undefined, { lang: L, alts: hreflangCluster(BASE, '/vs/') }) + `
+    const lHtml = head(`${vsStr(L, 'eyebrow')} · neobankbeat`, vsStr(L, 'index_desc'), lUrl, lLd, ogIf('vs.png'), undefined, { lang: L, alts: hreflangCluster(BASE, '/vs/') }) + `
 <main class="wrap" id="main">
 <article>
   <a class="backbtn" href="/${L}/">${t(L, 'back')}</a>
@@ -1404,6 +1414,19 @@ for (const [an, bn] of PAIRS) {
     ['partners', 'object', 'Infrastructure map: issuer, partner_bank, treasury, identity, kyc_provider, card_network — who actually holds and moves the money. null = unverified.'],
     ['funding_stage', 'enum', 'Investor-lens stage: Pre-seed / Seed / Series A / B / C+ / Public / Acquired / Bootstrapped / Subsidiary. Heuristic — explicit signals (public ticker, "acquired", named round) are reliable; the $-amount fallback is directional. null = undisclosed.'],
   ];
+  /* Some rows describe a slot the export reserves but nothing fills yet (the
+     numeric rate companions are left null on purpose: the prose is too noisy to
+     parse). The dictionary advertised them exactly like populated fields, so a
+     reader or an agent planned around data that is null on every row. Computed
+     from the data, so the note drops off by itself the day a field is filled. */
+  {
+    const blank = (v) => v == null || (Array.isArray(v) && !v.length)
+      || (typeof v === 'object' && !Array.isArray(v) && Object.values(v).every((x) => x == null));
+    for (const f of FIELDS) {
+      const keys = f[0].split(' · ').filter((k) => E.some((e) => k in e));
+      if (keys.length && keys.every((k) => E.every((e) => blank(e[k])))) f[2] += ' Reserved: not populated for any entity yet.';
+    }
+  }
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'Dataset', '@id': `${BASE}/data/#dataset`, name: 'neobankbeat: open directory of neobanks worldwide',
       description: `A verified, machine-readable dataset of ${E.length} active neobanks — traditional, hybrid fiat+crypto and web3-native — with fields for custody, regulation type (licensed bank vs partner-bank/BaaS vs e-money vs self-custodial), card, cashback, yield, stablecoin support, FX markup, money-movement services, geography and reported users. Curated from primary sources, MIT-licensed, updated in the open.`,
@@ -1558,7 +1581,7 @@ let invSlugList = [];
 </style>`;
   const rowHtml = ([name, v]) => `<div class="ivrow" id="${ivSlug(name)}" data-q="${esc((name + ' ' + v.banks.map(b => b.name).join(' ')).toLowerCase())}">
   <div class="ivhead">
-    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(invDom(v.site))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <img loading="lazy" alt="" width="20" height="20" src="https://www.google.com/s2/favicons?domain=${esc(invDom(v.site))}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <a class="nm" href="/investors/${ivSlug(name)}/">${esc(name)}</a>
     <span class="ct">${v.banks.length} neobank${v.banks.length === 1 ? '' : 's'}</span>
     <a class="st" href="${esc(v.site)}" target="_blank" rel="noopener nofollow">${esc(invDom(v.site))} ↗</a>
@@ -1628,7 +1651,7 @@ ${rows.map(rowHtml).join('\n')}
     };
     const bankCard = b => `<a class="ivrow" style="display:block;text-decoration:none" href="/n/${slugs.get(b.name)}/">
   <div class="ivhead">
-    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(b.domain || invDom(b.website))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <img loading="lazy" alt="" width="20" height="20" src="https://www.google.com/s2/favicons?domain=${esc(b.domain || invDom(b.website))}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <span class="nm">${esc(b.name)}</span>
     <span class="ct">${esc(b.hq)} · est. ${b.founded}</span>
     <span class="st">${CATLABEL[b.category] || b.category}${b.reported_users ? ` · ${b.reported_users.value_millions}M ${esc(b.reported_users.metric)}` : ''}</span>
@@ -1704,7 +1727,7 @@ const NEWSLETTERS_MODIFIED = gitModified('data/newsletters.json');
 </style>`;
   const rowHtml = ([n, a, u, cad, d]) => `<div class="nlrow">
   <div class="nlhead">
-    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(u.replace(/^https?:\/\//, '').replace(/\/.*/, ''))}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <img loading="lazy" alt="" width="20" height="20" src="https://www.google.com/s2/favicons?domain=${esc(u.replace(/^https?:\/\//, '').replace(/\/.*/, ''))}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <a class="nm" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>
     <span class="au">by ${esc(a)}</span>
     <span class="cad">${esc(cad)}</span>
@@ -1908,7 +1931,7 @@ const infraSlugList = [];
 </style>`;
   const rowHtml = ([name, v]) => `<div class="ivrow" id="${ifSlug(name)}" data-q="${esc((name + ' ' + v.type + ' ' + v.clients.join(' ')).toLowerCase())}">
   <div class="ivhead">
-    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(v.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <img loading="lazy" alt="" width="20" height="20" src="https://www.google.com/s2/favicons?domain=${esc(v.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <a class="nm" href="/infra/${ifSlug(name)}/">${esc(name)}</a>
     <span class="ct">${v.hq !== '—' ? esc(v.hq) + ' · ' : ''}${v.clients.length ? `${v.clients.length} tracked client${v.clients.length === 1 ? '' : 's'}` : 'clients undisclosed'}</span>
     <a class="st" href="https://${esc(v.domain)}" target="_blank" rel="noopener nofollow">${esc(v.domain)} ↗</a>
@@ -1972,7 +1995,7 @@ ${body}
     };
     const clientCard = b => `<a class="ivrow" style="display:block;text-decoration:none" href="/n/${slugs.get(b.name)}/">
   <div class="ivhead">
-    <img loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=${esc(b.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
+    <img loading="lazy" alt="" width="20" height="20" src="https://www.google.com/s2/favicons?domain=${esc(b.domain)}&amp;sz=64" onerror="this.style.visibility='hidden'">
     <span class="nm">${esc(b.name)}</span>
     <span class="ct">${esc(b.hq)} · est. ${b.founded}</span>
     <span class="st">${CATLABEL[b.category] || b.category}${b.reported_users ? ` · ${b.reported_users.value_millions}M ${esc(b.reported_users.metric)}` : ''}</span>
@@ -2255,6 +2278,23 @@ const whoOwnsSlugs = [], altSlugs = [];
   if (out !== src) { fs.writeFileSync(p, out); console.log(`index.html Dataset dateModified → ${DATA_MODIFIED}`); }
 }
 
+/* ═══ the homepage directory, as links, before any script runs ═══
+   The grid is drawn by app.js, so the raw HTML of the most-linked page on the
+   site contained no link to a single profile: a crawler that does not execute
+   JavaScript (most AI crawlers do not) saw 52 links and none of the 397 things
+   the page is about. app.js replaces this list with the cards on first render,
+   and the grid is hidden until then, so a browser never shows it. */
+{
+  const p = path.join(ROOT, 'index.html');
+  const src = fs.readFileSync(p, 'utf8');
+  const list = [...E].sort((a, b) => a.name.localeCompare(b.name))
+    .map(e => `<a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>`).join('\n');
+  const out = src.replace(/<!-- static-directory:start -->[\s\S]*?<!-- static-directory:end -->/,
+    `<!-- static-directory:start -->\n${list}\n<!-- static-directory:end -->`);
+  if (out === src && !src.includes('static-directory:start')) { console.error('✗ index.html lost its static-directory markers'); process.exit(1); }
+  if (out !== src) fs.writeFileSync(p, out);
+}
+
 /* ═══ 404.html — Vercel serves this (with a 404 status) for any missing path ═══ */
 {
   const html = (head('Page not found · neobankbeat',
@@ -2439,6 +2479,21 @@ const BLOG_POSTS = [
   ['neobank-licences-by-region', '2026-11-11'],
   ['us-neobank-charter-wave', '2026-11-18'],
 ];
+
+/* A scheduled post is committed days before its date, and a committed page is a
+   deployed page: the URL answered 200 and was indexable the whole time, with a
+   datePublished in the future. Holding it out of the sitemap hid the link, not
+   the page. Stamp it noindex until its day; the first build on or after that
+   day takes the stamp off, the same build that adds it to the sitemap. */
+const SCHEDULED_STAMP = '<meta name="robots" content="noindex" data-scheduled>';
+for (const [slug, d] of BLOG_POSTS) {
+  const f = path.join(ROOT, 'blog', slug, 'index.html');
+  if (!fs.existsSync(f)) continue;
+  const h = fs.readFileSync(f, 'utf8');
+  const stamped = h.includes(SCHEDULED_STAMP);
+  if (d > TODAY && !stamped) fs.writeFileSync(f, h.replace(/(<meta name="viewport"[^>]*>\n)/, `$1${SCHEDULED_STAMP}\n`));
+  else if (d <= TODAY && stamped) fs.writeFileSync(f, h.replace(SCHEDULED_STAMP + '\n', ''));
+}
 /* ═══ /mcp/ — landing page for the MCP server (how to use, why) ═══ */
 {
   const url = `${BASE}/mcp/`;
@@ -3345,7 +3400,7 @@ ${['engineering', 'data', 'product', 'design', 'compliance', 'onboarding', 'supp
 
 ## Blog posts
 
-${BLOG_POSTS.map(([slug, d]) => `- [${slug.replace(/-/g, ' ')}](${BASE}/blog/${slug}/) (${d})`).join('\n')}
+${BLOG_POSTS.filter(([, d]) => d <= TODAY).map(([slug, d]) => `- [${slug.replace(/-/g, ' ')}](${BASE}/blog/${slug}/) (${d})`).join('\n')}
 
 ## Neobank profiles (${E.length})
 
