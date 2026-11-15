@@ -124,6 +124,26 @@ export function namesFromHeadline(raw) {
   return [...out];
 }
 
+/* Google News answers a search with whatever ranks, not with what is new, and
+   the feed was read title by title with the date thrown away. One weekly issue
+   proposed three "new" neobanks from headlines dated 2018, 2020 and 2026: a UK
+   challenger that never opened and a German launch that never happened, each
+   costing a manual check to rule out. Read the items whole and keep only the
+   recent ones. An item with no readable date is dropped: an undated headline is
+   exactly the kind that turned out to be eight years old. */
+export const NEWS_MAX_AGE_DAYS = 120;
+export function freshHeadlines(xml, now = Date.now(), maxAgeDays = NEWS_MAX_AGE_DAYS) {
+  const out = [];
+  for (const m of String(xml).matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const title = (m[1].match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/) || [])[1];
+    const when = Date.parse((m[1].match(/<pubDate>([^<]*)<\/pubDate>/) || [])[1] || '');
+    if (!title || Number.isNaN(when)) continue;
+    const ageDays = (now - when) / 86400000;
+    if (ageDays <= maxAgeDays && ageDays > -2) out.push(decodeTitle(title));
+  }
+  return out;
+}
+
 /* node tests/discovery-extract.mjs --check   (flowtest runs this)
    Zero junk, and recall at or above the fixture's floor. */
 import { fileURLToPath as _f } from 'node:url';
@@ -137,6 +157,15 @@ if (process.argv[1] && _f(import.meta.url) === process.argv[1] && process.argv.i
     if (c.want.length) { named++; if (got.some((g) => c.want.includes(g))) found++; }
   }
   const recall = named ? found / named : 1;
+  /* the date filter, against the three headlines that prompted it */
+  const NOW = Date.parse('2026-11-09T07:09:00Z');
+  const item = (t, d) => `<item><title>${t}</title><pubDate>${d}</pubDate></item>`;
+  const kept = freshHeadlines('<rss><channel><title>"neobank" launch - Google News</title>'
+    + item('TBC Plans to Launch its Neobank "Space" in Germany - BM.GE', 'Thu, 12 Mar 2020 07:00:00 GMT')
+    + item('UK challenger bank LQID smoothly starts up - FinTech Futures', 'Mon, 06 Aug 2018 07:00:00 GMT')
+    + item('Shield launches US business accounts for exporters - Finextra', 'Tue, 20 Oct 2026 09:00:00 GMT')
+    + '<item><title>An undated headline - Somewhere</title></item></channel></rss>', NOW);
+  if (kept.length !== 1 || !kept[0].startsWith('Shield launches')) junk.push(`date filter kept ${JSON.stringify(kept)}`);
   const ok = !junk.length && recall >= fx.recall_floor;
   console.log(ok
     ? `✓ discovery extraction: 0 junk across ${fx.cases.length} headlines, recall ${found}/${named}`

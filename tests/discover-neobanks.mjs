@@ -9,7 +9,7 @@
    run: node tests/discover-neobanks.mjs                                     */
 import fs from 'node:fs';
 import path from 'node:path';
-import { decodeTitle, namesFromHeadline } from './discovery-extract.mjs';
+import { freshHeadlines, namesFromHeadline, NEWS_MAX_AGE_DAYS } from './discovery-extract.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SEEN_FILE = path.join(import.meta.dirname, 'discovery-seen.json');
@@ -85,9 +85,10 @@ const NEWS_QUERIES = [
 const headlines = [];
 for (const q of NEWS_QUERIES) {
   try {
-    const xml = await get(`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`, 'application/rss+xml');
-    for (const m of xml.matchAll(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/g)) {
-      const title = decodeTitle(m[1]);
+    /* `when:` asks Google for recent items; freshHeadlines checks each item's own
+       date anyway, because the operator is a ranking hint, not a guarantee. */
+    const xml = await get(`https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:${NEWS_MAX_AGE_DAYS}d`)}&hl=en-US&gl=US&ceid=US:en`, 'application/rss+xml');
+    for (const title of freshHeadlines(xml)) {
       if (title.includes('Google News')) continue;
       headlines.push(title);
       for (const cand of namesFromHeadline(title)) {
