@@ -1114,7 +1114,10 @@ for (const loc of LOCALES) {
   }
   const ld = withCrumbs({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'All tracked neobanks', url }, ['neobanks', url]);
   const html = head(`All ${E.length} tracked neobanks, A–Z · neobankbeat`,
-    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, license, cards, stablecoins and geography.`, url, ld) + `
+    `Index of every verified-active neobank in the open dataset — ${E.length} profiles with custody, license, cards, stablecoins and geography.`, url, ld, undefined, undefined,
+    /* the five localized /<lang>/n/ indexes name this page as their en and
+       x-default alternate; without the cluster here the link was one-way */
+    { alts: hreflangCluster(BASE, '/n/') }) + `
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">profiles</div>

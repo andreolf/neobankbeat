@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-15', tag: 'fix', title: 'The homepage title caught up with the dataset',
+    body: 'The homepage title, its share card text, its dataset markup and its footer still said 379 neobanks while the directory tracked 397. Those five places are now tied to the live count like the rest of the site, so they can no longer fall behind. The A–Z profile index also gained the language links its five translations already pointed back to.',
+    links: [['/', 'the directory'], ['/n/', 'all profiles A–Z']] },
   { date: '2026-11-02', tag: 'data', title: 'Fifteen new neobanks, and twenty-one we checked and left out',
     body: 'Four weeks of discovery leads, checked name by name. In: Shield (US business accounts for exporters, paid in USDT, settled in USD), Cloud9 (Kenyan multi-currency accounts), Mukuru (the remittance company\'s Bank Zero account), Simple. (Attijariwafa bank\'s Moroccan neobank), Jingle Pay (UAE), Tam (Kuwait Finance House\'s youth bank), PEPPER (Bank Leumi), FACILE (Pacific National Bank), Ping An Digital Bank (Hong Kong), Green Link Digital Bank (Singapore), FAKTUS, Helios, BUUT, Juni and Chase Germany. Out, each for a stated reason: shut down (Ubanku, Elas, STACK, Wicket, Jenius Bank in the US, GIG-A, bnc10, TBC\'s Space), acquired (Dzing, now Nebeus), lenders (OmniBnk), infrastructure (Pieverse, Kwara, Kaleidofin, Inypay, NYMBUS), not yet live (XORA\'s card, Gargoura, Moneeys), and incumbents (TASCOMBANK, Wing Bank, Signature Bank).',
     links: [['/n/shield/', 'Shield'], ['/n/mukuru/', 'Mukuru'], ['/n/chase-germany/', 'Chase Germany'], ['/n/buut/', 'BUUT']] },

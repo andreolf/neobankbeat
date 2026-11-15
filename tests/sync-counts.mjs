@@ -200,6 +200,15 @@ const RULES = {
   'index.html': [
     n('faq · ', S.faq, ' honest answers'),
     n('directory of ', S.entities, ' verified-active neobanks'),
+    /* The <title>, the share-card copy, the Dataset JSON-LD and the footer each
+       restate the total in their own words, and none of them was anchored: they
+       sat at 379 while the dataset reached 397, in the one tag a search result
+       actually shows. */
+    n('neobankbeat · ', S.entities, ' neobanks compared'),
+    n('content="', S.entities, ' verified-active neobanks in one place'),
+    n('independent directory of ', S.entities, ' neobanks'),
+    n('machine-readable dataset of ', S.entities, ' active neobanks'),
+    n('class="fmeta">', S.entities, ' neobanks tracked'),
     /* app.js overwrites the hero counters on load, so these five were only ever
        seen by a crawler that does not run JS — and drifted unnoticed to
        256/54/47/117 while the data said 254/58/56/122. The raw HTML is what a

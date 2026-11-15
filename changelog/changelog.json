@@ -3,6 +3,16 @@
  "total": 397,
  "releases": [
   {
+   "date": "2026-11-15",
+   "tag": "fix",
+   "title": "The homepage title caught up with the dataset",
+   "body": "The homepage title, its share card text, its dataset markup and its footer still said 379 neobanks while the directory tracked 397. Those five places are now tied to the live count like the rest of the site, so they can no longer fall behind. The A–Z profile index also gained the language links its five translations already pointed back to.",
+   "links": [
+    "/",
+    "/n/"
+   ]
+  },
+  {
    "date": "2026-11-02",
    "tag": "data",
    "title": "Fifteen new neobanks, and twenty-one we checked and left out",
