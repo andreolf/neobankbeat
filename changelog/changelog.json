@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02",
+ "generated": "2026-11-15",
  "total": 397,
  "releases": [
   {
@@ -269,6 +269,17 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-11-15",
+   "summary": "Company job pages, answer-first snippets, agent counting.",
+   "subject": "Act on the traffic data: company job pages, answer-first snippets, agent counting",
+   "total": 397,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Chime"
+   ]
+  },
   {
    "date": "2026-11-02",
    "summary": "Fifteen in, twenty-one out.",
