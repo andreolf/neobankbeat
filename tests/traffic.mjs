@@ -251,8 +251,20 @@ async function ga4() {
     api(base, { dateRanges: range, dimensions: [{ name: 'country' }], metrics: [{ name: 'totalUsers' }], orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }], limit: 8 }, tok),
   ]);
 
+  /* AI crawlers and agents never run the page's JavaScript; middleware.js
+     reports them server-side as agent_<family> events once GA4_MP_SECRET is
+     set in Vercel. Empty until then. */
+  let agents = [];
+  try {
+    const a = await api(base, { dateRanges: range, dimensions: [{ name: 'eventName' }], metrics: [{ name: 'eventCount' }],
+      dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'BEGINS_WITH', value: 'agent_' } } },
+      orderBys: [{ desc: true, metric: { metricName: 'eventCount' } }], limit: 25 }, tok);
+    agents = (a.rows || []).map((r) => ({ key: r.dimensionValues[0].value.replace(/^agent_/, ''), n: +r.metricValues[0].value }));
+  } catch { /* the headline numbers matter more than this section */ }
+
   const t = totals.rows?.[0]?.metricValues || [];
   return {
+    agents,
     sessions: +(t[0]?.value || 0),
     /* sessions includes whatever automation gets past the on-site guard; engaged
        sessions (10s+, a second page or a key event) is the number to steer by */
@@ -330,6 +342,8 @@ if (JSON_OUT) {
     table('top pages', out.ga4.pages, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m)} ${r.key}`);
     table('channels', out.ga4.sources, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m, 16)} ${r.key}`);
     table('countries', out.ga4.countries, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m, 16)} ${r.key}`);
+    if (out.ga4.agents.length) table('AI agents (server-side, by family)', out.ga4.agents, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m, 16)} ${r.key}`);
+    else console.log('\nAI agents\n  (none recorded — set GA4_MP_SECRET in Vercel to start counting; see middleware.js)');
   }
   if (out.search?.error) console.log(`\nSearch Console\n  ✗ ${out.search.error}`);
   else if (out.search) {

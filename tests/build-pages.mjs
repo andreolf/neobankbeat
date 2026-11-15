@@ -1177,9 +1177,22 @@ const vsVerdict = (a, b) => {
   const seg = [];
   if (aE.length) seg.push(`${a.name} ${aE.join(' and ')}`);
   if (bE.length) seg.push(`${b.name} ${bE.join(' and ')}`);
+  /* The fallback used to say "the real differences are FX markup, fees, license
+     and geography" without naming one, and that sentence was the search snippet
+     for every pair with no headline edge: /vs/ramp-vs-relay/ took 950
+     impressions at position 5.8 in a month and no clicks. Name what differs. */
+  const card = e => (e.card_network && e.card_network !== '—' ? `${e.card_network} ${String(e.card_type || '').toLowerCase().replace(/\s*cards?$/, '')}`.trim() : 'no card');
+  const diffs = [
+    a.regulation_type && b.regulation_type && a.regulation_type !== b.regulation_type
+      && `${a.name} is a ${a.regulation_type.toLowerCase()} and ${b.name} a ${b.regulation_type.toLowerCase()}`,
+    card(a) !== card(b) && `${a.name} issues a ${card(a)} card and ${b.name} a ${card(b)} card`.replace(/issues a no card card/, 'has no card').replace(/and (.+) a no card card/, 'and $1 has none'),
+    a.hq !== b.hq && `${a.name} is based in ${a.hq} and ${b.name} in ${b.hq}`,
+  ].filter(Boolean);
   return seg.length
-    ? `${cat}. ${seg.join('; ')}. Compare custody, license, FX markup and fees field by field below.`
-    : `${cat} with similar positioning — the real differences are FX markup, fees, license and geography, compared field by field below.`;
+    ? `${cat}. ${seg.join('; ')}.${diffs.length ? ` ${diffs[0]}.` : ''} Every field is compared below.`
+    : diffs.length
+      ? `${cat}. ${diffs.slice(0, 2).join('; ')}. Every field is compared below.`
+      : `${cat} with the same license type, card and home market — the differences are in fees and features, compared field by field below.`;
 };
 
 /* localized comparison rows — labels + enum values localized, raw values pass through */
@@ -1215,8 +1228,10 @@ for (const [an, bn] of PAIRS) {
   const url = `${BASE}/vs/${slug}/`;
   const vsAlts = hreflangCluster(BASE, `/vs/${slug}/`);
   const title = `${an} vs ${bn} compared (2026) · neobankbeat`;
-  const desc = `${an} vs ${bn} side by side — custody, regulation, card network, cashback, yield, stablecoin support and geography. Neutral comparison from the open neobankbeat dataset. No affiliate links.`;
   const verdict = vsVerdict(a, b);
+  /* the description is the snippet: lead with the answer, not with a list of
+     the columns the page has */
+  const desc = `${an} vs ${bn}: ${verdict.replace(/ Every field is compared below\.$/, '')} Neutral, from verified data, no affiliate links.`;
   const ld = {
     '@context': 'https://schema.org', '@graph': [
       /* dateModified tracks the data, not the build — re-stamping TODAY on every
@@ -2133,11 +2148,23 @@ const whoOwnsSlugs = [], altSlugs = [];
       safeAns = safeAns || `How your money is protected depends on ${e.name}'s license type — see the license detail on its profile and confirm the scheme that applies in your country.`;
     }
     const acqMatch = e.funding && e.funding.match(/Acquired by [^;]+/i);
-    const corpLine = acqMatch ? `${e.name} was ${acqMatch[0].replace(/^Acquired/i, 'acquired')}; the wallet continues to operate.` : '';
+    const corpLine = acqMatch ? `${e.name} was ${acqMatch[0].replace(/^Acquired/i, 'acquired')} and continues to operate under its own name.` : '';
     const backers = (e.investors || []).slice(0, 4).map(iv => iv.name);
     const backLine = backers.length ? `${e.name}'s most notable disclosed backers include ${nameList(backers)}.` : '';
     const foundLine = e.founders ? `${e.name} was founded by ${e.founders}${e.founded ? ` (${e.founded})` : ''}, headquartered in ${e.hq}.` : '';
-    const ownAnswer = [lead, corpLine, backLine].filter(Boolean).join(' ');
+    /* "who owns Monzo" is asking about shareholders, and the answer opened with
+       the banking license: 3,366 impressions at position 11 and 3 clicks. Say
+       who is behind it first, in words the data supports — a listed company, an
+       acquirer, or the disclosed backers — and the license second. Nothing here
+       claims a cap table: `investors` is notable backers from public rounds. */
+    const ownLine = acqMatch ? ''
+      : e.funding_stage === 'Public' ? `${e.name} is a publicly listed company, so it is owned by its shareholders${e.founders ? `; it was founded by ${e.founders}` : ''}.`
+        : e.funding_stage === 'Bootstrapped' ? `${e.name} is bootstrapped${e.founders ? ` and was founded by ${e.founders}` : ''}; no outside investors are disclosed.`
+          /* no "privately held": a stale funding stage would turn that into a
+             false statement the day a company lists, as Chime's did */
+          : backers.length ? `${e.founders ? `${e.name} was founded by ${e.founders}; its` : `${e.name}'s`} notable disclosed backers include ${nameList(backers)}.`
+            : '';
+    const ownAnswer = [corpLine, ownLine, lead, ownLine || corpLine ? '' : backLine].filter(Boolean).join(' ');
 
     /* ── who-owns page ── */
     {
@@ -2209,10 +2236,18 @@ const whoOwnsSlugs = [], altSlugs = [];
         all3('regulation_type', `the same license type (${e.regulation_type})`),
         e.audience !== 'general' && all3('audience', `the same audience (${e.audience})`),
       ].filter(Boolean);
-      const altAnswer = `Ranked by how closely they match ${e.name} on structure — custody, license type, card and overlapping markets — the nearest alternatives in the dataset are ${nameList(top)}` +
+      /* The answer used to open with the method and reach the names after 150
+         characters, so the search snippet was cut off before naming a single
+         alternative: 19,000 impressions and 29 clicks on "alternatives" queries.
+         Names first, method second. */
+      const altAnswer = `The closest alternatives to ${e.name} are ${nameList(top)}` +
         `${basis.length ? `, which share ${nameList(basis)}` : ''}; ${geo}. ` +
+        `They are ranked by how closely they match ${e.name} on structure: custody, license type, card and overlapping markets. ` +
         `This is a similarity ranking from verified fields, not a popularity list or an editorial pick — all ${alts.length} peers are compared field by field below. No affiliate links.`;
-      const title = `${e.name} alternatives (2026): ${alts.length} compared · neobankbeat`;
+      const named = `${e.name} alternatives (2026): ${top[0]}, ${top[1]} + ${alts.length - 2} more`;
+      const title = alts.length > 2
+        ? (named.length + ' · neobankbeat'.length <= 65 ? `${named} · neobankbeat` : named)
+        : `${e.name} alternatives (2026): ${alts.length} compared · neobankbeat`;
       const desc = altAnswer.slice(0, 300);
       const faq = [
         [`What are the best alternatives to ${e.name}?`, altAnswer],

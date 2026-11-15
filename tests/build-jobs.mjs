@@ -533,6 +533,15 @@ const byCompany = {};
 for (const j of all) byCompany[j.company] = (byCompany[j.company] || 0) + 1;
 const nCompanies = Object.keys(byCompany).length;
 
+/* ── one page per hiring company: /jobs/at/<slug>/ ──
+   Half of all search clicks to this site are job searches, and the queries name
+   the employer ("vagas c6 bank", "banco inter vagas"). They used to land on a
+   single listing, which ranks for a few weeks and then disappears with the role.
+   A company page is the URL that outlives its listings. */
+const companySlug = co => slugify(co);
+const companyPath = co => `/jobs/at/${companySlug(co)}/`;
+const companyEntity = co => { const src = SOURCES.find(s => s[0] === co); return (src && E.find(e => e.name === src[1])) || null; };
+
 /* company → logo domain (google favicon service, same as the directory) */
 const COMPANY_META = {};
 for (const [display, entityName] of SOURCES) {
@@ -972,12 +981,12 @@ function jobDetailHtml(j) {
 <main class="wrap" id="main">
   <a class="jback" href="/jobs/">← all jobs</a>
   <article style="max-width:760px">
-    <div class="eyebrow"><a href="/jobs/${esc(j.dept)}/" style="color:inherit;text-decoration:none">${deptLabel.toLowerCase()}</a> · ${esc(j.company)}</div>
+    <div class="eyebrow"><a href="/jobs/${esc(j.dept)}/" style="color:inherit;text-decoration:none">${deptLabel.toLowerCase()}</a> · <a href="${companyPath(j.company)}" style="color:inherit;text-decoration:none">${esc(j.company)}</a></div>
     <h1 class="jhead">${esc(j.title)}</h1>
     <p class="jmeta">${metaLine}</p>
     <div class="jdesc">${descBody(j.description)}</div>
     <a class="japply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" data-company="${esc(j.company)}" data-title="${esc(j.title)}" data-dept="${esc(deptLabel)}">Apply on ${esc(j.company)} →</a>
-    <p class="jfoot">Listing synced from ${esc(j.company)}'s official careers API · refreshed ${TODAY} · ${profileLink} · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
+    <p class="jfoot">Listing synced from ${esc(j.company)}'s official careers API · refreshed ${TODAY} · <a href="${companyPath(j.company)}">all ${esc(j.company)} jobs</a> · ${profileLink} · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
 </main>
 ${jobDetailBackScript}
@@ -1021,10 +1030,7 @@ ${all.slice(0, 80).map(jobCard).join('\n')}
   <h2>who's hiring</h2>
   <div class="cogrid">
 ${topCompanies.map(([co, n]) => {
-  const src = SOURCES.find(s => s[0] === co);
-  const ent = src && E.find(e => e.name === src[1]);
-  const href = ent ? `/n/${slugify(ent.name)}/` : '#';
-  return `    <a class="cocard" href="${href}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${n} open role${n === 1 ? '' : 's'}</div></div></a>`;
+  return `    <a class="cocard" href="${companyPath(co)}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${n} open role${n === 1 ? '' : 's'}</div></div></a>`;
 }).join('\n')}
   </div>
 
@@ -1055,7 +1061,7 @@ fs.writeFileSync(path.join(ROOT, 'jobs', 'index.html'), indexHtml);
   fs.writeFileSync(path.join(ROOT, 'jobs', 'sitemap-urls.json'), JSON.stringify({
     generated: TODAY,
     count: all.length,
-    urls: all.map(j => ({ loc: `${BASE}${j.path}` })),
+    urls: [{ loc: `${BASE}/jobs/at/` }, ...Object.keys(byCompany).sort().map(co => ({ loc: `${BASE}${companyPath(co)}` })), ...all.map(j => ({ loc: `${BASE}${j.path}` }))],
   }));
 }
 
@@ -1110,6 +1116,121 @@ ${rows.slice(0, 80).map(jobCard).join('\n')}
 ${filterScript(id)}
 ${foot}`;
   fs.writeFileSync(path.join(dir, 'index.html'), html);
+}
+
+/* ── company pages ── */
+{
+  const atRoot = path.join(ROOT, 'jobs', 'at');
+  fs.mkdirSync(atRoot, { recursive: true });
+  const MONTH = new Date(TODAY + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const deptLabel = id => DEPTS.find(d => d[0] === id)?.[1] || 'Other';
+  const CATLONG = { traditional: 'a traditional (fiat) neobank', hybrid: 'a hybrid fiat-and-crypto neobank', 'web3-native': 'a web3-native money app' };
+  const tally = (rows, key) => Object.entries(rows.reduce((a, r) => { const k = key(r); if (k) a[k] = (a[k] || 0) + 1; return a; }, {})).sort((a, b) => b[1] - a[1]);
+  const byPosted = (a, b) => (Date.parse(b.posted) || 0) - (Date.parse(a.posted) || 0);
+  const companies = Object.keys(byCompany).sort((a, b) => byCompany[b] - byCompany[a]);
+
+  for (const co of companies) {
+    const rows = all.filter(j => j.company === co).sort(byPosted);
+    const n = rows.length, ent = companyEntity(co), url = `${BASE}${companyPath(co)}`;
+    /* Brazilian employers are searched for in Portuguese, and "vagas" is the
+       word in every one of those queries; say it where the query looks. */
+    const br = /,\s*BR$/.test(ent?.hq || '');
+    const depts = tally(rows, r => r.dept), locs = tally(rows, r => (r.wp === 'remote' ? 'Remote' : r.location && r.location !== 'Not specified' ? r.location : ''));
+    const top = depts.filter(([d]) => d !== 'other').slice(0, 3).map(([d, c]) => `${c} ${deptLabel(d).toLowerCase()}`).join(', ');
+    const roles = `${n} open role${n === 1 ? '' : 's'}`;
+    const title = br ? `Vagas ${co} — ${n} open job${n === 1 ? '' : 's'} (${MONTH})` : `${co} jobs — ${roles} (${MONTH})`;
+    const desc = `${br ? `Vagas ${co}: ` : ''}${roles} at ${co}${top ? ` — ${top}` : ''}. From ${co}'s official careers page, refreshed ${TODAY}. Apply on the company site.`;
+    const about = ent
+      ? `${esc(co)} is ${CATLONG[ent.category] || 'a neobank'}${ent.hq ? ` headquartered in ${esc(ent.hq)}` : ''}${ent.founded ? `, founded in ${ent.founded}` : ''}${ent.regulation_type ? `, operating as a ${esc(ent.regulation_type.toLowerCase())}` : ''}. <a href="/n/${slugify(ent.name)}/">Read the ${esc(co)} profile</a> for custody, license and card details before you apply.`
+      : '';
+    const ld = [
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${co} jobs`, url, dateModified: TODAY,
+        description: `${roles} at ${co}, from the company's official careers page.`,
+        about: { '@type': 'Organization', name: co, ...(ent?.website ? { url: ent.website } : {}), ...(ent ? { sameAs: `${BASE}/n/${slugify(ent.name)}/` } : {}) },
+        mainEntity: { '@type': 'ItemList', numberOfItems: n, itemListElement: rows.slice(0, 100).map((j, i) => ({ '@type': 'ListItem', position: i + 1, name: j.title, url: `${BASE}${j.path}` })) },
+        isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE } },
+      { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['companies', `${BASE}/jobs/at/`], [co.toLowerCase(), url]) },
+    ];
+    const html = head(title, desc, url, ld, ogIf('jobs.png')) + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
+  <article class="jhero">
+  <h1>${esc(co)} <em>jobs</em>${br ? ' · vagas' : ''}</h1>
+  <p class="meta"><b>${roles}</b> at ${esc(co)} across ${depts.length} team${depts.length === 1 ? '' : 's'}${locs.length ? ` and ${locs.length} location${locs.length === 1 ? '' : 's'}` : ''} · pulled from ${esc(co)}'s official careers page · refreshed ${TODAY}.</p>
+  ${br ? `<p class="meta">Vagas abertas em ${esc(co)}, direto da página oficial de carreiras. A candidatura é feita no site da empresa.</p>` : ''}
+  ${about ? `<p>${about}</p>` : ''}
+  </article>
+
+  <article>
+  <h2>teams hiring at ${esc(co)}</h2>
+  <div class="cogrid">
+${depts.map(([d, c]) => `    <a class="cocard" href="#${d}"><div><div class="n">${esc(deptLabel(d))}</div><div class="c">${c} open role${c === 1 ? '' : 's'}</div></div></a>`).join('\n')}
+  </div>
+  ${locs.length ? `<p class="meta"><b>Where:</b> ${locs.slice(0, 8).map(([l, c]) => `${esc(l)} (${c})`).join(' · ')}${locs.length > 8 ? ` · and ${locs.length - 8} more` : ''}</p>` : ''}
+  </article>
+
+${depts.map(([d, c]) => `  <h2 id="${d}" style="max-width:760px;margin-top:28px">${esc(deptLabel(d))} <span style="color:var(--dim);font-weight:400">· ${c}</span></h2>
+  <div class="joblist">
+${rows.filter(r => r.dept === d).map(jobCard).join('\n')}
+  </div>`).join('\n')}
+
+  <article><p class="jfoot">Listings belong to ${esc(co)} and change constantly; every role links to its own page and applications happen on ${esc(co)}'s site. neobankbeat is independent and earns nothing from applications. <a href="/jobs/at/">Other neobanks hiring</a> · <a href="/jobs/">all neobank jobs</a>.</p></article>
+</main>
+${foot}`;
+    const dir = path.join(atRoot, companySlug(co));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), html);
+  }
+
+  /* A company with no roles today keeps its URL. A source that fails to answer
+     for one night would otherwise delete a ranking page and bring it back the
+     next morning; this says so plainly and stays out of the index until then. */
+  const live = new Set(companies.map(companySlug));
+  for (const d of fs.readdirSync(atRoot, { withFileTypes: true })) {
+    if (!d.isDirectory() || live.has(d.name)) continue;
+    const src = SOURCES.find(x => companySlug(x[0]) === d.name);
+    if (!src) { fs.rmSync(path.join(atRoot, d.name), { recursive: true, force: true }); continue; }
+    const co = src[0], ent = companyEntity(co), url = `${BASE}${companyPath(co)}`;
+    fs.writeFileSync(path.join(atRoot, d.name, 'index.html'),
+      head(`${co} jobs — no open roles listed right now`, `No open roles are listed at ${co} right now. This page fills again when ${co}'s official careers page lists new ones.`, url,
+        [{ '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['companies', `${BASE}/jobs/at/`], [co.toLowerCase(), url]) }], ogIf('jobs.png'))
+        .replace('<meta name="viewport" content="width=device-width, initial-scale=1">', '<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">') + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
+  <article class="jhero">
+  <h1>${esc(co)} <em>jobs</em></h1>
+  <p class="meta">No open roles are listed at ${esc(co)} right now (checked ${TODAY}). This page fills again as soon as its official careers page lists new ones.</p>
+  <p>${ent ? `<a href="/n/${slugify(ent.name)}/">The ${esc(co)} profile</a> · ` : ''}<a href="/jobs/at/">other neobanks hiring</a> · <a href="/jobs/">all neobank jobs</a></p>
+  </article>
+</main>
+${foot}`);
+  }
+
+  /* the index of hiring companies: the crawl path to every page above */
+  const idxUrl = `${BASE}/jobs/at/`;
+  fs.writeFileSync(path.join(atRoot, 'index.html'), head(
+    `Neobanks hiring now — ${companies.length} companies, ${all.length.toLocaleString('en-US')} open roles`,
+    `${companies.length} neobanks with open roles right now, from ${companies.slice(0, 3).join(', ')} to ${companies[companies.length - 1]}. Every company's live jobs on one page, refreshed ${TODAY}.`,
+    idxUrl,
+    [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Neobanks hiring now', url: idxUrl, dateModified: TODAY, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
+      mainEntity: { '@type': 'ItemList', numberOfItems: companies.length, itemListElement: companies.map((co, i) => ({ '@type': 'ListItem', position: i + 1, name: `${co} jobs`, url: `${BASE}${companyPath(co)}` })) } },
+    { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['companies', idxUrl]) }],
+    ogIf('jobs.png')) + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · companies</div>
+  <article class="jhero">
+  <h1>neobanks <em>hiring</em> now</h1>
+  <p class="meta"><b>${companies.length} companies</b> with ${all.length.toLocaleString('en-US')} open roles between them, each pulled from the company's own careers page · refreshed ${TODAY}.</p>
+  </article>
+  <article>
+  <div class="cogrid">
+${companies.map(co => `    <a class="cocard" href="${companyPath(co)}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${byCompany[co]} open role${byCompany[co] === 1 ? '' : 's'}</div></div></a>`).join('\n')}
+  </div>
+  <p class="jfoot">Only neobanks tracked in the directory with a public careers feed appear here. <a href="/jobs/">Browse every role</a> or filter by department from the job board.</p>
+  </article>
+</main>
+${foot}`);
+  console.log(`company pages: ${companies.length} (+ index)`);
 }
 
 /* Inline scripts are assembled inside template literals, so a stray escape
