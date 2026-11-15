@@ -1253,6 +1253,18 @@ console.log('— flow 40: a closed job listing is sent to its company page');
   ok(/id="jclosed"/.test(fs.readFileSync(path.join(__dirname,'..','jobs','at',co,'index.html'),'utf8')),'company pages carry the closed-role notice');
 }
 
+console.log('— flow 41: job alerts sign up, confirm, send and unsubscribe correctly');
+{
+  /* The alert functions store email addresses and send mail; their own suite
+     runs the whole path against fake services. One failure there fails here. */
+  const {execSync}=require('child_process');
+  let out='',code=0;
+  try{ out=execSync('node '+require('path').join(__dirname,'alerts.test.mjs'),{encoding:'utf8'}); }
+  catch(e){ out=(e.stdout||'')+(e.stderr||''); code=e.status||1; }
+  const missed=out.split('\n').filter(l=>l.startsWith('✗')).map(l=>l.slice(2));
+  ok(code===0,'the alert suite passes ('+(out.trim().split('\n').pop()||'no output')+(missed.length?': '+missed.slice(0,3).join(' | '):'')+')');
+}
+
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
 console.log('ALL FLOWS PASS ✓');

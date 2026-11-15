@@ -558,12 +558,68 @@ const logoImg = co => COMPANY_META[co]
 
 fs.mkdirSync(path.join(ROOT, 'jobs'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generated: TODAY, count: all.length, companies: nCompanies, logos: COMPANY_META, jobs: all }));
+const inBrazil = j => /\b(brazil|brasil)\b|são paulo|sao paulo|rio de janeiro|belo horizonte|, (SP|RJ|MG|PR|RS|SC|DF|BA|PE|CE|GO)$/i.test(j.location || '');
 
-/* ── jobs/feed.xml — RSS of the newest postings, so people & aggregators can subscribe ── */
+/* ── job alerts (api/alerts/*) ──
+   The sign-up box and the weekly digest are served by the edge functions in
+   /api/alerts; this is everything they need from the build. alerts.json is the
+   board without the descriptions (data.json is 21MB, this is under 1MB), and
+   alerts-topics.json is the list of things a person may subscribe to, which the
+   sign-up endpoint checks a request against.
+
+   `live` is a committed switch, not an environment variable: the boxes must not
+   appear until the mail and storage accounts exist, and flipping it should be a
+   reviewable one-line change. */
+const ALERTS_LIVE = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'alerts-config.json'), 'utf8')).live === true;
 {
+  const brHq = co => /,\s*BR$/.test(companyEntity(co)?.hq || '');
+  fs.writeFileSync(path.join(ROOT, 'jobs', 'alerts.json'), JSON.stringify({
+    generated: TODAY,
+    companies: Object.fromEntries(Object.keys(byCompany).sort().map(co => [companySlug(co), co])),
+    jobs: all.filter(j => j.posted && !Number.isNaN(Date.parse(j.posted))).map(j => ({
+      id: j.id, title: j.title, co: companySlug(j.company), dept: j.dept, loc: j.wp === 'remote' ? 'Remote' : j.location,
+      posted: j.posted, path: j.path, ...(inBrazil(j) || brHq(j.company) ? { br: 1 } : {}),
+    })),
+  }));
+  fs.writeFileSync(path.join(ROOT, 'jobs', 'alerts-topics.json'), JSON.stringify({
+    companies: Object.fromEntries(SOURCES.map(x => [companySlug(x[0]), x[0]])),
+    depts: [...DEPTS.map(d => d[0]), 'other'],
+    br: true,
+  }));
+}
+const ALERT_WORDS = {
+  en: { cta: 'Get alerts', ph: 'you@example.com', note: 'At most one email a week, only when there is something new. One-click unsubscribe. We keep your address and this choice, nothing else.', how: 'How it works',
+    ok: 'Check your inbox: confirm the link we just sent and the alert is on.', email: 'That does not look like an email address.', slow_down: 'Too many tries from here. Please wait an hour.', busy: 'Sign-ups are full for today. Please try again tomorrow.', server: 'That did not work. Please try again in a moment.' },
+  pt: { cta: 'Receber alertas', ph: 'voce@exemplo.com', note: 'No máximo um e-mail por semana, só quando houver novidade. Cancelamento em um clique. Guardamos seu endereço e esta escolha, mais nada.', how: 'Como funciona',
+    ok: 'Veja sua caixa de entrada: confirme no link que acabamos de enviar e o alerta fica ativo.', email: 'Isso não parece um endereço de e-mail.', slow_down: 'Muitas tentativas daqui. Aguarde uma hora.', busy: 'As inscrições de hoje acabaram. Tente de novo amanhã.', server: 'Não deu certo. Tente de novo em instantes.' },
+};
+/* the sign-up box: empty string until alerts are live, so a page never shows a
+   form that cannot work */
+const alertBox = (topic, lang, heading) => {
+  if (!ALERTS_LIVE) return '';
+  const w = ALERT_WORDS[lang];
+  return `<form class="jalert" data-topic="${topic}" data-lang="${lang}" novalidate>
+    <label for="jalert-email">${heading}</label>
+    <div class="jalert-row"><input id="jalert-email" type="email" name="email" required autocomplete="email" placeholder="${w.ph}"><button type="submit">${w.cta}</button></div>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <p class="jalert-note" role="status">${w.note} <a href="/jobs/alerts/">${w.how}</a></p>
+  </form>
+  <script>(function(){var f=document.querySelector('form.jalert');if(!f)return;var M=${JSON.stringify(Object.fromEntries(['ok', 'email', 'slow_down', 'busy', 'server'].map(k => [k, w[k]])))},n=f.querySelector('.jalert-note'),b=f.querySelector('button');
+f.addEventListener('submit',function(e){e.preventDefault();b.disabled=true;
+fetch('/api/alerts/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:f.email.value,topic:f.dataset.topic,lang:f.dataset.lang,website:f.website.value})})
+.then(function(r){return r.json()}).then(function(j){if(j&&j.ok){n.textContent=M.ok;f.querySelector('.jalert-row').hidden=true;try{window.nbevt&&nbevt('job_alert_signup',{topic:f.dataset.topic})}catch(_){}}else{n.textContent=M[j&&j.error]||M.server;b.disabled=false}})
+.catch(function(){n.textContent=M.server;b.disabled=false})})})();</script>`;
+};
+
+/* ── feeds — RSS of the newest postings ──
+   The board has had one feed for everything. A job seeker follows an employer
+   or a line of work, not 3,800 roles, so each company page and each department
+   page gets its own: the same items, filtered. They are also what a job alert
+   is made of, whoever ends up sending it. */
+const writeFeed = (file, { title, link, self, desc, rows, lang = 'en' }) => {
   const cdata = s => `<![CDATA[${String(s).replace(/\]\]>/g, ']]&gt;')}]]>`;
   const rfc822 = d => new Date(d + 'T09:00:00Z').toUTCString().replace('GMT', '+0000');
-  const items = all.filter(j => j.posted && !Number.isNaN(Date.parse(j.posted))).slice(0, 60).map(j => `  <item>
+  const items = rows.filter(j => j.posted && !Number.isNaN(Date.parse(j.posted))).slice(0, 60).map(j => `  <item>
     <title>${cdata(`${j.title} — ${j.company}`)}</title>
     <link>${esc(BASE + j.path)}</link>
     <guid isPermaLink="true">${esc(BASE + j.path)}</guid>
@@ -571,20 +627,44 @@ fs.writeFileSync(path.join(ROOT, 'jobs', 'data.json'), JSON.stringify({ generate
     <category>${esc(DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other')}</category>
     <description>${cdata([j.company, j.location, j.salary, j.wp, j.visa ? 'visa sponsorship' : null].filter(Boolean).join(' · '))}</description>
   </item>`).join('\n');
-  fs.writeFileSync(path.join(ROOT, 'jobs', 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>neobank jobs · neobankbeat</title>
-  <link>https://www.neobankbeat.com/jobs/</link>
-  <description>The newest roles at ${nCompanies} hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
-  <language>en</language>
+  <title>${esc(title)}</title>
+  <link>${link}</link>
+  <description>${esc(desc)}</description>
+  <language>${lang}</language>
   <lastBuildDate>${new Date().toUTCString().replace('GMT', '+0000')}</lastBuildDate>
-  <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <atom:link href="${self}" rel="self" type="application/rss+xml"/>
 ${items}
 </channel>
 </rss>
 `);
+};
+const newestFirst = (a, b) => (Date.parse(b.posted) || 0) - (Date.parse(a.posted) || 0);
+fs.mkdirSync(path.join(ROOT, 'jobs'), { recursive: true });
+writeFeed(path.join(ROOT, 'jobs', 'feed.xml'), {
+  title: 'neobank jobs · neobankbeat', link: `${BASE}/jobs/`, self: `${BASE}/jobs/feed.xml`, rows: all,
+  desc: `The newest roles at ${nCompanies} hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.`,
+});
+for (const co of Object.keys(byCompany)) {
+  writeFeed(path.join(ROOT, 'jobs', 'at', companySlug(co), 'feed.xml'), {
+    title: `${co} jobs · neobankbeat`, link: `${BASE}${companyPath(co)}`, self: `${BASE}${companyPath(co)}feed.xml`,
+    rows: all.filter(j => j.company === co).sort(newestFirst),
+    desc: `The newest open roles at ${co}, from its official careers page.`,
+  });
 }
+for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']]) {
+  if (!byDept[id]) continue;
+  writeFeed(path.join(ROOT, 'jobs', id, 'feed.xml'), {
+    title: `${label} jobs at neobanks · neobankbeat`, link: `${BASE}/jobs/${id}/`, self: `${BASE}/jobs/${id}/feed.xml`,
+    rows: all.filter(j => j.dept === id).sort(newestFirst),
+    desc: `The newest ${label.toLowerCase()} roles at hiring neobanks, from official career APIs.`,
+  });
+}
+/* the line a page shows for its feed */
+const followLine = (href, what) => `<p class="meta">Follow ${what}: <a href="${href}">RSS feed</a> of new roles, for any feed reader or feed-to-email service.</p>`;
 
 /* ── shared page chrome ── */
 const CSS = `
@@ -658,6 +738,15 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 .jnodesc{color:var(--muted);font-size:13.5px}
 .japply{display:inline-block;background:var(--acc);color:#0A0A10;font-weight:700;font-family:'Noto Sans Mono',monospace;font-size:13.5px;border-radius:10px;padding:12px 20px;text-decoration:none;margin:8px 0 4px}
 .japply:hover{filter:brightness(1.05)}
+.jalert{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:16px 0;max-width:560px}
+.jalert label{display:block;font-weight:700;font-size:14px;color:var(--text);margin-bottom:9px}
+.jalert-row{display:flex;gap:8px;flex-wrap:wrap}
+.jalert-row[hidden]{display:none}
+.jalert input[type=email]{flex:1 1 200px;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--text);font-family:'Noto Sans Mono',monospace;font-size:13px;padding:10px 12px}
+.jalert input[type=email]:focus{outline:none;border-color:var(--acc)}
+.jalert button{background:var(--acc);border:0;border-radius:9px;color:#0A0A10;font-family:'Noto Sans Mono',monospace;font-size:12.5px;font-weight:700;padding:10px 16px;cursor:pointer}
+.jalert button:disabled{opacity:.55;cursor:default}
+.jalert-note{font-size:12px;color:var(--muted);margin:9px 0 0;line-height:1.5}
 .jfoot{font-size:12px;color:var(--dim);margin-top:22px;max-width:760px;line-height:1.6}
 .jmore{text-align:center;margin:16px 0}
 .jmore button{font-family:'Noto Sans Mono',monospace;font-size:13px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px 22px;cursor:pointer}
@@ -689,15 +778,15 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 }
 `;
 
-const head = (title, desc, canonical, ld, ogImage) => `<!DOCTYPE html>
-<html lang="en">
+const head = (title, desc, canonical, ld, ogImage, opts = {}) => `<!DOCTYPE html>
+<html lang="${opts.lang || 'en'}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(clampDesc(desc))}">
 <link rel="canonical" href="${canonical}">
-<meta name="theme-color" content="#0A0A10">
+${(opts.alts || []).map(([hl, href]) => `<link rel="alternate" hreflang="${hl}" href="${href}">\n`).join('')}${opts.feed ? `<link rel="alternate" type="application/rss+xml" title="${esc(opts.feed[1])}" href="${opts.feed[0]}">\n` : ''}<meta name="theme-color" content="#0A0A10">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="neobankbeat">
 <meta property="og:title" content="${esc(title)}">
@@ -1058,11 +1147,6 @@ fs.writeFileSync(path.join(ROOT, 'jobs', 'index.html'), indexHtml);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), jobDetailHtml(j));
   }
-  fs.writeFileSync(path.join(ROOT, 'jobs', 'sitemap-urls.json'), JSON.stringify({
-    generated: TODAY,
-    count: all.length,
-    urls: [{ loc: `${BASE}/jobs/at/` }, ...Object.keys(byCompany).sort().map(co => ({ loc: `${BASE}${companyPath(co)}` })), ...all.map(j => ({ loc: `${BASE}${j.path}` }))],
-  }));
 }
 
 /* ── department pages ── */
@@ -1091,13 +1175,16 @@ for (const [id, label] of [...DEPTS.map(d => [d[0], d[1]]), ['other', 'Other']])
     `${rows.length} live ${label.toLowerCase()} roles at ${new Set(rows.map(r => r.company)).size} neobanks, pulled from official career APIs. ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.`,
     `https://www.neobankbeat.com/jobs/${id}/`,
     [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${label} jobs at neobanks`, url: `https://www.neobankbeat.com/jobs/${id}/`, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: 'https://www.neobankbeat.com' } }, { '@context': 'https://schema.org', ...crumbs(['jobs', 'https://www.neobankbeat.com/jobs/'], [label.toLowerCase(), `https://www.neobankbeat.com/jobs/${id}/`]) }, jobsLd(rows)],
-    ogIf('jobs', `${id}.png`)
+    ogIf('jobs', `${id}.png`),
+    { feed: [`/jobs/${id}/feed.xml`, `${label} jobs · newest roles`] }
   ) + `
 <main class="wrap" id="main">
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · ${label.toLowerCase()}</div>
   <article class="jhero">
   <h1>${label.toLowerCase()} <em>jobs</em> at neobanks</h1>
   <p class="meta"><b><span id="jcount">${rows.length}</span> live roles</b> at ${new Set(rows.map(r => r.company)).size} digital banks · ${DEPT_COPY[id] || ''} Refreshed ${TODAY}.</p>
+  ${alertBox(`dept:${id}`, 'en', `Email me new ${esc(label.toLowerCase())} roles`)}
+  ${followLine(`/jobs/${id}/feed.xml`, `${label.toLowerCase()} roles`)}
   </article>
 
   <div class="jlayout">
@@ -1158,7 +1245,11 @@ const closedNotice = (text) => `<p class="meta" id="jclosed" hidden style="borde
         isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE } },
       { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['companies', `${BASE}/jobs/at/`], [co.toLowerCase(), url]) },
     ];
-    const html = head(title, desc, url, ld, ogIf('jobs.png')) + `
+    const ptUrl = `${BASE}/pt${companyPath(co)}`;
+    const html = head(title, desc, url, ld, ogIf('jobs.png'), {
+      feed: [`${companyPath(co)}feed.xml`, `${co} jobs · newest roles`],
+      alts: br ? [['en', url], ['pt-BR', ptUrl], ['x-default', url]] : [],
+    }) + `
 <main class="wrap" id="main">
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
   <article class="jhero">
@@ -1175,6 +1266,9 @@ const closedNotice = (text) => `<p class="meta" id="jclosed" hidden style="borde
 ${depts.map(([d, c]) => `    <a class="cocard" href="#${d}"><div><div class="n">${esc(deptLabel(d))}</div><div class="c">${c} open role${c === 1 ? '' : 's'}</div></div></a>`).join('\n')}
   </div>
   ${locs.length ? `<p class="meta"><b>Where:</b> ${locs.slice(0, 8).map(([l, c]) => `${esc(l)} (${c})`).join(' · ')}${locs.length > 8 ? ` · and ${locs.length - 8} more` : ''}</p>` : ''}
+  ${alertBox(`co:${companySlug(co)}`, 'en', `Email me new roles at ${esc(co)}`)}
+  ${followLine(`${companyPath(co)}feed.xml`, `${esc(co)}`)}
+  ${br ? `<p class="meta"><a href="/pt${companyPath(co)}" hreflang="pt-BR" lang="pt-BR">Ver esta página em português →</a></p>` : ''}
   </article>
 
 ${depts.map(([d, c]) => `  <h2 id="${d}" style="max-width:760px;margin-top:28px">${esc(deptLabel(d))} <span style="color:var(--dim);font-weight:400">· ${c}</span></h2>
@@ -1248,6 +1342,211 @@ ${companies.map(co => `    <a class="cocard" href="${companyPath(co)}">${logoImg
 ${foot}`);
   console.log(`company pages: ${companies.length} (+ index)`);
 }
+
+/* ── Brazil, in Portuguese: /pt/jobs/ and /pt/jobs/at/<company>/ ──
+   Brazil sends more search clicks than any other country (382 of 1,663 since
+   launch), on queries written in Portuguese: "vagas c6 bank", "banco inter
+   vagas", "estágio banco inter". The English company page answers them with one
+   borrowed word in its title. These pages answer in the language of the query:
+   one per Brazilian employer, and a hub of every role based in Brazil. The role
+   titles are the employers' own; the listings themselves stay on one URL. */
+const ptPages = [];
+{
+  const PT_DEPT = { engineering: 'Engenharia', data: 'Dados e IA', product: 'Produto', design: 'Design', compliance: 'Compliance e Risco',
+    onboarding: 'Onboarding e KYC', support: 'Atendimento ao Cliente', sales: 'Vendas e Parcerias', marketing: 'Marketing e Growth',
+    finance: 'Finanças e Tesouraria', operations: 'Operações', people: 'Pessoas e Jurídico', other: 'Outras áreas' };
+  const PT_CAT = { traditional: 'um neobanco tradicional', hybrid: 'um neobanco híbrido (moeda fiduciária e cripto)', 'web3-native': 'um app de dinheiro web3-nativo' };
+  const PT_WP = { remote: 'Remoto', hybrid: 'Híbrido', onsite: 'Presencial' };
+  const MES = new Date(TODAY + 'T00:00:00Z').toLocaleDateString('pt-BR', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const HOJE = new Date(TODAY + 'T00:00:00Z').toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const vagas = n => `${n.toLocaleString('pt-BR')} ${n === 1 ? 'vaga aberta' : 'vagas abertas'}`;
+  const ha = p => {
+    const d = Math.max(0, Math.floor((Date.now() - Date.parse(p)) / 86400000));
+    return d === 0 ? 'hoje' : d === 1 ? 'há 1 dia' : d < 31 ? `há ${d} dias` : new Date(p).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
+  };
+  const ptCard = j => `<a class="job" href="${esc(j.path)}">
+  ${logoImg(j.company)}
+  <span class="t">${esc(j.title)}</span>
+  <span class="co">${esc(j.company)}</span>
+  <span class="loc">${esc(j.wp === 'remote' ? 'Remoto' : j.location)}</span>
+  ${j.salary ? `<span class="sal">${esc(j.salary)}</span>` : ''}
+  <span class="jtag">${PT_DEPT[j.dept] || PT_DEPT.other}</span>
+  ${isDated(j) ? `<span class="jdate">${ha(j.posted)}</span>` : ''}
+  <span class="apply">ver vaga →</span>
+</a>`;
+  const tally = (rows, key) => Object.entries(rows.reduce((a, r) => { const k = key(r); if (k) a[k] = (a[k] || 0) + 1; return a; }, {})).sort((a, b) => b[1] - a[1]);
+  const fechada = closedNotice;
+  const brCompanies = Object.keys(byCompany).filter(co => /,\s*BR$/.test(companyEntity(co)?.hq || '')).sort((a, b) => byCompany[b] - byCompany[a]);
+  const ptRoot = path.join(ROOT, 'pt', 'jobs');
+  fs.rmSync(ptRoot, { recursive: true, force: true });
+  const hubUrl = `${BASE}/pt/jobs/`;
+
+  for (const co of brCompanies) {
+    const rows = all.filter(j => j.company === co).sort(newestFirst);
+    const n = rows.length, ent = companyEntity(co), enUrl = `${BASE}${companyPath(co)}`, url = `${BASE}/pt${companyPath(co)}`;
+    const depts = tally(rows, r => r.dept), locs = tally(rows, r => (r.wp === 'remote' ? 'Remoto' : r.location && r.location !== 'Not specified' ? r.location : ''));
+    const top = depts.filter(([d]) => d !== 'other').slice(0, 3).map(([d, c]) => `${c} em ${PT_DEPT[d]}`).join(', ');
+    const title = `Vagas ${co}: ${vagas(n)} (${MES})`;
+    const desc = `${vagas(n)} no ${co}${top ? `: ${top}` : ''}. Direto da página oficial de carreiras do ${co}, atualizado em ${HOJE}. A candidatura é feita no site da empresa.`;
+    const sobre = ent
+      ? `O ${esc(co)} é ${PT_CAT[ent.category] || 'um neobanco'}${ent.hq ? ` com sede em ${esc(ent.hq.replace(/, BR$/, ', Brasil'))}` : ''}${ent.founded ? `, fundado em ${ent.founded}` : ''}. <a href="/pt/n/${slugify(ent.name)}/">Veja o perfil do ${esc(co)}</a> para detalhes de custódia, licença e cartão antes de se candidatar.`
+      : '';
+    const ld = [
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Vagas ${co}`, url, inLanguage: 'pt-BR', dateModified: TODAY,
+        description: `${vagas(n)} no ${co}, da página oficial de carreiras da empresa.`,
+        about: { '@type': 'Organization', name: co, ...(ent?.website ? { url: ent.website } : {}), ...(ent ? { sameAs: `${BASE}/n/${slugify(ent.name)}/` } : {}) },
+        mainEntity: { '@type': 'ItemList', numberOfItems: n, itemListElement: rows.slice(0, 100).map((j, i) => ({ '@type': 'ListItem', position: i + 1, name: j.title, url: `${BASE}${j.path}` })) },
+        isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE } },
+      { '@context': 'https://schema.org', ...crumbs(['vagas no Brasil', hubUrl], [co.toLowerCase(), url]) },
+    ];
+    const html = head(title, desc, url, ld, ogIf('jobs.png'), {
+      lang: 'pt-BR', alts: [['en', enUrl], ['pt-BR', url], ['x-default', enUrl]],
+      feed: [`${companyPath(co)}feed.xml`, `Vagas ${co} · mais recentes`],
+    }) + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/pt/jobs/" style="color:inherit;text-decoration:none">vagas no Brasil</a> · ${esc(co)}</div>
+  <article class="jhero">
+  <h1>Vagas <em>${esc(co)}</em></h1>
+  ${fechada(`A vaga que você abriu foi encerrada. Estas são as vagas abertas no ${esc(co)} agora.`)}
+  <p class="meta"><b>${vagas(n)}</b> no ${esc(co)} em ${depts.length} ${depts.length === 1 ? 'área' : 'áreas'}${locs.length ? ` e ${locs.length} ${locs.length === 1 ? 'localidade' : 'localidades'}` : ''} · direto da página oficial de carreiras · atualizado em ${HOJE}.</p>
+  ${sobre ? `<p>${sobre}</p>` : ''}
+  <p class="meta">As vagas são publicadas pela empresa e a candidatura é feita no site dela. O neobankbeat é independente e não ganha nada com candidaturas. <a href="${companyPath(co)}" hreflang="en" lang="en">This page in English →</a></p>
+  </article>
+
+  <article>
+  <h2>áreas contratando no ${esc(co)}</h2>
+  <div class="cogrid">
+${depts.map(([d, c]) => `    <a class="cocard" href="#${d}"><div><div class="n">${esc(PT_DEPT[d] || PT_DEPT.other)}</div><div class="c">${vagas(c)}</div></div></a>`).join('\n')}
+  </div>
+  ${locs.length ? `<p class="meta"><b>Onde:</b> ${locs.slice(0, 8).map(([l, c]) => `${esc(l)} (${c})`).join(' · ')}${locs.length > 8 ? ` · e mais ${locs.length - 8}` : ''}</p>` : ''}
+  ${alertBox(`co:${companySlug(co)}`, 'pt', `Receba por e-mail as novas vagas do ${esc(co)}`)}
+  <p class="meta">Acompanhe as novas vagas do ${esc(co)}: <a href="${companyPath(co)}feed.xml">feed RSS</a>, para qualquer leitor de feeds ou serviço de feed por e-mail.</p>
+  </article>
+
+${depts.map(([d, c]) => `  <h2 id="${d}" style="max-width:760px;margin-top:28px">${esc(PT_DEPT[d] || PT_DEPT.other)} <span style="color:var(--dim);font-weight:400">· ${c}</span></h2>
+  <div class="joblist">
+${rows.filter(r => r.dept === d).map(ptCard).join('\n')}
+  </div>`).join('\n')}
+
+  <article><p class="jfoot">Cada vaga abre em sua própria página, com a descrição publicada pela empresa. <a href="/pt/jobs/">Todas as vagas em neobancos no Brasil</a> · <a href="/jobs/" hreflang="en" lang="en">all neobank jobs (English)</a>.</p></article>
+</main>
+${foot}`;
+    const dir = path.join(ptRoot, 'at', companySlug(co));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), html);
+    ptPages.push(`/pt${companyPath(co)}`);
+  }
+
+  /* the hub: Brazilian employers first, then every role based in Brazil */
+  const brRoles = all.filter(j => inBrazil(j) || brCompanies.includes(j.company)).sort(newestFirst);
+  if (brRoles.length) {
+    const others = tally(brRoles.filter(j => !brCompanies.includes(j.company)), r => r.company);
+    const employers = new Set(brRoles.map(j => j.company)).size;
+    const hub = head(
+      `Vagas em neobancos no Brasil: ${vagas(brRoles.length)} (${MES})`,
+      `${vagas(brRoles.length)} em ${employers} neobancos e fintechs no Brasil${brCompanies.length ? `, incluindo ${brCompanies.slice(0, 3).join(', ')}` : ''}. Direto das páginas oficiais de carreiras, atualizado em ${HOJE}.`,
+      hubUrl,
+      [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Vagas em neobancos no Brasil', url: hubUrl, inLanguage: 'pt-BR', dateModified: TODAY, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE },
+        mainEntity: { '@type': 'ItemList', numberOfItems: brRoles.length, itemListElement: brRoles.slice(0, 100).map((j, i) => ({ '@type': 'ListItem', position: i + 1, name: `${j.title} — ${j.company}`, url: `${BASE}${j.path}` })) } },
+      { '@context': 'https://schema.org', ...crumbs(['vagas no Brasil', hubUrl]) }],
+      ogIf('jobs.png'), { lang: 'pt-BR' }) + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none" hreflang="en">the job board</a> · Brasil</div>
+  <article class="jhero">
+  <h1>Vagas em <em>neobancos</em> no Brasil</h1>
+  <p class="meta"><b>${vagas(brRoles.length)}</b> em ${employers} empresas · direto das páginas oficiais de carreiras · atualizado em ${HOJE}.</p>
+  <p>Todas as vagas abertas nos neobancos brasileiros acompanhados pelo neobankbeat, e as vagas baseadas no Brasil em neobancos de outros países. A candidatura é sempre feita no site da empresa; o neobankbeat é independente e não ganha nada com candidaturas.</p>
+  ${alertBox('br', 'pt', 'Receba por e-mail as novas vagas em neobancos no Brasil')}
+  </article>
+
+  <article>
+  <h2>neobancos brasileiros contratando</h2>
+  <div class="cogrid">
+${brCompanies.map(co => `    <a class="cocard" href="/pt${companyPath(co)}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${vagas(byCompany[co])}</div></div></a>`).join('\n')}
+  </div>
+  ${others.length ? `<h2>outras empresas com vagas no Brasil</h2>
+  <div class="cogrid">
+${others.map(([co, c]) => `    <a class="cocard" href="#${companySlug(co)}">${logoImg(co)}<div><div class="n">${esc(co)}</div><div class="c">${vagas(c)} no Brasil</div></div></a>`).join('\n')}
+  </div>` : ''}
+  </article>
+
+${others.map(([co, c]) => `  <h2 id="${companySlug(co)}" style="max-width:760px;margin-top:28px">${esc(co)} <span style="color:var(--dim);font-weight:400">· ${c} no Brasil</span></h2>
+  <div class="joblist">
+${brRoles.filter(r => r.company === co).map(ptCard).join('\n')}
+  </div>
+  <p class="meta" style="max-width:760px"><a href="${companyPath(co)}" hreflang="en">Todas as vagas do ${esc(co)} (em inglês) →</a></p>`).join('\n')}
+
+  <article><p class="jfoot">As vagas pertencem às respectivas empresas e mudam o tempo todo. <a href="/jobs/" hreflang="en" lang="en">All neobank jobs (English)</a> · <a href="/pt/">neobankbeat em português</a>.</p></article>
+</main>
+${foot}`;
+    fs.mkdirSync(ptRoot, { recursive: true });
+    fs.writeFileSync(path.join(ptRoot, 'index.html'), hub);
+    ptPages.push('/pt/jobs/');
+  }
+  console.log(`portuguese job pages: ${ptPages.length} (${brCompanies.join(', ')})`);
+}
+
+/* ── /jobs/alerts/ — what an alert is, what is kept, and where the links land ──
+   The confirm and unsubscribe links come back here with ?state=…, so this page
+   is also the receipt. Until alerts are live it is noindex and says so. */
+{
+  const url = `${BASE}/jobs/alerts/`;
+  const html = head('Job alerts by email — how they work · neobankbeat',
+    'Follow one neobank or one line of work and get its new roles by email, at most once a week. What is stored, how to unsubscribe, and the feeds behind it.',
+    url, [{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Job alerts', url, isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE } },
+      { '@context': 'https://schema.org', ...crumbs(['jobs', `${BASE}/jobs/`], ['alerts', url]) }], ogIf('jobs.png'))
+    .replace('<meta name="viewport" content="width=device-width, initial-scale=1">', `<meta name="viewport" content="width=device-width, initial-scale=1">${ALERTS_LIVE ? '' : '\n<meta name="robots" content="noindex">'}`)
+    /* No analytics on this one page. Its links carry a token that identifies a
+       subscriber, and neither Google nor Vercel should ever be handed that URL. */
+    .split('\n').filter(l => !/googletagmanager\.com|gtag\("js"|_vercel\/insights/.test(l)).join('\n') + `
+<main class="wrap" id="main">
+  <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · alerts</div>
+  <article class="jhero">
+  <h1>job <em>alerts</em></h1>
+  <p class="meta" id="jstate" role="status" hidden style="border:1px solid var(--line);border-radius:10px;padding:10px 14px"></p>
+  ${ALERTS_LIVE
+    ? '<p>Pick one neobank or one line of work, leave your email on its page, and its new roles arrive in your inbox. At most one email a week, and none when nothing is new.</p>'
+    : '<p>Email alerts are not switched on yet. Every hiring neobank and every department already has a feed of its new roles, which any feed reader can follow.</p>'}
+  </article>
+  <article>
+  <h2>where to sign up</h2>
+  <p>On the page of what you want to follow: a company in <a href="/jobs/at/">neobanks hiring now</a>, a department from <a href="/jobs/">the job board</a>, or every role based in Brazil on <a href="/pt/jobs/" hreflang="pt-BR">vagas no Brasil</a>. Each of those pages also links its own RSS feed.</p>
+  <h2>what happens when you sign up</h2>
+  <ol>
+    <li>You get one email with a link to confirm. Nothing is stored until you click it; if you never do, there is no record of the request.</li>
+    <li>From then on, a digest of new roles for what you follow, at most once a week.</li>
+    <li>Every digest has an unsubscribe link. One click deletes your record; there is no account and nothing to log in to.</li>
+  </ol>
+  <h2>what is kept</h2>
+  <p>Your email address, what you chose to follow, the language of the page you signed up on, and the dates you confirmed and were last emailed. That is all. It is stored with Upstash (the database) and sent through Resend (the mail service), and used for these alerts and nothing else: no newsletter, no sharing, no tracking pixels. Unsubscribing deletes it.</p>
+  <p class="jfoot">Listings belong to the companies that post them and applications happen on their sites. neobankbeat is independent and earns nothing from applications. Questions: <a href="https://github.com/andreolf/neobankbeat/issues">open an issue</a>.</p>
+  </article>
+</main>
+<script>(function(){
+var n=document.getElementById('jstate');if(!n)return;
+var M={confirmed:'Your alert is on. The first digest arrives when there are new roles.',unsubscribed:'You are unsubscribed and your record is deleted.',expired:'That link has expired or is not valid. Sign up again from the page you want to follow.',error:'Something went wrong on our side. Please try again in a moment.',off:'Email alerts are not switched on yet.'};
+var m=location.hash.match(/^#(confirm|unsubscribe)=([A-Za-z0-9_.-]+)$/);if(!m)return;
+var what=m[1],tok=m[2];
+/* take the token out of the address bar: it identifies the subscriber */
+try{history.replaceState(null,'',location.pathname)}catch(_){}
+var b=document.createElement('button');b.type='button';b.textContent=what==='confirm'?'Confirm my alert':'Unsubscribe me';
+b.style.cssText='margin-left:10px;background:var(--acc);border:0;border-radius:9px;color:#0A0A10;font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;cursor:pointer';
+n.textContent=what==='confirm'?'One click to switch your alert on.':'One click to stop all alerts and delete your record.';n.appendChild(b);n.hidden=false;
+b.addEventListener('click',function(){b.disabled=true;fetch('/api/alerts/'+what+'?t='+encodeURIComponent(tok),{method:'POST'}).then(function(r){return r.json()}).then(function(j){n.textContent=M[j&&j.state]||M.error}).catch(function(){n.textContent=M.error})});
+})();</script>
+${foot}`;
+  fs.mkdirSync(path.join(ROOT, 'jobs', 'alerts'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'jobs', 'alerts', 'index.html'), html);
+}
+
+/* every job URL build-pages folds into the sitemap: written last, once the
+   company and Portuguese pages exist to be listed */
+fs.writeFileSync(path.join(ROOT, 'jobs', 'sitemap-urls.json'), JSON.stringify({
+  generated: TODAY,
+  count: all.length,
+  urls: [{ loc: `${BASE}/jobs/at/` }, ...(ALERTS_LIVE ? [{ loc: `${BASE}/jobs/alerts/` }] : []), ...Object.keys(byCompany).sort().map(co => ({ loc: `${BASE}${companyPath(co)}` })),
+    ...ptPages.map(p => ({ loc: `${BASE}${p}` })), ...all.map(j => ({ loc: `${BASE}${j.path}` }))],
+}));
 
 /* Inline scripts are assembled inside template literals, so a stray escape
    (\x00 instead of \\x00) emits raw control bytes. Node still parses those, but

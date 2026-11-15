@@ -1,4 +1,7 @@
 {
+  "crons": [
+    { "path": "/api/alerts/send", "schedule": "0 16 * * *" }
+  ],
   "redirects": [
     {
       "source": "/(.*)",
@@ -52,7 +55,7 @@
       "permanent": true
     },
     {
-      "source": "/((?!\\.well-known/|_vercel/|LICENSE$)[^.]*[^./])",
+      "source": "/((?!\\.well-known/|_vercel/|api/|LICENSE$)[^.]*[^./])",
       "destination": "/$1/",
       "permanent": true
     }

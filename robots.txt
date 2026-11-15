@@ -8,6 +8,9 @@ Disallow: /reports/
 Disallow: /substack-html/
 Disallow: /linkedin-article-rise-fall.html
 
+# The job-alert endpoints: sign-up, confirm and unsubscribe links, nothing to index
+Disallow: /api/
+
 # Content Signals (https://contentsignals.org/) — this is an open, MIT-licensed
 # dataset built to be consumed by humans, search engines and AI agents alike.
 Content-Signal: search=yes, ai-input=yes, ai-train=yes

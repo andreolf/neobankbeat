@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Branch jobs · neobankbeat</title>
+  <link>https://www.neobankbeat.com/jobs/at/branch/</link>
+  <description>The newest open roles at Branch, from its official careers page.</description>
+  <language>en</language>
+  <lastBuildDate>Sun, 15 Nov 2026 13:51:05 +0000</lastBuildDate>
+  <atom:link href="https://www.neobankbeat.com/jobs/at/branch/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Enterprise Account Executive, Marketplaces — Branch]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/branch-7902608003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/branch-7902608003/</guid>
+    <pubDate>Wed, 11 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Sales &amp; Partnerships</category>
+    <description><![CDATA[Branch · Remote, US · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Data Engineer — Branch]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/branch-8044391003/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/branch-8044391003/</guid>
+    <pubDate>Mon, 26 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Branch · Remote, US · remote]]></description>
+  </item>
+</channel>
+</rss>

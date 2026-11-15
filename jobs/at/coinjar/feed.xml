@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>CoinJar jobs · neobankbeat</title>
+  <link>https://www.neobankbeat.com/jobs/at/coinjar/</link>
+  <description>The newest open roles at CoinJar, from its official careers page.</description>
+  <language>en</language>
+  <lastBuildDate>Sun, 15 Nov 2026 13:51:05 +0000</lastBuildDate>
+  <atom:link href="https://www.neobankbeat.com/jobs/at/coinjar/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Legal counsel — CoinJar]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinjar-743999721096655/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinjar-743999721096655/</guid>
+    <pubDate>Sun, 04 Oct 2020 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[CoinJar · Melbourne, AU · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Frontend Engineer — CoinJar]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinjar-743999719122937/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinjar-743999719122937/</guid>
+    <pubDate>Tue, 08 Sep 2020 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[CoinJar · Melbourne, AU · onsite]]></description>
+  </item>
+</channel>
+</rss>
