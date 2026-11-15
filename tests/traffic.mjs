@@ -268,7 +268,20 @@ async function gsc() {
      an empty set and reads as "no traffic" rather than "not counted yet". */
   const end = new Date(END.getTime() - 2 * 86400e3);
   const start = new Date(end.getTime() - (DAYS - 1) * 86400e3);
-  const url = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
+  /* The site can be verified as a URL-prefix property or as a Domain property
+     ("sc-domain:…"), and the API treats them as different sites: asking for the
+     one the account does not hold answers 403, which reads as a permissions
+     problem rather than a naming one. Ask which the account has. */
+  let site = process.env.GSC_SITE || SITE;
+  if (!process.env.GSC_SITE) {
+    try {
+      const r = await fetch('https://searchconsole.googleapis.com/webmasters/v3/sites', { headers: { authorization: `Bearer ${tok}` } });
+      const have = ((await r.json()).siteEntry || []).map((x) => x.siteUrl);
+      const domain = `sc-domain:${new URL(SITE).hostname.replace(/^www\./, '')}`;
+      if (!have.includes(SITE) && have.includes(domain)) site = domain;
+    } catch { /* fall through to SITE and let the query report the real error */ }
+  }
+  const url = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`;
   const q = (dims, n) => api(url, { startDate: iso(start), endDate: iso(end), dimensions: dims, rowLimit: n }, tok);
 
   const [tot, queries, pages] = await Promise.all([q([], 1), q(['query'], 15), q(['page'], 15)]);

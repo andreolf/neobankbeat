@@ -1245,6 +1245,8 @@ ${lockedChapters.map(t => `      <li>${esc(t)}</li>`).join('\n')}
   },0);});
   const finish=minDwell=>()=>{
     if(!armedAt||Date.now()-armedAt<minDwell)return;
+    /* these listeners keep firing after the unlock (every mousemove); count the subscribe once */
+    if(window.__nbSubSent)return;window.__nbSubSent=1;
     try{window.nbevt&&nbevt('report_subscribe',{edition:'${ED_SLUG}',via:'auto'})}catch(_){}
     unlock(true,true);
   };

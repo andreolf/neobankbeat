@@ -231,6 +231,8 @@ body.bw #ssembed{filter:none}
     },0);});
     function finish(minDwell){return function(){
       if(!armedAt||Date.now()-armedAt<minDwell)return;
+      /* these listeners keep firing after the unlock (every mousemove); count the subscribe once */
+      if(window.__nbSubSent)return;window.__nbSubSent=1;
       try{window.nbevt&&nbevt('report_subscribe',{edition:'2026-11',via:'auto'})}catch(_){}
       unlock(true,true);
     };}
