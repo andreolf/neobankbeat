@@ -5,11 +5,12 @@
   {
    "date": "2026-11-15",
    "tag": "fix",
-   "title": "The homepage title caught up with the dataset",
-   "body": "The homepage title, its share card text, its dataset markup and its footer still said 379 neobanks while the directory tracked 397. Those five places are now tied to the live count like the rest of the site, so they can no longer fall behind. The A–Z profile index also gained the language links its five translations already pointed back to.",
+   "title": "A site-wide audit: the stale homepage count, and what crawlers could not see",
+   "body": "The homepage title, its share card text, its dataset markup and its footer still said 379 neobanks while the directory tracked 397; those places are now tied to the live count. The homepage also lists every profile as a plain link before any script runs, so a crawler that does not run JavaScript finds them. Profiles name their verified X account in their markup. Job pages stop printing a raw listing id in their titles and stop calling every role full-time. A post scheduled for a later date is no longer indexable before its day. The field dictionary now says which fields are reserved and still empty.",
    "links": [
     "/",
-    "/n/"
+    "/n/",
+    "/data/"
    ]
   },
   {
