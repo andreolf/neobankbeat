@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-15', tag: 'new', title: 'Vagas em português, and a feed for every employer',
+    body: 'Brazil sends this site more job searches than any other country, and they are written in Portuguese. The four Brazilian neobanks on the board (C6 Bank, Banco Inter, Nubank and Neon) now have their jobs pages in Portuguese, alongside a page of every role based in Brazil, including those at foreign neobanks hiring there. Every hiring company and every department also has its own feed of new roles, so you can follow one employer or one line of work instead of the whole board.',
+    links: [['/pt/jobs/', 'vagas no Brasil'], ['/pt/jobs/at/c6-bank/', 'Vagas C6 Bank'], ['/jobs/at/', 'neobanks hiring now']] },
   { date: '2026-11-15', tag: 'fix', title: 'A closed job listing now leads somewhere',
     body: 'A role that had been filled answered with a dead end, and those were most of the missing pages people reached. A closed listing now takes you to that company\'s jobs page, which says the role has closed and shows what is open instead.',
     links: [['/jobs/at/', 'neobanks hiring now']] },
