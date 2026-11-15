@@ -1236,6 +1236,23 @@ console.log('— flow 39: site-wide structural SEO invariants');
 }
 
 console.log('');
+console.log('— flow 40: a closed job listing is sent to its company page');
+{
+  /* 404.html is the only page whose script no other flow runs, and the first
+     version of this redirect shipped a pattern that lost its escaping in the
+     template and threw on every missing page. Run it. */
+  const path=require('path');
+  const h=fs.readFileSync(path.join(__dirname,'..','404.html'),'utf8');
+  const sc=(h.match(/<script>\s*\/\* A closed job listing[\s\S]*?<\/script>/)||[''])[0].replace(/<\/?script>/g,'');
+  const run=p=>{let out=null;try{new Function('location',sc)({pathname:p,replace:u=>{out=u}})}catch(e){out='threw: '+e.message}return out};
+  const at=fs.readdirSync(path.join(__dirname,'..','jobs','at'),{withFileTypes:true}).filter(d=>d.isDirectory()).map(d=>d.name);
+  const co=at[0];
+  ok(!!sc&&run('/jobs/j/'+co+'-123456/')==='/jobs/at/'+co+'/#closed','a closed listing goes to its company page (got: '+run('/jobs/j/'+co+'-123456/')+')');
+  ok(run('/jobs/j/no-such-company-1/')==='/jobs/at/#closed','a closed listing at an unknown company goes to the hiring index');
+  ok(run('/n/no-such-neobank/')===null,'any other missing page stays on the 404');
+  ok(/id="jclosed"/.test(fs.readFileSync(path.join(__dirname,'..','jobs','at',co,'index.html'),'utf8')),'company pages carry the closed-role notice');
+}
+
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
 console.log('ALL FLOWS PASS ✓');

@@ -2342,6 +2342,15 @@ const whoOwnsSlugs = [], altSlugs = [];
   const html = (head('Page not found · neobankbeat',
     `That page doesn\u2019t exist — but ${E.length} neobank profiles, live jobs, investor maps and the blog do.`,
     `${BASE}/404`, { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Page not found' }) + `
+<script>
+/* A closed job listing lands here. Send it to that company's jobs page, which
+   says the role has closed; the response is still a 404, so search engines
+   drop the listing as they should. The slugs are the company pages that exist. */
+(function(){var m=location.pathname.match(/^\\/jobs\\/j\\/([a-z0-9-]+)/);if(!m)return;
+var S=${JSON.stringify(fs.existsSync(path.join(ROOT, 'jobs', 'at')) ? fs.readdirSync(path.join(ROOT, 'jobs', 'at'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name).sort((a, b) => b.length - a.length || a.localeCompare(b)) : [])};
+for(var i=0;i<S.length;i++){if(m[1]===S[i]||m[1].indexOf(S[i]+'-')===0){location.replace('/jobs/at/'+S[i]+'/#closed');return}}
+location.replace('/jobs/at/#closed')})();
+</script>
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">404</div>
