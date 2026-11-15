@@ -500,7 +500,7 @@ console.log('— flow 26: generated who-owns / alternatives pages are substantiv
   // hub paths come from /browse/, the generated index of them: naming the families
   // here instead meant two new ones shipped without any of these checks running
   const HUB_PATHS=[...fs.readFileSync(path.join(root,'browse','index.html'),'utf8')
-    .matchAll(/href="\/([a-z]+\/[a-z0-9-]+)\/"(?= class="|>)/g)].map(m=>m[1])
+    .matchAll(/href="\/([a-z][a-z-]*\/[a-z0-9-]+)\/"(?= class="|>)/g)].map(m=>m[1])
     .filter(p=>!/^(n|vs|blog|infra|investors|jobs|report)\//.test(p));
   let hubs=0;const hthin=[],hbad=[],hcount=[],hlinks=[],hdup=new Map();
   {

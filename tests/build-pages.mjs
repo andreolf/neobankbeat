@@ -499,6 +499,41 @@ let hubsFor = () => [];
     return E.filter(e => (e.countries || []).some(c => names.includes(c)));
   };
 
+  /* ── crypto cards ────────────────────────────────────────────────────────
+     The second audience in the analytics arrives on "<card> alternatives" pages
+     for KAST, RedotPay, Xapo, Zen and Avalanche Card and clicks through to the
+     product: people choosing a card they can spend crypto with. The site had one
+     flat table for them (/stablecoin-cards/) and no way to narrow it by the
+     things that decide the choice: who holds the keys, whether it pays back,
+     whether the wallet needs ID, and whether it works where they live.
+
+     A crypto card here is a card from a product that is crypto-native (hybrid or
+     web3-native) or that spends stablecoins. A bank card whose app merely lets
+     you buy bitcoin is not one. ── */
+  const hasCard = e => known(e.card_network) && !/wallet \(no card\)/i.test(e.card_type || '');
+  const isCryptoCard = e => hasCard(e) && (e.category !== 'traditional' || e.stablecoins);
+  const CRYPTO_CARDS = E.filter(isCryptoCard);
+  const selfCustody = e => /^(self-custodial|mpc self-custodial)/i.test(e.custody || '');
+  const CRYPTO_CUTS = {
+    'self-custodial': ['self-custodial crypto cards', 'Self-custodial crypto cards',
+      selfCustody,
+      'On these cards the crypto stays in a wallet whose keys you hold until the moment you pay. The issuer cannot freeze or lend the balance, and if the company fails your funds are not in its estate. The cost is that recovery is yours too: lose the keys and nobody can restore them. Several settle each purchase from a smart account, so the card works like a spending permission on your own wallet rather than a prepaid balance.',
+      'You hold the keys until the moment of payment, so the issuer cannot freeze or lend the balance.'],
+    cashback: ['crypto cards with cashback', 'Crypto cards with cashback',
+      e => !!known(e.cashback),
+      'Cashback on a crypto card is rarely cash. It is usually paid in the issuer\u2019s own token or in points, often only on a paid tier or above a staking threshold, and the headline rate is an upper bound. The rate shown for each card is the issuer\u2019s "up to" figure as published; what a typical user earns is lower, and a reward paid in a volatile token can be worth less by the time it is spent.',
+      'Rewards are usually paid in the issuer\u2019s own token or points, and the rate shown is an upper bound.'],
+    yield: ['crypto cards that pay yield', 'Crypto cards that pay yield on your balance',
+      e => !!known(e.yield),
+      'These products pay a return on the balance that funds the card, from lending, staking or tokenised treasury bills depending on the product. That return is not a bank deposit rate: it is not covered by deposit insurance, it varies with the market, and on custodial products it depends on what the company does with your funds. The figure shown is the issuer\u2019s published "up to" rate.',
+      'The return comes from lending, staking or tokenised treasuries and is not an insured deposit rate.'],
+    'no-kyc-wallet': ['crypto cards on wallets that need no KYC', 'Crypto cards on wallets that need no KYC',
+      e => e.kyc === 'Card only',
+      'There is no mainstream card you can order with no identity check: the card is issued on Visa or Mastercard by a regulated partner, and that partner has to verify the cardholder. What these products offer is narrower and still useful. The wallet itself works without verification, so you can hold, receive and send on-chain freely, and you verify once, only if you want the card.',
+      'The wallet works without verification; ordering the card still requires an identity check by the issuing partner.'],
+  };
+  const CRYPTO_REGIONS = [...new Set(CRYPTO_CARDS.flatMap(e => e.active_regions || []))];
+
   const HUBS = [
     ...fam('regulation', groupBy(e => REG_COPY[e.regulation_type] ? e.regulation_type : null), (key, rows) => {
       const [label, h1, explain] = REG_COPY[key];
@@ -535,6 +570,22 @@ let hubsFor = () => [];
         dir: net ? `/?net=${encodeURIComponent(net)}` : '/browse/',
         lead: `${E.filter(CARD_CUTS[slug][2]).length} of the ${E.length} neobanks tracked here are ${label}.` };
     }),
+    ...fam('crypto-cards', Object.fromEntries(Object.entries(CRYPTO_CUTS)
+      .map(([slug, [, , test]]) => [slug, CRYPTO_CARDS.filter(test)])), (slug, rows) => {
+      const [label, h1, , explain, gist] = CRYPTO_CUTS[slug];
+      return { slug, label, h1, explain, gist, cardTable: true, dir: '/crypto-cards/',
+        /* "38 of the 107 crypto cards are self-custodial crypto cards" reads like a
+           template; say what the cut is in a verb phrase instead */
+        lead: `${rows.length} of the ${CRYPTO_CARDS.length} crypto cards tracked here ${{ 'self-custodial': 'are self-custodial', cashback: 'publish a cashback rate', yield: 'pay a yield on the balance', 'no-kyc-wallet': 'come from a wallet that needs no KYC' }[slug]}.` };
+    }),
+    ...fam('crypto-cards', Object.fromEntries(CRYPTO_REGIONS
+      .map(r => [r, CRYPTO_CARDS.filter(e => (e.active_regions || []).includes(r))])), (region, rows) => ({
+      slug: slugify(region), label: `crypto cards available in ${region}`, h1: `Crypto cards available in ${region}`,
+      cardTable: true, dir: `/?region=${encodeURIComponent(region)}`,
+      gist: `Availability is by region, not by country, so check the issuer\u2019s own country list before ordering.`,
+      explain: `A card appears here if its issuer serves customers in ${region}, wherever the company is based. Region is as fine as this list goes: card programmes are licensed country by country, and an issuer active in ${region} may still exclude individual countries in it. Cards that serve several regions are counted in each.`,
+      lead: `${rows.length} of the ${CRYPTO_CARDS.length} crypto cards tracked here are available in ${region}.`,
+    })),
     ...fam('countries', groupBy(e => (CC[hqCode(e)] ? hqCode(e) : null)), (code, rows) => {
       const name = CC[code];
       const bare = name.replace(/^the /, '');
@@ -584,7 +635,21 @@ ${list.map(e => `  <tr>
     <td class="dim">${esc(users(e) || '—')}</td>
   </tr>`).join('\n')}
   </tbody></table></div>`;
-  const FAMLBL = { regulation: 'by regulation', kyc: 'by KYC', regions: 'by region', for: 'by audience', cards: 'by card', countries: 'by country' };
+  const KYCLBL = { Yes: 'required', 'Card only': 'for the card only', No: 'none' };
+  const cardHubTable = (list) => `<div class="hubwrap"><table class="hubtable">
+  <thead><tr><th scope="col">card</th><th scope="col">custody</th><th scope="col">network · type</th><th scope="col">cashback</th><th scope="col">yield</th><th scope="col">kyc</th><th scope="col">regions</th></tr></thead>
+  <tbody>
+${list.map(e => `  <tr>
+    <td><a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a></td>
+    <td class="dim">${esc(e.custody)}</td>
+    <td class="dim">${esc(e.card_network)} · ${esc(e.card_type)}</td>
+    <td>${esc(known(e.cashback) || '—')}</td>
+    <td class="dim">${esc(known(e.yield) || '—')}</td>
+    <td class="cat">${esc(KYCLBL[e.kyc] || e.kyc || '—')}</td>
+    <td class="dim">${esc((e.active_regions || []).join(', ') || '—')}</td>
+  </tr>`).join('\n')}
+  </tbody></table></div>`;
+  const FAMLBL = { regulation: 'by regulation', kyc: 'by KYC', regions: 'by region', for: 'by audience', cards: 'by card', countries: 'by country', 'crypto-cards': 'crypto cards' };
 
   for (const h of HUBS) {
     const path_ = `/${h.family}/${h.slug}/`;
@@ -604,11 +669,12 @@ ${list.map(e => `  <tr>
        with one, but a few open with a lead-in and supply their own gist instead */
     const tail = h.extraTable
       ? `all ${rows.length} are listed below, then the ${h.extraTable[1].length} available there without being based there`
+      : h.cardTable ? `all ${rows.length} are listed below with custody, network, cashback, yield and KYC`
       : `all ${rows.length} are listed below with custody, license and geography`;
     const answer = `${h.lead} ${h.gist || h.explain.split('. ')[0] + '.'} ${examples}; ${tail}.`;
     const title = `${h.h1} (${rows.length}, 2026) · neobankbeat`;
     const faq = [
-      [`${h.h1}: how many are there?`, `${h.lead} Every entry is verified active and listed on this page with its custody model, license detail and the regions it serves.`],
+      [`${h.h1}: how many are there?`, `${h.lead} Every entry is verified active and listed on this page with ${h.cardTable ? 'its custody model, card network, published cashback and yield, and KYC requirement' : 'its custody model, license detail and the regions it serves'}.`],
       [ranked ? `Which are the biggest ${h.label}?` : `Which ${h.label} are the largest?`,
         ranked
           ? `By self-reported users, ${nameList(top)}. Only ${disclosed.length} of these ${rows.length} disclose a user figure, so treat any ranking by size as partial rather than complete.`
@@ -621,25 +687,28 @@ ${list.map(e => `  <tr>
       { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
       { '@type': 'ItemList', name: h.h1, numberOfItems: rows.length,
         itemListElement: rows.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.name, url: `${BASE}/n/${slugs.get(e.name)}/` })) },
-      crumbs(['browse', `${BASE}/browse/`], [h.label, url]),
+      h.cardTable ? crumbs(['crypto cards', `${BASE}/crypto-cards/`], [h.label, url]) : crumbs(['browse', `${BASE}/browse/`], [h.label, url]),
     ] };
     const related = HUBS.filter(x => x !== h && x.family === h.family).slice(0, 8);
     const html = (head(title, answer, url, ld, ogIf(h.family, `${h.slug}.png`), undefined, h.family === 'countries' ? { alts: hreflangCluster(BASE, path_) } : undefined) + `
 <main class="wrap" id="main">
 <article>
-  <a class="backbtn" href="/browse/" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
-  <div class="eyebrow"><a href="/browse/" style="color:var(--accent)">browse ${esc(FAMLBL[h.family])}</a></div>
+  <a class="backbtn" href="${h.cardTable ? '/crypto-cards/' : '/browse/'}" onclick="if(document.referrer.indexOf(location.origin)===0&&history.length>1){history.back();return false}">← back</a>
+  <div class="eyebrow">${h.cardTable ? '<a href="/crypto-cards/" style="color:var(--accent)">crypto cards</a>' : `<a href="/browse/" style="color:var(--accent)">browse ${esc(FAMLBL[h.family])}</a>`}</div>
   <h1>${esc(h.h1)}</h1>
   <p class="meta"><b>${rows.length} of ${E.length} tracked neobanks</b> · verified from public filings and product docs · updated ${DATA_MODIFIED}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
   <p>${esc(h.explain)}</p>
   <h2>${h.family === 'countries' ? `The ${rows.length} based in ${esc(h.label.replace(/^neobanks in /, ''))}` : `All ${rows.length} ${esc(h.label)}`}</h2>
-  ${hubTable(rows)}
+  ${h.cardTable ? cardHubTable(rows) : hubTable(rows)}
+  ${h.cardTable ? `<p style="font-size:12.5px;color:var(--dim)">Cashback and yield are the issuers' published "up to" figures and change often; confirm with the issuer. Custody is the app's primary model.</p>` : ''}
   ${h.extraTable ? `<h2>${esc(h.extraTable[0])}</h2>\n  <p>${esc(h.extraTable[2])}</p>\n  ${hubTable(h.extraTable[1])}` : ''}
   <h2>Common questions</h2>
   ${faq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
   ${related.length ? `<h2>Related</h2>\n  <p class="hublist">${related.map(r => `<a href="/${r.family}/${r.slug}/">${esc(r.h1)}</a> <span class="dim">(${r.rows.length})</span>`).join(' · ')}</p>` : ''}
-  <div class="callout"><span class="k">go deeper</span>Filter these live in the <a href="${esc(h.dir)}">interactive directory</a>, browse <a href="/browse/">every cut of the dataset</a>, or take the raw fields from <a href="/data.json">data.json</a>.</div>
+  <div class="callout"><span class="k">go deeper</span>${h.cardTable
+    ? `See <a href="/crypto-cards/">every way to narrow crypto cards</a>, the <a href="/stablecoin-cards/">full table of stablecoin cards</a>, or take the raw fields from <a href="/data.json">data.json</a>.`
+    : `Filter these live in the <a href="${esc(h.dir)}">interactive directory</a>, browse <a href="/browse/">every cut of the dataset</a>, or take the raw fields from <a href="/data.json">data.json</a>.`}</div>
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -700,10 +769,85 @@ ${list.map(e => `  <tr>
     }
   }
 
+  /* ── /crypto-cards/ — the front door to the crypto-card cuts ──
+     Not another table: /stablecoin-cards/ already lists the cards in one place.
+     This page is the choosing aid on top of it. It says what a crypto card is
+     here, gives the split that matters first (who holds the keys), and sends
+     the reader to the cut that matches their question. */
+  {
+    const url = `${BASE}/crypto-cards/`;
+    const cuts = HUBS.filter(h => h.family === 'crypto-cards');
+    const feature = cuts.filter(h => CRYPTO_CUTS[h.slug]), regional = cuts.filter(h => !CRYPTO_CUTS[h.slug]).sort((a, b) => b.rows.length - a.rows.length);
+    const N = CRYPTO_CARDS.length;
+    const nSelf = CRYPTO_CARDS.filter(selfCustody).length, nCust = N - nSelf;
+    const nCash = CRYPTO_CARDS.filter(e => known(e.cashback)).length;
+    const nNoKyc = CRYPTO_CARDS.filter(e => e.kyc === 'No').length, nCardOnly = CRYPTO_CARDS.filter(e => e.kyc === 'Card only').length;
+    const nVisa = CRYPTO_CARDS.filter(e => /Visa/i.test(e.card_network)).length, nMc = CRYPTO_CARDS.filter(e => /\bMC\b|Mastercard/i.test(e.card_network)).length;
+    /* the cards this audience actually looks up, from the analytics; each links
+       its alternatives page when one exists */
+    const SOUGHT = ['kast', 'redotpay', 'xapo-bank', 'zen-com', 'avalanche-card', '1inch-card', 'gnosis-pay', 'metamask', 'bleap', 'exa', 'bitget-wallet', 'ether-fi-cash'];
+    const sought = SOUGHT.map(sl => CRYPTO_CARDS.find(e => slugs.get(e.name) === sl)).filter(Boolean);
+    const answer = `${N} crypto cards are tracked here: ${nSelf} self-custodial, where you hold the keys until you pay, and ${nCust} custodial, where the issuer holds the balance. ${nCash} publish a cashback rate. ` +
+      `${nNoKyc === 0 ? 'None can be ordered' : nNoKyc === 1 ? 'Only one can be ordered' : `${nNoKyc} can be ordered`} with no identity check at all; ${nCardOnly} more come from wallets that work without one, where only the card needs it.`;
+    const faq = [
+      ['What counts as a crypto card here?', `A payment card from a product that is crypto-native (a hybrid fiat-and-crypto app or a web3-native wallet) or that spends stablecoins directly. A bank card whose app merely lets you buy bitcoin is not counted. By that rule ${N} of the ${E.length} neobanks tracked here issue one.`],
+      ['Is there a crypto card with no KYC?', `${nNoKyc === 0 ? 'None in this dataset' : nNoKyc === 1 ? 'One in this dataset' : `${nNoKyc} in this dataset`} can be ordered with no identity check. Cards run on Visa or Mastercard and are issued by a regulated partner that has to verify the cardholder. ${nCardOnly} products come close in a different way: the wallet works without verification and you verify only if you order the card.`],
+      ['Who holds the money on a crypto card?', `It depends on the custody model, which is the first thing to check. On the ${nSelf} self-custodial cards the crypto stays in your own wallet until the moment of payment. On the ${nCust} custodial ones the issuer holds the balance and you hold a claim on it, so the issuer\u2019s solvency and terms matter in the way a bank\u2019s do, usually without deposit insurance.`],
+    ];
+    const ld = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'CollectionPage', name: 'Crypto cards compared', url, description: answer, dateModified: DATA_MODIFIED,
+        isPartOf: { '@type': 'WebSite', name: 'neobankbeat', url: BASE + '/' } },
+      { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+      { '@type': 'ItemList', name: 'Crypto cards by custody, rewards, KYC and region', numberOfItems: cuts.length,
+        itemListElement: cuts.map((h, i) => ({ '@type': 'ListItem', position: i + 1, name: h.h1, url: `${BASE}/${h.family}/${h.slug}/` })) },
+      crumbs(['crypto cards', url]),
+    ] };
+    const cutCard = h => `<a class="cccut" href="/${h.family}/${h.slug}/"><span class="n">${esc(h.h1)}</span><span class="c">${h.rows.length} cards</span>${h.gist && CRYPTO_CUTS[h.slug] ? `<span class="g">${esc(h.gist)}</span>` : ''}</a>`;
+    const html = (head(`Crypto cards compared: ${N} cards by custody, cashback and region · neobankbeat`,
+      answer, url, ld, ogIf('cards.png')) + `
+<main class="wrap" id="main">
+<article>
+  <div class="eyebrow">crypto cards</div>
+  <h1>Crypto cards, <em>narrowed down</em></h1>
+  <p class="meta"><b>${N} cards</b> · ${nVisa} on Visa, ${nMc} on Mastercard · from the open dataset of ${E.length} neobanks · updated ${DATA_MODIFIED}</p>
+  <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
+  <p>Most lists of crypto cards rank them by a cashback number. That number is the least reliable thing about a card, and it is not the first thing to decide. Start with who holds the money, then with whether the card works where you live, and only then with what it pays back. Each list below is one of those questions, answered from verified fields, with no affiliate links.</p>
+  <h2>Start with the question you have</h2>
+  <div class="ccgrid">
+${feature.map(cutCard).join('\n')}
+  </div>
+  <h2>Where the card has to work</h2>
+  <p>Availability by region. Card programmes are licensed country by country, so treat a region as a first filter and check the issuer\u2019s own country list before ordering.</p>
+  <div class="ccgrid">
+${regional.map(cutCard).join('\n')}
+  </div>
+  ${sought.length ? `<h2>Cards people compare most</h2>
+  <p class="hublist">${sought.map(e => `<a href="/n/${slugs.get(e.name)}/">${esc(e.name)}</a>${altEligible.has(e.name) ? ` <span class="dim">· <a href="/n/${slugs.get(e.name)}/alternatives/">alternatives</a></span>` : ''}`).join('<br>')}</p>` : ''}
+  <h2>Common questions</h2>
+  ${faq.map(([q, a]) => `<h3 style="font-size:15px;margin:18px 0 6px">${esc(q)}</h3>\n  <p>${esc(a)}</p>`).join('\n  ')}
+  <div class="callout"><span class="k">go deeper</span>Every stablecoin-spendable card in one table: <a href="/stablecoin-cards/">stablecoin cards compared</a>. How they work: <a href="/blog/stablecoin-cards-explained/">stablecoin cards explained</a>. Wallets that need no identity check at all: <a href="/kyc/no-kyc/">no-KYC wallets</a>. Raw fields: <a href="/data.json">data.json</a>.</div>
+  ${disclaimer}
+  ${subscribeBox}
+</article>
+</main>` + foot).replace('<a href="/" class="on">', '<a href="/">').replace('</head>', hubStyle + `
+<style>
+.ccgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:14px 0 6px}
+.cccut{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;text-decoration:none}
+.cccut:hover{border-color:var(--accent)}
+.cccut .n{font-weight:700;color:var(--text);font-size:14px;line-height:1.3}
+.cccut .c{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.cccut .g{font-size:12px;color:var(--muted);line-height:1.45}
+</style>
+</head>`);
+    fs.mkdirSync(path.join(ROOT, 'crypto-cards'), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, 'crypto-cards', 'index.html'), html);
+    console.log(`crypto-cards hub: ${N} cards, ${cuts.length} cuts`);
+  }
+
   /* ── /browse/ — the index of every hub, and the only one that needs a footer link ── */
   {
     const url = `${BASE}/browse/`;
-    const byFam = ['regulation', 'kyc', 'cards', 'regions', 'countries', 'for'].map(f => [f, HUBS.filter(h => h.family === f)]).filter(([, v]) => v.length);
+    const byFam = ['regulation', 'kyc', 'cards', 'crypto-cards', 'regions', 'countries', 'for'].map(f => [f, HUBS.filter(h => h.family === f)]).filter(([, v]) => v.length);
     const answer = `${hubSlugs.length} ready-made cuts of the neobank dataset: by how each product is regulated, whether it needs your ID, where it is available, and who it is built for. Every list states its own count and links every entry to a verified profile.`;
     const ld = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'CollectionPage', name: 'Browse neobanks by license, KYC, region and audience', url, description: answer, dateModified: DATA_MODIFIED },
@@ -715,6 +859,7 @@ ${list.map(e => `  <tr>
       kyc: ['By identity verification', 'Whether you can use it without handing over ID — and where the line really sits.'],
       regions: ['By region', 'Availability rather than headquarters. Multi-region players appear in every region they serve.'],
       cards: ['By the card in the app', `Which scheme issues it, and the ${E.filter(e => !known(e.card_network)).length} products that issue no card at all.`],
+      'crypto-cards': ['Crypto cards', `The ${CRYPTO_CARDS.length} cards from crypto-native products or that spend stablecoins, narrowed by custody, rewards, KYC and region. Start at the <crypto-cards-hub>.`],
       countries: ['By country', 'Where each company is based \u2014 a complete field \u2014 kept separate from where its product is available, which is not.'],
       for: ['By who it is built for', 'Niche products designed around one group\u2019s constraints, not general apps with different branding.'] };
     const html = (head(`Browse ${E.length} neobanks by license, KYC, region and audience · neobankbeat`,
@@ -726,7 +871,7 @@ ${list.map(e => `  <tr>
   <p class="meta"><b>${hubSlugs.length} cuts of ${E.length} neobanks</b> · every list generated from <a href="/data.json">data.json</a> · updated ${DATA_MODIFIED}</p>
   <div class="callout"><span class="k">short answer</span>${esc(answer)}</div>
 ${byFam.map(([f, hs]) => `  <h2>${esc(FAMH[f][0])}</h2>
-  <p>${esc(FAMH[f][1])}</p>
+  <p>${esc(FAMH[f][1]).replace('&lt;crypto-cards-hub&gt;', '<a href="/crypto-cards/">crypto cards hub</a>')}</p>
   <p class="hublist">${hs.map(h => `<a href="/${h.family}/${h.slug}/">${esc(h.h1)}</a> <span class="dim">(${h.rows.length})</span>`).join('<br>')}</p>`).join('\n')}
   <div class="callout"><span class="k">go deeper</span>Prefer live filters? The <a href="/">directory</a> combines all of these at once and keeps the state in the URL. Every neobank also has a profile at <a href="/n/">/n/</a>, and every pair a <a href="/vs/">comparison</a>.</div>
   ${subscribeBox}
@@ -1848,7 +1993,7 @@ ${cards.map(row).join('\n')}
     </tbody>
   </table></div>
   <p style="font-size:12.5px;color:var(--dim)">KYC "CO" = card only (wallet works without identity checks, the card itself requires them). Custody is the app's primary model — several custodial apps hold spending balances only.</p>
-  <div class="callout"><span class="k">go deeper</span>Compare any two side by side in the <a href="/">directory</a>, read <a href="/blog/stablecoin-cards-explained/">stablecoin cards explained</a>, or pull the raw fields from <a href="/data.json">data.json</a>.</div>
+  <div class="callout"><span class="k">go deeper</span>Narrow this list by custody, cashback, KYC or region in the <a href="/crypto-cards/">crypto cards hub</a>. Compare any two side by side in the <a href="/">directory</a>, read <a href="/blog/stablecoin-cards-explained/">stablecoin cards explained</a>, or pull the raw fields from <a href="/data.json">data.json</a>.</div>
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -2316,6 +2461,13 @@ const whoOwnsSlugs = [], altSlugs = [];
     <tr><th scope="col">neobank</th><th scope="col">type</th><th scope="col">hq</th><th scope="col">reported users</th><th scope="col">compare</th></tr>
     ${rows}
   </table>
+  ${(() => {
+    /* someone comparing a crypto card's alternatives is the hub's audience: show
+       the lists this card is on, so the next step is a wider look, not a dead end */
+    const cc = hubsFor(e).filter(h => h.family === 'crypto-cards');
+    return cc.length ? `<h2>Wider lists ${esc(e.name)} is on</h2>
+  <p>${cc.map(h => `<a href="${h.href}">${esc(h.label)}</a> <span class="dim">(${h.n})</span>`).join(' · ')} · <a href="/crypto-cards/">all crypto cards</a></p>` : '';
+  })()}
   <div class="callout"><span class="k">go deeper</span>Back to the <a href="/n/${slug}/">${esc(e.name)} profile</a>, ask <a href="/n/${slug}/who-owns/">who owns ${esc(e.name)}?</a>, or filter your own shortlist in the <a href="/">directory</a>.</div>
   ${disclaimer}
   ${subscribeBox}
@@ -3383,6 +3535,7 @@ const urls = [
   { loc: `${BASE}/investors/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/newsletters/`, changefreq: 'monthly', priority: '0.7' },
   { loc: `${BASE}/stablecoin-cards/`, changefreq: 'weekly', priority: '0.8' },
+  { loc: `${BASE}/crypto-cards/`, lastmod: DATA_MODIFIED, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/ai/`, changefreq: 'weekly', priority: '0.8' },
   { loc: `${BASE}/partner/`, changefreq: 'monthly', priority: '0.5' },
   { loc: `${BASE}/changelog/`, changefreq: 'weekly', priority: '0.6' },

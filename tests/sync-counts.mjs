@@ -51,7 +51,7 @@ const S = {
      ship without being counted — and the check passed, because the expected
      number was derived from the same stale list as the prose. */
   hubs: (fs.readFileSync(p('browse/index.html'), 'utf8')
-    .match(/href="\/[a-z]+\/[a-z0-9-]+\/"(?= class="|>)/g) || [])
+    .match(/href="\/[a-z][a-z-]*\/[a-z0-9-]+\/"(?= class="|>)/g) || [])
     .filter(h => !/\/(n|vs|blog|infra|investors|jobs|report)\//.test(h)).length,
   /* visible <h3 id> questions == FAQPage mainEntity count; keep them equal */
   faq: (faqHtml.match(/"@type":"Question"/g) || []).length,
