@@ -39,35 +39,45 @@ const langbar = `<span class="langbar">🌐 <a href="/" onclick="window.nbevt&&n
    scanning around link fifteen. Four labeled columns: the consumer journey,
    the publications, the machine-readable data, and everything else. */
 export const FOOTER_GROUPS = [
+  /* Grouped by who is reading, in the order they show up in the analytics: job
+     seekers are the largest audience and /jobs/ takes more internal clicks than
+     any other destination (371 since launch), yet it sat fifteenth, under
+     "more". Every link is kept: a footer link is also a crawl path. */
+  ["find a job", [
+    ["/jobs/", "all jobs"],
+    ["/jobs/at/", "neobanks hiring"],
+    /* /pt/jobs/ is deliberately not here: the hub checks read every two-segment
+       link on /browse/ as a topic hub, footer included. The homepage's jobs
+       column and the Brazilian company pages link it instead. */
+    ["/jobs/engineering/", "engineering jobs"],
+    ["/jobs/compliance/", "compliance jobs"],
+  ]],
   ["choose a bank", [
     ["/", "directory"],
     ["/browse/", "browse"],
     ["/fit/", "find your fit"],
-    ["/ask/", "ask AI"],
     ["/vs/", "compare"],
     ["/map/", "world map"],
+    ["/ask/", "ask AI"],
   ]],
-  ["research", [
-    ["/blog/", "blog"],
+  ["the industry", [
     ["/report/", "report"],
-    ["/graveyard/", "graveyard"],
-    ["/africa/", "africa radar"],
-    ["/changelog/", "changelog"],
     ["/investors/", "investors"],
     ["/infra/", "infra"],
+    ["/blog/", "blog"],
+    ["/graveyard/", "graveyard"],
+    ["/africa/", "africa radar"],
     ["/ai/", "ai"],
     ["/newsletters/", "newsletters"],
   ]],
-  ["open data", [
+  ["open data & about", [
     ["/data/", "dataset"],
     ["/data.json", "data.json"],
     ["/llms.txt", "llms.txt"],
     ["/mcp/", "mcp server"],
-  ]],
-  ["more", [
     ["/faq/", "faq"],
     ["/glossary/", "glossary"],
-    ["/jobs/", "jobs"],
+    ["/changelog/", "changelog"],
     ["/partner/", "partner"],
     ["https://github.com/andreolf/neobankbeat", "github", true],
     ["https://x.com/neobankbeat", "𝕏 @neobankbeat", true],
