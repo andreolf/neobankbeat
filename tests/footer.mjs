@@ -57,6 +57,7 @@ export const FOOTER_GROUPS = [
     ["/browse/", "browse"],
     ["/fit/", "find your fit"],
     ["/vs/", "compare"],
+    ["/crypto-cards/", "crypto cards"],
     ["/map/", "world map"],
     ["/ask/", "ask AI"],
   ]],

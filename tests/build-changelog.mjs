@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-15', tag: 'new', title: 'Crypto cards, narrowed down',
+    body: 'People choosing a card to spend crypto with were landing on single alternatives pages and had one flat table to work from. There is now a crypto cards hub that starts from the questions that decide the choice: who holds the keys, what it pays back, whether the wallet needs identity checks, and whether the card works in your region. Eleven lists, each with custody, network, cashback, yield and KYC side by side, and no cashback ranking, because that number is the least reliable thing about a card.',
+    links: [['/crypto-cards/', 'crypto cards'], ['/crypto-cards/self-custodial/', 'self-custodial cards'], ['/stablecoin-cards/', 'the full table']] },
   { date: '2026-11-15', tag: 'fix', title: 'Pages that used to end now lead somewhere',
     body: 'A job listing kept its only apply button under the whole description; it now also sits under the title, and the page goes on to the employer\'s other open roles and to similar roles at other neobanks. Comparison pages, which people read to the end and then left, now offer the other comparisons for each side and the alternatives to either. Pages on who owns a neobank link to how it compares. The footer is regrouped by who is reading, with jobs first.',
     links: [['/jobs/', 'the job board'], ['/vs/', 'comparisons']] },

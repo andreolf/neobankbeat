@@ -5,7 +5,7 @@
 ## Main
 
 - [Directory](https://www.neobankbeat.com/) — searchable grid of all 397 neobanks
-- [Browse](https://www.neobankbeat.com/browse/) — 48 ready-made cuts of the dataset by license, KYC, region and audience
+- [Browse](https://www.neobankbeat.com/browse/) — 59 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
 - [Glossary](https://www.neobankbeat.com/glossary/) — 50 terms defined
@@ -655,7 +655,7 @@
 - [Yolat vs Mukuru](https://www.neobankbeat.com/vs/yolat-vs-mukuru/)
 - [DNERO vs Mela](https://www.neobankbeat.com/vs/dnero-vs-mela/)
 
-## Topic hubs (48)
+## Topic hubs (59)
 
 - [/regulation/partner-bank-baas-neobanks/](https://www.neobankbeat.com/regulation/partner-bank-baas-neobanks/)
 - [/regulation/licensed-banks/](https://www.neobankbeat.com/regulation/licensed-banks/)
@@ -686,6 +686,17 @@
 - [/cards/visa/](https://www.neobankbeat.com/cards/visa/)
 - [/cards/mastercard/](https://www.neobankbeat.com/cards/mastercard/)
 - [/cards/domestic-networks/](https://www.neobankbeat.com/cards/domestic-networks/)
+- [/crypto-cards/self-custodial/](https://www.neobankbeat.com/crypto-cards/self-custodial/)
+- [/crypto-cards/cashback/](https://www.neobankbeat.com/crypto-cards/cashback/)
+- [/crypto-cards/yield/](https://www.neobankbeat.com/crypto-cards/yield/)
+- [/crypto-cards/no-kyc-wallet/](https://www.neobankbeat.com/crypto-cards/no-kyc-wallet/)
+- [/crypto-cards/north-america/](https://www.neobankbeat.com/crypto-cards/north-america/)
+- [/crypto-cards/latin-america/](https://www.neobankbeat.com/crypto-cards/latin-america/)
+- [/crypto-cards/asia/](https://www.neobankbeat.com/crypto-cards/asia/)
+- [/crypto-cards/europe/](https://www.neobankbeat.com/crypto-cards/europe/)
+- [/crypto-cards/oceania/](https://www.neobankbeat.com/crypto-cards/oceania/)
+- [/crypto-cards/africa/](https://www.neobankbeat.com/crypto-cards/africa/)
+- [/crypto-cards/mena/](https://www.neobankbeat.com/crypto-cards/mena/)
 - [/countries/united-states/](https://www.neobankbeat.com/countries/united-states/)
 - [/countries/canada/](https://www.neobankbeat.com/countries/canada/)
 - [/countries/united-kingdom/](https://www.neobankbeat.com/countries/united-kingdom/)

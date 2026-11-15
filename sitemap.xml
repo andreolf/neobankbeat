@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/llms.txt</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -134,6 +134,12 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/stablecoin-cards/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -25251,6 +25257,61 @@
   </url>
   <url>
     <loc>https://www.neobankbeat.com/cards/domestic-networks/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/self-custodial/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/cashback/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/yield/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/no-kyc-wallet/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/north-america/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/latin-america/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/asia/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/europe/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/oceania/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/africa/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.neobankbeat.com/crypto-cards/mena/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.7</priority>
   </url>

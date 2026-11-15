@@ -34,7 +34,7 @@ const BLOCK_RE = /\n*<!-- crumbs -->\n<script type="application\/ld\+json">\n[\s
    /report/ is split deliberately: each edition page is generated, the landing
    page above them is written by hand. */
 const GENERATED = [
-  /^(n|vs|regulation|kyc|cards|regions|countries|for|browse|infra|investors|jobs|changelog|faq|glossary|data|ai|stablecoin-cards|newsletters|sitemap)\//,
+  /^(n|vs|regulation|kyc|cards|crypto-cards|regions|countries|for|browse|infra|investors|jobs|changelog|faq|glossary|data|ai|stablecoin-cards|newsletters|sitemap)\//,
   /^report\/[^/]+\//,
 ];
 const isGenerated = (rel) => GENERATED.some((r) => r.test(rel));
