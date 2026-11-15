@@ -199,6 +199,8 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
   <article class="jhero">
   <h1>True Link <em>jobs</em></h1>
+  <p class="meta" id="jclosed" hidden style="border:1px solid var(--line);border-radius:10px;padding:10px 14px">The role you opened has closed. These are the roles open at True Link right now.</p>
+  <script>if(location.hash==='#closed'){var n=document.getElementById('jclosed');if(n)n.hidden=false;try{window.nbevt&&nbevt('job_closed_redirect',{})}catch(_){}}</script>
   <p class="meta"><b>4 open roles</b> at True Link across 4 teams and 1 location · pulled from True Link's official careers page · refreshed 2026-11-15.</p>
   
   <p>True Link is a traditional (fiat) neobank headquartered in San Francisco, US, founded in 2012, operating as a partner-bank model. <a href="/n/true-link/">Read the True Link profile</a> for custody, license and card details before you apply.</p>

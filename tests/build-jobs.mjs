@@ -1119,6 +1119,13 @@ ${foot}`;
 }
 
 /* ── company pages ── */
+/* A listing that has closed answers 404, and 16 of the 25 most-visited missing
+   pages on the site were exactly that: someone following a search result or a
+   shared link to a role that was filled. 404.html forwards those to the
+   company's page with #closed, and this line is what tells them why they are
+   looking at a list instead of the role they clicked. */
+const closedNotice = (text) => `<p class="meta" id="jclosed" hidden style="border:1px solid var(--line);border-radius:10px;padding:10px 14px">${text}</p>
+  <script>if(location.hash==='#closed'){var n=document.getElementById('jclosed');if(n)n.hidden=false;try{window.nbevt&&nbevt('job_closed_redirect',{})}catch(_){}}</script>`;
 {
   const atRoot = path.join(ROOT, 'jobs', 'at');
   fs.mkdirSync(atRoot, { recursive: true });
@@ -1156,6 +1163,7 @@ ${foot}`;
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
   <article class="jhero">
   <h1>${esc(co)} <em>jobs</em>${br ? ' · vagas' : ''}</h1>
+  ${closedNotice(`The role you opened has closed. These are the roles open at ${esc(co)} right now.`)}
   <p class="meta"><b>${roles}</b> at ${esc(co)} across ${depts.length} team${depts.length === 1 ? '' : 's'}${locs.length ? ` and ${locs.length} location${locs.length === 1 ? '' : 's'}` : ''} · pulled from ${esc(co)}'s official careers page · refreshed ${TODAY}.</p>
   ${br ? `<p class="meta">Vagas abertas em ${esc(co)}, direto da página oficial de carreiras. A candidatura é feita no site da empresa.</p>` : ''}
   ${about ? `<p>${about}</p>` : ''}
@@ -1186,10 +1194,16 @@ ${foot}`;
      for one night would otherwise delete a ranking page and bring it back the
      next morning; this says so plainly and stays out of the index until then. */
   const live = new Set(companies.map(companySlug));
+  const known = new Set(SOURCES.map(x => companySlug(x[0])));
   for (const d of fs.readdirSync(atRoot, { withFileTypes: true })) {
-    if (!d.isDirectory() || live.has(d.name)) continue;
-    const src = SOURCES.find(x => companySlug(x[0]) === d.name);
-    if (!src) { fs.rmSync(path.join(atRoot, d.name), { recursive: true, force: true }); continue; }
+    if (d.isDirectory() && !known.has(d.name)) fs.rmSync(path.join(atRoot, d.name), { recursive: true, force: true });
+  }
+  /* every tracked source gets the page, with or without a previous one: a
+     closed listing at a company with nothing open still needs somewhere to go */
+  for (const src of SOURCES) {
+    if (live.has(companySlug(src[0]))) continue;
+    const d = { name: companySlug(src[0]) };
+    fs.mkdirSync(path.join(atRoot, d.name), { recursive: true });
     const co = src[0], ent = companyEntity(co), url = `${BASE}${companyPath(co)}`;
     fs.writeFileSync(path.join(atRoot, d.name, 'index.html'),
       head(`${co} jobs — no open roles listed right now`, `No open roles are listed at ${co} right now. This page fills again when ${co}'s official careers page lists new ones.`, url,
@@ -1199,6 +1213,7 @@ ${foot}`;
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
   <article class="jhero">
   <h1>${esc(co)} <em>jobs</em></h1>
+  ${closedNotice('The role you opened has closed.')}
   <p class="meta">No open roles are listed at ${esc(co)} right now (checked ${TODAY}). This page fills again as soon as its official careers page lists new ones.</p>
   <p>${ent ? `<a href="/n/${slugify(ent.name)}/">The ${esc(co)} profile</a> · ` : ''}<a href="/jobs/at/">other neobanks hiring</a> · <a href="/jobs/">all neobank jobs</a></p>
   </article>
@@ -1220,6 +1235,7 @@ ${foot}`);
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · companies</div>
   <article class="jhero">
   <h1>neobanks <em>hiring</em> now</h1>
+  ${closedNotice('The role you opened has closed. These are the neobanks hiring right now.')}
   <p class="meta"><b>${companies.length} companies</b> with ${all.length.toLocaleString('en-US')} open roles between them, each pulled from the company's own careers page · refreshed ${TODAY}.</p>
   </article>
   <article>

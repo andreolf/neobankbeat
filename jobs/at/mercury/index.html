@@ -199,6 +199,8 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · <a href="/jobs/at/" style="color:inherit;text-decoration:none">companies</a></div>
   <article class="jhero">
   <h1>Mercury <em>jobs</em></h1>
+  <p class="meta" id="jclosed" hidden style="border:1px solid var(--line);border-radius:10px;padding:10px 14px">The role you opened has closed. These are the roles open at Mercury right now.</p>
+  <script>if(location.hash==='#closed'){var n=document.getElementById('jclosed');if(n)n.hidden=false;try{window.nbevt&&nbevt('job_closed_redirect',{})}catch(_){}}</script>
   <p class="meta"><b>79 open roles</b> at Mercury across 12 teams and 4 locations · pulled from Mercury's official careers page · refreshed 2026-11-15.</p>
   
   <p>Mercury is a traditional (fiat) neobank headquartered in San Francisco, US, founded in 2017, operating as a partner-bank model. <a href="/n/mercury/">Read the Mercury profile</a> for custody, license and card details before you apply.</p>

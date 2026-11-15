@@ -98,6 +98,15 @@
   </div>
 </header>
 
+<script>
+/* A closed job listing lands here. Send it to that company's jobs page, which
+   says the role has closed; the response is still a 404, so search engines
+   drop the listing as they should. The slugs are the company pages that exist. */
+(function(){var m=location.pathname.match(/^\/jobs\/j\/([a-z0-9-]+)/);if(!m)return;
+var S=["consensys-metamask","neo-financial","starling-bank","trust-wallet","wealthsimple","allica-bank","banco-inter","crypto-com","greenlight","moniepoint","plasma-one","trust-bank","judo-bank","robinhood","true-link","bitpanda","coinbase","ether-fi","oaknorth","solflare","brubank","c6-bank","coinjar","current","eq-bank","mercury","palmpay","phantom","youtrip","branch","dakota","fampay","gemini","klarna","kraken","nubank","paypay","1inch","airtm","bybit","chime","found","lunar","monzo","relay","brex","bunq","dave","koho","kuda","meow","neon","novo","ramp","sofi","tide","umba","wise","n26","okx","rho"];
+for(var i=0;i<S.length;i++){if(m[1]===S[i]||m[1].indexOf(S[i]+'-')===0){location.replace('/jobs/at/'+S[i]+'/#closed');return}}
+location.replace('/jobs/at/#closed')})();
+</script>
 <main class="wrap" id="main">
 <article>
   <div class="eyebrow">404</div>

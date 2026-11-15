@@ -199,6 +199,8 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <div class="eyebrow"><a href="/jobs/" style="color:inherit;text-decoration:none">the job board</a> · companies</div>
   <article class="jhero">
   <h1>neobanks <em>hiring</em> now</h1>
+  <p class="meta" id="jclosed" hidden style="border:1px solid var(--line);border-radius:10px;padding:10px 14px">The role you opened has closed. These are the neobanks hiring right now.</p>
+  <script>if(location.hash==='#closed'){var n=document.getElementById('jclosed');if(n)n.hidden=false;try{window.nbevt&&nbevt('job_closed_redirect',{})}catch(_){}}</script>
   <p class="meta"><b>61 companies</b> with 3,828 open roles between them, each pulled from the company's own careers page · refreshed 2026-11-15.</p>
   </article>
   <article>
