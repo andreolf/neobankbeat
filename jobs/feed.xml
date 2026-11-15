@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/</link>
   <description>The newest roles at 61 hiring neobanks, pulled directly from official career APIs. Full board: neobankbeat.com/jobs — raw data: /jobs/data.json.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 14 Nov 2026 13:18:53 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 09:00:18 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Staff Software Engineer - APAC Onboarding and KYC — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000161673449/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000161673449/</guid>
+    <pubDate>Sun, 15 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Wise · Singapore, SG · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Sr. Software Engineer, Machine Learning & Data Infrastructure — OKX]]></title>
     <link>https://www.neobankbeat.com/jobs/j/okx-8187582003/</link>
@@ -14,6 +22,30 @@
     <pubDate>Sat, 14 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[OKX · San Jose, California, United States · $179–268K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[KYC Operations Associate Analyst - Specialised Markets — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000161640968/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000161640968/</guid>
+    <pubDate>Sat, 14 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Onboarding &amp; KYC</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Recruiter - 12 month FTC — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000161640328/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000161640328/</guid>
+    <pubDate>Sat, 14 Nov 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Wise · Hyderabad, IN · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Lead Data Analyst - Wise Business - Commercial & Sales — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000161639339/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000161639339/</guid>
+    <pubDate>Sat, 14 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[BUSINESS ANALYST III | COMMERCIAL PLANNING IP SP | INTERPAG — Banco Inter]]></title>
@@ -57,6 +89,14 @@
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8943782002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943782002/</guid>
+    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Brex · San Francisco, California, United States · $154–192K · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior GRC Engineer — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8943783002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943783002/</guid>
     <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
@@ -70,14 +110,6 @@
     <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Brex · Seattle, Washington, United States · $154–192K · hybrid]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior GRC Engineer — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8943782002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943782002/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $154–192K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
@@ -454,38 +486,6 @@
     <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[C6 Bank · Goiânia, Goiás, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Sênior | Assessoria de Investimentos Local | Rio de Janeiro — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4711907005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4711907005/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · Rio de Janeiro, Rio de Janeiro, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Sênior | Hub de Investimentos | Curitiba — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4649758005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4649758005/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · Curitiba, Paraná, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Carbon Partner Sênior | Hub de Investimentos | Porto Alegre — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4681612005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4681612005/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · Porto Alegre, Rio Grande do Sul, Brazil · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Especialista de Dados | Engenharia de Plataforma de Dados — C6 Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/c6-bank-4669324005/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/c6-bank-4669324005/</guid>
-    <pubDate>Fri, 13 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[C6 Bank · São Paulo, Brazil · onsite]]></description>
   </item>
 </channel>
 </rss>
