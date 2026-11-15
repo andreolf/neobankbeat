@@ -101,6 +101,13 @@ const CATCHIP = { 'traditional': ['t', 'traditional'], 'hybrid': ['h', 'hybrid']
 const catChip = e => { const [cls, label] = CATCHIP[e.category]; return `<span class="chip ${cls}">${label}</span>`; };
 const users = e => e.reported_users ? `${esc(e.reported_users.value_millions)}M ${esc(e.reported_users.metric)}${e.reported_users.as_of ? ' (' + esc(e.reported_users.as_of) + ')' : ''}` : null;
 
+/* The GA4 config call in the head below is skipped for automation. In the 28
+   days to mid-November 2026, 6,355 of 11,922 sessions came from one signature
+   (Singapore, Windows 10, a 1280x1200 screen, 4 engaged), and another ~2,300
+   from 800x600 and 1280x1600 screens with almost no engagement. None of those
+   is a real monitor size; they are headless-browser defaults. The same guard is
+   inlined in index.html, build-jobs, build-report, build-changelog and the
+   hand-written pages, so change all of them together (grep for "1280x1200"). */
 const head = (title, desc, canonical, ldjson, ogImage, imageAlt, opts) => {
   const img = ogImage || BASE + '/og.png';
   const alt = esc(imageAlt || clampDesc(desc));
@@ -143,7 +150,7 @@ ${hreflang}<meta name="theme-color" content="#0A0A10">
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-E3KE01L5DL")</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());if(!(navigator.webdriver||/^(800x600|1280x1200|1366x1366|1280x1600|1024x1024)$/.test(screen.width+"x"+screen.height)))gtag("config","G-E3KE01L5DL")</script>
 <script type="application/ld+json">
 ${JSON.stringify(ldjson)}
 </script>

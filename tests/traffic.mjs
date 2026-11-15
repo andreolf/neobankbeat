@@ -245,7 +245,7 @@ async function ga4() {
   }));
 
   const [totals, pages, sources, countries] = await Promise.all([
-    api(base, { dateRanges: range, metrics: [{ name: 'sessions' }, { name: 'totalUsers' }] }, tok),
+    api(base, { dateRanges: range, metrics: [{ name: 'sessions' }, { name: 'totalUsers' }, { name: 'engagedSessions' }] }, tok),
     api(base, { dateRanges: range, dimensions: [{ name: 'pagePath' }], metrics: [{ name: 'screenPageViews' }, { name: 'totalUsers' }], orderBys: [{ desc: true, metric: { metricName: 'screenPageViews' } }], limit: 15 }, tok),
     api(base, { dateRanges: range, dimensions: [{ name: 'sessionDefaultChannelGroup' }], metrics: [{ name: 'sessions' }], orderBys: [{ desc: true, metric: { metricName: 'sessions' } }], limit: 10 }, tok),
     api(base, { dateRanges: range, dimensions: [{ name: 'country' }], metrics: [{ name: 'totalUsers' }], orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }], limit: 8 }, tok),
@@ -254,6 +254,9 @@ async function ga4() {
   const t = totals.rows?.[0]?.metricValues || [];
   return {
     sessions: +(t[0]?.value || 0),
+    /* sessions includes whatever automation gets past the on-site guard; engaged
+       sessions (10s+, a second page or a key event) is the number to steer by */
+    engaged: +(t[2]?.value || 0),
     users: +(t[1]?.value || 0),
     pages: rows(pages),
     sources: rows(sources),
@@ -323,7 +326,7 @@ if (JSON_OUT) {
   console.log(`neobankbeat traffic · ${iso(START)} → ${iso(END)} (${DAYS} days)`);
   if (out.ga4?.error) console.log(`\nGA4\n  ✗ ${out.ga4.error}`);
   else if (out.ga4) {
-    console.log(`\nGA4 · ${num(out.ga4.sessions)} sessions · ${num(out.ga4.users)} users`);
+    console.log(`\nGA4 · ${num(out.ga4.sessions)} sessions · ${num(out.ga4.engaged)} engaged · ${num(out.ga4.users)} users`);
     table('top pages', out.ga4.pages, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m)} ${r.key}`);
     table('channels', out.ga4.sources, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m, 16)} ${r.key}`);
     table('countries', out.ga4.countries, (r, m) => `${String(num(r.n)).padStart(7)}  ${bar(r.n, m, 16)} ${r.key}`);
