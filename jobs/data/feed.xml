@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/data/</link>
   <description>The newest data &amp; ai roles at hiring neobanks, from official career APIs.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 15 Nov 2026 13:51:05 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 15:03:08 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/data/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Lead Data Analyst - Wise Business - Commercial & Sales — Wise]]></title>
@@ -272,14 +272,6 @@
     <description><![CDATA[Tide · Bulgaria · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Intern - Product Management, Winter 2027 — EQ Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/eq-bank-e4ed38f2-5de1-405f-a02d-c21f421bc7c1/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/eq-bank-e4ed38f2-5de1-405f-a02d-c21f421bc7c1/</guid>
-    <pubDate>Wed, 04 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Data &amp; AI</category>
-    <description><![CDATA[EQ Bank · Toronto · hybrid]]></description>
-  </item>
-  <item>
     <title><![CDATA[Compliance Manager- Deputy MLRO (UK) — Klarna]]></title>
     <link>https://www.neobankbeat.com/jobs/j/klarna-6a3e5583-089a-4461-94fc-8acaad9ab583/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/klarna-6a3e5583-089a-4461-94fc-8acaad9ab583/</guid>
@@ -486,6 +478,14 @@
     <pubDate>Fri, 30 Oct 2026 09:00:00 +0000</pubDate>
     <category>Data &amp; AI</category>
     <description><![CDATA[Coinbase · Remote - Singapore · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Data Scientist, Product — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8206668/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8206668/</guid>
+    <pubDate>Fri, 30 Oct 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Coinbase · Remote - UK · remote]]></description>
   </item>
 </channel>
 </rss>

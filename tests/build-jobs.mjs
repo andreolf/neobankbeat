@@ -1040,6 +1040,34 @@ const jobDetailBackScript = `<script>
 })();
 </script>`;
 
+/* What a listing offers when this role is not the one: the employer's other
+   openings (same department first), then the same kind of role elsewhere (same
+   region first). A listing used to end at its apply button, so a reader who
+   did not apply had nowhere to go but back. */
+const rolesByCompany = {}, rolesByDept = {};
+for (const j of all) { (rolesByCompany[j.company] = rolesByCompany[j.company] || []).push(j); (rolesByDept[j.dept] = rolesByDept[j.dept] || []).push(j); }
+const newestRoles = (a, b) => (Date.parse(b.posted) || 0) - (Date.parse(a.posted) || 0);
+function moreRoles(j) {
+  const here = (rolesByCompany[j.company] || []).filter(r => r.id !== j.id);
+  const sameCo = [...here.filter(r => r.dept === j.dept).sort(newestRoles), ...here.filter(r => r.dept !== j.dept).sort(newestRoles)].slice(0, 5);
+  const there = (rolesByDept[j.dept] || []).filter(r => r.company !== j.company);
+  const seenCo = new Set();
+  /* one per employer, so five similar roles are five companies, not five Wise ads */
+  const elsewhere = [...there.filter(r => r.region === j.region).sort(newestRoles), ...there.filter(r => r.region !== j.region).sort(newestRoles)]
+    .filter(r => !seenCo.has(r.company) && seenCo.add(r.company)).slice(0, 5);
+  const dl = DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other';
+  return `${sameCo.length ? `  <h2 style="max-width:760px;margin-top:30px">more open roles at ${esc(j.company)}</h2>
+  <div class="joblist" style="max-width:960px">
+${sameCo.map(jobCard).join('\n')}
+  </div>
+  <p class="meta" style="max-width:760px"><a href="${companyPath(j.company)}">All ${here.length + 1} open roles at ${esc(j.company)} →</a></p>` : ''}
+${elsewhere.length ? `  <h2 style="max-width:760px;margin-top:30px">similar roles at other neobanks</h2>
+  <div class="joblist" style="max-width:960px">
+${elsewhere.map(jobCard).join('\n')}
+  </div>
+  <p class="meta" style="max-width:760px"><a href="/jobs/${esc(j.dept)}/">All ${esc(dl.toLowerCase())} roles →</a></p>` : ''}`;
+}
+
 function jobDetailHtml(j) {
   const deptLabel = DEPTS.find(d => d[0] === j.dept)?.[1] || 'Other';
   const wpLabels = { remote: 'Remote only', hybrid: 'Hybrid', onsite: 'On-site' };
@@ -1054,6 +1082,10 @@ function jobDetailHtml(j) {
     j.visa && '<span>visa sponsorship</span>',
     j.posted && !Number.isNaN(Date.parse(j.posted)) && `<span>posted ${ago(j.posted)}</span>`,
   ].filter(Boolean).join('');
+  /* The only apply button used to sit under the whole description, about 2,600
+     pixels down a typical listing. It now also sits under the title, where the
+     person who already knows they want the job can use it. */
+  const applyBtn = `<a class="japply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" data-company="${esc(j.company)}" data-title="${esc(j.title)}" data-dept="${esc(deptLabel)}">Apply on ${esc(j.company)} →</a>`;
   const profileLink = j.profile
     ? `<a href="${esc(j.profile)}">${esc(j.company)} profile</a>`
     : esc(j.company);
@@ -1073,8 +1105,12 @@ function jobDetailHtml(j) {
     <div class="eyebrow"><a href="/jobs/${esc(j.dept)}/" style="color:inherit;text-decoration:none">${deptLabel.toLowerCase()}</a> · <a href="${companyPath(j.company)}" style="color:inherit;text-decoration:none">${esc(j.company)}</a></div>
     <h1 class="jhead">${esc(j.title)}</h1>
     <p class="jmeta">${metaLine}</p>
+    ${applyBtn}
     <div class="jdesc">${descBody(j.description)}</div>
-    <a class="japply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer" data-company="${esc(j.company)}" data-title="${esc(j.title)}" data-dept="${esc(deptLabel)}">Apply on ${esc(j.company)} →</a>
+    ${applyBtn}
+  </article>
+${moreRoles(j)}
+  <article style="max-width:760px">
     <p class="jfoot">Listing synced from ${esc(j.company)}'s official careers API · refreshed ${TODAY} · <a href="${companyPath(j.company)}">all ${esc(j.company)} jobs</a> · ${profileLink} · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
 </main>

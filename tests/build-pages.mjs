@@ -1220,6 +1220,28 @@ function vsRowsL(a, b, L) {
   }).join('\n    ');
 }
 
+/* Where a comparison sends its reader next. These pages are read to the end
+   more than any other (34 in 100 views reach the bottom) and then abandoned:
+   1.26 pages per visit, because the page ended in one line of small print.
+   Someone comparing A with B is choosing, so the next step is another
+   comparison of either, or the alternatives to either. */
+const vsNext = (an, bn, slug) => {
+  const others = n => (vsFor.get(n) || []).filter(v => v.slug !== slug).slice(0, 6);
+  const peers = n => altPeers(byName.get(n), 3).map(p => p.name);
+  const side = n => {
+    const o = others(n);
+    return o.length
+      ? `<p><b>${esc(n)}</b> also compared with: ${o.map(v => `<a href="/vs/${v.slug}/">${esc(v.other)}</a>`).join(' · ')}</p>`
+      : peers(n).length ? `<p><b>${esc(n)}</b> sits closest to: ${peers(n).map(p => `<a href="/n/${slugs.get(p)}/">${esc(p)}</a>`).join(' · ')}</p>` : '';
+  };
+  const alts = [an, bn].filter(x => altEligible.has(x));
+  return `<h2>Keep comparing</h2>
+  ${side(an)}
+  ${side(bn)}
+  ${alts.length ? `<p>Neither one quite right? ${alts.map(x => `<a href="/n/${slugs.get(x)}/alternatives/">Alternatives to ${esc(x)}</a>`).join(' · ')}</p>` : ''}
+  <p>Who is behind them: <a href="/n/${slugs.get(an)}/who-owns/">who owns ${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/who-owns/">who owns ${esc(bn)}</a></p>`;
+};
+
 let vsPages = 0, vsIndex = [];
 for (const [an, bn] of PAIRS) {
   const a = byName.get(an), b = byName.get(bn);
@@ -1271,7 +1293,7 @@ for (const [an, bn] of PAIRS) {
     ${rows}
   </table>
   <div class="callout"><span class="k">go deeper</span>Full profiles: <a href="/n/${slugs.get(an)}/">${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/">${esc(bn)}</a> — or run your own comparison of up to four in the <a href="/">directory</a>.</div>
-  <p class="meta" style="margin:12px 0 0">Who owns them? <a href="/n/${slugs.get(an)}/who-owns/">${esc(an)}</a> · <a href="/n/${slugs.get(bn)}/who-owns/">${esc(bn)}</a>${altEligible.has(an) || altEligible.has(bn) ? `<br>Alternatives: ${[an, bn].filter(x => altEligible.has(x)).map(x => `<a href="/n/${slugs.get(x)}/alternatives/">${esc(x)}</a>`).join(' · ')}` : ''}</p>
+  ${vsNext(an, bn, slug)}
   ${disclaimer}
   ${subscribeBox}
 </article>
@@ -2205,6 +2227,14 @@ const whoOwnsSlugs = [], altSlugs = [];
   ${investorsBlock(e)}
   <h2>Is my money safe with ${esc(e.name)}?</h2>
   <p>${esc(safeAns)}</p>
+  ${(() => {
+    /* a who-owns reader is sizing a company up; the natural next page is how
+       it compares, which this page never offered */
+    const vs = (vsFor.get(e.name) || []).slice(0, 8);
+    return vs.length || hasAlts ? `<h2>How does ${esc(e.name)} compare?</h2>
+  ${vs.length ? `<p>${vs.map(v => `<a href="/vs/${v.slug}/">${esc(e.name)} vs ${esc(v.other)}</a>`).join(' · ')}</p>` : ''}
+  ${hasAlts ? `<p><a href="/n/${slug}/alternatives/">The ${alts.length} closest alternatives to ${esc(e.name)} →</a></p>` : ''}` : '';
+  })()}
   <div class="callout"><span class="k">go deeper</span>See the full <a href="/n/${slug}/">${esc(e.name)} profile</a> with every verified field${hasAlts ? `, or <a href="/n/${slug}/alternatives/">${esc(e.name)} alternatives</a>` : ''}. Raw fields: <a href="/data.json">data.json</a>.</div>
   ${disclaimer}
   ${subscribeBox}

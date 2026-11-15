@@ -4,6 +4,16 @@
  "releases": [
   {
    "date": "2026-11-15",
+   "tag": "fix",
+   "title": "Pages that used to end now lead somewhere",
+   "body": "A job listing kept its only apply button under the whole description; it now also sits under the title, and the page goes on to the employer's other open roles and to similar roles at other neobanks. Comparison pages, which people read to the end and then left, now offer the other comparisons for each side and the alternatives to either. Pages on who owns a neobank link to how it compares. The footer is regrouped by who is reading, with jobs first.",
+   "links": [
+    "/jobs/",
+    "/vs/"
+   ]
+  },
+  {
+   "date": "2026-11-15",
    "tag": "new",
    "title": "Vagas em português, and a feed for every employer",
    "body": "Brazil sends this site more job searches than any other country, and they are written in Portuguese. The four Brazilian neobanks on the board (C6 Bank, Banco Inter, Nubank and Neon) now have their jobs pages in Portuguese, alongside a page of every role based in Brazil, including those at foreign neobanks hiring there. Every hiring company and every department also has its own feed of new roles, so you can follow one employer or one line of work instead of the whole board.",
