@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-16', tag: 'data', title: 'Charts brought up to November 2026, with a date on every one',
+    body: 'The charts were last researched in July and most user figures were from 2024. Every chart now says when it was last checked. Reported users went from 23 companies to 37, 30 of them with a 2026 figure and each with a link to its source; a few changed metric because the company now reports a narrower one (Chime counts active members, GCash monthly actives). Volume watch is split into payment volume, deposits and crypto cards, with last full year and latest quarter in separate columns so a quarter is never read against a year, and it gains Revolut, Chime, SoFi, Monzo, Starling, Banco Inter, PicPay, GCash, Moniepoint, KakaoBank and Klarna. Stablecoin supply is $289B, down from a $314B peak in May. A new chart shows crypto card spend passing $1B a month in 2026. Two figures were removed because their sources could no longer be found.',
+    links: [['/#datasec', 'the charts']] },
   { date: '2026-11-16', tag: 'new', title: 'Search a country, get its page',
     body: 'Typing a country into the directory search already narrowed the grid, but nothing said that the country has a page of its own. Now a line above the results says how many neobanks are based there and how many are verified as available, with links to the full country page and to the fit check for that country. It understands the short forms too: UK, USA, UAE. And a search that finds nothing now names what you typed and offers the form to suggest a neobank that is missing.',
     links: [['/?q=nigeria', 'try it with Nigeria'], ['/countries/nigeria/', 'neobanks in Nigeria'], ['/map/', 'all countries']] },

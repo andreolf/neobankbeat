@@ -76,9 +76,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 22,
-    "metric": "members",
-    "as_of": "2024"
+    "value_millions": 10.9,
+    "metric": "active members",
+    "as_of": "Q3 2026"
+   },
+   "volume": {
+    "figure": "$38.5B",
+    "metric": "purchase volume · Q3 2026 · +19%",
+    "source": "Chime Q3 2026"
    },
    "slug": "chime",
    "features": {
@@ -368,6 +373,11 @@
      "website": "https://qia.qa"
     }
    ],
+   "reported_users": {
+    "value_millions": 17.1,
+    "metric": "members",
+    "as_of": "Q3 2026"
+   },
    "slug": "sofi",
    "features": {
     "apple_pay": null,
@@ -537,6 +547,11 @@
      "website": "https://section32.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 3.15,
+    "metric": "transacting members",
+    "as_of": "Q3 2026"
+   },
    "slug": "dave",
    "features": {
     "apple_pay": null,
@@ -3564,9 +3579,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 12,
+    "value_millions": 16,
     "metric": "customers",
-    "as_of": "2025"
+    "as_of": "Jul 2026"
    },
    "slug": "monzo",
    "features": {
@@ -3668,6 +3683,11 @@
      "website": "https://chrysalisinvestments.co.uk"
     }
    ],
+   "reported_users": {
+    "value_millions": 6.2,
+    "metric": "accounts",
+    "as_of": "Mar 2026"
+   },
    "slug": "starling-bank",
    "features": {
     "apple_pay": null,
@@ -5105,6 +5125,11 @@
      "website": "https://earlybird.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 5.6,
+    "metric": "revenue-relevant customers",
+    "as_of": "2025"
+   },
    "slug": "n26",
    "features": {
     "apple_pay": null,
@@ -5208,6 +5233,11 @@
      "website": "https://pollencap.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 20,
+    "metric": "users",
+    "as_of": "Sep 2025"
+   },
    "slug": "bunq",
    "features": {
     "apple_pay": null,
@@ -7484,9 +7514,9 @@
     "as_of": "FY26"
    },
    "volume": {
-    "figure": "$243.5B",
-    "metric": "cross-border volume · FY2026 · +31%",
-    "source": "FY26 results"
+    "figure": "$141.0B",
+    "metric": "half-year to Sep 2026 · +24%",
+    "source": "Wise H1 FY27"
    },
    "slug": "wise",
    "features": {
@@ -7592,6 +7622,16 @@
      "website": "https://softbank.jp"
     }
    ],
+   "reported_users": {
+    "value_millions": 120,
+    "metric": "active consumers",
+    "as_of": "Q2 2026"
+   },
+   "volume": {
+    "figure": "$36.6B",
+    "metric": "GMV · Q2 2026 · +18%",
+    "source": "Klarna Q2 2026"
+   },
    "slug": "klarna",
    "features": {
     "apple_pay": null,
@@ -7946,6 +7986,11 @@
    "countries": [
     "Ukraine"
    ],
+   "reported_users": {
+    "value_millions": 11,
+    "metric": "clients",
+    "as_of": "Aug 2026"
+   },
    "slug": "monobank",
    "features": {
     "apple_pay": null,
@@ -8018,6 +8063,11 @@
    "license": "Russian banking license",
    "founders": "Oleg Tinkov (exited 2022)",
    "funding": "Public (MOEX)",
+   "reported_users": {
+    "value_millions": 54.9,
+    "metric": "customers",
+    "as_of": "Q1 2026"
+   },
    "slug": "t-bank",
    "features": {
     "apple_pay": null,
@@ -8096,9 +8146,9 @@
     "Türkiye"
    ],
    "volume": {
-    "figure": "KZT 44.2T (~$85B)",
-    "metric": "payments TPV · FY2025 · +19%",
-    "source": "Kaspi 4Q/FY25"
+    "figure": "KZT 13.6T ($30.8B)",
+    "metric": "Q3 2026 · +14%",
+    "source": "Kaspi 3Q26"
    },
    "slug": "kaspi",
    "features": {
@@ -8347,14 +8397,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 139,
+    "value_millions": 143,
     "metric": "customers",
-    "as_of": "Q2 2026"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "$41.9B",
-    "metric": "deposits · Q4 2025",
-    "source": "Nu FY25 results"
+    "figure": "$44.2B",
+    "metric": "purchase volume · Q3 2026 · +14%",
+    "source": "Nu 3Q26"
    },
    "slug": "nubank",
    "features": {
@@ -8456,6 +8506,11 @@
      "website": "https://sorosfundmgmt.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 11,
+    "metric": "customers",
+    "as_of": "Mar 2026"
+   },
    "slug": "uala",
    "features": {
     "apple_pay": null,
@@ -9188,6 +9243,11 @@
      "website": "https://blackrock.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 27,
+    "metric": "clients",
+    "as_of": "H1 2026"
+   },
    "slug": "neon",
    "features": {
     "apple_pay": null,
@@ -9275,6 +9335,11 @@
      "website": "https://www.gic.com.sg"
     }
    ],
+   "reported_users": {
+    "value_millions": 42,
+    "metric": "clients",
+    "as_of": "H1 2026"
+   },
    "slug": "c6-bank",
    "features": {
     "apple_pay": null,
@@ -9357,9 +9422,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 35,
+    "value_millions": 46.8,
     "metric": "clients",
-    "as_of": "2025"
+    "as_of": "Q3 2026"
+   },
+   "volume": {
+    "figure": "R$483B",
+    "metric": "cards + Pix · Q3 2026",
+    "source": "Inter&Co 3Q26"
    },
    "slug": "banco-inter",
    "features": {
@@ -9437,9 +9507,14 @@
     "Brazil"
    ],
    "reported_users": {
-    "value_millions": 58,
-    "metric": "users",
-    "as_of": "2024"
+    "value_millions": 70.4,
+    "metric": "accounts",
+    "as_of": "Q2 2026"
+   },
+   "volume": {
+    "figure": "R$167.6B",
+    "metric": "TPV · Q2 2026 · +27%",
+    "source": "PicPay Q2 2026"
    },
    "slug": "picpay",
    "features": {
@@ -9510,14 +9585,14 @@
    "note": "PagSeguro's 30M+ user digital bank.",
    "license": "Bank; Public (PAGS)",
    "reported_users": {
-    "value_millions": 32,
+    "value_millions": 34.1,
     "metric": "clients",
-    "as_of": "2024"
+    "as_of": "Q2 2026"
    },
    "volume": {
-    "figure": "~R$500B (~$93B)",
-    "metric": "TPV · 2024",
-    "source": "PAGS filings"
+    "figure": "R$133.4B",
+    "metric": "acquiring TPV · Q2 2026 · +3%",
+    "source": "PagBank 2Q26"
    },
    "slug": "pagbank",
    "features": {
@@ -10025,9 +10100,9 @@
    "ai": "underwriting",
    "license": "Licensed compañía de financiamiento (Superfinanciera Colombia); spun out of Bancolombia's banking license",
    "reported_users": {
-    "value_millions": 20,
-    "metric": "users",
-    "as_of": "2024"
+    "value_millions": 26,
+    "metric": "clients",
+    "as_of": "Aug 2025"
    },
    "slug": "nequi",
    "features": {
@@ -10590,9 +10665,9 @@
     "South Korea"
    ],
    "reported_users": {
-    "value_millions": 23,
+    "value_millions": 27.9,
     "metric": "customers",
-    "as_of": "2024"
+    "as_of": "Q3 2026"
    },
    "slug": "kakaobank",
    "features": {
@@ -10820,9 +10895,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 400,
-    "metric": "customers",
-    "as_of": "2024"
+    "value_millions": 430,
+    "metric": "customers served",
+    "as_of": "2025"
    },
    "slug": "webank",
    "features": {
@@ -12003,9 +12078,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 70,
-    "metric": "users",
-    "as_of": "2024"
+    "value_millions": 80,
+    "metric": "customers",
+    "as_of": "May 2026"
    },
    "slug": "bkash",
    "features": {
@@ -14550,9 +14625,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 10,
+    "value_millions": 13,
     "metric": "customers",
-    "as_of": "2024"
+    "as_of": "May 2026"
    },
    "slug": "tymebank",
    "features": {
@@ -14875,14 +14950,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 60,
+    "value_millions": 45,
     "metric": "users",
-    "as_of": "2024"
+    "as_of": "May 2026"
    },
    "volume": {
-    "figure": "~$100B+",
-    "metric": "TPV · 2024",
-    "source": "company PRs"
+    "figure": "$358B",
+    "metric": "transactions processed · 2025 · +115% · as reported from an IPO document",
+    "source": "Nairametrics"
    },
    "slug": "opay",
    "features": {
@@ -14976,7 +15051,7 @@
    "reported_users": {
     "value_millions": 35,
     "metric": "users",
-    "as_of": "2025"
+    "as_of": "Apr 2026"
    },
    "slug": "palmpay",
    "features": {
@@ -15082,6 +15157,16 @@
      "website": "https://visa.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 20,
+    "metric": "customers",
+    "as_of": "Jul 2026"
+   },
+   "volume": {
+    "figure": "₦412T",
+    "metric": "transactions processed · 2025",
+    "source": "Nairametrics"
+   },
    "slug": "moniepoint",
    "features": {
     "apple_pay": null,
@@ -17462,9 +17547,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 50,
+    "value_millions": 80,
     "metric": "customers",
-    "as_of": "2025"
+    "as_of": "Oct 2026"
+   },
+   "volume": {
+    "figure": "$1.7T",
+    "metric": "total transaction volume · 2025 · +65%",
+    "source": "Revolut 2025 results"
    },
    "slug": "revolut",
    "features": {
@@ -17558,14 +17648,14 @@
     "source": "https://cash.app/us/en/legal/tos"
    },
    "reported_users": {
-    "value_millions": 59,
+    "value_millions": 60,
     "metric": "transacting actives",
-    "as_of": "2025"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "$316B",
-    "metric": "inflows · FY2025",
-    "source": "Block 10-K"
+    "figure": "$86B",
+    "metric": "Q3 2026 · +10%",
+    "source": "Block Q3 2026 letter"
    },
    "slug": "cash-app",
    "features": {
@@ -19839,9 +19929,9 @@
     "Global"
    ],
    "volume": {
-    "figure": "$2.95B",
-    "metric": "card volume · 2025 · >4x next 13 combined",
-    "source": "CoinDesk/StraitsX"
+    "figure": "$401.9M",
+    "metric": "card spend · 30 days to 30 Sep 2026",
+    "source": "CryptoSlate"
    },
    "slug": "redotpay",
    "features": {
@@ -20481,14 +20571,14 @@
     "Uruguay"
    ],
    "reported_users": {
-    "value_millions": 78,
+    "value_millions": 93,
     "metric": "MAU",
-    "as_of": "2025"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "$278B",
-    "metric": "TPV · FY2025 · +41%",
-    "source": "MELI results"
+    "figure": "$109B",
+    "metric": "Q3 2026 · +53% · $297B in nine months",
+    "source": "MercadoLibre Q3 2026"
    },
    "slug": "mercado-pago",
    "features": {
@@ -20891,6 +20981,11 @@
      "website": "https://kaszek.com"
     }
    ],
+   "reported_users": {
+    "value_millions": 10,
+    "metric": "customers",
+    "as_of": "Apr 2026"
+   },
    "slug": "bitso",
    "features": {
     "apple_pay": null,
@@ -22235,7 +22330,7 @@
    "reported_users": {
     "value_millions": 15,
     "metric": "MAU",
-    "as_of": "2025"
+    "as_of": "Jan 2025"
    },
    "slug": "phantom",
    "features": {
@@ -22553,6 +22648,11 @@
     "on-ramp",
     "off-ramp"
    ],
+   "reported_users": {
+    "value_millions": 220,
+    "metric": "users",
+    "as_of": "2025"
+   },
    "slug": "trust-wallet",
    "features": {
     "apple_pay": null,
@@ -22724,7 +22824,7 @@
    "reported_users": {
     "value_millions": 2,
     "metric": "users",
-    "as_of": "2026"
+    "as_of": "Nov 2026"
    },
    "slug": "zengo",
    "features": {
@@ -22805,7 +22905,7 @@
    ],
    "volume": {
     "figure": "~$220M",
-    "metric": "cumulative volume · 2025",
+    "metric": "cumulative volume, 2025",
     "source": "company PR"
    },
    "slug": "payy",
@@ -23053,9 +23153,9 @@
     }
    ],
    "volume": {
-    "figure": "$55.4M",
-    "metric": "annual card spend · 2025 · top Dune cohort",
-    "source": "ChainUp/Dune"
+    "figure": "$127.4M",
+    "metric": "card spend · 30 days to 30 Sep 2026 · over $800M cumulative by Sep 2026",
+    "source": "Crypto Briefing"
    },
    "slug": "etherfi-cash",
    "features": {
@@ -24550,9 +24650,9 @@
     "Philippines"
    ],
    "reported_users": {
-    "value_millions": 10,
+    "value_millions": 18,
     "metric": "wallets",
-    "as_of": "2025"
+    "as_of": "Q2 2026"
    },
    "slug": "minipay",
    "features": {
@@ -27977,9 +28077,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 94,
-    "metric": "users",
-    "as_of": "2024"
+    "value_millions": 42.1,
+    "metric": "MAU",
+    "as_of": "Q3 2026"
+   },
+   "volume": {
+    "figure": "₱15.1T",
+    "metric": "nine months of 2026 · +23.1%",
+    "source": "DealStreetAsia"
    },
    "slug": "gcash",
    "features": {
@@ -28071,9 +28176,9 @@
     }
    ],
    "reported_users": {
-    "value_millions": 200,
-    "metric": "MAU",
-    "as_of": "2025"
+    "value_millions": 700,
+    "metric": "registered users",
+    "as_of": "Apr 2026"
    },
    "slug": "phonepe",
    "features": {

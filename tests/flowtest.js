@@ -201,7 +201,7 @@ ok(volCard.querySelectorAll('a').length>=12,'volume rows all have source links (
 ok(d.querySelector('.curve')!==null,'stablecoin curve chart rendered');
 ok(d.querySelector('table.heat')!==null,'region×category matrix rendered');
 const usersCard=[...d.querySelectorAll('#datasec .dcard2')][0];
-ok(usersCard.textContent.includes('139M'),'Nubank users refreshed to 139M');
+ok(usersCard.textContent.includes('143M'),'Nubank users refreshed to 143M');
 // heat cell click filters
 const cell=d.querySelector('.heat td[data-hm="AF|W"]');
 click(cell);
@@ -277,7 +277,13 @@ ok(w.eval("document.querySelector('style').textContent.includes('.hbar .fl{displ
 const uc=[...d.querySelectorAll('#datasec .dcard2')][0];
 ok(uc.querySelector('.fl')!==null&&uc.querySelector('.fl').style.width.includes('%'),'user bars have width fills');
 ok(!uc.textContent.includes('· 20'),'labels use compact format (no truncating dots)');
-ok(uc.querySelector('.chsrc')!==null&&uc.querySelector('.chsrc a')!==null,'users chart has linked sources');
+ok(uc.querySelectorAll('.hbar .usrc[href^="https://"]').length>=uc.querySelectorAll('.hbar').length-2,'users chart links a source on nearly every bar ('+uc.querySelectorAll('.hbar .usrc').length+' of '+uc.querySelectorAll('.hbar').length+')');
+{
+  const stamped=[...d.querySelectorAll('#datasec .dcard2')].filter(c=>!c.querySelector('.chupd')).map(c=>c.querySelector('h2').textContent);
+  ok(stamped.length===0,'every chart says when it was last checked'+(stamped.length?' (missing: '+stamped.join(', ')+')':''));
+  const bad=[...d.querySelectorAll('#datasec .voltable a')].filter(a=>/news\.google\.com|edgar\/search/.test(a.href)).length;
+  ok(bad===0,'volume watch links documents, not search results');
+}
 // wave chart v2
 const wc=[...d.querySelectorAll('#datasec .dcard2')][1];
 ok(wc.querySelectorAll('.wcol').length===18,'wave has 18 columns');

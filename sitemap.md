@@ -1,6 +1,6 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-11-15.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-11-16.
 
 ## Main
 
@@ -485,7 +485,7 @@
 - [Juni](https://www.neobankbeat.com/n/juni/)
 - [Chase Germany](https://www.neobankbeat.com/n/chase-germany/)
 
-## Comparisons (167)
+## Comparisons (185)
 
 - [Chime vs Current](https://www.neobankbeat.com/vs/chime-vs-current/)
 - [Chime vs Varo](https://www.neobankbeat.com/vs/chime-vs-varo/)
@@ -552,10 +552,30 @@
 - [Step vs Greenlight](https://www.neobankbeat.com/vs/step-vs-greenlight/)
 - [Found vs Lili](https://www.neobankbeat.com/vs/found-vs-lili/)
 - [Hnry vs Found](https://www.neobankbeat.com/vs/hnry-vs-found/)
+- [Trust Wallet vs Phantom](https://www.neobankbeat.com/vs/trust-wallet-vs-phantom/)
 - [Nubank vs PicPay](https://www.neobankbeat.com/vs/nubank-vs-picpay/)
+- [Klarna vs T-Bank](https://www.neobankbeat.com/vs/klarna-vs-t-bank/)
+- [Klarna vs bunq](https://www.neobankbeat.com/vs/klarna-vs-bunq/)
+- [Klarna vs Monzo](https://www.neobankbeat.com/vs/klarna-vs-monzo/)
+- [Klarna vs Monobank](https://www.neobankbeat.com/vs/klarna-vs-monobank/)
+- [Klarna vs Starling Bank](https://www.neobankbeat.com/vs/klarna-vs-starling-bank/)
+- [Mercado Pago vs Bitso](https://www.neobankbeat.com/vs/mercado-pago-vs-bitso/)
 - [PicPay vs Banco Inter](https://www.neobankbeat.com/vs/picpay-vs-banco-inter/)
+- [PicPay vs C6 Bank](https://www.neobankbeat.com/vs/picpay-vs-c6-bank/)
+- [PicPay vs Neon](https://www.neobankbeat.com/vs/picpay-vs-neon/)
+- [T-Bank vs bunq](https://www.neobankbeat.com/vs/t-bank-vs-bunq/)
+- [T-Bank vs N26](https://www.neobankbeat.com/vs/t-bank-vs-n26/)
+- [Banco Inter vs C6 Bank](https://www.neobankbeat.com/vs/banco-inter-vs-c6-bank/)
 - [Banco Inter vs PagBank](https://www.neobankbeat.com/vs/banco-inter-vs-pagbank/)
+- [Banco Inter vs Neon](https://www.neobankbeat.com/vs/banco-inter-vs-neon/)
+- [C6 Bank vs PagBank](https://www.neobankbeat.com/vs/c6-bank-vs-pagbank/)
+- [C6 Bank vs Neon](https://www.neobankbeat.com/vs/c6-bank-vs-neon/)
 - [PalmPay vs TymeBank](https://www.neobankbeat.com/vs/palmpay-vs-tymebank/)
+- [PagBank vs Neon](https://www.neobankbeat.com/vs/pagbank-vs-neon/)
+- [PagBank vs Ualá](https://www.neobankbeat.com/vs/pagbank-vs-uala/)
+- [Nequi vs Ualá](https://www.neobankbeat.com/vs/nequi-vs-uala/)
+- [bunq vs Monzo](https://www.neobankbeat.com/vs/bunq-vs-monzo/)
+- [SoFi vs Dave](https://www.neobankbeat.com/vs/sofi-vs-dave/)
 - [Phantom vs Zengo](https://www.neobankbeat.com/vs/phantom-vs-zengo/)
 - [Greenlight vs Till Financial](https://www.neobankbeat.com/vs/greenlight-vs-till-financial/)
 - [Mercury vs Ramp](https://www.neobankbeat.com/vs/mercury-vs-ramp/)
@@ -652,8 +672,6 @@
 - [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
 - [Aspire vs Ping An Digital Bank](https://www.neobankbeat.com/vs/aspire-vs-ping-an-digital-bank/)
 - [Dolafy vs Shield](https://www.neobankbeat.com/vs/dolafy-vs-shield/)
-- [Yolat vs Mukuru](https://www.neobankbeat.com/vs/yolat-vs-mukuru/)
-- [DNERO vs Mela](https://www.neobankbeat.com/vs/dnero-vs-mela/)
 
 ## Topic hubs (59)
 

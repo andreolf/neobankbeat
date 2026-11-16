@@ -6,7 +6,7 @@
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
 [![neobanks tracked](https://img.shields.io/badge/neobanks-397-89B0FF)](https://www.neobankbeat.com)
-[![tests](https://img.shields.io/badge/tests-320%20passing-BAF24A)](tests/flowtest.js)
+[![tests](https://img.shields.io/badge/tests-322%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
@@ -136,7 +136,7 @@ browse/             index of every ready-made cut of the dataset
 regulation/ kyc/ regions/ for/ cards/ countries/   46 generated topic hubs (one license,
                     KYC posture, card, region, country or audience each — filters as pages)
 tests/
-├── flowtest.js     320 assertion sites across 43 user flows (JSDOM)
+├── flowtest.js     322 assertion sites across 43 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from app.js
 ├── build-app-js.mjs keeps app.js and index.html's ?v= hash in step (--check)
 ├── homepage-js.mjs  the one place that knows where the homepage's JS lives
@@ -181,7 +181,7 @@ any drift, which is how 19 blog posts were caught with no link to `/data/` at al
 ### numbers written in prose
 
 Every count the site states in English — 397 neobanks, 23 FAQ answers, 219
-investors, 167 comparisons — is owned by `tests/sync-counts.mjs`, which anchors
+investors, 185 comparisons — is owned by `tests/sync-counts.mjs`, which anchors
 each claim by the words around it and rewrites only the digits. Before it existed
 the site simultaneously published three different dataset totals, three different
 FAQ answer counts, and claimed 60 comparisons when it had 140. Write prose freely;

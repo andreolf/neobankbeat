@@ -20,6 +20,16 @@
       "permanent": true
     },
     {
+      "source": "/vs/:slug(dnero-vs-mela|yolat-vs-mukuru)(.*)",
+      "destination": "/vs/",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(de|es|fr|it|pt)/vs/:slug(dnero-vs-mela|yolat-vs-mukuru)(.*)",
+      "destination": "/:lang/vs/",
+      "permanent": false
+    },
+    {
       "source": "/n/sling-money/",
       "destination": "/n/morse/",
       "permanent": true
