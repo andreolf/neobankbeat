@@ -1484,15 +1484,49 @@ function openDetail(name){
 }
 
 /* ── 6 · data section (l2beat-style) ── */
+/* Reported users. One row per company: [name, millions, metric, period, source label, source url].
+   Researched 16 November 2026. Metrics differ between companies (customers, monthly actives,
+   registered users, accounts) and are named as each company names them; never compare two rows
+   without reading the metric. A figure stays until a newer one for the SAME metric is published. */
+const USERS_ASOF="16 November 2026";
 const USERS=[
-["PhonePe",200,"MAU","2025"],["GCash",94,"users","2024"],
-["WeBank",400,"customers","2024"],["Nubank",100,"customers","Q1 2025"],["bKash",70,"users","2024"],
-["Mercado Pago",64,"MAU","2025"],["OPay",60,"users","2024"],["PicPay",58,"users","2024"],
-["Cash App",57,"MAU","2024"],["Revolut",50,"customers","2025"],["PalmPay",35,"users","2025"],
-["Banco Inter",35,"clients","2025"],["PagBank",32,"clients","2024"],["Maya",30,"users","2024"],
-["KakaoBank",23,"customers","2024"],["Chime",22,"members","2024"],["Nequi",20,"users","2024"],
-["Wise",16,"customers","2025"],["Phantom",15,"MAU","2025"],["Monzo",12,"customers","2025"],
-["TymeBank",10,"customers","2024"],["MiniPay",10,"wallets","2025"],["Zengo",2,"users","2026"]];
+["PhonePe",700,"registered users","Apr 2026","PhonePe","https://www.phonepe.com/press/phonepe-surpasses-700-million-registered-users-accelerates-growth-momentum/"],
+["WeBank",430,"customers served","2025","WeBank","https://www.aap.com.au/aapreleases/cision20260316ae10617"],
+["Trust Wallet",220,"users","2025","Trust Wallet","https://trustwallet.com/blog/company/trust-wallet-in-2025-year-end-wrap-up"],
+["Nubank",143,"customers","Q3 2026","Nu 3Q26 results","https://www.sec.gov/Archives/edgar/data/0001691493/000129281426005273/nupr3q26_6k.htm"],
+["Klarna",120,"active consumers","Q2 2026","Klarna Q2 2026","https://www.valuethemarkets.com/news/klarna-nyse-klar-reports-second-quarter-2026-results"],
+["Mercado Pago",93,"MAU","Q3 2026","MercadoLibre Q3 2026","https://www.diarioestrategia.cl/texto-diario/mostrar/6079866/ingresos-mercado-libre-alcanzan-us-1075-mil-millones-45-respecto-ano-anterior"],
+["bKash",80,"customers","May 2026","The Business Standard","https://www.tbsnews.net/economy/stocks/bkash-reports-tk184cr-profit-jan-mar-1438551"],
+["Revolut",80,"customers","Oct 2026","Reuters","https://www.businessday.co.za/world/international-companies/2026-10-04-revolut-is-now-europes-most-valuable-fintech-challenger/"],
+["PicPay",70.4,"accounts","Q2 2026","PicPay 2Q26 results","https://www.sec.gov/Archives/edgar/data/0001841644/000121390026093207/ea030310401ex99-2.htm"],
+["Cash App",60,"transacting actives","Q3 2026","Block Q3 2026","https://www.thestar.com.my/tech/tech-news/2026/11/04/block-raises-full-year-profit-outlook-as-cash-app-drives-q3-growth"],
+["T-Bank",54.9,"customers","Q1 2026","T-Technologies Q1 2026","https://quartr.com/events/international-public-joint-stock-company-t-technologies-tcs-q1-2026_ojssAn7v"],
+["Banco Inter",46.8,"clients","Q3 2026","Inter&Co 3Q26 results","https://www.sec.gov/Archives/edgar/data/1864163/000186416326000089/a1-interco3q26earningsre.htm"],
+["OPay",45,"users","May 2026","Nairametrics","https://nairametrics.com/2026/06/01/opay-hits-45-million-users-expands-merchant-network-to-over-1-million-nationwide/"],
+["GCash",42.1,"MAU","Q3 2026","Daily Tribune","https://tribune.net.ph/2026/11/10/mynt-posts-p165-b-profit-in-first-nine-months"],
+["C6 Bank",42,"clients","H1 2026","Let's Money","https://www.letsmoney.com.br/noticias/c6-bank-lucro-1-25-bi-primeiro-semestre-2026/"],
+["PalmPay",35,"users","Apr 2026","TechEconomy","https://techeconomy.ng/palmpay-hits-35m-users/"],
+["PagBank",34.1,"clients","Q2 2026","PagBank 2Q26 results","https://www.sec.gov/Archives/edgar/data/0001712807/000155485526001793/MainDocument.htm"],
+["Maya",30,"users","2024","",""],
+["KakaoBank",27.9,"customers","Q3 2026","Korea Herald","https://www.koreaherald.com/article/10925706"],
+["Neon",27,"clients","H1 2026","Finsiders Brasil","https://finsidersbrasil.com.br/noticias-sobre-fintechs/neon-tem-1o-semestre-mais-lucrativo-da-historia-c6-amplia-ganho-e-creditas-reduz-prejuizo/"],
+["Nequi",26,"clients","Aug 2025","La República","https://www.larepublica.co/finanzas/entrevista-a-andres-vasquez-ceo-de-nequi-4211528"],
+["Moniepoint",20,"customers","Jul 2026","TechAfrica News","https://techafricanews.com/2026/07/27/moniepoint-publishes-inaugural-impact-report-on-financial-inclusion-across-africa/"],
+["bunq",20,"users","Sep 2025","Finance Magnates","https://www.financemagnates.com/fintech/after-10-years-bunq-reaches-20-million-users-but-remains-far-behind-revolut/"],
+["Wise",19,"customers","FY26","Wise","https://owners.wise.com/"],
+["MiniPay",18,"wallets","Q2 2026","Opera Q2 2026","https://pulse2.com/opera-net-income-jumps-76-as-arpu-rises-25-and-minipay-wallets-reach-18-million-while-free-cash-flow-falls-42/amp/"],
+["SoFi",17.1,"members","Q3 2026","SoFi Q3 2026 results","https://www.sec.gov/Archives/edgar/data/0001818874/000181887426000065/a2026q3earningsrelease.htm"],
+["Monzo",16,"customers","Jul 2026","East & Partners","https://eastandpartners.com/news/monzo-business-surpasses-one-million-customers-as-digital-banking-demand-continues-to-rise/"],
+["Phantom",15,"MAU","Jan 2025","Phantom Series C","https://startupfortune.com/phantom-turns-five-as-crypto-wallets-become-cryptos-consumer-front-door/"],
+["TymeBank",13,"customers","May 2026","TechCentral","https://techcentral.co.za/gotyme-braces-for-customer-churn-as-it-forces-app-migration/281461/"],
+["Ualá",11,"customers","Mar 2026","The Paypers","https://thepaypers.com/payments/news/uala-closes-usd-195-million-financing-round-led-by-allianz-x"],
+["Monobank",11,"clients","Aug 2026","borg.expert","https://borgexpert.com/news/novyj-rekord-monobank-kilkist-kliientiv-perevyshchyla-11-mln"],
+["Chime",10.9,"active members","Q3 2026","Chime Q3 2026 results","https://www.sec.gov/Archives/edgar/data/0001795586/000179558626000052/ex991q326.htm"],
+["Bitso",10,"customers","Apr 2026","DPL News","https://dplnews.com/bitso-12-anos-10-millones-usuarios/"],
+["Starling Bank",6.2,"accounts","Mar 2026","Starling","https://starlingbank.com/news/starling-delivers-fifth-year-of-profitability-and-accelerates-global-growth-strategy"],
+["N26",5.6,"revenue-relevant customers","2025","N26","https://n26.com/en-eu/press/press-release/n26-delivers-over-500m-euro-revenue-and-350m-euro-gross-profit-in-2025-hitting-first-full-year-of-net-profitability"],
+["Dave",3.15,"transacting members","Q3 2026","Dave Q3 2026","https://finviz.com/news/415993/dave-reports-third-quarter-2026-financial-results"],
+["Zengo",2,"users","Nov 2026","Crypto Briefing","https://cryptobriefing.com/avalanche-zengo-integration-2m-users/"]];
 const VOL=[
 ["Wise","£118B","cross-border volume, FY2024","annual report"],
 ["Mercado Pago","~$200B/yr","TPV run-rate, 2025","MELI filings"],
@@ -2038,7 +2072,7 @@ render();
 
 /* ── data refresh from filings & research ── */
 (function refreshData(){
-  const upd={"Nubank":[139,"customers","Q2 2026"],"Mercado Pago":[78,"MAU","2025"],"Cash App":[59,"transacting actives","2025"],"Wise":[19,"customers","FY26"]};
+  const upd={}; /* figures now live in USERS, one place */
   USERS.forEach(u=>{if(upd[u[0]]){u[1]=upd[u[0]][0];u[2]=upd[u[0]][1];u[3]=upd[u[0]][2]}});
   USERS.sort((a,b)=>b[1]-a[1]);
   Object.entries(upd).forEach(([n,[v,m,y]])=>{if(USERMAP[n]){USERMAP[n].v=v;USERMAP[n].metric=m;USERMAP[n].yr=y}});
@@ -2055,20 +2089,48 @@ render();
 })();
 
 /* ── researched volume table (with real source links) ── */
-const VOL2=[
-["Cash App","$316B","inflows · FY2025","Block 10-K","https://www.stocktitan.net/sec-filings/XYZ/10-k-block-inc-files-annual-report-97739237536a.html",316],
-["Mercado Pago","$278B","TPV · FY2025 · +41%","MELI results","https://www.businesswire.com/news/home/20260224265595/en/Mercado-Libre-Caps-Stellar-2025-Performance-with-45-YoY-Revenue-Growth-in-Q4-as-Strategic-Investments-Accelerate-Market-Share-Gains",278],
-["Wise","$243.5B","cross-border volume · FY2026 · +31%","FY26 results","https://owners.wise.com/",243.5],
-["OPay","~$100B+","TPV · 2024","company PRs","https://news.google.com/search?q=OPay%20TPV",100],
-["PagBank","~R$500B (~$93B)","TPV · 2024","PAGS filings","https://www.sec.gov/edgar/search/#/q=%22PagBank%22",93],
-["Kaspi","KZT 44.2T (~$85B)","payments TPV · FY2025 · +19%","Kaspi 4Q/FY25","https://ir.kaspi.kz/media/4Q__FY_2025_Financial_Results_.pdf",85],
-["Wise (card)","$43.6B","card spend · FY2026 · +37%","FY26 results","https://owners.wise.com/",43.6],
-["Nubank","$41.9B","deposits · Q4 2025","Nu FY25 results","https://international.nubank.com.br/company/nu-holdings-ltd-reports-fourth-quarter-and-full-year-2025-financial-results/",41.9],
-["Crypto-card market","~$18B","annualized card spend · late 2025 · 106% CAGR","Artemis","https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how",18],
-["Visa stablecoin-linked cards","~$5.2B","volume · 2025 · +319%","Visa","https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement",5.2],
-["RedotPay","$2.95B","card volume · 2025 · >4x next 13 combined","CoinDesk/StraitsX","https://www.coindesk.com/business/2026/03/29/stablecoin-payments-go-invisible-in-southeast-asia-as-crypto-card-business-surges",2.95],
-["Payy","~$220M","cumulative volume · 2025","company PR","https://news.google.com/search?q=Payy%20stablecoin%20volume",0.22],
-["EtherFi Cash","$55.4M","annual card spend · 2025 · top Dune cohort","ChainUp/Dune","https://www.chainup.com/blog/stablecoin-real-world-payments-visa-crypto-card-boom-2026/",0.055]];
+/* Volume watch. Researched 16 November 2026. Three groups, because payment volume, money held
+   and crypto-card spend are different things and were being sorted against each other.
+   Row: [name, last full year, latest reported, [[source label, url], …]]. "" = not published.
+   Figures stay in the currency reported; a USD value appears only where the source gives one.
+   Nothing here is summed or annualized by us. */
+const VOL_ASOF="16 November 2026";
+const SEC="https://www.sec.gov/Archives/edgar/data/";
+const VOL_PAY=[
+["Revolut","$1.7T · total transaction volume · 2025 · +65%","",[["Revolut 2025 results","https://www.fintechaustralia.org.au/community-news/revolut-reports-record-profit-of-usd23bn-for-2025-as-revenue-surges-to-usd6bn"]]],
+["OPay","$358B · transactions processed · 2025 · +115% · as reported from an IPO document","",[["Nairametrics","https://nairametrics.com/2026/08/13/opay-transactions-more-than-double-to-358-billion-as-ipo-nears/"]]],
+["Cash App","$316B · inflows · FY2025","$86B · Q3 2026 · +10%",[["Block Q3 2026 letter",SEC+"1512673/000162828026069513/q32026shareholderletter.htm"]]],
+["Mercado Pago","$278B · TPV · FY2025 · +41%","$109B · Q3 2026 · +53% · $297B in nine months",[["MercadoLibre Q3 2026",SEC+"0001099590/000109959026000027/meli-20260930xex991.htm"]]],
+["Moniepoint","₦412T · transactions processed · 2025","",[["Nairametrics","https://nairametrics.com/2026/01/30/moniepoint-mfb-processes-n412trn-transactions-in-2025-disburses-n1trn-loans"]]],
+["GCash","₱17.0T · payment transaction value · FY2025","₱15.1T · nine months of 2026 · +23.1%",[["Mynt","https://mynt.com.ph/newsroom/gcash-parent-mynt-submits-sec-registration-statement-pse-listing-application-for-proposed-ipo"],["DealStreetAsia","https://www.dealstreetasia.com/?p=500595"]]],
+["Wise","$243.5B · cross-border volume · FY2026 · +31%","$141.0B · half-year to Sep 2026 · +24%",[["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
+["PagBank","R$530.5B · TPV · FY2025 · +2.3%","R$133.4B · acquiring TPV · Q2 2026 · +3%",[["PagBank 4Q25",SEC+"1712807/000155485526000187/MainDocument.htm"],["PagBank 2Q26","https://www.prnewswire.com/news-releases/pagbank-reports-recurring-net-income-of-r-576-million-in-2q26-with-continued-progress-across-its-ecosystem-302848960.html"]]],
+["Kaspi","KZT 44.2T (~$85B) · payments TPV · FY2025 · +19%","KZT 13.6T ($30.8B) · Q3 2026 · +14%",[["Kaspi FY25","https://ir.kaspi.kz/media/4Q__FY_2025_Financial_Results_.pdf"],["Kaspi 3Q26","https://finviz.com/news/418943/kaspikz-3q-9m-2026-financial-results"]]],
+["Banco Inter","","R$483B · cards + Pix · Q3 2026",[["Inter&Co 3Q26",SEC+"1864163/000186416326000089/a1-interco3q26earningsre.htm"]]],
+["PicPay","","R$167.6B · TPV · Q2 2026 · +27%",[["PicPay Q2 2026","https://finviz.com/news/385014/picpay-announces-second-quarter-2026-results"]]],
+["Nubank","","$44.2B · purchase volume · Q3 2026 · +14%",[["Nu 3Q26",SEC+"0001691493/000129281426005273/nupr3q26_6k.htm"]]],
+["Wise (card)","$43.6B · card spend · FY2026 · +37%","$27.2B · half-year to Sep 2026 · +33%",[["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
+["Chime","","$38.5B · purchase volume · Q3 2026 · +19%",[["Chime Q3 2026",SEC+"0001795586/000179558626000052/ex991q326.htm"]]],
+["Klarna","","$36.6B · GMV · Q2 2026 · +18%",[["Klarna Q2 2026","https://www.valuethemarkets.com/news/klarna-nyse-klar-reports-second-quarter-2026-results"]]]];
+const VOL_HELD=[
+["KakaoBank","₩71.81T · deposits · end of Q3 2026",[["Herald","https://biz.heraldcorp.com/article/10924877"]]],
+["Revolut","$67.5B · customer balances · end of 2025 · +66%",[["Revolut 2025 results","https://www.fintechaustralia.org.au/community-news/revolut-reports-record-profit-of-usd23bn-for-2025-as-revenue-surges-to-usd6bn"]]],
+["SoFi","$51.3B · deposits · 30 Sep 2026",[["SoFi Q3 2026",SEC+"0001818874/000181887426000065/a2026q3earningsrelease.htm"]]],
+["Nubank","$47.5B · deposits · Q3 2026 · +19%",[["Nu 3Q26",SEC+"0001691493/000129281426005273/nupr3q26_6k.htm"]]],
+["Wise","$43.5B · customer holdings · 30 Sep 2026 · +28%",[["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
+["Monzo","£25.7bn · deposits · FY2026 · +55%",[["Monzo annual report 2026","https://monzo.com/annual-report/2026"]]],
+["Banco Inter","R$81B · deposits · Q3 2026 · +19%",[["Inter&Co 3Q26",SEC+"1864163/000186416326000089/a1-interco3q26earningsre.htm"]]],
+["Starling Bank","£12.7bn · customer deposits · March 2026",[["Starling","https://starlingbank.com/news/starling-delivers-fifth-year-of-profitability-and-accelerates-global-growth-strategy"]]]];
+const VOL_CARD=[
+["Crypto-card market","~$18B · annualized card spend · late 2025 · Artemis estimate","~$1.17B in September 2026 · $10.9B cumulative by 25 Aug 2026 · Paymentscan",[["Artemis","https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how"],["CryptoSlate","https://cryptoslate.com/stablecoin-cards-enter-hyper-growth-mode-as-monthly-spending-hits-record-1-17-billion/"],["crypto.news","https://crypto.news/stablecoin-card-spending-crosses-10-9b/"]]],
+["Visa stablecoin-linked cards","~$5.2B · volume · 2025 · +319%","225+ programs · volume +150% · 5M cards · quarter to Sep 2026 (no dollar figure published)",[["Visa","https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement"],["Visa Q4 FY26 call","https://www.webull.com/news/15822495508279296"]]],
+["RedotPay","$2.95B · card volume · 2025","$401.9M · card spend · 30 days to 30 Sep 2026",[["CoinDesk/StraitsX","https://www.coindesk.com/business/2026/03/29/stablecoin-payments-go-invisible-in-southeast-asia-as-crypto-card-business-surges"],["CryptoSlate","https://cryptoslate.com/stablecoin-cards-enter-hyper-growth-mode-as-monthly-spending-hits-record-1-17-billion/"]]],
+["EtherFi Cash","","$127.4M · card spend · 30 days to 30 Sep 2026 · over $800M cumulative by Sep 2026",[["CryptoSlate","https://cryptoslate.com/stablecoin-cards-enter-hyper-growth-mode-as-monthly-spending-hits-record-1-17-billion/"],["Crypto Briefing","https://cryptobriefing.com/ether-fi-cash-exceeds-800m-spend/"]]]];
+/* the profile tile and data.json show one figure per company: the freshest payment or card figure */
+const VOL2=[...VOL_PAY,...VOL_CARD].filter(r=>!/ \(card\)$/.test(r[0])).map(([n,fy,latest,src])=>{
+  const parts=(latest||fy).split(' · ');
+  return [n,parts[0],parts.slice(1).join(' · '),src[src.length-1][0],src[src.length-1][1]];
+});
 /* patch profile volume tiles */
 VOL2.forEach(([n,fig,metric,src,url])=>{VOLMAP[n]={fig,metric,src}});
 
@@ -2084,12 +2146,18 @@ VOL2.forEach(([n,fig,metric,src,url])=>{VOLMAP[n]={fig,metric,src}});
       return '<div class="hbar"><span class="nm" data-n="'+esc(n)+'">'+esc(n)+'</span><span class="tr"><span class="fl" style="width:'+w+'%;background:'+catColor[catOf(n)]+'"></span></span><span class="vl">'+v+'M · '+metric+' · '+yr+'</span></div>';
     }).join("");
   /* 2 · rebuild volume watch with researched, linked figures */
-  const volRows=VOL2.map(([n,fig,metric,src,url])=>{
-    const inD=D.some(r=>r[0]===n.replace(' (card)',''));
-    const nameCell=inD?'<td data-n="'+esc(n.replace(' (card)',''))+'">'+esc(n)+'</td>':'<td style="cursor:default">'+esc(n)+'</td>';
-    return '<tr>'+nameCell+'<td>'+esc(fig)+'</td><td>'+esc(metric)+'</td><td><a href="'+url+'" target="_blank" rel="noopener">'+esc(src)+' ↗</a></td></tr>';
-  }).join("");
-  cards[2].innerHTML='<h2>volume watch · researched july 2026</h2><div class="dsub">payment &amp; money volumes with a citable public source · mixed metrics and periods · every figure links to its source</div><div style="overflow-x:auto"><table class="voltable"><tr><th>entity</th><th>figure</th><th>metric · period</th><th>source</th></tr>'+volRows+'</table></div>';
+  const srcLinks=src=>src.map(([l,u])=>'<a href="'+u+'" target="_blank" rel="noopener">'+esc(l)+' ↗</a>').join(' · ');
+  const nameCell=n=>{const base=n.replace(' (card)','');return D.some(r=>r[0]===base)?'<td data-n="'+esc(base)+'">'+esc(n)+'</td>':'<td style="cursor:default">'+esc(n)+'</td>'};
+  const dash='<span style="color:var(--dim)" title="no figure collected for this column">—</span>';
+  const two=rows=>rows.map(([n,fy,latest,src])=>'<tr>'+nameCell(n)+'<td>'+(fy?esc(fy):dash)+'</td><td>'+(latest?esc(latest):dash)+'</td><td>'+srcLinks(src)+'</td></tr>').join("");
+  const one=rows=>rows.map(([n,fig,src])=>'<tr>'+nameCell(n)+'<td>'+esc(fig)+'</td><td>'+srcLinks(src)+'</td></tr>').join("");
+  const tbl=(head,body)=>'<div style="overflow-x:auto"><table class="voltable"><tr>'+head.map(h=>'<th>'+h+'</th>').join("")+'</tr>'+body+'</table></div>';
+  cards[2].innerHTML='<h2>volume watch</h2><div class="dsub">money moved and money held, each figure linked to the document it comes from · currencies as reported · a quarter is never set against a year: the two columns keep them apart</div>'+
+    '<h3 class="volh">payment volume</h3>'+tbl(['entity','last full year','latest reported','source'],two(VOL_PAY))+
+    '<h3 class="volh">deposits and balances</h3>'+tbl(['entity','figure · as of','source'],one(VOL_HELD))+
+    '<h3 class="volh">crypto cards</h3>'+tbl(['entity','last full year','latest reported','source'],two(VOL_CARD))+
+    '<div class="chsrc">not yet published when this was researched: PagBank Q3 2026, Klarna Q3 2026, PicPay Q3 2026. Removed: Payy, for which no citable 2026 figure exists, and EtherFi Cash\'s 2025 figure, whose source page is gone.</div>'+
+    '<div class="chupd">researched '+VOL_ASOF+'</div>';
   /* re-wire profile clicks */
   document.querySelectorAll('#datasec [data-n]').forEach(el=>el.addEventListener('click',()=>openDetail(el.dataset.n)));
 
@@ -2534,12 +2602,14 @@ render();
 
   /* 1 · reported users: compact uncut labels + linked sources */
   const max=Math.sqrt(Math.max(...USERS.map(u=>u[1])));
-  cards[0].innerHTML='<h2>reported users</h2><div class="dsub">latest public figures · mixed metrics · square-root scale · click a name for its profile</div>'+
-    USERS.map(([n,v,metric,yr])=>{
+  cards[0].innerHTML='<h2>reported users</h2><div class="dsub">latest public figure per company · the metric is the company\'s own word for it, so read it before comparing two bars · square-root scale · click a name for its profile, or ↗ for the source</div>'+
+    USERS.map(([n,v,metric,yr,sl,su])=>{
       const w=(Math.sqrt(v)/max*100).toFixed(1);
-      return '<div class="hbar"><span class="nm" data-n="'+esc(n)+'">'+esc(n)+'</span><span class="tr"><span class="fl" style="width:'+w+'%;background:'+catColor[catOf(n)]+'"></span></span><span class="vl">'+v+'M '+esc(shortM(metric))+' '+esc(shortY(yr))+'</span></div>';
+      const src=su?' <a class="usrc" href="'+su+'" target="_blank" rel="noopener" title="source: '+esc(sl)+'" aria-label="source for '+esc(n)+': '+esc(sl)+'">↗</a>':'';
+      return '<div class="hbar"><span class="nm" data-n="'+esc(n)+'">'+esc(n)+'</span><span class="tr"><span class="fl" style="width:'+w+'%;background:'+catColor[catOf(n)]+'"></span></span><span class="vl">'+v+'M '+esc(shortM(metric))+' '+esc(shortY(yr))+src+'</span></div>';
     }).join("")+
-    '<div class="chsrc">sources: <a href="https://international.nubank.com.br/company/nu-holdings-ltd-reports-fourth-quarter-and-full-year-2025-financial-results/" target="_blank" rel="noopener">Nu FY25 results</a> · <a href="https://www.businesswire.com/news/home/20260224265595/en/Mercado-Libre-Caps-Stellar-2025-Performance-with-45-YoY-Revenue-Growth-in-Q4-as-Strategic-Investments-Accelerate-Market-Share-Gains" target="_blank" rel="noopener">MELI FY25</a> · <a href="https://www.stocktitan.net/sec-filings/XYZ/10-k-block-inc-files-annual-report-97739237536a.html" target="_blank" rel="noopener">Block 10-K</a> · <a href="https://owners.wise.com/" target="_blank" rel="noopener">Wise FY26</a> · company PRs — full trail per entity in its profile</div>';
+    '<div class="chsrc">'+USERS.filter(u=>/2026/.test(u[3])||u[3]==="FY26").length+' of '+USERS.length+' figures are from 2026. Older ones stay because the company has published nothing newer for the same metric. Several changed metric in this update because the company reports a narrower one: Chime now reports active members, GCash monthly actives, PhonePe registered users.</div>'+
+    '<div class="chupd">researched '+USERS_ASOF+'</div>';
 
   /* 2 · founding wave: rebuilt with zero-year stubs, clickable year splits, sources */
   const years=["<2010"];for(let y=2010;y<=2026;y++)years.push(String(y));
@@ -2560,7 +2630,7 @@ render();
     }).join("")+'</div>'+
     '<div class="wlbls">'+buckets.map(b=>'<span>'+(b.y==="<2010"?"pre-’10":"’"+b.y.slice(2))+'</span>').join("")+'</div>'+
     '<div id="wvsplit"><span class="hint">click a year column to see its category split</span></div>'+
-    '<div class="chsrc">source: computed live from the neobankbeat dataset ('+D.length+' verified-active entities; founding years from filings &amp; company pages). years with no tracked launches show a baseline tick — e.g. 2010 sits in the quiet gap between the first challenger wave and the mobile-first boom.</div>';
+    '<div class="chsrc">source: computed live from the neobankbeat dataset ('+D.length+' verified-active entities; founding years from filings &amp; company pages). years with no tracked launches show a baseline tick — e.g. 2010 sits in the quiet gap between the first challenger wave and the mobile-first boom.</div><div class="chupd">computed from the live dataset each time the page loads</div>';
   cards[1].querySelectorAll('.wcol').forEach(col=>col.addEventListener('click',()=>{
     cards[1].querySelectorAll('.wcol').forEach(c=>c.classList.remove('on'));
     col.classList.add('on');
@@ -2576,12 +2646,12 @@ render();
   const curveCard=[...document.querySelectorAll('#datasec .dcard2')].find(c=>c.textContent.includes('stablecoin card curve'));
   if(curveCard){
     const ds=curveCard.querySelector('.dsub');
-    if(ds)ds.innerHTML='monthly crypto-card volume, $B — from ~$100M/mo (early 2023) to ~$1.5B/mo (late 2025), 106% CAGR · approximated curve';
-    curveCard.insertAdjacentHTML('beforeend','<div class="chsrc">sources: <a href="https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how" target="_blank" rel="noopener">Artemis — Stablecoin Payments at Scale</a> · <a href="https://www.coindesk.com/business/2026/01/16/crypto-card-spending-hits-usd18-billion-annualized-as-stablecoin-use-shifts-to-everyday-payments" target="_blank" rel="noopener">CoinDesk, Jan 2026</a> · <a href="https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement" target="_blank" rel="noopener">Visa stablecoin-linked cards</a></div>');
+    if(ds)ds.innerHTML='monthly crypto-card volume, $B, 2023 to 2025 — from ~$100M/mo to ~$1.5B/mo, 106% CAGR · Artemis total-market estimate, approximated curve · Artemis has not extended this series into 2026';
+    curveCard.insertAdjacentHTML('beforeend','<div class="chsrc">sources: <a href="https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how" target="_blank" rel="noopener">Artemis — Stablecoin Payments at Scale</a> · <a href="https://www.coindesk.com/business/2026/01/16/crypto-card-spending-hits-usd18-billion-annualized-as-stablecoin-use-shifts-to-everyday-payments" target="_blank" rel="noopener">CoinDesk, Jan 2026</a> · <a href="https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement" target="_blank" rel="noopener">Visa stablecoin-linked cards</a></div><div class="chupd">series ends Q4 2025 · 2026 months are in "crypto card spend · 2026 so far" below</div>');
   }
   /* 4 · heat matrix: source line */
   const heatCard=[...document.querySelectorAll('#datasec .dcard2')].find(c=>c.querySelector('table.heat'));
-  if(heatCard)heatCard.insertAdjacentHTML('beforeend','<div class="chsrc">source: computed live from the neobankbeat dataset · multi-country players counted in every region they operate (verified countries of operation).</div>');
+  if(heatCard)heatCard.insertAdjacentHTML('beforeend','<div class="chsrc">source: computed live from the neobankbeat dataset · multi-country players counted in every region they operate (verified countries of operation).</div><div class="chupd">computed from the live dataset each time the page loads</div>');
 })();
 
 /* ── library: best neobank reports + full-URL resources, footer-linked ── */
@@ -2628,26 +2698,31 @@ render();
   const ds=document.getElementById('datasec');
   /* a · the neobank paradox — Simon-Kucher */
   ds.insertAdjacentHTML('beforeend','<div class="dcard2"><h2>the neobank paradox</h2><div class="dsub">massive adoption, thin economics — the core tension of the category</div>'+
-    '<div class="paradox"><div class="pxstat"><div class="pn">1.4B</div><div class="pl">accounts held at neobanks worldwide</div></div>'+
-    '<div class="pxstat"><div class="pn">~40%</div><div class="pl">of new account openings now go to neobanks</div></div>'+
-    '<div class="pxstat"><div class="pn">~5%</div><div class="pl">of the banking revenue pool actually captured</div></div></div>'+
-    '<div class="chsrc">source: <a href="https://www.simon-kucher.com/en/insights/new-economics-neobanking" target="_blank" rel="noopener">Simon-Kucher — The New Economics of Neobanking</a> · onboarding is the moat; monetization is the war.</div></div>');
+    '<div class="paradox"><div class="pxstat"><div class="pn">39%</div><div class="pl">of new banking relationships worldwide go to neobanks</div></div>'+
+    '<div class="pxstat"><div class="pn">19%</div><div class="pl">of all accounts are held at neobanks</div></div>'+
+    '<div class="pxstat"><div class="pn">~5%</div><div class="pl">of global retail banking revenue actually captured</div></div></div>'+
+    '<div class="chsrc">source: <a href="https://www.simon-kucher.com/node/9297" target="_blank" rel="noopener">Simon-Kucher — Global Neobanking Study 2026</a> (300+ neobanks, 16 markets) · onboarding is the moat; monetization is the war. Fintech as a whole passed $500B in revenue in 2025, up 22%, about 4% of the financial services pool (<a href="https://www.bcg.com/press/1june2026-global-fintech-revenues-surpass-half-trillion-dollars" target="_blank" rel="noopener">BCG, June 2026</a>).</div><div class="chupd">2026 edition, published April 2026</div></div>');
   /* b · getting the world banked — Findex */
   const FDX=[["2011",51],["2014",62],["2017",69],["2021",76],["2025",79]];
   ds.insertAdjacentHTML('beforeend','<div class="dcard2"><h2>getting the world banked</h2><div class="dsub">share of adults worldwide with a financial account — the frontier every inclusion-first neobank in this directory is chasing</div>'+
     '<div class="fdx">'+FDX.map(([y,v])=>'<div class="fcol"><div class="fv">'+v+'%</div><div class="fbar" style="height:'+(v/79*120).toFixed(0)+'px"></div><div class="fy">'+y+'</div></div>').join("")+'</div>'+
-    '<div class="chsrc">≈1.3B adults still unbanked in 2025 — mobile money and super-app wallets are closing the gap fastest. source: <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">World Bank — Global Findex Database 2025</a></div></div>');
+    '<div class="chsrc">≈1.3B adults still unbanked in 2025 — mobile money and super-app wallets are closing the gap fastest. source: <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener">World Bank — Global Findex Database 2025</a></div><div class="chupd">2025 edition, still the latest · checked 16 November 2026</div></div>');
   /* c · stablecoin supply, the 2030 question — Citi GPS */
-  const PROJ=[["early 2026",0.32,"var(--w)","~$0.32T today"],["2030 · base",1.9,"var(--t)","$1.9T Citi base case"],["2030 · bull",4,"var(--h)","$4T Citi bull case"]];
-  ds.insertAdjacentHTML('beforeend','<div class="dcard2"><h2>stablecoin supply · the 2030 question</h2><div class="dsub">from ~$317B outstanding today to Citi\'s trillion-dollar scenarios — the deposit base web3-native banks are built on</div>'+
+  const PROJ=[["16 Nov 2026",0.289,"var(--w)","$0.289T today"],["2030 · base",1.9,"var(--t)","$1.9T Citi base case"],["2030 · Standard Chartered",2,"var(--accent)","$2T Standard Chartered"],["2030 · bull",4,"var(--h)","$4T Citi bull case"]];
+  ds.insertAdjacentHTML('beforeend','<div class="dcard2"><h2>stablecoin supply · the 2030 question</h2><div class="dsub">$289B outstanding today, down from a $314B peak in May 2026, against the banks\' trillion-dollar scenarios for 2030 — the deposit base web3-native banks are built on</div>'+
     '<div class="proj">'+PROJ.map(([l,v,c,cap])=>'<div class="fcol"><div class="fv">'+cap+'</div><div class="fbar" style="height:'+(v/4*130).toFixed(0)+'px;background:'+c+'"></div><div class="fy">'+l+'</div></div>').join("")+'</div>'+
-    '<div class="chsrc">source: <a href="https://www.citigroup.com/rcs/citigpa/storage/public/GPS_Report_Stablecoins_2030.pdf" target="_blank" rel="noopener">Citi GPS — Stablecoins 2030 (direct PDF)</a> · supply figure early 2026, market data.</div></div>');
+    '<div class="chsrc">source: <a href="https://www.citigroup.com/rcs/citigpa/storage/public/GPS_Report_Stablecoins_2030.pdf" target="_blank" rel="noopener">Citi GPS — Stablecoins 2030 (direct PDF)</a> · <a href="https://theblock.co/news/web3/2026-10-14-standard-chartered-stablecoin-market-report-418578" target="_blank" rel="noopener">Standard Chartered, Oct 2026</a>, which moved its $2T forecast from 2028 to 2030 · supply from <a href="https://defillama.com/stablecoins" target="_blank" rel="noopener">DefiLlama</a>, read 16 November 2026.</div><div class="chupd">supply read 16 November 2026</div></div>');
   /* d · how stablecoins get spent — Artemis */
   const CMP=[["P2P stablecoin transfers",19,"var(--h)","$19B ann. · +5% growth"],["crypto-card spend (total market)",18,"var(--w)","$18B ann. · 106% CAGR"],["of which Visa stablecoin-linked",5.2,"var(--t)","$5.2B 2025 · +319%"],["of which RedotPay",2.95,"var(--accent)","$2.95B 2025"]];
   const mx=Math.max(...CMP.map(c=>c[1]));
   ds.insertAdjacentHTML('beforeend','<div class="dcard2 cmp"><h2>how stablecoins get spent · 2025</h2><div class="dsub">cards have caught peer-to-peer — the quiet flip in stablecoin usage</div>'+
     CMP.map(([l,v,c,cap])=>'<div class="hbar"><span class="nm" style="cursor:default">'+esc(l)+'</span><span class="tr"><span class="fl" style="width:'+(v/mx*100).toFixed(1)+'%;background:'+c+'"></span></span><span class="vl">'+esc(cap)+'</span></div>').join("")+
-    '<div class="chsrc">sources: <a href="https://reports.artemisanalytics.com/stablecoins/artemis-stablecoin-payments-from-the-ground-up-2025.pdf" target="_blank" rel="noopener">Artemis (direct PDF)</a> · <a href="https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement" target="_blank" rel="noopener">Visa</a> · <a href="https://www.coindesk.com/business/2026/03/29/stablecoin-payments-go-invisible-in-southeast-asia-as-crypto-card-business-surges" target="_blank" rel="noopener">CoinDesk/StraitsX</a></div></div>');
+    '<div class="chsrc">sources: <a href="https://reports.artemisanalytics.com/stablecoins/artemis-stablecoin-payments-from-the-ground-up-2025.pdf" target="_blank" rel="noopener">Artemis (direct PDF)</a> · <a href="https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement" target="_blank" rel="noopener">Visa</a> · <a href="https://www.coindesk.com/business/2026/03/29/stablecoin-payments-go-invisible-in-southeast-asia-as-crypto-card-business-surges" target="_blank" rel="noopener">CoinDesk/StraitsX</a></div><div class="chupd">2025 figures · no 2026 version of this split has been published · checked 16 November 2026</div></div>');
+  /* e · crypto card spend month by month in 2026 — Paymentscan, as reported */
+  const M26=[["Mar",0.60,"https://www.theblock.co/news/markets/2026-04-08-crypto-card-boom-600-million-monthly-volume-usdc-gains-ground-usdt-396724"],["Jul",1.04,"https://www.paymentsjournal.com/fueled-by-stablecoins-monthly-crypto-card-purchases-top-1-billion/"],["Sep",1.17,"https://cryptoslate.com/stablecoin-cards-enter-hyper-growth-mode-as-monthly-spending-hits-record-1-17-billion/"]];
+  ds.insertAdjacentHTML('beforeend','<div class="dcard2"><h2>crypto card spend · 2026 so far</h2><div class="dsub">monthly spend on crypto and stablecoin cards in the three months of 2026 with a published figure · it passed $1B a month in July</div>'+
+    '<div class="fdx">'+M26.map(([m,v])=>'<div class="fcol"><div class="fv">$'+v.toFixed(2)+'B</div><div class="fbar" style="height:'+(v/1.17*120).toFixed(0)+'px;background:var(--w)"></div><div class="fy">'+m+' 2026</div></div>').join("")+'</div>'+
+    '<div class="chsrc">a different tracker from the curve above, and lower: Paymentscan counts what it can observe, Artemis estimates the whole market, so the two must not be joined into one line. Other months of 2026 have no published figure. Visa, separately, reported 225+ stablecoin-linked card programs and volume up more than 150% in the quarter to September 2026. sources: '+M26.map(([m,v,u])=>'<a href="'+u+'" target="_blank" rel="noopener">'+m+'</a>').join(' · ')+' · <a href="https://www.webull.com/news/15822495508279296" target="_blank" rel="noopener">Visa Q4 FY26 call</a></div><div class="chupd">latest month published: September 2026 · researched 16 November 2026</div></div>');
   /* curve sanity annotation: why $1.5B/mo is right, and what smaller trackers measure */
   const curveCard=[...document.querySelectorAll('#datasec .dcard2')].find(c=>c.textContent.includes('stablecoin card curve'));
   if(curveCard)curveCard.insertAdjacentHTML('beforeend','<div class="curvenote"><b>reading the number:</b> ~$1.5B/mo (≈$18B annualized) is Artemis\'s <i>total-market</i> estimate and checks out against the parts: Visa\'s stablecoin-linked programs alone did $5.2B in 2025, RedotPay $2.95B, Rain &gt;$3B and Reap &gt;$6B annualized. Dune\'s on-chain-tracked cohort (~$120M/mo, Dec \'25) looks smaller because it only counts a handful of natively on-chain programs — measurement scope, not contradiction.</div>');

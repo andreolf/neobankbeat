@@ -1,7 +1,16 @@
 {
- "generated": "2026-11-15",
+ "generated": "2026-11-16",
  "total": 397,
  "releases": [
+  {
+   "date": "2026-11-16",
+   "tag": "data",
+   "title": "Charts brought up to November 2026, with a date on every one",
+   "body": "The charts were last researched in July and most user figures were from 2024. Every chart now says when it was last checked. Reported users went from 23 companies to 37, 30 of them with a 2026 figure and each with a link to its source; a few changed metric because the company now reports a narrower one (Chime counts active members, GCash monthly actives). Volume watch is split into payment volume, deposits and crypto cards, with last full year and latest quarter in separate columns so a quarter is never read against a year, and it gains Revolut, Chime, SoFi, Monzo, Starling, Banco Inter, PicPay, GCash, Moniepoint, KakaoBank and Klarna. Stablecoin supply is $289B, down from a $314B peak in May. A new chart shows crypto card spend passing $1B a month in 2026. Two figures were removed because their sources could no longer be found.",
+   "links": [
+    "/#datasec"
+   ]
+  },
   {
    "date": "2026-11-16",
    "tag": "new",
@@ -321,6 +330,56 @@
   }
  ],
  "entries": [
+  {
+   "date": "2026-11-16",
+   "summary": "Charts brought up to November 2026, with a date on every one.",
+   "subject": "Charts brought up to November 2026, with a date on every one",
+   "total": 397,
+   "added": [],
+   "removed": [],
+   "updated": [
+    "Chime",
+    "SoFi",
+    "Dave",
+    "Monzo",
+    "Starling Bank",
+    "N26",
+    "bunq",
+    "Wise",
+    "Klarna",
+    "Monobank",
+    "T-Bank",
+    "Kaspi",
+    "Nubank",
+    "Ualá",
+    "Neon",
+    "C6 Bank",
+    "Banco Inter",
+    "PicPay",
+    "PagBank",
+    "Nequi",
+    "KakaoBank",
+    "WeBank",
+    "bKash",
+    "TymeBank",
+    "OPay",
+    "PalmPay",
+    "Moniepoint",
+    "Revolut",
+    "Cash App",
+    "RedotPay",
+    "Mercado Pago",
+    "Bitso",
+    "Phantom",
+    "Trust Wallet",
+    "Zengo",
+    "Payy",
+    "EtherFi Cash",
+    "MiniPay",
+    "GCash",
+    "PhonePe"
+   ]
+  },
   {
    "date": "2026-11-15",
    "summary": "Company job pages, answer-first snippets, agent counting.",
