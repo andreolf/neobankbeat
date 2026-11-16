@@ -1265,6 +1265,39 @@ console.log('— flow 41: job alerts sign up, confirm, send and unsubscribe corr
   ok(code===0,'the alert suite passes ('+(out.trim().split('\n').pop()||'no output')+(missed.length?': '+missed.slice(0,3).join(' | '):'')+')');
 }
 
+console.log('— flow 42: analytics counts people and skips the known automation');
+{
+  /* The guard decides who is counted, so a slip in it either blinds the site
+     or lets the scrapers back in. Run the inlined script as nine visitors. */
+  const path=require('path'),vm=require('vm');
+  const root=path.join(__dirname,'..');
+  const pick=f=>(fs.readFileSync(path.join(root,f),'utf8').match(/<script>(window\.dataLayer=[^<]*)<\/script>/)||[])[1];
+  const src=pick('index.html');
+  const visit=o=>{
+    const L={};
+    const w={screen:{width:o.w,height:o.h},navigator:{webdriver:!!o.wd,platform:o.p,userAgent:o.ua||''},document:{referrer:o.ref||''},
+      addEventListener:(n,h)=>{L[n]=h},removeEventListener:n=>{delete L[n]}};
+    w.window=w;
+    try{vm.runInNewContext(src,w)}catch(e){return 'threw: '+e.message}
+    const n=()=>w.dataLayer.filter(a=>a[0]==='config').length;
+    const first=n();
+    if(o.fire&&L[o.fire])L[o.fire]();
+    return first+'>'+n()+(Object.keys(L).length&&o.fire?' listeners left':'');
+  };
+  const LX='Linux x86_64';
+  ok(!!src,'the homepage carries the analytics guard');
+  ok(visit({w:1440,h:900,p:'MacIntel'})==='1>1','an ordinary desktop visit is counted');
+  ok(visit({w:1440,h:900,p:'MacIntel',wd:1})==='0>0','an automated browser is not counted');
+  ok(visit({w:1280,h:1200,p:'Win32'})==='0>0','an impossible screen size is not counted');
+  ok(visit({w:1920,h:1080,p:LX})==='0>0','the Linux scraper signature is not counted while it stays silent');
+  ok(visit({w:1920,h:1080,p:LX,fire:'pointermove'})==='0>1','the same signature is counted once, on the first mouse move');
+  ok(visit({w:1920,h:1080,p:LX,ref:'https://www.google.com/'})==='1>1','a Linux visitor arriving from search is counted at once');
+  ok(visit({w:1920,h:1080,p:'Win32'})==='1>1','Windows at 1920x1080 is counted at once');
+  ok(visit({w:1920,h:1080,p:'Linux armv8l',ua:'Mozilla/5.0 (Linux; Android 14)'})==='1>1','Android is counted at once');
+  const same=['n/revolut/index.html','jobs/index.html','report/index.html','changelog/index.html','vs/index.html','crypto-cards/index.html'].filter(f=>fs.existsSync(path.join(root,f))&&pick(f)!==src);
+  ok(same.length===0,'every section carries the same guard'+(same.length?' (differs: '+same.join(', ')+')':''));
+}
+
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
 console.log('ALL FLOWS PASS ✓');

@@ -105,7 +105,14 @@ const users = e => e.reported_users ? `${esc(e.reported_users.value_millions)}M 
    days to mid-November 2026, 6,355 of 11,922 sessions came from one signature
    (Singapore, Windows 10, a 1280x1200 screen, 4 engaged), and another ~2,300
    from 800x600 and 1280x1600 screens with almost no engagement. None of those
-   is a real monitor size; they are headless-browser defaults. The same guard is
+   is a real monitor size; they are headless-browser defaults.
+
+   A second scraper uses a real size, so it cannot be dropped outright: desktop
+   Linux, 1920x1080, no referrer, from US data centres (2,013 sessions from
+   October to mid-November 2026, about 4 seconds each, 1,713 of them landing on
+   job listings). A visit with that signature is counted only once it produces
+   a pointer, key, wheel or touch event. A person on Linux moves the mouse
+   within a second or two; the scraper never does. The same guard is
    inlined in index.html, build-jobs, build-report, build-changelog and the
    hand-written pages, so change all of them together (grep for "1280x1200"). */
 const head = (title, desc, canonical, ldjson, ogImage, imageAlt, opts) => {
@@ -150,7 +157,7 @@ ${hreflang}<meta name="theme-color" content="#0A0A10">
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.nbevt=function(n,d){try{va('event',{name:n,data:d||{}})}catch(_){}try{gtag('event',n,d||{})}catch(_){}}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());if(!(navigator.webdriver||/^(800x600|1280x1200|1366x1366|1280x1600|1024x1024)$/.test(screen.width+"x"+screen.height)))gtag("config","G-E3KE01L5DL")</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());(function(){var s=screen.width+"x"+screen.height,go=function(){gtag("config","G-E3KE01L5DL")};if(navigator.webdriver||/^(800x600|1280x1200|1366x1366|1280x1600|1024x1024)$/.test(s))return;if(s=="1920x1080"&&/Linux/.test(navigator.platform)&&!/Android/.test(navigator.userAgent)&&!document.referrer){var e=["pointermove","keydown","wheel","touchstart"],h=function(){e.forEach(function(n){removeEventListener(n,h,true)});go()};e.forEach(function(n){addEventListener(n,h,true)});return}go()})()</script>
 <script type="application/ld+json">
 ${JSON.stringify(ldjson)}
 </script>

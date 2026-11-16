@@ -18,3 +18,8 @@ credentials.json
 # the OAuth refresh token normally lives in ~/.config/neobankbeat/, but
 # NB_GOOGLE_TOKEN can point anywhere — including here by accident
 google-oauth.json
+
+# traffic snapshots from tests/traffic.mjs --save / --weekly. The repo and the
+# site are public; search queries and visit counts stay on the machine that
+# pulled them unless the owner decides otherwise.
+data/traffic/
