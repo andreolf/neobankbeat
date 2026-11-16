@@ -948,6 +948,34 @@ ${cHubs.map(c => `  <a class="ctile" href="${c.href}"><span class="fill" style="
     console.log(`map: ${cHubs.length} countries, ${placed} neobanks placed`);
   }
 
+  /* ═══ the homepage search knows which countries have a page ═══
+     Typing a country into the directory search already filters the grid, but
+     nothing told the visitor that a page for that country exists ("nigeria"
+     was searched 17 times between July and mid-November 2026). app.js reads
+     this list and offers the country page and the fit check above the results.
+     Written from the same hubs that build /countries/, so it cannot name a
+     page that is not there. */
+  {
+    const SPOKEN = { US: ['us', 'usa', 'u.s.', 'america', 'united states of america'], UK: ['uk', 'u.k.', 'britain', 'great britain', 'england'],
+      AE: ['united arab emirates', 'emirates', 'dubai'], HK: ['hk'] };
+    const fitSlugs = new Set(FIT_COUNTRIES.map(c => c.slug));
+    const byCode = groupBy(e => (CC[hqCode(e)] ? hqCode(e) : null));
+    const list = Object.keys(byCode).map(code => {
+      const bare = CC[code].replace(/^the /, '');
+      const slug = slugify(bare);
+      if (!HUBS.some(h => h.family === 'countries' && h.slug === slug)) return null;
+      const names = [...new Set([bare, CC_ALIAS[code] || bare, ...(SPOKEN[code] || [])].map(x => x.toLowerCase()))];
+      return { s: slug, n: bare, t: CC[code], hq: byCode[code].length, av: availableIn(code).length, fit: fitSlugs.has(slug) ? 1 : 0, a: names };
+    }).filter(Boolean).sort((x, y) => x.n.localeCompare(y.n));
+    const p = path.join(ROOT, 'index.html');
+    const src = fs.readFileSync(p, 'utf8');
+    if (!/id="qhint"[^>]*data-countries='[^']*'/.test(src)) { console.error('✗ index.html lost its #qhint country list'); process.exit(1); }
+    const json = JSON.stringify(list).replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/</g, '&lt;');
+    const out = src.replace(/(id="qhint"[^>]*data-countries=')[^']*'/, (m, pre) => pre + json + "'");
+    if (out !== src) fs.writeFileSync(p, out);
+    console.log(`homepage search: ${list.length} countries with a page`);
+  }
+
   console.log(`topic hubs: ${hubSlugs.length} pages across ${new Set(HUBS.map(h => h.family)).size} families + /browse/`);
 }
 

@@ -1298,6 +1298,33 @@ console.log('— flow 42: analytics counts people and skips the known automation
   ok(same.length===0,'every section carries the same guard'+(same.length?' (differs: '+same.join(', ')+')':''));
 }
 
+console.log('— flow 43: a country typed into search points at that country\'s page');
+{
+  const path=require('path'),root=path.join(__dirname,'..');
+  const box=d.getElementById('qhint'),qi2=d.getElementById('q');
+  const type=async v=>{qi2.value=v;qi2.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(r=>setTimeout(r,40))};
+  const links=()=>[...box.querySelectorAll('a')].map(a=>a.getAttribute('href'));
+  let list=[];try{list=JSON.parse(box.getAttribute('data-countries'))}catch(e){}
+  ok(list.length>=10,'the homepage carries the list of countries that have a page ('+list.length+')');
+  const missing=list.filter(c=>!fs.existsSync(path.join(root,'countries',c.s,'index.html'))||(c.fit&&!fs.existsSync(path.join(root,'fit',c.s,'index.html')))).map(c=>c.s);
+  ok(missing.length===0,'every country it names has its pages on disk'+(missing.length?' (missing: '+missing.join(', ')+')':''));
+  await type('nigeria');
+  ok(!box.hidden&&links().includes('/countries/nigeria/'),'"nigeria" offers the Nigeria page');
+  ok(/\d+ neobanks? (is|are) based in Nigeria/.test(box.textContent),'and says how many are based there ('+box.textContent.slice(0,60)+')');
+  await type('UK');
+  ok(links()[0]==='/countries/united-kingdom/','"UK" is understood as the United Kingdom');
+  await type('banks in brazil');
+  ok(links().includes('/countries/brazil/'),'a longer query that names a country still gets the pointer');
+  await type('usdc');
+  ok(box.hidden&&links().length===0,'a search that is not a country shows no pointer');
+  await type('zzqqxx');
+  const empty=d.querySelector('#grid .empty');
+  ok(!!empty&&/zzqqxx/.test(empty.textContent),'a search with no results names what was typed');
+  ok(!!empty&&!!empty.querySelector('a[href*="new-neobank"]')&&!!empty.querySelector('button'),'and offers both to suggest it and to clear the filters');
+  await type('');
+  ok(box.hidden&&!d.querySelector('#grid .empty'),'clearing the search clears both');
+}
+
 console.log(passes+' passed, '+fails.length+' failed');
 if(fails.length){console.log('FAILED:',fails.join(' | '));process.exit(1)}
 console.log('ALL FLOWS PASS ✓');
