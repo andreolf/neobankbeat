@@ -6,7 +6,7 @@
 <title>neobankbeat · 397 neobanks compared — traditional, hybrid &amp; web3-native</title>
 <meta name="description" content="Open-source directory of 397 verified-active neobanks. Compare custody, licenses, cards, yield, stablecoins and regulation side by side.">
 <link rel="canonical" href="https://www.neobankbeat.com/">
-<link rel="preload" as="script" href="/app.js?v=06035ec9c0">
+<link rel="preload" as="script" href="/app.js?v=99f53d5078">
 <link rel="alternate" hreflang="en" href="https://www.neobankbeat.com/">
 <link rel="alternate" hreflang="de" href="https://www.neobankbeat.com/de/">
 <link rel="alternate" hreflang="it" href="https://www.neobankbeat.com/it/">
@@ -200,6 +200,12 @@ body.bw .chip{border:1px solid currentColor}
 .cmp-btn.on{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
 .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted);font-family:var(--mono);font-size:13px}
 .empty button{display:block;margin:14px auto 0}
+.empty a{display:inline-block;margin-top:14px;color:var(--accent)}
+.qhint{max-width:1320px;margin:12px auto 0;padding:0 24px;font-size:14px;color:var(--muted)}
+.qhint[hidden]{display:none}
+.qhint .in{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;padding:12px 16px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--panel)}
+.qhint b{color:var(--text)}
+.qhint a{color:var(--accent);font-family:var(--mono);font-size:12.5px;white-space:nowrap}
 
 .tray{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--panel2);border-top:1.5px solid var(--accent);padding:12px 24px;display:none;align-items:center;gap:12px;flex-wrap:wrap}
 .tray.show{display:flex}
@@ -766,6 +772,7 @@ body.on-map .minimap{display:none}
 </section>
 
 <div class="count" id="count" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="qhint" id="qhint" hidden data-countries='[{"s":"argentina","n":"Argentina","t":"Argentina","hq":10,"av":10,"fit":1,"a":["argentina"]},{"s":"australia","n":"Australia","t":"Australia","hq":8,"av":12,"fit":1,"a":["australia"]},{"s":"brazil","n":"Brazil","t":"Brazil","hq":12,"av":22,"fit":1,"a":["brazil"]},{"s":"canada","n":"Canada","t":"Canada","hq":6,"av":12,"fit":0,"a":["canada"]},{"s":"colombia","n":"Colombia","t":"Colombia","hq":7,"av":8,"fit":1,"a":["colombia"]},{"s":"france","n":"France","t":"France","hq":13,"av":14,"fit":1,"a":["france"]},{"s":"germany","n":"Germany","t":"Germany","hq":9,"av":13,"fit":1,"a":["germany"]},{"s":"hong-kong","n":"Hong Kong","t":"Hong Kong","hq":6,"av":5,"fit":0,"a":["hong kong","hk"]},{"s":"india","n":"India","t":"India","hq":12,"av":7,"fit":1,"a":["india"]},{"s":"indonesia","n":"Indonesia","t":"Indonesia","hq":9,"av":2,"fit":1,"a":["indonesia"]},{"s":"mexico","n":"Mexico","t":"Mexico","hq":11,"av":15,"fit":1,"a":["mexico"]},{"s":"nigeria","n":"Nigeria","t":"Nigeria","hq":15,"av":15,"fit":1,"a":["nigeria"]},{"s":"philippines","n":"Philippines","t":"the Philippines","hq":6,"av":8,"fit":1,"a":["philippines"]},{"s":"singapore","n":"Singapore","t":"Singapore","hq":13,"av":14,"fit":1,"a":["singapore"]},{"s":"switzerland","n":"Switzerland","t":"Switzerland","hq":11,"av":8,"fit":1,"a":["switzerland"]},{"s":"uae","n":"UAE","t":"the UAE","hq":15,"av":8,"fit":1,"a":["uae","united arab emirates","emirates","dubai"]},{"s":"united-kingdom","n":"United Kingdom","t":"the United Kingdom","hq":29,"av":35,"fit":1,"a":["united kingdom","uk","u.k.","britain","great britain","england"]},{"s":"united-states","n":"United States","t":"the United States","hq":68,"av":60,"fit":1,"a":["united states","us","usa","u.s.","america","united states of america"]},{"s":"vietnam","n":"Vietnam","t":"Vietnam","hq":6,"av":3,"fit":1,"a":["vietnam"]}]'></div>
 <div class="grid" id="grid">
 <!-- static-directory:start -->
 <a href="/n/1inch-card/">1inch Card</a>
@@ -1330,6 +1337,6 @@ body.on-map .minimap{display:none}
   </div>
 </footer>
 
-<script src="/app.js?v=06035ec9c0"></script>
+<script src="/app.js?v=99f53d5078"></script>
 </body>
 </html>

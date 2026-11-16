@@ -3129,3 +3129,55 @@ window.__nbBoot=false;if(window.__nbDirty){window.__nbDirty=false;try{render()}c
 /* ── nav drawer + language menu: close button, scrim/outside click, Esc ── */
 document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.ndclose');if(c){c.closest('details').removeAttribute('open');return}document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){if(!d.contains(e.target)||e.target===d)d.removeAttribute('open')})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.navdrawer[open],.langmenu[open]').forEach(function(d){d.removeAttribute('open')})});
+
+/* ── search: point a country query at that country's page, and say something
+   useful when a name is not in the directory ──
+   The grid already filters on a country name. What it did not do was mention
+   that /countries/<slug>/ and /fit/<slug>/ exist. The list of countries that
+   have a page is written into #qhint by tests/build-pages.mjs. */
+(function(){
+  var box=document.getElementById('qhint'),input=document.getElementById('q'),grid=document.getElementById('grid');
+  if(!box||!input||!grid)return;
+  var list=[];try{list=JSON.parse(box.getAttribute('data-countries')||'[]')}catch(e){}
+  var SUBMIT='https://github.com/andreolf/neobankbeat/issues/new?labels=new-neobank&template=new-neobank.yml';
+  function find(v){
+    if(!v)return null;
+    for(var i=0;i<list.length;i++)if(list[i].a.indexOf(v)>=0)return list[i];
+    /* a longer query that contains the full name as a word: "banks in nigeria" */
+    for(var j=0;j<list.length;j++){var n=list[j].n.toLowerCase();if(n.length>3&&(' '+v+' ').indexOf(' '+n+' ')>=0)return list[j]}
+    return null;
+  }
+  function el(tag,text,href){var x=document.createElement(tag);x.textContent=text;if(href)x.href=href;return x}
+  var shown=null;
+  function hint(){
+    var v=input.value.trim().toLowerCase(),c=find(v);
+    if(c!==shown){
+      shown=c;box.textContent='';
+      if(c){
+        var d=document.createElement('div');d.className='in';
+        var lead=document.createElement('span');
+        lead.appendChild(el('b',c.hq+(c.hq===1?' neobank is':' neobanks are')+' based in '+c.t));
+        lead.appendChild(document.createTextNode(c.av>c.hq?', and '+c.av+' are verified as available there.':'.'));
+        d.appendChild(lead);
+        var a=el('a',c.n+' in full →','/countries/'+c.s+'/');a.setAttribute('data-dest','country');d.appendChild(a);
+        if(c.fit){var f=el('a','find your fit in '+c.t+' →','/fit/'+c.s+'/');f.setAttribute('data-dest','fit');d.appendChild(f)}
+        box.appendChild(d);
+      }
+      box.hidden=!c;
+    }
+    /* a search that finds nothing: name the query and offer the way to add it */
+    var empty=grid.querySelector('.empty');
+    if(empty&&v&&!empty.querySelector('a')){
+      var btn=empty.querySelector('button');
+      empty.firstChild.textContent='no neobank matches "'+input.value.trim()+'" with these filters';
+      var s=el('a','not listed? suggest it →',SUBMIT);s.target='_blank';s.rel='noopener';
+      empty.appendChild(document.createElement('br'));empty.appendChild(s);
+      if(btn)empty.insertBefore(btn,empty.querySelector('br'));
+    }
+  }
+  box.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a&&shown&&typeof gtag==='function')gtag('event','country_hint',{country:shown.s,dest:a.getAttribute('data-dest')})});
+  /* The grid is redrawn from many places (typing, pills, clear, back button);
+     watching it is the one hook that covers them all. */
+  new MutationObserver(hint).observe(grid,{childList:true});
+  hint();
+})();

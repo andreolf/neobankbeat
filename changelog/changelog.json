@@ -3,6 +3,17 @@
  "total": 397,
  "releases": [
   {
+   "date": "2026-11-16",
+   "tag": "new",
+   "title": "Search a country, get its page",
+   "body": "Typing a country into the directory search already narrowed the grid, but nothing said that the country has a page of its own. Now a line above the results says how many neobanks are based there and how many are verified as available, with links to the full country page and to the fit check for that country. It understands the short forms too: UK, USA, UAE. And a search that finds nothing now names what you typed and offers the form to suggest a neobank that is missing.",
+   "links": [
+    "/?q=nigeria",
+    "/countries/nigeria/",
+    "/map/"
+   ]
+  },
+  {
    "date": "2026-11-15",
    "tag": "new",
    "title": "Crypto cards, narrowed down",

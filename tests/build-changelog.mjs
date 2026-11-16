@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-16', tag: 'new', title: 'Search a country, get its page',
+    body: 'Typing a country into the directory search already narrowed the grid, but nothing said that the country has a page of its own. Now a line above the results says how many neobanks are based there and how many are verified as available, with links to the full country page and to the fit check for that country. It understands the short forms too: UK, USA, UAE. And a search that finds nothing now names what you typed and offers the form to suggest a neobank that is missing.',
+    links: [['/?q=nigeria', 'try it with Nigeria'], ['/countries/nigeria/', 'neobanks in Nigeria'], ['/map/', 'all countries']] },
   { date: '2026-11-15', tag: 'new', title: 'Crypto cards, narrowed down',
     body: 'People choosing a card to spend crypto with were landing on single alternatives pages and had one flat table to work from. There is now a crypto cards hub that starts from the questions that decide the choice: who holds the keys, what it pays back, whether the wallet needs identity checks, and whether the card works in your region. Eleven lists, each with custody, network, cashback, yield and KYC side by side, and no cashback ranking, because that number is the least reliable thing about a card.',
     links: [['/crypto-cards/', 'crypto cards'], ['/crypto-cards/self-custodial/', 'self-custodial cards'], ['/stablecoin-cards/', 'the full table']] },
