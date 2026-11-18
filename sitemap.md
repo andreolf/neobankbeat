@@ -84,6 +84,7 @@
 - [stablecoins traditional neobanks latam](https://www.neobankbeat.com/blog/stablecoins-traditional-neobanks-latam/) (2026-10-28)
 - [neobank hiring index](https://www.neobankbeat.com/blog/neobank-hiring-index/) (2026-11-04)
 - [neobank licences by region](https://www.neobankbeat.com/blog/neobank-licences-by-region/) (2026-11-11)
+- [us neobank charter wave](https://www.neobankbeat.com/blog/us-neobank-charter-wave/) (2026-11-18)
 
 ## Neobank profiles (397)
 
