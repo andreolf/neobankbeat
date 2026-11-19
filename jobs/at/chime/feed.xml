@@ -5,8 +5,24 @@
   <link>https://www.neobankbeat.com/jobs/at/chime/</link>
   <description>The newest open roles at Chime, from its official careers page.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 18 Nov 2026 15:28:16 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 15:34:19 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/at/chime/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Associate, Governance and Assurance — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8904561002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8904561002/</guid>
+    <pubDate>Wed, 18 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Other</category>
+    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Data Scientist, Lending — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8612037002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8612037002/</guid>
+    <pubDate>Wed, 18 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Data &amp; AI</category>
+    <description><![CDATA[Chime · San Francisco, CA, USA · hybrid]]></description>
+  </item>
   <item>
     <title><![CDATA[Lead Product Counsel — Chime]]></title>
     <link>https://www.neobankbeat.com/jobs/j/chime-8929305002/</link>
@@ -470,22 +486,6 @@
     <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Chime · Chicago, IL, USA; New York, NY, USA; San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Software Engineer, Jade Awareness - AI Financial Partner — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8922481002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8922481002/</guid>
-    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Software Engineer, Jade Foundation - AI Financial Partner — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8868948002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8868948002/</guid>
-    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · hybrid]]></description>
   </item>
 </channel>
 </rss>
