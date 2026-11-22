@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/engineering/</link>
   <description>The newest engineering roles at hiring neobanks, from official career APIs.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 21 Nov 2026 14:29:49 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 22 Nov 2026 14:25:31 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/engineering/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Software Engineer, Java — Bitpanda]]></title>
@@ -25,11 +25,11 @@
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8943780002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943780002/</guid>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8943783002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943783002/</guid>
     <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
-    <description><![CDATA[Brex · Seattle, Washington, United States · $174–239K · hybrid]]></description>
+    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $174–239K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
@@ -41,11 +41,11 @@
   </item>
   <item>
     <title><![CDATA[Senior GRC Engineer — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8943783002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943783002/</guid>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8943780002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8943780002/</guid>
     <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
-    <description><![CDATA[Brex · Vancouver, British Columbia, Canada · $174–239K · hybrid]]></description>
+    <description><![CDATA[Brex · Seattle, Washington, United States · $174–239K · hybrid]]></description>
   </item>
   <item>
     <title><![CDATA[Manager, Product Security — Chime]]></title>
@@ -73,14 +73,6 @@
   </item>
   <item>
     <title><![CDATA[Staff Software Engineer - Backend (Consumer - Agentic Trading) — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8359515/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8359515/</guid>
-    <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Coinbase · Remote - Canada · remote]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Staff Software Engineer - Backend (Consumer - Agentic Trading) — Coinbase]]></title>
     <link>https://www.neobankbeat.com/jobs/j/coinbase-8356846/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8356846/</guid>
     <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
@@ -88,9 +80,9 @@
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
   </item>
   <item>
-    <title><![CDATA[Staff Software Engineer, Frontend/Mobile (Consumer - Agentic Trading) — Coinbase]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/coinbase-8359446/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8359446/</guid>
+    <title><![CDATA[Staff Software Engineer - Backend (Consumer - Agentic Trading) — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8359515/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8359515/</guid>
     <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Coinbase · Remote - Canada · remote]]></description>
@@ -102,6 +94,14 @@
     <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Coinbase · Remote - USA · remote]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Staff Software Engineer, Frontend/Mobile (Consumer - Agentic Trading) — Coinbase]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/coinbase-8359446/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/coinbase-8359446/</guid>
+    <pubDate>Fri, 20 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Coinbase · Remote - Canada · remote]]></description>
   </item>
   <item>
     <title><![CDATA[Deputy Chief Information Security Officer (CISO), US — OKX]]></title>
