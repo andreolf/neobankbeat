@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/at/starling-bank/</link>
   <description>The newest open roles at Starling Bank, from its official careers page.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 23 Nov 2026 17:50:37 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 17:23:05 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/at/starling-bank/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Solution Architect - Engine by Starling — Starling Bank]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/starling-bank-e6426ffcf4/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-e6426ffcf4/</guid>
+    <pubDate>Tue, 24 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Starling Bank · London, England, United Kingdom · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Customer Service Team Lead - Overnight — Starling Bank]]></title>
     <link>https://www.neobankbeat.com/jobs/j/starling-bank-8f601c3d6e/</link>
@@ -478,14 +486,6 @@
     <pubDate>Tue, 22 Sep 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Starling Bank · Manchester, England, United Kingdom · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Android Engineer - Engine by Starling — Starling Bank]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/starling-bank-4a1a00b7c8-3/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/starling-bank-4a1a00b7c8-3/</guid>
-    <pubDate>Tue, 22 Sep 2026 09:00:00 +0000</pubDate>
-    <category>Engineering</category>
-    <description><![CDATA[Starling Bank · Cardiff, Wales, United Kingdom · onsite]]></description>
   </item>
 </channel>
 </rss>
