@@ -262,8 +262,8 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [SadaPay](https://www.neobankbeat.com/n/sadapay/): traditional · Custodial · E-money institution · Karachi, PK · founded 2019
 - [NayaPay](https://www.neobankbeat.com/n/nayapay/): traditional · Custodial · E-money institution · Karachi, PK · founded 2019
 - [Oraan](https://www.neobankbeat.com/n/oraan/): traditional · Custodial · Other / mixed · Karachi, PK · founded 2018
-- [bKash](https://www.neobankbeat.com/n/bkash/): traditional · Custodial · Licensed bank · Dhaka, BD · founded 2011 · 80M customers · AI in production: underwriting
-- [Nagad](https://www.neobankbeat.com/n/nagad/): traditional · Custodial · Licensed bank · Dhaka, BD · founded 2019
+- [bKash](https://www.neobankbeat.com/n/bkash/): traditional · Custodial · Payment institution · Dhaka, BD · founded 2011 · 80M customers · AI in production: underwriting
+- [Nagad](https://www.neobankbeat.com/n/nagad/): traditional · Custodial · Payment institution · Dhaka, BD · founded 2019
 - [GXS Bank](https://www.neobankbeat.com/n/gxs-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022 · AI in production: underwriting
 - [MariBank](https://www.neobankbeat.com/n/maribank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022 · AI in production: underwriting
 - [Trust Bank](https://www.neobankbeat.com/n/trust-bank/): traditional · Custodial · Licensed bank · Singapore, SG · founded 2022
@@ -353,7 +353,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [eToro Money](https://www.neobankbeat.com/n/etoro-money/): hybrid · Custodial · E-money institution · Tel Aviv, IL · founded 2007 · AI in production: interface
 - [Tap Global](https://www.neobankbeat.com/n/tap-global/): hybrid · Custodial · E-money institution · London, UK · founded 2018
 - [CoinJar](https://www.neobankbeat.com/n/coinjar/): hybrid · Custodial · Payment institution · Melbourne, AU · founded 2013
-- [Plutus](https://www.neobankbeat.com/n/plutus/): hybrid · Custodial · Self-custodial software · London, UK · founded 2015
+- [Plutus](https://www.neobankbeat.com/n/plutus/): hybrid · Custodial · E-money institution · London, UK · founded 2015
 - [Fold](https://www.neobankbeat.com/n/fold/): hybrid · Custodial · Partner-bank model · Phoenix, US · founded 2019
 - [Gemini Credit Card](https://www.neobankbeat.com/n/gemini-credit-card/): hybrid · Custodial · VASP / MSB / crypto licenses · New York, US · founded 2014
 - [BitPay Card](https://www.neobankbeat.com/n/bitpay-card/): hybrid · Custodial · VASP / MSB / crypto licenses · Atlanta, US · founded 2011
@@ -371,7 +371,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Trustee Plus](https://www.neobankbeat.com/n/trustee-plus/): hybrid · Custodial · License pending (partner model today) · Vilnius, LT · founded 2019
 - [Brighty](https://www.neobankbeat.com/n/brighty/): hybrid · Custodial · VASP / MSB / crypto licenses · Baar (Zug), CH · founded 2021
 - [UR](https://www.neobankbeat.com/n/ur/): hybrid · Custodial · Licensed bank · — · founded 2023
-- [XPlace](https://www.neobankbeat.com/n/xplace/): hybrid · Custodial · Self-custodial software · Dubai, AE · founded 2023
+- [XPlace](https://www.neobankbeat.com/n/xplace/): hybrid · Self-custodial · Self-custodial software · Dubai, AE · founded 2023
 - [Mercado Pago](https://www.neobankbeat.com/n/mercado-pago/): hybrid · Custodial · License pending (partner model today) · Buenos Aires, AR · founded 2003 · 93M MAU · AI in production: underwriting
 - [Lemon](https://www.neobankbeat.com/n/lemon/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2019
 - [Belo](https://www.neobankbeat.com/n/belo/): hybrid · Custodial · VASP / MSB / crypto licenses · Buenos Aires, AR · founded 2020
@@ -458,10 +458,10 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Vision Bank](https://www.neobankbeat.com/n/vision-bank/): traditional · Custodial · Licensed bank · Riyadh, SA · founded 2024
 - [Beyon Money](https://www.neobankbeat.com/n/beyon-money/): traditional · Custodial · Payment institution · Manama, BH · founded 2022
 - [Fasset](https://www.neobankbeat.com/n/fasset/): hybrid · Custodial · Licensed bank · Dubai, AE · founded 2019
-- [Kontigo](https://www.neobankbeat.com/n/kontigo/): web3-native · Custodial · Partner-bank model · — · founded 2024
+- [Kontigo](https://www.neobankbeat.com/n/kontigo/): web3-native · Self-custodial · Partner-bank model · — · founded 2024
 - [Veera](https://www.neobankbeat.com/n/veera/): web3-native · Self-custodial · Self-custodial software · Singapore, SG · founded 2023
 - [Rizon](https://www.neobankbeat.com/n/rizon/): web3-native · Self-custodial · Self-custodial software · — · founded 2024
-- [AllScale](https://www.neobankbeat.com/n/allscale/): web3-native · Custodial · Self-custodial software · — · founded 2024
+- [AllScale](https://www.neobankbeat.com/n/allscale/): web3-native · Self-custodial · Self-custodial software · — · founded 2024
 - [Nyla](https://www.neobankbeat.com/n/nyla/): traditional · Custodial · Partner-bank model · Lagos, NG · founded 2024
 - [Munify](https://www.neobankbeat.com/n/munify/): traditional · Custodial · Partner-bank model · Cairo, EG · founded 2024
 - [Moneco](https://www.neobankbeat.com/n/moneco/): traditional · Custodial · E-money institution · Paris, FR · founded 2022
