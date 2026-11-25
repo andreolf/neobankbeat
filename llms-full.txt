@@ -204,8 +204,8 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Paysera](https://www.neobankbeat.com/n/paysera/): traditional · Custodial · E-money institution · Vilnius, LT · founded 2004
 - [Trade Republic](https://www.neobankbeat.com/n/trade-republic/): traditional · Custodial · Licensed bank · Berlin, DE · founded 2015
 - [Finom](https://www.neobankbeat.com/n/finom/): traditional · Custodial · E-money institution · Amsterdam, NL · founded 2019
-- [Wise](https://www.neobankbeat.com/n/wise/): traditional · Custodial · E-money institution · London, UK · founded 2011 · 19M customers
-- [Klarna](https://www.neobankbeat.com/n/klarna/): traditional · Custodial · Licensed bank · Stockholm, SE · founded 2005 · 120M active consumers · AI in production: interface
+- [Wise](https://www.neobankbeat.com/n/wise/): traditional · Custodial · E-money institution · London, UK · founded 2011 · 19M active customers
+- [Klarna](https://www.neobankbeat.com/n/klarna/): traditional · Custodial · Licensed bank · Stockholm, SE · founded 2005 · 122M active consumers · AI in production: interface
 - [Salt Bank](https://www.neobankbeat.com/n/salt-bank/): traditional · Custodial · Licensed bank · Bucharest, RO · founded 2024
 - [Snappi](https://www.neobankbeat.com/n/snappi/): traditional · Custodial · Licensed bank · Athens, GR · founded 2024
 - [Papara](https://www.neobankbeat.com/n/papara/): traditional · Custodial · E-money institution · Istanbul, TR · founded 2016
@@ -228,8 +228,8 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Neon](https://www.neobankbeat.com/n/neon/): traditional · Custodial · E-money institution · São Paulo, BR · founded 2016 · 27M clients · AI in production: interface
 - [C6 Bank](https://www.neobankbeat.com/n/c6-bank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019 · 42M clients · AI in production: interface
 - [Banco Inter](https://www.neobankbeat.com/n/banco-inter/): traditional · Custodial · Licensed bank · Belo Horizonte, BR · founded 2015 · 46.8M clients · AI in production: interface
-- [PicPay](https://www.neobankbeat.com/n/picpay/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2012 · 70.4M accounts · AI in production: interface
-- [PagBank](https://www.neobankbeat.com/n/pagbank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019 · 34.1M clients
+- [PicPay](https://www.neobankbeat.com/n/picpay/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2012 · 72M accounts · AI in production: interface
+- [PagBank](https://www.neobankbeat.com/n/pagbank/): traditional · Custodial · Licensed bank · São Paulo, BR · founded 2019 · 33.6M clients
 - [Cora](https://www.neobankbeat.com/n/cora/): traditional · Custodial · Payment institution · São Paulo, BR · founded 2019
 - [NG.cash](https://www.neobankbeat.com/n/ng-cash/): traditional · Custodial · E-money institution · Rio de Janeiro, BR · founded 2021
 - [Naranja X](https://www.neobankbeat.com/n/naranja-x/): traditional · Custodial · Licensed bank · Córdoba, AR · founded 2019
@@ -304,7 +304,7 @@ Made by Francesco Andreoli (https://www.francesco-andreoli.com). MIT license —
 - [Kuda](https://www.neobankbeat.com/n/kuda/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2019
 - [OPay](https://www.neobankbeat.com/n/opay/): traditional · Custodial · Payment institution · Lagos, NG · founded 2018 · 45M users
 - [PalmPay](https://www.neobankbeat.com/n/palmpay/): traditional · Custodial · Payment institution · Lagos, NG · founded 2019 · 35M users · AI in production: underwriting
-- [Moniepoint](https://www.neobankbeat.com/n/moniepoint/): traditional · Custodial · Other / mixed · Lagos, NG · founded 2015 · 20M customers · AI in production: underwriting
+- [Moniepoint](https://www.neobankbeat.com/n/moniepoint/): traditional · Custodial · Other / mixed · Lagos, NG · founded 2015 · 20M businesses + individuals · AI in production: underwriting
 - [FairMoney](https://www.neobankbeat.com/n/fairmoney/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2017 · AI in production: underwriting
 - [Carbon](https://www.neobankbeat.com/n/carbon/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2012 · AI in production: underwriting
 - [ALAT by Wema](https://www.neobankbeat.com/n/alat-by-wema/): traditional · Custodial · Licensed bank · Lagos, NG · founded 2017
