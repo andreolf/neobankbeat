@@ -4,6 +4,15 @@
  "releases": [
   {
    "date": "2026-11-25",
+   "tag": "new",
+   "title": "Four charts counted from the directory itself",
+   "body": "The data tab has four new charts that come from the 398 entries rather than from anyone else's report: who holds the money (custody, split by category), what kind of licence stands behind each one, the 15 countries where most are based, and the 15 investors with the most companies in the directory. They are counted when the page loads, so they move the moment an entry is added or corrected.",
+   "links": [
+    "/#datasec"
+   ]
+  },
+  {
+   "date": "2026-11-25",
    "tag": "data",
    "title": "Every chart figure re-read against its source",
    "body": "The 73 figures on the charts were opened again, one by one, by a reader who was not told what number to expect. 65 matched as linked. Six more were right but linked to a page that did not show them: Cash App, Mercado Pago and Wise now link the full-year filings their numbers come from. Two remain weaker than the rest: Monobank's source could not be reached, and T-Bank's is a third-party summary of its results. Two labels were tightened to the source's own words: OPay reports gross transaction value, and Moniepoint counts businesses and individuals together. The third-quarter results that were not out last week are in: PagBank (R$131.4B, 33.6M clients), Klarna ($36.1B, 122M active consumers) and PicPay (R$175.0B, 72M accounts).",

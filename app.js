@@ -2728,6 +2728,59 @@ render();
   if(curveCard)curveCard.insertAdjacentHTML('beforeend','<div class="curvenote"><b>reading the number:</b> ~$1.5B/mo (≈$18B annualized) is Artemis\'s <i>total-market</i> estimate and checks out against the parts: Visa\'s stablecoin-linked programs alone did $5.2B in 2025, RedotPay $2.95B, Rain &gt;$3B and Reap &gt;$6B annualized. Dune\'s on-chain-tracked cohort (~$120M/mo, Dec \'25) looks smaller because it only counts a handful of natively on-chain programs — measurement scope, not contradiction.</div>');
 })();
 
+/* ── four charts from the directory's own rows: who holds the money, what licence
+   stands behind it, where they are based, who backs them. Nothing here is
+   researched or typed in — every number is counted from D, X and INV on load,
+   so the cards cannot go stale. They sit right after the region matrix, with
+   the other computed charts. ── */
+(function ownDataCharts(){
+  const heat=[...document.querySelectorAll('#datasec .dcard2')].find(c=>c.querySelector('table.heat'));
+  if(!heat)return;
+  const N=D.length,pct=v=>(Math.round(v/N*100)||'<1')+'%';
+  const STAMP='<div class="chupd">computed from the live dataset each time the page loads</div>';
+  const names=rows=>rows.map(r=>esc(r[0])).join(', ');
+  let html='';
+
+  /* a · custody, by category */
+  const CG=[["C","the company holds it","var(--t)"],["S","you hold the keys","var(--w)"],["M","key split with the app (MPC)","var(--h)"],["X","mixed","var(--accent)"]];
+  const crow=(label,rows)=>'<div class="hbar"><span class="nm" style="cursor:default">'+label+'</span><span class="tr stk">'+
+    CG.map(([k,l,c])=>{const n=rows.filter(r=>r[5]===k).length;return n?'<span class="fl" title="'+l+': '+n+'" style="width:'+(n/rows.length*100).toFixed(2)+'%;background:'+c+'"></span>':''}).join("")+
+    '</span><span class="vl">'+rows.length+'</span></div>';
+  const cust=D.filter(r=>r[5]==="C").length,self=D.filter(r=>r[5]==="S"||r[5]==="M").length;
+  const oddW=D.filter(r=>r[1]==="W"&&r[5]==="C"),oddH=D.filter(r=>r[1]==="H"&&r[5]!=="C");
+  html+='<div class="dcard2 cmp" id="ch-custody"><h2>who holds the money</h2><div class="dsub">'+cust+' of '+N+' ('+pct(cust)+') keep your balance for you, the way a bank does · '+self+' leave the keys with you · custody is the first thing to check before trusting any of them with savings</div>'+
+    '<div class="stkleg">'+CG.map(([k,l,c])=>'<span><i style="background:'+c+'"></i>'+l+' · '+D.filter(r=>r[5]===k).length+'</span>').join("")+'</div>'+
+    crow('all '+N,D)+crow('traditional',D.filter(r=>r[1]==="T"))+crow('hybrid',D.filter(r=>r[1]==="H"))+crow('web3-native',D.filter(r=>r[1]==="W"))+
+    '<div class="chsrc">the category does not settle it. '+(oddW.length?oddW.length+' web3-native apps are still custodial: '+names(oddW)+'. ':'')+(oddH.length?oddH.length+' hybrid app'+(oddH.length>1?'s leave':' leaves')+' the keys with the user: '+names(oddH)+'. ':'')+'source: the custody field of every entry, set from each company\'s own terms.</div>'+STAMP+'</div>';
+
+  /* b · what kind of licence stands behind them */
+  const SHORT={"License pending (partner model today)":"License pending"};
+  const reg={};D.forEach(r=>{const k=regTypeOf(r);reg[k]=(reg[k]||0)+1});
+  const regs=Object.entries(reg).sort((a,b)=>b[1]-a[1]);
+  html+='<div class="dcard2 cmp" id="ch-licence"><h2>what stands behind them</h2><div class="dsub">the kind of licence or arrangement each of the '+N+' runs on · only a licensed bank holds deposits in its own name · a partner-bank app depends on someone else\'s charter</div>'+
+    regs.map(([k,n])=>'<div class="hbar"><span class="nm" style="cursor:default" title="'+esc(k)+'">'+esc(SHORT[k]||k)+'</span><span class="tr"><span class="fl" style="width:'+(n/regs[0][1]*100).toFixed(1)+'%;background:var(--t)"></span></span><span class="vl">'+n+' · '+pct(n)+'</span></div>').join("")+
+    '<div class="chsrc">source: sorted from the licence line of each entry, which is taken from regulator registers and company disclosures · the same grouping the directory\'s regulation filter uses.</div>'+STAMP+'</div>';
+
+  /* c · where they are headquartered — the country list build-pages writes for search */
+  let cl=[];try{cl=JSON.parse(document.getElementById('qhint').getAttribute('data-countries')||'[]')}catch(e){}
+  cl=cl.filter(c=>c.hq>0).sort((a,b)=>b.hq-a.hq||a.n.localeCompare(b.n)).slice(0,15);
+  if(cl.length)html+='<div class="dcard2" id="ch-hq"><h2>where they are based</h2><div class="dsub">the 15 countries with the most neobank headquarters in the directory · where a company is based is not where it is available, so click a country for the full list you can open there</div>'+
+    cl.map(c=>'<div class="hbar"><span class="nm"><a href="/countries/'+c.s+'/">'+esc(c.n)+'</a></span><span class="tr"><span class="fl" style="width:'+(c.hq/cl[0].hq*100).toFixed(1)+'%;background:var(--accent)"></span></span><span class="vl">'+c.hq+' based here</span></div>').join("")+
+    '<div class="chsrc">source: the headquarters of every entry, from filings and company pages · apps with no stated home, mostly self-custodial wallets, are not counted under any country.</div>'+STAMP+'</div>';
+
+  /* d · the investors behind the most neobanks */
+  if(typeof INV!=="undefined"){
+    const iv={};let withInv=0;
+    D.forEach(r=>{const l=INV[r[0]];if(!l||!l.length)return;withInv++;l.forEach(([nm])=>{iv[nm]=(iv[nm]||0)+1})});
+    const top=Object.entries(iv).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,15);
+    const slug=nm=>nm.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'investor';
+    if(top.length)html+='<div class="dcard2 cmp" id="ch-investors"><h2>who backs them</h2><div class="dsub">the 15 investors with the most companies in the directory · '+Object.keys(iv).length+' investors across the '+withInv+' entries with a disclosed round · click a name for its portfolio</div>'+
+      top.map(([nm,n])=>'<div class="hbar"><span class="nm"><a href="/investors/'+slug(nm)+'/">'+esc(nm)+'</a></span><span class="tr"><span class="fl" style="width:'+(n/top[0][1]*100).toFixed(1)+'%;background:var(--h)"></span></span><span class="vl">'+n+' neobank'+(n>1?'s':'')+'</span></div>').join("")+
+      '<div class="chsrc">source: notable backers named in disclosed funding rounds, not full cap tables · an investor missing here may still hold a stake that was never announced.</div>'+STAMP+'</div>';
+  }
+  heat.insertAdjacentHTML('afterend',html);
+})();
+
 /* ── section views: the nav becomes tabs ── */
 (function views(){
   const $=s=>document.querySelector(s);
