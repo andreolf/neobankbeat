@@ -55,6 +55,8 @@ For a question about where someone's savings sit, the wrong answers matter more 
 | Hybrid | 72% | 12% | 15% |
 | Web3-native | 43% | 34% | 23% |
 
+![Stacked bars of right, unsure and wrong answers by category: traditional 87%, 10%, 2%; hybrid 72%, 15%, 12%; web3-native 43%, 23%, 34%.](https://raw.githubusercontent.com/andreolf/neobankbeat/main/dataset/articles/images/custody-by-category.png)
+
 Split by the true answer instead:
 
 | The truth is | Right | Wrong | Unsure |
