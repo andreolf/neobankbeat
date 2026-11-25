@@ -133,7 +133,7 @@
                               "string",
                               "null"
                             ],
-                            "description": "How it is authorised. Most common: Licensed bank (141), Partner-bank model (86), Self-custodial software (53), E-money institution (50)."
+                            "description": "How it is authorised. Most common: Licensed bank (139), Partner-bank model (86), Self-custodial software (52), E-money institution (51)."
                           },
                           "license": {
                             "type": [

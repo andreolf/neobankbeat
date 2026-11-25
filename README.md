@@ -6,7 +6,7 @@
 
 [![live site](https://img.shields.io/badge/live-neobankbeat.com-FF5C16)](https://www.neobankbeat.com)
 [![neobanks tracked](https://img.shields.io/badge/neobanks-398-89B0FF)](https://www.neobankbeat.com)
-[![tests](https://img.shields.io/badge/tests-331%20passing-BAF24A)](tests/flowtest.js)
+[![tests](https://img.shields.io/badge/tests-335%20passing-BAF24A)](tests/flowtest.js)
 [![data](https://img.shields.io/badge/data.json-machine--readable-D075FF)](https://www.neobankbeat.com/data.json)
 [![license](https://img.shields.io/badge/license-MIT-white)](LICENSE)
 
@@ -70,7 +70,7 @@ more numbers from the current dataset:
 |---|---|
 | niche-audience neobanks (women-first, gen z, immigrants, faith-based…) | **140** |
 | with stablecoin support | **125** |
-| licensed banks (charters, digital-bank licenses) | **141** |
+| licensed banks (charters, digital-bank licenses) | **139** |
 | running on a partner bank (BaaS) | **86** |
 | with AI verifiably in production | **67** |
 | verified terms & privacy links (checked, not guessed) | **121** |
@@ -136,7 +136,7 @@ browse/             index of every ready-made cut of the dataset
 regulation/ kyc/ regions/ for/ cards/ countries/   46 generated topic hubs (one license,
                     KYC posture, card, region, country or audience each — filters as pages)
 tests/
-├── flowtest.js     331 assertion sites across 43 user flows (JSDOM)
+├── flowtest.js     335 assertion sites across 43 user flows (JSDOM)
 ├── export-data.js  regenerates data.json from app.js
 ├── build-app-js.mjs keeps app.js and index.html's ?v= hash in step (--check)
 ├── homepage-js.mjs  the one place that knows where the homepage's JS lives

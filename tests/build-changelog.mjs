@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-25', tag: 'fix', title: 'Six entries corrected after a model test',
+    body: 'We asked five open AI models who holds the money at 60 of the neobanks, with and without our own record in front of them. Reading where they disagreed with us turned up entries that contradicted themselves. XPlace, AllScale and Kontigo were recorded as custodial while their own terms say the user holds the keys; all three are now self-custodial. Nagad and bKash were counted as licensed banks, but both run on a mobile money licence (Nagad was granted a digital bank licence in June 2024 that was suspended that August), so they are now payment institutions. Plutus was filed under self-custodial software and is an e-money card. The charts moved with them: 339 custodial and 58 with the keys left to the user, and 139 licensed banks.',
+    links: [['/#datasec', 'the charts'], ['/n/xplace/', 'XPlace'], ['/n/allscale/', 'AllScale'], ['/n/kontigo/', 'Kontigo']] },
   { date: '2026-11-25', tag: 'new', title: 'Four charts counted from the directory itself',
     body: 'The data tab has four new charts that come from the 398 entries rather than from anyone else\'s report: who holds the money (custody, split by category), what kind of licence stands behind each one, the 15 countries where most are based, and the 15 investors with the most companies in the directory. They are counted when the page loads, so they move the moment an entry is added or corrected.',
     links: [['/#datasec', 'the charts']] },

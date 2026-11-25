@@ -329,6 +329,17 @@ ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('world banked')),'findex chart exists');
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('2030 question')),'citi projection chart exists');
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('how stablecoins get spent')),'artemis comparison chart exists');
+// rows that once contradicted themselves: the custody field said one thing and
+// the licence line another, and it took a model reading both to notice
+{
+  const cust=n=>w.eval("D.find(r=>r[0]==="+JSON.stringify(n)+")[5]");
+  const reg=n=>w.eval("regTypeOf(D.find(r=>r[0]==="+JSON.stringify(n)+"))");
+  ['XPlace','AllScale','Kontigo'].forEach(n=>ok(cust(n)==='S',n+' is recorded as self-custodial, as its own terms say'));
+  ['Nagad','bKash'].forEach(n=>ok(reg(n)==='Payment institution',n+' runs on a mobile money licence, not a bank licence'));
+  ok(reg('Plutus')==='E-money institution','Plutus is filed as an e-money card');
+  const clash=w.eval("D.filter(r=>r[5]==='C'&&/self-custod|non-custod/i.test((X[r[0]]||{}).l||'')).map(r=>r[0])");
+  ok(clash.length===0,'no custodial entry has a licence line that says self-custodial ('+[...clash].join(', ')+')');
+}
 // charts counted from the directory's own rows
 {
   const card=id=>d.getElementById(id);

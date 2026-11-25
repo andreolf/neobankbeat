@@ -282,7 +282,7 @@ const D=[
 ["Trustee Plus","H","Europe","Vilnius, LT",2019,"C","Visa","Prepaid","—","—",1,"Y","g","trusteeglobal.eu","Ukraine-popular crypto card."],
 ["Brighty","H","Europe","Baar (Zug), CH",2021,"C","Visa/MC","Virtual + physical","Tiers","Up to 10% stablecoin vaults",1,"Y","g","brighty.app","Swiss hybrid by ex-Revolut engineers: EUR IBANs + crypto in one app, USDC/USDT/EURC vaults; EU/EEA + CH, 350K+ registrations."],
 ["UR","H","Global","—",2023,"C","Visa/MC","Debit","—","—",1,"Y","g","ur.global","Global stablecoin money app."],
-["XPlace","H","Global","Dubai, AE",2023,"C","Visa/MC","Prepaid","—","—",1,"Y","g","x.place","Crypto card (Pontech issuance)."],
+["XPlace","H","Global","Dubai, AE",2023,"S","Visa/MC","Prepaid","—","—",1,"Y","g","x.place","Crypto card (Pontech issuance)."],
 ["Mercado Pago","H","LatAm","Buenos Aires, AR",2003,"C","Visa/MC","Debit + credit","In-app offers","Remunerated account",1,"Y","g","mercadopago.com","LatAm super-app; crypto BR/MX; Meli Dollar."],
 ["Lemon","H","LatAm","Buenos Aires, AR",2019,"C","Visa","Prepaid","Up to 2% BTC","Yield on stables (region)",1,"Y","g","lemon.me","Argentina's crypto-card leader; 3M+."],
 ["Belo","H","LatAm","Buenos Aires, AR",2020,"C","MC","Prepaid","Crypto cashback","Yield on stables",1,"Y","g","belo.app","AR crypto neobank; travel-friendly."],
@@ -370,10 +370,10 @@ const D=[
 ["Vision Bank","T","MENA","Riyadh, SA",2024,"C","Mada/Visa","Debit","—","Shariah-compliant",0,"Y","fb","visionbank.sa","Saudi Arabia's third licensed digital bank."],
 ["Beyon Money","T","MENA","Manama, BH",2022,"C","Visa","Debit + wealth","Rewards","Savers",0,"Y","g","beyonmoney.com","Bahrain telco-backed financial super-app."],
 ["Fasset","H","MENA","Dubai, AE",2019,"C","Visa","Debit","Rewards","Yield on assets",1,"Y","fb","fasset.com","Ethical digital-asset super-app; UAE/ID/MY corridors."],
-["Kontigo","W","LatAm","—",2024,"C","Visa","Virtual + physical","—","USDC yield",1,"Y","g","kontigo.lat","USDC neobank for Venezuela + LatAm corridors."],
+["Kontigo","W","LatAm","—",2024,"S","Visa","Virtual + physical","—","USDC yield",1,"Y","g","kontigo.lat","USDC neobank for Venezuela + LatAm corridors."],
 ["Veera","W","Global","Singapore, SG",2023,"S","—","Wallet + card","Card rewards","Vault yield 3–10% across 40 chains",1,"CO","g","veera.com","Onchain neobank: earn, invest (tokenized equities, gold, RWAs), borrow and spend self-custodially; 2M+ users in 187 countries, 30K cards."],
 ["Rizon","W","Global","—",2024,"S","Visa","Virtual + physical","—","Stablecoin yield",1,"CO","g","rizon.co","Stablecoin banking app on self-custody rails."],
-["AllScale","W","Global","—",2024,"C","Visa","Business","—","—",1,"Y","s","allscale.io","Stablecoin business banking for global SMBs."],
+["AllScale","W","Global","—",2024,"S","Visa","Business","—","—",1,"Y","s","allscale.io","Stablecoin business banking for global SMBs."],
 ["Nyla","T","Africa","Lagos, NG",2024,"C","Verve/MC","Debit","—","—",0,"Y","g","nyla.africa","Nigerian consumer neobank (new wave)."],
 ["Munify","T","MENA","Cairo, EG",2024,"C","MC","Debit","—","—",0,"Y","i","munify.app","Banking for Egyptian diaspora + remittances."],
 ["Moneco","T","Europe","Paris, FR",2022,"C","Visa","Debit","—","—",0,"Y","i","moneco.app","Neobank for African diaspora in Europe."],
@@ -695,10 +695,10 @@ const X={
 "NG.cash":{l:"Payment institution (Banco Central do Brasil, e-money issuer license, May 2025)"},
 "RazorpayX":{l:"Partner banks (RBL, ICICI, Yes, Axis, IDFC First); Razorpay holds RBI payment aggregator license"},
 "SpectroCoin":{l:"Crypto VASP (Lithuania); e-money IBANs and Visa cards via UAB Pervesk (Bank of Lithuania EMI No. 17)"},
-"Plutus":{l:"E-money card via Modulr (FCA EMI; Lithuanian EMI for EEA); PLU rewards self-custodial"},
+"Plutus":{l:"E-money card via Modulr (FCA EMI; Lithuanian EMI for EEA); PLU rewards paid to the user's own wallet"},
 "UR":{l:"Swiss fintech banking license (Art. 1b Banking Act, FINMA; SR Saphirstein AG); tokenized deposits"},
 "Baraka":{l:"DFSA-regulated investment firm (DIFC, ref. 4153); broker-led model, execution via licensed partners"},
-"AllScale":{l:"Self-custodial stablecoin platform; not a bank; compliance and settlement via licensed partners"},
+"AllScale":{l:"Self-custodial stablecoin platform (passkey wallet, keys held by the user); not a bank; compliance and settlement via licensed partners"},
 "GrabPay":{l:"Major payment institution (MPI) license (MAS Singapore, PS20200167); e-money issuer"},
 "Till Financial":{l:"Partner bank (Coastal Community Bank); FDIC pass-through; Visa debit cards"},
 "Suits Me":{l:"E-money accounts issued by PrePay Technologies (FCA EMI, FRN 900010); Suits Me acts as agent/programme manager"},
@@ -721,7 +721,7 @@ const X={
 "Hey Banco":{l:"Own Mexican banking license (CNBV banca múltiple); independent of Banregio since Jan 2026"},
 "Daviplata":{l:"Operates under Banco Davivienda's Colombian banking license (SFC-supervised)"},
 "Qik":{l:"Full banking license (banco múltiple, Dominican Republic, Oct 2022; Grupo Popular)"},
-"Nagad":{l:"Mobile money license (Bangladesh Bank MFS, with Bangladesh Post Office); 2024 digital-bank license under review"},
+"Nagad":{l:"Mobile money license (Bangladesh Bank MFS, with Bangladesh Post Office); digital-banking licence granted June 2024, suspended August 2024 and still under review"},
 "KuCard":{l:"Card issued by Wallester AS (Estonian payment institution); KuCoin EU holds Austrian MiCA CASP license"},
 "Tap Global":{l:"Gibraltar DLT/VASP license (GFSC, No. 25532); cards via Transact Payments EMI"},
 "Kolo":{l:"AIFC FinTech Lab license (Kazakhstan) + Polish VASP; cards issued by Banco Popular de Puerto Rico"},
@@ -1026,7 +1026,7 @@ const X={
 "Karta":{f:"Nik Zimarkov",l:"Self-custodial (MPC via Privy); Visa issued by Rain",s:"25K+ monthly cardholders spending from their own wallet, reconciled on Tempo in under a second."},
 "Brighty":{f:"Roger Buerli, Nick Denisenko (ex-Revolut)",l:"Razz Finanzz AG (CH); crypto via Polish VASP registration (Wireflexion); fiat, IBANs and cards via BaaS partners",m:"~$16.3M raised incl. $10M from Futurecraft Ventures (Dec 2024)",s:"Two ex-Revolut engineers building the Swiss take on the hybrid app: everyday EUR banking with stablecoin vaults up to 10% — custody on Fireblocks, distribution across EU/EEA and Switzerland."},
 "Tangem":{f:"Andrey Kurennykh, Andrew Pantyukhin, Andreas Schmucki",l:"Self-custodial; funds in a user-controlled smart contract (USDC on Polygon); card by Paera LLC, issued by Third National via Rain",m:"~$23M raised ($15M SBI Group 2019; Shima Capital 2023)",s:"Sold millions of card-shaped hardware wallets, then made the wallet itself spendable: Tangem Pay (Dec 2025) turns self-custodied USDC into a Visa — the hardware company quietly becoming a neobank."},
-"Kontigo":{l:"Self-custodial MPC wallet (USDC); no license of its own; fiat rails via partners",f:"Jesus Castillo, Gino Guatavita",m:"$20M seed (Dec 2025; DST Global, Y Combinator, Coinbase Ventures)",s:"Ex-Venmo/Nubank/Rappi team hit $30M annualized revenue, $1B payment volume and 1M users in under 12 months — with six engineers and one designer."},
+"Kontigo":{l:"Self-custodial wallet (Kontigo Cash, USDC); some products held with third-party custodians; no license of its own; fiat rails via partners",f:"Jesus Castillo, Gino Guatavita",m:"$20M seed (Dec 2025; DST Global, Y Combinator, Coinbase Ventures)",s:"Ex-Venmo/Nubank/Rappi team hit $30M annualized revenue, $1B payment volume and 1M users in under 12 months — with six engineers and one designer."},
 "Bitget Wallet":{m:"Bitget ecosystem; $20M+ wallet war-chest",l:"Self-custodial; cards via DCS (Asia), Immersve (EU/UK/LatAm), Fiat24 (CN virtual)",s:"The exchange-adjacent wallet pushing hardest into cards — the only one plugged into WeChat Pay and Alipay."},
 "BFinance":{f:"Knyaz Yussupov",l:"Czech VASP registration; Marqeta-issued cards",s:"A card programme that lives entirely inside a Telegram bot — crude, fee-heavy, and reportedly moving ~$20M a month anyway."},
 "SurfCash":{f:"Akshat Sharma, C\u00e9sar Su\u00e1rez",l:"Self-custodial (BVI entity); decentralized protocols + licensed local partners; Circle Alliance",s:"The anti-card thesis: nomads in Vietnam, Thailand and Brazil don't need Visa — they need VietQR, PromptPay and Pix, which cards can't touch. SURF token-governed."},
@@ -1398,9 +1398,9 @@ function regTypeOf(r){
   if(/partner bank|partner:|partner banks|(^|\s)on .*license|rails|jv on|operates on|subsidiary/.test(t))return"Partner-bank model";
   if(/self-custodial|open-source|no custody|mpc|own l1|defi protocol|eco protocol|protocol/.test(t))return"Self-custodial software";
   if(/mica/.test(t))return"MiCA CASP (EU)";
-  if(/charter|banking license|bank license|bank \(|private bank|mutual bank|\badi\b|internet-only|virtual bank|digital bank|digital full bank|digital wholesale|payments bank|small finance|microfinance|\bmfs\b|sofipo|ifpe|bank licenses|bank;/.test(t))return"Licensed bank";
+  if(/charter|banking license|bank license|bank \(|private bank|mutual bank|\badi\b|internet-only|virtual bank|digital bank|digital full bank|digital wholesale|payments bank|small finance|microfinance|sofipo|ifpe|bank licenses|bank;/.test(t))return"Licensed bank";
   if(/e-money|\bemi\b/.test(t))return"E-money institution";
-  if(/payment institution|psan|\bmpi\b|payment licenses|payment\/fintech|mobile money|e-money issuer|afsl/.test(t))return"Payment institution";
+  if(/payment institution|psan|\bmpi\b|payment licenses|payment\/fintech|mobile money|\bmfs\b|e-money issuer|afsl/.test(t))return"Payment institution";
   if(/vasp|msb|bitlicense|vara|trust|casp|state licenses|registrations/.test(t))return"VASP / MSB / crypto licenses";
   if(/broker/.test(t))return"Broker-led";
   if(/fintech license/.test(t))return"Fintech license (CH)";
