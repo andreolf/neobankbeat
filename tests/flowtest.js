@@ -329,6 +329,25 @@ ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('world banked')),'findex chart exists');
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('2030 question')),'citi projection chart exists');
 ok([...d.querySelectorAll('#datasec .dcard2 h2')].some(h=>h.textContent.includes('how stablecoins get spent')),'artemis comparison chart exists');
+// charts counted from the directory's own rows
+{
+  const card=id=>d.getElementById(id);
+  const cu=card('ch-custody');
+  ok(cu!==null&&cu.querySelectorAll('.hbar').length===4,'custody chart has a row for all and for each category');
+  const widths=[...cu.querySelectorAll('.hbar')[0].querySelectorAll('.fl')].reduce((s,f)=>s+parseFloat(f.style.width),0);
+  ok(Math.abs(widths-100)<0.1,'custody segments add up to the whole directory ('+widths.toFixed(2)+'%)');
+  ok([...cu.querySelectorAll('.hbar .vl')].slice(1).reduce((s,v)=>s+ +v.textContent,0)===TOTAL,'custody rows by category add up to '+TOTAL);
+  const li=card('ch-licence');
+  ok(li!==null&&[...li.querySelectorAll('.hbar .vl')].reduce((s,v)=>s+parseInt(v.textContent,10),0)===TOTAL,'licence chart counts every entry once');
+  const hq=card('ch-hq');
+  ok(hq!==null&&hq.querySelectorAll('.hbar').length===15,'headquarters chart lists 15 countries');
+  ok([...hq.querySelectorAll('.nm a')].every(a=>fs.existsSync(require('path').join(__dirname,'..',a.getAttribute('href'),'index.html'))),'every country in the chart links a page that exists');
+  const inv=card('ch-investors');
+  ok(inv!==null&&inv.querySelectorAll('.hbar').length===15,'investor chart lists 15 investors');
+  ok([...inv.querySelectorAll('.nm a')].every(a=>fs.existsSync(require('path').join(__dirname,'..',a.getAttribute('href'),'index.html'))),'every investor in the chart links a page that exists');
+  const counts=[...inv.querySelectorAll('.vl')].map(v=>parseInt(v.textContent,10));
+  ok(counts.every((n,i)=>i===0||n<=counts[i-1]),'investor chart is sorted, largest first');
+}
 ok(d.querySelector('.curvenote')!==null&&d.querySelector('.curvenote').textContent.includes('measurement scope'),'curve sanity note explains the $1.5B/mo figure');
 ok([...d.querySelectorAll('.chsrc a')].some(a=>a.href.includes('citigroup.com')),'Citi PDF linked');
 ok([...d.querySelectorAll('.chsrc a')].some(a=>a.href.includes('simon-kucher')),'Simon-Kucher linked');
