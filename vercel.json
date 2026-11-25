@@ -20,12 +20,12 @@
       "permanent": true
     },
     {
-      "source": "/vs/:slug(dnero-vs-mela|yolat-vs-mukuru)(.*)",
+      "source": "/vs/:slug(dnero-vs-mela|yolat-vs-mukuru|aspire-vs-ping-an-digital-bank|dolafy-vs-shield|fizen-vs-surfcash)(.*)",
       "destination": "/vs/",
       "permanent": false
     },
     {
-      "source": "/:lang(de|es|fr|it|pt)/vs/:slug(dnero-vs-mela|yolat-vs-mukuru)(.*)",
+      "source": "/:lang(de|es|fr|it|pt)/vs/:slug(dnero-vs-mela|yolat-vs-mukuru|aspire-vs-ping-an-digital-bank|dolafy-vs-shield|fizen-vs-surfcash)(.*)",
       "destination": "/:lang/vs/",
       "permanent": false
     },

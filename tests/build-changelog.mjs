@@ -56,6 +56,9 @@ const plainOf = subj => (PLAIN.find(([re]) => re.test(subj)) || [])[1] || humani
    whole language). The dataset section below is generated; this list is
    maintained by hand. Newest first; dates are the ship (merge) date. */
 const RELEASES = [
+  { date: '2026-11-25', tag: 'data', title: 'Newtek Bank added',
+    body: 'Newtek Bank joins the directory, the 398th entry. It is a branchless US national bank for small businesses, owned by NewtekOne: business checking with no fees, a free Visa debit card and business loans. It came in as a lead from the weekly discovery run and was checked against the FDIC register (certificate 18734, supervised by the OCC, $2.6B in deposits at 30 September 2026). The same review left out TPBank Biz, a traditional bank\'s corporate app, and a Bangladesh digital bank that is licensed but not yet open.',
+    links: [['/n/newtek-bank/', 'Newtek Bank'], ['/for/smb-and-startups/', 'neobanks for small businesses']] },
   { date: '2026-11-16', tag: 'data', title: 'Charts brought up to November 2026, with a date on every one',
     body: 'The charts were last researched in July and most user figures were from 2024. Every chart now says when it was last checked. Reported users went from 23 companies to 37, 30 of them with a 2026 figure and each with a link to its source; a few changed metric because the company now reports a narrower one (Chime counts active members, GCash monthly actives). Volume watch is split into payment volume, deposits and crypto cards, with last full year and latest quarter in separate columns so a quarter is never read against a year, and it gains Revolut, Chime, SoFi, Monzo, Starling, Banco Inter, PicPay, GCash, Moniepoint, KakaoBank and Klarna. Stablecoin supply is $289B, down from a $314B peak in May. A new chart shows crypto card spend passing $1B a month in 2026. Two figures were removed because their sources could no longer be found.',
     links: [['/#datasec', 'the charts']] },

@@ -5,12 +5,12 @@
   "url": "https://www.neobankbeat.com/",
   "source": "https://github.com/andreolf/neobankbeat",
   "license": "MIT",
-  "total": 397,
+  "total": 398,
   "counts": {
-   "traditional": 274,
+   "traditional": 275,
    "hybrid": 64,
    "web3_native": 59,
-   "niche_audience": 139
+   "niche_audience": 140
   },
   "field_notes": {
    "category": "traditional = licensed fiat, custodial · hybrid = fiat + custodial crypto · web3-native = self-custodial, on-chain-first",
@@ -29524,6 +29524,78 @@
     "card_network": null
    },
    "funding_stage": null
+  },
+  {
+   "name": "Newtek Bank",
+   "category": "traditional",
+   "audience": "SMB & startups",
+   "region": "US",
+   "hq": "Miami, US",
+   "founded": 2023,
+   "custody": "Custodial",
+   "regulation_type": "Licensed bank",
+   "card_network": "Visa",
+   "card_type": "Business debit",
+   "cashback": null,
+   "yield": "1% business checking; 3.5% money market",
+   "stablecoins": false,
+   "kyc": "Yes",
+   "domain": "newtekbank.com",
+   "website": "https://newtekbank.com",
+   "active_regions": [
+    "North America"
+   ],
+   "note": "Branchless US national bank for small businesses, owned by NewtekOne (NASDAQ: NEWT): no-fee business checking, a free Visa debit card and business loans; $2.6B in deposits (Sep 2026).",
+   "story": "NewtekOne bought the 1963-chartered National Bank of New York City in January 2023, renamed it and rebuilt it as an online bank for small businesses; it added zero-fee business banking in November 2024.",
+   "license": "National bank charter (OCC; FDIC cert 18734)",
+   "funding": "Wholly owned by NewtekOne (NASDAQ: NEWT)",
+   "countries": [
+    "United States"
+   ],
+   "slug": "newtek-bank",
+   "features": {
+    "apple_pay": null,
+    "google_pay": null,
+    "api": null,
+    "webhooks": null,
+    "oauth": null,
+    "sandbox": null,
+    "business_accounts": true,
+    "virtual_cards": null,
+    "physical_cards": null,
+    "iban": null,
+    "self_custody": null,
+    "mpc": null,
+    "yield_bearing": true,
+    "savings": null,
+    "lending": true,
+    "investing": null,
+    "treasury": null,
+    "crypto": null,
+    "stablecoin_native": null
+   },
+   "stablecoin_tickers": [],
+   "fx_markup_pct": null,
+   "cashback_pct": null,
+   "yield_pct": null,
+   "payment_rails": null,
+   "card_networks": [
+    "Visa"
+   ],
+   "card_form": null,
+   "card_funding": [
+    "debit"
+   ],
+   "timeline": null,
+   "partners": {
+    "issuer": null,
+    "partner_bank": null,
+    "treasury": null,
+    "identity": null,
+    "kyc_provider": null,
+    "card_network": null
+   },
+   "funding_stage": "Subsidiary / strategic"
   },
   {
    "name": "Esh Bank",

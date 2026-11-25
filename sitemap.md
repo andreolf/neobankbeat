@@ -1,10 +1,10 @@
 # neobankbeat — sitemap
 
-> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-11-16.
+> Every page on [neobankbeat.com](https://www.neobankbeat.com/), grouped by section. Machine-readable data lives at [/data.json](https://www.neobankbeat.com/data.json); the agent guide at [/llms.txt](https://www.neobankbeat.com/llms.txt). Updated 2026-11-25.
 
 ## Main
 
-- [Directory](https://www.neobankbeat.com/) — searchable grid of all 397 neobanks
+- [Directory](https://www.neobankbeat.com/) — searchable grid of all 398 neobanks
 - [Browse](https://www.neobankbeat.com/browse/) — 59 ready-made cuts of the dataset by license, KYC, region and audience
 - [Find your fit](https://www.neobankbeat.com/fit/) — 8-step self-assessment with sliders and live match count, plus country landers for 17 markets
 - [FAQ](https://www.neobankbeat.com/faq/) — 23 honest answers
@@ -86,7 +86,7 @@
 - [neobank licences by region](https://www.neobankbeat.com/blog/neobank-licences-by-region/) (2026-11-11)
 - [us neobank charter wave](https://www.neobankbeat.com/blog/us-neobank-charter-wave/) (2026-11-18)
 
-## Neobank profiles (397)
+## Neobank profiles (398)
 
 - [Chime](https://www.neobankbeat.com/n/chime/)
 - [Varo](https://www.neobankbeat.com/n/varo/)
@@ -462,6 +462,7 @@
 - [AMP Bank GO](https://www.neobankbeat.com/n/amp-bank-go/)
 - [Always.bank](https://www.neobankbeat.com/n/always-bank/)
 - [Haventree Bank](https://www.neobankbeat.com/n/haventree-bank/)
+- [Newtek Bank](https://www.neobankbeat.com/n/newtek-bank/)
 - [Esh Bank](https://www.neobankbeat.com/n/esh-bank/)
 - [Blink](https://www.neobankbeat.com/n/blink/)
 - [Yolat](https://www.neobankbeat.com/n/yolat/)
@@ -593,9 +594,12 @@
 - [NorthOne vs Rho](https://www.neobankbeat.com/vs/northone-vs-rho/)
 - [NorthOne vs Grasshopper](https://www.neobankbeat.com/vs/northone-vs-grasshopper/)
 - [NorthOne vs Always.bank](https://www.neobankbeat.com/vs/northone-vs-always-bank/)
+- [NorthOne vs Newtek Bank](https://www.neobankbeat.com/vs/northone-vs-newtek-bank/)
 - [Rho vs Grasshopper](https://www.neobankbeat.com/vs/rho-vs-grasshopper/)
 - [Rho vs Always.bank](https://www.neobankbeat.com/vs/rho-vs-always-bank/)
+- [Rho vs Newtek Bank](https://www.neobankbeat.com/vs/rho-vs-newtek-bank/)
 - [Grasshopper vs Always.bank](https://www.neobankbeat.com/vs/grasshopper-vs-always-bank/)
+- [Grasshopper vs Newtek Bank](https://www.neobankbeat.com/vs/grasshopper-vs-newtek-bank/)
 - [Found vs Karat](https://www.neobankbeat.com/vs/found-vs-karat/)
 - [Lili vs Karat](https://www.neobankbeat.com/vs/lili-vs-karat/)
 - [Greenwood vs MoCaFi](https://www.neobankbeat.com/vs/greenwood-vs-mocafi/)
@@ -670,9 +674,6 @@
 - [Flex vs Shield](https://www.neobankbeat.com/vs/flex-vs-shield/)
 - [Karta vs Fizen](https://www.neobankbeat.com/vs/karta-vs-fizen/)
 - [Karta vs SurfCash](https://www.neobankbeat.com/vs/karta-vs-surfcash/)
-- [Fizen vs SurfCash](https://www.neobankbeat.com/vs/fizen-vs-surfcash/)
-- [Aspire vs Ping An Digital Bank](https://www.neobankbeat.com/vs/aspire-vs-ping-an-digital-bank/)
-- [Dolafy vs Shield](https://www.neobankbeat.com/vs/dolafy-vs-shield/)
 
 ## Topic hubs (59)
 
@@ -738,4 +739,4 @@
 
 ## Per-neobank answer pages
 
-Every profile has a "who owns it" page (397) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (396) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
+Every profile has a "who owns it" page (398) answering who is behind the brand — parent company, license holder, sponsor bank, disclosed investors — and an "alternatives" page (397) ranking its closest peers, e.g. `https://www.neobankbeat.com/n/<slug>/who-owns/` and `https://www.neobankbeat.com/n/<slug>/alternatives/`.
