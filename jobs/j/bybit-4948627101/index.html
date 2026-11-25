@@ -141,7 +141,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3KE01L5DL"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());(function(){var s=screen.width+"x"+screen.height,go=function(){gtag("config","G-E3KE01L5DL")};if(navigator.webdriver||/^(800x600|1280x1200|1366x1366|1280x1600|1024x1024)$/.test(s))return;if(s=="1920x1080"&&/Linux/.test(navigator.platform)&&!/Android/.test(navigator.userAgent)&&!document.referrer){var e=["pointermove","keydown","wheel","touchstart"],h=function(){e.forEach(function(n){removeEventListener(n,h,true)});go()};e.forEach(function(n){addEventListener(n,h,true)});return}go()})()</script>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"JobPosting","title":"Senior Principal Site Reliability Engineer (Chaos Engineering)","description":"About Us\n\nEstablished in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 80 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers a seamless ecosystem across trading, payments, wealth management, custody, institutional services, and Web3 — connecting users to the future of digital finance.\n\n \n\nOur core values define how we build. We listen, care and improve to create products and experiences that put users first. Backed by a global team of ambitious builders, problem-solvers, and innovators, we foster a high-performance and fast-moving environment where talent is empowered to drive real impact at the global scale. Supported by 24/7 multilingual customer service and a strong commitment to innovation, we are shaping the future of finance through technology, collaboration, and bold execution.\n\n \n\nToday, Bybit is recognized as one of the most trusted and transparent platforms in the digital asset industry, continuing to expand its global presence while building the infrastructure for the next generation of financial services.\n\n \n\nAbout This Role\n\nAs the Core Architect of Bybit’s Chaos Engineering Platform, you will be responsible for designing and building an enterprise-grade chaos engineering platform from the ground up (0 to 1), enabling fault injection and resilience validation in production environments across 2,000+ microservices.\n\nYour mission goes beyond simply building a platform. You will drive continuous system resilience validation, with the ultimate goal of reducing the occurrence of P0/P-1 severity incidents by over 50%.\n\n \n\nCore Responsibilities\n• Chaos Engineering Platform Architecture Development (50%)\n• Design and build an enterprise-grade chaos engineering platform supporting multi-cluster (K8s + EC2 hybrid), multi-region, and multi-environment (testnet/mainnet) deployments\n• Core capability development:\n• Fault Injection Engine: Pod-level / Node-level / AZ-level fault simulation, network latency / packet loss / partition, dependency timeout / error injection\n• Production Safety Assurance: Blast radius control, one-click Kill Switch, automatic rollback, real-time impact monitoring\n• Traffic Isolation: Experiment traffic tagging and isolation to ensure fault injection does not impact real users\n• Fault Isolation: Precise impact scoping at service / cluster / AZ granularity\n• Design experiment orchestration capabilities supporting complex fault scenario composition (e.g., simultaneous network latency + downstream timeout + cache invalidation)\n• Deep integration with existing monitoring, alerting, and SLO systems to achieve an automated closed loop: inject fault → observe impact → determine pass/fail\n• Production Resilience Validation Framework (30%)\n• Define safety standards and approval workflows for mainnet fault injection\n• Design and drive routine chaos experiments:\n• Daily patrol-level experiments: Low-risk experiments executed automatically on a daily/weekly basis\n• Periodic validation experiments: Monthly/quarterly resilience verification of critical paths\n• Large-scale drills: Cross-AZ / cross-region disaster recovery failover validation\n• Establish a resilience scoring system to quantify system health based on experiment results\n• Deliver improvement recommendations and drive business teams to remediate identified weaknesses\n• Technology Selection Team Enablement (20%)\n• Evaluate and select the technology foundation (Chaos Mesh / Litmus / custom components — hybrid strategy)\n• Develop chaos engineering best practices and playbooks to enable SRE teams and application developers\n• Mentor and grow the team (2–3 engineers) in chaos engineering capabilities\n• Stay current with industry developments and introduce cutting-edge practices (e.g., AI-driven fault scenario discovery)\n\n \n\nKey Requirements\n\nMust-Have:\n• 8+ years of backend / infrastructure engineering experience, with 3+ years dedicated to chaos engineering or stability engineering\n• Hands-on experience with large-scale fault injection in production environments (not just test environments), with deep understanding of production safety constraints\n• Expert-level proficiency in Kubernetes fault injection (Chaos Mesh / Litmus / custom solutions), familiar with CRD / Operator development\n• Proficient in at least one backend language (Go preferred), with platform-level system architecture design capability\n• Deep understanding of distributed system failure modes (network partitions, split-brain, cascading failures, data inconsistency, etc.)\n• Familiarity with observability tech stack (Prometheus / Grafana / Thanos / OpenTelemetry)\n• Excellent technical documentation and solution design skills\n\n \n\nNice-to-Have:\n• Experience in financial / trading system stability (understanding of transaction consistency and fund safety constraints)\n• Experience building SLO / Error Budget frameworks\n• Experience building automated fault recovery (self-healing) systems\n• Familiarity with AWS infrastructure (EC2 / EKS / Multi-AZ / Multi-Region)\n• Knowledge of Netflix Chaos Engineering / AWS Fault Injection Simulator / Gremlin\n• Open-source community contributions (Chaos Mesh / Litmus or similar projects)\n\n \n\nSoft\n\nSkills:\n• Ability to balance \"safety\" and \"validation depth\" — not afraid of production injection, while maintaining strict risk control\n• Strong cross-team collaboration and influence — chaos engineering requires buy-in from business teams; this role demands persuasion skills\n• Self-driven, capable of independently planning and executing in ambiguous situations\n\n \n\n岗位定位\n\n作为Bybit混沌工程平台的核心架构师，负责从0到1构建企业级混沌工程平台，支撑2000+微服务在生产环境的故障注入和韧性验证能力。你的目标不是\"搭个平台\"，而是通过持续验证系统韧性，将P0/P-1级故障发生率降低50%+。\n\n \n\n核心职责\n• 混沌工程平台架构设计与建设（50%）\n• 设计并构建企业级混沌工程平台，支持多集群（K8s + EC2混合）、多区域、多环境（testnet/mainnet）\n• 核心能力建设：\n• 故障注入引擎： Pod级/Node级/AZ级故障模拟，网络延迟/丢包/分区，依赖超时/错误注入\n• 生产环境安全保障： 爆炸半径控制、一键停止（Kill Switch）、自动回滚、影响范围实时监控\n• 流量隔离： 实验流量标记与隔离，确保故障注入不影响真实用户\n• 故障隔离： 按服务/集群/AZ粒度精准控制影响范围\n• 设计实验编排能力：支持复杂故障场景的组合编排（如：同时注入网络延迟+下游超时+缓存失效）\n• 与现有监控、告警、SLO体系深度集成，实现\"注入故障→观测影响→判定通过/失败\"的自动化闭环\n• 生产环境韧性验证体系（30%）\n• 制定主网故障注入的安全规范和审批流程\n• 设计和推动常态化混沌实验：\n• 日常巡检级实验（每日/每周自动执行低风险实验）\n• 定期验证级实验（月度/季度核心链路韧性验证）\n• 大规模演练（跨AZ/跨Region容灾切换验证）\n• 建立韧性评分体系：基于实验结果量化系统健康度\n• 输出改进建议并推动业务方修复发现的弱点\n• 技术方案选型与团队赋能（20%）\n• 评估并选择技术底座（Chaos Mesh / Litmus / 自研组件的组合策略）\n• 制定混沌工程最佳实践和Playbook，赋能SRE团队和业务研发\n• 培养团队（2-3人）的混沌工程能力\n• 与业界保持同步，引入前沿实践（如：AI驱动的故障场景发现）\n\n \n\n 任职要求\n\n 必需条件：\n• 8年+后端/基础设施开发经验，3年+混沌工程或稳定性工程专项经验\n• 有生产环境大规模故障注入的实操经验（非仅测试环境），深刻理解生产安全约束\n• 精通Kubernetes故障注入（Chaos Mesh/Litmus/自研方案），熟悉CRD/Operator开发\n• 精通至少一种后端语言（Go优先），具备平台级系统架构设计能力\n• 深入理解分布式系统故障模式（网络分区、脑裂、级联故障、数据不一致等）\n• 熟悉可观测性技术栈（Prometheus/Grafana/Thanos/OpenTelemetry）\n• 优秀的技术文档和方案设计能力\n\n \n\n 加分项：\n• 有金融/交易系统稳定性保障经验（理解交易一致性、资金安全约束）\n• 有SLO/Error Budget体系建设经验\n• 有自动化故障恢复（Self-healing）系统建设经验\n• 熟悉AWS基础设施（EC2/EKS/Multi-AZ/Multi-Region）\n• 了解Netflix Chaos Engineering / AWS Fault Injection Simulator / Gremlin\n• 有开源社区贡献经验（Chaos Mesh/Litmus等项目）\n\n \n\n 软性要求：\n• 能在\"安全\"和\"验证深度\"之间做好平衡——既不畏惧生产注入，也能严格控制风险\n• 有推动跨团队协作的能力——混沌工程需要业务方配合，这个岗位需要说服力\n• 自驱型，能在方向模糊时独立规划和推进\n\nWhy Join Us\nAt Bybit, we are committed to fostering a supportive and enriching work environment. \nOur benefits include:\n- Study Growth Fund: We support your professional development and continuous learning.\n- Internal Events: Participate in regular team-building activities, workshops, and events designed to promote collaboration and innovation.\n- Global Collaboration: Be part of a diverse, international team, working alongside colleagues from around the world.\n- Career Advancement: Access opportunities for growth and advancement within a rapidly expanding global company.\n- Internal Mobility: Grow with us- Your long-term development is important to us. We offer internal job opportunities to help build your career path.","datePosted":"2026-11-15","validThrough":"2027-01-14","hiringOrganization":{"@type":"Organization","name":"Bybit","sameAs":"https://www.neobankbeat.com/n/bybit-card/"},"jobLocation":{"@type":"Place","address":"Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia"},"directApply":false,"url":"https://www.neobankbeat.com/jobs/j/bybit-4948627101/","identifier":{"@type":"PropertyValue","name":"Bybit","value":"https://job-boards.eu.greenhouse.io/bybit/jobs/4948627101"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"senior principal site reliability engineer (chaos engineering)","item":"https://www.neobankbeat.com/jobs/j/bybit-4948627101/"}]}]
+[{"@context":"https://schema.org","@type":"JobPosting","title":"Senior Principal Site Reliability Engineer (Chaos Engineering)","description":"About Us\n\nEstablished in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 90 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers a seamless ecosystem across trading, payments, wealth management, custody, institutional services, and Web3 — connecting users to the future of digital finance.\n\n \n\nOur core values define how we build. We listen, care and improve to create products and experiences that put users first. Backed by a global team of ambitious builders, problem-solvers, and innovators, we foster a high-performance and fast-moving environment where talent is empowered to drive real impact at the global scale. Supported by 24/7 multilingual customer service and a strong commitment to innovation, we are shaping the future of finance through technology, collaboration, and bold execution.\n\n \n\nToday, Bybit is recognized as one of the most trusted and transparent platforms in the digital asset industry, continuing to expand its global presence while building the infrastructure for the next generation of financial services.\n\n \n\nAbout This Role\n\nAs the Core Architect of Bybit’s Chaos Engineering Platform, you will be responsible for designing and building an enterprise-grade chaos engineering platform from the ground up (0 to 1), enabling fault injection and resilience validation in production environments across 2,000+ microservices.\n\nYour mission goes beyond simply building a platform. You will drive continuous system resilience validation, with the ultimate goal of reducing the occurrence of P0/P-1 severity incidents by over 50%.\n\n \n\nCore Responsibilities\n• Chaos Engineering Platform Architecture Development (50%)\n• Design and build an enterprise-grade chaos engineering platform supporting multi-cluster (K8s + EC2 hybrid), multi-region, and multi-environment (testnet/mainnet) deployments\n• Core capability development:\n• Fault Injection Engine: Pod-level / Node-level / AZ-level fault simulation, network latency / packet loss / partition, dependency timeout / error injection\n• Production Safety Assurance: Blast radius control, one-click Kill Switch, automatic rollback, real-time impact monitoring\n• Traffic Isolation: Experiment traffic tagging and isolation to ensure fault injection does not impact real users\n• Fault Isolation: Precise impact scoping at service / cluster / AZ granularity\n• Design experiment orchestration capabilities supporting complex fault scenario composition (e.g., simultaneous network latency + downstream timeout + cache invalidation)\n• Deep integration with existing monitoring, alerting, and SLO systems to achieve an automated closed loop: inject fault → observe impact → determine pass/fail\n• Production Resilience Validation Framework (30%)\n• Define safety standards and approval workflows for mainnet fault injection\n• Design and drive routine chaos experiments:\n• Daily patrol-level experiments: Low-risk experiments executed automatically on a daily/weekly basis\n• Periodic validation experiments: Monthly/quarterly resilience verification of critical paths\n• Large-scale drills: Cross-AZ / cross-region disaster recovery failover validation\n• Establish a resilience scoring system to quantify system health based on experiment results\n• Deliver improvement recommendations and drive business teams to remediate identified weaknesses\n• Technology Selection Team Enablement (20%)\n• Evaluate and select the technology foundation (Chaos Mesh / Litmus / custom components — hybrid strategy)\n• Develop chaos engineering best practices and playbooks to enable SRE teams and application developers\n• Mentor and grow the team (2–3 engineers) in chaos engineering capabilities\n• Stay current with industry developments and introduce cutting-edge practices (e.g., AI-driven fault scenario discovery)\n\n \n\nKey Requirements\n\nMust-Have:\n• 8+ years of backend / infrastructure engineering experience, with 3+ years dedicated to chaos engineering or stability engineering\n• Hands-on experience with large-scale fault injection in production environments (not just test environments), with deep understanding of production safety constraints\n• Expert-level proficiency in Kubernetes fault injection (Chaos Mesh / Litmus / custom solutions), familiar with CRD / Operator development\n• Proficient in at least one backend language (Go preferred), with platform-level system architecture design capability\n• Deep understanding of distributed system failure modes (network partitions, split-brain, cascading failures, data inconsistency, etc.)\n• Familiarity with observability tech stack (Prometheus / Grafana / Thanos / OpenTelemetry)\n• Excellent technical documentation and solution design skills\n\n \n\nNice-to-Have:\n• Experience in financial / trading system stability (understanding of transaction consistency and fund safety constraints)\n• Experience building SLO / Error Budget frameworks\n• Experience building automated fault recovery (self-healing) systems\n• Familiarity with AWS infrastructure (EC2 / EKS / Multi-AZ / Multi-Region)\n• Knowledge of Netflix Chaos Engineering / AWS Fault Injection Simulator / Gremlin\n• Open-source community contributions (Chaos Mesh / Litmus or similar projects)\n\n \n\nSoft\n\nSkills:\n• Ability to balance \"safety\" and \"validation depth\" — not afraid of production injection, while maintaining strict risk control\n• Strong cross-team collaboration and influence — chaos engineering requires buy-in from business teams; this role demands persuasion skills\n• Self-driven, capable of independently planning and executing in ambiguous situations\n\n \n\n岗位定位\n\n作为Bybit混沌工程平台的核心架构师，负责从0到1构建企业级混沌工程平台，支撑2000+微服务在生产环境的故障注入和韧性验证能力。你的目标不是\"搭个平台\"，而是通过持续验证系统韧性，将P0/P-1级故障发生率降低50%+。\n\n \n\n核心职责\n• 混沌工程平台架构设计与建设（50%）\n• 设计并构建企业级混沌工程平台，支持多集群（K8s + EC2混合）、多区域、多环境（testnet/mainnet）\n• 核心能力建设：\n• 故障注入引擎： Pod级/Node级/AZ级故障模拟，网络延迟/丢包/分区，依赖超时/错误注入\n• 生产环境安全保障： 爆炸半径控制、一键停止（Kill Switch）、自动回滚、影响范围实时监控\n• 流量隔离： 实验流量标记与隔离，确保故障注入不影响真实用户\n• 故障隔离： 按服务/集群/AZ粒度精准控制影响范围\n• 设计实验编排能力：支持复杂故障场景的组合编排（如：同时注入网络延迟+下游超时+缓存失效）\n• 与现有监控、告警、SLO体系深度集成，实现\"注入故障→观测影响→判定通过/失败\"的自动化闭环\n• 生产环境韧性验证体系（30%）\n• 制定主网故障注入的安全规范和审批流程\n• 设计和推动常态化混沌实验：\n• 日常巡检级实验（每日/每周自动执行低风险实验）\n• 定期验证级实验（月度/季度核心链路韧性验证）\n• 大规模演练（跨AZ/跨Region容灾切换验证）\n• 建立韧性评分体系：基于实验结果量化系统健康度\n• 输出改进建议并推动业务方修复发现的弱点\n• 技术方案选型与团队赋能（20%）\n• 评估并选择技术底座（Chaos Mesh / Litmus / 自研组件的组合策略）\n• 制定混沌工程最佳实践和Playbook，赋能SRE团队和业务研发\n• 培养团队（2-3人）的混沌工程能力\n• 与业界保持同步，引入前沿实践（如：AI驱动的故障场景发现）\n\n \n\n 任职要求\n\n 必需条件：\n• 8年+后端/基础设施开发经验，3年+混沌工程或稳定性工程专项经验\n• 有生产环境大规模故障注入的实操经验（非仅测试环境），深刻理解生产安全约束\n• 精通Kubernetes故障注入（Chaos Mesh/Litmus/自研方案），熟悉CRD/Operator开发\n• 精通至少一种后端语言（Go优先），具备平台级系统架构设计能力\n• 深入理解分布式系统故障模式（网络分区、脑裂、级联故障、数据不一致等）\n• 熟悉可观测性技术栈（Prometheus/Grafana/Thanos/OpenTelemetry）\n• 优秀的技术文档和方案设计能力\n\n \n\n 加分项：\n• 有金融/交易系统稳定性保障经验（理解交易一致性、资金安全约束）\n• 有SLO/Error Budget体系建设经验\n• 有自动化故障恢复（Self-healing）系统建设经验\n• 熟悉AWS基础设施（EC2/EKS/Multi-AZ/Multi-Region）\n• 了解Netflix Chaos Engineering / AWS Fault Injection Simulator / Gremlin\n• 有开源社区贡献经验（Chaos Mesh/Litmus等项目）\n\n \n\n 软性要求：\n• 能在\"安全\"和\"验证深度\"之间做好平衡——既不畏惧生产注入，也能严格控制风险\n• 有推动跨团队协作的能力——混沌工程需要业务方配合，这个岗位需要说服力\n• 自驱型，能在方向模糊时独立规划和推进\n\nWhy Join Us\n\n \n\nAt Bybit, we are committed to fostering a supportive and enriching work environment. Our benefits include:\n• Study Growth Fund: We support your professional development and continuous learning.\n• Internal Events: Participate in regular team-building activities, workshops, and events designed to promote collaboration and innovation.\n• Global Collaboration: Be part of a diverse, international team, working alongside colleagues from around the world.\n• Career Advancement: Access opportunities for growth and advancement within a rapidly expanding global company.\n• Internal Mobility: Grow with us- Your long-term development is important to us. We offer internal job opportunities to help build your career path.","datePosted":"2026-11-25","validThrough":"2027-01-24","hiringOrganization":{"@type":"Organization","name":"Bybit","sameAs":"https://www.neobankbeat.com/n/bybit-card/"},"jobLocation":{"@type":"Place","address":"Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia"},"directApply":false,"url":"https://www.neobankbeat.com/jobs/j/bybit-4948627101/","identifier":{"@type":"PropertyValue","name":"Bybit","value":"https://job-boards.eu.greenhouse.io/bybit/jobs/4948627101"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"neobankbeat","item":"https://www.neobankbeat.com/"},{"@type":"ListItem","position":2,"name":"jobs","item":"https://www.neobankbeat.com/jobs/"},{"@type":"ListItem","position":3,"name":"senior principal site reliability engineer (chaos engineering)","item":"https://www.neobankbeat.com/jobs/j/bybit-4948627101/"}]}]
 </script>
 </head>
 <body>
@@ -209,9 +209,9 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <article style="max-width:760px">
     <div class="eyebrow"><a href="/jobs/engineering/" style="color:inherit;text-decoration:none">engineering</a> · <a href="/jobs/at/bybit/" style="color:inherit;text-decoration:none">Bybit</a></div>
     <h1 class="jhead">Senior Principal Site Reliability Engineer (Chaos Engineering)</h1>
-    <p class="jmeta"><span>Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia</span><span>Engineering</span><span>Hybrid</span><span>posted 9d ago</span></p>
+    <p class="jmeta"><span>Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia</span><span>Engineering</span><span>Hybrid</span><span>posted today</span></p>
     <a class="japply" href="https://job-boards.eu.greenhouse.io/bybit/jobs/4948627101" target="_blank" rel="noopener noreferrer" data-company="Bybit" data-title="Senior Principal Site Reliability Engineer (Chaos Engineering)" data-dept="Engineering">Apply on Bybit →</a>
-    <div class="jdesc"><p>About Us Established in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 80 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers a seamless ecosystem across trading, payments, wealth management, custody, institutional services, and Web3 — connecting users to the future of digital finance. Our core values define how we build. We listen, care and improve to create products and experiences that put users first. Backed by a global team of ambitious builders, problem-solvers, and innovators, we foster a high-performance and fast-moving environment where talent is empowered to drive real impact at the global scale. Supported by 24/7 multilingual customer service and a strong commitment to innovation, we are shaping the future of finance through technology, collaboration, and bold execution.</p>
+    <div class="jdesc"><p>About Us Established in 2018, Bybit is one of the world’s leading cryptocurrency exchanges and digital financial platforms, serving over 90 million users across more than 200 countries and regions. Powered by world-class technology and a user-first mindset, Bybit delivers a seamless ecosystem across trading, payments, wealth management, custody, institutional services, and Web3 — connecting users to the future of digital finance. Our core values define how we build. We listen, care and improve to create products and experiences that put users first. Backed by a global team of ambitious builders, problem-solvers, and innovators, we foster a high-performance and fast-moving environment where talent is empowered to drive real impact at the global scale. Supported by 24/7 multilingual customer service and a strong commitment to innovation, we are shaping the future of finance through technology, collaboration, and bold execution.</p>
 <p>Today, Bybit is recognized as one of the most trusted and transparent platforms in the digital asset industry, continuing to expand its global presence while building the infrastructure for the next generation of financial services. About This Role As the Core Architect of Bybit’s Chaos Engineering Platform, you will be responsible for designing and building an enterprise-grade chaos engineering platform from the ground up (0 to 1), enabling fault injection and resilience validation in production environments across 2,000+ microservices.</p>
 <p>Your mission goes beyond simply building a platform. You will drive continuous system resilience validation, with the ultimate goal of reducing the occurrence of P0/P-1 severity incidents by over 50%. Core Responsibilities</p>
 <ul>
@@ -315,8 +315,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
 <li>有推动跨团队协作的能力——混沌工程需要业务方配合，这个岗位需要说服力</li>
 <li>自驱型，能在方向模糊时独立规划和推进</li>
 </ul>
-<p>Why Join Us At Bybit, we are committed to fostering a supportive and enriching work environment.</p>
-<h3>Our benefits include</h3>
+<p>Why Join Us At Bybit, we are committed to fostering a supportive and enriching work environment. Our benefits include:</p>
 <ul>
 <li>Study Growth Fund: We support your professional development and continuous learning.</li>
 <li>Internal Events: Participate in regular team-building activities, workshops, and events designed to promote collaboration and innovation.</li>
@@ -340,52 +339,52 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/bybit-5044371101/">
+<a class="job" href="/jobs/j/bybit-5035675101/">
   <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/bybit-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64'">
-  <span class="t">Principal Frontend Engineer</span>
+  <span class="t">AI Agent Architect</span>
   <span class="co">Bybit</span>
-  <span class="loc">Abu Dhabi, UAE</span>
+  <span class="loc">Abu Dhabi, UAE; Hong Kong SAR; Kuala Lumpur, Malaysia</span>
   
   
   <span class="jtag">Engineering</span>
-  <span class="jdate">1d ago</span>
+  <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/bybit-5021310101/">
+<a class="job" href="/jobs/j/bybit-4987105101/">
   <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/bybit-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64'">
-  <span class="t">Cloud Native Engineer</span>
+  <span class="t">AI Strategy Engineer</span>
   <span class="co">Bybit</span>
   <span class="loc">Kuala Lumpur, Malaysia</span>
   
   
   <span class="jtag">Engineering</span>
-  <span class="jdate">5d ago</span>
+  <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/bybit-5042463101/">
+<a class="job" href="/jobs/j/bybit-4860230101/">
   <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/bybit-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64'">
-  <span class="t">[EU] ICT Risk Management Engineer</span>
+  <span class="t">Blockchain Expert</span>
+  <span class="co">Bybit</span>
+  <span class="loc">Abu Dhabi, UAE</span>
+  
+  
+  <span class="jtag">Engineering</span>
+  <span class="jdate">today</span>
+  <span class="apply">check more →</span>
+</a>
+<a class="job" href="/jobs/j/bybit-4939042101/">
+  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/bybit-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64'">
+  <span class="t">Business Site Reliability Engineer</span>
   <span class="co">Bybit</span>
   <span class="loc">Vienna, Austria</span>
   
   
   <span class="jtag">Engineering</span>
-  <span class="jdate">5d ago</span>
-  <span class="apply">check more →</span>
-</a>
-<a class="job" href="/jobs/j/bybit-5005752101/">
-  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/bybit-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bybit.com&amp;sz=64'">
-  <span class="t">[EU] Lead/ Specialist Security Engineer</span>
-  <span class="co">Bybit</span>
-  <span class="loc">Vienna, Austria</span>
-  
-  
-  <span class="jtag">Engineering</span>
-  <span class="jdate">6d ago</span>
+  <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
   </div>
-  <p class="meta" style="max-width:760px"><a href="/jobs/at/bybit/">All 161 open roles at Bybit →</a></p>
+  <p class="meta" style="max-width:760px"><a href="/jobs/at/bybit/">All 164 open roles at Bybit →</a></p>
   <h2 style="max-width:760px;margin-top:30px">similar roles at other neobanks</h2>
   <div class="joblist" style="max-width:960px">
 <a class="job" href="/jobs/j/1inch-6d94cd07-e9e6-4230-a107-25fe4f3a5c9b/">
@@ -396,12 +395,12 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   
   
   <span class="jtag">Engineering</span>
-  <span class="jdate">8d ago</span>
+  <span class="jdate">9d ago</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/coinbase-7629141/">
+<a class="job" href="/jobs/j/coinbase-8072932/">
   <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/coinbase-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=coinbase.com&amp;sz=64'">
-  <span class="t">Staff Software Engineer, Frontend (Consumer - Advanced Trading)</span>
+  <span class="t">Forward Deployed Engineer, Finance [Office of the CTO]</span>
   <span class="co">Coinbase</span>
   <span class="loc">Remote - USA</span>
   
@@ -421,24 +420,24 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/n26-7841923/">
-  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/n26-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=n26.com&amp;sz=64'">
-  <span class="t">Engineering Manager - Data Platform</span>
-  <span class="co">N26</span>
-  <span class="loc">Barcelona</span>
+<a class="job" href="/jobs/j/crypto-com-4ff326cd-3371-4e4b-8a01-e26fb65e4a8b/">
+  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/crypto-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=crypto.com&amp;sz=64'">
+  <span class="t">Senior Manager, Finance Systems &amp; Automation</span>
+  <span class="co">Crypto.com</span>
+  <span class="loc">Hong Kong</span>
   
-  <span class="visa">visa ✓</span>
+  
   <span class="jtag">Engineering</span>
   <span class="jdate">today</span>
   <span class="apply">check more →</span>
 </a>
-<a class="job" href="/jobs/j/okx-7535733003/">
-  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/okx-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=okx.com&amp;sz=64'">
-  <span class="t">Senior/Staff Engineer, Data Governance</span>
-  <span class="co">OKX</span>
-  <span class="loc">Singapore, Singapore</span>
-  
-  
+<a class="job" href="/jobs/j/monzo-8392368/">
+  <img class="jlogo" loading="lazy" alt="" src="/logos/jobs/monzo-com.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=monzo.com&amp;sz=64'">
+  <span class="t">Senior Backend Engineer</span>
+  <span class="co">Monzo</span>
+  <span class="loc">London</span>
+  <span class="sal">£105–135K</span>
+  <span class="visa">visa ✓</span>
   <span class="jtag">Engineering</span>
   <span class="jdate">today</span>
   <span class="apply">check more →</span>
@@ -446,7 +445,7 @@ footer .fwrap{max-width:1150px} /* footer follows the wide jobs layout, not the 
   </div>
   <p class="meta" style="max-width:760px"><a href="/jobs/engineering/">All engineering roles →</a></p>
   <article style="max-width:760px">
-    <p class="jfoot">Listing synced from Bybit's official careers API · refreshed 2026-11-24 · <a href="/jobs/at/bybit/">all Bybit jobs</a> · <a href="/n/bybit-card/">Bybit profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
+    <p class="jfoot">Listing synced from Bybit's official careers API · refreshed 2026-11-25 · <a href="/jobs/at/bybit/">all Bybit jobs</a> · <a href="/n/bybit-card/">Bybit profile</a> · <a href="/jobs/">more neobank jobs</a>. neobankbeat is independent — we earn nothing from applications.</p>
   </article>
 </main>
 <script>
