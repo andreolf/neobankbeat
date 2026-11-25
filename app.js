@@ -121,7 +121,7 @@ const D=[
 ["Uzum","T","Europe","Tashkent, UZ",2022,"C","MC (dom.)","Debit","In-app offers","—",0,"Y","g","uzum.uz","Uzbekistan's super-app + digital bank."],
 ["TBC UZ","T","Europe","Tashkent, UZ",2020,"C","MC","Debit","—","Deposits",0,"Y","g","tbcbank.uz","TBC's Uzbek digital bank; 20M+ registered."],
 /* ══ TRADITIONAL · LATAM ══ */
-["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","139M customers (Q2 2026) and the first quarter above $1B net income; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised."],
+["Nubank","T","LatAm","São Paulo, BR",2013,"C","MC","Credit + debit","—","~100% CDI",0,"Y","g","nubank.com.br","143M customers (Q3 2026); its first quarter above $1B net income came in Q2 2026; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised."],
 ["Ualá","T","LatAm","Buenos Aires, AR",2017,"C","MC","Prepaid + credit","—","Remunerated account",1,"Y","g","uala.com.ar","AR/MX/CO; added crypto + dollar features."],
 ["Plata","T","LatAm","Mexico City, MX",2023,"C","MC","Credit + debit","Cashback","Interest on deposits",0,"Y","g","platacard.mx","Ex-Tinkoff team; fastest digital bank ever to $600M annualized revenue — full Mexican license as Banco Plata (Mar 2026), 3.5M+ credit-card customers."],
 ["albo","T","LatAm","Mexico City, MX",2016,"C","MC","Debit","—","—",0,"Y","g","albo.mx","One of Mexico's first challengers."],
@@ -1490,17 +1490,17 @@ function openDetail(name){
    Researched 16 November 2026. Metrics differ between companies (customers, monthly actives,
    registered users, accounts) and are named as each company names them; never compare two rows
    without reading the metric. A figure stays until a newer one for the SAME metric is published. */
-const USERS_ASOF="16 November 2026";
+const USERS_ASOF="16 November 2026 · every figure re-read against its source 25 November 2026";
 const USERS=[
 ["PhonePe",700,"registered users","Apr 2026","PhonePe","https://www.phonepe.com/press/phonepe-surpasses-700-million-registered-users-accelerates-growth-momentum/"],
 ["WeBank",430,"customers served","2025","WeBank","https://www.aap.com.au/aapreleases/cision20260316ae10617"],
 ["Trust Wallet",220,"users","2025","Trust Wallet","https://trustwallet.com/blog/company/trust-wallet-in-2025-year-end-wrap-up"],
 ["Nubank",143,"customers","Q3 2026","Nu 3Q26 results","https://www.sec.gov/Archives/edgar/data/0001691493/000129281426005273/nupr3q26_6k.htm"],
-["Klarna",120,"active consumers","Q2 2026","Klarna Q2 2026","https://www.valuethemarkets.com/news/klarna-nyse-klar-reports-second-quarter-2026-results"],
+["Klarna",122,"active consumers","Q3 2026","Klarna Q3 2026 results","https://www.sec.gov/Archives/edgar/data/0002003292/000162828026074361/exhibitno991pressrelease.htm"],
 ["Mercado Pago",93,"MAU","Q3 2026","MercadoLibre Q3 2026","https://www.diarioestrategia.cl/texto-diario/mostrar/6079866/ingresos-mercado-libre-alcanzan-us-1075-mil-millones-45-respecto-ano-anterior"],
 ["bKash",80,"customers","May 2026","The Business Standard","https://www.tbsnews.net/economy/stocks/bkash-reports-tk184cr-profit-jan-mar-1438551"],
 ["Revolut",80,"customers","Oct 2026","Reuters","https://www.businessday.co.za/world/international-companies/2026-10-04-revolut-is-now-europes-most-valuable-fintech-challenger/"],
-["PicPay",70.4,"accounts","Q2 2026","PicPay 2Q26 results","https://www.sec.gov/Archives/edgar/data/0001841644/000121390026093207/ea030310401ex99-2.htm"],
+["PicPay",72,"accounts","Q3 2026","PicPay 3Q26 results","https://www.sec.gov/Archives/edgar/data/1841644/000121390026120975/ea031208601ex99-1.htm"],
 ["Cash App",60,"transacting actives","Q3 2026","Block Q3 2026","https://www.thestar.com.my/tech/tech-news/2026/11/04/block-raises-full-year-profit-outlook-as-cash-app-drives-q3-growth"],
 ["T-Bank",54.9,"customers","Q1 2026","T-Technologies Q1 2026","https://quartr.com/events/international-public-joint-stock-company-t-technologies-tcs-q1-2026_ojssAn7v"],
 ["Banco Inter",46.8,"clients","Q3 2026","Inter&Co 3Q26 results","https://www.sec.gov/Archives/edgar/data/1864163/000186416326000089/a1-interco3q26earningsre.htm"],
@@ -1508,14 +1508,14 @@ const USERS=[
 ["GCash",42.1,"MAU","Q3 2026","Daily Tribune","https://tribune.net.ph/2026/11/10/mynt-posts-p165-b-profit-in-first-nine-months"],
 ["C6 Bank",42,"clients","H1 2026","Let's Money","https://www.letsmoney.com.br/noticias/c6-bank-lucro-1-25-bi-primeiro-semestre-2026/"],
 ["PalmPay",35,"users","Apr 2026","TechEconomy","https://techeconomy.ng/palmpay-hits-35m-users/"],
-["PagBank",34.1,"clients","Q2 2026","PagBank 2Q26 results","https://www.sec.gov/Archives/edgar/data/0001712807/000155485526001793/MainDocument.htm"],
+["PagBank",33.6,"clients","Q3 2026","PagBank 3Q26 results","https://www.sec.gov/Archives/edgar/data/1712807/000155485526002394/MainDocument.htm"],
 ["Maya",30,"users","2024","",""],
 ["KakaoBank",27.9,"customers","Q3 2026","Korea Herald","https://www.koreaherald.com/article/10925706"],
 ["Neon",27,"clients","H1 2026","Finsiders Brasil","https://finsidersbrasil.com.br/noticias-sobre-fintechs/neon-tem-1o-semestre-mais-lucrativo-da-historia-c6-amplia-ganho-e-creditas-reduz-prejuizo/"],
 ["Nequi",26,"clients","Aug 2025","La República","https://www.larepublica.co/finanzas/entrevista-a-andres-vasquez-ceo-de-nequi-4211528"],
-["Moniepoint",20,"customers","Jul 2026","TechAfrica News","https://techafricanews.com/2026/07/27/moniepoint-publishes-inaugural-impact-report-on-financial-inclusion-across-africa/"],
+["Moniepoint",20,"businesses + individuals","Jul 2026","TechAfrica News","https://techafricanews.com/2026/07/27/moniepoint-publishes-inaugural-impact-report-on-financial-inclusion-across-africa/"],
 ["bunq",20,"users","Sep 2025","Finance Magnates","https://www.financemagnates.com/fintech/after-10-years-bunq-reaches-20-million-users-but-remains-far-behind-revolut/"],
-["Wise",19,"customers","FY26","Wise","https://owners.wise.com/"],
+["Wise",19,"active customers","FY26","Wise FY2026 results","https://www.stocktitan.net/news/WSE/wise-group-plc-reports-full-year-2026-financial-77rcac34fay7.html"],
 ["MiniPay",18,"wallets","Q2 2026","Opera Q2 2026","https://pulse2.com/opera-net-income-jumps-76-as-arpu-rises-25-and-minipay-wallets-reach-18-million-while-free-cash-flow-falls-42/amp/"],
 ["SoFi",17.1,"members","Q3 2026","SoFi Q3 2026 results","https://www.sec.gov/Archives/edgar/data/0001818874/000181887426000065/a2026q3earningsrelease.htm"],
 ["Monzo",16,"customers","Jul 2026","East & Partners","https://eastandpartners.com/news/monzo-business-surpasses-one-million-customers-as-digital-banking-demand-continues-to-rise/"],
@@ -2093,24 +2093,24 @@ render();
    Row: [name, last full year, latest reported, [[source label, url], …]]. "" = not published.
    Figures stay in the currency reported; a USD value appears only where the source gives one.
    Nothing here is summed or annualized by us. */
-const VOL_ASOF="16 November 2026";
+const VOL_ASOF="16 November 2026 · every figure re-read against its source 25 November 2026";
 const SEC="https://www.sec.gov/Archives/edgar/data/";
 const VOL_PAY=[
 ["Revolut","$1.7T · total transaction volume · 2025 · +65%","",[["Revolut 2025 results","https://www.fintechaustralia.org.au/community-news/revolut-reports-record-profit-of-usd23bn-for-2025-as-revenue-surges-to-usd6bn"]]],
-["OPay","$358B · transactions processed · 2025 · +115% · as reported from an IPO document","",[["Nairametrics","https://nairametrics.com/2026/08/13/opay-transactions-more-than-double-to-358-billion-as-ipo-nears/"]]],
-["Cash App","$316B · inflows · FY2025","$86B · Q3 2026 · +10%",[["Block Q3 2026 letter",SEC+"1512673/000162828026069513/q32026shareholderletter.htm"]]],
-["Mercado Pago","$278B · TPV · FY2025 · +41%","$109B · Q3 2026 · +53% · $297B in nine months",[["MercadoLibre Q3 2026",SEC+"0001099590/000109959026000027/meli-20260930xex991.htm"]]],
+["OPay","$358B · gross transaction value · 2025 · more than double 2024 · from an investor document seen by the press","",[["Nairametrics","https://nairametrics.com/2026/08/13/opay-transactions-more-than-double-to-358-billion-as-ipo-nears/"]]],
+["Cash App","$316B · inflows · FY2025","$86B · Q3 2026 · +10%",[["Block 10-K 2025",SEC+"1512673/000162828026012254/xyz-20251231.htm"],["Block Q3 2026 letter",SEC+"1512673/000162828026069513/q32026shareholderletter.htm"]]],
+["Mercado Pago","$278B · TPV · FY2025 · +41%","$109B · Q3 2026 · +53% · $297B in nine months",[["MercadoLibre FY2025","https://finance.yahoo.com/news/mercado-libre-caps-stellar-2025-222100685.html"],["MercadoLibre Q3 2026",SEC+"0001099590/000109959026000027/meli-20260930xex991.htm"]]],
 ["Moniepoint","₦412T · transactions processed · 2025","",[["Nairametrics","https://nairametrics.com/2026/01/30/moniepoint-mfb-processes-n412trn-transactions-in-2025-disburses-n1trn-loans"]]],
 ["GCash","₱17.0T · payment transaction value · FY2025","₱15.1T · nine months of 2026 · +23.1%",[["Mynt","https://mynt.com.ph/newsroom/gcash-parent-mynt-submits-sec-registration-statement-pse-listing-application-for-proposed-ipo"],["DealStreetAsia","https://www.dealstreetasia.com/?p=500595"]]],
-["Wise","$243.5B · cross-border volume · FY2026 · +31%","$141.0B · half-year to Sep 2026 · +24%",[["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
-["PagBank","R$530.5B · TPV · FY2025 · +2.3%","R$133.4B · acquiring TPV · Q2 2026 · +3%",[["PagBank 4Q25",SEC+"1712807/000155485526000187/MainDocument.htm"],["PagBank 2Q26","https://www.prnewswire.com/news-releases/pagbank-reports-recurring-net-income-of-r-576-million-in-2q26-with-continued-progress-across-its-ecosystem-302848960.html"]]],
+["Wise","$243.5B · cross-border volume · FY2026 · +31%","$141.0B · half-year to Sep 2026 · +24%",[["Wise FY2026","https://www.stocktitan.net/news/WSE/wise-group-plc-reports-full-year-2026-financial-77rcac34fay7.html"],["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
+["PagBank","R$530.5B · TPV · FY2025 · +2.3%","R$131.4B · TPV · Q3 2026 · +1.2%",[["PagBank 4Q25",SEC+"1712807/000155485526000187/MainDocument.htm"],["PagBank 3Q26",SEC+"1712807/000155485526002394/MainDocument.htm"]]],
 ["Kaspi","KZT 44.2T (~$85B) · payments TPV · FY2025 · +19%","KZT 13.6T ($30.8B) · Q3 2026 · +14%",[["Kaspi FY25","https://ir.kaspi.kz/media/4Q__FY_2025_Financial_Results_.pdf"],["Kaspi 3Q26","https://finviz.com/news/418943/kaspikz-3q-9m-2026-financial-results"]]],
 ["Banco Inter","","R$483B · cards + Pix · Q3 2026",[["Inter&Co 3Q26",SEC+"1864163/000186416326000089/a1-interco3q26earningsre.htm"]]],
-["PicPay","","R$167.6B · TPV · Q2 2026 · +27%",[["PicPay Q2 2026","https://finviz.com/news/385014/picpay-announces-second-quarter-2026-results"]]],
+["PicPay","","R$175.0B · TPV · Q3 2026 · +24.3%",[["PicPay 3Q26",SEC+"1841644/000121390026120975/ea031208601ex99-1.htm"]]],
 ["Nubank","","$44.2B · purchase volume · Q3 2026 · +14%",[["Nu 3Q26",SEC+"0001691493/000129281426005273/nupr3q26_6k.htm"]]],
-["Wise (card)","$43.6B · card spend · FY2026 · +37%","$27.2B · half-year to Sep 2026 · +33%",[["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
+["Wise (card)","$43.6B · card spend · FY2026 · +37%","$27.2B · half-year to Sep 2026 · +33%",[["Wise FY2026","https://www.stocktitan.net/news/WSE/wise-group-plc-reports-full-year-2026-financial-77rcac34fay7.html"],["Wise H1 FY27","https://www.stocktitan.net/news/WSE/wise-group-plc-h1-results-for-fiscal-year-22jggnhk5nh9.html"]]],
 ["Chime","","$38.5B · purchase volume · Q3 2026 · +19%",[["Chime Q3 2026",SEC+"0001795586/000179558626000052/ex991q326.htm"]]],
-["Klarna","","$36.6B · GMV · Q2 2026 · +18%",[["Klarna Q2 2026","https://www.valuethemarkets.com/news/klarna-nyse-klar-reports-second-quarter-2026-results"]]]];
+["Klarna","","$36.1B · GMV · Q3 2026 · +10%",[["Klarna Q3 2026",SEC+"0002003292/000162828026074361/exhibitno991pressrelease.htm"]]]];
 const VOL_HELD=[
 ["KakaoBank","₩71.81T · deposits · end of Q3 2026",[["Herald","https://biz.heraldcorp.com/article/10924877"]]],
 ["Revolut","$67.5B · customer balances · end of 2025 · +66%",[["Revolut 2025 results","https://www.fintechaustralia.org.au/community-news/revolut-reports-record-profit-of-usd23bn-for-2025-as-revenue-surges-to-usd6bn"]]],
@@ -2155,7 +2155,7 @@ VOL2.forEach(([n,fig,metric,src,url])=>{VOLMAP[n]={fig,metric,src}});
     '<h3 class="volh">payment volume</h3>'+tbl(['entity','last full year','latest reported','source'],two(VOL_PAY))+
     '<h3 class="volh">deposits and balances</h3>'+tbl(['entity','figure · as of','source'],one(VOL_HELD))+
     '<h3 class="volh">crypto cards</h3>'+tbl(['entity','last full year','latest reported','source'],two(VOL_CARD))+
-    '<div class="chsrc">not yet published when this was researched: PagBank Q3 2026, Klarna Q3 2026, PicPay Q3 2026. Removed: Payy, for which no citable 2026 figure exists, and EtherFi Cash\'s 2025 figure, whose source page is gone.</div>'+
+    '<div class="chsrc">Removed: Payy, for which no citable 2026 figure exists, and EtherFi Cash\'s 2025 figure, whose source page is gone.</div>'+
     '<div class="chupd">researched '+VOL_ASOF+'</div>';
   /* re-wire profile clicks */
   document.querySelectorAll('#datasec [data-n]').forEach(el=>el.addEventListener('click',()=>openDetail(el.dataset.n)));

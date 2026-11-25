@@ -7510,7 +7510,7 @@
    ],
    "reported_users": {
     "value_millions": 19,
-    "metric": "customers",
+    "metric": "active customers",
     "as_of": "FY26"
    },
    "volume": {
@@ -7623,14 +7623,14 @@
     }
    ],
    "reported_users": {
-    "value_millions": 120,
+    "value_millions": 122,
     "metric": "active consumers",
-    "as_of": "Q2 2026"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "$36.6B",
-    "metric": "GMV · Q2 2026 · +18%",
-    "source": "Klarna Q2 2026"
+    "figure": "$36.1B",
+    "metric": "GMV · Q3 2026 · +10%",
+    "source": "Klarna Q3 2026"
    },
    "slug": "klarna",
    "features": {
@@ -8352,7 +8352,7 @@
    "active_regions": [
     "Latin America"
    ],
-   "note": "139M customers (Q2 2026) and the first quarter above $1B net income; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised.",
+   "note": "143M customers (Q3 2026); its first quarter above $1B net income came in Q2 2026; launched in the US in September 2026 on Lead Bank rails while its own OCC charter is organised.",
    "story": "Started after David Vélez's kafkaesque São Paulo branch visit; now Latin America's most valuable financial institution and, since September 2026, a US challenger too — 139M customers across four countries.",
    "ai": "underwriting",
    "license": "Bank licenses BR/MX/CO; US products on Lead Bank while its conditional OCC charter (Jan 2026) is organised",
@@ -9507,14 +9507,14 @@
     "Brazil"
    ],
    "reported_users": {
-    "value_millions": 70.4,
+    "value_millions": 72,
     "metric": "accounts",
-    "as_of": "Q2 2026"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "R$167.6B",
-    "metric": "TPV · Q2 2026 · +27%",
-    "source": "PicPay Q2 2026"
+    "figure": "R$175.0B",
+    "metric": "TPV · Q3 2026 · +24.3%",
+    "source": "PicPay 3Q26"
    },
    "slug": "picpay",
    "features": {
@@ -9585,14 +9585,14 @@
    "note": "PagSeguro's 30M+ user digital bank.",
    "license": "Bank; Public (PAGS)",
    "reported_users": {
-    "value_millions": 34.1,
+    "value_millions": 33.6,
     "metric": "clients",
-    "as_of": "Q2 2026"
+    "as_of": "Q3 2026"
    },
    "volume": {
-    "figure": "R$133.4B",
-    "metric": "acquiring TPV · Q2 2026 · +3%",
-    "source": "PagBank 2Q26"
+    "figure": "R$131.4B",
+    "metric": "TPV · Q3 2026 · +1.2%",
+    "source": "PagBank 3Q26"
    },
    "slug": "pagbank",
    "features": {
@@ -14956,7 +14956,7 @@
    },
    "volume": {
     "figure": "$358B",
-    "metric": "transactions processed · 2025 · +115% · as reported from an IPO document",
+    "metric": "gross transaction value · 2025 · more than double 2024 · from an investor document seen by the press",
     "source": "Nairametrics"
    },
    "slug": "opay",
@@ -15159,7 +15159,7 @@
    ],
    "reported_users": {
     "value_millions": 20,
-    "metric": "customers",
+    "metric": "businesses + individuals",
     "as_of": "Jul 2026"
    },
    "volume": {
