@@ -5,8 +5,16 @@
   <link>https://www.neobankbeat.com/jobs/design/</link>
   <description>The newest design roles at hiring neobanks, from official career APIs.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 25 Nov 2026 17:01:19 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 26 Nov 2026 16:42:54 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/design/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Senior Product Designer - Scalable Growth — Wise]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/wise-744000163886936/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/wise-744000163886936/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Wise · London, GB · onsite]]></description>
+  </item>
   <item>
     <title><![CDATA[Paid Media Creative Expert — Bybit]]></title>
     <link>https://www.neobankbeat.com/jobs/j/bybit-4947308101/</link>
@@ -265,19 +273,19 @@
   </item>
   <item>
     <title><![CDATA[Senior Product Designer, T&E — Brex]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/brex-8919847002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8919847002/</guid>
-    <pubDate>Mon, 09 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Brex · San Francisco, California, United States · $192–240K · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Product Designer, T&E — Brex]]></title>
     <link>https://www.neobankbeat.com/jobs/j/brex-8935731002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8935731002/</guid>
     <pubDate>Mon, 09 Nov 2026 09:00:00 +0000</pubDate>
     <category>Design</category>
     <description><![CDATA[Brex · New York, New York, United States · $192–240K · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Senior Product Designer, T&E — Brex]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/brex-8919847002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/brex-8919847002/</guid>
+    <pubDate>Mon, 09 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Design</category>
+    <description><![CDATA[Brex · San Francisco, California, United States · $192–240K · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Senior Product Designer, Coinbase One — Coinbase]]></title>
@@ -478,14 +486,6 @@
     <pubDate>Tue, 20 Oct 2026 09:00:00 +0000</pubDate>
     <category>Design</category>
     <description><![CDATA[OKX · Hong Kong, Hong Kong SAR · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Senior Graphic Designer, Special Projects — Crypto.com]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/crypto-com-a5cdeb79-fa47-455c-b3c7-949f811b7f56/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/crypto-com-a5cdeb79-fa47-455c-b3c7-949f811b7f56/</guid>
-    <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
-    <category>Design</category>
-    <description><![CDATA[Crypto.com · Tokyo · hybrid]]></description>
   </item>
 </channel>
 </rss>
