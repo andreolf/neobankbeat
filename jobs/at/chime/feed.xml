@@ -5,7 +5,7 @@
   <link>https://www.neobankbeat.com/jobs/at/chime/</link>
   <description>The newest open roles at Chime, from its official careers page.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 26 Nov 2026 16:42:54 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 27 Nov 2026 16:28:00 +0000</lastBuildDate>
   <atom:link href="https://www.neobankbeat.com/jobs/at/chime/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Associate, Assurance & Testing — Chime]]></title>
@@ -14,14 +14,6 @@
     <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
     <category>Other</category>
     <description><![CDATA[Chime · Chicago, IL, USA; New York, NY, USA; San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Lead Technical Recruiter — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8958893002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8958893002/</guid>
-    <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
-    <category>People &amp; Legal</category>
-    <description><![CDATA[Chime · Chicago, IL, USA · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Lead Technical Recruiter — Chime]]></title>
@@ -40,6 +32,22 @@
     <description><![CDATA[Chime · New York, NY, USA · onsite]]></description>
   </item>
   <item>
+    <title><![CDATA[Lead Technical Recruiter — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8958893002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8958893002/</guid>
+    <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
+    <category>People &amp; Legal</category>
+    <description><![CDATA[Chime · Chicago, IL, USA · onsite]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Program Manager, OMX SOTO — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8958817002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8958817002/</guid>
+    <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Product</category>
+    <description><![CDATA[Chime · New York, NY, USA · onsite]]></description>
+  </item>
+  <item>
     <title><![CDATA[Program Manager, OMX SOTO — Chime]]></title>
     <link>https://www.neobankbeat.com/jobs/j/chime-8958818002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8958818002/</guid>
@@ -54,14 +62,6 @@
     <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
     <category>Product</category>
     <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Program Manager, OMX SOTO — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8958817002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8958817002/</guid>
-    <pubDate>Mon, 23 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Product</category>
-    <description><![CDATA[Chime · New York, NY, USA · onsite]]></description>
   </item>
   <item>
     <title><![CDATA[Software Engineer, Membership Experience — Chime]]></title>
@@ -400,14 +400,6 @@
     <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
   </item>
   <item>
-    <title><![CDATA[Senior Compensation Partner — Chime]]></title>
-    <link>https://www.neobankbeat.com/jobs/j/chime-8879659002/</link>
-    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8879659002/</guid>
-    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
-    <category>Other</category>
-    <description><![CDATA[Chime · San Francisco, CA, USA · onsite]]></description>
-  </item>
-  <item>
     <title><![CDATA[Senior Litigation Paralegal — Chime]]></title>
     <link>https://www.neobankbeat.com/jobs/j/chime-8792103002/</link>
     <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8792103002/</guid>
@@ -486,6 +478,14 @@
     <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
     <category>Engineering</category>
     <description><![CDATA[Chime · Chicago, IL, USA; San Francisco, CA, USA · hybrid]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Software Engineer, Financial Platform — Chime]]></title>
+    <link>https://www.neobankbeat.com/jobs/j/chime-8594959002/</link>
+    <guid isPermaLink="true">https://www.neobankbeat.com/jobs/j/chime-8594959002/</guid>
+    <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Engineering</category>
+    <description><![CDATA[Chime · New York, NY, USA; San Francisco, CA, USA · onsite]]></description>
   </item>
 </channel>
 </rss>
